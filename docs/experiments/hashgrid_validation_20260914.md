@@ -99,6 +99,19 @@ Monitoring uses the existing Luna Max cadence: host checks every 60 seconds,
 Luna every 1800 seconds and upon meaningful anomalies/completion. The
 `port_validation` profile reads the manifest's HashGrid protocol.
 
+The monitor is running in `validation:monitor` on the same socket (PID 163050).
+Its first Luna Max report succeeded with no anomalies. Command from PORT-GS:
+
+```bash
+/workspace/ubuntu2004_cuda12_1/utils/conda-envs/ssd-gs/bin/python -u hourly_monitor.py \
+  --manifest runs/hashgrid_validation_20260914/manifest.json \
+  --record runs/hashgrid_validation_20260914/hourly_monitor.jsonl \
+  --latest-report runs/hashgrid_validation_20260914/luna_latest.txt \
+  --action-required runs/hashgrid_validation_20260914/action_required.md \
+  --interval 60 --luna-interval 1800 --profile port_validation \
+  --codex /home/wenxiao-z/.local/bin/codex
+```
+
 ## Validation and results
 
 Prelaunch checks use actual saved Cat geometry and real training images.
