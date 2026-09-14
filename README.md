@@ -6,7 +6,7 @@ Paired-Origin Radiance Transport Gaussians：独立的 3DGS 重光照研究项�
 
 当前使用 NVIDIA tiny-cuda-nn 多分辨率 HashGrid 替换可学习空间锚点；
 512 个交换通道与网格分辨率独立。当前哈希网格从 16 到约 2048，共 16 层。
-以下表格是此前 32 节点方案的历史结果，HashGrid 六场景实验正在准备运行。
+以下表格是此前 32 节点方案的历史结果，HashGrid 六场景实验已启动。
 
 | 完整官方 test | 帧数 | PSNR | SSIM | 标准 LPIPS |
 | --- | ---: | ---: | ---: | ---: |

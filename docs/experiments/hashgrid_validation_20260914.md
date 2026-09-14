@@ -106,5 +106,13 @@ Prelaunch checks use actual saved Cat geometry and real training images.
 balance, constant preservation, and finite nonzero gradients/Adam updates through
 the NVIDIA table, projection head, and coordinate input. The full receiver audit
 is `runs/hashgrid_preflight/receiver_rendering_audit.json`. Both passed.
-Two-step training/checkpoint reload is a smoke check, not a scored experiment.
+Two-step training and checkpoint reload through `evaluate.py --limit 1 --lpips`
+also passed; this is a smoke check, not a scored experiment.
+
+Implementation/source revision: `20cd679`. The queue was launched successfully:
+scheduler PID 162877; Cat train PID 162883 on GPU0 and Pixiu PID 162884 on GPU1.
+Both emitted step-100 startup confirmation and kept advancing. The startup host
+snapshot showed GPU0 78% / 4917 MiB and GPU1 47% / 5229 MiB. These measurements
+precede the scheduled step-5000 exchange activation; full renderer/native
+backward were separately exercised by the preflight checks.
 Final six-scene results are pending the new queue.
