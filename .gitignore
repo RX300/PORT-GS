@@ -1,0 +1,27 @@
+# Experiment outputs and local datasets
+/runs/
+/logs/
+/data/
+/datasets/
+/outputs/
+/checkpoints/
+*.pt
+*.pth
+*.ckpt
+*.log
+
+# Python/build artifacts and local dependencies
+__pycache__/
+*.py[cod]
+.pytest_cache/
+build/
+dist/
+*.egg-info/
+.venv/
+/third_party/
+
+# Local credentials and editor files
+.env
+.env.*
+.vscode/
+.idea/

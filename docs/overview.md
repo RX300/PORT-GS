@@ -1,0 +1,61 @@
+# PORT-GS overview
+
+The user reopened PORT-GS research on 2026-09-12. This instruction supersedes the
+September 11 retirement decision; the [historical record](project/retirement.md)
+and all existing experiments remain available. The second-round candidate is accepted and structural iteration is complete. The old Cat official-test score of 22.000071 dB
+belongs to the previous representation and is not a result of this candidate.
+
+PORT-GS remains an independent 3D Gaussian relighting project in the shared
+`ssd-gs` environment. First-round fixed-last Cat validation reaches 22.540632 dB,
+up 0.338780 dB over the earlier 22.201852 dB validation result. Detail energy
+remains 26.83% of GT versus 27.10% previously, with 399,358 Gaussians. The first
+round improves average RGB error while leaving blur unresolved, motivating a
+second round rather than acceptance.
+
+The current second-round candidate retains material-conditioned irradiance
+exchange over all Gaussian sources and shades reconstructed pixel receivers.
+Rasterized features, base appearance, visibility and expected camera depth define
+each covered pixel's material and world-space location. A spatially encoded
+angular response operates there to avoid one constant shaded color per broad
+Gaussian. GPU audits and its 30k validation run are complete. Conservation
+and reversibility hold for source-node queries of the discrete operator;
+arbitrary pixel receivers use a continuous extension with expected-depth mixing.
+
+The second-round fixed-last validation is 22.316405 dB / .778143 SSIM /
+.228932 standard LPIPS. Relative to round one, detail energy increases 26.4% and
+LPIPS improves, while PSNR decreases .224227 dB and silhouette IoU decreases.
+Its PSNR remains .114553 dB above the historical matched validation. The decision
+prioritizes measured perceptual/detail gains, with outline errors retained as a
+limitation. Two structural rounds are complete; early first-round startup
+corrections were engineering restarts within that round.
+
+Code and training settings were frozen in `cat_r2_source.tar` before official
+testing. Fresh full Cat training used 522 frames and its fixed 30k checkpoint
+completed all 66 original-calibration test frames: 21.501174 dB / .766281 SSIM /
+.227281 standard LPIPS. This meets the >20 dB target. Relative to historical
+full Cat, PSNR decreases .498897 dB and LPIPS improves .021971 (8.81%). Texture
+improves while broad lighting/position errors remain, so the result preserves
+the accepted perceptual tradeoff.
+
+The cross-data sequence finished 3/3 on September 13 JST. Translucent completed
+at 28.304924 dB / .960368 SSIM / .051791 LPIPS; Bunny small completed at
+37.600658 / .986484 / .019684. Bunny's lowest two views are only 12.14/12.44 dB,
+so the high average coexists with substantial view-specific failures. These
+runs retained frozen settings and original test calibration, with no external
+tuning, ablations or other-method training. Shared datasets were complete and
+reused without duplicate downloads.
+
+All work used one GPU 0, now released. Two structural rounds and three fresh
+30k full fits are complete. Core production code decreased 2009 → 1531 physical
+lines (23.79%); all top-level Python including tests decreased 4133 → 2242
+(45.75%). All archives and earlier experiments remain intact. SSD-GS was used
+only as a metric reference; external paper comparisons retain their budget,
+metric and aggregation boundaries and do not establish an unqualified SOTA rank.
+
+Read [principles](method/principles.md), [pipeline](method/pipeline.md),
+[system](architecture/system.md), [setup](experiments/setup.md),
+[status](project/status.md), and [independent review](project/review_20260912.md).
+[Earlier results](experiments/results.md) and
+[Cat image diagnosis](experiments/cat_image_diagnosis.md) provide prior evidence.
+External datasets and protocol boundaries are in the
+[related-work report](research/related_work_20260912.md).

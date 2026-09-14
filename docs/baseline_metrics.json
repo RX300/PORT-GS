@@ -1,0 +1,353 @@
+{
+  "date": "2026-09-06",
+  "status": "reference_only_no_PORT_GS_results",
+  "aggregation": "unweighted mean over scenes",
+  "paper_source": "https://arxiv.org/pdf/2604.13333",
+  "paper_note": "Table 1 a/b and Table 3 w/ Opt; paper values rounded; comparison protocol not fully audited",
+  "datasets": {
+    "Real_NRHints": {
+      "local": {
+        "PSNR": 31.997185025896346,
+        "SSIM": 0.9502351454326085,
+        "LPIPS": 0.08035086042114667
+      },
+      "paper_test": {
+        "PSNR": 32.107485714285716,
+        "SSIM": 0.9499142857142857,
+        "LPIPS": 0.07954285714285714
+      }
+    },
+    "Synthetic_GS3": {
+      "local": {
+        "PSNR": 31.578004201253254,
+        "SSIM": 0.9657292465368906,
+        "LPIPS": 0.038118409303327404
+      },
+      "paper_test": {
+        "PSNR": 32.2919,
+        "SSIM": 0.9735833333333334,
+        "LPIPS": 0.03065
+      }
+    },
+    "Synthetic_SSS-GS": {
+      "local": {
+        "PSNR": 38.34759750366211,
+        "SSIM": 0.9871179819107055,
+        "LPIPS": 0.016484970599412917
+      },
+      "paper_test": {
+        "PSNR": 38.35418,
+        "SSIM": 0.98636,
+        "LPIPS": 0.01584
+      }
+    }
+  },
+  "scenes": [
+    {
+      "dataset": "Real_NRHints",
+      "scene": "Cat",
+      "source": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/SSD-GS/output/real_nrhints_Cat_20260430/results_test.json",
+      "checkpoint": "ours_100000",
+      "evaluated_records": 66,
+      "local": {
+        "SSIM": 0.9000446200370789,
+        "PSNR": 27.243343353271484,
+        "LPIPS": 0.13813067972660065
+      },
+      "paper_test": {
+        "PSNR": 27.6844,
+        "SSIM": 0.9027,
+        "LPIPS": 0.1357
+      }
+    },
+    {
+      "dataset": "Real_NRHints",
+      "scene": "CatSmall",
+      "source": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/SSD-GS/output/real_nrhints_CatSmall_20260430/results_test.json",
+      "checkpoint": "ours_100000",
+      "evaluated_records": 158,
+      "local": {
+        "SSIM": 0.9747417569160461,
+        "PSNR": 34.03927230834961,
+        "LPIPS": 0.06930947303771973
+      },
+      "paper_test": {
+        "PSNR": 34.6472,
+        "SSIM": 0.9767,
+        "LPIPS": 0.0656
+      }
+    },
+    {
+      "dataset": "Real_NRHints",
+      "scene": "CupFabric",
+      "source": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/SSD-GS/output/real_nrhints_CupFabric_20260430/results_test.json",
+      "checkpoint": "ours_100000",
+      "evaluated_records": 145,
+      "local": {
+        "SSIM": 0.9812411665916443,
+        "PSNR": 36.2567138671875,
+        "LPIPS": 0.053843338042497635
+      },
+      "paper_test": {
+        "PSNR": 37.4702,
+        "SSIM": 0.9833,
+        "LPIPS": 0.0506
+      }
+    },
+    {
+      "dataset": "Real_NRHints",
+      "scene": "Fish",
+      "source": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/SSD-GS/output/real_nrhints_Fish_20260430/results_test.json",
+      "checkpoint": "ours_100000",
+      "evaluated_records": 66,
+      "local": {
+        "SSIM": 0.9280774593353271,
+        "PSNR": 31.47086524963379,
+        "LPIPS": 0.08519072830677032
+      },
+      "paper_test": {
+        "PSNR": 31.1646,
+        "SSIM": 0.926,
+        "LPIPS": 0.0855
+      }
+    },
+    {
+      "dataset": "Real_NRHints",
+      "scene": "FurScene",
+      "source": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/SSD-GS/output/real_nrhints_FurScene_20260430/results_test.json",
+      "checkpoint": "ours_100000",
+      "evaluated_records": 85,
+      "local": {
+        "SSIM": 0.9542391896247864,
+        "PSNR": 31.184547424316406,
+        "LPIPS": 0.06933993101119995
+      },
+      "paper_test": {
+        "PSNR": 30.7349,
+        "SSIM": 0.9518,
+        "LPIPS": 0.0724
+      }
+    },
+    {
+      "dataset": "Real_NRHints",
+      "scene": "Pikachu",
+      "source": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/SSD-GS/output/real_nrhints_Pikachu_20260430/results_test.json",
+      "checkpoint": "ours_100000",
+      "evaluated_records": 200,
+      "local": {
+        "SSIM": 0.96820467710495,
+        "PSNR": 32.615238189697266,
+        "LPIPS": 0.06667546182870865
+      },
+      "paper_test": {
+        "PSNR": 31.9298,
+        "SSIM": 0.9637,
+        "LPIPS": 0.0679
+      }
+    },
+    {
+      "dataset": "Real_NRHints",
+      "scene": "Pixiu",
+      "source": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/SSD-GS/output/real_nrhints_Pixiu_20260430/results_test.json",
+      "checkpoint": "ours_100000",
+      "evaluated_records": 71,
+      "local": {
+        "SSIM": 0.9450971484184265,
+        "PSNR": 31.17031478881836,
+        "LPIPS": 0.07996641099452972
+      },
+      "paper_test": {
+        "PSNR": 31.1213,
+        "SSIM": 0.9452,
+        "LPIPS": 0.0791
+      }
+    },
+    {
+      "dataset": "Synthetic_GS3",
+      "scene": "AnisoMetal",
+      "source": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/SSD-GS/output/syn_gs3_AnisoMetal_20260430/results_test.json",
+      "checkpoint": "ours_100000",
+      "evaluated_records": 400,
+      "local": {
+        "SSIM": 0.9565722942352295,
+        "PSNR": 28.00063705444336,
+        "LPIPS": 0.03942209109663963
+      },
+      "paper_test": {
+        "PSNR": 30.0448,
+        "SSIM": 0.9698,
+        "LPIPS": 0.0295
+      }
+    },
+    {
+      "dataset": "Synthetic_GS3",
+      "scene": "Drums",
+      "source": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/SSD-GS/output/syn_gs3_Drums_20260430/results_test.json",
+      "checkpoint": "ours_100000",
+      "evaluated_records": 400,
+      "local": {
+        "SSIM": 0.9759047031402588,
+        "PSNR": 31.430601119995117,
+        "LPIPS": 0.023221330717206
+      },
+      "paper_test": {
+        "PSNR": 33.5514,
+        "SSIM": 0.9848,
+        "LPIPS": 0.0157
+      }
+    },
+    {
+      "dataset": "Synthetic_GS3",
+      "scene": "FurBall",
+      "source": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/SSD-GS/output/syn_gs3_FurBall_20260430/results_test.json",
+      "checkpoint": "ours_100000",
+      "evaluated_records": 400,
+      "local": {
+        "SSIM": 0.9654479026794434,
+        "PSNR": 34.99333572387695,
+        "LPIPS": 0.05572817474603653
+      },
+      "paper_test": {
+        "PSNR": 35.1639,
+        "SSIM": 0.9733,
+        "LPIPS": 0.0442
+      }
+    },
+    {
+      "dataset": "Synthetic_GS3",
+      "scene": "Hotdog",
+      "source": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/SSD-GS/output/syn_gs3_Hotdog_20260430/results_test.json",
+      "checkpoint": "ours_100000",
+      "evaluated_records": 400,
+      "local": {
+        "SSIM": 0.9731608629226685,
+        "PSNR": 32.949012756347656,
+        "LPIPS": 0.03015241213142872
+      },
+      "paper_test": {
+        "PSNR": 32.133,
+        "SSIM": 0.9743,
+        "LPIPS": 0.0326
+      }
+    },
+    {
+      "dataset": "Synthetic_GS3",
+      "scene": "Lego",
+      "source": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/SSD-GS/output/syn_gs3_Lego_20260430/results_test.json",
+      "checkpoint": "ours_100000",
+      "evaluated_records": 400,
+      "local": {
+        "SSIM": 0.9481964707374573,
+        "PSNR": 30.108179092407227,
+        "LPIPS": 0.04996446520090103
+      },
+      "paper_test": {
+        "PSNR": 30.4664,
+        "SSIM": 0.957,
+        "LPIPS": 0.0419
+      }
+    },
+    {
+      "dataset": "Synthetic_GS3",
+      "scene": "Translucent",
+      "source": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/SSD-GS/output/syn_gs3_Translucent_20260430/results_test.json",
+      "checkpoint": "ours_100000",
+      "evaluated_records": 400,
+      "local": {
+        "SSIM": 0.9750932455062866,
+        "PSNR": 31.98625946044922,
+        "LPIPS": 0.030221981927752495
+      },
+      "paper_test": {
+        "PSNR": 32.3919,
+        "SSIM": 0.9823,
+        "LPIPS": 0.02
+      }
+    },
+    {
+      "dataset": "Synthetic_SSS-GS",
+      "scene": "bunny_small",
+      "source": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/SSD-GS/output/syn_sss-gs_bunny_small_20260430/results_test.json",
+      "checkpoint": "ours_60000",
+      "evaluated_records": 500,
+      "local": {
+        "SSIM": 0.9890952706336975,
+        "PSNR": 38.48003387451172,
+        "LPIPS": 0.014755851589143276
+      },
+      "paper_test": {
+        "PSNR": 37.296,
+        "SSIM": 0.9861,
+        "LPIPS": 0.0173
+      }
+    },
+    {
+      "dataset": "Synthetic_SSS-GS",
+      "scene": "candle_small",
+      "source": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/SSD-GS/output/syn_sss-gs_candle_small_20260430/results_test.json",
+      "checkpoint": "ours_60000",
+      "evaluated_records": 500,
+      "local": {
+        "SSIM": 0.9938130974769592,
+        "PSNR": 41.62499237060547,
+        "LPIPS": 0.008388563059270382
+      },
+      "paper_test": {
+        "PSNR": 41.1038,
+        "SSIM": 0.9921,
+        "LPIPS": 0.0099
+      }
+    },
+    {
+      "dataset": "Synthetic_SSS-GS",
+      "scene": "dragon_small",
+      "source": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/SSD-GS/output/syn_sss-gs_dragon_small_20260430/results_test.json",
+      "checkpoint": "ours_60000",
+      "evaluated_records": 500,
+      "local": {
+        "SSIM": 0.9817540645599365,
+        "PSNR": 37.377235412597656,
+        "LPIPS": 0.020848684012889862
+      },
+      "paper_test": {
+        "PSNR": 37.3363,
+        "SSIM": 0.9812,
+        "LPIPS": 0.0209
+      }
+    },
+    {
+      "dataset": "Synthetic_SSS-GS",
+      "scene": "soap_small",
+      "source": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/SSD-GS/output/syn_sss-gs_soap_small_20260430/results_test.json",
+      "checkpoint": "ours_60000",
+      "evaluated_records": 500,
+      "local": {
+        "SSIM": 0.987966001033783,
+        "PSNR": 38.39291000366211,
+        "LPIPS": 0.01816696487367153
+      },
+      "paper_test": {
+        "PSNR": 40.6914,
+        "SSIM": 0.9912,
+        "LPIPS": 0.0099
+      }
+    },
+    {
+      "dataset": "Synthetic_SSS-GS",
+      "scene": "statue_small",
+      "source": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/SSD-GS/output/syn_sss-gs_statue_small_20260430/results_test.json",
+      "checkpoint": "ours_60000",
+      "evaluated_records": 500,
+      "local": {
+        "SSIM": 0.9829614758491516,
+        "PSNR": 35.862815856933594,
+        "LPIPS": 0.02026478946208954
+      },
+      "paper_test": {
+        "PSNR": 35.3434,
+        "SSIM": 0.9812,
+        "LPIPS": 0.0212
+      }
+    }
+  ]
+}

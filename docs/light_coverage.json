@@ -1,0 +1,32 @@
+{
+  "Real_NRHints/Pixiu": {
+    "train_holdout_to_fit_light_degrees": {
+      "min": 1.6575684340582508,
+      "median": 7.629053120496484,
+      "p90": 10.709291510408047,
+      "max": 16.02345327817722
+    },
+    "official_test_to_all_train_light_degrees": {
+      "min": 0.3937934154536683,
+      "median": 2.0847244049374716,
+      "p90": 3.7878964656155683,
+      "max": 5.115454386573342
+    },
+    "note": "metadata only, no test image read; origin-relative light direction"
+  },
+  "Synthetic_GS3/Translucent": {
+    "train_holdout_to_fit_light_degrees": {
+      "min": 0.8659217724047582,
+      "median": 4.322450432415312,
+      "p90": 9.307422035715696,
+      "max": 13.456858934556955
+    },
+    "official_test_to_all_train_light_degrees": {
+      "min": 0.12138259626035192,
+      "median": 1.0654966441929727,
+      "p90": 2.144462544674211,
+      "max": 3.8724149609291696
+    },
+    "note": "metadata only, no test image read; origin-relative light direction"
+  }
+}

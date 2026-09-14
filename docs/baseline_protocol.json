@@ -1,0 +1,76 @@
+{
+  "generated_from": "baseline_metrics.json",
+  "purpose": "Recorded data and evaluation settings for the 18 historical SSD-GS reference outputs.",
+  "source_path_note": "source_path values are historical cfg_args entries; all are absent in the current workspace, so this mapping does not prove pixel identity with /workspace/datasets/SSD-GS/data.",
+  "scenes": {
+    "Real_NRHints/Cat": {"output_dir": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/SSD-GS/output/real_nrhints_Cat_20260430", "source_path": "/workspace/ubuntu2004_cuda12_1/projects/SSD-GS/data/Real_NRHints/Cat", "resolution": -1, "max_reso": null, "width": 512, "height": 512, "white_background": false, "images": "images", "eval": true, "json": null, "data_device": "cpu", "view_num": 2000},
+    "Real_NRHints/CatSmall": {"output_dir": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/SSD-GS/output/real_nrhints_CatSmall_20260430", "source_path": "/workspace/ubuntu2004_cuda12_1/projects/SSD-GS/data/Real_NRHints/CatSmall", "resolution": -1, "max_reso": null, "width": 1024, "height": 1024, "white_background": false, "images": "images", "eval": true, "json": null, "data_device": "cpu", "view_num": 2000},
+    "Real_NRHints/CupFabric": {"output_dir": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/SSD-GS/output/real_nrhints_CupFabric_20260430", "source_path": "/workspace/ubuntu2004_cuda12_1/projects/SSD-GS/data/Real_NRHints/CupFabric", "resolution": -1, "max_reso": null, "width": 1024, "height": 1024, "white_background": false, "images": "images", "eval": true, "json": null, "data_device": "cpu", "view_num": 2000},
+    "Real_NRHints/Fish": {"output_dir": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/SSD-GS/output/real_nrhints_Fish_20260430", "source_path": "/workspace/ubuntu2004_cuda12_1/projects/SSD-GS/data/Real_NRHints/Fish", "resolution": -1, "max_reso": null, "width": 512, "height": 512, "white_background": false, "images": "images", "eval": true, "json": null, "data_device": "cpu", "view_num": 2000},
+    "Real_NRHints/FurScene": {"output_dir": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/SSD-GS/output/real_nrhints_FurScene_20260430", "source_path": "/workspace/ubuntu2004_cuda12_1/projects/SSD-GS/data/Real_NRHints/FurScene", "resolution": -1, "max_reso": null, "width": 512, "height": 512, "white_background": false, "images": "images", "eval": true, "json": null, "data_device": "cpu", "view_num": 2000},
+    "Real_NRHints/Pikachu": {"output_dir": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/SSD-GS/output/real_nrhints_Pikachu_20260430", "source_path": "/workspace/ubuntu2004_cuda12_1/projects/SSD-GS/data/Real_NRHints/Pikachu", "resolution": -1, "max_reso": null, "width": 1024, "height": 1024, "white_background": false, "images": "images", "eval": true, "json": null, "data_device": "cpu", "view_num": 2000},
+    "Real_NRHints/Pixiu": {"output_dir": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/SSD-GS/output/real_nrhints_Pixiu_20260430", "source_path": "/workspace/ubuntu2004_cuda12_1/projects/SSD-GS/data/Real_NRHints/Pixiu", "resolution": -1, "max_reso": null, "width": 512, "height": 512, "white_background": false, "images": "images", "eval": true, "json": null, "data_device": "cpu", "view_num": 2000},
+    "Synthetic_GS3/AnisoMetal": {"output_dir": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/SSD-GS/output/syn_gs3_AnisoMetal_20260430", "source_path": "/workspace/ubuntu2004_cuda12_1/projects/SSD-GS/data/Synthetic_GS3/AnisoMetal", "resolution": -1, "max_reso": null, "width": 512, "height": 512, "white_background": true, "images": "images", "eval": true, "json": null, "data_device": "cpu", "view_num": 2000},
+    "Synthetic_GS3/Drums": {"output_dir": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/SSD-GS/output/syn_gs3_Drums_20260430", "source_path": "/workspace/ubuntu2004_cuda12_1/projects/SSD-GS/data/Synthetic_GS3/Drums", "resolution": -1, "max_reso": null, "width": 512, "height": 512, "white_background": true, "images": "images", "eval": true, "json": null, "data_device": "cpu", "view_num": 2000},
+    "Synthetic_GS3/FurBall": {"output_dir": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/SSD-GS/output/syn_gs3_FurBall_20260430", "source_path": "/workspace/ubuntu2004_cuda12_1/projects/SSD-GS/data/Synthetic_GS3/FurBall", "resolution": -1, "max_reso": null, "width": 512, "height": 512, "white_background": true, "images": "images", "eval": true, "json": null, "data_device": "cpu", "view_num": 2000},
+    "Synthetic_GS3/Hotdog": {"output_dir": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/SSD-GS/output/syn_gs3_Hotdog_20260430", "source_path": "/workspace/ubuntu2004_cuda12_1/projects/SSD-GS/data/Synthetic_GS3/Hotdog", "resolution": -1, "max_reso": null, "width": 512, "height": 512, "white_background": true, "images": "images", "eval": true, "json": null, "data_device": "cpu", "view_num": 2000},
+    "Synthetic_GS3/Lego": {"output_dir": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/SSD-GS/output/syn_gs3_Lego_20260430", "source_path": "/workspace/ubuntu2004_cuda12_1/projects/SSD-GS/data/Synthetic_GS3/Lego", "resolution": -1, "max_reso": null, "width": 512, "height": 512, "white_background": true, "images": "images", "eval": true, "json": null, "data_device": "cpu", "view_num": 2000},
+    "Synthetic_GS3/Translucent": {"output_dir": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/SSD-GS/output/syn_gs3_Translucent_20260430", "source_path": "/workspace/ubuntu2004_cuda12_1/projects/SSD-GS/data/Synthetic_GS3/Translucent", "resolution": -1, "max_reso": null, "width": 512, "height": 512, "white_background": true, "images": "images", "eval": true, "json": null, "data_device": "cpu", "view_num": 2000},
+    "Synthetic_SSS-GS/bunny_small": {"output_dir": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/SSD-GS/output/syn_sss-gs_bunny_small_20260430", "source_path": "/workspace/ubuntu2004_cuda12_1/projects/SSD-GS/data/Synthetic_SSS-GS/bunny_small", "resolution": -1, "max_reso": null, "width": 256, "height": 256, "white_background": false, "images": "images", "eval": true, "json": null, "data_device": "cpu", "view_num": 2000},
+    "Synthetic_SSS-GS/candle_small": {"output_dir": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/SSD-GS/output/syn_sss-gs_candle_small_20260430", "source_path": "/workspace/ubuntu2004_cuda12_1/projects/SSD-GS/data/Synthetic_SSS-GS/candle_small", "resolution": -1, "max_reso": null, "width": 256, "height": 256, "white_background": false, "images": "images", "eval": true, "json": null, "data_device": "cpu", "view_num": 2000},
+    "Synthetic_SSS-GS/dragon_small": {"output_dir": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/SSD-GS/output/syn_sss-gs_dragon_small_20260430", "source_path": "/workspace/ubuntu2004_cuda12_1/projects/SSD-GS/data/Synthetic_SSS-GS/dragon_small", "resolution": -1, "max_reso": null, "width": 256, "height": 256, "white_background": false, "images": "images", "eval": true, "json": null, "data_device": "cpu", "view_num": 2000},
+    "Synthetic_SSS-GS/soap_small": {"output_dir": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/SSD-GS/output/syn_sss-gs_soap_small_20260430", "source_path": "/workspace/ubuntu2004_cuda12_1/projects/SSD-GS/data/Synthetic_SSS-GS/soap_small", "resolution": -1, "max_reso": null, "width": 256, "height": 256, "white_background": false, "images": "images", "eval": true, "json": null, "data_device": "cpu", "view_num": 2000},
+    "Synthetic_SSS-GS/statue_small": {"output_dir": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/SSD-GS/output/syn_sss-gs_statue_small_20260430", "source_path": "/workspace/ubuntu2004_cuda12_1/projects/SSD-GS/data/Synthetic_SSS-GS/statue_small", "resolution": -1, "max_reso": null, "width": 256, "height": 256, "white_background": false, "images": "images", "eval": true, "json": null, "data_device": "cpu", "view_num": 2000}
+  },
+  "train_metric_audit": {
+    "image_psnr_formula": "-10*log10(mean(((render_uint8-gt_uint8)/255)^2))",
+    "image_pairing": "same zero-padded PNG filename under train/ours_100000/renders and gt",
+    "scenes": {
+      "Real_NRHints/Pixiu": {
+        "pair_count": 562,
+        "image_psnr_macro": 33.44349209006873,
+        "results_train_psnr": 33.4434928894043,
+        "results_train_psnr_delta": -7.99335566625814e-07,
+        "per_view_psnr_max_abs_delta": 4.857325592411144e-06,
+        "ssim_pairs": {
+          "00000.png": {"computed": 0.9485597014427185, "reference": 0.9485598802566528, "delta": -1.7881393432617188e-07},
+          "00001.png": {"computed": 0.935467541217804, "reference": 0.9354674220085144, "delta": 1.1920928955078125e-07},
+          "00002.png": {"computed": 0.9303762912750244, "reference": 0.9303762912750244, "delta": 0.0}
+        },
+        "lpips": {
+          "library": "lpips",
+          "net": "vgg",
+          "version": "0.1",
+          "input_domain": "[0,1]",
+          "filename": "00000.png",
+          "computed": 0.09466355293989182,
+          "reference": 0.09466402232646942,
+          "delta": -4.6938657760620117e-07
+        }
+      },
+      "Synthetic_GS3/Translucent": {
+        "pair_count": 2000,
+        "image_psnr_macro": 33.3390170147654,
+        "results_train_psnr": 33.339019775390625,
+        "results_train_psnr_delta": -2.7606252217537985e-06,
+        "per_view_psnr_max_abs_delta": 6.464069741696221e-06,
+        "ssim_pairs": {
+          "00000.png": {"computed": 0.9809132218360901, "reference": 0.9809132814407349, "delta": -5.960464477539063e-08},
+          "00001.png": {"computed": 0.9728350639343262, "reference": 0.9728350639343262, "delta": 0.0},
+          "00002.png": {"computed": 0.959168016910553, "reference": 0.9591679573059082, "delta": 5.960464477539063e-08}
+        },
+        "lpips": {
+          "library": "lpips",
+          "net": "vgg",
+          "version": "0.1",
+          "input_domain": "[0,1]",
+          "filename": "00000.png",
+          "computed": 0.029003553092479706,
+          "reference": 0.029003042727708817,
+          "delta": 5.103647708892822e-07
+        }
+      }
+    },
+    "conclusion": "PNG PSNR and PORT SSIM match stored train metrics within float rounding. Stored LPIPS matches VGG v0.1 when fed [0,1] tensors; PORT evaluate's [-1,1] input path does not match and must not be called equivalent."
+  }
+}
