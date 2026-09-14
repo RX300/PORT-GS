@@ -1,4 +1,28 @@
-# Continuous receivers over conservative Gaussian-source exchange
+# Direct HashGrid neural radiance
+
+The current model directly queries NVIDIA HashGrid at each pixel receiver.
+The 32-dimensional spatial feature is concatenated with 32 material features,
+82 angular channels, 27 encoded normalized-light-position channels, normalized
+log distance and visibility. A four-hidden-layer width-128 SiLU MLP decodes:
+
+```text
+z(x) = HashGrid((x - center) / (2 * radius) + 0.5)
+response = softplus(base(x) + decoder(z(x), material(x), light, view, visibility))
+RGB(x) = response * light_intensity / light_scale / distance_to_light^2.
+```
+
+Intensity enters only the final radiometric factor, ensuring zero RGB for zero
+light and linear intensity scaling before gamma. Position, direction, distance,
+view and visibility condition the decoded response. Visibility is not a hard
+zero gate. There is no source quadrature, exchange fraction, rank or shared
+512-RGB bottleneck. This is a learned scene-specific response; no source-mass
+conservation, detailed balance or explicit multiple scattering is claimed.
+The existing depth-derived receiver and Gaussian shadow approximations remain.
+
+## Historical conservative Gaussian-source exchange
+
+The following describes saved pre-direct-query implementations, not the active
+decoder. Their results cannot establish the effectiveness of direct queries.
 
 The accepted second-round representation separates the source integral from the location where
 material response is evaluated. Every Gaussian remains a source with geometry,

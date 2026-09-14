@@ -406,7 +406,8 @@ def port_validation_luna_prompt(snapshot, previous, reason):
     completion_instruction = (
         "status=completed 时必须只读检查 manifest 声明的每个 job 的 resultpath，以及每个输出目录中存在的 "
         "config.json 和 split.json；逐 job 报告结果文件是否存在、指标是否 finite、配置是否符合 manifest_protocol "
-        "中声明的空间分区与 HashGrid 字段，并引用绝对证据路径。"
+        "中声明的表示与 HashGrid 字段；若协议包含 loss_curve，也核对每个场景的 loss.png 和 history.jsonl，"
+        "并引用绝对证据路径。"
         if snapshot["status"]["state"] == "completed"
         else
         "队列未完成时只检查当前运行阶段和已声明日志尾部，不把尚未生成的结果当作失败。"

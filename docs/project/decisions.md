@@ -202,6 +202,24 @@ seed, metrics and outputs are recorded within PORT-GS. User data, previous logs,
 checkpoints and research documents stay intact. Existing controls are historical
 references, and this cycle launches only the repaired method.
 
+## 2026-09-14: Remove pooling and directly decode HashGrid queries
+
+The user clarified that the intended HashGrid replacement should directly
+decode queried features, without the 512-channel illumination mixture. Remove
+the spatial partition head, quadrature/source integral, exchange fractions and
+port activation schedule from the canonical implementation and all callers.
+Use a 175-input, four-layer width-128 SiLU RGB decoder with light/view/material
+and visibility conditioning. Keep point-light intensity/inverse-square scaling
+explicit; use visibility as an input so shadowed queries can have learned
+nonzero radiance. This relinquishes the historical discrete conservation claim.
+
+Repeat the same six scenes, 30k and seed0; HashGrid is active from step1. Retain
+the NVIDIA encoding config, dataset protocol, geometry/shadows, and image losses.
+Record total and weighted loss terms every100 steps and at the first/final steps,
+and generate loss.png after training. Checks now cover direct query independence,
+input/native gradients, intensity scaling, rendering, serialization and plotting.
+See [protocol](../experiments/direct_hashgrid_validation_20260914.md).
+
 ## 2026-09-14: NVIDIA HashGrid replaces learned spatial anchors
 
 The user's next experiment replaces continuous anchor centers/widths with

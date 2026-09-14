@@ -7,7 +7,7 @@ CONFIG="${1:-$PROJECT_DIR/configs/validation.json}"
 if [[ $# -gt 0 ]]; then shift; fi
 RUN_NAME=$("$PYTHON" -c 'import json,sys; print(json.load(open(sys.argv[1]))["name"])' "$CONFIG")
 RUN_DIR="$PROJECT_DIR/runs/$RUN_NAME"
-SOCKET=port-validation-hashgrid
+SOCKET="port-validation-$RUN_NAME"
 SESSION=validation
 
 export PATH="/workspace/ubuntu2004_cuda12_1/utils/conda-envs/ssd-gs/bin:/usr/local/cuda-12.1/bin:$PATH"

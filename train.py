@@ -28,12 +28,7 @@ def arguments():
     p.add_argument("--max-points", type=int, default=400000)
     p.add_argument("--feature-dim", type=int, default=32)
     p.add_argument("--width", type=int, default=128)
-    p.add_argument(
-        "--rank", type=int, default=512,
-        help="number of exchange channels predicted from the multiresolution hash encoding",
-    )
     p.add_argument("--hash-config", default=str(Path(__file__).parent / "configs/hashgrid.json"))
-    p.add_argument("--port-start", type=int, default=5000)
     p.add_argument("--shadow-start", type=int, default=1500)
     p.add_argument("--refine-stop", type=int, default=15000)
     p.add_argument("--validate-every", type=int, default=10000)
@@ -78,7 +73,7 @@ def main():
     output.mkdir(parents=True, exist_ok=False)
     config = vars(args)
     config["hash_encoding"] = json.loads(Path(args.hash_config).read_text())
-    config["spatial_partition"] = "tinycudann_hashgrid"
+    config["representation"] = "direct_hashgrid_rgb"
     config["sss_light_axes"] = "world"
     dataset = SceneDataset(
         args.scene, "train", args.resolution, unit_light_intensity=args.unit_light_intensity
@@ -131,7 +126,6 @@ def main():
     transport = Transport(
         feature_dim=args.feature_dim,
         width=args.width,
-        rank=args.rank,
         light_scale=light_scale,
         hash_encoding=config["hash_encoding"],
         seed=args.seed,
@@ -268,19 +262,24 @@ def main():
             sample,
             args.background,
             step >= args.shadow_start,
-            step >= args.port_start,
             args.display_gamma,
             args.shadow_mode,
             absgrad=args.absgrad,
         )
         target = target_image(sample, args.background, args.display_gamma)
         l1 = (predicted - target).abs().mean()
-        loss = 0.8 * l1 + 0.2 * (1 - ssim(predicted.clamp(0, 1), target.clamp(0, 1)))
+        loss_terms = {
+            "l1": 0.8 * l1,
+            "ssim": 0.2 * (1 - ssim(predicted.clamp(0, 1), target.clamp(0, 1))),
+            "mask": l1.new_zeros(()),
+            "feature_reg": 1e-5 * gaussians.params["features"].square().mean(),
+            "camera_reg": l1.new_zeros(()),
+        }
         if sample["alpha"] is not None:
-            loss = loss + args.mask_weight * (alpha - sample["alpha"]).abs().mean()
-        loss = loss + 1e-5 * gaussians.params["features"].square().mean()
+            loss_terms["mask"] = args.mask_weight * (alpha - sample["alpha"]).abs().mean()
         if camera_active:
-            loss = loss + 0.001 * camera_offsets.raw[camera_indices[sample_index]].square().mean()
+            loss_terms["camera_reg"] = 0.001 * camera_offsets.raw[camera_indices[sample_index]].square().mean()
+        loss = sum(loss_terms.values())
         if not torch.isfinite(loss):
             raise FloatingPointError(f"Non-finite loss at {step}")
         if not args.freeze_geometry:
@@ -299,12 +298,13 @@ def main():
                 history.write(json.dumps(event) + "\n")
                 print(json.dumps(event), flush=True)
         gaussians.project_geometry(args.opacity_cap, args.min_scale, args.max_scale)
-        if step % 100 == 0 or step == 1:
+        if step % 100 == 0 or step == 1 or step == args.steps:
             row = {
                 "step": step,
                 "frame_index": sample_index,
                 "loss": loss.item(),
                 "l1": l1.item(),
+                "loss_terms": {name: value.item() for name, value in loss_terms.items()},
                 "points": len(gaussians.params["means"]),
                 "seconds": round(time.monotonic() - start, 2),
                 "memory_GiB": torch.cuda.max_memory_allocated() / 2**30,
@@ -321,7 +321,6 @@ def main():
                 validation,
                 args.background,
                 step >= args.shadow_start,
-                step >= args.port_start,
                 display_gamma=args.display_gamma,
                 shadow_mode=args.shadow_mode,
             )
@@ -347,7 +346,6 @@ def main():
                     val,
                     args.background,
                     step >= args.shadow_start,
-                    step >= args.port_start,
                     args.display_gamma,
                     args.shadow_mode,
                 )
@@ -357,10 +355,14 @@ def main():
                     target_image(val, args.background, args.display_gamma),
                 )
     history.close()
+    from plot_loss import plot_loss
+
+    loss_plot = plot_loss(output / "history.jsonl")
     print(
         json.dumps(
             {
                 "event": "complete",
+                "loss_plot": str(loss_plot),
                 "best_validation_psnr": best if validation else None,
                 "seconds": time.monotonic() - start,
             }

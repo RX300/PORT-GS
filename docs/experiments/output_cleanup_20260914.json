@@ -1,0 +1,801 @@
+{
+  "root": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs",
+  "retain_directories": [
+    "full_benchmark_20260913",
+    "hashgrid_preflight",
+    "hashgrid_validation_20260914",
+    "rank512_validation_20260914",
+    "research_20260912"
+  ],
+  "reason": "Remove superseded pre-HashGrid trial runs and obsolete previews/logs; preserve comparison results, source archives, current test fixtures and compact historical records.",
+  "active_python_processes_found": 0,
+  "manifest_references_into_targets": [],
+  "targets": [
+    {
+      "path": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/aniso_control_10k_s0",
+      "kind": "directory",
+      "allocated_bytes": 150814720
+    },
+    {
+      "path": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/aniso_control_10k_s0.log",
+      "kind": "file",
+      "allocated_bytes": 16384
+    },
+    {
+      "path": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/aniso_localized_frame_10k_s0",
+      "kind": "directory",
+      "allocated_bytes": 149032960
+    },
+    {
+      "path": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/aniso_localized_frame_10k_s0.log",
+      "kind": "file",
+      "allocated_bytes": 16384
+    },
+    {
+      "path": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/benchmark_all.log",
+      "kind": "file",
+      "allocated_bytes": 4096
+    },
+    {
+      "path": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/benchmark_s0",
+      "kind": "directory",
+      "allocated_bytes": 3833856
+    },
+    {
+      "path": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/benchmark_validation.log",
+      "kind": "file",
+      "allocated_bytes": 4096
+    },
+    {
+      "path": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/bunny_basis_control_s0",
+      "kind": "directory",
+      "allocated_bytes": 19623936
+    },
+    {
+      "path": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/bunny_basis_control_s0.log",
+      "kind": "file",
+      "allocated_bytes": 49152
+    },
+    {
+      "path": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/bunny_basis_control_s0_invalid_launch",
+      "kind": "directory",
+      "allocated_bytes": 12288
+    },
+    {
+      "path": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/bunny_basis_control_s0_invalid_launch.log",
+      "kind": "file",
+      "allocated_bytes": 4096
+    },
+    {
+      "path": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/bunny_basis_normalized_s0",
+      "kind": "directory",
+      "allocated_bytes": 19255296
+    },
+    {
+      "path": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/bunny_basis_normalized_s0.log",
+      "kind": "file",
+      "allocated_bytes": 49152
+    },
+    {
+      "path": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/bunny_benchmark_s0",
+      "kind": "directory",
+      "allocated_bytes": 12529664
+    },
+    {
+      "path": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/bunny_benchmark_s0.log",
+      "kind": "file",
+      "allocated_bytes": 94208
+    },
+    {
+      "path": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/bunny_light_only_s0",
+      "kind": "directory",
+      "allocated_bytes": 11943936
+    },
+    {
+      "path": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/bunny_light_only_s0.log",
+      "kind": "file",
+      "allocated_bytes": 49152
+    },
+    {
+      "path": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/bunny_localized_frame_encoded_full_s0",
+      "kind": "directory",
+      "allocated_bytes": 19767296
+    },
+    {
+      "path": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/bunny_localized_frame_encoded_full_s0.log",
+      "kind": "file",
+      "allocated_bytes": 94208
+    },
+    {
+      "path": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/bunny_localized_frame_encoded_s0",
+      "kind": "directory",
+      "allocated_bytes": 24547328
+    },
+    {
+      "path": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/bunny_localized_frame_encoded_s0.log",
+      "kind": "file",
+      "allocated_bytes": 49152
+    },
+    {
+      "path": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/bunny_localized_frame_full_s0",
+      "kind": "directory",
+      "allocated_bytes": 18997248
+    },
+    {
+      "path": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/bunny_localized_frame_full_s0.log",
+      "kind": "file",
+      "allocated_bytes": 94208
+    },
+    {
+      "path": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/bunny_localized_frame_s0",
+      "kind": "directory",
+      "allocated_bytes": 24047616
+    },
+    {
+      "path": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/bunny_localized_frame_s0.log",
+      "kind": "file",
+      "allocated_bytes": 49152
+    },
+    {
+      "path": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/bunny_localized_full_s0",
+      "kind": "directory",
+      "allocated_bytes": 16551936
+    },
+    {
+      "path": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/bunny_localized_full_s0.log",
+      "kind": "file",
+      "allocated_bytes": 94208
+    },
+    {
+      "path": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/bunny_localized_s0",
+      "kind": "directory",
+      "allocated_bytes": 21266432
+    },
+    {
+      "path": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/bunny_localized_s0.log",
+      "kind": "file",
+      "allocated_bytes": 49152
+    },
+    {
+      "path": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/bunny_port",
+      "kind": "directory",
+      "allocated_bytes": 286720
+    },
+    {
+      "path": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/bunny_port.log",
+      "kind": "file",
+      "allocated_bytes": 53248
+    },
+    {
+      "path": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/bunny_render_diagnosis",
+      "kind": "directory",
+      "allocated_bytes": 163840
+    },
+    {
+      "path": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/bunny_render_diagnosis.log",
+      "kind": "file",
+      "allocated_bytes": 4096
+    },
+    {
+      "path": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/bunny_research_ablation.png",
+      "kind": "file",
+      "allocated_bytes": 106496
+    },
+    {
+      "path": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/bunny_world_deep_fine",
+      "kind": "directory",
+      "allocated_bytes": 18616320
+    },
+    {
+      "path": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/bunny_world_deep_fine.log",
+      "kind": "file",
+      "allocated_bytes": 53248
+    },
+    {
+      "path": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/candidate_benchmark.log",
+      "kind": "file",
+      "allocated_bytes": 4096
+    },
+    {
+      "path": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/candidate_s0",
+      "kind": "directory",
+      "allocated_bytes": 3805184
+    },
+    {
+      "path": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/candle_benchmark_s0",
+      "kind": "directory",
+      "allocated_bytes": 13746176
+    },
+    {
+      "path": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/candle_benchmark_s0.log",
+      "kind": "file",
+      "allocated_bytes": 94208
+    },
+    {
+      "path": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/cat_basis_control_s0",
+      "kind": "directory",
+      "allocated_bytes": 371179520
+    },
+    {
+      "path": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/cat_basis_control_s0.log",
+      "kind": "file",
+      "allocated_bytes": 49152
+    },
+    {
+      "path": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/cat_current_fit_diagnosis",
+      "kind": "directory",
+      "allocated_bytes": 1495040
+    },
+    {
+      "path": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/cat_localized_object_step_s0",
+      "kind": "directory",
+      "allocated_bytes": 165130240
+    },
+    {
+      "path": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/cat_localized_object_step_s0.log",
+      "kind": "file",
+      "allocated_bytes": 57344
+    },
+    {
+      "path": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/cat_localized_pose_s0",
+      "kind": "directory",
+      "allocated_bytes": 396705792
+    },
+    {
+      "path": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/cat_localized_pose_s0.log",
+      "kind": "file",
+      "allocated_bytes": 49152
+    },
+    {
+      "path": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/cat_localized_s0",
+      "kind": "directory",
+      "allocated_bytes": 358043648
+    },
+    {
+      "path": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/cat_localized_s0.log",
+      "kind": "file",
+      "allocated_bytes": 49152
+    },
+    {
+      "path": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/cat_material_angular_s0",
+      "kind": "directory",
+      "allocated_bytes": 300597248
+    },
+    {
+      "path": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/cat_material_angular_s0.log",
+      "kind": "file",
+      "allocated_bytes": 24576
+    },
+    {
+      "path": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/cat_moment_control_s0",
+      "kind": "directory",
+      "allocated_bytes": 300552192
+    },
+    {
+      "path": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/cat_moment_control_s0.log",
+      "kind": "file",
+      "allocated_bytes": 24576
+    },
+    {
+      "path": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/cat_moments_s0",
+      "kind": "directory",
+      "allocated_bytes": 300605440
+    },
+    {
+      "path": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/cat_moments_s0.log",
+      "kind": "file",
+      "allocated_bytes": 20480
+    },
+    {
+      "path": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/cat_refinement_full_s0",
+      "kind": "directory",
+      "allocated_bytes": 95789056
+    },
+    {
+      "path": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/cat_refinement_full_s0.log",
+      "kind": "file",
+      "allocated_bytes": 57344
+    },
+    {
+      "path": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/cat_refinement_r1_image_diagnosis",
+      "kind": "directory",
+      "allocated_bytes": 6213632
+    },
+    {
+      "path": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/cat_refinement_r1_s0",
+      "kind": "directory",
+      "allocated_bytes": 3584000
+    },
+    {
+      "path": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/cat_refinement_r1_s0.log",
+      "kind": "file",
+      "allocated_bytes": 61440
+    },
+    {
+      "path": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/cat_render_diagnosis",
+      "kind": "directory",
+      "allocated_bytes": 1409024
+    },
+    {
+      "path": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/cat_render_diagnosis.log",
+      "kind": "file",
+      "allocated_bytes": 4096
+    },
+    {
+      "path": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/cat_response_control_s0",
+      "kind": "directory",
+      "allocated_bytes": 300560384
+    },
+    {
+      "path": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/cat_response_control_s0.log",
+      "kind": "file",
+      "allocated_bytes": 24576
+    },
+    {
+      "path": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/cat_shadow_gradient_r2_image_diagnosis",
+      "kind": "directory",
+      "allocated_bytes": 4608000
+    },
+    {
+      "path": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/cat_shadow_gradient_r2_s0",
+      "kind": "directory",
+      "allocated_bytes": 3645440
+    },
+    {
+      "path": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/cat_shadow_gradient_r2_s0.log",
+      "kind": "file",
+      "allocated_bytes": 61440
+    },
+    {
+      "path": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/cat_shared_intrinsics_diagnosis_points.npz",
+      "kind": "file",
+      "allocated_bytes": 8192
+    },
+    {
+      "path": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/cleanup_verification.log",
+      "kind": "file",
+      "allocated_bytes": 4096
+    },
+    {
+      "path": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/deep_shadow_preview.png",
+      "kind": "file",
+      "allocated_bytes": 446464
+    },
+    {
+      "path": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/dragon_benchmark_s0",
+      "kind": "directory",
+      "allocated_bytes": 9523200
+    },
+    {
+      "path": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/dragon_benchmark_s0.log",
+      "kind": "file",
+      "allocated_bytes": 94208
+    },
+    {
+      "path": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/fit_all_smoke",
+      "kind": "directory",
+      "allocated_bytes": 16384
+    },
+    {
+      "path": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/fit_all_smoke.log",
+      "kind": "file",
+      "allocated_bytes": 4096
+    },
+    {
+      "path": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/hashgrid_preflight/reload_test",
+      "kind": "directory",
+      "allocated_bytes": 307200
+    },
+    {
+      "path": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/hashgrid_preflight/train_smoke",
+      "kind": "directory",
+      "allocated_bytes": 52846592
+    },
+    {
+      "path": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/interrupted_single_frustum",
+      "kind": "directory",
+      "allocated_bytes": 21819392
+    },
+    {
+      "path": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/pixiu_asymmetric_black",
+      "kind": "directory",
+      "allocated_bytes": 119980032
+    },
+    {
+      "path": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/pixiu_bounded_area",
+      "kind": "directory",
+      "allocated_bytes": 104411136
+    },
+    {
+      "path": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/pixiu_bounded_volume",
+      "kind": "directory",
+      "allocated_bytes": 104411136
+    },
+    {
+      "path": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/pixiu_camera_lr",
+      "kind": "directory",
+      "allocated_bytes": 100667392
+    },
+    {
+      "path": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/pixiu_camera_scale",
+      "kind": "directory",
+      "allocated_bytes": 66928640
+    },
+    {
+      "path": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/pixiu_capacity",
+      "kind": "directory",
+      "allocated_bytes": 158945280
+    },
+    {
+      "path": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/pixiu_corrected_ggx",
+      "kind": "directory",
+      "allocated_bytes": 225280
+    },
+    {
+      "path": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/pixiu_corrected_neural",
+      "kind": "directory",
+      "allocated_bytes": 77828096
+    },
+    {
+      "path": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/pixiu_deferred_fixed",
+      "kind": "directory",
+      "allocated_bytes": 87957504
+    },
+    {
+      "path": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/pixiu_deferred_smoke",
+      "kind": "directory",
+      "allocated_bytes": 32768
+    },
+    {
+      "path": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/pixiu_dense_init",
+      "kind": "directory",
+      "allocated_bytes": 146391040
+    },
+    {
+      "path": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/pixiu_local_fixed",
+      "kind": "directory",
+      "allocated_bytes": 40747008
+    },
+    {
+      "path": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/pixiu_local_ports_fixed",
+      "kind": "directory",
+      "allocated_bytes": 40812544
+    },
+    {
+      "path": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/pixiu_local_ports_joint",
+      "kind": "directory",
+      "allocated_bytes": 112975872
+    },
+    {
+      "path": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/pixiu_mask_center",
+      "kind": "directory",
+      "allocated_bytes": 4898816
+    },
+    {
+      "path": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/pixiu_mask_center.log",
+      "kind": "file",
+      "allocated_bytes": 4096
+    },
+    {
+      "path": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/pixiu_mask_control",
+      "kind": "directory",
+      "allocated_bytes": 163524608
+    },
+    {
+      "path": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/pixiu_mask_decay",
+      "kind": "directory",
+      "allocated_bytes": 5312512
+    },
+    {
+      "path": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/pixiu_mask_decay.log",
+      "kind": "file",
+      "allocated_bytes": 4096
+    },
+    {
+      "path": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/pixiu_mask_fine",
+      "kind": "directory",
+      "allocated_bytes": 8429568
+    },
+    {
+      "path": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/pixiu_mask_fine.log",
+      "kind": "file",
+      "allocated_bytes": 4096
+    },
+    {
+      "path": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/pixiu_mask_metadata",
+      "kind": "directory",
+      "allocated_bytes": 5951488
+    },
+    {
+      "path": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/pixiu_mask_metadata.log",
+      "kind": "file",
+      "allocated_bytes": 4096
+    },
+    {
+      "path": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/pixiu_mask_pose",
+      "kind": "directory",
+      "allocated_bytes": 4878336
+    },
+    {
+      "path": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/pixiu_mask_pose.log",
+      "kind": "file",
+      "allocated_bytes": 4096
+    },
+    {
+      "path": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/pixiu_mask_pose_small",
+      "kind": "directory",
+      "allocated_bytes": 4947968
+    },
+    {
+      "path": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/pixiu_mask_pose_small.log",
+      "kind": "file",
+      "allocated_bytes": 4096
+    },
+    {
+      "path": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/pixiu_mask_strong",
+      "kind": "directory",
+      "allocated_bytes": 171085824
+    },
+    {
+      "path": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/pixiu_no_shadow_fixed",
+      "kind": "directory",
+      "allocated_bytes": 98979840
+    },
+    {
+      "path": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/pixiu_port_fixed",
+      "kind": "directory",
+      "allocated_bytes": 12288
+    },
+    {
+      "path": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/pixiu_port_fixed_retry",
+      "kind": "directory",
+      "allocated_bytes": 40816640
+    },
+    {
+      "path": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/pixiu_port_joint",
+      "kind": "directory",
+      "allocated_bytes": 131088384
+    },
+    {
+      "path": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/pixiu_pose_fit",
+      "kind": "directory",
+      "allocated_bytes": 55676928
+    },
+    {
+      "path": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/pixiu_pose_fit.log",
+      "kind": "file",
+      "allocated_bytes": 49152
+    },
+    {
+      "path": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/pixiu_radiometric",
+      "kind": "directory",
+      "allocated_bytes": 104448000
+    },
+    {
+      "path": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/pixiu_refinement_full_s0",
+      "kind": "directory",
+      "allocated_bytes": 22417408
+    },
+    {
+      "path": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/pixiu_refinement_full_s0.log",
+      "kind": "file",
+      "allocated_bytes": 57344
+    },
+    {
+      "path": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/pixiu_refinement_r1_s0",
+      "kind": "directory",
+      "allocated_bytes": 1871872
+    },
+    {
+      "path": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/pixiu_refinement_r1_s0.log",
+      "kind": "file",
+      "allocated_bytes": 61440
+    },
+    {
+      "path": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/pixiu_shadow_fixed",
+      "kind": "directory",
+      "allocated_bytes": 98979840
+    },
+    {
+      "path": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/pixiu_smoke",
+      "kind": "directory",
+      "allocated_bytes": 36864
+    },
+    {
+      "path": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/pixiu_surface_port",
+      "kind": "directory",
+      "allocated_bytes": 107413504
+    },
+    {
+      "path": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/pixiu_symmetric_black",
+      "kind": "directory",
+      "allocated_bytes": 118853632
+    },
+    {
+      "path": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/pixiu_warmup",
+      "kind": "directory",
+      "allocated_bytes": 53821440
+    },
+    {
+      "path": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/soap_benchmark_s0",
+      "kind": "directory",
+      "allocated_bytes": 7737344
+    },
+    {
+      "path": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/soap_benchmark_s0.log",
+      "kind": "file",
+      "allocated_bytes": 94208
+    },
+    {
+      "path": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/sss_batch.log",
+      "kind": "file",
+      "allocated_bytes": 4096
+    },
+    {
+      "path": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/statue_benchmark_s0",
+      "kind": "directory",
+      "allocated_bytes": 21823488
+    },
+    {
+      "path": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/statue_benchmark_s0.log",
+      "kind": "file",
+      "allocated_bytes": 94208
+    },
+    {
+      "path": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/translucent_appearance_70k",
+      "kind": "directory",
+      "allocated_bytes": 162414592
+    },
+    {
+      "path": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/translucent_appearance_70k.log",
+      "kind": "file",
+      "allocated_bytes": 110592
+    },
+    {
+      "path": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/translucent_camera_scale",
+      "kind": "directory",
+      "allocated_bytes": 445153280
+    },
+    {
+      "path": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/translucent_camera_scale.log",
+      "kind": "file",
+      "allocated_bytes": 53248
+    },
+    {
+      "path": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/translucent_deep_fine",
+      "kind": "directory",
+      "allocated_bytes": 194248704
+    },
+    {
+      "path": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/translucent_deep_fine.log",
+      "kind": "file",
+      "allocated_bytes": 53248
+    },
+    {
+      "path": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/translucent_deep_fine_layers4",
+      "kind": "directory",
+      "allocated_bytes": 193703936
+    },
+    {
+      "path": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/translucent_deep_fine_layers4.log",
+      "kind": "file",
+      "allocated_bytes": 53248
+    },
+    {
+      "path": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/translucent_dense_init",
+      "kind": "directory",
+      "allocated_bytes": 422670336
+    },
+    {
+      "path": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/translucent_half",
+      "kind": "directory",
+      "allocated_bytes": 443105280
+    },
+    {
+      "path": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/translucent_half.log",
+      "kind": "file",
+      "allocated_bytes": 53248
+    },
+    {
+      "path": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/translucent_half_multiscale",
+      "kind": "directory",
+      "allocated_bytes": 443109376
+    },
+    {
+      "path": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/translucent_half_multiscale.log",
+      "kind": "file",
+      "allocated_bytes": 53248
+    },
+    {
+      "path": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/translucent_local_fixed",
+      "kind": "directory",
+      "allocated_bytes": 109629440
+    },
+    {
+      "path": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/translucent_local_ports",
+      "kind": "directory",
+      "allocated_bytes": 194781184
+    },
+    {
+      "path": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/translucent_local_ports.log",
+      "kind": "file",
+      "allocated_bytes": 53248
+    },
+    {
+      "path": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/translucent_local_ports_fixed",
+      "kind": "directory",
+      "allocated_bytes": 109694976
+    },
+    {
+      "path": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/translucent_mask_init",
+      "kind": "directory",
+      "allocated_bytes": 445161472
+    },
+    {
+      "path": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/translucent_mask_init.log",
+      "kind": "file",
+      "allocated_bytes": 53248
+    },
+    {
+      "path": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/translucent_mask_metadata",
+      "kind": "directory",
+      "allocated_bytes": 8974336
+    },
+    {
+      "path": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/translucent_mask_metadata.log",
+      "kind": "file",
+      "allocated_bytes": 4096
+    },
+    {
+      "path": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/translucent_port_fixed",
+      "kind": "directory",
+      "allocated_bytes": 109694976
+    },
+    {
+      "path": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/translucent_radiometric",
+      "kind": "directory",
+      "allocated_bytes": 426786816
+    },
+    {
+      "path": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/translucent_shadow_control",
+      "kind": "directory",
+      "allocated_bytes": 372662272
+    },
+    {
+      "path": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/translucent_shadow_control.log",
+      "kind": "file",
+      "allocated_bytes": 16384
+    },
+    {
+      "path": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/translucent_shadow_deep",
+      "kind": "directory",
+      "allocated_bytes": 372666368
+    },
+    {
+      "path": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/translucent_shadow_deep.log",
+      "kind": "file",
+      "allocated_bytes": 16384
+    },
+    {
+      "path": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/translucent_surface_port",
+      "kind": "directory",
+      "allocated_bytes": 192290816
+    },
+    {
+      "path": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/translucent_train_failure_1496.png",
+      "kind": "file",
+      "allocated_bytes": 479232
+    },
+    {
+      "path": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/translucent_train_failure_309.png",
+      "kind": "file",
+      "allocated_bytes": 421888
+    },
+    {
+      "path": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/translucent_warmup",
+      "kind": "directory",
+      "allocated_bytes": 144965632
+    }
+  ],
+  "allocated_bytes": 10414387200
+}

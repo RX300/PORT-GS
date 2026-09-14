@@ -1,12 +1,11 @@
 # PORT-GS
 
 Paired-Origin Radiance Transport Gaussians：独立的 3DGS 重光照研究项目。
-采用 **material-conditioned conservative irradiance exchange**：完整 Gaussian
-源积分与像素接收点着色。守恒与可逆性质适用于源节点离散算子，像素查询是其连续延拓。
-
-当前使用 NVIDIA tiny-cuda-nn 多分辨率 HashGrid 替换可学习空间锚点；
-512 个交换通道与网格分辨率独立。当前哈希网格从 16 到约 2048，共 16 层。
-以下表格是此前 32 节点方案的历史结果，HashGrid 六场景实验已启动。
+当前采用 **HashGrid 直接查询 + 光源/视角条件 RGB 解码**。每个覆盖像素查询
+NVIDIA tiny-cuda-nn 的 32 维哈希特征，与材质、光源、视角及可见度一起输入
+175→128×4→3 解码器。已移除 512 通道汇总和空间混合，不再宣称离散守恒/可逆。
+哈希网格从 16 到约 2048，共 16 层，从训练第一步启用。
+以下表格是此前 32 节点方案的历史结果。
 
 | 完整官方 test | 帧数 | PSNR | SSIM | 标准 LPIPS |
 | --- | ---: | ---: | ---: | ---: |
@@ -46,7 +45,7 @@ CUDA_VISIBLE_DEVICES=0 /workspace/ubuntu2004_cuda12_1/utils/conda-envs/ssd-gs/bi
 像素接收点光传输/着色 → 图像优化与几何细化 → checkpoint → 显式 test 渲染评价。
 指标、对照图和命令位于 `runs/research_20260912/*_full_s0/`。
 首轮使用 `cat_r1_source.tar`，更早源码使用 `source_before.tar`；各归档复现自身权重，
-旧实验全部保留。`--init-checkpoint` 初始化当前表示，重新开始优化。
+已清理的过时实验见文末清理记录。`--init-checkpoint` 仅初始化当前直接查询表示，重新开始优化。
 
 HashGrid 配置在 [`configs/hashgrid.json`](configs/hashgrid.json)；六场景、训练参数、
 GPU 与实验名在 [`configs/validation.json`](configs/validation.json)。每个 Gaussian
@@ -56,9 +55,12 @@ GPU 与实验名在 [`configs/validation.json`](configs/validation.json)。每�
 bash launch_validation.sh
 ```
 
-该入口冻结配置到 `runs/hashgrid_validation_20260914/`，复用原队列调度器，
+该入口冻结配置到 `runs/direct_hashgrid_validation_20260914/`，复用原队列调度器，
 自动完成训练和完整 test 评价。详情见
-[HashGrid 验证](docs/experiments/hashgrid_validation_20260914.md)。
+[直接查询验证](docs/experiments/direct_hashgrid_validation_20260914.md)。
+
+每场景保存 `history.jsonl`（总 loss 和加权分项，每 100 步）和训练完成后的
+`loss.png`。可运行 `python plot_loss.py <场景目录>/history.jsonl` 重画当前训练曲线。
 
 ## 历史全量队列恢复与查看
 
@@ -91,6 +93,9 @@ tmux -L port-full-benchmark respawn-pane -t full:monitor
 [full comparison](docs/experiments/comparison_20260913.md)。
 
 ## 文档
+
+过时试验输出已清理；保留当前 HashGrid、32/512 对照和测试依赖。
+删除清单与保留范围见 [输出清理记录](docs/experiments/output_cleanup_20260914.md)。
 
 [方法](docs/method/principles.md) · [架构](docs/architecture/system.md) ·
 [最终结果与失败图](docs/experiments/results.md) · [复现设置](docs/experiments/setup.md) ·

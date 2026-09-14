@@ -115,7 +115,16 @@ metrics paths are in [frozen cross-data protocol](comparison_20260912.md).
 External runs received no new tuning or ablations. See
 [data research](../research/related_work_20260912.md).
 
-## Current HashGrid setup — 2026-09-14
+## Current direct-query setup — 2026-09-14
+
+The active model removes pooled exchange and directly decodes NVIDIA HashGrid
+features with light/view/material conditioning. Use `bash launch_validation.sh`
+with the tracked `configs/validation.json` and `configs/hashgrid.json`.
+Per-scene loss.png and history.jsonl are generated automatically. See
+[direct-query protocol](direct_hashgrid_validation_20260914.md) for the six-scene
+rerun and loss-plot command. The dependency setup below remains applicable.
+
+## Preceding pooled HashGrid setup — 2026-09-14
 
 The active implementation uses NVIDIA tiny-cuda-nn HashGrid. Experiment settings
 are `configs/validation.json`, encoding settings are `configs/hashgrid.json`.

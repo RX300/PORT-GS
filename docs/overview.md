@@ -1,5 +1,16 @@
 # PORT-GS overview
 
+## Current representation — direct HashGrid queries, 2026-09-14
+
+The user corrected the spatial-encoding experiment: remove the 512-channel
+source pooling and query NVIDIA HashGrid directly into a per-pixel RGB decoder
+conditioned on material, light/view geometry and visibility. Hash features are
+active from step 1. This representation no longer claims conservative exchange.
+The six-scene 30k/seed0 protocol and automatic loss plots are described in
+[the current experiment](experiments/direct_hashgrid_validation_20260914.md).
+
+## Historical second-round exchange representation
+
 The user reopened PORT-GS research on 2026-09-12. This instruction supersedes the
 September 11 retirement decision; the [historical record](project/retirement.md)
 and all existing experiments remain available. The second-round candidate is accepted and structural iteration is complete. The old Cat official-test score of 22.000071 dB

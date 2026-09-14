@@ -5,30 +5,38 @@
    checkpoint initialization inherits its saved membership; `--fit-all` uses
    all 522 official train frames and an empty validation set.
 2. Upload decoded samples to the selected GPU, estimate bounds from camera
-   geometry on GPU, and initialize Gaussian geometry and the exchange model.
+   geometry on GPU, and initialize Gaussian geometry and the direct-query decoder.
 3. Sample a fit frame and compute source visibility. Rasterize base appearance,
    features, visibility and expected camera-Z using `RGB+ED`. Normalize attributes
    by alpha and back-project pixel centers through `K` and the view transform to
-   form covered-pixel receivers. Integrate irradiance over all Gaussian sources,
-   query exchange at receivers, and apply the spatial/angular material response
-   per pixel. Alpha-composite the resulting foreground radiance.
+   form covered-pixel receivers. Query NVIDIA HashGrid at each receiver and
+   decode RGB response from spatial/material/light/view/visibility inputs,
+   scaled by point-light intensity and inverse-square distance. Alpha-composite
+   the resulting foreground radiance. There is no all-source pooling.
 4. Apply the shared observation model. PNG foreground encoding precedes alpha
    composition; HDR targets and predictions receive the same display transform.
    Optimize image, alpha and representation losses. Optional training-camera
    corrections belong only to the fit frames.
 5. Refine geometry with the established opacity-reset and point-budget schedule.
-   Defaults enable shadows at step 1,500, exchange at step 5,000, and stop
+   HashGrid decoding is active from step 1. Defaults enable shadows at step 1,500 and stop
    refinement at step 15,000. During refinement, Gaussians whose screen radius
    exceeds 3% of the image's long edge enter split candidates, including broad
    supports with weak position gradients. Split and duplication are mutually
    exclusive. Screen-radius pruning is disabled because inherited parent radii
    are stale for newly split children; opacity/world-size pruning remains active.
-   Save validation checkpoints during the 30k run.
-6. Two structural rounds have completed their fixed-last validation and image
+   Save checkpoints and loss terms during the 30k run; write loss.png at completion.
+6. Evaluate fixed last.pt on the complete official test split. The current
+   six-scene direct-query run uses all train frames and no validation selection;
+   two GPU workers handle Cat, Pixiu, AnisoMetal, Translucent, bunny_small and
+   dragon_small under the previously fixed observation protocol.
+
+Historical second-round protocol (before direct-query replacement):
+
+1. Two structural rounds have completed their fixed-last validation and image
    diagnosis. The second round is accepted for perceptual/detail improvements,
    with its PSNR/outline tradeoffs recorded. Code and hyperparameters are frozen;
    first-round engineering startup corrections remain within round one.
-7. Train a fresh model on all 522 Cat train frames and evaluate its final
+2. Train a fresh model on all 522 Cat train frames and evaluate its final
    checkpoint on 66 official test frames using original camera/light calibration.
    Then train/evaluate Translucent and Bunny in sequence on the same GPU 0,
    applying only their predefined data/observation settings. This full-fit phase completed for all three scenes on September 13 JST;

@@ -66,11 +66,11 @@ def build_manifest(config, output_dir):
         "protocol": {
             "scenes": len(jobs),
             "selection": {name: settings["scenes"] for name, settings in config["families"].items()},
-            "spatial_partition": "tinycudann_hashgrid",
-            "exchange_channels": config["train"]["rank"], "hash_encoding": hash_config,
+            "representation": "direct_hashgrid_rgb", "hash_encoding": hash_config,
             "train": config["train"],
             "family_overrides": {name: settings["train"] for name, settings in config["families"].items()},
             "test": "all official test frames, original calibration, fixed last.pt, full LPIPS",
+            "loss_curve": "each scene writes history.jsonl and loss.png after training",
             "tinycudann_revision": "48d6989c95def307a40baf176b2d6015dada19f9",
         },
         "jobs": jobs,

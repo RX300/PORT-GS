@@ -63,7 +63,6 @@ def render_observation(
     sample,
     background,
     shadow,
-    port_active,
     display_gamma=1.0,
     shadow_mode="depth",
     absgrad=False,
@@ -75,7 +74,6 @@ def render_observation(
         sample,
         background,
         shadow,
-        port_active,
         shadow_mode=shadow_mode,
         absgrad=absgrad,
     )
@@ -100,7 +98,6 @@ def evaluate_samples(
     samples,
     background,
     shadow,
-    port_active,
     output=None,
     perceptual=False,
     display_gamma=1.0,
@@ -121,7 +118,6 @@ def evaluate_samples(
             sample,
             background,
             shadow,
-            port_active,
             display_gamma,
             shadow_mode,
         )
@@ -170,7 +166,6 @@ def load_model(path):
     transport = Transport(
         config["feature_dim"],
         config["width"],
-        config["rank"],
         light_scale=checkpoint["transport"]["light_scale"].item(),
         hash_encoding=config["hash_encoding"],
         seed=config["seed"],
@@ -240,7 +235,6 @@ def main():
         evaluation_samples(),
         config["background"],
         checkpoint["step"] >= config["shadow_start"],
-        checkpoint["step"] >= config["port_start"],
         output,
         args.lpips,
         config["display_gamma"],

@@ -2,12 +2,12 @@
 
 The six-scene rank512 anchor experiment completed; its scene-mean PSNR gain over
 rank32 was only +0.043174 dB. Baseline code is saved in Git commit `9e9596a`.
-The next experiment replaces learned anchors with NVIDIA tiny-cuda-nn HashGrid,
-retaining 512 exchange channels and the same six-scene 30k/seed0 protocol.
-The HashGrid queue is running on GPU0/1 (Cat/Pixiu first); preflight operator,
-full-renderer gradients and checkpoint reload passed. Source revision `20cd679`.
-Configuration, dependency setup and evidence are in
-[`hashgrid_validation_20260914.md`](../experiments/hashgrid_validation_20260914.md).
+The pooled HashGrid run (`20cd679`) also completed, with scene-mean PSNR
+28.402343 dB versus anchor512 28.424444 dB. The user's correction now removes
+all 512-channel mixing: direct HashGrid features feed a light/view/material
+conditioned RGB decoder. The same six-scene 30k/seed0 rerun is being prepared,
+with automatic per-scene loss plots and weighted loss histories.
+See [direct query protocol](../experiments/direct_hashgrid_validation_20260914.md).
 
 # Completed — 2026-09-13
 

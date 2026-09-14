@@ -1,7 +1,8 @@
-# Current system — 2026-09-12
+# Current system — 2026-09-14
 
-2026-09-14 update: spatial partition generation now uses NVIDIA HashGrid and a
-linear 32→512 projection, in place of learned centers/widths. `train.py` resolves
+Direct-query update: NVIDIA HashGrid features now enter a light/view/material
+conditioned RGB decoder directly; the 32→512 projection and source pooling are
+removed. `train.py` resolves
 the encoding JSON into the checkpoint config; `evaluate.load_model` restores it
 directly. The six-scene launcher reads tracked experiment JSON. Older checkpoint
 architectures use their saved Git/source archive. The component boundaries below
@@ -11,21 +12,22 @@ remain unchanged.
 | --- | --- |
 | `data.py` | Metadata, decoding, camera/light conventions and explicit splits |
 | `gaussians.py` | Gaussian state, GPU initialization and parameter optimization |
-| `transport.py` | Complete Gaussian-source integral and continuous receiver material response |
+| `transport.py` | Direct HashGrid RGB queries conditioned on material, light/view geometry and visibility |
 | `renderer.py` | Attribute/expected-depth rasterization, pixel reconstruction and shadows |
 | `refinement.py` | Opacity-reset scheduling, growth and pruning |
 | `cameras.py` | Optional fit-frame camera corrections |
 | `train.py` | Optimization, split ownership, checkpoint state and progress |
 | `evaluate.py` | Model loading, shared observation transform, rendering and metrics |
 | `diagnose_image_errors.py` | Region/detail errors, silhouettes and contribution-weighted support |
+| `plot_loss.py` | Total training loss, weighted component curves and trailing-mean visualization |
 
 [Transport](modules/transport.md), [refinement](modules/refinement.md),
 [shadows](modules/shadows.md), and [data/observation](modules/data_observation.md)
 describe the component boundaries. The current renderer uses `RGB+ED` to blend
 base/features/visibility and expected
 camera-Z. It reconstructs covered-pixel receivers and evaluates transport there,
-while the source integral always uses all Gaussians. Source-node-only
-conservation is distinguished from arbitrary receiver queries. Second-round operator and receiver-rendering GPU audits passed; the
+with no source integral or shared illumination bottleneck. Current query and
+receiver audits live in `runs/direct_hashgrid_preflight/`. Historically, second-round operator and receiver-rendering GPU audits passed; the
 corresponding reports are `receiver_operator_audit.json` and
 `receiver_rendering_audit.json` under `runs/research_20260912/`.
 Historical global/local port modes, deferred queries, radiance moments and

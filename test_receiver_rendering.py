@@ -34,12 +34,12 @@ def main():
     capture = {}
 
     def capture_receivers(module, arguments, output):
-        capture["receivers"] = {key: value.detach() for key, value in arguments[1].items()}
+        capture["receivers"] = {key: value.detach() for key, value in arguments[0].items()}
         capture["foreground"] = output.detach()
 
     hook = model.register_forward_hook(capture_receivers)
     with torch.no_grad():
-        linear, alpha, _ = render(gaussians, model, sample, 0.0, True, True, "deep")
+        linear, alpha, _ = render(gaussians, model, sample, 0.0, True, "deep")
         visibility = visibility_hint(gaussians, sample["light_pos"], mode="deep")
         attributes = torch.cat((gaussians.params["base"], gaussians.params["features"], visibility[:, None]), -1)
         h, w = sample["image"].shape[:2]
@@ -86,7 +86,7 @@ def main():
         weights = (target * mask[..., None]).detach()
         gaussians.zero_grad(set_to_none=True)
         model.zero_grad(set_to_none=True)
-        linear, alpha, info = render(gaussians, model, sample, 0.0, True, True, "deep", absgrad=True)
+        linear, alpha, info = render(gaussians, model, sample, 0.0, True, "deep", absgrad=True)
         info["means2d"].retain_grad()
         prediction = observation_image(linear, 2.2, alpha=alpha, background=0.0)
         loss = (prediction.double() * weights.double()).sum()
@@ -115,7 +115,7 @@ def main():
                     values = []
                     for sign in [1, -1]:
                         value[index] = original + sign * epsilon
-                        linear, alpha, _ = render(gaussians, model, sample, 0.0, True, True, "deep")
+                        linear, alpha, _ = render(gaussians, model, sample, 0.0, True, "deep")
                         prediction = observation_image(linear, 2.2, alpha=alpha, background=0.0)
                         values.append(float((prediction.double() * weights.double()).sum()))
                     value[index] = original
@@ -128,7 +128,7 @@ def main():
         "checkpoint": str(checkpoint_path), "train_frame": 0, "points": len(state["params.means"]),
         "K": sample["K"].tolist(), "gpu": torch.cuda.get_device_name(0), "cuda_visible_devices": "0",
         "tf32_enabled": False, "geometry_and_images": "Actual saved r1 Cat geometry/base/features and actual train image",
-        "material": "Canonical HashGrid Transport initialization, seed 0",
+        "material": "Direct HashGrid RGB decoder initialization, seed 0",
         "render": "512px; full actual geometry; native deep shadows and continuous receiver shading",
         "identities": identities, "native_absgrad": native_absgrad, "derivatives": derivatives,
         "thresholds": {"projection_pixels": .005, "depth_relative": 1e-5,
@@ -144,7 +144,7 @@ def main():
         and all(abs(item["autograd"]) > 1e-8 and min(row["relative_error"] for row in item["finite_differences"]) < .05
                 for group in derivatives.values() for item in group.values())
     )
-    destination = root / "runs/hashgrid_preflight/receiver_rendering_audit.json"
+    destination = root / "runs/direct_hashgrid_preflight/receiver_rendering_audit.json"
     destination.parent.mkdir(parents=True, exist_ok=True)
     destination.write_text(json.dumps(report, indent=2) + "\n")
     print(json.dumps(report, indent=2))
