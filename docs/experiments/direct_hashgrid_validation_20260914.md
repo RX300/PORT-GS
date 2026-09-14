@@ -95,3 +95,29 @@ and the trained checkpoint reloaded through the full evaluation/LPIPS entrypoint
 The scene-by-scene argv comparison matched the preceding protocol except for
 output/config paths and removal of rank/port-start. These smoke metrics are not
 experiment results. Final metrics are pending this new run.
+
+## Launch evidence
+
+Source revision `4eb3f01`. Scheduler PID 174263 launched Cat PID 174271 on GPU0
+and Pixiu PID 174272 on GPU1. Both emitted real step-100 startup confirmation
+and subsequent total/component loss records. Host verification at 41 seconds
+showed both training children alive, GPU0 70% / 5611 MiB, GPU1 65% / 5481 MiB.
+HashGrid is active already at these steps; the other four scenes are queued.
+
+Luna Max monitor PID 174488 runs in `validation:monitor` on the same socket,
+with 60-second host polls and 1800-second model calls. Its first report succeeded
+with no anomalies. Command (from PORT-GS) for this run:
+
+```bash
+/workspace/ubuntu2004_cuda12_1/utils/conda-envs/ssd-gs/bin/python -u hourly_monitor.py \
+  --manifest runs/direct_hashgrid_validation_20260914/manifest.json \
+  --record runs/direct_hashgrid_validation_20260914/hourly_monitor.jsonl \
+  --latest-report runs/direct_hashgrid_validation_20260914/luna_latest.txt \
+  --action-required runs/direct_hashgrid_validation_20260914/action_required.md \
+  --interval 60 --luna-interval 1800 --profile port_validation \
+  --codex /home/wenxiao-z/.local/bin/codex
+```
+
+An early loss.png snapshot was generated for Cat/Pixiu during training using
+plot_loss.py. Each training process overwrites its plot with the full curve at
+completion; an early plot is not evidence of completed training.

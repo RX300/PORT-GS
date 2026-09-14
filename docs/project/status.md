@@ -5,8 +5,10 @@ rank32 was only +0.043174 dB. Baseline code is saved in Git commit `9e9596a`.
 The pooled HashGrid run (`20cd679`) also completed, with scene-mean PSNR
 28.402343 dB versus anchor512 28.424444 dB. The user's correction now removes
 all 512-channel mixing: direct HashGrid features feed a light/view/material
-conditioned RGB decoder. The same six-scene 30k/seed0 rerun is being prepared,
-with automatic per-scene loss plots and weighted loss histories.
+conditioned RGB decoder. The same six-scene 30k/seed0 rerun is running on GPU0/1
+(Cat/Pixiu first), with automatic per-scene loss plots and weighted loss histories.
+Source revision `4eb3f01`; direct-query gradients, full-renderer derivatives,
+150-step training, loss-plot generation and checkpoint reload passed.
 See [direct query protocol](../experiments/direct_hashgrid_validation_20260914.md).
 
 # Completed — 2026-09-13
