@@ -1,12 +1,11 @@
 # In progress — 2026-09-14
 
-A fresh rank-512 spatial-node validation is running on six fixed scenes: two
-each from `Real_NRHints`, `Synthetic_GS3`, and `Synthetic_SSS-GS`. The selected
-scenes, exact commands, source snapshot, and startup evidence are recorded in
-[`rank512_validation_20260914.md`](../experiments/rank512_validation_20260914.md).
-The scheduler state is
-[`runs/rank512_validation_20260914/status.json`](../../runs/rank512_validation_20260914/status.json);
-no historical rank-32 output is reused or overwritten.
+The six-scene rank512 anchor experiment completed; its scene-mean PSNR gain over
+rank32 was only +0.043174 dB. Baseline code is saved in Git commit `9e9596a`.
+The next experiment replaces learned anchors with NVIDIA tiny-cuda-nn HashGrid,
+retaining 512 exchange channels and the same six-scene 30k/seed0 protocol.
+Configuration, dependency setup and evidence are in
+[`hashgrid_validation_20260914.md`](../experiments/hashgrid_validation_20260914.md).
 
 # Completed — 2026-09-13
 

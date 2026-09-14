@@ -1,5 +1,14 @@
 # Continuous receiver transport implementation
 
+Current spatial partitions use NVIDIA tiny-cuda-nn HashGrid, configured by
+`configs/hashgrid.json`, followed by a linear projection and log-softmax over
+512 exchange channels. Learned anchor centers/widths were replaced in place;
+their source remains in Git commit `9e9596a`. Grid resolution (16–2048 across 16
+levels) and exchange rank are independent. The normalized initialization cube
+maps to [0,1]^3 without clamping. HashGrid table/interpolation/backward are native
+NVIDIA operations; the quadrature, exchange equations and angular MLP below are
+unchanged. Checkpoints embed the complete encoding config and seed.
+
 The second-round `Transport.forward` accepts all Gaussian sources and a separate
 receiver dictionary (`means`, `base`, `features`, `visibility`). The renderer
 provides one receiver per covered pixel. Source irradiance, mass and source

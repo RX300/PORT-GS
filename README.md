@@ -4,8 +4,9 @@ Paired-Origin Radiance Transport Gaussians：独立的 3DGS 重光照研究项�
 采用 **material-conditioned conservative irradiance exchange**：完整 Gaussian
 源积分与像素接收点着色。守恒与可逆性质适用于源节点离散算子，像素查询是其连续延拓。
 
-**本轮工作于 2026-09-13 完成：两轮结构迭代、三个从头训练的 30k 全量实验。**
-第二轮方案在测试前冻结，全部使用单块 GPU 0，现已释放。
+当前使用 NVIDIA tiny-cuda-nn 多分辨率 HashGrid 替换可学习空间锚点；
+512 个交换通道与网格分辨率独立。当前哈希网格从 16 到约 2048，共 16 层。
+以下表格是此前 32 节点方案的历史结果，HashGrid 六场景实验正在准备运行。
 
 | 完整官方 test | 帧数 | PSNR | SSIM | 标准 LPIPS |
 | --- | ---: | ---: | ---: | ---: |
@@ -25,16 +26,19 @@ CUDA 12.1、gsplat。数据位于 `/workspace/datasets/SSD-GS/data/`，包含
 Real_NRHints/Cat、Synthetic_GS3/Translucent、Synthetic_SSS-GS/bunny_small；
 场景由 transforms JSON 与图像目录组成。本轮复用完整已有数据。
 
-当前源码对应冻结的 `runs/research_20260912/cat_r2_source.tar`。
-以下在 PORT-GS 目录运行。训练示例使用新输出目录；评价示例读取本轮已完成的固定权重：
+旧可学习锚点源码已保存为 Git commit `9e9596a`，历史权重使用对应源码加载。
+HashGrid 依赖已在 `third_party/python` 本地编译，复用原环境；重装命令见
+[HashGrid 实验说明](docs/experiments/hashgrid_validation_20260914.md)。
+以下在 PORT-GS 目录运行：
 
 ```bash
+export PYTHONPATH="$PWD/third_party/python"
 CUDA_VISIBLE_DEVICES=0 /workspace/ubuntu2004_cuda12_1/utils/conda-envs/ssd-gs/bin/python train.py \
   --scene /workspace/datasets/SSD-GS/data/Real_NRHints/Cat \
   --output runs/cat_reproduction_s0 --fit-all
 
 CUDA_VISIBLE_DEVICES=0 /workspace/ubuntu2004_cuda12_1/utils/conda-envs/ssd-gs/bin/python evaluate.py \
-  runs/research_20260912/cat_full_s0/last.pt --split test \
+  runs/cat_reproduction_s0/last.pt --split test \
   --output runs/cat_reproduction_eval --lpips
 ```
 
@@ -44,11 +48,21 @@ CUDA_VISIBLE_DEVICES=0 /workspace/ubuntu2004_cuda12_1/utils/conda-envs/ssd-gs/bi
 首轮使用 `cat_r1_source.tar`，更早源码使用 `source_before.tar`；各归档复现自身权重，
 旧实验全部保留。`--init-checkpoint` 初始化当前表示，重新开始优化。
 
-当前默认空间交换节点数为 `rank=512`，每个 Gaussian 的 `feature_dim` 仍为 32。
-历史 rank-32 运行保持原样。六场景验证子集（每个数据集类别固定两场）及其
-独立队列入口见 [`rank512_validation_20260914`](docs/experiments/rank512_validation_20260914.md)。
+HashGrid 配置在 [`configs/hashgrid.json`](configs/hashgrid.json)；六场景、训练参数、
+GPU 与实验名在 [`configs/validation.json`](configs/validation.json)。每个 Gaussian
+的 `feature_dim=32`，每场景 30k、seed 0、官方 train/test 划分。
 
-## 全量队列恢复与查看
+```bash
+bash launch_validation.sh
+```
+
+该入口冻结配置到 `runs/hashgrid_validation_20260914/`，复用原队列调度器，
+自动完成训练和完整 test 评价。详情见
+[HashGrid 验证](docs/experiments/hashgrid_validation_20260914.md)。
+
+## 历史全量队列恢复与查看
+
+下列命令属于锚点实现，须在对应 Git/源码归档下使用。
 
 首次启动或 tmux 会话不存在时运行：
 

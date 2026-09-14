@@ -22,8 +22,8 @@ DEFAULT_INTERVAL = 60
 DEFAULT_LUNA_INTERVAL = 1800
 DEFAULT_LOG_TAIL_LINES = 40
 PROFILE_LEGACY = "legacy"
-PROFILE_PORT_NODES512 = "port_nodes512_validation"
-PROFILE_CHOICES = (PROFILE_LEGACY, PROFILE_PORT_NODES512)
+PROFILE_PORT_VALIDATION = "port_validation"
+PROFILE_CHOICES = (PROFILE_LEGACY, PROFILE_PORT_VALIDATION)
 JSON_DECODER = json.JSONDecoder()
 LOG_SIGNALS = (
     ("traceback", re.compile(r"Traceback \(most recent call last\):", re.IGNORECASE)),
@@ -354,7 +354,7 @@ def luna_view(snapshot):
     return view
 
 
-def port_nodes512_view(snapshot):
+def port_validation_view(snapshot):
     """Add compact PORT-only contract and result paths to a snapshot."""
     view = luna_view(snapshot)
     manifest = read_json(snapshot["manifest"])
@@ -376,47 +376,46 @@ def port_nodes512_view(snapshot):
                 "split": str(Path(output) / "split.json") if output else None,
             }
         )
-    protocol = manifest.get("protocol", {})
+    protocol = manifest["protocol"]
+    selection = protocol["selection"]
     view["profile"] = {
-        "name": PROFILE_PORT_NODES512,
+        "name": PROFILE_PORT_VALIDATION,
         "read_only": True,
         "contract": {
-            "method": "PORT-GS",
-            "jobs": 6,
-            "families": 3,
-            "scenes_per_family": 2,
-            "baseline_spatial_nodes": 32,
-            "target_spatial_nodes": protocol.get("spatial_exchange_nodes", 512),
+            "method": manifest["method"],
+            "jobs": len(manifest["jobs"]),
+            "families": len(selection),
+            "scenes_by_family": {
+                family: len(scenes) for family, scenes in selection.items()
+            },
         },
         "manifest_protocol": protocol,
-        "selection": protocol.get("selection"),
+        "selection": selection,
         "completion_result_paths": result_paths,
     }
     return view
 
 
-def port_nodes512_luna_prompt(snapshot, previous, reason):
+def port_validation_luna_prompt(snapshot, previous, reason):
     previous_text = "none" if previous is None else json.dumps(
-        port_nodes512_view(previous), indent=2, ensure_ascii=False
+        port_validation_view(previous), indent=2, ensure_ascii=False
     )
     current_text = json.dumps(
-        port_nodes512_view(snapshot), indent=2, ensure_ascii=False
+        port_validation_view(snapshot), indent=2, ensure_ascii=False
     )
     completion_instruction = (
-        "status=completed 时必须只读检查六个 job 的 resultpath，以及每个输出目录中存在的 "
-        "config.json 和 split.json；逐 job 报告结果文件是否存在、指标是否 finite、配置是否确实是目标节点数，"
-        "并引用绝对证据路径。"
+        "status=completed 时必须只读检查 manifest 声明的每个 job 的 resultpath，以及每个输出目录中存在的 "
+        "config.json 和 split.json；逐 job 报告结果文件是否存在、指标是否 finite、配置是否符合 manifest_protocol "
+        "中声明的空间分区与 HashGrid 字段，并引用绝对证据路径。"
         if snapshot["status"]["state"] == "completed"
         else
         "队列未完成时只检查当前运行阶段和已声明日志尾部，不把尚未生成的结果当作失败。"
     )
     return (
-        "你是 PORT-GS spatial-nodes 32-to-512 validation 的只读巡检与完成检查执行者。触发原因是 "
+        "你是 PORT-GS validation 的只读巡检与完成检查执行者。触发原因是 "
         + reason
-        + "。这是显式 opt-in 的 PORT-only profile：当前 manifest 应包含六个 PORT-GS jobs，"
-        "三个 dataset family 各两个 scene；Real_NRHints 和 Synthetic_GS3 使用 512px，"
-        "Synthetic_SSS-GS 按 manifest 的 family-specific protocol 使用 256px；seed 0，spatial transport nodes/anchors "
-        "由基线 32 改为目标 512。manifest 的精确 argv、配置字段和实际状态是唯一依据，不要猜测或改写参数。"
+        + "。这是显式 opt-in 的 PORT-only profile；当前 manifest 的 job selection、训练/测试协议、"
+        "空间分区与 HashGrid 参数字段，以及精确 argv、配置字段和实际状态是唯一依据，不要猜测或改写参数。"
         "只处理当前快照 manifest 中的 PORT-GS jobs；不要引用旧 full benchmark、SSS-GS NaN、恢复 socket，"
         "也不要使用 port-full-benchmark tmux socket。"
         "这是只读诊断：允许读取 manifest、status、config、split、result、日志尾部和 GPU 状态，"
@@ -434,8 +433,8 @@ def port_nodes512_luna_prompt(snapshot, previous, reason):
 
 
 def luna_prompt(snapshot, previous, reason, profile=PROFILE_LEGACY):
-    if profile == PROFILE_PORT_NODES512:
-        return port_nodes512_luna_prompt(snapshot, previous, reason)
+    if profile == PROFILE_PORT_VALIDATION:
+        return port_validation_luna_prompt(snapshot, previous, reason)
     previous_text = "none" if previous is None else json.dumps(
         luna_view(previous), indent=2, ensure_ascii=False
     )
@@ -485,7 +484,7 @@ def luna_command(codex, output_path, profile=PROFILE_LEGACY):
         "-o",
         str(output_path),
     ]
-    if profile == PROFILE_PORT_NODES512:
+    if profile == PROFILE_PORT_VALIDATION:
         command[command.index("--approve-for-me"): command.index("--approve-for-me") + 1] = [
             "--sandbox",
             "read-only",

@@ -24,7 +24,10 @@ def main():
     state = checkpoint["gaussians"]
     gaussians = Gaussians(len(state["params.means"]), state["center"], checkpoint["radius"], 32)
     gaussians.load_state_dict(state)
-    model = Transport(light_scale=checkpoint["transport"]["light_scale"].item()).cuda()
+    model = Transport(
+        light_scale=checkpoint["transport"]["light_scale"].item(),
+        hash_encoding=json.loads((root / "configs/hashgrid.json").read_text()),
+    ).cuda()
     dataset = SceneDataset(checkpoint["config"]["scene"], "train", 512)
     sample = to_device(dataset[0], "cuda")
     target = target_image(sample, 0.0, 2.2).detach()
@@ -125,7 +128,7 @@ def main():
         "checkpoint": str(checkpoint_path), "train_frame": 0, "points": len(state["params.means"]),
         "K": sample["K"].tolist(), "gpu": torch.cuda.get_device_name(0), "cuda_visible_devices": "0",
         "tf32_enabled": False, "geometry_and_images": "Actual saved r1 Cat geometry/base/features and actual train image",
-        "material": "Canonical r2 Transport initialization, seed 0",
+        "material": "Canonical HashGrid Transport initialization, seed 0",
         "render": "512px; full actual geometry; native deep shadows and continuous receiver shading",
         "identities": identities, "native_absgrad": native_absgrad, "derivatives": derivatives,
         "thresholds": {"projection_pixels": .005, "depth_relative": 1e-5,
@@ -141,7 +144,8 @@ def main():
         and all(abs(item["autograd"]) > 1e-8 and min(row["relative_error"] for row in item["finite_differences"]) < .05
                 for group in derivatives.values() for item in group.values())
     )
-    destination = root / "runs/research_20260912/receiver_rendering_audit.json"
+    destination = root / "runs/hashgrid_preflight/receiver_rendering_audit.json"
+    destination.parent.mkdir(parents=True, exist_ok=True)
     destination.write_text(json.dumps(report, indent=2) + "\n")
     print(json.dumps(report, indent=2))
     assert report["passed"], "Receiver projection/gradient audit failed; inspect measured residuals"

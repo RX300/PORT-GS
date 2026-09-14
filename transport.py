@@ -1,6 +1,7 @@
 """Material-conditioned conservative exchange of point-light irradiance."""
 
 import torch
+import tinycudann as tcnn
 from torch import nn
 from torch.nn import functional as F
 
@@ -51,7 +52,7 @@ class Transport(nn.Module):
     modeling assumptions; the complete renderer has no energy-conservation claim.
     """
 
-    def __init__(self, feature_dim=32, width=128, rank=512, light_scale=1.0):
+    def __init__(self, feature_dim=32, width=128, rank=512, light_scale=1.0, *, hash_encoding, seed=0):
         super().__init__()
         self.register_buffer("light_scale", torch.tensor(float(light_scale)))
         self.local = nn.Sequential(
@@ -66,14 +67,16 @@ class Transport(nn.Module):
         self.exchange = nn.Linear(feature_dim, 3)
         nn.init.zeros_(self.exchange.weight)
         nn.init.constant_(self.exchange.bias, -2.0)
-        self.anchor_centers = nn.Parameter(torch.empty(rank, 3).uniform_(-0.5, 0.5))
-        widths = torch.full((rank,), 0.5)
-        widths[: rank // 2] = 0.15
-        self.log_width = nn.Parameter(widths.log())
+        self.spatial_encoding = tcnn.Encoding(
+            n_input_dims=3, encoding_config=hash_encoding, seed=seed, dtype=torch.float32,
+        )
+        self.partition_head = nn.Linear(self.spatial_encoding.n_output_dims, rank)
 
     def partition(self, xyz):
-        distance2 = (xyz[:, None] - self.anchor_centers[None]).square().sum(-1)
-        return F.log_softmax(-distance2 / (2 * self.log_width.exp().square()), dim=-1)
+        # Map the camera-derived initialization cube [-1, 1]^3 to grid coordinates.
+        # Do not clamp positions: geometry needs gradients through the native encoding.
+        encoded = self.spatial_encoding((xyz + 1) * 0.5)
+        return F.log_softmax(self.partition_head(encoded), dim=-1)
 
     def forward(
         self, gaussians, receivers, eye, light_pos, light_intensity, source_visibility,

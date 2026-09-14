@@ -172,6 +172,8 @@ def load_model(path):
         config["width"],
         config["rank"],
         light_scale=checkpoint["transport"]["light_scale"].item(),
+        hash_encoding=config["hash_encoding"],
+        seed=config["seed"],
     ).cuda()
     transport.load_state_dict(checkpoint["transport"])
     return gaussians, transport, checkpoint

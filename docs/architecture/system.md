@@ -1,5 +1,12 @@
 # Current system — 2026-09-12
 
+2026-09-14 update: spatial partition generation now uses NVIDIA HashGrid and a
+linear 32→512 projection, in place of learned centers/widths. `train.py` resolves
+the encoding JSON into the checkpoint config; `evaluate.load_model` restores it
+directly. The six-scene launcher reads tracked experiment JSON. Older checkpoint
+architectures use their saved Git/source archive. The component boundaries below
+remain unchanged.
+
 | File | Responsibility |
 | --- | --- |
 | `data.py` | Metadata, decoding, camera/light conventions and explicit splits |

@@ -202,6 +202,22 @@ seed, metrics and outputs are recorded within PORT-GS. User data, previous logs,
 checkpoints and research documents stay intact. Existing controls are historical
 references, and this cycle launches only the repaired method.
 
+## 2026-09-14: NVIDIA HashGrid replaces learned spatial anchors
+
+The user's next experiment replaces continuous anchor centers/widths with
+NVIDIA tiny-cuda-nn HashGrid, not a hand-written grid. Save the prior source as
+Git commit `9e9596a` and exclude outputs/dependencies from Git. Retain 512
+exchange channels, the angular response, and 30k/seed0/six-scene protocol to
+compare directly with the completed anchor512 run. Grid resolutions 16–2048
+use capped per-level tables rather than dense 2048^3 weights. This improves
+spatial representation capacity but does not remove low-rank exchange pooling.
+
+The environment's installed tinycudann binary requires unavailable GLIBC_2.33.
+Build the same recorded NVIDIA source revision locally as an encoding-only
+wheel and use project-local PYTHONPATH, preserving the shared PyTorch/CUDA stack.
+Experiment JSON and HashGrid JSON are tracked, and each run freezes copies.
+See [protocol](../experiments/hashgrid_validation_20260914.md).
+
 ## Simplify source/query integration
 
 Forward Gaussians and deferred pixels now share one transport evaluation. Source

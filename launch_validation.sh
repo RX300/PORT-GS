@@ -2,10 +2,13 @@
 set -euo pipefail
 
 PROJECT_DIR=$(cd -- "$(dirname -- "$0")" && pwd)
-RUN_DIR="$PROJECT_DIR/runs/rank512_validation_20260914"
 PYTHON=/workspace/ubuntu2004_cuda12_1/utils/conda-envs/ssd-gs/bin/python
-SOCKET=port-rank512-validation
-SESSION=rank512
+CONFIG="${1:-$PROJECT_DIR/configs/validation.json}"
+if [[ $# -gt 0 ]]; then shift; fi
+RUN_NAME=$("$PYTHON" -c 'import json,sys; print(json.load(open(sys.argv[1]))["name"])' "$CONFIG")
+RUN_DIR="$PROJECT_DIR/runs/$RUN_NAME"
+SOCKET=port-validation-hashgrid
+SESSION=validation
 
 export PATH="/workspace/ubuntu2004_cuda12_1/utils/conda-envs/ssd-gs/bin:/usr/local/cuda-12.1/bin:$PATH"
 export CUDA_HOME=/usr/local/cuda-12.1
@@ -14,7 +17,7 @@ export MAX_JOBS=8
 export OMP_NUM_THREADS=8
 
 if [[ ! -f "$RUN_DIR/manifest.json" ]]; then
-  "$PYTHON" "$PROJECT_DIR/make_validation_manifest.py"
+  "$PYTHON" "$PROJECT_DIR/make_validation_manifest.py" --config "$CONFIG"
 fi
 if tmux -L "$SOCKET" has-session -t "$SESSION" 2>/dev/null; then
   printf 'session already exists: %s:%s\n' "$SOCKET" "$SESSION" >&2

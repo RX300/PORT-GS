@@ -42,13 +42,17 @@ def main():
         / (frame["light_pos"].cuda().double() - params["means"]).square().sum(-1, keepdim=True)
         for frame in frames
     ]
-    model = Transport(feature_dim=params["features"].shape[-1]).cuda().double()
+    hash_config = json.loads((root / "configs/hashgrid.json").read_text())
+    model = Transport(feature_dim=params["features"].shape[-1], hash_encoding=hash_config).cuda()
     mass = quadrature_mass(params)
-    partition = model.partition((params["means"] - gaussians.center) / gaussians.radius)
+    xyz = ((params["means"] - gaussians.center) / gaussians.radius).float().detach().requires_grad_()
+    native_partition = model.partition(xyz)
+    # Float64 renormalization isolates the operator audit from float32 encoding rounding.
+    partition = native_partition.double().log_softmax(-1)
     # Use actual learned feature channels to exercise spatially varying RGB
     # exchange fractions. A constant initialized head could conceal a missing
     # source-side exchange factor in an otherwise incorrect implementation.
-    logits = model.exchange(params["features"]) + params["features"][:, :3]
+    logits = model.exchange(params["features"].float()).double() + params["features"][:, :3]
     output = exchange_irradiance(incident[0], partition, logits, mass)
     constant = incident[0].mean(0).expand_as(incident[0])
     constant_output = exchange_irradiance(constant, partition, logits, mass)
@@ -97,37 +101,38 @@ def main():
     probe = incident[1] / incident[1].square().mean().sqrt()
     logit_direction = params["features"][:, :3]
     logit_direction = logit_direction / logit_direction.square().mean().sqrt()
-    width_direction = model.log_width.detach() / model.log_width.detach().square().mean().sqrt()
 
     def objective(log_partition, exchange_logits):
         exchanged = exchange_irradiance(incident[0], log_partition, exchange_logits, mass)
         return (mass[:, None] * probe * exchanged).sum()
 
     loss = objective(partition, logits)
-    logits_gradient, width_gradient = torch.autograd.grad(loss, (logits, model.log_width))
+    logits_gradient = torch.autograd.grad(loss, logits, retain_graph=True)[0]
     epsilon = 1e-4
     finite_logit = (
         objective(partition.detach(), logits.detach() + epsilon * logit_direction)
         - objective(partition.detach(), logits.detach() - epsilon * logit_direction)
     ) / (2 * epsilon)
     analytic_logit = (logits_gradient * logit_direction).sum()
-    original_width = model.log_width.detach().clone()
-    with torch.no_grad():
-        model.log_width.copy_(original_width + epsilon * width_direction)
-        plus = objective(model.partition((params["means"] - gaussians.center) / gaussians.radius), logits.detach())
-        model.log_width.copy_(original_width - epsilon * width_direction)
-        minus = objective(model.partition((params["means"] - gaussians.center) / gaussians.radius), logits.detach())
-        model.log_width.copy_(original_width)
-    finite_width = (plus - minus) / (2 * epsilon)
-    analytic_width = (width_gradient * width_direction).sum()
+    # Exercise native HashGrid backward through actual exchange and verify Adam
+    # updates the native table, projection head, and geometry input gradients.
+    optimizer = torch.optim.Adam(model.parameters(), lr=0.001, eps=1e-15)
+    before = model.spatial_encoding.params.detach().clone()
+    loss.backward()
+    native_gradients = {
+        name: {"finite": bool(torch.isfinite(gradient).all()), "max_abs": float(gradient.abs().max())}
+        for name, gradient in {
+            "hash_table": model.spatial_encoding.params.grad,
+            "partition_head": model.partition_head.weight.grad,
+            "xyz": xyz.grad,
+        }.items()
+    }
+    optimizer.step()
+    table_update = float((model.spatial_encoding.params.detach() - before).abs().max())
     gradients = {
         "feature_conditioned_exchange_logits": {
             "autograd": float(analytic_logit), "finite_difference": float(finite_logit),
             "relative_error": relative_error(analytic_logit, finite_logit),
-        },
-        "anchor_log_width": {
-            "autograd": float(analytic_width), "finite_difference": float(finite_width),
-            "relative_error": relative_error(analytic_width, finite_width),
         },
     }
     # Also check the arithmetic used by production rather than relying solely
@@ -149,7 +154,8 @@ def main():
         "gpu": torch.cuda.get_device_name(0), "cuda_visible_devices": "0",
         "arithmetic": "CUDA float64 reference, CUDA float32, and training-enabled TF32 comparison",
         "illumination": "Two actual train-frame point lights; direct irradiance before visibility",
-        "model": "Canonical Transport anchors, seed 0; exchange logits use initialized bias plus three actual saved feature channels",
+        "model": "NVIDIA HashGrid partition, seed 0; actual saved Gaussian feature channels",
+        "hash_encoding": hash_config, "native_gradients": native_gradients, "hash_table_update_max": table_update,
         "measurements": measures, "gradient_epsilon": epsilon, "gradients": gradients,
         "thresholds": {"identities_relative": 1e-10, "float32_relative": 2e-6,
                        "training_tf32_relative": 2e-3, "gradient_relative": 1e-4},
@@ -161,8 +167,11 @@ def main():
         and measures["training_tf32_vs_float64_relative_error"] < 2e-3
         and all(value["relative_error"] < 1e-4 and abs(value["autograd"]) > 1e-10
                 for value in gradients.values())
+        and all(item["finite"] and item["max_abs"] > 0 for item in native_gradients.values())
+        and table_update > 0
     )
-    destination = root / "runs/research_20260912/receiver_operator_audit.json"
+    destination = root / "runs/hashgrid_preflight/operator_audit.json"
+    destination.parent.mkdir(parents=True, exist_ok=True)
     destination.write_text(json.dumps(report, indent=2) + "\n")
     print(json.dumps(report, indent=2))
     assert report["passed"], "Conservative transport regression failed; inspect measured residuals"

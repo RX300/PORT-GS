@@ -19,7 +19,7 @@ u_r = sum_j m_j a_j f_jr E_j / z_r.
 ```
 
 At receiver `x`, interpolate material features through rasterization, predict its
-exchange fraction `a(x)`, and evaluate the same anchor partition `f_r(x)`:
+exchange fraction `a(x)`, and evaluate the same spatial partition `f_r(x)`:
 
 ```text
 E'(x) = (1-a(x)) E(x) + a(x) sum_r f_r(x) u_r
@@ -55,8 +55,14 @@ The angular material response, approximate visibility and alpha composition add
 separate modeling assumptions. Expected depth merges contributors along a ray,
 so the reconstructed receiver may lie between surfaces. RGB pooling compresses
 incoming direction, and the response uses the original point-light direction.
-Anchor connectivity approximates source-to-receiver transport. These limits
+Spatial partition connectivity approximates source-to-receiver transport. These limits
 remain explicit in the candidate's physical interpretation.
+
+As of 2026-09-14, `f(x)` is log-softmax of a linear projection of NVIDIA
+multiresolution HashGrid features. This replaces anchor radial weights while
+keeping positive normalized partitions and the same source-exchange identities.
+High grid resolution does not remove the 512-channel low-rank pooling bottleneck;
+its experimental value must be established by the six-scene rerun.
 
 The source operator's analytical review is in
 [review_20260912.md](../project/review_20260912.md). First-round results and the

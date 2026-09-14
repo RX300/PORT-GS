@@ -30,8 +30,9 @@ def arguments():
     p.add_argument("--width", type=int, default=128)
     p.add_argument(
         "--rank", type=int, default=512,
-        help="number of learned spatial exchange nodes (anchors)",
+        help="number of exchange channels predicted from the multiresolution hash encoding",
     )
+    p.add_argument("--hash-config", default=str(Path(__file__).parent / "configs/hashgrid.json"))
     p.add_argument("--port-start", type=int, default=5000)
     p.add_argument("--shadow-start", type=int, default=1500)
     p.add_argument("--refine-stop", type=int, default=15000)
@@ -76,6 +77,8 @@ def main():
     output = Path(args.output)
     output.mkdir(parents=True, exist_ok=False)
     config = vars(args)
+    config["hash_encoding"] = json.loads(Path(args.hash_config).read_text())
+    config["spatial_partition"] = "tinycudann_hashgrid"
     config["sss_light_axes"] = "world"
     dataset = SceneDataset(
         args.scene, "train", args.resolution, unit_light_intensity=args.unit_light_intensity
@@ -130,6 +133,8 @@ def main():
         width=args.width,
         rank=args.rank,
         light_scale=light_scale,
+        hash_encoding=config["hash_encoding"],
+        seed=args.seed,
     ).cuda()
     if args.init_checkpoint:
         if dataset.scene_path.parent.name == "Synthetic_SSS-GS":

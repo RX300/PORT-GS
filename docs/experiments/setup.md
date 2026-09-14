@@ -115,6 +115,14 @@ metrics paths are in [frozen cross-data protocol](comparison_20260912.md).
 External runs received no new tuning or ablations. See
 [data research](../research/related_work_20260912.md).
 
+## Current HashGrid setup — 2026-09-14
+
+The active implementation uses NVIDIA tiny-cuda-nn HashGrid. Experiment settings
+are `configs/validation.json`, encoding settings are `configs/hashgrid.json`.
+The local `third_party/python` build avoids the incompatible shared tinycudann
+binary. See [HashGrid protocol/setup](hashgrid_validation_20260914.md) for build,
+training, evaluation, provenance and the exact six-scene comparison.
+
 # Historical September 11 repair experiment setup
 
 Environment: `/workspace/ubuntu2004_cuda12_1/utils/conda-envs/ssd-gs`, Python 3.10,
