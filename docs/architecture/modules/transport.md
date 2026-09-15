@@ -5,12 +5,14 @@
 `Transport.forward(receivers, center, radius, eye, light_pos, light_intensity)`
 accepts only the requested receivers and shared calibration values. It does not
 receive the Gaussian source set. NVIDIA HashGrid (32 features) and material,
-light/view/visibility inputs form 175 decoder inputs. Four width-128 SiLU layers
-and a linear RGB head produce a positive softplus response, scaled by intensity
+light/view/visibility inputs form 175 decoder inputs. A 175→128 input projection
+with SiLU, two width128 residual blocks, and a linear RGB head produce a positive
+softplus response, scaled by intensity
 and inverse-square falloff. There are no partition weights, learned anchors,
 exchange channels, global pooling, or port activation switches. Hash parameters
-and the decoder train from step 1. Checkpoints embed `representation=direct_hashgrid_rgb`
-and the complete encoding config.
+and the decoder train from step1. Each block computes
+`SiLU(h + Linear2(SiLU(Linear1(h))))`. Checkpoints embed
+`representation=residual_hashgrid_rgb`, `residual_blocks`, and the complete encoding config.
 
 ## Historical pooled transport implementation
 

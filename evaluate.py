@@ -169,6 +169,7 @@ def load_model(path):
         light_scale=checkpoint["transport"]["light_scale"].item(),
         hash_encoding=config["hash_encoding"],
         seed=config["seed"],
+        residual_blocks=config["residual_blocks"],
     ).cuda()
     transport.load_state_dict(checkpoint["transport"])
     return gaussians, transport, checkpoint

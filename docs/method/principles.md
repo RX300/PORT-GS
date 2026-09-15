@@ -3,7 +3,8 @@
 The current model directly queries NVIDIA HashGrid at each pixel receiver.
 The 32-dimensional spatial feature is concatenated with 32 material features,
 82 angular channels, 27 encoded normalized-light-position channels, normalized
-log distance and visibility. A four-hidden-layer width-128 SiLU MLP decodes:
+log distance and visibility. A width128 residual MLP (input projection, two
+two-affine-layer residual blocks, RGB output) decodes:
 
 ```text
 z(x) = HashGrid((x - center) / (2 * radius) + 0.5)

@@ -1,5 +1,5 @@
 {
-  "name": "direct_hashgrid_validation_20260914",
+  "name": "residual_hashgrid_validation_20260915",
   "python": "/workspace/ubuntu2004_cuda12_1/utils/conda-envs/ssd-gs/bin/python",
   "data_root": "/workspace/datasets/SSD-GS/data",
   "worker_gpus": [0, 1],
@@ -11,6 +11,7 @@
     "max-points": 400000,
     "feature-dim": 32,
     "width": 128,
+    "residual-blocks": 2,
     "shadow-start": 1500,
     "refine-stop": 15000,
     "validate-every": 10000,

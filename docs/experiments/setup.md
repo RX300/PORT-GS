@@ -117,6 +117,11 @@ External runs received no new tuning or ablations. See
 
 ## Current direct-query setup — 2026-09-14
 
+2026-09-15: the canonical decoder is now a residual MLP. Configure its two-block
+default with `train.residual-blocks` in `configs/validation.json`. Current output
+root and launch/verification details are in
+[residual validation](residual_hashgrid_validation_20260915.md).
+
 The active model removes pooled exchange and directly decodes NVIDIA HashGrid
 features with light/view/material conditioning. Use `bash launch_validation.sh`
 with the tracked `configs/validation.json` and `configs/hashgrid.json`.

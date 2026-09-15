@@ -1,12 +1,20 @@
-# In progress — 2026-09-14
+# In progress — 2026-09-15
+
+The user requested a residual network after HashGrid. The direct decoder now
+uses a width128 stem, two residual blocks and RGB head. A fresh same-six-scene
+30k/seed0 experiment is being prepared with the existing loss plots and Luna Max
+monitoring. See [residual protocol](../experiments/residual_hashgrid_validation_20260915.md).
+
+# Completed direct-query run — 2026-09-15
 
 The six-scene rank512 anchor experiment completed; its scene-mean PSNR gain over
 rank32 was only +0.043174 dB. Baseline code is saved in Git commit `9e9596a`.
 The pooled HashGrid run (`20cd679`) also completed, with scene-mean PSNR
 28.402343 dB versus anchor512 28.424444 dB. The user's correction now removes
 all 512-channel mixing: direct HashGrid features feed a light/view/material
-conditioned RGB decoder. The same six-scene 30k/seed0 rerun is running on GPU0/1
-(Cat/Pixiu first), with automatic per-scene loss plots and weighted loss histories.
+conditioned RGB decoder. That six-scene 30k/seed0 rerun completed with mean
+PSNR27.264570, SSIM0.904588 and LPIPS0.097787. Pixiu regressed to13.157520dB;
+its loss plateaued near0.1. All loss plots and weighted histories were saved.
 Source revision `4eb3f01`; direct-query gradients, full-renderer derivatives,
 150-step training, loss-plot generation and checkpoint reload passed.
 See [direct query protocol](../experiments/direct_hashgrid_validation_20260914.md).

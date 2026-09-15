@@ -66,7 +66,9 @@ def build_manifest(config, output_dir):
         "protocol": {
             "scenes": len(jobs),
             "selection": {name: settings["scenes"] for name, settings in config["families"].items()},
-            "representation": "direct_hashgrid_rgb", "hash_encoding": hash_config,
+            "representation": "residual_hashgrid_rgb", "hash_encoding": hash_config,
+            "decoder": {"type": "residual_mlp", "width": config["train"]["width"],
+                        "blocks": config["train"]["residual-blocks"], "layers_per_block": 2},
             "train": config["train"],
             "family_overrides": {name: settings["train"] for name, settings in config["families"].items()},
             "test": "all official test frames, original calibration, fixed last.pt, full LPIPS",

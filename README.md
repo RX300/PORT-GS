@@ -1,9 +1,10 @@
 # PORT-GS
 
 Paired-Origin Radiance Transport Gaussians：独立的 3DGS 重光照研究项目。
-当前采用 **HashGrid 直接查询 + 光源/视角条件 RGB 解码**。每个覆盖像素查询
+当前采用 **HashGrid 直接查询 + 光源/视角条件残差 RGB 解码**。每个覆盖像素查询
 NVIDIA tiny-cuda-nn 的 32 维哈希特征，与材质、光源、视角及可见度一起输入
-175→128×4→3 解码器。已移除 512 通道汇总和空间混合，不再宣称离散守恒/可逆。
+175→128→两个残差块→3 解码器，每块两层全连接加跳连。
+已移除 512 通道汇总和空间混合，不再宣称离散守恒/可逆。
 哈希网格从 16 到约 2048，共 16 层，从训练第一步启用。
 以下表格是此前 32 节点方案的历史结果。
 
@@ -55,9 +56,10 @@ GPU 与实验名在 [`configs/validation.json`](configs/validation.json)。每�
 bash launch_validation.sh
 ```
 
-该入口冻结配置到 `runs/direct_hashgrid_validation_20260914/`，复用原队列调度器，
+残差块数量由 `configs/validation.json` 的 `train.residual-blocks` 配置，默认2。
+该入口冻结配置到 `runs/residual_hashgrid_validation_20260915/`，复用原队列调度器，
 自动完成训练和完整 test 评价。详情见
-[直接查询验证](docs/experiments/direct_hashgrid_validation_20260914.md)。
+[残差解码验证](docs/experiments/residual_hashgrid_validation_20260915.md)。
 
 每场景保存 `history.jsonl`（总 loss 和加权分项，每 100 步）和训练完成后的
 `loss.png`。可运行 `python plot_loss.py <场景目录>/history.jsonl` 重画当前训练曲线。

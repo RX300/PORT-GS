@@ -128,7 +128,7 @@ def main():
         "checkpoint": str(checkpoint_path), "train_frame": 0, "points": len(state["params.means"]),
         "K": sample["K"].tolist(), "gpu": torch.cuda.get_device_name(0), "cuda_visible_devices": "0",
         "tf32_enabled": False, "geometry_and_images": "Actual saved r1 Cat geometry/base/features and actual train image",
-        "material": "Direct HashGrid RGB decoder initialization, seed 0",
+        "material": "Residual HashGrid RGB decoder initialization, seed 0",
         "render": "512px; full actual geometry; native deep shadows and continuous receiver shading",
         "identities": identities, "native_absgrad": native_absgrad, "derivatives": derivatives,
         "thresholds": {"projection_pixels": .005, "depth_relative": 1e-5,
@@ -144,7 +144,7 @@ def main():
         and all(abs(item["autograd"]) > 1e-8 and min(row["relative_error"] for row in item["finite_differences"]) < .05
                 for group in derivatives.values() for item in group.values())
     )
-    destination = root / "runs/direct_hashgrid_preflight/receiver_rendering_audit.json"
+    destination = root / "runs/residual_hashgrid_preflight/receiver_rendering_audit.json"
     destination.parent.mkdir(parents=True, exist_ok=True)
     destination.write_text(json.dumps(report, indent=2) + "\n")
     print(json.dumps(report, indent=2))

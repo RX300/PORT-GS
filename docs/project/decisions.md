@@ -202,6 +202,18 @@ seed, metrics and outputs are recorded within PORT-GS. User data, previous logs,
 checkpoints and research documents stay intact. Existing controls are historical
 references, and this cycle launches only the repaired method.
 
+## 2026-09-15: Residual decoder after queried HashGrid features
+
+At the user's request, replace the plain direct RGB decoder with a width128
+stem and two two-layer residual blocks followed by an RGB head. Keep inputs,
+HashGrid settings, radiometric scaling, losses and six-scene 30k/seed0 protocol.
+This includes one more hidden affine layer than the previous plain decoder, so
+it is a residual-architecture comparison rather than a parameter-matched skip
+ablation. Save the block count in JSON/checkpoints and update the evaluator.
+No source pooling or 512-channel mixture is reintroduced. Preserve all prior
+scored runs for comparison; verify residual gradients, rendering, saved weights
+and loss curves before launch. See [protocol](../experiments/residual_hashgrid_validation_20260915.md).
+
 ## 2026-09-14: Remove pooling and directly decode HashGrid queries
 
 The user clarified that the intended HashGrid replacement should directly

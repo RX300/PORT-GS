@@ -10,7 +10,7 @@ from data import SceneDataset
 from evaluate import to_device
 from gaussians import Gaussians
 from renderer import visibility_hint
-from transport import Transport
+from transport import ResidualBlock, Transport
 
 
 def main():
@@ -67,6 +67,13 @@ def main():
             "view_position": eye.grad,
         }.items()
     }
+    # Check both affine layers in each actual residual branch receive gradients.
+    for index, block in enumerate(module for module in model.decoder if isinstance(module, ResidualBlock)):
+        for layer in (0, 2):
+            gradient = block.branch[layer].weight.grad
+            gradients[f"residual_{index}_layer_{layer}"] = {
+                "finite": bool(torch.isfinite(gradient).all()), "max_abs": gradient.abs().max().item(),
+            }
     assert all(row["finite"] and row["max_abs"] > 0 for row in gradients.values())
     optimizer = torch.optim.Adam(model.parameters(), lr=0.001, eps=1e-15)
     optimizer.step()
@@ -85,14 +92,14 @@ def main():
         )
     report = {
         "checkpoint_geometry": str(source), "train_frame": sample["frame_index"],
-        "queries": len(indices), "representation": "direct_hashgrid_rgb",
+        "queries": len(indices), "representation": "residual_hashgrid_rgb",
         "decoder_input_dim": model.decoder[0].in_features,
         "hash_encoding": encoding, "native_gradients": gradients, "hash_update_max": update,
         "checks": ["batch-independent queries", "linear intensity scaling", "zero light gives zero RGB",
                    "occlusion is not a hard zero gate", "native HashGrid optimization", "checkpoint roundtrip"],
         "passed": True,
     }
-    destination = root / "runs/direct_hashgrid_preflight/query_audit.json"
+    destination = root / "runs/residual_hashgrid_preflight/query_audit.json"
     destination.parent.mkdir(parents=True, exist_ok=True)
     destination.write_text(json.dumps(report, indent=2) + "\n")
     print(json.dumps(report, indent=2))

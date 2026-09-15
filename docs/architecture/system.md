@@ -1,12 +1,16 @@
 # Current system — 2026-09-14
 
 Direct-query update: NVIDIA HashGrid features now enter a light/view/material
-conditioned RGB decoder directly; the 32→512 projection and source pooling are
+conditioned residual RGB decoder directly; the 32→512 projection and source pooling are
 removed. `train.py` resolves
 the encoding JSON into the checkpoint config; `evaluate.load_model` restores it
 directly. The six-scene launcher reads tracked experiment JSON. Older checkpoint
 architectures use their saved Git/source archive. The component boundaries below
 remain unchanged.
+
+2026-09-15: the decoder has a width128 stem, two residual blocks (two affine
+layers per branch plus identity skip), and a 3-channel head. Its block count is
+saved in checkpoints and restored by the evaluator.
 
 | File | Responsibility |
 | --- | --- |

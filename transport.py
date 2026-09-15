@@ -12,6 +12,17 @@ def direction_encoding(direction, bands=4):
     return torch.cat((direction, phase.sin().flatten(-2), phase.cos().flatten(-2)), dim=-1)
 
 
+class ResidualBlock(nn.Module):
+    """Two affine layers with an identity skip at the decoder's hidden width."""
+
+    def __init__(self, width):
+        super().__init__()
+        self.branch = nn.Sequential(nn.Linear(width, width), nn.SiLU(), nn.Linear(width, width))
+
+    def forward(self, hidden):
+        return F.silu(hidden + self.branch(hidden))
+
+
 class Transport(nn.Module):
     """Decode RGB at each receiver, with no source integral or exchange channels.
 
@@ -22,7 +33,8 @@ class Transport(nn.Module):
     nonzero responses. There is no discrete conservation/reversibility claim.
     """
 
-    def __init__(self, feature_dim=32, width=128, light_scale=1.0, *, hash_encoding, seed=0):
+    def __init__(self, feature_dim=32, width=128, light_scale=1.0, *, hash_encoding, seed=0,
+                 residual_blocks=2):
         super().__init__()
         self.register_buffer("light_scale", torch.tensor(float(light_scale)))
         self.spatial_encoding = tcnn.Encoding(
@@ -32,9 +44,7 @@ class Transport(nn.Module):
         inputs = feature_dim + self.spatial_encoding.n_output_dims + 82 + 27 + 2
         self.decoder = nn.Sequential(
             nn.Linear(inputs, width), nn.SiLU(),
-            nn.Linear(width, width), nn.SiLU(),
-            nn.Linear(width, width), nn.SiLU(),
-            nn.Linear(width, width), nn.SiLU(),
+            *(ResidualBlock(width) for _ in range(residual_blocks)),
             nn.Linear(width, 3),
         )
         nn.init.normal_(self.decoder[-1].weight, std=0.001)

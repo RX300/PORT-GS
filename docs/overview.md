@@ -2,6 +2,9 @@
 
 ## Current representation — direct HashGrid queries, 2026-09-14
 
+2026-09-15 update: queried features now feed a residual RGB MLP with two
+width128 blocks. See [residual experiment](experiments/residual_hashgrid_validation_20260915.md).
+
 The user corrected the spatial-encoding experiment: remove the 512-channel
 source pooling and query NVIDIA HashGrid directly into a per-pixel RGB decoder
 conditioned on material, light/view geometry and visibility. Hash features are
