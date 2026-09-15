@@ -27,8 +27,6 @@ def train_argv(python, options):
 
 def build_manifest(config, output_dir):
     python = config["python"]
-    hash_config = json.loads((ROOT / config["hash_config"]).read_text())
-    frozen_hash = output_dir / "hashgrid.json"
     source_archive = output_dir / "source.tar"
     revision = subprocess.check_output(["git", "rev-parse", "HEAD"], cwd=ROOT, text=True).strip()
     jobs = []
@@ -37,7 +35,7 @@ def build_manifest(config, output_dir):
             output = output_dir / family / scene
             dataset = Path(config["data_root"]) / family / scene
             options = {**config["train"], **settings["train"],
-                       "scene": str(dataset), "output": str(output), "hash-config": str(frozen_hash)}
+                       "scene": str(dataset), "output": str(output)}
             jobs.append({
                 "id": f"PORT-{family}-{scene}", "method": "PORT-GS", "family": family,
                 "scene": scene, "dataset": str(dataset), "state": "pending", "mode": "fresh",
@@ -57,7 +55,6 @@ def build_manifest(config, output_dir):
                 ],
             })
     environment = dict(config["launch_environment"])
-    environment["PYTHONPATH"] = str(ROOT / "third_party/python")
     return {
         "name": config["name"], "version": 1, "method": "PORT-GS", "root": str(ROOT),
         "status_path": str(output_dir / "status.json"), "source_archive": str(source_archive),
@@ -66,14 +63,12 @@ def build_manifest(config, output_dir):
         "protocol": {
             "scenes": len(jobs),
             "selection": {name: settings["scenes"] for name, settings in config["families"].items()},
-            "representation": "residual_hashgrid_rgb", "hash_encoding": hash_config,
-            "decoder": {"type": "residual_mlp", "width": config["train"]["width"],
-                        "blocks": config["train"]["residual-blocks"], "layers_per_block": 2},
+            "representation": "learned_anchor_exchange",
+            "spatial_exchange_nodes": config["train"]["rank"],
             "train": config["train"],
             "family_overrides": {name: settings["train"] for name, settings in config["families"].items()},
             "test": "all official test frames, original calibration, fixed last.pt, full LPIPS",
             "loss_curve": "each scene writes history.jsonl and loss.png after training",
-            "tinycudann_revision": "48d6989c95def307a40baf176b2d6015dada19f9",
         },
         "jobs": jobs,
     }
@@ -88,7 +83,6 @@ def main():
     manifest = build_manifest(config, output_dir)
     output_dir.mkdir(parents=True, exist_ok=False)
     (output_dir / "validation.json").write_text(json.dumps(config, indent=2) + "\n")
-    (output_dir / "hashgrid.json").write_text(json.dumps(manifest["protocol"]["hash_encoding"], indent=2) + "\n")
     with tarfile.open(output_dir / "source.tar", "w") as archive:
         for filename in subprocess.check_output(["git", "ls-files"], cwd=ROOT, text=True).splitlines():
             archive.add(ROOT / filename, arcname=filename)

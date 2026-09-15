@@ -1,6 +1,13 @@
 # PORT-GS overview
 
-## Current representation — direct HashGrid queries, 2026-09-14
+## Active selection — anchor512 restored, 2026-09-15
+
+The user reverted to the original 512 learned spatial nodes, source light
+pooling and material-response MLP. HashGrid/direct/residual descriptions below
+are historical experiments. Loss curves and JSON configuration remain active.
+See [restore record](project/restore_anchor512_20260915.md).
+
+## Historical representation — direct HashGrid queries, 2026-09-14
 
 2026-09-15 update: queried features now feed a residual RGB MLP with two
 width128 blocks. See [residual experiment](experiments/residual_hashgrid_validation_20260915.md).

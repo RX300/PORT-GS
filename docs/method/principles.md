@@ -1,29 +1,9 @@
-# Direct HashGrid neural radiance
+> Active representation restored on 2026-09-15: 512 learned spatial anchors,
+> source irradiance pooling and the original material-response MLP (Git `9e9596a`).
+> HashGrid and residual decoders are archived experiments. Current training
+> also retains weighted loss logs/plots and the six-scene JSON launcher.
 
-The current model directly queries NVIDIA HashGrid at each pixel receiver.
-The 32-dimensional spatial feature is concatenated with 32 material features,
-82 angular channels, 27 encoded normalized-light-position channels, normalized
-log distance and visibility. A width128 residual MLP (input projection, two
-two-affine-layer residual blocks, RGB output) decodes:
-
-```text
-z(x) = HashGrid((x - center) / (2 * radius) + 0.5)
-response = softplus(base(x) + decoder(z(x), material(x), light, view, visibility))
-RGB(x) = response * light_intensity / light_scale / distance_to_light^2.
-```
-
-Intensity enters only the final radiometric factor, ensuring zero RGB for zero
-light and linear intensity scaling before gamma. Position, direction, distance,
-view and visibility condition the decoded response. Visibility is not a hard
-zero gate. There is no source quadrature, exchange fraction, rank or shared
-512-RGB bottleneck. This is a learned scene-specific response; no source-mass
-conservation, detailed balance or explicit multiple scattering is claimed.
-The existing depth-derived receiver and Gaussian shadow approximations remain.
-
-## Historical conservative Gaussian-source exchange
-
-The following describes saved pre-direct-query implementations, not the active
-decoder. Their results cannot establish the effectiveness of direct queries.
+# Continuous receivers over conservative Gaussian-source exchange
 
 The accepted second-round representation separates the source integral from the location where
 material response is evaluated. Every Gaussian remains a source with geometry,
@@ -44,7 +24,7 @@ u_r = sum_j m_j a_j f_jr E_j / z_r.
 ```
 
 At receiver `x`, interpolate material features through rasterization, predict its
-exchange fraction `a(x)`, and evaluate the same spatial partition `f_r(x)`:
+exchange fraction `a(x)`, and evaluate the same anchor partition `f_r(x)`:
 
 ```text
 E'(x) = (1-a(x)) E(x) + a(x) sum_r f_r(x) u_r
@@ -80,14 +60,8 @@ The angular material response, approximate visibility and alpha composition add
 separate modeling assumptions. Expected depth merges contributors along a ray,
 so the reconstructed receiver may lie between surfaces. RGB pooling compresses
 incoming direction, and the response uses the original point-light direction.
-Spatial partition connectivity approximates source-to-receiver transport. These limits
+Anchor connectivity approximates source-to-receiver transport. These limits
 remain explicit in the candidate's physical interpretation.
-
-As of 2026-09-14, `f(x)` is log-softmax of a linear projection of NVIDIA
-multiresolution HashGrid features. This replaces anchor radial weights while
-keeping positive normalized partitions and the same source-exchange identities.
-High grid resolution does not remove the 512-channel low-rank pooling bottleneck;
-its experimental value must be established by the six-scene rerun.
 
 The source operator's analytical review is in
 [review_20260912.md](../project/review_20260912.md). First-round results and the

@@ -406,7 +406,7 @@ def port_validation_luna_prompt(snapshot, previous, reason):
     completion_instruction = (
         "status=completed 时必须只读检查 manifest 声明的每个 job 的 resultpath，以及每个输出目录中存在的 "
         "config.json 和 split.json；逐 job 报告结果文件是否存在、指标是否 finite、配置是否符合 manifest_protocol "
-        "中声明的表示与 HashGrid 字段；若协议包含 loss_curve，也核对每个场景的 loss.png 和 history.jsonl，"
+        "中声明的表示与对应参数；若协议包含 loss_curve，也核对每个场景的 loss.png 和 history.jsonl，"
         "并引用绝对证据路径。"
         if snapshot["status"]["state"] == "completed"
         else
@@ -416,7 +416,7 @@ def port_validation_luna_prompt(snapshot, previous, reason):
         "你是 PORT-GS validation 的只读巡检与完成检查执行者。触发原因是 "
         + reason
         + "。这是显式 opt-in 的 PORT-only profile；当前 manifest 的 job selection、训练/测试协议、"
-        "空间分区与 HashGrid 参数字段，以及精确 argv、配置字段和实际状态是唯一依据，不要猜测或改写参数。"
+        "表示和参数字段，以及精确 argv、配置字段和实际状态是唯一依据，不要猜测或改写参数。"
         "只处理当前快照 manifest 中的 PORT-GS jobs；不要引用旧 full benchmark、SSS-GS NaN、恢复 socket，"
         "也不要使用 port-full-benchmark tmux socket。"
         "这是只读诊断：允许读取 manifest、status、config、split、result、日志尾部和 GPU 状态，"

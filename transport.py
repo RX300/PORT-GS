@@ -1,7 +1,6 @@
-"""Direct, light-conditioned radiance queries using NVIDIA HashGrid features."""
+"""Material-conditioned conservative exchange of point-light irradiance."""
 
 import torch
-import tinycudann as tcnn
 from torch import nn
 from torch.nn import functional as F
 
@@ -12,61 +11,100 @@ def direction_encoding(direction, bands=4):
     return torch.cat((direction, phase.sin().flatten(-2), phase.cos().flatten(-2)), dim=-1)
 
 
-class ResidualBlock(nn.Module):
-    """Two affine layers with an identity skip at the decoder's hidden width."""
+def quadrature_mass(params):
+    """Normalized opacity-weighted mean projected-area surrogate.
 
-    def __init__(self, width):
-        super().__init__()
-        self.branch = nn.Sequential(nn.Linear(width, width), nn.SiLU(), nn.Linear(width, width))
+    This discretizes an exchange measure, rather than a measured surface area.
+    Detaching the measure keeps its normalization outside geometry optimization.
+    """
+    scales = params["scales"].exp()
+    area = scales[:, 0] * scales[:, 1] + scales[:, 1] * scales[:, 2] + scales[:, 2] * scales[:, 0]
+    mass = (params["opacities"].sigmoid() * area).detach()
+    return mass / mass.sum()
 
-    def forward(self, hidden):
-        return F.silu(hidden + self.branch(hidden))
+
+def exchange_irradiance(
+    source_incident, source_partition, source_exchange_logits, mass,
+    incident, log_partition, exchange_logits,
+):
+    """Exchange Gaussian-source light with continuous material receivers.
+
+    Source-node queries recover the mass-conservative discrete operator.
+    Arbitrary receiver locations query the same source integral.
+    """
+    fraction = source_exchange_logits.sigmoid()
+    source_logits = (source_partition + mass.log()[:, None]).T.contiguous()
+    source_weights = source_logits.softmax(dim=-1)
+    # Factor the channel-dependent normalization into two small port matrices.
+    # This computes the same m*a*f average without an N x R x RGB tensor.
+    pooled = (source_weights @ (fraction * source_incident)) / (source_weights @ fraction)
+    received = log_partition.exp() @ pooled
+    fraction = exchange_logits.sigmoid()
+    return (1 - fraction) * incident + fraction * received
 
 
 class Transport(nn.Module):
-    """Decode RGB at each receiver, with no source integral or exchange channels.
+    """A continuous receiver field over Gaussian-source irradiance exchange.
 
-    The decoder predicts a positive response conditioned on spatial hash
-    features, material features, light/view geometry and shadow visibility.
-    Point-light intensity and inverse-square falloff set the radiometric scale.
-    Visibility is an input, not a hard multiplier, so occluded queries can learn
-    nonzero responses. There is no discrete conservation/reversibility claim.
+    The exchange operator conserves irradiance in its discrete measure. The
+    learned angular response and approximate Gaussian visibility are separate
+    modeling assumptions; the complete renderer has no energy-conservation claim.
     """
 
-    def __init__(self, feature_dim=32, width=128, light_scale=1.0, *, hash_encoding, seed=0,
-                 residual_blocks=2):
+    def __init__(self, feature_dim=32, width=128, rank=512, light_scale=1.0):
         super().__init__()
         self.register_buffer("light_scale", torch.tensor(float(light_scale)))
-        self.spatial_encoding = tcnn.Encoding(
-            n_input_dims=3, encoding_config=hash_encoding, seed=seed, dtype=torch.float32,
-        )
-        # Material + hash + angular (82) + light position (27) + distance + visibility.
-        inputs = feature_dim + self.spatial_encoding.n_output_dims + 82 + 27 + 2
-        self.decoder = nn.Sequential(
-            nn.Linear(inputs, width), nn.SiLU(),
-            *(ResidualBlock(width) for _ in range(residual_blocks)),
+        self.local = nn.Sequential(
+            nn.Linear(feature_dim + 82 + 51, width), nn.SiLU(),
+            nn.Linear(width, width), nn.SiLU(),
+            nn.Linear(width, width), nn.SiLU(),
+            nn.Linear(width, width), nn.SiLU(),
             nn.Linear(width, 3),
         )
-        nn.init.normal_(self.decoder[-1].weight, std=0.001)
-        nn.init.zeros_(self.decoder[-1].bias)
+        nn.init.normal_(self.local[-1].weight, std=0.001)
+        nn.init.zeros_(self.local[-1].bias)
+        self.exchange = nn.Linear(feature_dim, 3)
+        nn.init.zeros_(self.exchange.weight)
+        nn.init.constant_(self.exchange.bias, -2.0)
+        self.anchor_centers = nn.Parameter(torch.empty(rank, 3).uniform_(-0.5, 0.5))
+        widths = torch.full((rank,), 0.5)
+        widths[: rank // 2] = 0.15
+        self.log_width = nn.Parameter(widths.log())
 
-    def forward(self, receivers, center, radius, eye, light_pos, light_intensity):
-        xyz = (receivers["means"] - center) / radius
-        spatial = self.spatial_encoding((xyz + 1) * 0.5)
+    def partition(self, xyz):
+        distance2 = (xyz[:, None] - self.anchor_centers[None]).square().sum(-1)
+        return F.log_softmax(-distance2 / (2 * self.log_width.exp().square()), dim=-1)
+
+    def forward(
+        self, gaussians, receivers, eye, light_pos, light_intensity, source_visibility,
+        port_active=True,
+    ):
         delta = light_pos - receivers["means"]
-        distance = delta.norm(dim=-1, keepdim=True)
-        light_dir = delta / distance
+        incident = light_intensity[None] / self.light_scale / delta.square().sum(-1, keepdim=True)
+        incident = incident * receivers["visibility"][:, None]
+        light_dir = F.normalize(delta, dim=-1)
         view_dir = F.normalize(eye - receivers["means"], dim=-1)
-        light_position = direction_encoding((light_pos - center) / radius)
-        inputs = torch.cat(
+        xyz = (receivers["means"] - gaussians.center) / gaussians.radius
+        material_inputs = torch.cat(
             (
-                receivers["features"], spatial,
-                direction_encoding(light_dir), direction_encoding(view_dir),
+                receivers["features"], direction_encoding(light_dir), direction_encoding(view_dir),
                 direction_encoding(F.normalize(light_dir + view_dir, dim=-1)),
                 (light_dir * view_dir).sum(-1, keepdim=True),
-                light_position[None].expand(len(xyz), -1),
-                torch.log1p(distance / radius), receivers["visibility"][:, None],
+                direction_encoding(xyz, bands=8),
             ), dim=-1,
         )
-        response = F.softplus(receivers["base"] + self.decoder(inputs))
-        return response * (light_intensity[None] / self.light_scale / distance.square())
+        response = F.softplus(receivers["base"] + self.local(material_inputs))
+        if port_active:
+            source = gaussians.params
+            source_delta = light_pos - source["means"]
+            source_incident = (
+                light_intensity[None] / self.light_scale
+                / source_delta.square().sum(-1, keepdim=True) * source_visibility[:, None]
+            )
+            source_xyz = (source["means"] - gaussians.center) / gaussians.radius
+            incident = exchange_irradiance(
+                source_incident, self.partition(source_xyz), self.exchange(source["features"]),
+                quadrature_mass(source),
+                incident, self.partition(xyz), self.exchange(receivers["features"]),
+            )
+        return response * incident

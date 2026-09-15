@@ -1,11 +1,10 @@
 # PORT-GS
 
 Paired-Origin Radiance Transport Gaussians：独立的 3DGS 重光照研究项目。
-当前采用 **HashGrid 直接查询 + 光源/视角条件残差 RGB 解码**。每个覆盖像素查询
-NVIDIA tiny-cuda-nn 的 32 维哈希特征，与材质、光源、视角及可见度一起输入
-175→128→两个残差块→3 解码器，每块两层全连接加跳连。
-已移除 512 通道汇总和空间混合，不再宣称离散守恒/可逆。
-哈希网格从 16 到约 2048，共 16 层，从训练第一步启用。
+当前已恢复 **512 个可学习空间节点 + 光照交换 + 材质响应 MLP**，
+核心实现来自 Git `9e9596a`。节点位置和宽度参与训练；源光照汇总后在像素接收点
+查询，再由 165→128×4→3 材质响应网络着色。源节点离散交换算子具有守恒/可逆性质，
+不将这些性质扩展声称为完整图像的物理保证。阴影在第1500步启用，交换在第5000步启用。
 以下表格是此前 32 节点方案的历史结果。
 
 | 完整官方 test | 帧数 | PSNR | SSIM | 标准 LPIPS |
@@ -26,13 +25,12 @@ CUDA 12.1、gsplat。数据位于 `/workspace/datasets/SSD-GS/data/`，包含
 Real_NRHints/Cat、Synthetic_GS3/Translucent、Synthetic_SSS-GS/bunny_small；
 场景由 transforms JSON 与图像目录组成。本轮复用完整已有数据。
 
-旧可学习锚点源码已保存为 Git commit `9e9596a`，历史权重使用对应源码加载。
-HashGrid 依赖已在 `third_party/python` 本地编译，复用原环境；重装命令见
-[HashGrid 实验说明](docs/experiments/hashgrid_validation_20260914.md)。
+当前代码可直接加载保留的32/512节点同架构权重。HashGrid及残差实验需使用各自
+的Git/源码快照加载；当前运行不依赖tinycudann。
+恢复范围见 [512节点恢复记录](docs/project/restore_anchor512_20260915.md)。
 以下在 PORT-GS 目录运行：
 
 ```bash
-export PYTHONPATH="$PWD/third_party/python"
 CUDA_VISIBLE_DEVICES=0 /workspace/ubuntu2004_cuda12_1/utils/conda-envs/ssd-gs/bin/python train.py \
   --scene /workspace/datasets/SSD-GS/data/Real_NRHints/Cat \
   --output runs/cat_reproduction_s0 --fit-all
@@ -46,20 +44,18 @@ CUDA_VISIBLE_DEVICES=0 /workspace/ubuntu2004_cuda12_1/utils/conda-envs/ssd-gs/bi
 像素接收点光传输/着色 → 图像优化与几何细化 → checkpoint → 显式 test 渲染评价。
 指标、对照图和命令位于 `runs/research_20260912/*_full_s0/`。
 首轮使用 `cat_r1_source.tar`，更早源码使用 `source_before.tar`；各归档复现自身权重，
-已清理的过时实验见文末清理记录。`--init-checkpoint` 仅初始化当前直接查询表示，重新开始优化。
+已清理的过时实验见文末清理记录。`--init-checkpoint` 初始化同架构且rank相符的权重，重新开始优化。
 
-HashGrid 配置在 [`configs/hashgrid.json`](configs/hashgrid.json)；六场景、训练参数、
-GPU 与实验名在 [`configs/validation.json`](configs/validation.json)。每个 Gaussian
+六场景、训练参数、GPU与实验名在 [`configs/validation.json`](configs/validation.json)。每个 Gaussian
 的 `feature_dim=32`，每场景 30k、seed 0、官方 train/test 划分。
 
 ```bash
 bash launch_validation.sh
 ```
 
-残差块数量由 `configs/validation.json` 的 `train.residual-blocks` 配置，默认2。
-该入口冻结配置到 `runs/residual_hashgrid_validation_20260915/`，复用原队列调度器，
-自动完成训练和完整 test 评价。详情见
-[残差解码验证](docs/experiments/residual_hashgrid_validation_20260915.md)。
+空间节点数由 `configs/validation.json` 的 `train.rank` 配置，默认512。
+上述命令会启动新实验并冻结配置到 `runs/anchor512_validation_20260915/`；本次仅恢复代码，
+尚未启动该实验。已完成的512节点结果在 `runs/rank512_validation_20260914/`。
 
 每场景保存 `history.jsonl`（总 loss 和加权分项，每 100 步）和训练完成后的
 `loss.png`。可运行 `python plot_loss.py <场景目录>/history.jsonl` 重画当前训练曲线。

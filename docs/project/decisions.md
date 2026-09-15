@@ -202,6 +202,14 @@ seed, metrics and outputs are recorded within PORT-GS. User data, previous logs,
 checkpoints and research documents stay intact. Existing controls are historical
 references, and this cycle launches only the repaired method.
 
+## 2026-09-15: User selects the original anchor512 model
+
+Restore the model/render/evaluation implementation from `9e9596a` at the user's
+request. Retain useful loss logging/plotting and the JSON launch interface,
+while removing HashGrid and residual parameters from active code/configuration.
+Preserve all prior results and model snapshots. This is a code rollback, not
+authorization to start another benchmark. See [restore record](restore_anchor512_20260915.md).
+
 ## 2026-09-15: Residual decoder after queried HashGrid features
 
 At the user's request, replace the plain direct RGB decoder with a width128

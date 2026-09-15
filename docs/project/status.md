@@ -1,9 +1,17 @@
-# In progress — 2026-09-15
+# Current — restored anchor512, 2026-09-15
+
+The user selected the original 512 learned spatial-node implementation again.
+Transport/render/evaluation code is restored from `9e9596a`; loss logging/plots
+and the JSON launcher remain. No new experiment has been launched. Existing
+anchor512, HashGrid and residual results are retained. See
+[restore record](restore_anchor512_20260915.md).
+
+# Completed residual experiment — 2026-09-15
 
 The user requested a residual network after HashGrid. The direct decoder now
 uses a width128 stem, two residual blocks and RGB head. A fresh same-six-scene
-30k/seed0 experiment is running on GPU0/1 (Cat/Pixiu first), with the existing
-loss plots and Luna Max monitoring. Source revision `cdba5d2`; preflight query,
+30k/seed0 experiment completed with mean PSNR27.501420, SSIM0.905337 and
+LPIPS0.096917; Pixiu remained at13.157520dB. Source revision `cdba5d2`; preflight query,
 residual-branch gradients, full rendering and checkpoint reload passed.
 See [residual protocol](../experiments/residual_hashgrid_validation_20260915.md).
 

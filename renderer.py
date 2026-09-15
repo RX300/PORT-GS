@@ -176,6 +176,7 @@ def render(
     sample,
     background=1.0,
     shadow=False,
+    port_active=True,
     shadow_mode="depth",
     absgrad=False,
 ):
@@ -225,11 +226,12 @@ def render(
     }
     foreground = means.new_zeros((h, w, 3))
     foreground[covered] = transport(
+        gaussians,
         receivers,
-        gaussians.center,
-        gaussians.radius,
         sample["c2w"][:3, 3],
         sample["light_pos"],
         sample["light_intensity"],
+        visibility,
+        port_active,
     )
     return foreground * alpha + background * (1 - alpha), alpha, info

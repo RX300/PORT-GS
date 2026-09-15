@@ -61,6 +61,7 @@ def main():
             sample,
             cfg["background"],
             checkpoint["step"] >= cfg["shadow_start"],
+            checkpoint["step"] >= cfg["port_start"],
             cfg["display_gamma"],
             cfg["shadow_mode"],
         )

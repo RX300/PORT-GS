@@ -115,7 +115,16 @@ metrics paths are in [frozen cross-data protocol](comparison_20260912.md).
 External runs received no new tuning or ablations. See
 [data research](../research/related_work_20260912.md).
 
-## Current direct-query setup — 2026-09-14
+## Active anchor512 setup — 2026-09-15
+
+The active code is restored to 512 learned spatial anchors. Use the existing
+ssd-gs environment directly; tinycudann is not a runtime dependency. The current
+`configs/validation.json` emits rank512/port-start5000 arguments. Training keeps
+loss histories and plots. No new experiment was launched by the restore.
+See [restore record](../project/restore_anchor512_20260915.md). The HashGrid
+setup sections below describe archived experiments only.
+
+## Historical direct-query setup — 2026-09-14
 
 2026-09-15: the canonical decoder is now a residual MLP. Configure its two-block
 default with `train.residual-blocks` in `configs/validation.json`. Current output

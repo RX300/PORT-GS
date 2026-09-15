@@ -1,32 +1,9 @@
+> Active representation restored on 2026-09-15: 512 learned spatial anchors,
+> source irradiance pooling and the original material-response MLP (Git `9e9596a`).
+> HashGrid and residual decoders are archived experiments. Current training
+> also retains weighted loss logs/plots and the six-scene JSON launcher.
+
 # Continuous receiver transport implementation
-
-## Active direct-query interface
-
-`Transport.forward(receivers, center, radius, eye, light_pos, light_intensity)`
-accepts only the requested receivers and shared calibration values. It does not
-receive the Gaussian source set. NVIDIA HashGrid (32 features) and material,
-light/view/visibility inputs form 175 decoder inputs. A 175→128 input projection
-with SiLU, two width128 residual blocks, and a linear RGB head produce a positive
-softplus response, scaled by intensity
-and inverse-square falloff. There are no partition weights, learned anchors,
-exchange channels, global pooling, or port activation switches. Hash parameters
-and the decoder train from step1. Each block computes
-`SiLU(h + Linear2(SiLU(Linear1(h))))`. Checkpoints embed
-`representation=residual_hashgrid_rgb`, `residual_blocks`, and the complete encoding config.
-
-## Historical pooled transport implementation
-
-The sections below describe saved implementations preceding the direct-query
-change; their conservation/performance claims do not apply to the active model.
-
-The preceding spatial partitions used NVIDIA tiny-cuda-nn HashGrid, configured by
-`configs/hashgrid.json`, followed by a linear projection and log-softmax over
-512 exchange channels. Learned anchor centers/widths were replaced in place;
-their source remains in Git commit `9e9596a`. Grid resolution (16–2048 across 16
-levels) and exchange rank are independent. The normalized initialization cube
-maps to [0,1]^3 without clamping. HashGrid table/interpolation/backward are native
-NVIDIA operations; the quadrature, exchange equations and angular MLP below are
-unchanged. Checkpoints embed the complete encoding config and seed.
 
 The second-round `Transport.forward` accepts all Gaussian sources and a separate
 receiver dictionary (`means`, `base`, `features`, `visibility`). The renderer

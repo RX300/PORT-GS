@@ -1,108 +1,172 @@
-"""Audit direct HashGrid queries on actual Cat geometry and training lights."""
+"""GPU regression of conservative exchange on a recorded Cat reconstruction."""
 
-import io
 import json
 from pathlib import Path
+from types import SimpleNamespace
 
 import torch
 
 from data import SceneDataset
-from evaluate import to_device
-from gaussians import Gaussians
-from renderer import visibility_hint
-from transport import ResidualBlock, Transport
+from transport import Transport, exchange_irradiance as continuous_exchange, quadrature_mass
+
+
+def exchange_irradiance(incident, partition, logits, mass):
+    return continuous_exchange(incident, partition, logits, mass, incident, partition, logits)
+
+
+def relative_error(actual, expected):
+    return float((actual - expected).abs().max() / expected.abs().max())
 
 
 def main():
     torch.manual_seed(0)
     torch.set_num_threads(8)
-    torch.backends.cuda.matmul.allow_tf32 = False
     root = Path(__file__).resolve().parent
     source = root / "runs/research_20260912/cat_r1_s0/last.pt"
+    archive = root / "runs/research_20260912/source_before.tar"
     checkpoint = torch.load(source, map_location="cuda", weights_only=False)
     state = checkpoint["gaussians"]
-    gaussians = Gaussians(len(state["params.means"]), state["center"], checkpoint["radius"], 32)
-    gaussians.load_state_dict(state)
-    dataset = SceneDataset(checkpoint["config"]["scene"], "train", 512)
-    sample = to_device(dataset[checkpoint["fit_indices"][0]], "cuda")
-    indices = torch.linspace(0, len(gaussians.params["means"]) - 1, 2048, device="cuda").long()
-    with torch.no_grad():
-        visibility = visibility_hint(gaussians, sample["light_pos"], mode="deep")[indices]
-    receivers = {
-        name: gaussians.params[name][indices].detach().requires_grad_()
-        for name in ("means", "base", "features")
+    indices = torch.linspace(0, len(state["params.means"]) - 1, 2048, device="cuda").long()
+    params = {
+        key.removeprefix("params."): value[indices].double()
+        for key, value in state.items() if key.startswith("params.")
     }
-    receivers["visibility"] = visibility.detach().requires_grad_()
-    light = sample["light_pos"].detach().clone().requires_grad_()
-    eye = sample["c2w"][:3, 3].detach().clone().requires_grad_()
-    intensity = sample["light_intensity"]
-    encoding = json.loads((root / "configs/hashgrid.json").read_text())
-    model = Transport(hash_encoding=encoding,
-                      light_scale=checkpoint["transport"]["light_scale"].item()).cuda()
+    gaussians = SimpleNamespace(
+        params=params, center=state["center"].double(), radius=checkpoint["radius"]
+    )
+    dataset = SceneDataset(checkpoint["config"]["scene"], "train", resolution=512)
+    frame_indices = [checkpoint["fit_indices"][0], checkpoint["fit_indices"][len(checkpoint["fit_indices"]) // 2]]
+    frames = [dataset[index] for index in frame_indices]
+    incident = [
+        frame["light_intensity"].cuda().double()[None]
+        / (frame["light_pos"].cuda().double() - params["means"]).square().sum(-1, keepdim=True)
+        for frame in frames
+    ]
+    model = Transport(feature_dim=params["features"].shape[-1]).cuda().double()
+    mass = quadrature_mass(params)
+    partition = model.partition((params["means"] - gaussians.center) / gaussians.radius)
+    # Use actual learned feature channels to exercise spatially varying RGB
+    # exchange fractions. A constant initialized head could conceal a missing
+    # source-side exchange factor in an otherwise incorrect implementation.
+    logits = model.exchange(params["features"]) + params["features"][:, :3]
+    output = exchange_irradiance(incident[0], partition, logits, mass)
+    constant = incident[0].mean(0).expand_as(incident[0])
+    constant_output = exchange_irradiance(constant, partition, logits, mass)
+    sums = exchange_irradiance(incident[0] + incident[1], partition, logits, mass)
+    separate = output + exchange_irradiance(incident[1], partition, logits, mass)
+    measures = {
+        "constant_preservation_relative_error": relative_error(constant_output, constant),
+        "weighted_conservation_relative_error": relative_error(
+            (mass[:, None] * output).sum(0), (mass[:, None] * incident[0]).sum(0)
+        ),
+        "irradiance_additivity_relative_error": relative_error(sums, separate),
+    }
 
-    def query(points, illumination=intensity):
-        return model(points, gaussians.center, gaussians.radius, eye, light, illumination)
+    # Build the actual 256-point operator explicitly, independently of the
+    # implementation's log-domain pooling, and check its weighted transpose.
+    small_mass = mass[:256] / mass[:256].sum()
+    small_partition = partition[:256].exp()
+    small_fraction = logits[:256].sigmoid()
+    denominator = torch.einsum("n,nc,nr->rc", small_mass, small_fraction, small_partition)
+    kernel = torch.einsum("ir,jr,rc,ic,jc,j->cij", small_partition, small_partition,
+                          denominator.reciprocal(), small_fraction, small_fraction, small_mass)
+    kernel = kernel + torch.diag_embed((1 - small_fraction).T)
+    weighted_kernel = kernel * small_mass[None, :, None]
+    measures["detailed_balance_relative_error"] = relative_error(
+        weighted_kernel, weighted_kernel.transpose(-1, -2)
+    )
+    explicit = torch.einsum("cij,jc->ic", kernel, incident[0][:256])
+    implicit = exchange_irradiance(incident[0][:256], partition[:256], logits[:256], small_mass)
+    measures["explicit_operator_relative_error"] = relative_error(implicit, explicit)
 
-    predicted = query(receivers)
+    query_indices = torch.arange(257, 1025, device="cuda")
+    query_full = continuous_exchange(
+        incident[0], partition, logits, mass,
+        incident[0][query_indices], partition[query_indices], logits[query_indices],
+    )
+    query_chunks = torch.cat([
+        continuous_exchange(incident[0], partition, logits, mass,
+                            incident[0][chunk], partition[chunk], logits[chunk])
+        for chunk in query_indices.split(173)
+    ])
+    measures["source_node_query_relative_error"] = relative_error(query_full, output[query_indices])
+    measures["query_chunk_relative_error"] = relative_error(query_chunks, query_full)
+
+    # A second real light field supplies a nonconstant scalar probe, so the
+    # conservation identity cannot make this gradient audit tautological.
+    probe = incident[1] / incident[1].square().mean().sqrt()
+    logit_direction = params["features"][:, :3]
+    logit_direction = logit_direction / logit_direction.square().mean().sqrt()
+    width_direction = model.log_width.detach() / model.log_width.detach().square().mean().sqrt()
+
+    def objective(log_partition, exchange_logits):
+        exchanged = exchange_irradiance(incident[0], log_partition, exchange_logits, mass)
+        return (mass[:, None] * probe * exchanged).sum()
+
+    loss = objective(partition, logits)
+    logits_gradient, width_gradient = torch.autograd.grad(loss, (logits, model.log_width))
+    epsilon = 1e-4
+    finite_logit = (
+        objective(partition.detach(), logits.detach() + epsilon * logit_direction)
+        - objective(partition.detach(), logits.detach() - epsilon * logit_direction)
+    ) / (2 * epsilon)
+    analytic_logit = (logits_gradient * logit_direction).sum()
+    original_width = model.log_width.detach().clone()
     with torch.no_grad():
-        # A direct query must be independent of what other receivers share its batch.
-        chunks = torch.cat([query({key: value[i:i + 173] for key, value in receivers.items()})
-                            for i in range(0, len(indices), 173)])
-        torch.testing.assert_close(chunks, predicted, atol=2e-6, rtol=2e-5)
-        torch.testing.assert_close(query(receivers, intensity * 2), predicted * 2, atol=1e-6, rtol=1e-6)
-        assert torch.count_nonzero(query(receivers, torch.zeros_like(intensity))) == 0
-        occluded = query({**receivers, "visibility": torch.zeros_like(visibility)})
-        assert torch.isfinite(occluded).all() and (occluded > 0).any()
-    before = model.spatial_encoding.params.detach().clone()
-    predicted.square().mean().backward()
+        model.log_width.copy_(original_width + epsilon * width_direction)
+        plus = objective(model.partition((params["means"] - gaussians.center) / gaussians.radius), logits.detach())
+        model.log_width.copy_(original_width - epsilon * width_direction)
+        minus = objective(model.partition((params["means"] - gaussians.center) / gaussians.radius), logits.detach())
+        model.log_width.copy_(original_width)
+    finite_width = (plus - minus) / (2 * epsilon)
+    analytic_width = (width_gradient * width_direction).sum()
     gradients = {
-        name: {"finite": bool(torch.isfinite(gradient).all()), "max_abs": gradient.abs().max().item()}
-        for name, gradient in {
-            "hash_table": model.spatial_encoding.params.grad,
-            "decoder": model.decoder[0].weight.grad,
-            "query_position": receivers["means"].grad,
-            "material": receivers["features"].grad,
-            "visibility": receivers["visibility"].grad,
-            "light_position": light.grad,
-            "view_position": eye.grad,
-        }.items()
+        "feature_conditioned_exchange_logits": {
+            "autograd": float(analytic_logit), "finite_difference": float(finite_logit),
+            "relative_error": relative_error(analytic_logit, finite_logit),
+        },
+        "anchor_log_width": {
+            "autograd": float(analytic_width), "finite_difference": float(finite_width),
+            "relative_error": relative_error(analytic_width, finite_width),
+        },
     }
-    # Check both affine layers in each actual residual branch receive gradients.
-    for index, block in enumerate(module for module in model.decoder if isinstance(module, ResidualBlock)):
-        for layer in (0, 2):
-            gradient = block.branch[layer].weight.grad
-            gradients[f"residual_{index}_layer_{layer}"] = {
-                "finite": bool(torch.isfinite(gradient).all()), "max_abs": gradient.abs().max().item(),
-            }
-    assert all(row["finite"] and row["max_abs"] > 0 for row in gradients.values())
-    optimizer = torch.optim.Adam(model.parameters(), lr=0.001, eps=1e-15)
-    optimizer.step()
-    update = (model.spatial_encoding.params.detach() - before).abs().max().item()
-    assert update > 0
-
-    stream = io.BytesIO()
-    torch.save(model.state_dict(), stream)
-    stream.seek(0)
-    restored = Transport(hash_encoding=encoding).cuda()
-    restored.load_state_dict(torch.load(stream, weights_only=True))
-    with torch.no_grad():
-        torch.testing.assert_close(
-            restored(receivers, gaussians.center, gaussians.radius, eye, light, intensity),
-            query(receivers), atol=0, rtol=0,
-        )
+    # Also check the arithmetic used by production rather than relying solely
+    # on the double-precision mathematical reference.
+    float_output = exchange_irradiance(
+        incident[0].float(), partition.detach().float(), logits.detach().float(), mass.float()
+    )
+    measures["float32_vs_float64_relative_error"] = relative_error(float_output.double(), output.detach())
+    torch.backends.cuda.matmul.allow_tf32 = True
+    tf32_output = exchange_irradiance(
+        incident[0].float(), partition.detach().float(), logits.detach().float(), mass.float()
+    )
+    measures["training_tf32_vs_float64_relative_error"] = relative_error(tf32_output.double(), output.detach())
     report = {
-        "checkpoint_geometry": str(source), "train_frame": sample["frame_index"],
-        "queries": len(indices), "representation": "residual_hashgrid_rgb",
-        "decoder_input_dim": model.decoder[0].in_features,
-        "hash_encoding": encoding, "native_gradients": gradients, "hash_update_max": update,
-        "checks": ["batch-independent queries", "linear intensity scaling", "zero light gives zero RGB",
-                   "occlusion is not a hard zero gate", "native HashGrid optimization", "checkpoint roundtrip"],
-        "passed": True,
+        "checkpoint": str(source), "archive": str(archive), "archive_bytes": archive.stat().st_size,
+        "dataset": str(dataset.metadata_path), "frame_indices": frame_indices,
+        "source_points": len(state["params.means"]), "audited_points": len(indices),
+        "selection": "2048 uniformly spaced checkpoint point indices; explicit operator uses first 256",
+        "gpu": torch.cuda.get_device_name(0), "cuda_visible_devices": "0",
+        "arithmetic": "CUDA float64 reference, CUDA float32, and training-enabled TF32 comparison",
+        "illumination": "Two actual train-frame point lights; direct irradiance before visibility",
+        "model": "Canonical Transport anchors, seed 0; exchange logits use initialized bias plus three actual saved feature channels",
+        "measurements": measures, "gradient_epsilon": epsilon, "gradients": gradients,
+        "thresholds": {"identities_relative": 1e-10, "float32_relative": 2e-6,
+                       "training_tf32_relative": 2e-3, "gradient_relative": 1e-4},
     }
-    destination = root / "runs/residual_hashgrid_preflight/query_audit.json"
+    report["passed"] = (
+        all(value < 1e-10 for key, value in measures.items()
+            if key not in ["float32_vs_float64_relative_error", "training_tf32_vs_float64_relative_error"])
+        and measures["float32_vs_float64_relative_error"] < 2e-6
+        and measures["training_tf32_vs_float64_relative_error"] < 2e-3
+        and all(value["relative_error"] < 1e-4 and abs(value["autograd"]) > 1e-10
+                for value in gradients.values())
+    )
+    destination = root / "runs/anchor512_restore_check/receiver_operator_audit.json"
     destination.parent.mkdir(parents=True, exist_ok=True)
     destination.write_text(json.dumps(report, indent=2) + "\n")
     print(json.dumps(report, indent=2))
+    assert report["passed"], "Conservative transport regression failed; inspect measured residuals"
 
 
 if __name__ == "__main__":
