@@ -91,3 +91,16 @@ records at steps1/100/150 summed correctly across weighted terms. A six-scene
 argv audit found only the added residual-blocks argument and new output/config
 paths; the frozen NVIDIA encoding JSON also matched the preceding run exactly.
 Formal six-scene results are pending the new experiment.
+
+## Launch evidence
+
+Source revision `cdba5d2`. Queue PID180749 started Cat PID180755 on GPU0 and
+Pixiu PID180756 on GPU1. Both emitted step100 startup confirmation and continued
+to step300 with finite total/component losses. Four synthetic scenes remain
+queued. Both use the saved residual_blocks=2 configuration from fresh training.
+Host verification at 50seconds showed both training children alive, GPU0
+79%/5693MiB and GPU1 69%/5737MiB. Monitor PID181035 is live in `validation:monitor`
+on the same socket; its first Luna Max call completed successfully at
+2026-09-15 02:49:18 UTC with no runtime anomalies. It polls the host every60seconds
+and invokes Luna every1800seconds and on anomaly/completion. Latest report:
+`runs/residual_hashgrid_validation_20260915/luna_latest.txt`.

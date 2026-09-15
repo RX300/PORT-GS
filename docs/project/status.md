@@ -2,8 +2,10 @@
 
 The user requested a residual network after HashGrid. The direct decoder now
 uses a width128 stem, two residual blocks and RGB head. A fresh same-six-scene
-30k/seed0 experiment is being prepared with the existing loss plots and Luna Max
-monitoring. See [residual protocol](../experiments/residual_hashgrid_validation_20260915.md).
+30k/seed0 experiment is running on GPU0/1 (Cat/Pixiu first), with the existing
+loss plots and Luna Max monitoring. Source revision `cdba5d2`; preflight query,
+residual-branch gradients, full rendering and checkpoint reload passed.
+See [residual protocol](../experiments/residual_hashgrid_validation_20260915.md).
 
 # Completed direct-query run — 2026-09-15
 
