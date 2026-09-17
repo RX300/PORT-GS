@@ -63,7 +63,7 @@ def build_manifest(config, output_dir):
         "protocol": {
             "scenes": len(jobs),
             "selection": {name: settings["scenes"] for name, settings in config["families"].items()},
-            "representation": "learned_anchor_exchange",
+            "representation": config["train"].get("representation", "learned_anchor_exchange"),
             "spatial_exchange_nodes": config["train"]["rank"],
             "train": config["train"],
             "family_overrides": {name: settings["train"] for name, settings in config["families"].items()},
@@ -84,7 +84,7 @@ def main():
     output_dir.mkdir(parents=True, exist_ok=False)
     (output_dir / "validation.json").write_text(json.dumps(config, indent=2) + "\n")
     with tarfile.open(output_dir / "source.tar", "w") as archive:
-        for filename in subprocess.check_output(["git", "ls-files"], cwd=ROOT, text=True).splitlines():
+        for filename in subprocess.check_output(["git", "ls-files", "--cached", "--others", "--exclude-standard"], cwd=ROOT, text=True).splitlines():
             archive.add(ROOT / filename, arcname=filename)
     path = output_dir / "manifest.json"
     path.write_text(json.dumps(manifest, indent=2) + "\n")

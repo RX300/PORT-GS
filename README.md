@@ -1,102 +1,89 @@
 # PORT-GS
 
-Paired-Origin Radiance Transport Gaussians：独立的 3DGS 重光照研究项目。
-当前已恢复 **512 个可学习空间节点 + 光照交换 + 材质响应 MLP**，
-核心实现来自 Git `9e9596a`。节点位置和宽度参与训练；源光照汇总后在像素接收点
-查询，再由 165→128×4→3 材质响应网络着色。源节点离散交换算子具有守恒/可逆性质，
-不将这些性质扩展声称为完整图像的物理保证。阴影在第1500步启用，交换在第5000步启用。
-以下表格是此前 32 节点方案的历史结果。
+独立的 3DGS 重光照研究项目，沿用 SSD-GS 的环境与数据协议。
+当前默认 **directional_port_v1：512 个可学习空间端口 × 4 个方向通道**。
+Gaussian 保留32维材质特征；共享方向网络生成入射/出射方向基；每个端口
+通过非负RGB方向矩阵传递非局部光。直接光仍由165→128×4→3网络计算。
 
-| 完整官方 test | 帧数 | PSNR | SSIM | 标准 LPIPS |
-| --- | ---: | ---: | ---: | ---: |
-| Cat | 66 | 21.501174 | .766281 | .227281 |
-| GS³ Translucent | 400 | 28.304924 | .960368 | .051791 |
-| SSS-GS Bunny small | 500 | 37.600658 | .986484 | .019684 |
+流程：读取训练帧 → Gaussian属性与深度光栅化 → 重建像素三维接收点 →
+源Gaussian方向汇总与端口矩阵变换 → 像素方向读取 → 直接光与非局部RGB相加 →
+原alpha、背景及观察变换 → 损失优化与几何细化。
+默认第5000步同时启用阴影和端口，第25000步停止细化。不声称新方向算子保持旧算子的守恒性。
 
-Cat 达到原始标定下 >20 dB；相对历史 22.000071 dB，PSNR 下降 .4989 dB，
-LPIPS 在 65/66 帧改善，alpha 误差在全部 66 帧增加。Bunny 仍有约 12 dB 的失败视角。
-论文数字存在训练预算、指标或聚合范围差异，以上结果不代表严格 SOTA 排名。
-生产核心由 2009 减至 1531 行（23.79%）；含测试的顶层 Python 减少 45.75%。
+## 环境与数据
 
-## 环境与复现
+复用 `/workspace/ubuntu2004_cuda12_1/utils/conda-envs/ssd-gs`：
+PyTorch2.4.1、CUDA12.1、gsplat，无新增依赖。
+数据根目录 `/workspace/datasets/SSD-GS/data/`，每个场景包含 transforms JSON
+及图像目录。本轮六场景：
 
-复用 `/workspace/ubuntu2004_cuda12_1/utils/conda-envs/ssd-gs`：PyTorch 2.4.1、
-CUDA 12.1、gsplat。数据位于 `/workspace/datasets/SSD-GS/data/`，包含
-Real_NRHints/Cat、Synthetic_GS3/Translucent、Synthetic_SSS-GS/bunny_small；
-场景由 transforms JSON 与图像目录组成。本轮复用完整已有数据。
+- Real_NRHints：Cat、Pixiu，512px，黑背景。
+- Synthetic_GS3：AnisoMetal、Translucent，512px，白背景。
+- Synthetic_SSS-GS：bunny_small、dragon_small，256px，黑背景。
 
-当前代码可直接加载保留的32/512节点同架构权重。HashGrid及残差实验需使用各自
-的Git/源码快照加载；当前运行不依赖tinycudann。
-恢复范围见 [512节点恢复记录](docs/project/restore_anchor512_20260915.md)。
-以下在 PORT-GS 目录运行：
+## 训练、渲染与评价
+
+在 PORT-GS 目录运行：
 
 ```bash
 CUDA_VISIBLE_DEVICES=0 /workspace/ubuntu2004_cuda12_1/utils/conda-envs/ssd-gs/bin/python train.py \
   --scene /workspace/datasets/SSD-GS/data/Real_NRHints/Cat \
-  --output runs/cat_reproduction_s0 --fit-all
+  --output runs/cat_directional_reproduction_s0 --fit-all
 
 CUDA_VISIBLE_DEVICES=0 /workspace/ubuntu2004_cuda12_1/utils/conda-envs/ssd-gs/bin/python evaluate.py \
-  runs/cat_reproduction_s0/last.pt --split test \
-  --output runs/cat_reproduction_eval --lpips
-```
+  runs/cat_directional_reproduction_s0/last.pt --split test \
+  --output runs/cat_directional_reproduction_s0/test --lpips
 
-默认 30k、512px、seed 0。流程为读取训练划分 → GPU 初始化 → 属性与深度栅格化 →
-像素接收点光传输/着色 → 图像优化与几何细化 → checkpoint → 显式 test 渲染评价。
-指标、对照图和命令位于 `runs/research_20260912/*_full_s0/`。
-首轮使用 `cat_r1_source.tar`，更早源码使用 `source_before.tar`；各归档复现自身权重，
-已清理的过时实验见文末清理记录。`--init-checkpoint` 初始化同架构且rank相符的权重，重新开始优化。
-
-六场景、训练参数、GPU与实验名在 [`configs/validation.json`](configs/validation.json)。每个 Gaussian
-的 `feature_dim=32`，每场景 30k、seed 0、官方 train/test 划分。
-
-```bash
 bash launch_validation.sh
 ```
 
-空间节点数由 `configs/validation.json` 的 `train.rank` 配置，默认512。
-上述命令会启动新实验并冻结配置到 `runs/anchor512_validation_20260915/`；本次仅恢复代码，
-尚未启动该实验。已完成的512节点结果在 `runs/rank512_validation_20260914/`。
+默认30k步、seed0、rank512、dir_dim4、dir_width32。
+`evaluate.py` 渲染全部所选帧，保存PSNR/SSIM/LPIPS、逐帧指标与前四组对照图。
+六场景参数见 [validation.json](configs/validation.json)，训练使用完整官方train，
+最后固定last.pt评估完整官方test；这里“验证集”指六场景实验集合。
+每场景保存config.json、split.json、history.jsonl、last.pt和loss.png。
+已完成的30k实验位于 `runs/directional_port512_validation_20260915/`，包含源码快照及精确命令。
 
-每场景保存 `history.jsonl`（总 loss 和加权分项，每 100 步）和训练完成后的
-`loss.png`。可运行 `python plot_loss.py <场景目录>/history.jsonl` 重画当前训练曲线。
+旧32/512空间端口checkpoint仍按保存的representation加载原Transport。
+显式 `--representation learned_anchor_exchange --rank 512` 可训练旧模型。
+`--init-checkpoint`要求同架构同尺寸；新方向网络需要重新训练。
+旧HashGrid实验使用其自己的源码快照，当前运行不依赖tinycudann。
 
-## 历史全量队列恢复与查看
+## 文档与历史结果
 
-下列命令属于锚点实现，须在对应 Git/源码归档下使用。
+[方向化架构](docs/architecture/modules/directional_transport.md) ·
+[原始修改说明](docs/architecture/PORT_GS_Architecture_Change.md) ·
+[六场景实验](docs/experiments/directional_port_validation_20260915.md) ·
+[状态](docs/project/status.md) · [指标](docs/experiments/results.md) ·
+[设置](docs/experiments/setup.md) · [决策](docs/project/decisions.md)
 
-首次启动或 tmux 会话不存在时运行：
+旧512端口结果：`runs/rank512_validation_20260914/`。
+[512端口记录](docs/experiments/rank512_validation_20260914.md) ·
+[此前恢复记录](docs/project/restore_anchor512_20260915.md) ·
+[历史全量比较](docs/experiments/comparison_20260913.md) ·
+[输出清理记录](docs/experiments/output_cleanup_20260914.md)
 
-```bash
-./launch_full_benchmark.sh --resume
-```
+## 已完成的64端口六场景结果
 
-如果 `port-full-benchmark` 会话已经存在，只在对应 pane 已退出且确认没有活动
-scheduler/worker 时 respawn 原 pane；不要重复启动 launcher：
+六场景30k/seed0训练与1937帧完整测试已完成。场景均值：PSNR **28.2392**、
+SSIM **0.91407**、LPIPS **0.09069**。相对旧512端口版，PSNR下降0.1853dB。
+AnisoMetal提升0.5337dB，bunny_small下降1.6259dB；本轮整体没有改善。
+逐场景指标与对照见[实验报告](docs/experiments/directional_port_validation_20260915.md)。
 
-```bash
-tmux -L port-full-benchmark list-panes -a -F '#{session_name}:#{window_name} pid=#{pane_pid} exited=#{pane_dead} exit_status=#{pane_dead_status}'
-tmux -L port-full-benchmark respawn-pane -t full:queue
-tmux -L port-full-benchmark respawn-pane -t full:monitor
-```
+## 512方向端口复验
 
-一次性查看状态：
+按用户要求将端口数从64增加到512，方向维数仍为4；同六场景、30k步、seed0，
+阴影与端口均从5000步启用，细化停止改为25000步。
+`validate-every=0` 关闭中间验证和模型保存，只在30000步保存最终last.pt并评估完整test。
+原512端口实验已按用户要求停止并删除输出，在同一路径从头重跑。
+[512端口实验记录](docs/experiments/directional_port512_validation_20260915.md)。
 
-```bash
-/workspace/ubuntu2004_cuda12_1/utils/conda-envs/ssd-gs/bin/python \
-  ./run_benchmark.py --manifest runs/full_benchmark_20260913/manifest.json --status
-```
+## 当前状态：实验已停止
 
-恢复边界和中断证据见
-[recovery review](docs/experiments/recovery_20260913.md)；SSD 与 PORT 的逐场景结果见
-[full comparison](docs/experiments/comparison_20260913.md)。
+按用户要求取消60k实验并删除该轮输出目录，默认训练步数恢复为30000。
+保留512端口、阴影/端口从5000步启用、25000步停止细化、仅保存最终模型的设置。
+已完成的30k结果保留；没有启动新实验。下一次默认实验名为
+`directional_port512_validation_20260916`，避免覆盖已有结果。
+[取消记录](docs/experiments/directional_port512_60k_validation_20260916.md)。
 
-## 文档
-
-过时试验输出已清理；保留当前 HashGrid、32/512 对照和测试依赖。
-删除清单与保留范围见 [输出清理记录](docs/experiments/output_cleanup_20260914.md)。
-
-[方法](docs/method/principles.md) · [架构](docs/architecture/system.md) ·
-[最终结果与失败图](docs/experiments/results.md) · [复现设置](docs/experiments/setup.md) ·
-[跨数据协议](docs/experiments/comparison_20260912.md) · [独立审查](docs/project/review_20260912.md) ·
-[外部研究](docs/research/related_work_20260912.md) · [状态](docs/project/status.md) ·
-[决策](docs/project/decisions.md) · [数据合同](docs/data_contract.md)
+后续实验最多使用两张空闲GPU；当前配置为GPU1/3，启动前需重新确认空闲状态。

@@ -1,3 +1,31 @@
+## Current status: stopped; 30k default restored — 2026-09-16
+
+User cancelled the60k experiment. Its training/scheduler/collector processes
+were stopped and `runs/directional_port512_60k_validation_20260916/` deleted.
+Existing completed30k results remain intact. No experiment is currently launched
+by this task. Defaults:30000 steps, rank512, shadow/port start5000,
+refine_stop25000, validate_every0; only the final model is saved.
+Next configured run name:directional_port512_validation_20260916.
+[Cancellation record](../experiments/directional_port512_60k_validation_20260916.md).
+
+## Directional rank512 restart — 2026-09-15
+
+Previous rank512 training/collector stopped and outputs deleted at user request.
+Fresh six-scene30k/seed0 runs started onGPU0/1; actual Cat/Pixiu step100 and GPU activity verified: shadows and ports start5000,
+refinement stops25000, validate_every=0 saves only final last.pt.
+The comparison with rank64 includes schedule changes as well as port count.
+See [protocol](../experiments/directional_port512_validation_20260915.md).
+
+## Directional port results — 2026-09-15
+
+Completed6/6 fresh30k seed0 fits and all1937 official test frames.
+PSNR28.239156 / SSIM0.914073 / LPIPS0.090693 (equal scene mean).
+Versus legacy rank512: −0.185288dB / −0.000540 / +0.001729.
+AnisoMetal improves+0.533654dB; bunny_small drops−1.625855dB; overall quality
+is not improved in this run. New architecture and preflight/checkpoint checks
+are complete. Full protocol, per-scene metrics and evidence:
+[directional experiment](../experiments/directional_port_validation_20260915.md).
+
 # September 12 exchange experiment setup
 
 Status: all three fresh 30k full fits and complete official tests finished on

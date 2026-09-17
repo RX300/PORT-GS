@@ -1,3 +1,19 @@
+## Directional rank512 outcome — 2026-09-15
+
+Completed6/6 fresh30k/seed0 experiments and1937 test frames. Mean PSNR29.089976, SSIM0.916603, LPIPS0.089701. Versus directional rank64: +0.850820dB, +0.002530, -0.000992.
+
+[Full comparison](../experiments/directional_port512_validation_20260915.md).
+
+## Directional port results — 2026-09-15
+
+Completed6/6 fresh30k seed0 fits and all1937 official test frames.
+PSNR28.239156 / SSIM0.914073 / LPIPS0.090693 (equal scene mean).
+Versus legacy rank512: −0.185288dB / −0.000540 / +0.001729.
+AnisoMetal improves+0.533654dB; bunny_small drops−1.625855dB; overall quality
+is not improved in this run. New architecture and preflight/checkpoint checks
+are complete. Full protocol, per-scene metrics and evidence:
+[directional experiment](../experiments/directional_port_validation_20260915.md).
+
 # Current research results — 2026-09-12–13
 
 ## Round 1: fixed-last Cat validation, followed by a second-round decision

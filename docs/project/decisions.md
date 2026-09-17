@@ -1,3 +1,46 @@
+## User cancellation and30k restoration — 2026-09-16
+
+Stop the60k experiment and delete only its current output directory. Restore
+30000 steps in the train parser and validation config. Preserve completed30k
+results and other projects. Do not launch a replacement run. Other architecture,
+phase timings and final-only saving settings remain unchanged.
+
+## User-authorized two-GPU execution — 2026-09-16
+
+Use at most two available GPUs. The user's final allocation isGPU1/3 because
+GPU2 became occupied. Preserve Cat's active training process and optimizer;
+expand only the scheduler, with Pixiu and subsequent jobs on the two workers.
+No training protocol or model change accompanies this allocation update.
+
+## User-requested 60k budget — 2026-09-16
+
+Repeat the same six-scene directional rank512 experiment from scratch with
+60000 steps, preserving the30k results. Keep5000-step shadow/port start,
+25000-step refinement stop, and no intermediate checkpoints. Existing normalized
+learning-rate schedules stretch to the longer budget; do not restart optimizer
+state from30k or alter other settings.
+
+## User-requested training schedule — 2026-09-15
+
+Replace the in-progress directional rank512 experiment: delete its outputs,
+restart from scratch, disable periodic validation/intermediate model saves,
+set shadow_start=port_start=5000 and refine_stop=25000. Keep final checkpoint
+and full test evaluation. This supersedes the previous rank-only comparison.
+
+## User-requested port count — 2026-09-15
+
+Increase directional_port_v1 from64 to512 spatial ports and rerun the same six
+scenes from fresh initialization, holding all other configured settings fixed.
+Keep the64-port experiment as the primary comparator. No architecture changes
+beyond port count or extra experiments are included.
+
+## Current architecture — 2026-09-15
+
+The active model is directional_port_v1: 64 spatial ports, four direction
+channels and a shared material direction MLP. Direct and nonlocal radiance are
+combined at pixel receivers. See [directional architecture](../architecture/modules/directional_transport.md).
+The earlier architecture below is historical.
+
 # Material decisions — completed 2026-09-13
 
 ## Resume research under the new user instruction
@@ -286,3 +329,12 @@ This is sufficient for the user's early-stop option after improvement; it is
 not a claim of complete real-scene accuracy. A fresh full fit uses the same
 frozen 30k budget and is evaluated once on official test. A third structural
 change is outside the accepted scope of this cycle.
+
+## Directional evaluation outcome — 2026-09-15
+
+The user-requested directional architecture is implemented and retained. Six
+fixed-budget experiments completed without tuning on test. Results do not show
+an overall improvement over legacy rank512: mean PSNR−0.185288dB, with the main
+regression on bunny_small and improvement on AnisoMetal. Keep these results as
+evidence; no unrequested architecture revision or new ablation was launched.
+See [experiment report](../experiments/directional_port_validation_20260915.md).

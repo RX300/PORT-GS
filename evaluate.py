@@ -10,7 +10,7 @@ from PIL import Image
 from torch.nn import functional as F
 
 from gaussians import Gaussians
-from transport import Transport
+from directional_transport import build_transport
 from renderer import render
 
 
@@ -167,11 +167,8 @@ def load_model(path):
         config["feature_dim"],
     )
     gaussians.load_state_dict(state)
-    transport = Transport(
-        config["feature_dim"],
-        config["width"],
-        config["rank"],
-        light_scale=checkpoint["transport"]["light_scale"].item(),
+    transport = build_transport(
+        config, checkpoint["transport"]["light_scale"].item()
     ).cuda()
     transport.load_state_dict(checkpoint["transport"])
     return gaussians, transport, checkpoint

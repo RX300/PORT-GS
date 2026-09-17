@@ -1,3 +1,10 @@
+## Current architecture — 2026-09-15
+
+The active model is directional_port_v1: 512 spatial ports, four direction
+channels and a shared material direction MLP. Direct and nonlocal radiance are
+combined at pixel receivers. See [directional architecture](modules/directional_transport.md).
+The earlier architecture below is historical.
+
 > Active representation restored on 2026-09-15: 512 learned spatial anchors,
 > source irradiance pooling and the original material-response MLP (Git `9e9596a`).
 > HashGrid and residual decoders are archived experiments. Current training

@@ -1,3 +1,10 @@
+## Current architecture — 2026-09-15
+
+The active model is directional_port_v1: 512 spatial ports, four direction
+channels and a shared material direction MLP. Direct and nonlocal radiance are
+combined at pixel receivers. See [directional architecture](architecture/modules/directional_transport.md).
+The earlier architecture below is historical.
+
 # PORT-GS overview
 
 ## Active selection — anchor512 restored, 2026-09-15

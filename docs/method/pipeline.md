@@ -1,3 +1,24 @@
+## Current30k default — 2026-09-16
+
+The60k experiment was cancelled and its outputs deleted at user request.
+The default budget is30000 steps, with shadows/ports starting5000 and
+refinement stopping25000. Save only final last.pt, then evaluate full official
+test when an experiment is explicitly launched. No new run is active.
+
+## Current training schedule — 2026-09-15
+
+The user-requested restart enables both shadows and directional ports at step5000,
+stops Gaussian refinement at step25000, and trains through step30000.
+validate_every=0 disables periodic validation and intermediate checkpoint saves;
+only final last.pt is saved, followed by full official test evaluation.
+
+## Current architecture — 2026-09-15
+
+The active model is directional_port_v1: 512 spatial ports, four direction
+channels and a shared material direction MLP. Direct and nonlocal radiance are
+combined at pixel receivers. See [directional architecture](../architecture/modules/directional_transport.md).
+The earlier architecture below is historical.
+
 > Active representation restored on 2026-09-15: 512 learned spatial anchors,
 > source irradiance pooling and the original material-response MLP (Git `9e9596a`).
 > HashGrid and residual decoders are archived experiments. Current training

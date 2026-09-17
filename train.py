@@ -13,7 +13,7 @@ from gsplat.strategy.ops import remove
 
 from data import SceneDataset, split_train_lights
 from gaussians import Gaussians, camera_bounds
-from transport import Transport
+from directional_transport import build_transport
 from refinement import Refinement
 from evaluate import to_device, target_image, ssim, evaluate_samples, save_pair, render_observation
 
@@ -29,10 +29,14 @@ def arguments():
     p.add_argument("--feature-dim", type=int, default=32)
     p.add_argument("--width", type=int, default=128)
     p.add_argument("--rank", type=int, default=512, help="number of learned spatial exchange nodes")
+    p.add_argument("--representation", choices=["learned_anchor_exchange", "directional_port_v1"], default="directional_port_v1")
+    p.add_argument("--dir-dim", type=int, default=4)
+    p.add_argument("--dir-width", type=int, default=32)
     p.add_argument("--port-start", type=int, default=5000)
-    p.add_argument("--shadow-start", type=int, default=1500)
-    p.add_argument("--refine-stop", type=int, default=15000)
-    p.add_argument("--validate-every", type=int, default=10000)
+    p.add_argument("--shadow-start", type=int, default=5000)
+    p.add_argument("--refine-stop", type=int, default=25000)
+    p.add_argument("--validate-every", type=int, default=0,
+                   help="Periodic validation/checkpoint interval; 0 saves only final last.pt")
     p.add_argument("--val-limit", type=int, default=100000)
     p.add_argument("--background", type=float, default=0.0)
     p.add_argument("--seed", type=int, default=0)
@@ -73,7 +77,11 @@ def main():
     output = Path(args.output)
     output.mkdir(parents=True, exist_ok=False)
     config = vars(args)
-    config["representation"] = "learned_anchor_exchange"
+    if args.representation == "directional_port_v1":
+        config.update(direction_basis="constant_spherical_gaussian",
+                      matrix_parameterization="softplus", direction_axis_init="xyz",
+                      direction_kappa_init=1.0, matrix_diagonal_init=0.25,
+                      matrix_offdiagonal_init=0.001)
     config["sss_light_axes"] = "world"
     dataset = SceneDataset(
         args.scene, "train", args.resolution, unit_light_intensity=args.unit_light_intensity
@@ -123,12 +131,7 @@ def main():
     )
     light_scale = irradiances.median().item()
     gaussians = Gaussians(args.points, center, radius, args.feature_dim)
-    transport = Transport(
-        feature_dim=args.feature_dim,
-        width=args.width,
-        light_scale=light_scale,
-        rank=args.rank,
-    ).cuda()
+    transport = build_transport(config, light_scale).cuda()
     if args.init_checkpoint:
         if dataset.scene_path.parent.name == "Synthetic_SSS-GS":
             assert (
@@ -311,8 +314,8 @@ def main():
             }
             history.write(json.dumps(row) + "\n")
             print(json.dumps(row), flush=True)
-        if step % args.validate_every == 0 or step == args.steps:
-            if not validation:
+        if step == args.steps or (args.validate_every > 0 and step % args.validate_every == 0):
+            if not validation or args.validate_every == 0:
                 checkpoint(step, output / "last.pt")
                 continue
             metrics, _ = evaluate_samples(

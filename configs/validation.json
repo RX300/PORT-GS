@@ -1,8 +1,11 @@
 {
-  "name": "anchor512_validation_20260915",
+  "name": "directional_port512_validation_20260916",
   "python": "/workspace/ubuntu2004_cuda12_1/utils/conda-envs/ssd-gs/bin/python",
   "data_root": "/workspace/datasets/SSD-GS/data",
-  "worker_gpus": [0, 1],
+  "worker_gpus": [
+    1,
+    3
+  ],
   "train": {
     "steps": 30000,
     "resolution": 512,
@@ -12,9 +15,9 @@
     "width": 128,
     "rank": 512,
     "port-start": 5000,
-    "shadow-start": 1500,
-    "refine-stop": 15000,
-    "validate-every": 10000,
+    "shadow-start": 5000,
+    "refine-stop": 25000,
+    "validate-every": 0,
     "val-limit": 100000,
     "background": 0.0,
     "seed": 0,
@@ -30,14 +33,37 @@
     "display-gamma": 2.2,
     "shadow-mode": "deep",
     "absgrad": true,
-    "fit-all": true
+    "fit-all": true,
+    "representation": "directional_port_v1",
+    "dir-dim": 4,
+    "dir-width": 32
   },
   "families": {
-    "Real_NRHints": {"scenes": ["Cat", "Pixiu"], "train": {}},
-    "Synthetic_GS3": {"scenes": ["AnisoMetal", "Translucent"], "train": {"background": 1.0}},
+    "Real_NRHints": {
+      "scenes": [
+        "Cat",
+        "Pixiu"
+      ],
+      "train": {}
+    },
+    "Synthetic_GS3": {
+      "scenes": [
+        "AnisoMetal",
+        "Translucent"
+      ],
+      "train": {
+        "background": 1.0
+      }
+    },
     "Synthetic_SSS-GS": {
-      "scenes": ["bunny_small", "dragon_small"],
-      "train": {"resolution": 256, "unit-light-intensity": 1.0}
+      "scenes": [
+        "bunny_small",
+        "dragon_small"
+      ],
+      "train": {
+        "resolution": 256,
+        "unit-light-intensity": 1.0
+      }
     }
   },
   "launch_environment": {
