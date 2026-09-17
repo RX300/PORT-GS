@@ -4,8 +4,9 @@ from types import SimpleNamespace
 import torch
 from torch.nn import functional as F
 
-from directional_transport import DirectionalTransport, build_transport
-from transport import Transport, quadrature_mass
+from methods.directional import DirectionalTransport
+from methods.anchor import AnchorTransport
+from methods.base import quadrature_mass
 
 
 def main():
@@ -51,7 +52,7 @@ def main():
     direct = model(g, receivers, eye, light, intensity, visibility, False)
     reference = (1-aout)*direct + aout*(bout[:,:,None]*h).sum(1)
     torch.testing.assert_close(out, reference, atol=1e-12, rtol=1e-10)
-    old = Transport(rank=5).double()
+    old = AnchorTransport(rank=5).double()
     old.load_state_dict({k:v for k,v in model.state_dict().items() if k in old.state_dict()})
     torch.testing.assert_close(direct, old(g,receivers,eye,light,intensity,visibility,False))
     torch.testing.assert_close(model(g,receivers,eye,light,intensity*3,visibility), out*3)

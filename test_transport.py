@@ -7,7 +7,8 @@ from types import SimpleNamespace
 import torch
 
 from data import SceneDataset
-from transport import Transport, exchange_irradiance as continuous_exchange, quadrature_mass
+from methods.anchor import AnchorTransport, exchange_irradiance as continuous_exchange
+from methods.base import quadrature_mass
 
 
 def exchange_irradiance(incident, partition, logits, mass):
@@ -42,7 +43,7 @@ def main():
         / (frame["light_pos"].cuda().double() - params["means"]).square().sum(-1, keepdim=True)
         for frame in frames
     ]
-    model = Transport(feature_dim=params["features"].shape[-1]).cuda().double()
+    model = AnchorTransport(feature_dim=params["features"].shape[-1]).cuda().double()
     mass = quadrature_mass(params)
     partition = model.partition((params["means"] - gaussians.center) / gaussians.radius)
     # Use actual learned feature channels to exercise spatially varying RGB

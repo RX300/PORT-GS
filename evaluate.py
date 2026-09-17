@@ -10,7 +10,7 @@ from PIL import Image
 from torch.nn import functional as F
 
 from gaussians import Gaussians
-from directional_transport import build_transport
+from methods import build_transport
 from renderer import render
 
 

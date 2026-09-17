@@ -39,6 +39,7 @@ def build_manifest(config, output_dir):
             jobs.append({
                 "id": f"PORT-{family}-{scene}", "method": "PORT-GS", "family": family,
                 "scene": scene, "dataset": str(dataset), "state": "pending", "mode": "fresh",
+                "representation": options["representation"],
                 "source_archive": str(source_archive), "source_revision": revision,
                 "output": str(output), "resultpath": str(output / "test/metrics.json"),
                 "steps": [

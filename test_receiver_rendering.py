@@ -11,7 +11,7 @@ from data import SceneDataset
 from evaluate import observation_image, target_image, to_device
 from gaussians import Gaussians
 from renderer import render, visibility_hint
-from transport import Transport
+from methods.anchor import AnchorTransport
 
 
 def main():
@@ -24,7 +24,7 @@ def main():
     state = checkpoint["gaussians"]
     gaussians = Gaussians(len(state["params.means"]), state["center"], checkpoint["radius"], 32)
     gaussians.load_state_dict(state)
-    model = Transport(light_scale=checkpoint["transport"]["light_scale"].item()).cuda()
+    model = AnchorTransport(light_scale=checkpoint["transport"]["light_scale"].item()).cuda()
     dataset = SceneDataset(checkpoint["config"]["scene"], "train", 512)
     sample = to_device(dataset[0], "cuda")
     target = target_image(sample, 0.0, 2.2).detach()

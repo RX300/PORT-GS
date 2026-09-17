@@ -13,7 +13,7 @@ from gsplat.strategy.ops import remove
 
 from data import SceneDataset, split_train_lights
 from gaussians import Gaussians, camera_bounds
-from directional_transport import build_transport
+from methods import build_transport, add_method_arguments, resolve_config
 from refinement import Refinement
 from evaluate import to_device, target_image, ssim, evaluate_samples, save_pair, render_observation
 
@@ -26,12 +26,7 @@ def arguments():
     p.add_argument("--resolution", type=int, default=512)
     p.add_argument("--points", type=int, default=20000)
     p.add_argument("--max-points", type=int, default=400000)
-    p.add_argument("--feature-dim", type=int, default=32)
-    p.add_argument("--width", type=int, default=128)
-    p.add_argument("--rank", type=int, default=512, help="number of learned spatial exchange nodes")
-    p.add_argument("--representation", choices=["learned_anchor_exchange", "directional_port_v1"], default="directional_port_v1")
-    p.add_argument("--dir-dim", type=int, default=4)
-    p.add_argument("--dir-width", type=int, default=32)
+    add_method_arguments(p)
     p.add_argument("--port-start", type=int, default=5000)
     p.add_argument("--shadow-start", type=int, default=5000)
     p.add_argument("--refine-stop", type=int, default=25000)
@@ -76,12 +71,7 @@ def main():
     torch.backends.cuda.matmul.allow_tf32 = True
     output = Path(args.output)
     output.mkdir(parents=True, exist_ok=False)
-    config = vars(args)
-    if args.representation == "directional_port_v1":
-        config.update(direction_basis="constant_spherical_gaussian",
-                      matrix_parameterization="softplus", direction_axis_init="xyz",
-                      direction_kappa_init=1.0, matrix_diagonal_init=0.25,
-                      matrix_offdiagonal_init=0.001)
+    config = resolve_config(vars(args))
     config["sss_light_axes"] = "world"
     dataset = SceneDataset(
         args.scene, "train", args.resolution, unit_light_intensity=args.unit_light_intensity
@@ -93,6 +83,10 @@ def main():
         if args.init_checkpoint
         else None
     )
+    if saved is not None:
+        saved_method = saved["config"].get("representation", "learned_anchor_exchange")
+        if saved_method != args.representation:
+            raise ValueError("--init-checkpoint requires the same method; use --init-geometry for another method")
     if args.fit_all:
         fit_indices, val_indices = list(range(len(dataset))), []
     elif saved is not None:
