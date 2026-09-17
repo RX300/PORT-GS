@@ -1,0 +1,75 @@
+{
+  "name": "paired_port512_validation_20260917",
+  "python": "/workspace/ubuntu2004_cuda12_1/utils/conda-envs/ssd-gs/bin/python",
+  "data_root": "/workspace/datasets/SSD-GS/data",
+  "worker_gpus": [
+    1
+  ],
+  "train": {
+    "steps": 30000,
+    "resolution": 512,
+    "points": 20000,
+    "max-points": 400000,
+    "feature-dim": 32,
+    "width": 128,
+    "rank": 512,
+    "port-start": 5000,
+    "shadow-start": 5000,
+    "refine-stop": 25000,
+    "validate-every": 0,
+    "val-limit": 100000,
+    "background": 0.0,
+    "seed": 0,
+    "mask-weight": 0.05,
+    "opacity-cap": 0.99,
+    "min-scale": 0.0001,
+    "max-scale": 0.1,
+    "position-scale": "camera",
+    "densification-scale": "object",
+    "position-decay": 0.01,
+    "camera-start": 1000,
+    "camera-lr": 0.0003,
+    "display-gamma": 2.2,
+    "shadow-mode": "deep",
+    "absgrad": true,
+    "fit-all": true,
+    "representation": "paired_port",
+    "dir-dim": 4,
+    "dir-width": 32
+  },
+  "families": {
+    "Real_NRHints": {
+      "scenes": [
+        "Cat",
+        "Pixiu"
+      ],
+      "train": {}
+    },
+    "Synthetic_GS3": {
+      "scenes": [
+        "AnisoMetal",
+        "Translucent"
+      ],
+      "train": {
+        "background": 1.0
+      }
+    },
+    "Synthetic_SSS-GS": {
+      "scenes": [
+        "bunny_small",
+        "dragon_small"
+      ],
+      "train": {
+        "resolution": 256,
+        "unit-light-intensity": 1.0
+      }
+    }
+  },
+  "launch_environment": {
+    "PATH_prefix": "/workspace/ubuntu2004_cuda12_1/utils/conda-envs/ssd-gs/bin:/usr/local/cuda-12.1/bin",
+    "CUDA_HOME": "/usr/local/cuda-12.1",
+    "TORCH_CUDA_ARCH_LIST": "8.9",
+    "MAX_JOBS": "8",
+    "OMP_NUM_THREADS": "8"
+  }
+}
