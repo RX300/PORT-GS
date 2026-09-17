@@ -1,3 +1,16 @@
+## 两项研究方法30k六场景实验已启动 — 2026-09-17
+
+按用户要求，paired_port在GPU1、local_frame在GPU3分别串行运行六场景，
+两组并行，总计12次从头30k/seed0训练；每场景之后自动评估完整official test。
+维持5000启用阴影/端口、25000停止细化、仅保存最终last.pt。
+
+- paired_port：GPU1，训练PID 222580，启动核查已到step 5000，loss有限。
+- local_frame：GPU3，训练PID 222649，启动核查已到step 4200，loss有限。
+
+输出分别在runs/paired_port512_validation_20260917/和runs/local_frame512_validation_20260917/。
+状态与进度以上述实验目录status.json/history.jsonl为准，尚无完整质量结论。
+[实验协议和启动证据](../experiments/research_methods_validation_20260917.md)。
+
 ## 多方法架构与两个研究候选 — 2026-09-17
 
 原工作区已保存为Git提交2204cdc，接口重构单独提交cbc3545。

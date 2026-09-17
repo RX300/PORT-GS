@@ -78,3 +78,6 @@ CUDA_VISIBLE_DEVICES=1 python test_method_integration.py --output runs/method_sm
 已完成的30k方向端口结果保留在 `runs/directional_port512_validation_20260915/`。
 60k实验已按此前要求取消。历史HashGrid实验使用各自源码归档。
 重构前代码保存在Git提交 `2204cdc`；本次工作分支为 `feature/selectable-transport-methods`。
+
+当前两项新方法各自的六场景30k实验已启动，使用GPU1/3，每场景训练后自动测试。
+见[实验协议与输出位置](docs/experiments/research_methods_validation_20260917.md)。

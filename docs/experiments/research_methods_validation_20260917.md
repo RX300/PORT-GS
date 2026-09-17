@@ -28,4 +28,19 @@ bash launch_validation.sh configs/local_frame512_validation_20260917.json
 每场景有config、split、history、loss曲线、最终checkpoint和test/metrics.json。
 源码快照包含methods包；原30k基线输出保留，不被覆盖。
 
-启动状态与实际进度证据在完成启动核查后补充。
+## 启动核查
+
+两组后台tmux队列已启动，真实训练进程、日志递增与GPU活动均已核实。
+- paired_port：GPU1，训练PID 222580，启动核查已到step 5000，loss有限。
+- local_frame：GPU3，训练PID 222649，启动核查已到step 4200，loss有限。
+
+GPU1/3从空闲状态启动，其余GPU未使用。Cat实际保存的训练配置与已完成30k基线对比，
+差异仅representation/output，以及方案B的frame_width。完整六场景图像存在性检查通过，
+每组完整test共1937帧。方法构造和源码快照内容检查通过，复用上一轮已通过的真实CUDA集成验证。
+
+各实验目录的preflight.json和startup_evidence.json记录配置、进度与GPU证据。
+NVML返回的PID与容器内PID不同，启动验证通过/proc核对训练进程及CUDA_VISIBLE_DEVICES，
+通过GPU UUID对应NVML计算进程；不以两种PID数值直接相等为前提。
+manifest记录源码版本767575f；模型实现未在启动期间修改。
+
+训练及评估结果尚未完成；各场景结束后自动保存test/metrics.json，队列状态写入status.json。
