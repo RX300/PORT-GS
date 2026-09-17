@@ -6,16 +6,16 @@ import torch
 from torch import nn
 from torch.nn import functional as F
 
-from .base import TransportBase
+from .base import PortTransport
 
 
-class DirectionalTransport(TransportBase):
-    defaults = dict(TransportBase.defaults, dir_dim=4, dir_width=32,
+class DirectionalTransport(PortTransport):
+    defaults = dict(PortTransport.defaults, dir_dim=4, dir_width=32,
                     direction_basis="constant_spherical_gaussian",
                     matrix_parameterization="softplus", direction_axis_init="xyz",
                     direction_kappa_init=1.0, matrix_diagonal_init=0.25,
                     matrix_offdiagonal_init=0.001)
-    cli_fields = TransportBase.cli_fields + ("dir_dim", "dir_width")
+    cli_fields = PortTransport.cli_fields + ("dir_dim", "dir_width")
 
     def __init__(self, feature_dim=32, width=128, rank=512, light_scale=1.0,
                  dir_dim=4, dir_width=32, direction_basis="constant_spherical_gaussian",

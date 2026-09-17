@@ -1,3 +1,12 @@
+## 方法选择 — 2026-09-17
+
+训练用--representation选择directional_port_v1、paired_port、local_frame或learned_anchor_exchange。
+方法参数由methods注册表生成；local_frame额外允许--frame-width（默认32）。
+评估从checkpoint配置自动恢复，不接受覆盖为另一方法。
+六场景JSON通过train.representation选择，实验name需独立；改为anchor时移除dir-dim/dir-width。
+默认30k/seed0/512端口，阴影与端口5000启用，细化25000停止；新增方法沿用这些设置。
+现有环境不变；方法初筛使用train内灯光留出，再冻结配置进行full train与official test。
+
 ## Current status: stopped; 30k default restored — 2026-09-16
 
 User cancelled the60k experiment. Its training/scheduler/collector processes

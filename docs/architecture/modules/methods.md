@@ -5,10 +5,11 @@
 
 ## 模块边界
 
-- `methods/base.py`：`TransportBase`、源/接收光查询类型、方向编码、空间分配、
+- `methods/base.py`：`TransportBase`最小接口、`PortTransport`公共端口实现、源/接收光查询类型、方向编码、空间分配、
   质量测度、点光源照明、直接光着色和公共forward。
 - `methods/anchor.py`：原 `learned_anchor_exchange`。
 - `methods/directional.py`：原 `directional_port_v1` 的方向池化与读取。
+- `methods/paired_port.py` / `methods/local_frame.py`：两项研究候选，见[实现说明](research_methods.md)。
 - `methods/__init__.py`：显式方法注册表、配置补全、命令行参数及工厂。
 - `renderer.py`：属性光栅化、期望深度接收点、阴影与alpha合成。
 - `train.py` / `evaluate.py`：通用优化、数据协议、观察变换、checkpoint与指标。
@@ -32,10 +33,11 @@ forward(gaussians, receivers, eye, light_pos, light_intensity,
 - `SourceLight`：归一化位置xyz、features、incident、指向光源的direction、mass。
 - `ReceiverLight`：归一化位置xyz、features、incident、指向相机的direction、直接光response。
 
-方法实现 `exchange_radiance(source, receiver)`，返回已经组合直接光和非局部光的RGB。
+继承PortTransport的方法实现 `exchange_radiance(source, receiver)`，返回已经组合直接光和非局部光的RGB。
 材质变化可覆盖 `material_directions` / `direct_response`；方向端口变化可继承
 `DirectionalTransport`并覆盖接收空间查询或exchange函数。
-若方法需要不同整体流程，可覆盖forward，但仍须遵循上述renderer调用及返回合同。
+若新方法不使用端口，直接继承TransportBase并实现forward，无需实现exchange hook或创建端口参数。
+构造参数仍需包含feature_dim，并调用基类初始化light_scale；这两项属于训练器和checkpoint合同。
 
 ## 添加方法
 

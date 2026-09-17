@@ -7,6 +7,8 @@ import subprocess
 import tarfile
 from pathlib import Path
 
+from methods import DEFAULT_METHOD
+
 
 ROOT = Path(__file__).resolve().parent
 DEFAULT_CONFIG = ROOT / "configs/validation.json"
@@ -39,7 +41,7 @@ def build_manifest(config, output_dir):
             jobs.append({
                 "id": f"PORT-{family}-{scene}", "method": "PORT-GS", "family": family,
                 "scene": scene, "dataset": str(dataset), "state": "pending", "mode": "fresh",
-                "representation": options["representation"],
+                "representation": options.get("representation", DEFAULT_METHOD),
                 "source_archive": str(source_archive), "source_revision": revision,
                 "output": str(output), "resultpath": str(output / "test/metrics.json"),
                 "steps": [
@@ -64,8 +66,7 @@ def build_manifest(config, output_dir):
         "protocol": {
             "scenes": len(jobs),
             "selection": {name: settings["scenes"] for name, settings in config["families"].items()},
-            "representation": config["train"].get("representation", "learned_anchor_exchange"),
-            "spatial_exchange_nodes": config["train"]["rank"],
+            "representation": config["train"].get("representation", DEFAULT_METHOD),
             "train": config["train"],
             "family_overrides": {name: settings["train"] for name, settings in config["families"].items()},
             "test": "all official test frames, original calibration, fixed last.pt, full LPIPS",

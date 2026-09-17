@@ -50,6 +50,25 @@ def spatial_partition(xyz, centers, log_width):
 
 
 class TransportBase(nn.Module, ABC):
+    """Minimal contract for methods, including implementations without ports.
+
+    Subclasses declare constructor defaults and implement linear pixel shading.
+    Shared scene geometry, observations and optimizers remain outside this class.
+    """
+    defaults = dict(feature_dim=32)
+    cli_fields = ("feature_dim",)
+
+    def __init__(self, light_scale=1.0):
+        super().__init__()
+        self.register_buffer("light_scale", torch.tensor(float(light_scale)))
+
+    @abstractmethod
+    def forward(self, gaussians, receivers, eye, light_pos, light_intensity,
+                source_visibility, port_active=True):
+        """Return [M, 3] linear foreground radiance for the pixel receivers."""
+
+
+class PortTransport(TransportBase):
     """Return linear foreground RGB at the renderer's pixel receivers.
 
     Subclasses implement exchange_radiance(source, receiver). The shared forward
@@ -57,12 +76,11 @@ class TransportBase(nn.Module, ABC):
     transform or alpha composition belongs in a transport method.
     """
 
-    defaults = dict(feature_dim=32, width=128, rank=512)
-    cli_fields = ("feature_dim", "width", "rank")
+    defaults = dict(TransportBase.defaults, width=128, rank=512)
+    cli_fields = TransportBase.cli_fields + ("width", "rank")
 
     def __init__(self, feature_dim=32, width=128, rank=512, light_scale=1.0):
-        super().__init__()
-        self.register_buffer("light_scale", torch.tensor(float(light_scale)))
+        super().__init__(light_scale)
         self.local = nn.Sequential(
             nn.Linear(feature_dim + 82 + 51, width), nn.SiLU(),
             nn.Linear(width, width), nn.SiLU(),

@@ -1,89 +1,80 @@
 # PORT-GS
 
-独立的 3DGS 重光照研究项目，沿用 SSD-GS 的环境与数据协议。
-当前默认 **directional_port_v1：512 个可学习空间端口 × 4 个方向通道**。
-Gaussian 保留32维材质特征；共享方向网络生成入射/出射方向基；每个端口
-通过非负RGB方向矩阵传递非局部光。直接光仍由165→128×4→3网络计算。
+独立的3DGS重光照研究项目，复用SSD-GS环境和数据协议。
+Gaussian属性与期望深度光栅化 → 像素接收点 → 所选光传输方法 → alpha合成与观察变换。
+训练、渲染、评价共用同一套流程；方法实现位于 `methods/`。
 
-流程：读取训练帧 → Gaussian属性与深度光栅化 → 重建像素三维接收点 →
-源Gaussian方向汇总与端口矩阵变换 → 像素方向读取 → 直接光与非局部RGB相加 →
-原alpha、背景及观察变换 → 损失优化与几何细化。
-默认第5000步同时启用阴影和端口，第25000步停止细化。不声称新方向算子保持旧算子的守恒性。
+## 方法选择
+
+| `--representation` | 实现 | 作用 |
+| --- | --- | --- |
+| `directional_port_v1`（默认） | DirectionalTransport | 当前512空间端口×4方向通道基线 |
+| `paired_port` | PairedPortTransport | 方案A：入光/出光端独立空间中心和宽度 |
+| `local_frame` | LocalFrameTransport | 方案B：直接光使用学习的局部坐标系，非局部方向端口保持原定义 |
+| `learned_anchor_exchange` | AnchorTransport | 原空间端口irradiance交换对照 |
+
+A、B是两个独立候选，未默认组合。两者默认R=512、B=4；B的frame_width=32。
+新增方法继承基类或现有方法，并在注册表增加一项即可接入训练和checkpoint评估。
+接口、扩展步骤和参数约定见[方法架构](docs/architecture/modules/methods.md)。
 
 ## 环境与数据
 
-复用 `/workspace/ubuntu2004_cuda12_1/utils/conda-envs/ssd-gs`：
-PyTorch2.4.1、CUDA12.1、gsplat，无新增依赖。
-数据根目录 `/workspace/datasets/SSD-GS/data/`，每个场景包含 transforms JSON
-及图像目录。本轮六场景：
+复用 `/workspace/ubuntu2004_cuda12_1/utils/conda-envs/ssd-gs`，CUDA12.1、PyTorch2.4.1、gsplat；无新增依赖。
+数据在 `/workspace/datasets/SSD-GS/data/<family>/<scene>/`，保留原transforms JSON及图像目录。
+Real_NRHints为Cat/Pixiu（512px黑底）；Synthetic_GS3为AnisoMetal/Translucent（512px白底）；
+Synthetic_SSS-GS为bunny_small/dragon_small（256px黑底，显式 `--unit-light-intensity 1`）。
 
-- Real_NRHints：Cat、Pixiu，512px，黑背景。
-- Synthetic_GS3：AnisoMetal、Translucent，512px，白背景。
-- Synthetic_SSS-GS：bunny_small、dragon_small，256px，黑背景。
+## 训练与评价
 
-## 训练、渲染与评价
-
-在 PORT-GS 目录运行：
+在已确认空闲的GPU上运行。以下示例使用GPU1：
 
 ```bash
-CUDA_VISIBLE_DEVICES=0 /workspace/ubuntu2004_cuda12_1/utils/conda-envs/ssd-gs/bin/python train.py \
+cd /workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS
+conda activate /workspace/ubuntu2004_cuda12_1/utils/conda-envs/ssd-gs
+
+# 方案A；默认使用train内灯光留出集，最终全train训练时加 --fit-all
+CUDA_VISIBLE_DEVICES=1 python train.py \
   --scene /workspace/datasets/SSD-GS/data/Real_NRHints/Cat \
-  --output runs/cat_directional_reproduction_s0 --fit-all
+  --output runs/cat_paired_s0 --representation paired_port
 
-CUDA_VISIBLE_DEVICES=0 /workspace/ubuntu2004_cuda12_1/utils/conda-envs/ssd-gs/bin/python evaluate.py \
-  runs/cat_directional_reproduction_s0/last.pt --split test \
-  --output runs/cat_directional_reproduction_s0/test --lpips
+# 方案B
+CUDA_VISIBLE_DEVICES=1 python train.py \
+  --scene /workspace/datasets/SSD-GS/data/Real_NRHints/Cat \
+  --output runs/cat_frame_s0 --representation local_frame --frame-width 32
 
-bash launch_validation.sh
+# 评估自动从checkpoint恢复方法；同时保存渲染对照与逐帧指标
+CUDA_VISIBLE_DEVICES=1 python evaluate.py runs/cat_paired_s0/last.pt \
+  --split validation --output runs/cat_paired_s0/validation --lpips
 ```
 
-默认30k步、seed0、rank512、dir_dim4、dir_width32。
-`evaluate.py` 渲染全部所选帧，保存PSNR/SSIM/LPIPS、逐帧指标与前四组对照图。
-六场景参数见 [validation.json](configs/validation.json)，训练使用完整官方train，
-最后固定last.pt评估完整官方test；这里“验证集”指六场景实验集合。
-每场景保存config.json、split.json、history.jsonl、last.pt和loss.png。
-已完成的30k实验位于 `runs/directional_port512_validation_20260915/`，包含源码快照及精确命令。
+默认30k步、seed0，阴影/端口从5000步启用，25000步停止细化，只保存最终last.pt。
+输出包含config.json、split.json、history.jsonl、loss.png、last.pt。
+正式test使用 `--split test`；方法选择与超参数应先在train内验证完成。
+`python train.py --representation local_frame --help`列出该方法参数。
+`--init-checkpoint`只初始化相同方法/尺寸的权重，optimizer重新创建；
+跨方法只迁移几何时用 `--init-geometry`，要求相同训练划分。
+现有anchor/directional checkpoint继续按原参数键加载。
 
-旧32/512空间端口checkpoint仍按保存的representation加载原Transport。
-显式 `--representation learned_anchor_exchange --rank 512` 可训练旧模型。
-`--init-checkpoint`要求同架构同尺寸；新方向网络需要重新训练。
-旧HashGrid实验使用其自己的源码快照，当前运行不依赖tinycudann。
+六场景批量实验使用[validation.json](configs/validation.json)：将 `train.representation`
+改为所需方法，并设置新的name以分离输出，再执行 `bash launch_validation.sh <配置路径>`。
+选择anchor时移除dir-dim/dir-width，选择local_frame可增加frame-width；未指定的参数由方法默认值补齐。
+每个job和checkpoint记录方法，源码快照包含methods包。后续实验最多使用两张空闲GPU。
 
-## 文档与历史结果
+## 验证与文档
 
-[方向化架构](docs/architecture/modules/directional_transport.md) ·
-[原始修改说明](docs/architecture/PORT_GS_Architecture_Change.md) ·
-[六场景实验](docs/experiments/directional_port_validation_20260915.md) ·
-[状态](docs/project/status.md) · [指标](docs/experiments/results.md) ·
-[设置](docs/experiments/setup.md) · [决策](docs/project/decisions.md)
+```bash
+python test_methods.py -v
+CUDA_VISIBLE_DEVICES=1 python test_method_integration.py --output runs/method_smoke
+```
 
-旧512端口结果：`runs/rank512_validation_20260914/`。
-[512端口记录](docs/experiments/rank512_validation_20260914.md) ·
-[此前恢复记录](docs/project/restore_anchor512_20260915.md) ·
-[历史全量比较](docs/experiments/comparison_20260913.md) ·
-[输出清理记录](docs/experiments/output_cleanup_20260914.md)
+第一条检查公式、初始化退化、梯度、光强线性与序列化；第二条使用真实Cat数据，
+对四种方法分别训练3步、重载checkpoint并评估。短测不代表重光照质量提升。
 
-## 已完成的64端口六场景结果
+[系统架构](docs/architecture/system.md) · [新增方法说明](docs/architecture/modules/research_methods.md) ·
+[研究方案及自审](docs/research/cache_material_proposals_20260916.md) ·
+[本次验证](docs/experiments/method_refactor_20260917.md) ·
+[历史指标](docs/experiments/results.md) · [项目状态](docs/project/status.md)
 
-六场景30k/seed0训练与1937帧完整测试已完成。场景均值：PSNR **28.2392**、
-SSIM **0.91407**、LPIPS **0.09069**。相对旧512端口版，PSNR下降0.1853dB。
-AnisoMetal提升0.5337dB，bunny_small下降1.6259dB；本轮整体没有改善。
-逐场景指标与对照见[实验报告](docs/experiments/directional_port_validation_20260915.md)。
-
-## 512方向端口复验
-
-按用户要求将端口数从64增加到512，方向维数仍为4；同六场景、30k步、seed0，
-阴影与端口均从5000步启用，细化停止改为25000步。
-`validate-every=0` 关闭中间验证和模型保存，只在30000步保存最终last.pt并评估完整test。
-原512端口实验已按用户要求停止并删除输出，在同一路径从头重跑。
-[512端口实验记录](docs/experiments/directional_port512_validation_20260915.md)。
-
-## 当前状态：实验已停止
-
-按用户要求取消60k实验并删除该轮输出目录，默认训练步数恢复为30000。
-保留512端口、阴影/端口从5000步启用、25000步停止细化、仅保存最终模型的设置。
-已完成的30k结果保留；没有启动新实验。下一次默认实验名为
-`directional_port512_validation_20260916`，避免覆盖已有结果。
-[取消记录](docs/experiments/directional_port512_60k_validation_20260916.md)。
-
-后续实验最多使用两张空闲GPU；当前配置为GPU1/3，启动前需重新确认空闲状态。
+已完成的30k方向端口结果保留在 `runs/directional_port512_validation_20260915/`。
+60k实验已按此前要求取消。历史HashGrid实验使用各自源码归档。
+重构前代码保存在Git提交 `2204cdc`；本次工作分支为 `feature/selectable-transport-methods`。

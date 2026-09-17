@@ -2,13 +2,17 @@
 import argparse
 
 from .anchor import AnchorTransport
-from .base import TransportBase
+from .base import PortTransport, TransportBase
 from .directional import DirectionalTransport
+from .paired_port import PairedPortTransport
+from .local_frame import LocalFrameTransport
 
 
 METHODS = {
     "learned_anchor_exchange": AnchorTransport,
     "directional_port_v1": DirectionalTransport,
+    "paired_port": PairedPortTransport,
+    "local_frame": LocalFrameTransport,
 }
 DEFAULT_METHOD = "directional_port_v1"
 

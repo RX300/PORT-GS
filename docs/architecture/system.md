@@ -1,59 +1,37 @@
-## Current architecture — 2026-09-15
+# PORT-GS系统架构
 
-The active model is directional_port_v1: 512 spatial ports, four direction
-channels and a shared material direction MLP. Direct and nonlocal radiance are
-combined at pixel receivers. See [directional architecture](modules/directional_transport.md).
-The earlier architecture below is historical.
+更新：2026-09-17。方法选择与通用训练/渲染解耦。
 
-> Active representation restored on 2026-09-15: 512 learned spatial anchors,
-> source irradiance pooling and the original material-response MLP (Git `9e9596a`).
-> HashGrid and residual decoders are archived experiments. Current training
-> also retains weighted loss logs/plots and the six-scene JSON launcher.
+```text
+train.py / evaluate.py
+        ↓ checkpoint.config.representation
+methods注册表 → 所选TransportBase子类
+        ↑ 统一forward接口
+renderer.py：Gaussian属性、阴影、期望深度 → 像素接收点
+        ↓ 线性前景RGB
+alpha合成 → 统一观察变换 → 损失 / 指标
+```
 
-# Current system — 2026-09-12
-
-| File | Responsibility |
+| 模块 | 职责 |
 | --- | --- |
-| `data.py` | Metadata, decoding, camera/light conventions and explicit splits |
-| `gaussians.py` | Gaussian state, GPU initialization and parameter optimization |
-| `transport.py` | Complete Gaussian-source integral and continuous receiver material response |
-| `renderer.py` | Attribute/expected-depth rasterization, pixel reconstruction and shadows |
-| `refinement.py` | Opacity-reset scheduling, growth and pruning |
-| `cameras.py` | Optional fit-frame camera corrections |
-| `train.py` | Optimization, split ownership, checkpoint state and progress |
-| `evaluate.py` | Model loading, shared observation transform, rendering and metrics |
-| `diagnose_image_errors.py` | Region/detail errors, silhouettes and contribution-weighted support |
+| data.py | 元数据、图像数值域、相机/灯光约定及训练内留出划分 |
+| gaussians.py | Gaussian参数、初始化与几何optimizer |
+| methods/base.py | 公共照明与直接光着色，定义可扩展的光传输接口 |
+| methods/anchor.py | 原空间irradiance交换 |
+| methods/directional.py | 方向化端口基线 |
+| methods/paired_port.py | A：独立入光/出光空间支持 |
+| methods/local_frame.py | B：直接光局部坐标系 |
+| methods/__init__.py | 方法名→实现类，方法参数/CLI/构造的唯一注册入口 |
+| renderer.py | 属性和深度光栅化、像素接收点重建、近似阴影、alpha合成 |
+| refinement.py | 增密、分裂与opacity重置 |
+| train.py | 通用训练循环、配置、权重保存与日志 |
+| evaluate.py | 根据checkpoint构造方法，统一观察变换与评估 |
+| make_validation_manifest.py | 多场景命令、方法标识、源码快照和输出隔离 |
 
-[Transport](modules/transport.md), [refinement](modules/refinement.md),
-[shadows](modules/shadows.md), and [data/observation](modules/data_observation.md)
-describe the component boundaries. The current renderer uses `RGB+ED` to blend
-base/features/visibility and expected
-camera-Z. It reconstructs covered-pixel receivers and evaluates transport there,
-while the source integral always uses all Gaussians. Source-node-only
-conservation is distinguished from arbitrary receiver queries. Second-round operator and receiver-rendering GPU audits passed; the
-corresponding reports are `receiver_operator_audit.json` and
-`receiver_rendering_audit.json` under `runs/research_20260912/`.
-Historical global/local port modes, deferred queries, radiance moments and
-camera-response experiments are preserved with their original source in
-`runs/research_20260912/source_before.tar` and previous outputs.
+[方法接口与扩展](modules/methods.md)和[两个新方法](modules/research_methods.md)定义当前接口。
+公共forward返回线性RGB，方法内部不做背景和gamma；renderer不识别具体子类。
+所有方法继续使用像素接收点和完整Gaussian源集合，保留原阴影及几何细化实现。
 
-`evaluate.load_model(path)` reconstructs the current Gaussian and transport
-state for evaluation and checkpoint initialization. Checkpoints store config,
-step, Gaussian/transport state, radius, fit/validation indices and optional
-training-camera offsets. Initialization starts fresh optimizers. Historical
-checkpoints are reproduced with their archived code.
-
-Geometry refinement adds screen-radius split candidates above 3% of the image's
-long edge, with splitting and duplication mutually exclusive. Screen-radius
-pruning is explicitly disabled to avoid applying stale parent radii to children;
-opacity/world-size pruning remains. This is geometry budget control, separate
-from the exchange operator's research formulation. The old top-level scripts
-removed from the production path are listed in
-`runs/research_20260912/cleanup_files.json` and preserved in the source archive.
-
-First-round weights and results belong to `runs/research_20260912/cat_r1_source.tar`.
-The active second-round network adds 51 world-position channels and a pixel
-receiver interface; its checkpoint architecture differs from the first round.
-
-The second-round path is accepted and frozen in `cat_r2_source.tar` for final
-full fits. Its validation tradeoffs are recorded in [results](../experiments/results.md).
+像素接收点来自期望深度，可能处于多层贡献者之间；材质属性来自alpha归一化插值。
+这仍是表示近似。方向化方法及新方法不声明完整渲染器具有能量守恒/互易性。
+历史空间交换在离散源测度上的性质有更小的适用范围。

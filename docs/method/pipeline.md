@@ -1,3 +1,10 @@
+## 当前可选择方法架构 — 2026-09-17
+
+当前支持directional_port_v1（默认）、paired_port（方案A）、local_frame（方案B）
+及learned_anchor_exchange。公共训练和渲染流程不区分具体方法；按representation构造。
+详细接口见 [方法架构](../architecture/modules/methods.md)。
+以下日期更早的内容保留作为历史方案记录，新架构不继承超出各方法适用范围的物理声明。
+
 ## Current30k default — 2026-09-16
 
 The60k experiment was cancelled and its outputs deleted at user request.

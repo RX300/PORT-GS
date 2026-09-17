@@ -1,5 +1,5 @@
 """Conservative Gaussian-source irradiance exchange."""
-from .base import TransportBase
+from .base import PortTransport
 
 
 def exchange_irradiance(
@@ -22,7 +22,7 @@ def exchange_irradiance(
     return (1 - fraction) * incident + fraction * received
 
 
-class AnchorTransport(TransportBase):
+class AnchorTransport(PortTransport):
     def exchange_radiance(self, source, receiver):
         incident = exchange_irradiance(
             source.incident, self.partition(source.xyz), self.exchange(source.features), source.mass,

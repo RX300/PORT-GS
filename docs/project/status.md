@@ -1,3 +1,14 @@
+## 多方法架构与两个研究候选 — 2026-09-17
+
+原工作区已保存为Git提交2204cdc，接口重构单独提交cbc3545。
+在feature/selectable-transport-methods分支完成methods注册表与公共基类，
+移除根目录重复transport实现，保留原模型参数键及已保存checkpoint读取合同。
+研究A1/B1分别作为paired_port/local_frame接入，默认方法仍为directional_port_v1。
+新方法是否提升图像质量待正式实验；本次只进行算子与最小真实数据集成验证。
+
+[接口](../architecture/modules/methods.md) · [实现](../architecture/modules/research_methods.md) ·
+[验证记录](../experiments/method_refactor_20260917.md)。
+
 ## Current status: stopped; 30k default restored — 2026-09-16
 
 User cancelled the60k experiment. Its training/scheduler/collector processes
