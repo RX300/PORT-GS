@@ -75,5 +75,10 @@ def main():
     print('PASS: CUDA deep-shadow pixel renderer forward/backward')
 
 
+def test_directional_transport():
+    """Pytest entry for the same preflight; needs CUDA and the Real_NRHints/Cat data."""
+    main()
+
+
 if __name__ == '__main__':
     main()

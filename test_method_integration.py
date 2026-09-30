@@ -20,7 +20,7 @@ from gaussians import Gaussians
 from renderer import visibility_hint, _rasterize, rasterization_2dgs
 from surface import SurfacePriors, surface_losses
 from refinement import Refinement
-from train import set_training_stage
+from training.schedule import set_training_stage
 
 
 def check_radiance_residual_checkpoint(checkpoint, output, normal_source='material', residual_frames=None,

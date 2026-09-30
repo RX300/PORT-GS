@@ -1,3 +1,14 @@
+## 2026-09-30：训练代码按职责拆分，默认行为不变
+
+用户要求在代码审阅后重构 PORT-GS（选择“重构+修复，默认行为不变，新行为只能显式开启”）。
+`train.py` 拆为固定顺序的编排循环与 `training/` 包（选项、源 checkpoint 契约、初始化、调度、相机/灯位、SDF/体积/法线场、辐射残差）；
+manifest 评价阶段改为共享构造函数，并记录源码脏树状态、diff 哈希及 third_party 修订（HEAD 单独不能代表脏树代码）。
+修复：rotation 相机源上的残差/体积独享阶段因 SparseAdam 拒绝 lr=0 而崩溃；续训丢失累计规范平移；`--val-limit 0` 除零；渲染器运行期 assert。
+显式选项 `--opacity-reset-every`（默认 3000 等同原行为）用于检验保留导入 GGGS 不透明度。端口划分分块重算，传输峰值显存约减 6.7 GiB。
+备选“删除 SDF/体积/残差/法线场等辅助分支”未采用：09-30 清理明确保留这些分支。端口渐入属于研究改动，未实现。
+验证：10 场景首步逐位一致、冻结阶段整体逐位一致、其余差异在旧代码自身非确定性范围内、manifest 输出一致、93 项单元测试通过。
+[训练模块](../architecture/modules/training.md) · [验证记录](../experiments/training_refactor_20260930.md)。
+
 ## 2026-09-30：按用户选择收敛为三个方法
 
 用户明确保留 directional_port_v1、surface_attention、neural_material；其余六个方法/几何入口删除。

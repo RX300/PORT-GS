@@ -6,6 +6,7 @@ from dataclasses import dataclass
 import torch
 from torch import nn
 from torch.nn import functional as F
+from torch.utils.checkpoint import checkpoint
 
 
 @dataclass
@@ -46,9 +47,29 @@ def quadrature_mass(params):
     return mass / mass.sum()
 
 
-def spatial_partition(xyz, centers, log_width):
+def _log_partition(xyz, centers, log_width):
     distance2 = (xyz[:, None] - centers[None]).square().sum(-1)
     return F.log_softmax(-distance2 / (2 * log_width.exp().square()), dim=-1)
+
+
+_PARTITION_ROWS = 65536
+
+
+def spatial_partition(xyz, centers, log_width):
+    """Log-softmax membership of points in the port supports.
+
+    The [points, ports, 3] offsets dominate transport memory (2.5 GB per tensor
+    at 400k Gaussians x 512 ports). Rows are processed in chunks and, under
+    autograd, recomputed in backward instead of stored. Values are bitwise
+    unchanged; port-parameter gradients only change summation order.
+    """
+    chunks = xyz.split(_PARTITION_ROWS)
+    if torch.is_grad_enabled() and (xyz.requires_grad or centers.requires_grad or log_width.requires_grad):
+        chunks = [checkpoint(_log_partition, chunk, centers, log_width, use_reentrant=False)
+                  for chunk in chunks]
+    else:
+        chunks = [_log_partition(chunk, centers, log_width) for chunk in chunks]
+    return chunks[0] if len(chunks) == 1 else torch.cat(chunks)
 
 
 class TransportBase(nn.Module, ABC):

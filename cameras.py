@@ -215,8 +215,12 @@ class TrainCameraRotations(nn.Module):
         """Project the corrections off the translation gauge; return the compensating scene shift.
 
         Removing ``C_i d`` from every camera and translating the scene by ``-d``
-        leaves the rendered object center unchanged in all fit views while fixing
-        the reconstruction's position to the calibrated frame.
+        leaves the rendered object center unchanged in all fit views (to first
+        order) while fixing the reconstruction's position to the calibrated frame.
+        Point lights stay at their calibrated world positions, so this is not an
+        exact symmetry of relighting: the shift also changes light distance and
+        direction relative to the object. Training keeps the cumulative shift in
+        ``scene_gauge_shift``.
         """
         rotations = self.rotation.weight
         shift = self.gauge_normal @ (self.gauge.transpose(1, 2) @ rotations[..., None]).sum(0).squeeze(-1)

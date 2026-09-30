@@ -32,6 +32,7 @@ Real_NRHints：Cat/Pixiu；Synthetic_GS3：AnisoMetal/Translucent；Synthetic_SS
 
 流程：初始化高斯（可导入已有 GGGS 几何）→ 联合优化几何与重光照表示 → 可选训练相机校正 → 保存模型 → 渲染与评价官方 test。
 三种方法共用训练/评价入口。相机校正须显式开启；官方 test 主指标使用原始标定。
+`train.py` 只编排训练循环，选项、初始化、相机/灯位与辅助分支位于 `training/`（[训练模块](docs/architecture/modules/training.md)）。
 
 ```bash
 # 查看三种方法参数

@@ -1,3 +1,10 @@
+## 2026-09-30：训练代码重构完成（分支 refactor/port-gs-structure）
+
+重构前代码快照 `54fd659` 已推送至 `origin/feature/selectable-transport-methods`。
+重构后 `train.py` 约 370 行，职责移入 `training/`；默认训练/评价/manifest 行为经验证不变。
+已修复残差/体积独享阶段在 rotation 相机源上的启动崩溃；新增 `--opacity-reset-every`；manifest 记录源码来源。
+未启动正式实验；R2b 等已有结果无需重跑。[验证记录](../experiments/training_refactor_20260930.md)。
+
 ## 2026-09-30：按用户选择收敛为三个方法
 
 用户明确保留 directional_port_v1、surface_attention、neural_material；其余六个方法/几何入口删除。

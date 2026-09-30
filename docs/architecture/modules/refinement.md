@@ -30,3 +30,12 @@ the pruning decision consistent.
 
 The shared Conda environment is preserved. The repair replaces the erroneous
 callback through normal strategy dispatch; it adds no monkey patches or retries.
+
+## 2026-09-30: separate opacity-reset interval
+
+`--opacity-reset-every` sets `Refinement.opacity_reset_every` (default 3000, the
+previous behavior; 0 disables resets). `reset_every` stays 3000 because gsplat also
+uses it to pause refinement and to start large-Gaussian pruning, so disabling resets
+does not move the pruning schedule. With GGGS-imported geometry the default resets
+cap every opacity at 0.01 eight times before step 25000 (R2b history); the option
+exists to test keeping the imported opacities.

@@ -2,6 +2,14 @@
 > 其余方法和独立几何训练入口已删除；已有 GGGS 几何读取/诊断和三种方法的公共依赖保留。
 > 以下涉及已删除方法的内容仅作历史记录，不是可运行入口。清理详情见 `docs/experiments/method_retirement_20260930.md`（项目根目录相对路径）。
 
+## 2026-09-30：训练重构后的入口与来源记录
+
+命令与规范配置不变，仍用 `launch_validation.sh` → `make_validation_manifest.py` → `run_benchmark.py`。
+manifest 新增 `source_provenance`（HEAD、`dirty`、`git status` 行、`git diff HEAD` 的 SHA-256、third_party 各仓库修订/脏文件数/diff 哈希）
+及每个作业的 `source_dirty`；精确项目源码仍以运行目录的 `source.tar` 为准，third_party 不打包。
+新选项 `--opacity-reset-every`（默认 3000，0 关闭 opacity 重置，剪枝调度不变）；`--val-limit` 须为正。
+[训练模块](../architecture/modules/training.md)。
+
 ## 2026-09-30：三种真实场景评价口径（主指标不变）
 
 1. **Fixed（主指标）**：原始official test相机与灯光，无任何拟合；与此前所有表格一致。

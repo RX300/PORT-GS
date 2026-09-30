@@ -5,6 +5,7 @@
 # PORT-GS系统架构
 
 更新：2026-09-23。方法选择与通用训练/渲染解耦。
+2026-09-30：训练入口拆为编排循环 `train.py` 与 `training/` 包，默认行为不变，见[训练模块](modules/training.md)。
 
 ```text
 train.py / evaluate.py
@@ -22,9 +23,7 @@ alpha合成 → 统一观察变换 → 损失 / 指标
 | data.py | 元数据、图像数值域、相机/灯光约定及训练内留出划分 |
 | gaussians.py | Gaussian参数、初始化与几何optimizer |
 | methods/base.py | 公共照明与直接光着色，定义可扩展的光传输接口 |
-| methods/anchor.py | 原空间irradiance交换 |
-| methods/directional.py | 方向化端口基线 |
-| methods/surfel.py | 2DGS几何与方向端口组合 |
+| methods/directional.py | 方向化端口基线（默认方法） |
 | methods/attention.py | 2DGS源表面到像素接收点的单次cross-attention |
 | methods/neural_material.py | 冻结共享BRDF decoder替代局部材质MLP，沿用2DGS方向端口 |
 | materials/ / pretrain_material.py | 程序化多层材质、6维编码器和通用decoder预训练 |
@@ -32,9 +31,10 @@ alpha合成 → 统一观察变换 → 损失 / 指标
 | renderer.py | 属性和深度光栅化、像素接收点重建、近似阴影、alpha合成 |
 | surface.py / prepare_surface_priors.py | 表面监督损失与离线StableNormal/DA3预测 |
 | refinement.py | 增密、分裂与opacity重置 |
-| train.py | 通用训练循环、配置、权重保存与日志 |
+| train.py | 固定顺序的训练循环编排：抽帧、校正、渲染、损失、optimizer、增密、日志、保存与验证 |
+| training/ | 命令行与组合检查、源 checkpoint 契约、初始化、学习率调度、相机/灯位/光强拟合、SDF/体积/法线场与辐射残差分支 |
 | evaluate.py | 根据checkpoint构造方法，统一观察变换与评估 |
-| make_validation_manifest.py | 多场景命令、方法标识、源码快照和输出隔离 |
+| make_validation_manifest.py | 多场景命令、方法标识、源码快照、源码与 third_party 来源记录和输出隔离 |
 
 [方法接口与扩展](modules/methods.md)和[两个新方法](modules/research_methods.md)定义当前接口。
 公共forward返回线性RGB，方法内部不做背景和gamma；renderer通过geometry选择3DGS或2DGS光栅化。

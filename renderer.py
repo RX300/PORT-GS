@@ -232,7 +232,8 @@ def visibility_hint(gaussians, light, resolution=128, mode="depth"):
             (camera[:, 2:] + support).max(),
             geometry=geometry,
         )
-    assert external, "Exterior-light shadow map contract violated"
+    if not external:
+        raise RuntimeError("Depth shadow maps require an exterior light; use --shadow-mode deep")
 
     extent = ((camera[:, :2].abs() + support) / (camera[:, 2:] - support)).max().detach() * 1.05
     focal = resolution * 0.5 / extent

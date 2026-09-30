@@ -40,9 +40,15 @@ def split_surfels(params, optimizers, state, mask):
 
 @dataclass
 class Refinement(DefaultStrategy):
-    """Reuse gsplat's statistics and geometry operations; own their scheduling."""
+    """Reuse gsplat's statistics and geometry operations; own their scheduling.
+
+    ``opacity_reset_every`` controls only opacity resets (None follows
+    ``reset_every``, 0 disables them). ``reset_every`` still pauses refinement
+    and delays gsplat's large-Gaussian pruning, so that schedule is unchanged.
+    """
 
     max_points: int = 200000
+    opacity_reset_every: int | None = None
 
     @torch.no_grad()
     def step_post_backward(self, params, optimizers, state, step, info, packed=False):
@@ -62,7 +68,8 @@ class Refinement(DefaultStrategy):
             if self.refine_scale2d_stop_iter > 0:
                 state["radii"].zero_()
 
-        if step > 0 and step % self.reset_every == 0:
+        interval = self.reset_every if self.opacity_reset_every is None else self.opacity_reset_every
+        if interval > 0 and step > 0 and step % interval == 0:
             reset_opa(params, optimizers, state, value=2 * self.prune_opa)
             return {
                 "event": "opacity_reset",

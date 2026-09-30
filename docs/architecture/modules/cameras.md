@@ -65,3 +65,16 @@ and light corrections; validation and official test always use the original cali
 means `anchor`). Unit tests: `test_methods.CameraCalibrationTests` (fixed centers, sparse
 single-row updates, gauge removal preserving center images and idempotence, light offsets,
 sub-pixel shift recovery for the secondary aligned metric).
+
+## 2026-09-30: training package and frozen stages
+
+Training uses `training/pose.py`: `CameraFit` owns the offsets, optimizer, rate decay and
+gauge projection; `LightFit` and `LightScaleFit` own the light corrections. In frozen
+stages (`--radiance-residual`, `--sdf-volume-only`) saved corrections are applied without an
+optimizer; SparseAdam rejects the former zero rate, which made rotation-mode sources fail.
+
+The translation gauge moves only the Gaussian means. Lights stay at calibrated world
+positions and `gaussians.center` (the transport's normalization origin) is not moved, so the
+projection is a first-order camera-geometry symmetry, not an exact relighting symmetry.
+R2b accumulated 0.018 (Cat, radius 0.50) and 0.040 (Pixiu, radius 1.41) world units.
+`scene_gauge_shift` is now inherited from `--init-checkpoint` instead of restarting at zero.

@@ -944,7 +944,7 @@ class NeuralMaterialTests(unittest.TestCase):
         torch.testing.assert_close(_fresnel_conductor(torch.ones(512, 1), n, k), f0)
 
     def test_decoder_frozen_across_stages_but_latent_and_normal_differentiate(self):
-        from train import set_training_stage
+        from training.schedule import set_training_stage
         model = build_transport(dict(representation='neural_material', rank=5), 1.)
         g = Gaussians(8, torch.zeros(3), 1., device='cpu', geometry='2dgs')
         optimizers = g.optimizers()
@@ -1251,7 +1251,7 @@ class AngularCueTests(unittest.TestCase):
 
 class ResidualFramePoolTests(unittest.TestCase):
     def test_default_and_explicit_pools_preserve_source_membership(self):
-        from train import residual_frame_pool
+        from training.residual import residual_frame_pool
         fit = [9, 2, 7, 15]
         frames = [15, 2]
         for enabled in (False, True):
@@ -1263,7 +1263,7 @@ class ResidualFramePoolTests(unittest.TestCase):
         self.assertEqual(frames, [15, 2])
 
     def test_invalid_residual_frame_pools_are_rejected(self):
-        from train import residual_frame_pool
+        from training.residual import residual_frame_pool
         fit = [9, 2, 7, 15]
         for frames, enabled in [([2, 2], True), ([15, 99], True), ([2], False), ([], True)]:
             with self.subTest(frames=frames, enabled=enabled):
@@ -2092,6 +2092,100 @@ class CameraCalibrationTests(unittest.TestCase):
         self.assertAlmostEqual(item['dy'], -2.25, delta=0.13)
         self.assertAlmostEqual(item['dx'], 3.5, delta=0.13)
         self.assertGreater(item['PSNR'], 35.0)
+
+
+class TrainingStructureTests(unittest.TestCase):
+    """Training package contracts: CLI checks, frozen stages, refinement and partition memory."""
+
+    @staticmethod
+    def parse(*extra):
+        import contextlib
+        from training.options import parse_arguments
+        with contextlib.redirect_stderr(io.StringIO()):
+            return parse_arguments(['--scene', 'scene', '--output', 'out', *extra])
+
+    def test_cli_rejects_zero_validation_limit_and_negative_reset_interval(self):
+        for extra in (['--val-limit', '0'], ['--opacity-reset-every', '-1']):
+            with self.subTest(extra=extra), self.assertRaises(SystemExit):
+                self.parse(*extra)
+        self.assertEqual(self.parse('--opacity-reset-every', '0').opacity_reset_every, 0)
+
+    def test_residual_stage_freezes_geometry_and_camera_rate(self):
+        args = self.parse('--representation', 'neural_material', '--radiance-residual', '--init-checkpoint', 'x.pt')
+        self.assertTrue(args.freeze_geometry)
+        self.assertEqual((args.camera_lr, args.camera_start), (0., 1))
+
+    def test_frozen_stage_reuses_rotation_corrections_without_an_optimizer(self):
+        from types import SimpleNamespace
+        from cameras import build_camera_offsets
+        from training.pose import CameraFit
+        # SparseAdam rejects the frozen stage's zero rate, which crashed residual stages.
+        with self.assertRaises(ValueError):
+            build_camera_offsets('rotation', 3, 1.).optimizer(0.)
+        source = build_camera_offsets('rotation', 3, 1.)
+        with torch.no_grad():
+            source.rotation.weight[1] = torch.tensor([.01, -.02, .005])
+        saved = {'camera_offsets': source.state_dict(), 'config': {'camera_mode': 'rotation'}, 'fit_indices': [0, 2, 5]}
+        args = SimpleNamespace(init_checkpoint='x.pt', sdf_volume_only=False, radiance_residual=True,
+                               camera_mode='anchor', camera_lr=0., camera_lr_final=None, camera_start=1,
+                               steps=4, camera_gauge='none')
+        config = {'camera_mode': 'anchor'}
+        gaussians = SimpleNamespace(radius=1., center=torch.zeros(3))
+        camera = CameraFit(args, config, saved, None, [0, 2, 5], gaussians, trainable=False)
+        self.assertFalse(camera.trainable)
+        self.assertEqual(config['camera_mode'], 'rotation')
+        self.assertFalse(any(parameter.requires_grad for parameter in camera.offsets.parameters()))
+        viewmat = torch.eye(4)
+        sample = {'viewmat': viewmat, 'c2w': viewmat.clone()}
+        corrected = camera.begin(1, sample, 2)
+        torch.testing.assert_close(corrected['viewmat'], source.correct(sample, 1)['viewmat'], rtol=0, atol=0)
+        self.assertEqual(camera.log_fields()['camera_lr'], 0.)
+
+    def test_opacity_reset_interval_is_separate_from_pruning_schedule(self):
+        from refinement import Refinement
+        events = {}
+        for interval in (None, 0):
+            params = torch.nn.ParameterDict({'means': torch.nn.Parameter(torch.zeros(4, 3)),
+                                             'opacities': torch.nn.Parameter(torch.full((4,), 3.))})
+            optimizers = {'opacities': torch.optim.Adam([params['opacities']])}
+            strategy = Refinement(refine_start_iter=10**9, reset_every=3000, opacity_reset_every=interval)
+            strategy._update_state = lambda *args, **kwargs: None
+            events[interval] = strategy.step_post_backward(params, optimizers, {}, 3000, {})
+            self.assertEqual(strategy.reset_every, 3000)
+            if interval == 0:
+                torch.testing.assert_close(params['opacities'].detach(), torch.full((4,), 3.), rtol=0, atol=0)
+        self.assertEqual(events[None]['event'], 'opacity_reset')
+        self.assertIsNone(events[0])
+
+    def test_chunked_partition_matches_direct_values_and_gradients(self):
+        import methods.base as base
+        torch.manual_seed(3)
+        inputs = (torch.randn(29, 3), torch.rand(6, 3) - .5, torch.full((6,), .3).log())
+        results = []
+        for function in (base._log_partition, base.spatial_partition):
+            leaves = [value.clone().requires_grad_() for value in inputs]
+            rows, base._PARTITION_ROWS = base._PARTITION_ROWS, 7
+            try:
+                output = function(*leaves)
+            finally:
+                base._PARTITION_ROWS = rows
+            (output.exp() * torch.arange(6.)).sum().backward()
+            results.append((output.detach(), [leaf.grad for leaf in leaves]))
+        torch.testing.assert_close(results[0][0], results[1][0], rtol=0, atol=0)
+        for direct, chunked in zip(results[0][1], results[1][1]):
+            torch.testing.assert_close(direct, chunked, rtol=1e-6, atol=1e-7)
+
+    def test_manifest_records_source_provenance(self):
+        from pathlib import Path
+        from make_validation_manifest import build_manifest
+        config = dict(name='provenance_probe', python='python', data_root='/data', worker_gpus=[0],
+                      train={}, families={'family': {'scenes': ['scene'], 'train': {}}}, launch_environment={})
+        manifest = build_manifest(config, Path('/tmp/port-provenance-probe'))
+        provenance = manifest['source_provenance']
+        self.assertEqual(provenance['revision'], manifest['source_revision'])
+        self.assertEqual(provenance['dirty'], bool(provenance['status']))
+        self.assertEqual(manifest['jobs'][0]['source_dirty'], provenance['dirty'])
+        self.assertEqual(len(provenance['diff_sha256']), 64)
 
 
 if __name__ == '__main__':
