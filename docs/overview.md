@@ -1,3 +1,16 @@
+> **2026-09-30 方法清理更新：** 当前只保留 `directional_port_v1`、`surface_attention`、`neural_material`。
+> 其余方法和独立几何训练入口已删除；已有 GGGS 几何读取/诊断和三种方法的公共依赖保留。
+> 以下涉及已删除方法的内容仅作历史记录，不是可运行入口。清理详情见 `docs/experiments/method_retirement_20260930.md`（项目根目录相对路径）。
+
+## 当前高光研究 — 2026-09-23
+
+既有7种可选方法与默认方法保留。SDF辅助分支虽改善轮廓/自一致性，尚未恢复准确细小高光，
+不据此声称真实几何或未见灯光改善。当前研究在较强的neural_material主GS上添加
+零初始化光照条件响应残差，固定全部源状态，只优化新头，按完整来源协议比较拟合与未训练帧。
+[实验与结果](experiments/gs_radiance_residual.md) · [研究接续](project/research_handoff.md)。
+
+以下为各阶段的历史架构。
+
 ## 当前可选择方法架构 — 2026-09-17
 
 当前支持directional_port_v1（默认）、paired_port（方案A）、local_frame（方案B）
@@ -94,3 +107,9 @@ Read [principles](method/principles.md), [pipeline](method/pipeline.md),
 [Cat image diagnosis](experiments/cat_image_diagnosis.md) provide prior evidence.
 External datasets and protocol boundaries are in the
 [related-work report](research/related_work_20260912.md).
+
+
+## 2026-09-24: PORT-DNA-2DGS
+
+Implemented 8DNA-inspired photo-supervised distribution material on 2DGS.
+No SDF or pretrained geometry supervision. See [module](architecture/modules/distribution_material.md) and the distribution-material experiment report.

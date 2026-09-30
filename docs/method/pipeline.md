@@ -1,9 +1,38 @@
-## 当前可选择方法架构 — 2026-09-17
+> **2026-09-30 方法清理更新：** 当前只保留 `directional_port_v1`、`surface_attention`、`neural_material`。
+> 其余方法和独立几何训练入口已删除；已有 GGGS 几何读取/诊断和三种方法的公共依赖保留。
+> 以下涉及已删除方法的内容仅作历史记录，不是可运行入口。清理详情见 `docs/experiments/method_retirement_20260930.md`（项目根目录相对路径）。
 
-当前支持directional_port_v1（默认）、paired_port（方案A）、local_frame（方案B）
-及learned_anchor_exchange。公共训练和渲染流程不区分具体方法；按representation构造。
+## 可选主GS残差流程 — 2026-09-23
+
+载入同方法源checkpoint并冻结GS/传输/相机 → 原像素接收点与前景 →
+零初始化光照条件有符号修正 → 非负截断 → 原alpha及观察变换。
+训练仅更新新头，抽样峰/邻环/前景/定义域像素并保留重复权重；评价自动恢复头、查询所有覆盖点。
+当前Pixiu源已拟合全部562train，fit16用于拟合诊断；完整71test原相机只用于开发期未训练帧评价。
+[固定协议](../experiments/gs_radiance_residual.md) · [实现](../architecture/modules/radiance_residual.md)。
+
+以下为既有通用流程及历史记录。
+
+## 当前流程 — 2026-09-22
+
+当前支持directional_port_v1（默认）
+及learned_anchor_exchange；2DGS方法为surface_attention、neural_material和distribution_material。
+按representation构造光传输方法，按该方法的geometry选择几何光栅化与增密。
+2DGS训练可读取预先逐图预测的StableNormal法线与DA3相对深度；预测器不参与推理。
+
+默认30k步：直接光从开始参与拟合，表面损失从1000步启用，阴影及非局部光从5000步启用，
+25000步停止细化。可选geometry_warmup_steps=5000则先做纯圆盘RGB重建与表面约束，
+第5001步重置RGB并开始重光照；这项实验已完成，结果见[实验记录](../experiments/results.md)。
+每帧先光栅化属性与期望深度，反投影出像素接收点，再计算直接光及所选非局部项。
+surface_attention将全部源圆盘聚合到固定非空网格，
+接收像素经单次cross-attention读取受光信号。最终统一做alpha合成和观察变换。
+neural_material在场景训练前独立预训练共享BRDF decoder；两个Real场景共用冻结权重。
+接收点查询6维材质code、漫反射色与表面法线，BRDF和余弦形成直接光响应，
+再与原方向端口组合。预训练与场景训练成本分别记录。
+
+方法选择使用train内灯光留出validation；选定参数后从头全train训练并评价完整official test。
+只保存最终last.pt，使用原始测试标定。实时实验状态见[项目状态](../project/status.md)。
 详细接口见 [方法架构](../architecture/modules/methods.md)。
-以下日期更早的内容保留作为历史方案记录，新架构不继承超出各方法适用范围的物理声明。
+以下日期更早的内容保留作为历史方案记录；其中的旧默认参数及执行状态不适用于当前实验。
 
 ## Current30k default — 2026-09-16
 
@@ -72,3 +101,35 @@ frames. Validation and test use original calibration. Standard LPIPS and the
 quantized final metric protocol are described in
 [setup](../experiments/setup.md). Actual completion and metrics belong in the
 experiment record; this page describes the pipeline, not its execution status.
+
+## 连续场着色对照
+
+`--sdf-shading`模式要求预先拟合SDF。2DGS仍提供像素接收点深度、材质码与可见性，
+基础法线改为归一化SDF梯度；PBR的图像误差反向更新field，原Gaussian法线仍参与双向几何约束。
+验证/推理从checkpoint恢复同一field，详见[SDF模块](../architecture/modules/sdf.md)。
+
+
+## 可选材质与光强尺度对照
+
+neural_material默认继续使用冻结共享decoder；`--material-model ggx`将同一6维码解释为
+RGB F0、两个log-alpha和混合系数，不需要材质预训练。跨表示续训需显式`--reset-material`，
+只重置材质码，保留已拟合的着色法线、底色与PORT；当前GGX对照未胜出，不改变默认。
+
+`--optimize-light-scale`在训练中优化一个全场景log尺度，正值写入原transport.light_scale buffer。
+所有视图共用同一个参数，点光与非局部源照度同倍变化；checkpoint直接保存拟合值，推理不再优化。
+它不修改测试相机、光位置、每帧相对强度或display_gamma。物理尺度与材质仍不可唯一辨识，
+因此效果须以独立图像评价判断，不能仅用albedo饱和降低或scale变化作成功指标。
+
+
+## 2026-09-24: PORT-DNA-2DGS
+
+Implemented 8DNA-inspired photo-supervised distribution material on 2DGS.
+No SDF or pretrained geometry supervision. See [module](../architecture/modules/distribution_material.md) and the distribution-material experiment report.
+
+
+## 2026-09-26 Geometry-first stage
+
+The user now prioritizes author-native 2DGS reconstruction before relighting.
+A separate native_reconstruction module uses SH and author CUDA/model with calibrated
+NRHints adaptation; new material training waits for geometric review. See
+[protocol](../experiments/native_2dgs_geometry.md).

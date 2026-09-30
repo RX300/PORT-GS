@@ -1,0 +1,272 @@
+{
+  "status": "invalidated",
+  "reason": "First probe was launched before synthetic confidence check passed; adjacent depth samples were incorrectly treated as alternative minima. Excluded from research conclusions.",
+  "metrics": {
+    "Cat": {
+      "status": "completed",
+      "rows": [
+        {
+          "frame": 0,
+          "foreground_pixels": 26072,
+          "matched_pixels": 8086,
+          "consistent_pixels": 128,
+          "consistent_fraction": 0.0049094813875854015,
+          "depth_spacing": 0.0025925636291503906,
+          "selected_pairs": [
+            {
+              "frame": 43,
+              "camera_degrees": 14.325421333312988,
+              "light_degrees": 1.9514394998550415
+            },
+            {
+              "frame": 189,
+              "camera_degrees": 9.22945785522461,
+              "light_degrees": 3.8384408950805664
+            },
+            {
+              "frame": 373,
+              "camera_degrees": 9.264504432678223,
+              "light_degrees": 4.515227794647217
+            },
+            {
+              "frame": 487,
+              "camera_degrees": 9.545836448669434,
+              "light_degrees": 8.464407920837402
+            }
+          ]
+        },
+        {
+          "frame": 168,
+          "foreground_pixels": 29931,
+          "matched_pixels": 11907,
+          "consistent_pixels": 196,
+          "consistent_fraction": 0.006548394449055195,
+          "depth_spacing": 0.0025925636291503906,
+          "selected_pairs": [
+            {
+              "frame": 274,
+              "camera_degrees": 10.734784126281738,
+              "light_degrees": 1.7433843612670898
+            },
+            {
+              "frame": 20,
+              "camera_degrees": 12.885905265808105,
+              "light_degrees": 2.7226107120513916
+            },
+            {
+              "frame": 510,
+              "camera_degrees": 12.783408164978027,
+              "light_degrees": 4.264847755432129
+            },
+            {
+              "frame": 7,
+              "camera_degrees": 23.276809692382812,
+              "light_degrees": 5.971759796142578
+            }
+          ]
+        },
+        {
+          "frame": 337,
+          "foreground_pixels": 32327,
+          "matched_pixels": 9551,
+          "consistent_pixels": 157,
+          "consistent_fraction": 0.004856621380895376,
+          "depth_spacing": 0.0025925636291503906,
+          "selected_pairs": [
+            {
+              "frame": 403,
+              "camera_degrees": 9.99416446685791,
+              "light_degrees": 8.147602081298828
+            },
+            {
+              "frame": 215,
+              "camera_degrees": 10.154120445251465,
+              "light_degrees": 11.336106300354004
+            },
+            {
+              "frame": 182,
+              "camera_degrees": 21.10003662109375,
+              "light_degrees": 10.945550918579102
+            },
+            {
+              "frame": 463,
+              "camera_degrees": 21.00493049621582,
+              "light_degrees": 15.818216323852539
+            }
+          ]
+        },
+        {
+          "frame": 521,
+          "foreground_pixels": 31669,
+          "matched_pixels": 11901,
+          "consistent_pixels": 133,
+          "consistent_fraction": 0.00419969018548727,
+          "depth_spacing": 0.0025925636291503906,
+          "selected_pairs": [
+            {
+              "frame": 287,
+              "camera_degrees": 10.897984504699707,
+              "light_degrees": 7.85967493057251
+            },
+            {
+              "frame": 483,
+              "camera_degrees": 12.039793014526367,
+              "light_degrees": 9.722877502441406
+            },
+            {
+              "frame": 463,
+              "camera_degrees": 17.62272834777832,
+              "light_degrees": 9.312955856323242
+            },
+            {
+              "frame": 146,
+              "camera_degrees": 14.12476634979248,
+              "light_degrees": 14.654807090759277
+            }
+          ]
+        }
+      ],
+      "accepted_points": 614,
+      "seconds": 2.3649994959123433,
+      "consistent_fraction": 0.005116709305910882,
+      "limitations": [
+        "Frontoparallel plane sweep is simpler than full PatchMatch.",
+        "Consistency is not independent geometric accuracy; no ground truth mesh is available.",
+        "Four predetermined train anchors cannot establish whole-scene quality."
+      ]
+    },
+    "Pixiu": {
+      "status": "completed",
+      "rows": [
+        {
+          "frame": 0,
+          "foreground_pixels": 11055,
+          "matched_pixels": 1895,
+          "consistent_pixels": 0,
+          "consistent_fraction": 0.0,
+          "depth_spacing": 0.007355690002441406,
+          "selected_pairs": [
+            {
+              "frame": 338,
+              "camera_degrees": 19.431962966918945,
+              "light_degrees": 7.333340644836426
+            },
+            {
+              "frame": 496,
+              "camera_degrees": 7.790067195892334,
+              "light_degrees": 12.791446685791016
+            },
+            {
+              "frame": 506,
+              "camera_degrees": 22.571298599243164,
+              "light_degrees": 9.82777214050293
+            },
+            {
+              "frame": 258,
+              "camera_degrees": 22.36232566833496,
+              "light_degrees": 10.676836967468262
+            }
+          ]
+        },
+        {
+          "frame": 184,
+          "foreground_pixels": 17846,
+          "matched_pixels": 6939,
+          "consistent_pixels": 131,
+          "consistent_fraction": 0.007340580690652132,
+          "depth_spacing": 0.007355690002441406,
+          "selected_pairs": [
+            {
+              "frame": 12,
+              "camera_degrees": 20.672433853149414,
+              "light_degrees": 0.35990872979164124
+            },
+            {
+              "frame": 294,
+              "camera_degrees": 11.476738929748535,
+              "light_degrees": 9.760982513427734
+            },
+            {
+              "frame": 9,
+              "camera_degrees": 21.953994750976562,
+              "light_degrees": 4.749079704284668
+            },
+            {
+              "frame": 282,
+              "camera_degrees": 23.399927139282227,
+              "light_degrees": 4.043218612670898
+            }
+          ]
+        },
+        {
+          "frame": 369,
+          "foreground_pixels": 17331,
+          "matched_pixels": 754,
+          "consistent_pixels": 0,
+          "consistent_fraction": 0.0,
+          "depth_spacing": 0.007355690002441406,
+          "selected_pairs": [
+            {
+              "frame": 213,
+              "camera_degrees": 23.39056968688965,
+              "light_degrees": 3.02329683303833
+            },
+            {
+              "frame": 81,
+              "camera_degrees": 6.930218696594238,
+              "light_degrees": 11.550430297851562
+            },
+            {
+              "frame": 101,
+              "camera_degrees": 7.141798973083496,
+              "light_degrees": 14.976814270019531
+            },
+            {
+              "frame": 272,
+              "camera_degrees": 6.812241554260254,
+              "light_degrees": 16.98077964782715
+            }
+          ]
+        },
+        {
+          "frame": 561,
+          "foreground_pixels": 9707,
+          "matched_pixels": 1171,
+          "consistent_pixels": 0,
+          "consistent_fraction": 0.0,
+          "depth_spacing": 0.007355690002441406,
+          "selected_pairs": [
+            {
+              "frame": 53,
+              "camera_degrees": 18.810806274414062,
+              "light_degrees": 5.851797103881836
+            },
+            {
+              "frame": 456,
+              "camera_degrees": 14.81740665435791,
+              "light_degrees": 8.04076099395752
+            },
+            {
+              "frame": 379,
+              "camera_degrees": 14.499238014221191,
+              "light_degrees": 14.291192054748535
+            },
+            {
+              "frame": 337,
+              "camera_degrees": 14.488511085510254,
+              "light_degrees": 15.536280632019043
+            }
+          ]
+        }
+      ],
+      "accepted_points": 131,
+      "seconds": 2.3343093432486057,
+      "consistent_fraction": 0.002341836643486655,
+      "limitations": [
+        "Frontoparallel plane sweep is simpler than full PatchMatch.",
+        "Consistency is not independent geometric accuracy; no ground truth mesh is available.",
+        "Four predetermined train anchors cannot establish whole-scene quality."
+      ]
+    }
+  }
+}

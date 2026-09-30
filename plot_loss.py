@@ -25,8 +25,10 @@ def plot_loss(history_path):
     axes[0].set_ylabel("Training loss")
     axes[0].set_title(history_path.parent.name)
     axes[0].legend()
-    for name in records[0]["loss_terms"]:
-        values = [row["loss_terms"][name] for row in records]
+    # Stage-specific terms contribute zero while that stage is inactive.
+    names = dict.fromkeys(name for row in records for name in row['loss_terms'])
+    for name in names:
+        values = [row["loss_terms"].get(name, 0.) for row in records]
         axes[1].plot(steps, values, linewidth=1, label=name)
     axes[1].set_ylabel("Weighted loss contribution")
     axes[1].set_xlabel("Training step (one sampled training frame per step)")

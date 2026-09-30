@@ -13,7 +13,7 @@ from pathlib import Path
 
 
 ROOT = Path(__file__).resolve().parent
-DEFAULT_MANIFEST = ROOT / "runs/full_benchmark_20260913/manifest.json"
+DEFAULT_MANIFEST = ROOT / "runs" / json.loads((ROOT / "configs/validation.json").read_text())["name"] / "manifest.json"
 COMPLETED_STATES = {"completed", "reused"}
 JSON_DECODER = json.JSONDecoder()
 

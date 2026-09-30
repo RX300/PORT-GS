@@ -1,0 +1,51 @@
+{
+  "scope": "Existing GGGS checkpoint, two fit frames, real frozen teachers; gradient/inference check only, not quality evaluation.",
+  "frames": [
+    {
+      "frame": 0,
+      "terms": {
+        "normal_prior": {
+          "loss": 0.016648277640342712,
+          "gradient_norms": {
+            "_xyz": 0.013200778514146805,
+            "_scaling": 0.000190582504728809,
+            "_rotation": 0.0012056778650730848,
+            "_opacity": 1.5452631032530917e-06
+          }
+        },
+        "depth_prior": {
+          "loss": 0.0024695764295756817,
+          "gradient_norms": {
+            "_xyz": 0.00033558427821844816,
+            "_scaling": 4.638041900761891e-06,
+            "_rotation": 1.789850830391515e-05,
+            "_opacity": 3.669670789463453e-08
+          }
+        }
+      }
+    },
+    {
+      "frame": 1,
+      "terms": {
+        "normal_prior": {
+          "loss": 0.013570684008300304,
+          "gradient_norms": {
+            "_xyz": 0.008257482200860977,
+            "_scaling": 0.0001277284900425002,
+            "_rotation": 0.0006719407392665744,
+            "_opacity": 1.9395661183807533e-06
+          }
+        },
+        "depth_prior": {
+          "loss": 0.003059452399611473,
+          "gradient_norms": {
+            "_xyz": 0.00010522703087190166,
+            "_scaling": 1.405387820341275e-06,
+            "_rotation": 3.545171239238698e-06,
+            "_opacity": 1.0895404578548096e-08
+          }
+        }
+      }
+    }
+  ]
+}

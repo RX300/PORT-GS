@@ -1,0 +1,723 @@
+{
+  "status": "completed",
+  "created_utc": "2026-09-23T18:19:23.593867+00:00",
+  "research_complete": true,
+  "all137_test_frames_complete": true,
+  "no_live_project_entrypoints": true,
+  "protected_training_input_count": 59,
+  "scope": "Only listed unreferenced completed short-test models and project-owned bytecode. Retain final/pilot models, all metrics/source/config/logs, all test images, train-only seeds, reusable priors, data, baseline projects and dependencies.",
+  "files": [
+    {
+      "path": "runs/sdf_geometry_smoke/resume/last.pt",
+      "bytes": 72174238,
+      "reason": "Completed smoke/profile intermediate model; no saved training configuration depends on it. Logs, metrics and source retained.",
+      "allocated_bytes": 72175616
+    },
+    {
+      "path": "runs/neural_material_highlight_smoke/neural_material/last.pt",
+      "bytes": 155168,
+      "reason": "Completed smoke/profile intermediate model; no saved training configuration depends on it. Logs, metrics and source retained.",
+      "allocated_bytes": 155648
+    },
+    {
+      "path": "runs/gs_residual_movable_center_smoke/narrow/resume/last.pt",
+      "bytes": 68638142,
+      "reason": "Completed smoke/profile intermediate model; no saved training configuration depends on it. Logs, metrics and source retained.",
+      "allocated_bytes": 68640768
+    },
+    {
+      "path": "runs/gs_residual_movable_center_smoke/wide/resume/last.pt",
+      "bytes": 68638142,
+      "reason": "Completed smoke/profile intermediate model; no saved training configuration depends on it. Logs, metrics and source retained.",
+      "allocated_bytes": 68640768
+    },
+    {
+      "path": "runs/sdf_intersection_depth_smoke/resume/last.pt",
+      "bytes": 72174430,
+      "reason": "Completed smoke/profile intermediate model; no saved training configuration depends on it. Logs, metrics and source retained.",
+      "allocated_bytes": 72175616
+    },
+    {
+      "path": "runs/mask_surface_initialization_profile/cube/Real_NRHints/Pixiu/last.pt",
+      "bytes": 7618389,
+      "reason": "Completed smoke/profile intermediate model; no saved training configuration depends on it. Logs, metrics and source retained.",
+      "allocated_bytes": 7618560
+    },
+    {
+      "path": "runs/mask_surface_initialization_profile/cube/Real_NRHints/Pixiu/surface_initial.pt",
+      "bytes": 7607456,
+      "reason": "Completed smoke/profile intermediate model; no saved training configuration depends on it. Logs, metrics and source retained.",
+      "allocated_bytes": 7610368
+    },
+    {
+      "path": "runs/mask_surface_initialization_profile/mask_surface/Real_NRHints/Pixiu/last.pt",
+      "bytes": 7618517,
+      "reason": "Completed smoke/profile intermediate model; no saved training configuration depends on it. Logs, metrics and source retained.",
+      "allocated_bytes": 7618560
+    },
+    {
+      "path": "runs/mask_surface_initialization_profile/mask_surface/Real_NRHints/Pixiu/surface_initial.pt",
+      "bytes": 7607584,
+      "reason": "Completed smoke/profile intermediate model; no saved training configuration depends on it. Logs, metrics and source retained.",
+      "allocated_bytes": 7610368
+    },
+    {
+      "path": "runs/neural_material_smoke/neural_material/last.pt",
+      "bytes": 155104,
+      "reason": "Completed smoke/profile intermediate model; no saved training configuration depends on it. Logs, metrics and source retained.",
+      "allocated_bytes": 155648
+    },
+    {
+      "path": "runs/sdf_volume_sampling_smoke/resume/last.pt",
+      "bytes": 60051420,
+      "reason": "Completed smoke/profile intermediate model; no saved training configuration depends on it. Logs, metrics and source retained.",
+      "allocated_bytes": 60051456
+    },
+    {
+      "path": "runs/sdf_delayed_intersection_smoke/resume/last.pt",
+      "bytes": 72174430,
+      "reason": "Completed smoke/profile intermediate model; no saved training configuration depends on it. Logs, metrics and source retained.",
+      "allocated_bytes": 72175616
+    },
+    {
+      "path": "runs/sdf_volume_only_smoke/resume/last.pt",
+      "bytes": 60051420,
+      "reason": "Completed smoke/profile intermediate model; no saved training configuration depends on it. Logs, metrics and source retained.",
+      "allocated_bytes": 60051456
+    },
+    {
+      "path": "runs/gs_residual_interaction_smoke/add_retry/resume/last.pt",
+      "bytes": 68625186,
+      "reason": "Completed smoke/profile intermediate model; no saved training configuration depends on it. Logs, metrics and source retained.",
+      "allocated_bytes": 68628480
+    },
+    {
+      "path": "runs/gs_residual_interaction_smoke/multiply/resume/last.pt",
+      "bytes": 68625186,
+      "reason": "Completed smoke/profile intermediate model; no saved training configuration depends on it. Logs, metrics and source retained.",
+      "allocated_bytes": 68628480
+    },
+    {
+      "path": "runs/gs_residual_interaction_smoke/add/resume/last.pt",
+      "bytes": 68625186,
+      "reason": "Completed smoke/profile intermediate model; no saved training configuration depends on it. Logs, metrics and source retained.",
+      "allocated_bytes": 68628480
+    },
+    {
+      "path": "runs/gs_residual_interaction_smoke/multiply_retry/resume/last.pt",
+      "bytes": 68625186,
+      "reason": "Completed smoke/profile intermediate model; no saved training configuration depends on it. Logs, metrics and source retained.",
+      "allocated_bytes": 68628480
+    },
+    {
+      "path": "runs/intersection_camera_smoke/neural_material/last.pt",
+      "bytes": 156180,
+      "reason": "Completed smoke/profile intermediate model; no saved training configuration depends on it. Logs, metrics and source retained.",
+      "allocated_bytes": 159744
+    },
+    {
+      "path": "runs/surface_patch_proposal_profile/tiny/Real_NRHints/Pixiu/last.pt",
+      "bytes": 7618581,
+      "reason": "Completed smoke/profile intermediate model; no saved training configuration depends on it. Logs, metrics and source retained.",
+      "allocated_bytes": 7622656
+    },
+    {
+      "path": "runs/surface_patch_proposal_profile/tiny/Real_NRHints/Pixiu/surface_initial.pt",
+      "bytes": 7607648,
+      "reason": "Completed smoke/profile intermediate model; no saved training configuration depends on it. Logs, metrics and source retained.",
+      "allocated_bytes": 7610368
+    },
+    {
+      "path": "runs/surface_patch_proposal_profile/uniform/Real_NRHints/Pixiu/last.pt",
+      "bytes": 7618581,
+      "reason": "Completed smoke/profile intermediate model; no saved training configuration depends on it. Logs, metrics and source retained.",
+      "allocated_bytes": 7622656
+    },
+    {
+      "path": "runs/surface_patch_proposal_profile/uniform/Real_NRHints/Pixiu/surface_initial.pt",
+      "bytes": 7607648,
+      "reason": "Completed smoke/profile intermediate model; no saved training configuration depends on it. Logs, metrics and source retained.",
+      "allocated_bytes": 7610368
+    },
+    {
+      "path": "runs/intersection_reflectance_smoke/real_dedicated_rng/aggregate/stage1/surface_initial.pt",
+      "bytes": 7607392,
+      "reason": "Completed smoke/profile intermediate model; no saved training configuration depends on it. Logs, metrics and source retained.",
+      "allocated_bytes": 7610368
+    },
+    {
+      "path": "runs/intersection_reflectance_smoke/real_dedicated_rng/aggregate/stage2/last.pt",
+      "bytes": 7618453,
+      "reason": "Completed smoke/profile intermediate model; no saved training configuration depends on it. Logs, metrics and source retained.",
+      "allocated_bytes": 7618560
+    },
+    {
+      "path": "runs/intersection_reflectance_smoke/real_dedicated_rng/aggregate/stage2/surface_initial.pt",
+      "bytes": 7607520,
+      "reason": "Completed smoke/profile intermediate model; no saved training configuration depends on it. Logs, metrics and source retained.",
+      "allocated_bytes": 7610368
+    },
+    {
+      "path": "runs/intersection_reflectance_smoke/real_dedicated_rng/intersection/stage1/surface_initial.pt",
+      "bytes": 7607392,
+      "reason": "Completed smoke/profile intermediate model; no saved training configuration depends on it. Logs, metrics and source retained.",
+      "allocated_bytes": 7610368
+    },
+    {
+      "path": "runs/intersection_reflectance_smoke/real_dedicated_rng/intersection/stage2/last.pt",
+      "bytes": 7618517,
+      "reason": "Completed smoke/profile intermediate model; no saved training configuration depends on it. Logs, metrics and source retained.",
+      "allocated_bytes": 7618560
+    },
+    {
+      "path": "runs/intersection_reflectance_smoke/real_dedicated_rng/intersection/stage2/surface_initial.pt",
+      "bytes": 7607520,
+      "reason": "Completed smoke/profile intermediate model; no saved training configuration depends on it. Logs, metrics and source retained.",
+      "allocated_bytes": 7610368
+    },
+    {
+      "path": "runs/intersection_reflectance_smoke/light_scale/aggregate/stage1/last.pt",
+      "bytes": 7618325,
+      "reason": "Completed smoke/profile intermediate model; no saved training configuration depends on it. Logs, metrics and source retained.",
+      "allocated_bytes": 7618560
+    },
+    {
+      "path": "runs/intersection_reflectance_smoke/light_scale/aggregate/stage1/surface_initial.pt",
+      "bytes": 7607392,
+      "reason": "Completed smoke/profile intermediate model; no saved training configuration depends on it. Logs, metrics and source retained.",
+      "allocated_bytes": 7610368
+    },
+    {
+      "path": "runs/intersection_reflectance_smoke/light_scale/intersection/stage1/last.pt",
+      "bytes": 7618325,
+      "reason": "Completed smoke/profile intermediate model; no saved training configuration depends on it. Logs, metrics and source retained.",
+      "allocated_bytes": 7618560
+    },
+    {
+      "path": "runs/intersection_reflectance_smoke/light_scale/intersection/stage1/surface_initial.pt",
+      "bytes": 7607392,
+      "reason": "Completed smoke/profile intermediate model; no saved training configuration depends on it. Logs, metrics and source retained.",
+      "allocated_bytes": 7610368
+    },
+    {
+      "path": "runs/intersection_reflectance_smoke/real/intersection/stage1/last.pt",
+      "bytes": 7618325,
+      "reason": "Completed smoke/profile intermediate model; no saved training configuration depends on it. Logs, metrics and source retained.",
+      "allocated_bytes": 7618560
+    },
+    {
+      "path": "runs/intersection_reflectance_smoke/real/intersection/stage1/surface_initial.pt",
+      "bytes": 7607392,
+      "reason": "Completed smoke/profile intermediate model; no saved training configuration depends on it. Logs, metrics and source retained.",
+      "allocated_bytes": 7610368
+    },
+    {
+      "path": "runs/intersection_fresh_smoke/neural_material/last.pt",
+      "bytes": 155488,
+      "reason": "Completed smoke/profile intermediate model; no saved training configuration depends on it. Logs, metrics and source retained.",
+      "allocated_bytes": 155648
+    },
+    {
+      "path": "runs/sdf_shading_smoke/resume/last.pt",
+      "bytes": 72174238,
+      "reason": "Completed smoke/profile intermediate model; no saved training configuration depends on it. Logs, metrics and source retained.",
+      "allocated_bytes": 72175616
+    },
+    {
+      "path": "runs/sdf_detail_smoke/resume/last.pt",
+      "bytes": 77234900,
+      "reason": "Completed smoke/profile intermediate model; no saved training configuration depends on it. Logs, metrics and source retained.",
+      "allocated_bytes": 77238272
+    },
+    {
+      "path": "runs/sdf_peak_sampling_smoke/resume/last.pt",
+      "bytes": 77234964,
+      "reason": "Completed smoke/profile intermediate model; no saved training configuration depends on it. Logs, metrics and source retained.",
+      "allocated_bytes": 77238272
+    },
+    {
+      "path": "runs/normal_field_smoke/resume/last.pt",
+      "bytes": 72337628,
+      "reason": "Completed smoke/profile intermediate model; no saved training configuration depends on it. Logs, metrics and source retained.",
+      "allocated_bytes": 72339456
+    },
+    {
+      "path": "runs/sdf_primitive_smoke/resume/last.pt",
+      "bytes": 72174302,
+      "reason": "Completed smoke/profile intermediate model; no saved training configuration depends on it. Logs, metrics and source retained.",
+      "allocated_bytes": 72175616
+    },
+    {
+      "path": "runs/intersection_reflectance_profile/aggregate/Real_NRHints/Pixiu/last.pt",
+      "bytes": 7618325,
+      "reason": "Completed smoke/profile intermediate model; no saved training configuration depends on it. Logs, metrics and source retained.",
+      "allocated_bytes": 7618560
+    },
+    {
+      "path": "runs/intersection_reflectance_profile/aggregate/Real_NRHints/Pixiu/surface_initial.pt",
+      "bytes": 7607392,
+      "reason": "Completed smoke/profile intermediate model; no saved training configuration depends on it. Logs, metrics and source retained.",
+      "allocated_bytes": 7610368
+    },
+    {
+      "path": "runs/intersection_reflectance_profile/intersection/Real_NRHints/Pixiu/last.pt",
+      "bytes": 7618325,
+      "reason": "Completed smoke/profile intermediate model; no saved training configuration depends on it. Logs, metrics and source retained.",
+      "allocated_bytes": 7618560
+    },
+    {
+      "path": "runs/intersection_reflectance_profile/intersection/Real_NRHints/Pixiu/surface_initial.pt",
+      "bytes": 7607392,
+      "reason": "Completed smoke/profile intermediate model; no saved training configuration depends on it. Logs, metrics and source retained.",
+      "allocated_bytes": 7610368
+    },
+    {
+      "path": "runs/sdf_volume_smoke/resume/last.pt",
+      "bytes": 60051420,
+      "reason": "Completed smoke/profile intermediate model; no saved training configuration depends on it. Logs, metrics and source retained.",
+      "allocated_bytes": 60051456
+    },
+    {
+      "path": "runs/sdf_frozen_primitive_smoke/resume/last.pt",
+      "bytes": 72174366,
+      "reason": "Completed smoke/profile intermediate model; no saved training configuration depends on it. Logs, metrics and source retained.",
+      "allocated_bytes": 72175616
+    },
+    {
+      "path": "runs/analytic_material_smoke/resume/last.pt",
+      "bytes": 59710220,
+      "reason": "Completed smoke/profile intermediate model; no saved training configuration depends on it. Logs, metrics and source retained.",
+      "allocated_bytes": 59711488
+    },
+    {
+      "path": "runs/sdf_delayed_intersection_smoke_segmented/resume/last.pt",
+      "bytes": 72174494,
+      "reason": "Completed smoke/profile intermediate model; no saved training configuration depends on it. Logs, metrics and source retained.",
+      "allocated_bytes": 72175616
+    },
+    {
+      "path": "runs/sdf_peak_shape_smoke/resume/last.pt",
+      "bytes": 77247630,
+      "reason": "Completed smoke/profile intermediate model; no saved training configuration depends on it. Logs, metrics and source retained.",
+      "allocated_bytes": 77250560
+    },
+    {
+      "path": "runs/sdf_volume_thickness_smoke/resume/last.pt",
+      "bytes": 77235092,
+      "reason": "Completed smoke/profile intermediate model; no saved training configuration depends on it. Logs, metrics and source retained.",
+      "allocated_bytes": 77238272
+    },
+    {
+      "path": "runs/light_scale_smoke/resume/last.pt",
+      "bytes": 59710284,
+      "reason": "Completed smoke/profile intermediate model; no saved training configuration depends on it. Logs, metrics and source retained.",
+      "allocated_bytes": 59711488
+    },
+    {
+      "path": "runs/intersection_fresh_smoke_segmented/neural_material/last.pt",
+      "bytes": 155552,
+      "reason": "Completed smoke/profile intermediate model; no saved training configuration depends on it. Logs, metrics and source retained.",
+      "allocated_bytes": 155648
+    },
+    {
+      "path": "runs/calibrated_sdf_smoke/resume/last.pt",
+      "bytes": 59866386,
+      "reason": "Completed smoke/profile intermediate model; no saved training configuration depends on it. Logs, metrics and source retained.",
+      "allocated_bytes": 59867136
+    },
+    {
+      "path": "runs/gs_radiance_residual_smoke/verification_retry/resume/last.pt",
+      "bytes": 68606196,
+      "reason": "Completed smoke/profile intermediate model; no saved training configuration depends on it. Logs, metrics and source retained.",
+      "allocated_bytes": 68608000
+    },
+    {
+      "path": "runs/gs_residual_paired_loss_smoke/paired/resume/last.pt",
+      "bytes": 68639806,
+      "reason": "Completed smoke/profile intermediate model; no saved training configuration depends on it. Logs, metrics and source retained.",
+      "allocated_bytes": 68640768
+    },
+    {
+      "path": "runs/gs_residual_paired_loss_smoke/rgb/resume/last.pt",
+      "bytes": 68639806,
+      "reason": "Completed smoke/profile intermediate model; no saved training configuration depends on it. Logs, metrics and source retained.",
+      "allocated_bytes": 68640768
+    },
+    {
+      "path": "runs/surface_opacity_profile/uncut/Real_NRHints/Pixiu/last.pt",
+      "bytes": 7618517,
+      "reason": "Completed smoke/profile intermediate model; no saved training configuration depends on it. Logs, metrics and source retained.",
+      "allocated_bytes": 7618560
+    },
+    {
+      "path": "runs/surface_opacity_profile/uncut/Real_NRHints/Pixiu/surface_initial.pt",
+      "bytes": 7607584,
+      "reason": "Completed smoke/profile intermediate model; no saved training configuration depends on it. Logs, metrics and source retained.",
+      "allocated_bytes": 7610368
+    },
+    {
+      "path": "runs/surface_opacity_profile/cut/Real_NRHints/Pixiu/last.pt",
+      "bytes": 7618517,
+      "reason": "Completed smoke/profile intermediate model; no saved training configuration depends on it. Logs, metrics and source retained.",
+      "allocated_bytes": 7618560
+    },
+    {
+      "path": "runs/surface_opacity_profile/cut/Real_NRHints/Pixiu/surface_initial.pt",
+      "bytes": 7607584,
+      "reason": "Completed smoke/profile intermediate model; no saved training configuration depends on it. Logs, metrics and source retained.",
+      "allocated_bytes": 7610368
+    },
+    {
+      "path": "runs/gs_residual_subset_smoke/verification/resume/last.pt",
+      "bytes": 68606324,
+      "reason": "Completed smoke/profile intermediate model; no saved training configuration depends on it. Logs, metrics and source retained.",
+      "allocated_bytes": 68608000
+    },
+    {
+      "path": "runs/sdf_peak_budget_smoke/resume/last.pt",
+      "bytes": 77235028,
+      "reason": "Completed smoke/profile intermediate model; no saved training configuration depends on it. Logs, metrics and source retained.",
+      "allocated_bytes": 77238272
+    },
+    {
+      "path": "__pycache__/test_method_integration.cpython-310.pyc",
+      "bytes": 91668,
+      "allocated_bytes": 94208,
+      "reason": "Regenerable project Python bytecode"
+    },
+    {
+      "path": "__pycache__/renderer.cpython-310.pyc",
+      "bytes": 17767,
+      "allocated_bytes": 20480,
+      "reason": "Regenerable project Python bytecode"
+    },
+    {
+      "path": "__pycache__/cameras.cpython-310.pyc",
+      "bytes": 6871,
+      "allocated_bytes": 8192,
+      "reason": "Regenerable project Python bytecode"
+    },
+    {
+      "path": "__pycache__/evaluate.cpython-313.pyc",
+      "bytes": 31351,
+      "allocated_bytes": 32768,
+      "reason": "Regenerable project Python bytecode"
+    },
+    {
+      "path": "__pycache__/gaussians.cpython-310.pyc",
+      "bytes": 3798,
+      "allocated_bytes": 4096,
+      "reason": "Regenerable project Python bytecode"
+    },
+    {
+      "path": "__pycache__/surface_initialization.cpython-310.pyc",
+      "bytes": 9582,
+      "allocated_bytes": 12288,
+      "reason": "Regenerable project Python bytecode"
+    },
+    {
+      "path": "__pycache__/test_methods.cpython-313.pyc",
+      "bytes": 206927,
+      "allocated_bytes": 208896,
+      "reason": "Regenerable project Python bytecode"
+    },
+    {
+      "path": "__pycache__/diagnose_image_errors.cpython-310.pyc",
+      "bytes": 41916,
+      "allocated_bytes": 45056,
+      "reason": "Regenerable project Python bytecode"
+    },
+    {
+      "path": "__pycache__/make_validation_manifest.cpython-313.pyc",
+      "bytes": 13546,
+      "allocated_bytes": 16384,
+      "reason": "Regenerable project Python bytecode"
+    },
+    {
+      "path": "__pycache__/surface_sampling.cpython-310.pyc",
+      "bytes": 5371,
+      "allocated_bytes": 8192,
+      "reason": "Regenerable project Python bytecode"
+    },
+    {
+      "path": "__pycache__/diagnose_image_errors.cpython-313.pyc",
+      "bytes": 84485,
+      "allocated_bytes": 86016,
+      "reason": "Regenerable project Python bytecode"
+    },
+    {
+      "path": "__pycache__/evaluate.cpython-310.pyc",
+      "bytes": 21950,
+      "allocated_bytes": 24576,
+      "reason": "Regenerable project Python bytecode"
+    },
+    {
+      "path": "__pycache__/test_method_integration.cpython-313.pyc",
+      "bytes": 200817,
+      "allocated_bytes": 204800,
+      "reason": "Regenerable project Python bytecode"
+    },
+    {
+      "path": "__pycache__/sdf.cpython-313.pyc",
+      "bytes": 15787,
+      "allocated_bytes": 16384,
+      "reason": "Regenerable project Python bytecode"
+    },
+    {
+      "path": "__pycache__/sdf.cpython-310.pyc",
+      "bytes": 9232,
+      "allocated_bytes": 12288,
+      "reason": "Regenerable project Python bytecode"
+    },
+    {
+      "path": "__pycache__/train.cpython-310.pyc",
+      "bytes": 41559,
+      "allocated_bytes": 45056,
+      "reason": "Regenerable project Python bytecode"
+    },
+    {
+      "path": "__pycache__/test_methods.cpython-310.pyc",
+      "bytes": 117448,
+      "allocated_bytes": 118784,
+      "reason": "Regenerable project Python bytecode"
+    },
+    {
+      "path": "__pycache__/train.cpython-313.pyc",
+      "bytes": 80073,
+      "allocated_bytes": 81920,
+      "reason": "Regenerable project Python bytecode"
+    },
+    {
+      "path": "__pycache__/sdf_volume.cpython-310.pyc",
+      "bytes": 8152,
+      "allocated_bytes": 8192,
+      "reason": "Regenerable project Python bytecode"
+    },
+    {
+      "path": "__pycache__/foundation_comparison.cpython-310.pyc",
+      "bytes": 18570,
+      "allocated_bytes": 20480,
+      "reason": "Regenerable project Python bytecode"
+    },
+    {
+      "path": "__pycache__/pretrain_material.cpython-310.pyc",
+      "bytes": 8409,
+      "allocated_bytes": 12288,
+      "reason": "Regenerable project Python bytecode"
+    },
+    {
+      "path": "__pycache__/surface.cpython-310.pyc",
+      "bytes": 4105,
+      "allocated_bytes": 8192,
+      "reason": "Regenerable project Python bytecode"
+    },
+    {
+      "path": "__pycache__/renderer.cpython-313.pyc",
+      "bytes": 24873,
+      "allocated_bytes": 28672,
+      "reason": "Regenerable project Python bytecode"
+    },
+    {
+      "path": "__pycache__/surface_sampling.cpython-313.pyc",
+      "bytes": 4808,
+      "allocated_bytes": 8192,
+      "reason": "Regenerable project Python bytecode"
+    },
+    {
+      "path": "__pycache__/make_validation_manifest.cpython-310.pyc",
+      "bytes": 8634,
+      "allocated_bytes": 12288,
+      "reason": "Regenerable project Python bytecode"
+    },
+    {
+      "path": "__pycache__/pretrain_material.cpython-313.pyc",
+      "bytes": 26014,
+      "allocated_bytes": 28672,
+      "reason": "Regenerable project Python bytecode"
+    },
+    {
+      "path": "__pycache__/plot_loss.cpython-310.pyc",
+      "bytes": 2585,
+      "allocated_bytes": 4096,
+      "reason": "Regenerable project Python bytecode"
+    },
+    {
+      "path": "__pycache__/residual_sampling.cpython-310.pyc",
+      "bytes": 4787,
+      "allocated_bytes": 8192,
+      "reason": "Regenerable project Python bytecode"
+    },
+    {
+      "path": "__pycache__/foundation_comparison.cpython-313.pyc",
+      "bytes": 29014,
+      "allocated_bytes": 32768,
+      "reason": "Regenerable project Python bytecode"
+    },
+    {
+      "path": "__pycache__/angular_cues.cpython-310.pyc",
+      "bytes": 17834,
+      "allocated_bytes": 20480,
+      "reason": "Regenerable project Python bytecode"
+    },
+    {
+      "path": "__pycache__/surface_fragments.cpython-313.pyc",
+      "bytes": 19240,
+      "allocated_bytes": 20480,
+      "reason": "Regenerable project Python bytecode"
+    },
+    {
+      "path": "__pycache__/refinement.cpython-310.pyc",
+      "bytes": 4089,
+      "allocated_bytes": 4096,
+      "reason": "Regenerable project Python bytecode"
+    },
+    {
+      "path": "__pycache__/surface_fragments.cpython-310.pyc",
+      "bytes": 10997,
+      "allocated_bytes": 12288,
+      "reason": "Regenerable project Python bytecode"
+    },
+    {
+      "path": "__pycache__/data.cpython-310.pyc",
+      "bytes": 11046,
+      "allocated_bytes": 12288,
+      "reason": "Regenerable project Python bytecode"
+    },
+    {
+      "path": "methods/__pycache__/anchor.cpython-313.pyc",
+      "bytes": 2168,
+      "allocated_bytes": 4096,
+      "reason": "Regenerable project Python bytecode"
+    },
+    {
+      "path": "methods/__pycache__/attention.cpython-310.pyc",
+      "bytes": 3626,
+      "allocated_bytes": 4096,
+      "reason": "Regenerable project Python bytecode"
+    },
+    {
+      "path": "methods/__pycache__/surfel.cpython-310.pyc",
+      "bytes": 505,
+      "allocated_bytes": 4096,
+      "reason": "Regenerable project Python bytecode"
+    },
+    {
+      "path": "methods/__pycache__/surface_reflectance.cpython-310.pyc",
+      "bytes": 4888,
+      "allocated_bytes": 8192,
+      "reason": "Regenerable project Python bytecode"
+    },
+    {
+      "path": "methods/__pycache__/anchor.cpython-310.pyc",
+      "bytes": 1408,
+      "allocated_bytes": 4096,
+      "reason": "Regenerable project Python bytecode"
+    },
+    {
+      "path": "methods/__pycache__/__init__.cpython-310.pyc",
+      "bytes": 2363,
+      "allocated_bytes": 4096,
+      "reason": "Regenerable project Python bytecode"
+    },
+    {
+      "path": "methods/__pycache__/base.cpython-313.pyc",
+      "bytes": 11127,
+      "allocated_bytes": 12288,
+      "reason": "Regenerable project Python bytecode"
+    },
+    {
+      "path": "methods/__pycache__/base.cpython-310.pyc",
+      "bytes": 6729,
+      "allocated_bytes": 8192,
+      "reason": "Regenerable project Python bytecode"
+    },
+    {
+      "path": "methods/__pycache__/local_frame.cpython-310.pyc",
+      "bytes": 1897,
+      "allocated_bytes": 4096,
+      "reason": "Regenerable project Python bytecode"
+    },
+    {
+      "path": "methods/__pycache__/directional.cpython-310.pyc",
+      "bytes": 3706,
+      "allocated_bytes": 4096,
+      "reason": "Regenerable project Python bytecode"
+    },
+    {
+      "path": "methods/__pycache__/neural_material.cpython-310.pyc",
+      "bytes": 4195,
+      "allocated_bytes": 8192,
+      "reason": "Regenerable project Python bytecode"
+    },
+    {
+      "path": "methods/__pycache__/paired_port.cpython-310.pyc",
+      "bytes": 1094,
+      "allocated_bytes": 4096,
+      "reason": "Regenerable project Python bytecode"
+    },
+    {
+      "path": "materials/__pycache__/ggx.cpython-310.pyc",
+      "bytes": 2100,
+      "allocated_bytes": 4096,
+      "reason": "Regenerable project Python bytecode"
+    },
+    {
+      "path": "materials/__pycache__/radiance_residual.cpython-313.pyc",
+      "bytes": 4715,
+      "allocated_bytes": 8192,
+      "reason": "Regenerable project Python bytecode"
+    },
+    {
+      "path": "materials/__pycache__/spatial_detail.cpython-310.pyc",
+      "bytes": 4047,
+      "allocated_bytes": 4096,
+      "reason": "Regenerable project Python bytecode"
+    },
+    {
+      "path": "materials/__pycache__/normal_field.cpython-310.pyc",
+      "bytes": 1476,
+      "allocated_bytes": 4096,
+      "reason": "Regenerable project Python bytecode"
+    },
+    {
+      "path": "materials/__pycache__/radiance_residual.cpython-310.pyc",
+      "bytes": 5280,
+      "allocated_bytes": 8192,
+      "reason": "Regenerable project Python bytecode"
+    },
+    {
+      "path": "materials/__pycache__/__init__.cpython-310.pyc",
+      "bytes": 325,
+      "allocated_bytes": 4096,
+      "reason": "Regenerable project Python bytecode"
+    },
+    {
+      "path": "materials/__pycache__/decoder.cpython-310.pyc",
+      "bytes": 3234,
+      "allocated_bytes": 4096,
+      "reason": "Regenerable project Python bytecode"
+    },
+    {
+      "path": "materials/__pycache__/procedural.cpython-310.pyc",
+      "bytes": 10256,
+      "allocated_bytes": 12288,
+      "reason": "Regenerable project Python bytecode"
+    },
+    {
+      "path": "docs/experiments/cleanup_plan.json",
+      "bytes": 68083,
+      "allocated_bytes": 69632,
+      "reason": "Executed cleanup draft superseded by completed manifest; original preserved in pre_cleanup_docs.tar.gz"
+    }
+  ],
+  "file_count": 117,
+  "short_run_models": 62,
+  "logical_bytes": 2224732054,
+  "allocated_bytes": 2224967680,
+  "pre_cleanup_documents": "runs/surface_reflectance_final/pre_cleanup_docs.tar.gz",
+  "deleted_file_count": 117,
+  "all_listed_files_absent": true,
+  "all_protected_inputs_present": true,
+  "final_models_and137_test_images_present": true,
+  "completed_utc": "2026-09-23T18:21:11.990398+00:00"
+}

@@ -1,0 +1,842 @@
+{
+  "protocol": {
+    "fit_validation": {
+      "Cat": [
+        470,
+        52
+      ],
+      "Pixiu": [
+        506,
+        56
+      ]
+    },
+    "steps": 30000,
+    "resolution": 512,
+    "seed": 0,
+    "official_test_evaluated": false,
+    "geometry_teacher": null,
+    "SDF": false,
+    "user_priority": "Reconstruct usable geometry before relighting"
+  },
+  "profiles": {
+    "native_2dgs_geometry": {
+      "state": "completed",
+      "finished_utc": "2026-09-26T13:22:45.361456+00:00",
+      "scenes": {
+        "Cat": {
+          "fit": {
+            "PSNR": 15.393085648151155,
+            "SSIM": 0.7233150127086233,
+            "silhouette_IoU": 0.434375706124813,
+            "alpha_L1": 0.5500455195599414,
+            "self_normal_angular_error": 0.11467739053546114,
+            "valid_surface_fraction": 0.42588119506835936,
+            "LPIPS": 0.31025731531863515
+          },
+          "validation": {
+            "PSNR": 14.424302027775692,
+            "SSIM": 0.7162149307819513,
+            "silhouette_IoU": 0.4440174102783203,
+            "alpha_L1": 0.5402986172300118,
+            "self_normal_angular_error": 0.11847050545307306,
+            "valid_surface_fraction": 0.43549589010385364,
+            "LPIPS": 0.318761841322367
+          },
+          "final_update": {
+            "step": 30000,
+            "frame_index": 479,
+            "loss": 0.2368951141834259,
+            "l1": 0.17946931719779968,
+            "photo": 0.22751346230506897,
+            "normal": 0.009381656534969807,
+            "distortion": 0.0,
+            "loss_terms": {
+              "photo": 0.22751346230506897,
+              "normal": 0.009381656534969807,
+              "distortion": 0.0
+            },
+            "points": 105079,
+            "opacity_eligible": 100836,
+            "sh_degree": 3,
+            "seconds": 399.09842343302444,
+            "memory_GiB": 2.3330135345458984
+          },
+          "geometry_consistency": {
+            "scope": "Four fixed views vs nearest fit camera. Self consistency only; occlusion-filter rejection is reported.",
+            "pairs": [
+              {
+                "source_index": 36,
+                "target_fit_index": 469,
+                "center_view_angle_degrees": 1.1665074825286865,
+                "forward": {
+                  "candidate_pixels": 101039,
+                  "occluded_fraction": 0.0336206816136837,
+                  "agreement_1pct_radius_before_occlusion_filter": 0.934431254863739,
+                  "nonoccluded_pixels": 97642,
+                  "median_abs_depth_over_radius": 0.0003678218927234411,
+                  "p90_abs_depth_over_radius": 0.0031404115725308657
+                },
+                "reverse": {
+                  "candidate_pixels": 100989,
+                  "occluded_fraction": 0.027686184272170067,
+                  "agreement_1pct_radius_before_occlusion_filter": 0.9389339685440063,
+                  "nonoccluded_pixels": 98193,
+                  "median_abs_depth_over_radius": 0.0003716633946169168,
+                  "p90_abs_depth_over_radius": 0.003225884400308132
+                }
+              },
+              {
+                "source_index": 236,
+                "target_fit_index": 222,
+                "center_view_angle_degrees": 1.1295188665390015,
+                "forward": {
+                  "candidate_pixels": 104173,
+                  "occluded_fraction": 0.04142148047685623,
+                  "agreement_1pct_radius_before_occlusion_filter": 0.9178962111473083,
+                  "nonoccluded_pixels": 99858,
+                  "median_abs_depth_over_radius": 0.0002669829991646111,
+                  "p90_abs_depth_over_radius": 0.004028078634291887
+                },
+                "reverse": {
+                  "candidate_pixels": 103892,
+                  "occluded_fraction": 0.03989719972014427,
+                  "agreement_1pct_radius_before_occlusion_filter": 0.9192911982536316,
+                  "nonoccluded_pixels": 99747,
+                  "median_abs_depth_over_radius": 0.00026122076087631285,
+                  "p90_abs_depth_over_radius": 0.004007625859230757
+                }
+              },
+              {
+                "source_index": 406,
+                "target_fit_index": 14,
+                "center_view_angle_degrees": 0.24066270887851715,
+                "forward": {
+                  "candidate_pixels": 116251,
+                  "occluded_fraction": 0.02814599499106407,
+                  "agreement_1pct_radius_before_occlusion_filter": 0.9402672052383423,
+                  "nonoccluded_pixels": 112979,
+                  "median_abs_depth_over_radius": 0.00025065671070478857,
+                  "p90_abs_depth_over_radius": 0.0031106399837881327
+                },
+                "reverse": {
+                  "candidate_pixels": 115987,
+                  "occluded_fraction": 0.028830816969275475,
+                  "agreement_1pct_radius_before_occlusion_filter": 0.9407175183296204,
+                  "nonoccluded_pixels": 112643,
+                  "median_abs_depth_over_radius": 0.00025065671070478857,
+                  "p90_abs_depth_over_radius": 0.0030912375077605247
+                }
+              },
+              {
+                "source_index": 517,
+                "target_fit_index": 151,
+                "center_view_angle_degrees": 0.06255725771188736,
+                "forward": {
+                  "candidate_pixels": 128613,
+                  "occluded_fraction": 0.029009509831666946,
+                  "agreement_1pct_radius_before_occlusion_filter": 0.9422375559806824,
+                  "nonoccluded_pixels": 124882,
+                  "median_abs_depth_over_radius": 0.00021800410468131304,
+                  "p90_abs_depth_over_radius": 0.0030615634750574827
+                },
+                "reverse": {
+                  "candidate_pixels": 128324,
+                  "occluded_fraction": 0.027009757235646248,
+                  "agreement_1pct_radius_before_occlusion_filter": 0.9420061707496643,
+                  "nonoccluded_pixels": 124858,
+                  "median_abs_depth_over_radius": 0.00021704373648390174,
+                  "p90_abs_depth_over_radius": 0.003153856610879302
+                }
+              }
+            ]
+          },
+          "checkpoint": "runs/native_2dgs_geometry/Real_NRHints/Cat/last.pt",
+          "checkpoint_retained": false
+        },
+        "Pixiu": {
+          "fit": {
+            "PSNR": 20.06926992476693,
+            "SSIM": 0.861841398265522,
+            "silhouette_IoU": 0.2031178606357499,
+            "alpha_L1": 0.7882680775148595,
+            "self_normal_angular_error": 0.08426843626284788,
+            "valid_surface_fraction": 0.1965715461097687,
+            "LPIPS": 0.15484948522547487
+          },
+          "validation": {
+            "PSNR": 18.195408599717275,
+            "SSIM": 0.8438727696027074,
+            "silhouette_IoU": 0.20712947845458984,
+            "alpha_L1": 0.7841189588819232,
+            "self_normal_angular_error": 0.08753700727330786,
+            "valid_surface_fraction": 0.20041567938668386,
+            "LPIPS": 0.16551171003707818
+          },
+          "final_update": {
+            "step": 30000,
+            "frame_index": 263,
+            "loss": 0.056865546852350235,
+            "l1": 0.02937348745763302,
+            "photo": 0.04658417031168938,
+            "normal": 0.010281376540660858,
+            "distortion": 0.0,
+            "loss_terms": {
+              "photo": 0.04658417031168938,
+              "normal": 0.010281376540660858,
+              "distortion": 0.0
+            },
+            "points": 74312,
+            "opacity_eligible": 68599,
+            "sh_degree": 3,
+            "seconds": 451.8639858602546,
+            "memory_GiB": 2.4603562355041504
+          },
+          "geometry_consistency": {
+            "scope": "Four fixed views vs nearest fit camera. Self consistency only; occlusion-filter rejection is reported.",
+            "pairs": [
+              {
+                "source_index": 32,
+                "target_fit_index": 416,
+                "center_view_angle_degrees": 3.5009570121765137,
+                "forward": {
+                  "candidate_pixels": 44390,
+                  "occluded_fraction": 0.03453480452299118,
+                  "agreement_1pct_radius_before_occlusion_filter": 0.9366073608398438,
+                  "nonoccluded_pixels": 42857,
+                  "median_abs_depth_over_radius": 0.0002430384192848578,
+                  "p90_abs_depth_over_radius": 0.0026973867788910866
+                },
+                "reverse": {
+                  "candidate_pixels": 48509,
+                  "occluded_fraction": 0.06025686115026474,
+                  "agreement_1pct_radius_before_occlusion_filter": 0.9138098359107971,
+                  "nonoccluded_pixels": 45586,
+                  "median_abs_depth_over_radius": 0.00023356059682555497,
+                  "p90_abs_depth_over_radius": 0.002441554330289364
+                }
+              },
+              {
+                "source_index": 207,
+                "target_fit_index": 71,
+                "center_view_angle_degrees": 1.8028740882873535,
+                "forward": {
+                  "candidate_pixels": 54764,
+                  "occluded_fraction": 0.02242348901927471,
+                  "agreement_1pct_radius_before_occlusion_filter": 0.9588780999183655,
+                  "nonoccluded_pixels": 53536,
+                  "median_abs_depth_over_radius": 0.0001475832104915753,
+                  "p90_abs_depth_over_radius": 0.0017473039915785193
+                },
+                "reverse": {
+                  "candidate_pixels": 57745,
+                  "occluded_fraction": 0.02182007022202015,
+                  "agreement_1pct_radius_before_occlusion_filter": 0.9591306447982788,
+                  "nonoccluded_pixels": 56485,
+                  "median_abs_depth_over_radius": 0.0001536760973976925,
+                  "p90_abs_depth_over_radius": 0.0017391801811754704
+                }
+              },
+              {
+                "source_index": 381,
+                "target_fit_index": 1,
+                "center_view_angle_degrees": 1.7700095176696777,
+                "forward": {
+                  "candidate_pixels": 30118,
+                  "occluded_fraction": 0.02224583365023136,
+                  "agreement_1pct_radius_before_occlusion_filter": 0.9570356607437134,
+                  "nonoccluded_pixels": 29448,
+                  "median_abs_depth_over_radius": 0.00024100745213218033,
+                  "p90_abs_depth_over_radius": 0.0019605550915002823
+                },
+                "reverse": {
+                  "candidate_pixels": 30225,
+                  "occluded_fraction": 0.037849463522434235,
+                  "agreement_1pct_radius_before_occlusion_filter": 0.9410421848297119,
+                  "nonoccluded_pixels": 29081,
+                  "median_abs_depth_over_radius": 0.0002437154034851119,
+                  "p90_abs_depth_over_radius": 0.002010652096942067
+                }
+              },
+              {
+                "source_index": 548,
+                "target_fit_index": 67,
+                "center_view_angle_degrees": 2.784106731414795,
+                "forward": {
+                  "candidate_pixels": 30498,
+                  "occluded_fraction": 0.06308610737323761,
+                  "agreement_1pct_radius_before_occlusion_filter": 0.9059610366821289,
+                  "nonoccluded_pixels": 28574,
+                  "median_abs_depth_over_radius": 0.00025725513114593923,
+                  "p90_abs_depth_over_radius": 0.002530578291043639
+                },
+                "reverse": {
+                  "candidate_pixels": 30295,
+                  "occluded_fraction": 0.037134841084480286,
+                  "agreement_1pct_radius_before_occlusion_filter": 0.9313747882843018,
+                  "nonoccluded_pixels": 29170,
+                  "median_abs_depth_over_radius": 0.00027079490246251225,
+                  "p90_abs_depth_over_radius": 0.002648374065756798
+                }
+              }
+            ]
+          },
+          "checkpoint": "runs/native_2dgs_geometry/Real_NRHints/Pixiu/last.pt",
+          "checkpoint_retained": false
+        }
+      },
+      "retained_directory": "runs/native_2dgs_normalized_geometry/controls/native_2dgs_geometry",
+      "checkpoint_retained": false
+    },
+    "native_2dgs_mask_geometry": {
+      "state": "completed",
+      "finished_utc": "2026-09-26T13:32:36.164129+00:00",
+      "scenes": {
+        "Cat": {
+          "fit": {
+            "PSNR": 15.460723440697853,
+            "SSIM": 0.7246925827036512,
+            "silhouette_IoU": 0.9432231457943612,
+            "alpha_L1": 0.022957404362077407,
+            "self_normal_angular_error": 0.12032725944163951,
+            "valid_surface_fraction": 0.41758311657195396,
+            "LPIPS": 0.3051291635378878
+          },
+          "validation": {
+            "PSNR": 14.539915561676025,
+            "SSIM": 0.7181289929610032,
+            "silhouette_IoU": 0.9498186375086124,
+            "alpha_L1": 0.0197410840415754,
+            "self_normal_angular_error": 0.12454425959059826,
+            "valid_surface_fraction": 0.42824481083796573,
+            "LPIPS": 0.31270817523965466
+          },
+          "final_update": {
+            "step": 30000,
+            "frame_index": 479,
+            "loss": 0.2633204460144043,
+            "l1": 0.18086187541484833,
+            "photo": 0.2286166548728943,
+            "normal": 0.02932765521109104,
+            "distortion": 4.31427270086715e-06,
+            "silhouette": 0.00537180295214057,
+            "loss_terms": {
+              "photo": 0.2286166548728943,
+              "normal": 0.02932765521109104,
+              "distortion": 4.31427270086715e-06,
+              "silhouette": 0.00537180295214057
+            },
+            "points": 97915,
+            "opacity_eligible": 96133,
+            "sh_degree": 3,
+            "seconds": 295.20624273084104,
+            "memory_GiB": 2.182170867919922
+          },
+          "geometry_consistency": {
+            "scope": "Four fixed views vs nearest fit camera. Self consistency only; occlusion-filter rejection is reported.",
+            "pairs": [
+              {
+                "source_index": 36,
+                "target_fit_index": 469,
+                "center_view_angle_degrees": 1.1665074825286865,
+                "forward": {
+                  "candidate_pixels": 100373,
+                  "occluded_fraction": 0.04060852900147438,
+                  "agreement_1pct_radius_before_occlusion_filter": 0.9191316366195679,
+                  "nonoccluded_pixels": 96297,
+                  "median_abs_depth_over_radius": 0.00044369115494191647,
+                  "p90_abs_depth_over_radius": 0.004220828413963318
+                },
+                "reverse": {
+                  "candidate_pixels": 100727,
+                  "occluded_fraction": 0.04030696675181389,
+                  "agreement_1pct_radius_before_occlusion_filter": 0.9200611710548401,
+                  "nonoccluded_pixels": 96667,
+                  "median_abs_depth_over_radius": 0.0004465722886379808,
+                  "p90_abs_depth_over_radius": 0.004261163994669914
+                }
+              },
+              {
+                "source_index": 236,
+                "target_fit_index": 222,
+                "center_view_angle_degrees": 1.1295188665390015,
+                "forward": {
+                  "candidate_pixels": 103580,
+                  "occluded_fraction": 0.04037458822131157,
+                  "agreement_1pct_radius_before_occlusion_filter": 0.9218189120292664,
+                  "nonoccluded_pixels": 99398,
+                  "median_abs_depth_over_radius": 0.00036494078813120723,
+                  "p90_abs_depth_over_radius": 0.00459825387224555
+                },
+                "reverse": {
+                  "candidate_pixels": 103597,
+                  "occluded_fraction": 0.039779145270586014,
+                  "agreement_1pct_radius_before_occlusion_filter": 0.9214745759963989,
+                  "nonoccluded_pixels": 99476,
+                  "median_abs_depth_over_radius": 0.00036398041993379593,
+                  "p90_abs_depth_over_radius": 0.004586729686707258
+                }
+              },
+              {
+                "source_index": 406,
+                "target_fit_index": 14,
+                "center_view_angle_degrees": 0.24066270887851715,
+                "forward": {
+                  "candidate_pixels": 116133,
+                  "occluded_fraction": 0.02694324590265751,
+                  "agreement_1pct_radius_before_occlusion_filter": 0.9462168216705322,
+                  "nonoccluded_pixels": 113004,
+                  "median_abs_depth_over_radius": 0.0003265259729232639,
+                  "p90_abs_depth_over_radius": 0.0034688583109527826
+                },
+                "reverse": {
+                  "candidate_pixels": 115968,
+                  "occluded_fraction": 0.028119826689362526,
+                  "agreement_1pct_radius_before_occlusion_filter": 0.9455884099006653,
+                  "nonoccluded_pixels": 112707,
+                  "median_abs_depth_over_radius": 0.0003255656047258526,
+                  "p90_abs_depth_over_radius": 0.0034121964126825333
+                }
+              },
+              {
+                "source_index": 517,
+                "target_fit_index": 151,
+                "center_view_angle_degrees": 0.06255725771188736,
+                "forward": {
+                  "candidate_pixels": 128441,
+                  "occluded_fraction": 0.025801729410886765,
+                  "agreement_1pct_radius_before_occlusion_filter": 0.9463177919387817,
+                  "nonoccluded_pixels": 125127,
+                  "median_abs_depth_over_radius": 0.00029963560518808663,
+                  "p90_abs_depth_over_radius": 0.003304634941741824
+                },
+                "reverse": {
+                  "candidate_pixels": 128166,
+                  "occluded_fraction": 0.02660612016916275,
+                  "agreement_1pct_radius_before_occlusion_filter": 0.9455081820487976,
+                  "nonoccluded_pixels": 124756,
+                  "median_abs_depth_over_radius": 0.0002948337350971997,
+                  "p90_abs_depth_over_radius": 0.003247973043471575
+                }
+              }
+            ]
+          },
+          "checkpoint": "runs/native_2dgs_mask_geometry/Real_NRHints/Cat/last.pt",
+          "checkpoint_retained": false
+        },
+        "Pixiu": {
+          "fit": {
+            "PSNR": 20.095305976189174,
+            "SSIM": 0.8621997367958778,
+            "silhouette_IoU": 0.9078211951632744,
+            "alpha_L1": 0.01737413677780819,
+            "self_normal_angular_error": 0.08574814180081541,
+            "valid_surface_fraction": 0.19095395958941916,
+            "LPIPS": 0.15547108554498482
+          },
+          "validation": {
+            "PSNR": 18.288811377116613,
+            "SSIM": 0.8453668504953384,
+            "silhouette_IoU": 0.9044986984559468,
+            "alpha_L1": 0.018394848647793487,
+            "self_normal_angular_error": 0.08864041391227927,
+            "valid_surface_fraction": 0.19438879830496653,
+            "LPIPS": 0.16510657779872417
+          },
+          "final_update": {
+            "step": 30000,
+            "frame_index": 263,
+            "loss": 0.0919482409954071,
+            "l1": 0.028654832392930984,
+            "photo": 0.045682281255722046,
+            "normal": 0.04300856217741966,
+            "distortion": 2.1578860469162464e-05,
+            "silhouette": 0.0032358155585825443,
+            "loss_terms": {
+              "photo": 0.045682281255722046,
+              "normal": 0.04300856217741966,
+              "distortion": 2.1578860469162464e-05,
+              "silhouette": 0.0032358155585825443
+            },
+            "points": 51600,
+            "opacity_eligible": 48338,
+            "sh_degree": 3,
+            "seconds": 260.61263219174,
+            "memory_GiB": 2.1868414878845215
+          },
+          "geometry_consistency": {
+            "scope": "Four fixed views vs nearest fit camera. Self consistency only; occlusion-filter rejection is reported.",
+            "pairs": [
+              {
+                "source_index": 32,
+                "target_fit_index": 416,
+                "center_view_angle_degrees": 3.5009570121765137,
+                "forward": {
+                  "candidate_pixels": 43855,
+                  "occluded_fraction": 0.03231102600693703,
+                  "agreement_1pct_radius_before_occlusion_filter": 0.9409189224243164,
+                  "nonoccluded_pixels": 42438,
+                  "median_abs_depth_over_radius": 0.00027417982346378267,
+                  "p90_abs_depth_over_radius": 0.003046172671020031
+                },
+                "reverse": {
+                  "candidate_pixels": 48287,
+                  "occluded_fraction": 0.05869074538350105,
+                  "agreement_1pct_radius_before_occlusion_filter": 0.9171619415283203,
+                  "nonoccluded_pixels": 45453,
+                  "median_abs_depth_over_radius": 0.0002735028392635286,
+                  "p90_abs_depth_over_radius": 0.0028548550326377153
+                }
+              },
+              {
+                "source_index": 207,
+                "target_fit_index": 71,
+                "center_view_angle_degrees": 1.8028740882873535,
+                "forward": {
+                  "candidate_pixels": 54477,
+                  "occluded_fraction": 0.01595168560743332,
+                  "agreement_1pct_radius_before_occlusion_filter": 0.9698404669761658,
+                  "nonoccluded_pixels": 53608,
+                  "median_abs_depth_over_radius": 0.00023423758102580905,
+                  "p90_abs_depth_over_radius": 0.0019862805493175983
+                },
+                "reverse": {
+                  "candidate_pixels": 57615,
+                  "occluded_fraction": 0.014718389138579369,
+                  "agreement_1pct_radius_before_occlusion_filter": 0.9714310765266418,
+                  "nonoccluded_pixels": 56767,
+                  "median_abs_depth_over_radius": 0.00023965348373167217,
+                  "p90_abs_depth_over_radius": 0.001978833694010973
+                }
+              },
+              {
+                "source_index": 381,
+                "target_fit_index": 1,
+                "center_view_angle_degrees": 1.7700095176696777,
+                "forward": {
+                  "candidate_pixels": 28988,
+                  "occluded_fraction": 0.015765143558382988,
+                  "agreement_1pct_radius_before_occlusion_filter": 0.9631916880607605,
+                  "nonoccluded_pixels": 28531,
+                  "median_abs_depth_over_radius": 0.00026402503135614097,
+                  "p90_abs_depth_over_radius": 0.0022733230143785477
+                },
+                "reverse": {
+                  "candidate_pixels": 28957,
+                  "occluded_fraction": 0.029526539146900177,
+                  "agreement_1pct_radius_before_occlusion_filter": 0.9522395133972168,
+                  "nonoccluded_pixels": 28102,
+                  "median_abs_depth_over_radius": 0.00026537899975664914,
+                  "p90_abs_depth_over_radius": 0.0023016189225018024
+                }
+              },
+              {
+                "source_index": 548,
+                "target_fit_index": 67,
+                "center_view_angle_degrees": 2.784106731414795,
+                "forward": {
+                  "candidate_pixels": 28728,
+                  "occluded_fraction": 0.04542606696486473,
+                  "agreement_1pct_radius_before_occlusion_filter": 0.9230019450187683,
+                  "nonoccluded_pixels": 27423,
+                  "median_abs_depth_over_radius": 0.00031141412910073996,
+                  "p90_abs_depth_over_radius": 0.003246830776333809
+                },
+                "reverse": {
+                  "candidate_pixels": 29347,
+                  "occluded_fraction": 0.03615361079573631,
+                  "agreement_1pct_radius_before_occlusion_filter": 0.9314751029014587,
+                  "nonoccluded_pixels": 28286,
+                  "median_abs_depth_over_radius": 0.0003263078397139907,
+                  "p90_abs_depth_over_radius": 0.0033727502450346947
+                }
+              }
+            ]
+          },
+          "checkpoint": "runs/native_2dgs_mask_geometry/Real_NRHints/Pixiu/last.pt",
+          "checkpoint_retained": false
+        }
+      },
+      "retained_directory": "runs/native_2dgs_normalized_geometry/controls/native_2dgs_mask_geometry",
+      "checkpoint_retained": false
+    },
+    "native_2dgs_normalized_geometry": {
+      "state": "completed",
+      "finished_utc": "2026-09-26T13:45:51.626961+00:00",
+      "scenes": {
+        "Cat": {
+          "fit": {
+            "PSNR": 15.457738487771216,
+            "SSIM": 0.7243458679381837,
+            "silhouette_IoU": 0.9432034231246786,
+            "alpha_L1": 0.02294227700145479,
+            "self_normal_angular_error": 0.1196457675638351,
+            "valid_surface_fraction": 0.41757111245013295,
+            "LPIPS": 0.30684179134191353
+          },
+          "validation": {
+            "PSNR": 14.537420878043541,
+            "SSIM": 0.7180181099818304,
+            "silhouette_IoU": 0.9495866997883871,
+            "alpha_L1": 0.019681544258044317,
+            "self_normal_angular_error": 0.12324304434542473,
+            "valid_surface_fraction": 0.4282945486215445,
+            "LPIPS": 0.3140543203514356
+          },
+          "final_update": {
+            "step": 30000,
+            "frame_index": 479,
+            "loss": 0.2632480561733246,
+            "l1": 0.18080070614814758,
+            "photo": 0.22861480712890625,
+            "normal": 0.02912643924355507,
+            "distortion": 8.014715422177687e-05,
+            "silhouette": 0.00542667368426919,
+            "loss_terms": {
+              "photo": 0.22861480712890625,
+              "normal": 0.02912643924355507,
+              "distortion": 8.014715422177687e-05,
+              "silhouette": 0.00542667368426919
+            },
+            "points": 98412,
+            "opacity_eligible": 96884,
+            "sh_degree": 3,
+            "seconds": 298.2489913548343,
+            "memory_GiB": 2.186396598815918
+          },
+          "geometry_consistency": {
+            "scope": "Four fixed views vs nearest fit camera. Self consistency only; occlusion-filter rejection is reported.",
+            "pairs": [
+              {
+                "source_index": 36,
+                "target_fit_index": 469,
+                "center_view_angle_degrees": 1.1665074825286865,
+                "forward": {
+                  "candidate_pixels": 100372,
+                  "occluded_fraction": 0.03963256627321243,
+                  "agreement_1pct_radius_before_occlusion_filter": 0.9234846234321594,
+                  "nonoccluded_pixels": 96394,
+                  "median_abs_depth_over_radius": 0.00045809673611074686,
+                  "p90_abs_depth_over_radius": 0.004194605629891157
+                },
+                "reverse": {
+                  "candidate_pixels": 100722,
+                  "occluded_fraction": 0.039038144052028656,
+                  "agreement_1pct_radius_before_occlusion_filter": 0.9224101901054382,
+                  "nonoccluded_pixels": 96790,
+                  "median_abs_depth_over_radius": 0.0004532948660198599,
+                  "p90_abs_depth_over_radius": 0.0042832521721720695
+                }
+              },
+              {
+                "source_index": 236,
+                "target_fit_index": 222,
+                "center_view_angle_degrees": 1.1295188665390015,
+                "forward": {
+                  "candidate_pixels": 103645,
+                  "occluded_fraction": 0.03566018491983414,
+                  "agreement_1pct_radius_before_occlusion_filter": 0.9291620254516602,
+                  "nonoccluded_pixels": 99949,
+                  "median_abs_depth_over_radius": 0.0003687822609208524,
+                  "p90_abs_depth_over_radius": 0.004337220918387175
+                },
+                "reverse": {
+                  "candidate_pixels": 103645,
+                  "occluded_fraction": 0.03678904101252556,
+                  "agreement_1pct_radius_before_occlusion_filter": 0.9274832606315613,
+                  "nonoccluded_pixels": 99832,
+                  "median_abs_depth_over_radius": 0.00037646523560397327,
+                  "p90_abs_depth_over_radius": 0.004279313609004021
+                }
+              },
+              {
+                "source_index": 406,
+                "target_fit_index": 14,
+                "center_view_angle_degrees": 0.24066270887851715,
+                "forward": {
+                  "candidate_pixels": 116109,
+                  "occluded_fraction": 0.026423446834087372,
+                  "agreement_1pct_radius_before_occlusion_filter": 0.9472823143005371,
+                  "nonoccluded_pixels": 113041,
+                  "median_abs_depth_over_radius": 0.0003918311558663845,
+                  "p90_abs_depth_over_radius": 0.0037800183054059744
+                },
+                "reverse": {
+                  "candidate_pixels": 115952,
+                  "occluded_fraction": 0.026976680383086205,
+                  "agreement_1pct_radius_before_occlusion_filter": 0.9467279314994812,
+                  "nonoccluded_pixels": 112824,
+                  "median_abs_depth_over_radius": 0.0003908707876689732,
+                  "p90_abs_depth_over_radius": 0.00380498799495399
+                }
+              },
+              {
+                "source_index": 517,
+                "target_fit_index": 151,
+                "center_view_angle_degrees": 0.06255725771188736,
+                "forward": {
+                  "candidate_pixels": 128433,
+                  "occluded_fraction": 0.02320276014506817,
+                  "agreement_1pct_radius_before_occlusion_filter": 0.9514766335487366,
+                  "nonoccluded_pixels": 125453,
+                  "median_abs_depth_over_radius": 0.0003514956042636186,
+                  "p90_abs_depth_over_radius": 0.0034688583109527826
+                },
+                "reverse": {
+                  "candidate_pixels": 128165,
+                  "occluded_fraction": 0.023110833019018173,
+                  "agreement_1pct_radius_before_occlusion_filter": 0.9516092538833618,
+                  "nonoccluded_pixels": 125203,
+                  "median_abs_depth_over_radius": 0.00034573336597532034,
+                  "p90_abs_depth_over_radius": 0.003495553508400917
+                }
+              }
+            ]
+          },
+          "checkpoint": "runs/native_2dgs_normalized_geometry/Real_NRHints/Cat/last.pt",
+          "checkpoint_retained": true
+        },
+        "Pixiu": {
+          "fit": {
+            "PSNR": 20.08474537694878,
+            "SSIM": 0.8621124388436555,
+            "silhouette_IoU": 0.9080192413725872,
+            "alpha_L1": 0.0174517559583332,
+            "self_normal_angular_error": 0.0861238480910011,
+            "valid_surface_fraction": 0.19069415307327692,
+            "LPIPS": 0.15539561826073134
+          },
+          "validation": {
+            "PSNR": 18.281554664884293,
+            "SSIM": 0.8453834067497935,
+            "silhouette_IoU": 0.9049367638570922,
+            "alpha_L1": 0.01845892724980201,
+            "self_normal_angular_error": 0.08912631869316101,
+            "valid_surface_fraction": 0.19411918095179967,
+            "LPIPS": 0.1650867812069399
+          },
+          "final_update": {
+            "step": 30000,
+            "frame_index": 263,
+            "loss": 0.0924181118607521,
+            "l1": 0.028935473412275314,
+            "photo": 0.0460110642015934,
+            "normal": 0.04303380474448204,
+            "distortion": 4.9429640057496727e-05,
+            "silhouette": 0.0033238125033676624,
+            "loss_terms": {
+              "photo": 0.0460110642015934,
+              "normal": 0.04303380474448204,
+              "distortion": 4.9429640057496727e-05,
+              "silhouette": 0.0033238125033676624
+            },
+            "points": 54180,
+            "opacity_eligible": 49916,
+            "sh_degree": 3,
+            "seconds": 263.3473320850171,
+            "memory_GiB": 2.191537380218506
+          },
+          "geometry_consistency": {
+            "scope": "Four fixed views vs nearest fit camera. Self consistency only; occlusion-filter rejection is reported.",
+            "pairs": [
+              {
+                "source_index": 32,
+                "target_fit_index": 416,
+                "center_view_angle_degrees": 3.5009570121765137,
+                "forward": {
+                  "candidate_pixels": 43902,
+                  "occluded_fraction": 0.03141086921095848,
+                  "agreement_1pct_radius_before_occlusion_filter": 0.9400482773780823,
+                  "nonoccluded_pixels": 42523,
+                  "median_abs_depth_over_radius": 0.0002958434051834047,
+                  "p90_abs_depth_over_radius": 0.0032609126064926386
+                },
+                "reverse": {
+                  "candidate_pixels": 48419,
+                  "occluded_fraction": 0.0596047006547451,
+                  "agreement_1pct_radius_before_occlusion_filter": 0.916520357131958,
+                  "nonoccluded_pixels": 45533,
+                  "median_abs_depth_over_radius": 0.000285688613075763,
+                  "p90_abs_depth_over_radius": 0.003042787779122591
+                }
+              },
+              {
+                "source_index": 207,
+                "target_fit_index": 71,
+                "center_view_angle_degrees": 1.8028740882873535,
+                "forward": {
+                  "candidate_pixels": 54347,
+                  "occluded_fraction": 0.015125029720366001,
+                  "agreement_1pct_radius_before_occlusion_filter": 0.9699523448944092,
+                  "nonoccluded_pixels": 53525,
+                  "median_abs_depth_over_radius": 0.00024710033903829753,
+                  "p90_abs_depth_over_radius": 0.0021532238461077213
+                },
+                "reverse": {
+                  "candidate_pixels": 57472,
+                  "occluded_fraction": 0.015503201633691788,
+                  "agreement_1pct_radius_before_occlusion_filter": 0.9703855514526367,
+                  "nonoccluded_pixels": 56581,
+                  "median_abs_depth_over_radius": 0.00025251624174416065,
+                  "p90_abs_depth_over_radius": 0.002177867805585265
+                }
+              },
+              {
+                "source_index": 381,
+                "target_fit_index": 1,
+                "center_view_angle_degrees": 1.7700095176696777,
+                "forward": {
+                  "candidate_pixels": 28882,
+                  "occluded_fraction": 0.01641160622239113,
+                  "agreement_1pct_radius_before_occlusion_filter": 0.9618101119995117,
+                  "nonoccluded_pixels": 28408,
+                  "median_abs_depth_over_radius": 0.0003195379686076194,
+                  "p90_abs_depth_over_radius": 0.0027756476774811745
+                },
+                "reverse": {
+                  "candidate_pixels": 28865,
+                  "occluded_fraction": 0.0298285111784935,
+                  "agreement_1pct_radius_before_occlusion_filter": 0.9496968388557434,
+                  "nonoccluded_pixels": 28004,
+                  "median_abs_depth_over_radius": 0.0003195379686076194,
+                  "p90_abs_depth_over_radius": 0.002844293136149645
+                }
+              },
+              {
+                "source_index": 548,
+                "target_fit_index": 67,
+                "center_view_angle_degrees": 2.784106731414795,
+                "forward": {
+                  "candidate_pixels": 28581,
+                  "occluded_fraction": 0.0396067313849926,
+                  "agreement_1pct_radius_before_occlusion_filter": 0.930233359336853,
+                  "nonoccluded_pixels": 27449,
+                  "median_abs_depth_over_radius": 0.0003560952900443226,
+                  "p90_abs_depth_over_radius": 0.003436656901612878
+                },
+                "reverse": {
+                  "candidate_pixels": 29233,
+                  "occluded_fraction": 0.036636676639318466,
+                  "agreement_1pct_radius_before_occlusion_filter": 0.935312807559967,
+                  "nonoccluded_pixels": 28162,
+                  "median_abs_depth_over_radius": 0.0003777588717639446,
+                  "p90_abs_depth_over_radius": 0.003526965854689479
+                }
+              }
+            ]
+          },
+          "checkpoint": "runs/native_2dgs_normalized_geometry/Real_NRHints/Pixiu/last.pt",
+          "checkpoint_retained": true
+        }
+      },
+      "retained_directory": "runs/native_2dgs_normalized_geometry",
+      "checkpoint_retained": true
+    }
+  },
+  "final_source_matches": {
+    "native_reconstruction.py": true,
+    "train.py": true,
+    "evaluate.py": true,
+    "methods/__init__.py": true,
+    "make_validation_manifest.py": true
+  }
+}

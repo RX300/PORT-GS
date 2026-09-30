@@ -1,0 +1,36 @@
+{
+  "purpose": "Normalized-coordinate interface preflight, not quality",
+  "roundtrip": {
+    "world_export_and_author_restore": "pass",
+    "original_world_ply": "pass",
+    "rgb_mae_coordinate_roundtrip": 9.680722712346324e-08,
+    "alpha_mae_coordinate_roundtrip": 1.586122380103916e-07
+  },
+  "final_update": {
+    "step": 5,
+    "frame_index": 232,
+    "loss": 0.4874374270439148,
+    "l1": 0.27615365386009216,
+    "photo": 0.39714595675468445,
+    "normal": 0.0,
+    "distortion": 0.0,
+    "silhouette": 0.09029147773981094,
+    "loss_terms": {
+      "photo": 0.39714595675468445,
+      "normal": 0.0,
+      "distortion": 0.0,
+      "silhouette": 0.09029147773981094
+    },
+    "points": 1000,
+    "opacity_eligible": 1000,
+    "sh_degree": 0,
+    "seconds": 0.45061597879976034,
+    "memory_GiB": 0.13921499252319336
+  },
+  "reloaded_eval_frames": 2,
+  "unit_checks": "logs/native_2dgs_normalized_checks_retry.log",
+  "initial_unit_failure": "logs/native_2dgs_normalized_checks.log (missing test math import, fixed before training)",
+  "training_log": "logs/native_2dgs_normalized_smoke.log",
+  "evaluation_log": "logs/native_2dgs_normalized_smoke_eval.log",
+  "removed_nonfinal_directory": "runs/native_2dgs_normalized_smoke"
+}

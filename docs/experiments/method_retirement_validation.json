@@ -1,0 +1,50 @@
+{
+  "cpu_tests": 45,
+  "cpu_result": "passed",
+  "gpu_integration": {
+    "distribution_material": {
+      "step": 3,
+      "final_loss": 0.4116390347480774,
+      "reload_pixel_max_abs": 0.0,
+      "metrics": {
+        "split": "fit",
+        "checkpoint": "/tmp/port_method_retirement_dna/distribution_material/last.pt",
+        "render_branch": "gaussian",
+        "metrics": {
+          "PSNR": 8.462895393371582,
+          "SSIM": 0.24089615046977997,
+          "raw_MSE": 0.14252601563930511,
+          "alpha_L1": 0.39944520592689514
+        },
+        "views": [
+          {
+            "frame_index": 0,
+            "name": "r_0",
+            "PSNR": 8.462895393371582,
+            "SSIM": 0.24089615046977997,
+            "raw_MSE": 0.14252601563930511,
+            "alpha_L1": 0.39944520592689514
+          }
+        ],
+        "protocol": "uint8-quantized observation RGB, unit PSNR, zero-padded 11x11 SSIM sigma1.5; LPIPS standard [-1,1]; raw_MSE is unclipped observation MSE; original held-out camera calibration",
+        "training_resolution": 32,
+        "resolution": 32,
+        "background": 0.0,
+        "evaluated_frames": 1,
+        "limit": 1,
+        "save_all": false,
+        "display_gamma": 2.2,
+        "camera_protocol": "saved training offsets on fit frames; original calibration on held-out frames",
+        "corrected_fit_frames": 0,
+        "observation_protocol": "PNG foreground gamma then alpha composition; HDR full-image gamma"
+      },
+      "parameters": 12895
+    }
+  },
+  "removed_methods": [
+    "surface_reflectance",
+    "directional_surfel"
+  ],
+  "remaining_transport_methods": 7,
+  "remaining_reconstruction_methods": 2
+}

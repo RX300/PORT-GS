@@ -1,0 +1,18 @@
+diff --git a/submodules/diff-gaussian-rasterization/setup.py b/submodules/diff-gaussian-rasterization/setup.py
+index 5fb3601..faceb8f 100755
+--- a/submodules/diff-gaussian-rasterization/setup.py
++++ b/submodules/diff-gaussian-rasterization/setup.py
+@@ -19,11 +19,11 @@ setup(
+                 "ext.cpp",
+             ],
+             extra_compile_args={
+-                "cxx": ["-std=c++20"],
++                "cxx": ["-std=c++17"],
+                 "nvcc": [
+                     "-O3",
+                     "--use_fast_math",
+-                    "-std=c++20",
++                    "-std=c++17",
+                     "--extended-lambda",
+                     # "--Werror=all-warnings",
+                     "--expt-relaxed-constexpr",

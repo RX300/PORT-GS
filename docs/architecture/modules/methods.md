@@ -1,60 +1,39 @@
-# 可选择的光传输方法
+# 当前光传输方法与接口
 
-训练与评估只从 `methods` 导入 `build_transport`；渲染器只使用统一 forward 接口。
-`--representation` 及 checkpoint 的同名配置字段确定方法，默认 `directional_port_v1`。
+2026-09-30：唯一活动注册表 `methods.METHODS` 只包含三个方法，默认 `directional_port_v1`。
+所有训练、评价和检查点加载都使用显式 `representation`；不再默认回退到旧 Anchor 方法。
 
-## 模块边界
+| 注册名 | 实现 | 表示 |
+|---|---|---|
+| directional_port_v1 | methods/directional.py | 空间端口内的方向池化与读取；默认 3DGS |
+| surface_attention | methods/attention.py | 固定空间聚合、单次 cross-attention；2DGS |
+| neural_material | methods/neural_material.py | 冻结共享 BRDF 解码器、材质编码与方向端口；默认 2DGS，可导入 3D GGGS |
 
-- `methods/base.py`：`TransportBase`最小接口、`PortTransport`公共端口实现、源/接收光查询类型、方向编码、空间分配、
-  质量测度、点光源照明、直接光着色和公共forward。
-- `methods/anchor.py`：原 `learned_anchor_exchange`。
-- `methods/directional.py`：原 `directional_port_v1` 的方向池化与读取。
-- `methods/paired_port.py` / `methods/local_frame.py`：两项研究候选，见[实现说明](research_methods.md)。
-- `methods/__init__.py`：显式方法注册表、配置补全、命令行参数及工厂。
-- `renderer.py`：属性光栅化、期望深度接收点、阴影与alpha合成。
-- `train.py` / `evaluate.py`：通用优化、数据协议、观察变换、checkpoint与指标。
-
-原根目录 `transport.py` 与 `directional_transport.py` 已迁入包，重复直接光计算合并。
-参数的state_dict名称保持不变，既有anchor/directional checkpoint可严格加载。
-旧checkpoint缺少representation时仍按原合同解释为learned_anchor_exchange。
-`--init-checkpoint`仅用于同方法同尺寸的权重初始化，重新创建optimizer；跨方法使用
-`--init-geometry`，仍需满足训练划分一致性要求。
+`methods/base.py` 中的 TransportBase、NeuralTransport、PortTransport 是公共实现，不是额外方法。
+`materials/`、`surface.py`、`refinement.py`、`cameras.py` 继续为保留方法服务。
 
 ## 公共接口
 
 ```python
-forward(gaussians, receivers, eye, light_pos, light_intensity,
-        source_visibility, port_active=True) -> Tensor[M, 3]
+forward(gaussians, receivers, eye, light_pos, light_intensity, source_visibility, port_active=True)
 ```
 
-返回线性前景RGB。方法不得再次做alpha合成、背景、gamma、裁剪或测试标定拟合。
-`port_active=False`返回直接光。公共forward生成两个查询：
+输出线性前景 RGB。渲染器负责几何光栅化、阴影和合成；观察变换负责 gamma/背景。
+`--representation` 选择方法；方法类声明 defaults/cli_fields，注册表补全配置并创建模块。
+三种方法的既有参数名和权重布局不变。旧已删除方法的权重只能用历史源码复现。
 
-- `SourceLight`：归一化位置xyz、features、incident、指向光源的direction、mass。
-- `ReceiverLight`：归一化位置xyz、features、incident、指向相机的direction、直接光response。
+## 初始化和相机
 
-继承PortTransport的方法实现 `exchange_radiance(source, receiver)`，返回已经组合直接光和非局部光的RGB。
-材质变化可覆盖 `material_directions` / `direct_response`；方向端口变化可继承
-`DirectionalTransport`并覆盖接收空间查询或exchange函数。
-若新方法不使用端口，直接继承TransportBase并实现forward，无需实现exchange hook或创建端口参数。
-构造参数仍需包含feature_dim，并调用基类初始化light_scale；这两项属于训练器和checkpoint合同。
+`--init-checkpoint` 恢复同方法权重；`--init-geometry` 只导入几何。
+`--init-geometry-format gggs` 当前仅适用于 directional_port_v1 / neural_material，保留三维协方差与滤波透明度。
+`gggs_reconstruction.py` 只保留读取已有几何及连续深度诊断；`native_reconstruction.py` 只保留公共相机/深度数学和边界指标。
+没有独立的 native_2dgs / gggs_core / gaussian_wrapping 训练或评价 CLI。
 
-## 添加方法
+三种方法共享可选相机优化。最新 rotation + translation gauge 已在默认与 Neural 上完成 Cat/Pixiu 实验；Attention 尚未验证同条件最终质量。
+[相机说明](cameras.md) · [清理记录](../../experiments/method_retirement_20260930.md)。
 
-1. 在methods中新增一个实现模块，继承合适的基类，直接替换所需hook；不要复制训练器。
-2. 声明 `defaults`（全部需保存的构造参数）与 `cli_fields`（允许命令行配置的子集）。
-   构造函数接收这些参数以及light_scale，所有可学习模块注册为nn.Module/nn.Parameter。
-3. 在 `methods/__init__.py` 导入该类，并在 `METHODS` 增加唯一名称。
-4. `train.py --representation NAME --help`自动展示对应参数；训练写出完整配置，
-   评估从checkpoint恢复方法和参数，网络optimizer自动包含新增参数。
-5. 添加与方法性质相关的公式、梯度、初始化退化和checkpoint测试。
+## 已退役
 
-六场景队列沿用 `configs/validation.json`：修改 `train.representation`及实验name，
-补充所选方法参数，删去不属于该方法的参数。每个job记录实际representation，
-源码归档递归包含methods包；历史实验输出使用原配置与源码。
-
-## 重构验证
-
-与重构前Git提交2204cdc直接比较，anchor与directional两种方法在相同权重和输入下：
-开/关端口的CPU float64输出差均为0；参数梯度匹配；state_dict键一致。
-记录：`runs/method_refactor_20260917/refactor_parity.json`。
+learned_anchor_exchange、distribution_material、local_transport 及三个几何重建入口已从活动代码删除。
+更早删除的 surface_reflectance、directional_surfel、paired_port、local_frame 未恢复。
+历史实验及论文分析不是活动方法清单。

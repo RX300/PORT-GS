@@ -1,4 +1,18 @@
-# NRHints real-capture protocol audit
+# 2026-09-26更正：区分NRHints新采集场景与复用的DNL Cat/Pixiu
+
+此前以下审计准确描述了NRHints论文的新采集流程，但把该流程直接用于本地Cat/Pixiu是不充分的。
+NRHints README将Cat与CatSmall（Cat on Decor）分列，原文§4说明复用了4个DNL场景。
+DNL作者项目及原文§4展示并列出Cat/Pixiu，用双DSLR采集，采用gamma2.2近似线性化，并假设没有其他主要光源。
+所以不能用NRHints新数据的Sony A7II+iPhone/S-log证明本地Cat/Pixiu存在S-log响应错误。
+当前gamma2.2有相关来源依据；这不等于已经核验本地PNG的逐文件处理链或精确辐射校准。
+
+[原DNL采集§4](https://gao-duan.github.io/publications/neuralrelighting/DeferredNeuralLighting_low_resolution.pdf) ·
+[NRHints数据表](https://github.com/iamNCJ/NRHints#data-and-models) ·
+[本轮诊断](experiments/quality_diagnosis_20260926.md)
+
+---
+
+# Historical audit: NRHints new-capture protocol
 
 This is a primary-source audit of the **real capture/data protocol**. It does
 not audit SSD-GS or reproduce the NRHints method. The paper PDF was saved at

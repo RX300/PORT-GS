@@ -1,0 +1,147 @@
+{
+  "date": "2026-09-27",
+  "authorization": "User explicitly requested deleting redundant failed experiments/methods",
+  "retired_runs": [
+    {
+      "run": "runs/surface_attention_validation_20260922",
+      "evidence": "docs/experiments/retired/surface_attention_validation_20260922.tar.gz",
+      "note": "Source/config/metrics/logs retained; retired model weights and image exports deleted"
+    },
+    {
+      "run": "runs/neural_material_real_validation_20260922",
+      "evidence": "docs/experiments/retired/neural_material_real_validation_20260922.tar.gz",
+      "note": "Source/config/metrics/logs retained; retired model weights and image exports deleted"
+    },
+    {
+      "run": "runs/surface_reflectance_final",
+      "evidence": "docs/experiments/retired/surface_reflectance_final.tar.gz",
+      "note": "Source/config/metrics/logs retained; retired model weights and image exports deleted"
+    }
+  ],
+  "deleted": [
+    {
+      "path": "third_party/weights",
+      "bytes": 9013904552
+    },
+    {
+      "path": "third_party/da3_env",
+      "bytes": 371207942
+    },
+    {
+      "path": "third_party/Depth-Anything-3",
+      "bytes": 49016323
+    },
+    {
+      "path": "third_party/StableNormal",
+      "bytes": 624624
+    },
+    {
+      "path": "third_party/torch_cache/hub/facebookresearch_dinov2_main",
+      "bytes": 3956490
+    },
+    {
+      "path": "third_party/torch_cache/hub/checkpoints/dinov2_vitl14_pretrain.pth",
+      "bytes": 1217586395
+    },
+    {
+      "path": "runs/surface_attention_validation_20260922",
+      "bytes": 458572078
+    },
+    {
+      "path": "runs/neural_material_real_validation_20260922",
+      "bytes": 204509313
+    },
+    {
+      "path": "runs/surface_reflectance_final",
+      "bytes": 416595449
+    },
+    {
+      "path": "runs/native_2dgs_repaired_geometry/controls/repair_study/expected_defaults/Real_NRHints/Cat/validation/geometry_views.pt",
+      "bytes": 33559730
+    },
+    {
+      "path": "runs/native_2dgs_repaired_geometry/controls/repair_study/expected_defaults/Real_NRHints/Cat/fit_full/geometry_views.pt",
+      "bytes": 33559730
+    },
+    {
+      "path": "runs/native_2dgs_repaired_geometry/controls/repair_study/expected_defaults/Real_NRHints/Pixiu/validation/geometry_views.pt",
+      "bytes": 33559730
+    },
+    {
+      "path": "runs/native_2dgs_repaired_geometry/controls/repair_study/expected_defaults/Real_NRHints/Pixiu/fit_full/geometry_views.pt",
+      "bytes": 33559730
+    },
+    {
+      "path": "runs/native_2dgs_repaired_geometry/controls/repair_study/prune_fixed/Real_NRHints/Cat/validation/geometry_views.pt",
+      "bytes": 33559730
+    },
+    {
+      "path": "runs/native_2dgs_repaired_geometry/controls/repair_study/prune_fixed/Real_NRHints/Cat/fit_full/geometry_views.pt",
+      "bytes": 33559730
+    },
+    {
+      "path": "runs/native_2dgs_repaired_geometry/controls/repair_study/prune_fixed/Real_NRHints/Pixiu/validation/geometry_views.pt",
+      "bytes": 33559730
+    },
+    {
+      "path": "runs/native_2dgs_repaired_geometry/controls/repair_study/prune_fixed/Real_NRHints/Pixiu/fit_full/geometry_views.pt",
+      "bytes": 33559730
+    },
+    {
+      "path": "runs/native_2dgs_repaired_geometry/controls/repair_study/object_split/Real_NRHints/Cat/validation/geometry_views.pt",
+      "bytes": 33559730
+    },
+    {
+      "path": "runs/native_2dgs_repaired_geometry/controls/repair_study/object_split/Real_NRHints/Cat/fit_full/geometry_views.pt",
+      "bytes": 33559730
+    },
+    {
+      "path": "runs/native_2dgs_repaired_geometry/controls/repair_study/object_split/Real_NRHints/Pixiu/validation/geometry_views.pt",
+      "bytes": 33559730
+    },
+    {
+      "path": "runs/native_2dgs_repaired_geometry/controls/repair_study/object_split/Real_NRHints/Pixiu/fit_full/geometry_views.pt",
+      "bytes": 33559730
+    },
+    {
+      "path": "runs/native_2dgs_repaired_geometry/controls/prior_native/Real_NRHints/Cat/validation/geometry_views.pt",
+      "bytes": 33559730
+    },
+    {
+      "path": "runs/native_2dgs_repaired_geometry/controls/prior_native/Real_NRHints/Cat/fit_full/geometry_views.pt",
+      "bytes": 33559730
+    },
+    {
+      "path": "runs/native_2dgs_repaired_geometry/controls/prior_native/Real_NRHints/Pixiu/validation/geometry_views.pt",
+      "bytes": 33559730
+    },
+    {
+      "path": "runs/native_2dgs_repaired_geometry/controls/prior_native/Real_NRHints/Pixiu/fit_full/geometry_views.pt",
+      "bytes": 33559730
+    }
+  ],
+  "preserved": [
+    "datasets",
+    "SSD-GS",
+    "uploaded research documents",
+    "directional_port final",
+    "distribution_material final",
+    "latest native_2dgs final",
+    "LPIPS VGG evaluation weights",
+    "runtime method modules used by retained checkpoints"
+  ],
+  "deleted_bytes": 12272928846,
+  "evidence_archive_bytes": 51093649,
+  "remaining_final_checkpoints": [
+    "runs/directional_port512_validation_20260915/Real_NRHints/Cat/last.pt",
+    "runs/directional_port512_validation_20260915/Real_NRHints/Pixiu/last.pt",
+    "runs/directional_port512_validation_20260915/Synthetic_GS3/AnisoMetal/last.pt",
+    "runs/directional_port512_validation_20260915/Synthetic_GS3/Translucent/last.pt",
+    "runs/directional_port512_validation_20260915/Synthetic_SSS-GS/bunny_small/last.pt",
+    "runs/directional_port512_validation_20260915/Synthetic_SSS-GS/dragon_small/last.pt",
+    "runs/distribution_material_final/Real_NRHints/Cat/last.pt",
+    "runs/distribution_material_final/Real_NRHints/Pixiu/last.pt",
+    "runs/native_2dgs_repaired_geometry/Real_NRHints/Cat/last.pt",
+    "runs/native_2dgs_repaired_geometry/Real_NRHints/Pixiu/last.pt"
+  ]
+}

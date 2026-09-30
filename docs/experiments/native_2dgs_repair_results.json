@@ -1,0 +1,529 @@
+{
+  "date": "2026-09-27 Asia/Tokyo",
+  "final_run": "runs/native_2dgs_repaired_geometry",
+  "training": "Four independent fresh30000 profiles per scene in this repair task; final checkpoint is one30000-step run, not a120000-step continuation.",
+  "protocol": {
+    "Cat": {
+      "fit": 470,
+      "validation": 52
+    },
+    "Pixiu": {
+      "fit": 506,
+      "validation": 56
+    },
+    "official_test_evaluated": false,
+    "SDF": false,
+    "pretrained_geometry_supervision": false
+  },
+  "final": {
+    "models": {
+      "Cat": {
+        "step": 30000,
+        "points": 81018,
+        "opacity_eligible": 79861,
+        "topology_totals": {
+          "cloned": 113281,
+          "split_parents": 245495,
+          "split_children": 490990,
+          "pruned": 317758,
+          "pruned_opacity": 164495,
+          "pruned_screen": 153624,
+          "pruned_world": 0
+        },
+        "finite_geometry": "pass",
+        "world_export": "pass",
+        "population_accounting": "pass",
+        "fit_full": {
+          "frames": 470,
+          "metrics": {
+            "PSNR": 15.41927463957604,
+            "SSIM": 0.7264328723258161,
+            "silhouette_IoU": 0.9423893532854446,
+            "alpha_L1": 0.023111733123461934,
+            "self_normal_angular_error": 0.011067158216610551,
+            "valid_surface_fraction": 0.41810230498618267,
+            "LPIPS": 0.29407972049839953
+          }
+        },
+        "validation": {
+          "frames": 52,
+          "metrics": {
+            "PSNR": 14.579452808086689,
+            "SSIM": 0.7193484558508947,
+            "silhouette_IoU": 0.948378942333735,
+            "alpha_L1": 0.020004280547324855,
+            "self_normal_angular_error": 0.010499080419182204,
+            "valid_surface_fraction": 0.42902300908015323,
+            "LPIPS": 0.3006744642670338
+          }
+        }
+      },
+      "Pixiu": {
+        "step": 30000,
+        "points": 37257,
+        "opacity_eligible": 35772,
+        "topology_totals": {
+          "cloned": 100095,
+          "split_parents": 103105,
+          "split_children": 206210,
+          "pruned": 205943,
+          "pruned_opacity": 135872,
+          "pruned_screen": 70109,
+          "pruned_world": 0
+        },
+        "finite_geometry": "pass",
+        "world_export": "pass",
+        "population_accounting": "pass",
+        "fit_full": {
+          "frames": 506,
+          "metrics": {
+            "PSNR": 20.064686722435027,
+            "SSIM": 0.8623245470373055,
+            "silhouette_IoU": 0.9031832376016459,
+            "alpha_L1": 0.018086797405004854,
+            "self_normal_angular_error": 0.037723988798914455,
+            "valid_surface_fraction": 0.19182472832118097,
+            "LPIPS": 0.15388303126388858
+          }
+        },
+        "validation": {
+          "frames": 56,
+          "metrics": {
+            "PSNR": 18.29994056906019,
+            "SSIM": 0.8458592210497174,
+            "silhouette_IoU": 0.8993757622582572,
+            "alpha_L1": 0.01919687817072762,
+            "self_normal_angular_error": 0.03839994514627116,
+            "valid_surface_fraction": 0.19530017035348074,
+            "LPIPS": 0.16377339259322202
+          }
+        }
+      }
+    },
+    "geometry_gate": {
+      "Cat": "failed",
+      "Pixiu": "failed"
+    },
+    "relighting_started": false,
+    "core_matches_launch": {
+      "native_reconstruction.py": true,
+      "native_topology.py": true,
+      "train.py": true,
+      "evaluate.py": true,
+      "methods/__init__.py": true,
+      "make_validation_manifest.py": true
+    },
+    "manual_review": {
+      "views": "All four fixed validation panels per scene, plus common-renderer comparison with prior PORT-DNA geometry",
+      "Cat": "Coarse coverage intact, texture and paper folds improved relative to over-pruned controls, but broad flat/over-smoothed regions and unresolved fine structure remain. No demonstrated geometric improvement sufficient to pass the gate.",
+      "Pixiu": "Persistent terraced/planar structures and edge spikes; silhouette slightly below previous failed native profile.",
+      "limitations": "No geometry GT; PORT-DNA reference used all train and includes these validation frames. Appearance metrics are SH reconstruction, not relighting. Low normal/depth self-consistency error is insufficient to accept shape."
+    }
+  },
+  "profiles": {
+    "prior_native": {
+      "Cat": {
+        "validation": {
+          "PSNR": 14.537420878043541,
+          "SSIM": 0.7180181099818304,
+          "silhouette_IoU": 0.9495866997883871,
+          "alpha_L1": 0.019681544258044317,
+          "self_normal_angular_error": 0.12324304434542473,
+          "valid_surface_fraction": 0.4282945486215445,
+          "LPIPS": 0.3140543203514356
+        },
+        "fit": {
+          "PSNR": 15.457738487771216,
+          "SSIM": 0.7243458679381837,
+          "silhouette_IoU": 0.9432034231246786,
+          "alpha_L1": 0.02294227700145479,
+          "self_normal_angular_error": 0.1196457675638351,
+          "valid_surface_fraction": 0.41757111245013295,
+          "LPIPS": 0.30684179134191353
+        },
+        "last_update": {
+          "step": 30000,
+          "frame_index": 479,
+          "loss": 0.2632480561733246,
+          "l1": 0.18080070614814758,
+          "photo": 0.22861480712890625,
+          "normal": 0.02912643924355507,
+          "distortion": 8.014715422177687e-05,
+          "silhouette": 0.00542667368426919,
+          "loss_terms": {
+            "photo": 0.22861480712890625,
+            "normal": 0.02912643924355507,
+            "distortion": 8.014715422177687e-05,
+            "silhouette": 0.00542667368426919
+          },
+          "points": 98412,
+          "opacity_eligible": 96884,
+          "sh_degree": 3,
+          "seconds": 298.2489913548343,
+          "memory_GiB": 2.186396598815918
+        },
+        "checkpoint_retained": false
+      },
+      "Pixiu": {
+        "validation": {
+          "PSNR": 18.281554664884293,
+          "SSIM": 0.8453834067497935,
+          "silhouette_IoU": 0.9049367638570922,
+          "alpha_L1": 0.01845892724980201,
+          "self_normal_angular_error": 0.08912631869316101,
+          "valid_surface_fraction": 0.19411918095179967,
+          "LPIPS": 0.1650867812069399
+        },
+        "fit": {
+          "PSNR": 20.08474537694878,
+          "SSIM": 0.8621124388436555,
+          "silhouette_IoU": 0.9080192413725872,
+          "alpha_L1": 0.0174517559583332,
+          "self_normal_angular_error": 0.0861238480910011,
+          "valid_surface_fraction": 0.19069415307327692,
+          "LPIPS": 0.15539561826073134
+        },
+        "last_update": {
+          "step": 30000,
+          "frame_index": 263,
+          "loss": 0.0924181118607521,
+          "l1": 0.028935473412275314,
+          "photo": 0.0460110642015934,
+          "normal": 0.04303380474448204,
+          "distortion": 4.9429640057496727e-05,
+          "silhouette": 0.0033238125033676624,
+          "loss_terms": {
+            "photo": 0.0460110642015934,
+            "normal": 0.04303380474448204,
+            "distortion": 4.9429640057496727e-05,
+            "silhouette": 0.0033238125033676624
+          },
+          "points": 54180,
+          "opacity_eligible": 49916,
+          "sh_degree": 3,
+          "seconds": 263.3473320850171,
+          "memory_GiB": 2.191537380218506
+        },
+        "checkpoint_retained": false
+      }
+    },
+    "prune_fixed": {
+      "Cat": {
+        "validation": {
+          "PSNR": 14.62852536714994,
+          "SSIM": 0.7164154660243255,
+          "silhouette_IoU": 0.9492577302914399,
+          "alpha_L1": 0.021469448030424807,
+          "self_normal_angular_error": 0.11398536325074159,
+          "valid_surface_fraction": 0.4251506511981671,
+          "LPIPS": 0.34365210223656434
+        },
+        "fit": {
+          "PSNR": 15.275750704014555,
+          "SSIM": 0.7160594590166782,
+          "silhouette_IoU": 0.9433182025209387,
+          "alpha_L1": 0.02455606753244362,
+          "self_normal_angular_error": 0.11375989967838247,
+          "valid_surface_fraction": 0.4142953101624834,
+          "LPIPS": 0.33875546182723754
+        },
+        "last_update": {
+          "step": 30000,
+          "frame_index": 479,
+          "loss": 0.26865801215171814,
+          "l1": 0.1851215958595276,
+          "photo": 0.23328045010566711,
+          "normal": 0.029580170288681984,
+          "distortion": 0.0003744013956747949,
+          "silhouette": 0.005422986578196287,
+          "loss_terms": {
+            "photo": 0.23328045010566711,
+            "normal": 0.029580170288681984,
+            "distortion": 0.0003744013956747949,
+            "silhouette": 0.005422986578196287
+          },
+          "points": 18089,
+          "opacity_eligible": 17030,
+          "sh_degree": 3,
+          "seconds": 263.58792502526194,
+          "topology_event": null,
+          "topology_totals": {
+            "cloned": 292167,
+            "split_parents": 8301,
+            "split_children": 16602,
+            "pruned": 322379,
+            "pruned_opacity": 70292,
+            "pruned_screen": 258954,
+            "pruned_world": 0
+          },
+          "memory_GiB": 2.0861659049987793
+        },
+        "checkpoint_retained": false
+      },
+      "Pixiu": {
+        "validation": {
+          "PSNR": 18.26509235586439,
+          "SSIM": 0.8442286455205509,
+          "silhouette_IoU": 0.8965664303728512,
+          "alpha_L1": 0.020756424055434763,
+          "self_normal_angular_error": 0.11453452679727759,
+          "valid_surface_fraction": 0.1925818579537528,
+          "LPIPS": 0.17211792724473135
+        },
+        "fit": {
+          "PSNR": 20.009035248059057,
+          "SSIM": 0.8591146035627886,
+          "silhouette_IoU": 0.9010927737230369,
+          "alpha_L1": 0.019554171260269617,
+          "self_normal_angular_error": 0.11489845746060605,
+          "valid_surface_fraction": 0.1890841020425789,
+          "LPIPS": 0.1633200686380797
+        },
+        "last_update": {
+          "step": 30000,
+          "frame_index": 263,
+          "loss": 0.09510458260774612,
+          "l1": 0.03026091307401657,
+          "photo": 0.04787849634885788,
+          "normal": 0.04315037652850151,
+          "distortion": 0.0002682862977962941,
+          "silhouette": 0.0038074254989624023,
+          "loss_terms": {
+            "photo": 0.04787849634885788,
+            "normal": 0.04315037652850151,
+            "distortion": 0.0002682862977962941,
+            "silhouette": 0.0038074254989624023
+          },
+          "points": 17200,
+          "opacity_eligible": 14757,
+          "sh_degree": 3,
+          "seconds": 261.352471744176,
+          "topology_event": null,
+          "topology_totals": {
+            "cloned": 200711,
+            "split_parents": 2646,
+            "split_children": 5292,
+            "pruned": 226157,
+            "pruned_opacity": 90920,
+            "pruned_screen": 136153,
+            "pruned_world": 0
+          },
+          "memory_GiB": 2.1615748405456543
+        },
+        "checkpoint_retained": false
+      }
+    },
+    "expected_defaults": {
+      "Cat": {
+        "validation": {
+          "PSNR": 14.606498168064999,
+          "SSIM": 0.7105909895438415,
+          "silhouette_IoU": 0.9480030857599698,
+          "alpha_L1": 0.024104016886737484,
+          "self_normal_angular_error": 0.022736527276440308,
+          "valid_surface_fraction": 0.4195665212777945,
+          "LPIPS": 0.36181654723790974
+        },
+        "fit": {
+          "PSNR": 15.175258226597563,
+          "SSIM": 0.7078045581883573,
+          "silhouette_IoU": 0.9418864417583385,
+          "alpha_L1": 0.027329928093054828,
+          "self_normal_angular_error": 0.023911061419292966,
+          "valid_surface_fraction": 0.4080860706085854,
+          "LPIPS": 0.35798097271868523
+        },
+        "last_update": {
+          "step": 30000,
+          "frame_index": 479,
+          "loss": 0.2675246596336365,
+          "l1": 0.18449585139751434,
+          "photo": 0.23378793895244598,
+          "normal": 0.027993083000183105,
+          "distortion": 0.0,
+          "silhouette": 0.005743634887039661,
+          "loss_terms": {
+            "photo": 0.23378793895244598,
+            "normal": 0.027993083000183105,
+            "distortion": 0.0,
+            "silhouette": 0.005743634887039661
+          },
+          "points": 5330,
+          "opacity_eligible": 5026,
+          "sh_degree": 3,
+          "seconds": 265.8452483918518,
+          "topology_event": null,
+          "topology_totals": {
+            "cloned": 235255,
+            "split_parents": 8876,
+            "split_children": 17752,
+            "pruned": 278801,
+            "pruned_opacity": 56257,
+            "pruned_screen": 229587,
+            "pruned_world": 0
+          },
+          "memory_GiB": 2.084709644317627
+        },
+        "checkpoint_retained": false
+      },
+      "Pixiu": {
+        "validation": {
+          "PSNR": 18.244837488446915,
+          "SSIM": 0.8439746765153748,
+          "silhouette_IoU": 0.8922201629195895,
+          "alpha_L1": 0.02135205385275185,
+          "self_normal_angular_error": 0.06137749692425132,
+          "valid_surface_fraction": 0.19324752262660436,
+          "LPIPS": 0.17337143740483693
+        },
+        "fit": {
+          "PSNR": 19.994930627317768,
+          "SSIM": 0.8586100514227223,
+          "silhouette_IoU": 0.896996575381916,
+          "alpha_L1": 0.02009255910226008,
+          "self_normal_angular_error": 0.061734756152973816,
+          "valid_surface_fraction": 0.189842359821787,
+          "LPIPS": 0.1644689067314736
+        },
+        "last_update": {
+          "step": 30000,
+          "frame_index": 263,
+          "loss": 0.09395692497491837,
+          "l1": 0.029570210725069046,
+          "photo": 0.047163404524326324,
+          "normal": 0.04295124486088753,
+          "distortion": 0.0,
+          "silhouette": 0.003842271864414215,
+          "loss_terms": {
+            "photo": 0.047163404524326324,
+            "normal": 0.04295124486088753,
+            "distortion": 0.0,
+            "silhouette": 0.003842271864414215
+          },
+          "points": 12676,
+          "opacity_eligible": 11705,
+          "sh_degree": 3,
+          "seconds": 265.2668695007451,
+          "topology_event": null,
+          "topology_totals": {
+            "cloned": 183573,
+            "split_parents": 3772,
+            "split_children": 7544,
+            "pruned": 214669,
+            "pruned_opacity": 82720,
+            "pruned_screen": 132986,
+            "pruned_world": 0
+          },
+          "memory_GiB": 2.155771255493164
+        },
+        "checkpoint_retained": false
+      }
+    },
+    "object_split_first_repair": {
+      "Cat": {
+        "validation": {
+          "PSNR": 14.573353052139282,
+          "SSIM": 0.7193883198958176,
+          "silhouette_IoU": 0.9483116016938136,
+          "alpha_L1": 0.020021668151737407,
+          "self_normal_angular_error": 0.010603923332662536,
+          "valid_surface_fraction": 0.42910077021672177,
+          "LPIPS": 0.3012312404238261
+        },
+        "fit": {
+          "PSNR": 15.416467212108856,
+          "SSIM": 0.7264515742342523,
+          "silhouette_IoU": 0.9423559554079746,
+          "alpha_L1": 0.02311095518773382,
+          "self_normal_angular_error": 0.011172289783729517,
+          "valid_surface_fraction": 0.41818844409699135,
+          "LPIPS": 0.2940293460450274
+        },
+        "last_update": {
+          "step": 30000,
+          "frame_index": 479,
+          "loss": 0.26228469610214233,
+          "l1": 0.18359212577342987,
+          "photo": 0.23064810037612915,
+          "normal": 0.026336921378970146,
+          "distortion": 0.0,
+          "silhouette": 0.005299676209688187,
+          "loss_terms": {
+            "photo": 0.23064810037612915,
+            "normal": 0.026336921378970146,
+            "distortion": 0.0,
+            "silhouette": 0.005299676209688187
+          },
+          "points": 80798,
+          "opacity_eligible": 79699,
+          "sh_degree": 3,
+          "seconds": 261.2748263240792,
+          "topology_event": null,
+          "topology_totals": {
+            "cloned": 112906,
+            "split_parents": 246936,
+            "split_children": 493872,
+            "pruned": 319044,
+            "pruned_opacity": 165228,
+            "pruned_screen": 154222,
+            "pruned_world": 0
+          },
+          "memory_GiB": 2.0883545875549316
+        },
+        "checkpoint_retained": false
+      },
+      "Pixiu": {
+        "validation": {
+          "PSNR": 18.29875533921378,
+          "SSIM": 0.8458336251122611,
+          "silhouette_IoU": 0.8991146800773484,
+          "alpha_L1": 0.01924229839018413,
+          "self_normal_angular_error": 0.038121921642284305,
+          "valid_surface_fraction": 0.1952817780630929,
+          "LPIPS": 0.16424922631787403
+        },
+        "fit": {
+          "PSNR": 20.070931866234943,
+          "SSIM": 0.8623613127371068,
+          "silhouette_IoU": 0.902958284489251,
+          "alpha_L1": 0.018161572534370094,
+          "self_normal_angular_error": 0.03770544488542518,
+          "valid_surface_fraction": 0.19176420581199435,
+          "LPIPS": 0.15404414120516757
+        },
+        "last_update": {
+          "step": 30000,
+          "frame_index": 263,
+          "loss": 0.09249764680862427,
+          "l1": 0.030240371823310852,
+          "photo": 0.0470895990729332,
+          "normal": 0.042409319430589676,
+          "distortion": 0.0,
+          "silhouette": 0.0029987262096256018,
+          "loss_terms": {
+            "photo": 0.0470895990729332,
+            "normal": 0.042409319430589676,
+            "distortion": 0.0,
+            "silhouette": 0.0029987262096256018
+          },
+          "points": 37160,
+          "opacity_eligible": 35634,
+          "sh_degree": 3,
+          "seconds": 263.100781195797,
+          "topology_event": null,
+          "topology_totals": {
+            "cloned": 100032,
+            "split_parents": 104143,
+            "split_children": 208286,
+            "pruned": 207015,
+            "pruned_opacity": 136727,
+            "pruned_screen": 70321,
+            "pruned_world": 0
+          },
+          "memory_GiB": 2.1569981575012207
+        },
+        "checkpoint_retained": false
+      }
+    }
+  }
+}

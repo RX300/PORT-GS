@@ -1,5 +1,10 @@
 # 两项新方法六场景30k实验 — 2026-09-17
 
+> 历史记录可用性核对（2026-09-23）：下面的“启动/尚未完成”是当时记录，不是当前进程状态。
+> 两个run目录已列入2026-09-22的历史清理清单，当前均不存在；方法实现和短程集成检查记录仍在。
+> 此文没有保留下来的最终完整成绩，不能据启动证据将它们判为成功、失败或仍在运行。
+> 研究当前状态以research_handoff顶部为准，不以本页历史启动记录判断。
+
 用户要求方案一/二分别跑现有验证集合，最多两张GPU并行，每场景训练30000步。
 这里验证集合沿用项目现有六场景全train/官方test协议，不切换成训练内holdout。
 本轮直接对预先确定的两个候选做对照，不按test挑选或修改超参数。
@@ -19,8 +24,8 @@
 ## 启动与产物
 
 ```bash
-bash launch_validation.sh configs/paired_port512_validation_20260917.json
-bash launch_validation.sh configs/local_frame512_validation_20260917.json
+bash launch_validation.sh runs/paired_port512_validation_20260917/validation.json
+bash launch_validation.sh runs/local_frame512_validation_20260917/validation.json
 ```
 
 分别输出到runs/paired_port512_validation_20260917/和runs/local_frame512_validation_20260917/。

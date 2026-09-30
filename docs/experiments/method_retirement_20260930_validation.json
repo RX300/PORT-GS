@@ -1,0 +1,223 @@
+{
+  "retained_methods": [
+    "directional_port_v1",
+    "surface_attention",
+    "neural_material"
+  ],
+  "removed_entries": [
+    "learned_anchor_exchange",
+    "distribution_material",
+    "local_transport",
+    "native_2dgs",
+    "gggs_core",
+    "gaussian_wrapping"
+  ],
+  "unit_checks": 18,
+  "unit_checks_passed": true,
+  "real_integration": {
+    "directional_port_v1": {
+      "step": 3,
+      "final_loss": 0.3761255741119385,
+      "reload_pixel_max_abs": 0.0,
+      "metrics": {
+        "split": "fit",
+        "checkpoint": "/tmp/port_three_method_integration_4frames_20260930/directional_port_v1/last.pt",
+        "render_branch": "gaussian",
+        "metrics": {
+          "PSNR": 8.50035047531128,
+          "SSIM": 0.09321114607155323,
+          "raw_MSE": 0.15882017835974693,
+          "alpha_L1": 0.41684601455926895
+        },
+        "views": [
+          {
+            "frame_index": 0,
+            "name": "r_0",
+            "PSNR": 9.50819206237793,
+            "SSIM": 0.12223690748214722,
+            "raw_MSE": 0.11200149357318878,
+            "alpha_L1": 0.3870709538459778
+          },
+          {
+            "frame_index": 1,
+            "name": "r_173",
+            "PSNR": 11.47646713256836,
+            "SSIM": 0.06990884989500046,
+            "raw_MSE": 0.07121515274047852,
+            "alpha_L1": 0.3990862965583801
+          },
+          {
+            "frame_index": 2,
+            "name": "r_347",
+            "PSNR": 5.842282295227051,
+            "SSIM": 0.0740286111831665,
+            "raw_MSE": 0.26041191816329956,
+            "alpha_L1": 0.4540601372718811
+          },
+          {
+            "frame_index": 3,
+            "name": "r_521",
+            "PSNR": 7.174460411071777,
+            "SSIM": 0.10667021572589874,
+            "raw_MSE": 0.19165214896202087,
+            "alpha_L1": 0.4271666705608368
+          }
+        ],
+        "protocol": "uint8-quantized observation RGB, unit PSNR, zero-padded 11x11 SSIM sigma1.5; LPIPS standard [-1,1]; raw_MSE is unclipped observation MSE; original held-out camera calibration",
+        "training_resolution": 32,
+        "resolution": 32,
+        "background": 0.0,
+        "evaluated_frames": 4,
+        "limit": 4,
+        "save_all": false,
+        "display_gamma": 2.2,
+        "camera_protocol": "saved training offsets on fit frames; original calibration on held-out frames",
+        "light_protocol": "original calibration",
+        "corrected_fit_frames": 4,
+        "observation_protocol": "PNG foreground gamma then alpha composition; HDR full-image gamma"
+      },
+      "parameters": 74194
+    },
+    "surface_attention": {
+      "step": 3,
+      "final_loss": 0.376637727022171,
+      "reload_pixel_max_abs": 0.0,
+      "metrics": {
+        "split": "fit",
+        "checkpoint": "/tmp/port_three_method_integration_4frames_20260930/surface_attention/last.pt",
+        "render_branch": "gaussian",
+        "metrics": {
+          "PSNR": 7.979110360145569,
+          "SSIM": 0.12518277019262314,
+          "raw_MSE": 0.17768089845776558,
+          "alpha_L1": 0.43273963034152985
+        },
+        "views": [
+          {
+            "frame_index": 0,
+            "name": "r_0",
+            "PSNR": 8.85558032989502,
+            "SSIM": 0.16670745611190796,
+            "raw_MSE": 0.13018719851970673,
+            "alpha_L1": 0.3974282741546631
+          },
+          {
+            "frame_index": 1,
+            "name": "r_173",
+            "PSNR": 10.904796600341797,
+            "SSIM": 0.10720765590667725,
+            "raw_MSE": 0.08120375871658325,
+            "alpha_L1": 0.4003768563270569
+          },
+          {
+            "frame_index": 2,
+            "name": "r_347",
+            "PSNR": 5.406534194946289,
+            "SSIM": 0.0814412385225296,
+            "raw_MSE": 0.2879490256309509,
+            "alpha_L1": 0.4778331518173218
+          },
+          {
+            "frame_index": 3,
+            "name": "r_521",
+            "PSNR": 6.74953031539917,
+            "SSIM": 0.14537473022937775,
+            "raw_MSE": 0.2113836109638214,
+            "alpha_L1": 0.45532023906707764
+          }
+        ],
+        "protocol": "uint8-quantized observation RGB, unit PSNR, zero-padded 11x11 SSIM sigma1.5; LPIPS standard [-1,1]; raw_MSE is unclipped observation MSE; original held-out camera calibration",
+        "training_resolution": 32,
+        "resolution": 32,
+        "background": 0.0,
+        "evaluated_frames": 4,
+        "limit": 4,
+        "save_all": false,
+        "display_gamma": 2.2,
+        "camera_protocol": "saved training offsets on fit frames; original calibration on held-out frames",
+        "light_protocol": "original calibration",
+        "corrected_fit_frames": 4,
+        "observation_protocol": "PNG foreground gamma then alpha composition; HDR full-image gamma"
+      },
+      "parameters": 79049
+    },
+    "neural_material": {
+      "step": 3,
+      "final_loss": 0.37190836668014526,
+      "reload_pixel_max_abs": 0.0,
+      "metrics": {
+        "split": "fit",
+        "checkpoint": "/tmp/port_three_method_integration_4frames_20260930/neural_material/last.pt",
+        "render_branch": "gaussian",
+        "metrics": {
+          "PSNR": 7.695858955383301,
+          "SSIM": 0.15150917880237103,
+          "raw_MSE": 0.19059613719582558,
+          "alpha_L1": 0.43344271928071976
+        },
+        "views": [
+          {
+            "frame_index": 0,
+            "name": "r_0",
+            "PSNR": 8.613186836242676,
+            "SSIM": 0.20088228583335876,
+            "raw_MSE": 0.13763576745986938,
+            "alpha_L1": 0.39773887395858765
+          },
+          {
+            "frame_index": 1,
+            "name": "r_173",
+            "PSNR": 10.673065185546875,
+            "SSIM": 0.1415734887123108,
+            "raw_MSE": 0.08560362458229065,
+            "alpha_L1": 0.40070027112960815
+          },
+          {
+            "frame_index": 2,
+            "name": "r_347",
+            "PSNR": 5.051329612731934,
+            "SSIM": 0.0914720818400383,
+            "raw_MSE": 0.3124568462371826,
+            "alpha_L1": 0.47932201623916626
+          },
+          {
+            "frame_index": 3,
+            "name": "r_521",
+            "PSNR": 6.445854187011719,
+            "SSIM": 0.17210885882377625,
+            "raw_MSE": 0.22668831050395966,
+            "alpha_L1": 0.45600971579551697
+          }
+        ],
+        "protocol": "uint8-quantized observation RGB, unit PSNR, zero-padded 11x11 SSIM sigma1.5; LPIPS standard [-1,1]; raw_MSE is unclipped observation MSE; original held-out camera calibration",
+        "training_resolution": 32,
+        "resolution": 32,
+        "background": 0.0,
+        "evaluated_frames": 4,
+        "limit": 4,
+        "save_all": false,
+        "display_gamma": 2.2,
+        "camera_protocol": "saved training offsets on fit frames; original calibration on held-out frames",
+        "light_protocol": "original calibration",
+        "corrected_fit_frames": 4,
+        "observation_protocol": "PNG foreground gamma then alpha composition; HDR full-image gamma"
+      },
+      "parameters": 29718
+    }
+  },
+  "real_gggs_import_bitwise_equal": [
+    "Cat",
+    "Pixiu"
+  ],
+  "retained_core_sources_and_config_unchanged": true,
+  "initial_smoke_failure": "Requested 2 frames, but existing camera smoke asserts 4 corrected frames; rerun with original 4-frame protocol passed all methods.",
+  "logs": [
+    "logs/three_method_retirement_unit.log",
+    "logs/three_method_retirement_rejection.log",
+    "logs/three_method_retirement_3d.log",
+    "logs/three_method_retirement_preservation.log",
+    "logs/three_method_retirement_integration.log",
+    "logs/three_method_retirement_integration_4frames.log",
+    "logs/three_method_retirement_smoke_evidence.tar.gz"
+  ]
+}

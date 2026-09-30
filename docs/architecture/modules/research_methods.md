@@ -1,3 +1,9 @@
+> **2026-09-30 方法清理更新：** 当前只保留 `directional_port_v1`、`surface_attention`、`neural_material`。
+> 其余方法和独立几何训练入口已删除；已有 GGGS 几何读取/诊断和三种方法的公共依赖保留。
+> 以下涉及已删除方法的内容仅作历史记录，不是可运行入口。清理详情见 `docs/experiments/method_retirement_20260930.md`（项目根目录相对路径）。
+
+> 2026-09-27：paired_port和local_frame已按用户要求删除活动代码。下文仅为历史设计记录，复现须使用原实验源码归档。
+
 # 研究方案A/B的实现
 
 2026-09-17：[原研究方案](../../research/cache_material_proposals_20260916.md)中的A1/B1已分别实现。

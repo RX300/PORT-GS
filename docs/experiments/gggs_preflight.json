@@ -1,0 +1,135 @@
+{
+  "protocol": {
+    "representation": "gggs_core",
+    "geometry": "3dgs",
+    "scene": "/workspace/datasets/SSD-GS/data/Real_NRHints/Cat",
+    "resolution": 128,
+    "steps": 800,
+    "seed": 0,
+    "background": 0.0,
+    "depth_ratio": 0.0,
+    "sh_degree": 3,
+    "geometry_priors": false,
+    "sdf": false,
+    "optimizer": {
+      "iterations": 800,
+      "position_lr_init": 0.00016,
+      "position_lr_final": 1.6e-06,
+      "position_lr_delay_mult": 0.01,
+      "position_lr_max_steps": 800,
+      "feature_dc_lr": 0.0013,
+      "feature_rest_lr": 0.00011,
+      "opacity_lr": 0.05,
+      "scaling_lr": 0.005,
+      "rotation_lr": 0.001,
+      "sg_axis_lr": 0.002,
+      "sg_sharpness_lr": 0.095,
+      "sg_color": 0.00064,
+      "appearance_embeddings_lr": 0.001,
+      "appearance_network_lr": 0.001,
+      "pgsr_appearance_lr": 0.001,
+      "gs_appearance_lr_init": 0.01,
+      "gs_appearance_lr_final": 0.001,
+      "gs_appearance_lr_delay_steps": 0,
+      "gs_appearance_lr_delay_mult": 0.0,
+      "percent_dense": 0.01,
+      "lambda_dssim": 0.2,
+      "lambda_depth_normal": 0.05,
+      "densification_interval": 100,
+      "opacity_reset_interval": 3000,
+      "densify_from_iter": 500,
+      "densify_until_iter": 700,
+      "regularization_from_iter": 100,
+      "densify_grad_threshold": 0.0002,
+      "lambda_multi_view_geo": 0.02,
+      "lambda_multi_view_ncc": 0.6,
+      "multi_view_patch_size": 3,
+      "multi_view_pixel_noise_th": 1.0,
+      "use_geo_occ_aware": true
+    },
+    "percent_dense": 0.0,
+    "mask_weight": 0.2,
+    "normal_weight": 0.05,
+    "unit_light_intensity": null,
+    "display_gamma": 1.0,
+    "training_coordinate_transform": {
+      "scale": 6.065331935882568,
+      "center": [
+        0.01540832407772541,
+        0.11021452397108078,
+        -0.04862968251109123
+      ]
+    },
+    "upstream_revision": "23b418c2f0f19b30b251acad6fe13445dae968c7",
+    "scope": "Continuous-depth core ablation; not full-paper reproduction",
+    "differences": [
+      "fit-only silhouette seeds instead of SfM",
+      "full-K via centered virtual sensor and bilinear output sampling",
+      "foreground alpha loss",
+      "no exposure network, 3D Mip filter, or multi-view NCC",
+      "normalized training coordinates; exported world coordinates",
+      "C++17 build flag for GCC9; CUDA equations unchanged"
+    ]
+  },
+  "last_history": {
+    "step": 800,
+    "frame_index": 171,
+    "loss": 0.18551182746887207,
+    "photo": 0.17910966277122498,
+    "normal": 0.0009909544605761766,
+    "silhouette": 0.005411204881966114,
+    "points": 3515,
+    "topology_event": null,
+    "seconds": 8.99694611178711,
+    "memory_GiB": 0.14266300201416016,
+    "loss_terms": {
+      "photo": 0.17910966277122498,
+      "normal": 0.0009909544605761766,
+      "silhouette": 0.005411204881966114
+    }
+  },
+  "evaluation": {
+    "checkpoint": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/gggs_preflight/last.pt",
+    "split": "validation",
+    "evaluated_frames": 2,
+    "metrics": {
+      "PSNR": 15.453409194946289,
+      "SSIM": 0.7058759927749634,
+      "silhouette_IoU": 0.9597931504249573,
+      "alpha_L1": 0.027613861486315727,
+      "self_normal_angular_error": 0.04011738486588001,
+      "valid_surface_fraction": 0.403778076171875
+    },
+    "views": [
+      {
+        "frame_index": 36,
+        "name": "r_36",
+        "PSNR": 16.280574798583984,
+        "SSIM": 0.7724096179008484,
+        "silhouette_IoU": 0.9701607823371887,
+        "alpha_L1": 0.023082036525011063,
+        "self_normal_angular_error": 0.047608330845832825,
+        "valid_surface_fraction": 0.340087890625
+      },
+      {
+        "frame_index": 345,
+        "name": "r_345",
+        "PSNR": 14.626243591308594,
+        "SSIM": 0.6393423676490784,
+        "silhouette_IoU": 0.9494255185127258,
+        "alpha_L1": 0.03214568644762039,
+        "self_normal_angular_error": 0.0326264388859272,
+        "valid_surface_fraction": 0.46746826171875
+      }
+    ],
+    "geometry_scope": "Silhouette and self consistency, no reference geometry. RGB under moving lights is not relighting quality.",
+    "camera_protocol": "original full intrinsics/extrinsics; no pose fitting",
+    "selected_geometry_frames": [
+      36,
+      345
+    ]
+  },
+  "unit_checks": "logs/gggs_geometry_checks.log",
+  "initial_export_plot_failure": "loss_terms absent; fixed producer and repaired smoke history, regenerated plot; model was already saved",
+  "scope": "800-step 128px integration only; not quality result"
+}

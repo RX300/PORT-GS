@@ -1,0 +1,37 @@
+diff --git a/gaussian_wrapping/gaussian_renderer/ours.py b/gaussian_wrapping/gaussian_renderer/ours.py
+index cd4a263..6dd29e9 100644
+--- a/gaussian_wrapping/gaussian_renderer/ours.py
++++ b/gaussian_wrapping/gaussian_renderer/ours.py
+@@ -98,7 +98,7 @@ def render_ours(
+     # Those Gaussians that were frustum culled or had a radius of 0 were not visible.
+     # They will be excluded from value updates used in the splitting criteria.
+     return {"render": rendered_image,
+-            "mask": None,
++            "mask": rendered_alpha,
+             "expected_coord": None,
+             "median_coord": None,
+             "expected_depth": rendered_median_depth,
+diff --git a/gaussian_wrapping/regularization/multiview_gggs.py b/gaussian_wrapping/regularization/multiview_gggs.py
+index 7d5a060..1c5857f 100644
+--- a/gaussian_wrapping/regularization/multiview_gggs.py
++++ b/gaussian_wrapping/regularization/multiview_gggs.py
+@@ -106,8 +106,8 @@ def sample_depth(
+     _, H, W = depth.shape
+     pts_projections = torch.stack(
+         [
+-            points_in_camera_space[:,0] * Fx / points_in_camera_space[:,2] + Cx,
+-            points_in_camera_space[:,1] * Fy / points_in_camera_space[:,2] + Cy
++            points_in_camera_space[:,0] * Fx / points_in_camera_space[:,2].clamp_min(1e-6) + Cx,
++            points_in_camera_space[:,1] * Fy / points_in_camera_space[:,2].clamp_min(1e-6) + Cy
+         ],
+         -1
+     ).float()
+@@ -142,7 +142,7 @@ def sample_depth(
+     # Compute depth points
+     depth_points = torch.where(
+         mask[..., None],  # (N, 1)
+-        points_in_camera_space / points_in_camera_space[..., 2:3] * map_z,  # (N, 3)
++        points_in_camera_space / points_in_camera_space[..., 2:3].clamp_min(1e-6) * map_z,  # (N, 3)
+         torch.zeros_like(points_in_camera_space)  # (N, 3)
+     )
+     

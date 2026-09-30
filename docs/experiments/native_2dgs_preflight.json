@@ -1,0 +1,29 @@
+{
+  "purpose": "Interface-only author rasterizer 5-step random1000/128px preflight; not a quality experiment.",
+  "final_update": {
+    "step": 5,
+    "frame_index": 232,
+    "loss": 0.39626917243003845,
+    "l1": 0.2749674320220947,
+    "photo": 0.39626917243003845,
+    "normal": 0.0,
+    "distortion": 0.0,
+    "loss_terms": {
+      "photo": 0.39626917243003845,
+      "normal": 0.0,
+      "distortion": 0.0
+    },
+    "points": 1000,
+    "opacity_eligible": 1000,
+    "sh_degree": 0,
+    "seconds": 0.47055668802931905,
+    "memory_GiB": 0.13915300369262695
+  },
+  "reloaded_eval_frames": 2,
+  "checks_log": "logs/native_2dgs_checks.log",
+  "mask_checks_log": "logs/native_2dgs_mask_checks.log",
+  "train_log": "logs/native_2dgs_smoke_retry.log",
+  "eval_log": "logs/native_2dgs_smoke_eval.log",
+  "deleted_nonfinal_directory": "runs/native_2dgs_smoke",
+  "size_bytes": 3463307
+}

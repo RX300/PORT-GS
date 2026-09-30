@@ -155,3 +155,49 @@ LumiMotion 官方 README 给出 [Zenodo 合成数据](https://zenodo.org/records
 现有 `/workspace/datasets/LumiMotion/` 目录在前次盘点中已出现，故后续若改变任务
 范围，也应先盘点其内容。此次仅核对公开协议，保留已有数据。
 [官方数据说明](https://github.com/joaxkal/LumiMotion/blob/main/readme.md)。
+
+
+## 2026-09-22：第二阶段研究更新
+
+本次查阅官方论文、项目和代码。以下内容用于设计依据，不将不同任务的论文数字并表为同协议SOTA。
+
+| 工作 | 已核实的相关点 | 本项目如何使用或区分 |
+| --- | --- | --- |
+| [SSD-GS, ICLR2026](https://arxiv.org/abs/2604.13333)，[官方代码](https://github.com/irisfreesiri/SSD-GS) | 表面方向/材质条件、神经阴影提示修正和次表面项；NRHints/GS³ 100k、SSS 60k训练 | 表面与阴影条件可补足当前神经着色；不是复现其解析ASG/specular或dipole模型。论文的test校准优化需单独区分 |
+| [RadioGS, ICLR2026](https://arxiv.org/abs/2603.01491)，[项目](https://qbhan.github.io/radiogs-page/) | 2D surfel辐射与PBR在额外方向上的一致性，结合可微光追 | 说明照片拟合不等于物理解耦；其重光照含辐射适配，和当前直接输入OLAT光参数不同 |
+| [RadiosityGS, SIGGRAPH Asia2025](https://arxiv.org/abs/2509.18497)，[项目](https://raymondjiangkw.github.io/radiositygs.github.io/) | 2D surfel间在SH空间的可微光传输、可见性和求解 | “表面间传输”已有直接先例；当前attention不等于其SH方程求解 |
+| [RNG, CVPR2025](https://whois-jiahui.fun/project_pages/RNG/)，[代码](https://github.com/sssssy/RNG_release) | Gaussian特征条件化神经着色、阴影提示，先forward再deferred训练 | 可参考几何/着色优化策略，不能将小型神经着色网络视为首创 |
+| [Spec-Gloss Surfels and Normal-Diffuse Priors, WACV2026](https://openaccess.thecvf.com/content/WACV2026/html/Kouros_Spec-Gloss_Surfels_and_Normal-Diffuse_Priors_for_Relightable_Glossy_Objects_WACV_2026_paper.html)，[代码](https://github.com/gkouros/SpecGloss-GS) | 2DGS、spec-gloss着色与StableNormal/StableDelight先验 | 2DGS+预训练法线已不是新颖点；环境光和材质逆渲染协议不同 |
+| [MaterialClusterGS, 2026预印本](https://arxiv.org/abs/2606.09018) | 共享材质原型减少逐primitive材质歧义 | 不为追求新模块同时叠加材质字典，本轮不实现 |
+| [DIAMOND-SSS, CVPR2026 Findings](https://openaccess.thecvf.com/content/CVPR2026F/html/Araneda_DIAMOND-SSS_Diffusion-Augmented_Multi-View_Optimization_for_Data-efficient_SubSurface_Scattering_CVPRF_2026_paper.html) | 稀疏数据的扩散增强与跨视角一致性 | 是Findings而非主会论文；数据稀缺任务与当前完整OLAT拟合不同，不引入额外生成栈 |
+
+当前本地SSD-GS保存了100k Real_NRHints模型的原test校准评价：Cat PSNR18.000583，
+Pixiu23.402195，见SSD-GS/runs/real_fixed_calibration_20260913。论文校准优化数字不能替代此协议结果。
+训练时相机/灯光是否优化、测试是否使用原始标定、LPIPS输入域和预算都要随比较列明。
+未经统一指标重算和相同训练协议复现，这些数字只能辅助定位差异，不能给出完整SOTA排名。
+
+相关经典依据：[Burley 2015，Extending the Disney BRDF to a BSDF](https://blog.selfshadow.com/publications/s2015-shading-course/burley/s2015_pbs_disney_bsdf_notes.pdf)
+用两指数曲线描述归一化扩散，并按RGB提供传播距离控制。
+[Jensen等2001](https://graphics.stanford.edu/~srm/publications/SG01-subsurf-abstract.html)
+是不同表面点入射/出射与扩散近似的经典基础。
+
+本地SSD-GS基线已实际复算全部1937帧，统一PORT-GS指标，见experiments/results.md。
+合成四场景平均PSNR33.962519，预算100k/60k；它是可核实的强基线参考，并非所有最新论文的完整SOTA排名。
+Real旧训练使用test相机/灯光优化，其固定测试标定输出也仍有训练来源限制，不能纳入严格干净的SOTA认证。
+
+## 2026-09-23：基础表示与亮度约束的定向复核
+
+[DP-GES，CVPR2026，论文§3–7](https://arxiv.org/html/2605.25345v1)
+使用不透明内区、半透明边缘的surfel以及周围3D Gaussian；surfel用逐像素depth peeling排序，
+Gaussian细节分支按层透射率加权。其外观为视角相关Spherical Beta，论文评价是NVS，
+并将物理交互/阴影列为后续方向。因而本项目只把它视作改变opacity/visibility基础的候选依据，
+不将其细节或FPS数字当成OLAT重光照、真实几何或细小高光恢复证据。
+当前交点渲染器已经按真实hit depth完整排序；仅加入depth peeling并不能自动解释/修复缺峰。
+替换成不透明内区还会改变初始化、几何梯度和遮挡，需单独受控实验，不能在运行中替换。
+
+对已列出的[SpecGloss-GS，§3.3–4.2](https://arxiv.org/html/2510.02069v2)补核：
+其negative-only clipping针对HDR环境图，保留正向HDR峰；StableDelight diffuse先验仅作早期软约束，
+并承认先验失败情形。不能把“去掉HDR环境图上限”曲解为去掉最终图像评价裁剪。
+本地surface_reflectance已经使用独立diffuse/F0、解析点灯、可优化正值全场景光强尺度；
+shader及observation_image没有将正向辐射硬限制到1，评价的[0,1]裁剪另属指标域。
+这是本地代码核对，不能据论文推定当前存在同一种HDR上限错误。运行中的fresh两组无这些先验，协议保持不变。

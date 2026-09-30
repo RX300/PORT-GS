@@ -1,0 +1,151 @@
+{
+  "scope": "PORT-GS only; read-only cleanup audit, no deletion or deduplication performed",
+  "date": "2026-09-28",
+  "final_models": 28,
+  "shared_material_prior": 1,
+  "intermediate_training_checkpoints_found": 0,
+  "safe_candidates": {
+    "python_caches": {
+      "directory_count": 1308,
+      "logical_bytes": 119202011,
+      "reclaim_allocated_bytes": 139235328,
+      "selector": "All PORT-GS __pycache__ directories (excluding .git), regenerate on Python import",
+      "orphaned_pyc": [
+        "methods/__pycache__/surfel.cpython-310.pyc",
+        "methods/__pycache__/surface_reflectance.cpython-310.pyc"
+      ]
+    },
+    "build_and_package_artifacts": {
+      "directories": [
+        "third_party/tiny-cuda-nn/bindings/torch/dist",
+        "third_party/tiny-cuda-nn/bindings/torch/build",
+        "third_party/2d-gaussian-splatting/submodules/diff-surfel-rasterization/build",
+        "third_party/2d-gaussian-splatting/submodules/simple-knn/build",
+        "third_party/GaussianWrapping/submodules/diff-gaussian-rasterization/build",
+        "third_party/GaussianWrapping/submodules/diff-gaussian-rasterization_ours/build",
+        "third_party/GaussianWrapping/submodules/diff-gaussian-rasterization_ms/build",
+        "third_party/Geometry-Grounded-Gaussian-Splatting/submodules/diff-gaussian-rasterization/build",
+        "third_party/Geometry-Grounded-Gaussian-Splatting/submodules/warp-patch-ncc/build"
+      ],
+      "extra_object_files": [
+        "third_party/tiny-cuda-nn/bindings/torch/src/cpp_api.o",
+        "third_party/tiny-cuda-nn/bindings/torch/src/encoding.o",
+        "third_party/tiny-cuda-nn/bindings/torch/src/object.o",
+        "third_party/tiny-cuda-nn/bindings/torch/src/common_host.o",
+        "third_party/tiny-cuda-nn/bindings/torch/dependencies/fmt/src/format.o",
+        "third_party/tiny-cuda-nn/bindings/torch/dependencies/fmt/src/os.o"
+      ],
+      "logical_bytes": 96399507,
+      "reclaim_allocated_bytes": 96526336,
+      "runtime_libraries_verified": [
+        {
+          "build_copy": "third_party/2d-gaussian-splatting/submodules/diff-surfel-rasterization/build/lib.linux-x86_64-cpython-310/diff_surfel_rasterization/_C.cpython-310-x86_64-linux-gnu.so",
+          "runtime_copy": "third_party/2d-gaussian-splatting/submodules/diff-surfel-rasterization/diff_surfel_rasterization/_C.cpython-310-x86_64-linux-gnu.so",
+          "byte_identical": true,
+          "same_inode": false
+        },
+        {
+          "build_copy": "third_party/2d-gaussian-splatting/submodules/simple-knn/build/lib.linux-x86_64-cpython-310/simple_knn/_C.cpython-310-x86_64-linux-gnu.so",
+          "runtime_copy": "third_party/2d-gaussian-splatting/submodules/simple-knn/simple_knn/_C.cpython-310-x86_64-linux-gnu.so",
+          "byte_identical": true,
+          "same_inode": false
+        },
+        {
+          "build_copy": "third_party/GaussianWrapping/submodules/diff-gaussian-rasterization/build/lib.linux-x86_64-cpython-310/diff_gaussian_rasterization/_C.cpython-310-x86_64-linux-gnu.so",
+          "runtime_copy": "third_party/GaussianWrapping/submodules/diff-gaussian-rasterization/diff_gaussian_rasterization/_C.cpython-310-x86_64-linux-gnu.so",
+          "byte_identical": true,
+          "same_inode": false
+        },
+        {
+          "build_copy": "third_party/GaussianWrapping/submodules/diff-gaussian-rasterization_ms/build/lib.linux-x86_64-cpython-310/diff_gaussian_rasterization_ms/_C.cpython-310-x86_64-linux-gnu.so",
+          "runtime_copy": "third_party/GaussianWrapping/submodules/diff-gaussian-rasterization_ms/diff_gaussian_rasterization_ms/_C.cpython-310-x86_64-linux-gnu.so",
+          "byte_identical": true,
+          "same_inode": false
+        },
+        {
+          "build_copy": "third_party/GaussianWrapping/submodules/diff-gaussian-rasterization_ours/build/lib.linux-x86_64-cpython-310/diff_gaussian_rasterization_ours/_C.cpython-310-x86_64-linux-gnu.so",
+          "runtime_copy": "third_party/GaussianWrapping/submodules/diff-gaussian-rasterization_ours/diff_gaussian_rasterization_ours/_C.cpython-310-x86_64-linux-gnu.so",
+          "byte_identical": true,
+          "same_inode": false
+        },
+        {
+          "build_copy": "third_party/Geometry-Grounded-Gaussian-Splatting/submodules/diff-gaussian-rasterization/build/lib.linux-x86_64-cpython-310/diff_gaussian_rasterization/_C.cpython-310-x86_64-linux-gnu.so",
+          "runtime_copy": "third_party/Geometry-Grounded-Gaussian-Splatting/submodules/diff-gaussian-rasterization/diff_gaussian_rasterization/_C.cpython-310-x86_64-linux-gnu.so",
+          "byte_identical": true,
+          "same_inode": false
+        },
+        {
+          "build_copy": "third_party/Geometry-Grounded-Gaussian-Splatting/submodules/warp-patch-ncc/build/lib.linux-x86_64-cpython-310/warp_patch_ncc/_C.cpython-310-x86_64-linux-gnu.so",
+          "runtime_copy": "third_party/Geometry-Grounded-Gaussian-Splatting/submodules/warp-patch-ncc/warp_patch_ncc/_C.cpython-310-x86_64-linux-gnu.so",
+          "byte_identical": true,
+          "same_inode": false
+        },
+        {
+          "build_copy": "third_party/tiny-cuda-nn/bindings/torch/build/lib.linux-x86_64-cpython-310/tinycudann_bindings/_89_C.cpython-310-x86_64-linux-gnu.so",
+          "runtime_copy": "third_party/python/tinycudann_bindings/_89_C.cpython-310-x86_64-linux-gnu.so",
+          "byte_identical": true,
+          "same_inode": false
+        }
+      ]
+    },
+    "identical_weights_hardlink_candidates": [
+      {
+        "keep": "third_party/weights/stable-normal-v0-1/text_encoder/model.fp16.safetensors",
+        "replace_with_hardlink": "third_party/weights/yoso-normal-v0-3/text_encoder/model.fp16.safetensors",
+        "bytes": 680820392,
+        "reclaim_allocated_bytes": 680824832,
+        "sha256": "bc1827c465450322616f06dea41596eac7d493f4e95904dcb51f0fc745c4e13f"
+      },
+      {
+        "keep": "third_party/weights/stable-normal-v0-1/vae/diffusion_pytorch_model.fp16.safetensors",
+        "replace_with_hardlink": "third_party/weights/yoso-normal-v0-3/vae/diffusion_pytorch_model.fp16.safetensors",
+        "bytes": 167335342,
+        "reclaim_allocated_bytes": 167337984,
+        "sha256": "3e4c08995484ee61270175e9e7a072b66a6e4eeb5f0c266667fe1f45b90daf9a"
+      }
+    ]
+  },
+  "optional_regenerable_geometry_buffers": {
+    "files": [
+      "runs/gggs_normal_depth_geometry/Real_NRHints/Cat/validation/geometry_views.pt",
+      "runs/gggs_normal_depth_geometry/Real_NRHints/Cat/fit_full/geometry_views.pt",
+      "runs/gggs_normal_depth_geometry/Real_NRHints/Pixiu/validation/geometry_views.pt",
+      "runs/gggs_normal_depth_geometry/Real_NRHints/Pixiu/fit_full/geometry_views.pt",
+      "runs/gggs_normal_depth_geometry/references/Cat/validation/geometry_views.pt",
+      "runs/gggs_normal_depth_geometry/references/Cat/fit_full/geometry_views.pt",
+      "runs/gggs_normal_depth_geometry/references/Pixiu/validation/geometry_views.pt",
+      "runs/gggs_normal_depth_geometry/references/Pixiu/fit_full/geometry_views.pt",
+      "runs/gggs_core_geometry/Real_NRHints/Cat/validation/geometry_views.pt",
+      "runs/gggs_core_geometry/Real_NRHints/Cat/fit_full/geometry_views.pt",
+      "runs/gggs_core_geometry/Real_NRHints/Pixiu/validation/geometry_views.pt",
+      "runs/gggs_core_geometry/Real_NRHints/Pixiu/fit_full/geometry_views.pt",
+      "runs/gaussian_wrapping_geometry/Real_NRHints/Cat/validation/geometry_views.pt",
+      "runs/gaussian_wrapping_geometry/Real_NRHints/Cat/fit_full/geometry_views.pt",
+      "runs/gaussian_wrapping_geometry/Real_NRHints/Pixiu/validation/geometry_views.pt",
+      "runs/gaussian_wrapping_geometry/Real_NRHints/Pixiu/fit_full/geometry_views.pt",
+      "runs/gaussian_wrapping_geometry/references/Cat/validation/geometry_views.pt",
+      "runs/gaussian_wrapping_geometry/references/Pixiu/validation/geometry_views.pt",
+      "runs/native_2dgs_repaired_geometry/Real_NRHints/Cat/validation/geometry_views.pt",
+      "runs/native_2dgs_repaired_geometry/Real_NRHints/Cat/fit_full/geometry_views.pt",
+      "runs/native_2dgs_repaired_geometry/Real_NRHints/Pixiu/validation/geometry_views.pt",
+      "runs/native_2dgs_repaired_geometry/Real_NRHints/Pixiu/fit_full/geometry_views.pt",
+      "runs/gaussian_wrapping_stablenormal/Real_NRHints/Cat/validation/geometry_views.pt",
+      "runs/gaussian_wrapping_stablenormal/Real_NRHints/Cat/fit_full/geometry_views.pt",
+      "runs/gaussian_wrapping_stablenormal/Real_NRHints/Pixiu/validation/geometry_views.pt",
+      "runs/gaussian_wrapping_stablenormal/Real_NRHints/Pixiu/fit_full/geometry_views.pt"
+    ],
+    "logical_bytes": 872552980,
+    "dependency": "geometry_review.py reads these tensors; regenerate via original model evaluation before reusing affected review commands"
+  },
+  "protect": [
+    "28 scene last.pt files and shared material prior",
+    "runs/*/priors (normal tensors already hardlinked between Wrapping and GGGS)",
+    "evaluation metrics/final test and fit images/comparison figures",
+    "run source.tar/config/manifest/history; reproducibility provenance",
+    "third_party runtime .so, weights, DINOv2/VGG16",
+    "datasets and user research documents",
+    ".venv still referenced by test_method_integration.py prior preparation"
+  ],
+  "outside_project": "/tmp/port* contains historical scripts/logs/paper extracts; not counted or modified",
+  "estimated_conservative_reclaim_allocated_bytes": 1083924480
+}

@@ -1,0 +1,943 @@
+{
+  "status": "completed",
+  "method": "distribution_material",
+  "geometry": "3dgs",
+  "steps": 30000,
+  "resolution": 512,
+  "geometry_frozen": false,
+  "sequential_after_default": true,
+  "source_geometry": "gggs_normal_depth_geometry",
+  "promoted": false,
+  "scope": "GGGS initial geometry;3D adaptation of DNA GGX/32-mixture material. Joint updates in gsplat, not continued GGGS prior-supervised geometry training. NoSDF/camera fitting. Observational pipeline comparisons; noGT geometry.",
+  "audit": {
+    "Pixiu": {
+      "step": 30000,
+      "initial_points": 57741,
+      "final_points": 249373,
+      "geometry_trainable": true,
+      "geometry_dimensions": 3,
+      "finite_parameters_and_losses": true,
+      "all_official_train": true,
+      "official_test_images": 71,
+      "source": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/gggs_normal_depth_geometry/Real_NRHints/Pixiu/last.pt",
+      "source_geometry_fit_count": 506,
+      "scene_light_scale": 0.04353659600019455,
+      "training_seconds": 1991.48,
+      "peak_allocated_memory_GiB": 4.056211471557617,
+      "gaussian_parameter_count": 9476174,
+      "transport_parameter_count": 17767,
+      "preview_replay_max_byte_difference": 0,
+      "zero_light_exact": true,
+      "double_light_max_error": 0.0
+    },
+    "Cat": {
+      "step": 30000,
+      "initial_points": 128596,
+      "final_points": 399243,
+      "geometry_trainable": true,
+      "geometry_dimensions": 3,
+      "finite_parameters_and_losses": true,
+      "all_official_train": true,
+      "official_test_images": 66,
+      "source": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/gggs_normal_depth_geometry/Real_NRHints/Cat/last.pt",
+      "source_geometry_fit_count": 470,
+      "scene_light_scale": 0.34671658277511597,
+      "training_seconds": 3072.44,
+      "peak_allocated_memory_GiB": 4.832898139953613,
+      "gaussian_parameter_count": 15171234,
+      "transport_parameter_count": 17767,
+      "preview_replay_max_byte_difference": 0,
+      "zero_light_exact": true,
+      "double_light_max_error": 0.0
+    }
+  },
+  "scenes": {
+    "Cat": {
+      "test": {
+        "evaluated_frames": 66,
+        "metrics": {
+          "PSNR": 22.54455788930257,
+          "SSIM": 0.7743136837626948,
+          "raw_MSE": 0.006256181023535178,
+          "alpha_L1": 0.01436372006763563,
+          "LPIPS": 0.2400201947400064,
+          "neutral_peak_metrics": {
+            "pixels": 1101,
+            "predicted_pixels": 142,
+            "matched_predicted_pixels_2px": 0,
+            "matched_target_pixels_2px": 0,
+            "rgb_mae": 0.15687937545949604,
+            "target_contrast": 0.2363260817814696,
+            "predicted_contrast": 0.016205239547917756,
+            "contrast_ratio": 0.06857152382741537,
+            "precision_2px": 0.0,
+            "recall_2px": 0.0
+          },
+          "neutral_peak_components": {
+            "total_predicted_peak_pixels": 142,
+            "buckets": {
+              "1_to_4": {
+                "sums": {
+                  "component_count": 368,
+                  "gt_peak_pixels": 575,
+                  "absolute_rgb_error_sum": 313.46273571252823,
+                  "target_contrast_sum": 131.49342608451843,
+                  "predicted_contrast_sum": 7.573952756822109,
+                  "matched_gt_pixels_2px": 0,
+                  "components_with_at_least_one_hit": 0
+                },
+                "metrics": {
+                  "component_count": 368,
+                  "gt_peak_pixels": 575,
+                  "rgb_mae": 0.18171752794929172,
+                  "target_contrast": 0.22868421927742336,
+                  "predicted_contrast": 0.013172091750994973,
+                  "contrast_ratio": 0.05759947841007574,
+                  "matched_gt_pixels_2px": 0,
+                  "pixel_recall_2px": 0.0,
+                  "components_with_at_least_one_hit": 0,
+                  "component_any_hit_fraction": 0.0
+                }
+              },
+              "5_to_16": {
+                "sums": {
+                  "component_count": 42,
+                  "gt_peak_pixels": 294,
+                  "absolute_rgb_error_sum": 141.74509459733963,
+                  "target_contrast_sum": 69.79846578836441,
+                  "predicted_contrast_sum": 7.291997820138931,
+                  "matched_gt_pixels_2px": 0,
+                  "components_with_at_least_one_hit": 0
+                },
+                "metrics": {
+                  "component_count": 42,
+                  "gt_peak_pixels": 294,
+                  "rgb_mae": 0.1607087240332649,
+                  "target_contrast": 0.23740974757947078,
+                  "predicted_contrast": 0.024802713673941944,
+                  "contrast_ratio": 0.10447217911993886,
+                  "matched_gt_pixels_2px": 0,
+                  "pixel_recall_2px": 0.0,
+                  "components_with_at_least_one_hit": 0,
+                  "component_any_hit_fraction": 0.0
+                }
+              },
+              "gt16": {
+                "sums": {
+                  "component_count": 8,
+                  "gt_peak_pixels": 232,
+                  "absolute_rgb_error_sum": 62.96470403671265,
+                  "target_contrast_sum": 58.90310192108154,
+                  "predicted_contrast_sum": 2.976010799407959,
+                  "matched_gt_pixels_2px": 0,
+                  "components_with_at_least_one_hit": 0
+                },
+                "metrics": {
+                  "component_count": 8,
+                  "gt_peak_pixels": 232,
+                  "rgb_mae": 0.09046652878838024,
+                  "target_contrast": 0.253892680694317,
+                  "predicted_contrast": 0.01282763275606879,
+                  "contrast_ratio": 0.050523838343780644,
+                  "matched_gt_pixels_2px": 0,
+                  "pixel_recall_2px": 0.0,
+                  "components_with_at_least_one_hit": 0,
+                  "component_any_hit_fraction": 0.0
+                }
+              }
+            }
+          }
+        }
+      },
+      "fit_full": {
+        "evaluated_frames": 522,
+        "metrics": {
+          "PSNR": 23.058686689398755,
+          "SSIM": 0.8062334867957908,
+          "raw_MSE": 0.006393793630244217,
+          "alpha_L1": 0.024600401986390352,
+          "LPIPS": 0.23395437199151378,
+          "neutral_peak_metrics": {
+            "pixels": 8917,
+            "predicted_pixels": 869,
+            "matched_predicted_pixels_2px": 172,
+            "matched_target_pixels_2px": 236,
+            "rgb_mae": 0.19721264952121728,
+            "target_contrast": 0.22890575212575107,
+            "predicted_contrast": 0.02838024049832978,
+            "contrast_ratio": 0.12398220767619193,
+            "precision_2px": 0.19792865362485615,
+            "recall_2px": 0.026466300325221487
+          },
+          "neutral_peak_components": {
+            "total_predicted_peak_pixels": 869,
+            "buckets": {
+              "1_to_4": {
+                "sums": {
+                  "component_count": 2505,
+                  "gt_peak_pixels": 3999,
+                  "absolute_rgb_error_sum": 2386.752923578024,
+                  "target_contrast_sum": 892.5119990706444,
+                  "predicted_contrast_sum": 99.05119512975216,
+                  "matched_gt_pixels_2px": 59,
+                  "components_with_at_least_one_hit": 38
+                },
+                "metrics": {
+                  "component_count": 2505,
+                  "gt_peak_pixels": 3999,
+                  "rgb_mae": 0.19894581341818987,
+                  "target_contrast": 0.22318379571659025,
+                  "predicted_contrast": 0.02476899103019559,
+                  "contrast_ratio": 0.11098023918209757,
+                  "matched_gt_pixels_2px": 59,
+                  "pixel_recall_2px": 0.014753688422105527,
+                  "components_with_at_least_one_hit": 38,
+                  "component_any_hit_fraction": 0.015169660678642715
+                }
+              },
+              "5_to_16": {
+                "sums": {
+                  "component_count": 408,
+                  "gt_peak_pixels": 3213,
+                  "absolute_rgb_error_sum": 1716.6274172663689,
+                  "target_contrast_sum": 751.172402381897,
+                  "predicted_contrast_sum": 126.72199736535549,
+                  "matched_gt_pixels_2px": 105,
+                  "components_with_at_least_one_hit": 18
+                },
+                "metrics": {
+                  "component_count": 408,
+                  "gt_peak_pixels": 3213,
+                  "rgb_mae": 0.17809185779296285,
+                  "target_contrast": 0.23379159737998662,
+                  "predicted_contrast": 0.039440397561579674,
+                  "contrast_ratio": 0.16869895241562652,
+                  "matched_gt_pixels_2px": 105,
+                  "pixel_recall_2px": 0.032679738562091505,
+                  "components_with_at_least_one_hit": 18,
+                  "component_any_hit_fraction": 0.04411764705882353
+                }
+              },
+              "gt16": {
+                "sums": {
+                  "component_count": 53,
+                  "gt_peak_pixels": 1705,
+                  "absolute_rgb_error_sum": 1172.2548550367355,
+                  "target_contrast_sum": 397.4679596424103,
+                  "predicted_contrast_sum": 27.293355375528336,
+                  "matched_gt_pixels_2px": 72,
+                  "components_with_at_least_one_hit": 5
+                },
+                "metrics": {
+                  "component_count": 53,
+                  "gt_peak_pixels": 1705,
+                  "rgb_mae": 0.2291798348067909,
+                  "target_contrast": 0.2331190379134371,
+                  "predicted_contrast": 0.016007833064826005,
+                  "contrast_ratio": 0.06866806421348612,
+                  "matched_gt_pixels_2px": 72,
+                  "pixel_recall_2px": 0.04222873900293255,
+                  "components_with_at_least_one_hit": 5,
+                  "component_any_hit_fraction": 0.09433962264150944
+                }
+              }
+            }
+          }
+        }
+      },
+      "references": {
+        "new_default": {
+          "PSNR": 21.819261579802543,
+          "SSIM": 0.7702229736429272,
+          "LPIPS": 0.2281268442218954
+        },
+        "legacy_DNA": {
+          "PSNR": 22.14167852112741,
+          "SSIM": 0.7763807701342034,
+          "LPIPS": 0.2677139946908662
+        },
+        "fixed_local": {
+          "PSNR": 22.516769380280465,
+          "SSIM": 0.7745599683487054,
+          "LPIPS": 0.26332965380314627
+        },
+        "legacy_default": {
+          "PSNR": 21.53618436871153,
+          "SSIM": 0.766465197909962,
+          "LPIPS": 0.23040520986824325
+        }
+      },
+      "deltas": {
+        "new_default": {
+          "PSNR": 0.7252963095000275,
+          "SSIM": 0.004090710119767582,
+          "LPIPS": 0.011893350518111023
+        },
+        "legacy_DNA": {
+          "PSNR": 0.4028793681751601,
+          "SSIM": -0.002067086371508542,
+          "LPIPS": -0.0276937999508598
+        },
+        "fixed_local": {
+          "PSNR": 0.0277885090221055,
+          "SSIM": -0.0002462845860106144,
+          "LPIPS": -0.02330945906313986
+        },
+        "legacy_default": {
+          "PSNR": 1.0083735205910394,
+          "SSIM": 0.00784848585273279,
+          "LPIPS": 0.009614984871763155
+        }
+      },
+      "geometry_review": {
+        "checkpoint": "runs/gggs_dna_joint/Real_NRHints/Cat/last.pt",
+        "representation": "distribution_material",
+        "step": 30000,
+        "source": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/gggs_normal_depth_geometry/Real_NRHints/Cat/last.pt",
+        "split": "train",
+        "fixed_indices": [
+          0,
+          261,
+          521
+        ],
+        "initial_points": 128596,
+        "final_points": 399243,
+        "views": [
+          {
+            "frame_index": 0,
+            "metrics": {
+              "GGGS continuous depth": {
+                "silhouette_IoU": 0.9630324244499207,
+                "alpha_L1": 0.011029144749045372,
+                "boundary_F1_2px": 0.43811434302908725,
+                "boundary_precision_2px": 0.5016077170418006,
+                "boundary_recall_2px": 0.3888888888888889,
+                "boundary_outward_fraction_over_2px": 0.4964630225080386,
+                "boundary_outward_p95_px": 6.0,
+                "boundary_depth_normal_roughness_p95_deg": 15.509482383728027
+              },
+              "Imported / default depth": {
+                "silhouette_IoU": 0.9605344533920288,
+                "alpha_L1": 0.010906929150223732,
+                "boundary_F1_2px": 0.40280378135357364,
+                "boundary_precision_2px": 0.4656831302116741,
+                "boundary_recall_2px": 0.35488505747126436,
+                "boundary_outward_fraction_over_2px": 0.5330339961513791,
+                "boundary_outward_p95_px": 6.082762718200684,
+                "boundary_depth_normal_roughness_p95_deg": 30.472183227539062
+              },
+              "Joint final / default depth": {
+                "silhouette_IoU": 0.9413892030715942,
+                "alpha_L1": 0.015532884746789932,
+                "boundary_F1_2px": 0.26121657651442054,
+                "boundary_precision_2px": 0.306683322923173,
+                "boundary_recall_2px": 0.2274904214559387,
+                "boundary_outward_fraction_over_2px": 0.6914428482198626,
+                "boundary_outward_p95_px": 10.198039054870605,
+                "boundary_depth_normal_roughness_p95_deg": 38.03087615966797
+              },
+              "Joint final / GGGS depth": {
+                "silhouette_IoU": 0.9470187425613403,
+                "alpha_L1": 0.014798330143094063,
+                "boundary_F1_2px": 0.34982967113621755,
+                "boundary_precision_2px": 0.41083805923125394,
+                "boundary_recall_2px": 0.3045977011494253,
+                "boundary_outward_fraction_over_2px": 0.5853812224322621,
+                "boundary_outward_p95_px": 10.0,
+                "boundary_depth_normal_roughness_p95_deg": 48.57516860961914
+              }
+            },
+            "initial_continuous_roundtrip": {
+              "alpha_max_abs": 0.00034815073013305664,
+              "alpha_mean_abs": 2.338306792637468e-08,
+              "alpha_p99_abs": 4.470348358154297e-07,
+              "physical_parameter_check": true,
+              "depth_median_abs_over_radius": 0.0,
+              "depth_p99_abs_over_radius": 9.603704711480532e-07,
+              "compared_depth_pixels": 103205
+            }
+          },
+          {
+            "frame_index": 261,
+            "metrics": {
+              "GGGS continuous depth": {
+                "silhouette_IoU": 0.9629343748092651,
+                "alpha_L1": 0.009711839258670807,
+                "boundary_F1_2px": 0.44314313593398164,
+                "boundary_precision_2px": 0.5591250854408749,
+                "boundary_recall_2px": 0.36701208981001726,
+                "boundary_outward_fraction_over_2px": 0.43609022556390975,
+                "boundary_outward_p95_px": 5.830951690673828,
+                "boundary_depth_normal_roughness_p95_deg": 15.087555885314941
+              },
+              "Imported / default depth": {
+                "silhouette_IoU": 0.9603216648101807,
+                "alpha_L1": 0.009478574618697166,
+                "boundary_F1_2px": 0.4012254515789068,
+                "boundary_precision_2px": 0.5098841172460804,
+                "boundary_recall_2px": 0.33074265975820377,
+                "boundary_outward_fraction_over_2px": 0.4867075664621677,
+                "boundary_outward_p95_px": 6.082762718200684,
+                "boundary_depth_normal_roughness_p95_deg": 18.59900665283203
+              },
+              "Joint final / default depth": {
+                "silhouette_IoU": 0.9511888027191162,
+                "alpha_L1": 0.010907045565545559,
+                "boundary_F1_2px": 0.26237234878240373,
+                "boundary_precision_2px": 0.3333333333333333,
+                "boundary_recall_2px": 0.21632124352331605,
+                "boundary_outward_fraction_over_2px": 0.6583969465648855,
+                "boundary_outward_p95_px": 6.7082037925720215,
+                "boundary_depth_normal_roughness_p95_deg": 32.38442611694336
+              },
+              "Joint final / GGGS depth": {
+                "silhouette_IoU": 0.9569876194000244,
+                "alpha_L1": 0.011171866208314896,
+                "boundary_F1_2px": 0.3690749906091465,
+                "boundary_precision_2px": 0.451338199513382,
+                "boundary_recall_2px": 0.3121761658031088,
+                "boundary_outward_fraction_over_2px": 0.5304136253041363,
+                "boundary_outward_p95_px": 5.974642753601059,
+                "boundary_depth_normal_roughness_p95_deg": 45.37019348144531
+              }
+            },
+            "initial_continuous_roundtrip": {
+              "alpha_max_abs": 0.000704348087310791,
+              "alpha_mean_abs": 2.148651923050693e-08,
+              "alpha_p99_abs": 3.650784492492676e-07,
+              "physical_parameter_check": true,
+              "depth_median_abs_over_radius": 0.0,
+              "depth_p99_abs_over_radius": 9.603704711480532e-07,
+              "compared_depth_pixels": 106930
+            }
+          },
+          {
+            "frame_index": 521,
+            "metrics": {
+              "GGGS continuous depth": {
+                "silhouette_IoU": 0.9665513634681702,
+                "alpha_L1": 0.008711258880794048,
+                "boundary_F1_2px": 0.3945255265333518,
+                "boundary_precision_2px": 0.4914251921939681,
+                "boundary_recall_2px": 0.32954545454545453,
+                "boundary_outward_fraction_over_2px": 0.5085748078060319,
+                "boundary_outward_p95_px": 5.049509763717651,
+                "boundary_depth_normal_roughness_p95_deg": 16.61585807800293
+              },
+              "Imported / default depth": {
+                "silhouette_IoU": 0.9615964889526367,
+                "alpha_L1": 0.00924373883754015,
+                "boundary_F1_2px": 0.31967449418178,
+                "boundary_precision_2px": 0.40242494226327946,
+                "boundary_recall_2px": 0.26515151515151514,
+                "boundary_outward_fraction_over_2px": 0.5975750577367206,
+                "boundary_outward_p95_px": 6.0,
+                "boundary_depth_normal_roughness_p95_deg": 34.24675369262695
+              },
+              "Joint final / default depth": {
+                "silhouette_IoU": 0.9528140425682068,
+                "alpha_L1": 0.012521864846348763,
+                "boundary_F1_2px": 0.207298046626296,
+                "boundary_precision_2px": 0.24257932446264074,
+                "boundary_recall_2px": 0.18097643097643099,
+                "boundary_outward_fraction_over_2px": 0.7574206755373593,
+                "boundary_outward_p95_px": 7.6157732009887695,
+                "boundary_depth_normal_roughness_p95_deg": 51.30989074707031
+              },
+              "Joint final / GGGS depth": {
+                "silhouette_IoU": 0.9600405693054199,
+                "alpha_L1": 0.010301638394594193,
+                "boundary_F1_2px": 0.29788971584476326,
+                "boundary_precision_2px": 0.36312217194570134,
+                "boundary_recall_2px": 0.25252525252525254,
+                "boundary_outward_fraction_over_2px": 0.6368778280542986,
+                "boundary_outward_p95_px": 6.0,
+                "boundary_depth_normal_roughness_p95_deg": 57.06065368652344
+              }
+            },
+            "initial_continuous_roundtrip": {
+              "alpha_max_abs": 4.786252975463867e-05,
+              "alpha_mean_abs": 2.0924559862578462e-08,
+              "alpha_p99_abs": 5.029141902923584e-07,
+              "physical_parameter_check": true,
+              "depth_median_abs_over_radius": 0.0,
+              "depth_p99_abs_over_radius": 9.603704711480532e-07,
+              "compared_depth_pixels": 126395
+            }
+          }
+        ],
+        "scope": "No geometry GT. Three fixed train views, both initial/final expected-center-depth and initial/final GGGS continuous-depth. Imported filter is baked exactly once. Initial continuous roundtrip checked. Silhouette and roughness are proxies, not shape accuracy."
+      },
+      "fixed_three_train_view_means": {
+        "GGGS continuous depth": {
+          "silhouette_IoU": 0.9641727209091187,
+          "boundary_F1_2px": 0.4252610018321403,
+          "boundary_depth_normal_roughness_p95_deg": 15.737632115681967
+        },
+        "Imported / default depth": {
+          "silhouette_IoU": 0.9608175357182821,
+          "boundary_F1_2px": 0.37456790903808684,
+          "boundary_depth_normal_roughness_p95_deg": 27.772647857666016
+        },
+        "Joint final / default depth": {
+          "silhouette_IoU": 0.948464016119639,
+          "boundary_F1_2px": 0.24362899064104007,
+          "boundary_depth_normal_roughness_p95_deg": 40.57506434122721
+        },
+        "Joint final / GGGS depth": {
+          "silhouette_IoU": 0.9546823104222616,
+          "boundary_F1_2px": 0.33893145919670914,
+          "boundary_depth_normal_roughness_p95_deg": 50.3353385925293
+        }
+      }
+    },
+    "Pixiu": {
+      "test": {
+        "evaluated_frames": 71,
+        "metrics": {
+          "PSNR": 21.184824822654186,
+          "SSIM": 0.8460236393230062,
+          "raw_MSE": 0.008197216035037393,
+          "alpha_L1": 0.02469640671157501,
+          "LPIPS": 0.1581109486205477,
+          "neutral_peak_metrics": {
+            "pixels": 26147,
+            "predicted_pixels": 1995,
+            "matched_predicted_pixels_2px": 515,
+            "matched_target_pixels_2px": 756,
+            "rgb_mae": 0.3924247501101344,
+            "target_contrast": 0.33904072472496316,
+            "predicted_contrast": -0.00025807924422291347,
+            "contrast_ratio": -0.0007612042607337885,
+            "precision_2px": 0.2581453634085213,
+            "recall_2px": 0.02891345087390523
+          },
+          "neutral_peak_components": {
+            "total_predicted_peak_pixels": 1995,
+            "buckets": {
+              "1_to_4": {
+                "sums": {
+                  "component_count": 2880,
+                  "gt_peak_pixels": 5324,
+                  "absolute_rgb_error_sum": 5541.655024528503,
+                  "target_contrast_sum": 1784.9135057926178,
+                  "predicted_contrast_sum": -9.368593379855156,
+                  "matched_gt_pixels_2px": 70,
+                  "components_with_at_least_one_hit": 46
+                },
+                "metrics": {
+                  "component_count": 2880,
+                  "gt_peak_pixels": 5324,
+                  "rgb_mae": 0.34696062011823836,
+                  "target_contrast": 0.33525798380777944,
+                  "predicted_contrast": -0.001759690717478429,
+                  "contrast_ratio": -0.005248766032332133,
+                  "matched_gt_pixels_2px": 70,
+                  "pixel_recall_2px": 0.01314800901577761,
+                  "components_with_at_least_one_hit": 46,
+                  "component_any_hit_fraction": 0.01597222222222222
+                }
+              },
+              "5_to_16": {
+                "sums": {
+                  "component_count": 1054,
+                  "gt_peak_pixels": 8964,
+                  "absolute_rgb_error_sum": 10327.411769866943,
+                  "target_contrast_sum": 3264.6245040893555,
+                  "predicted_contrast_sum": -9.100968584418297,
+                  "matched_gt_pixels_2px": 129,
+                  "components_with_at_least_one_hit": 29
+                },
+                "metrics": {
+                  "component_count": 1054,
+                  "gt_peak_pixels": 8964,
+                  "rgb_mae": 0.38403286367198214,
+                  "target_contrast": 0.3641928273192052,
+                  "predicted_contrast": -0.0010152798510060573,
+                  "contrast_ratio": -0.0027877535603308074,
+                  "matched_gt_pixels_2px": 129,
+                  "pixel_recall_2px": 0.014390896921017403,
+                  "components_with_at_least_one_hit": 29,
+                  "component_any_hit_fraction": 0.027514231499051234
+                }
+              },
+              "gt16": {
+                "sums": {
+                  "component_count": 365,
+                  "gt_peak_pixels": 11859,
+                  "absolute_rgb_error_sum": 14913.121700286865,
+                  "target_contrast_sum": 3815.35915851593,
+                  "predicted_contrast_sum": 11.72144540399313,
+                  "matched_gt_pixels_2px": 557,
+                  "components_with_at_least_one_hit": 39
+                },
+                "metrics": {
+                  "component_count": 365,
+                  "gt_peak_pixels": 11859,
+                  "rgb_mae": 0.41917873064864564,
+                  "target_contrast": 0.3217268874707758,
+                  "predicted_contrast": 0.0009884008267133089,
+                  "contrast_ratio": 0.0030721735273154336,
+                  "matched_gt_pixels_2px": 557,
+                  "pixel_recall_2px": 0.04696854709503331,
+                  "components_with_at_least_one_hit": 39,
+                  "component_any_hit_fraction": 0.10684931506849316
+                }
+              }
+            }
+          }
+        }
+      },
+      "fit_full": {
+        "evaluated_frames": 562,
+        "metrics": {
+          "PSNR": 25.690370193155633,
+          "SSIM": 0.8923128204837812,
+          "raw_MSE": 0.0031128237317059374,
+          "alpha_L1": 0.025617461112987423,
+          "LPIPS": 0.13281540449350754,
+          "neutral_peak_metrics": {
+            "pixels": 212877,
+            "predicted_pixels": 14529,
+            "matched_predicted_pixels_2px": 11144,
+            "matched_target_pixels_2px": 19327,
+            "rgb_mae": 0.3450936361381333,
+            "target_contrast": 0.338029432878416,
+            "predicted_contrast": 0.0302716415187451,
+            "contrast_ratio": 0.08955327132603079,
+            "precision_2px": 0.7670176887604102,
+            "recall_2px": 0.09078951695110322
+          },
+          "neutral_peak_components": {
+            "total_predicted_peak_pixels": 14529,
+            "buckets": {
+              "1_to_4": {
+                "sums": {
+                  "component_count": 21237,
+                  "gt_peak_pixels": 40429,
+                  "absolute_rgb_error_sum": 36260.66316270828,
+                  "target_contrast_sum": 13577.277246713638,
+                  "predicted_contrast_sum": 862.5615479052067,
+                  "matched_gt_pixels_2px": 848,
+                  "components_with_at_least_one_hit": 450
+                },
+                "metrics": {
+                  "component_count": 21237,
+                  "gt_peak_pixels": 40429,
+                  "rgb_mae": 0.29896578497867277,
+                  "target_contrast": 0.33583015277928313,
+                  "predicted_contrast": 0.021335218479438194,
+                  "contrast_ratio": 0.06352978820654108,
+                  "matched_gt_pixels_2px": 848,
+                  "pixel_recall_2px": 0.020975042667392217,
+                  "components_with_at_least_one_hit": 450,
+                  "component_any_hit_fraction": 0.021189433535810143
+                }
+              },
+              "5_to_16": {
+                "sums": {
+                  "component_count": 8463,
+                  "gt_peak_pixels": 72265,
+                  "absolute_rgb_error_sum": 72179.69068527222,
+                  "target_contrast_sum": 26094.906680107117,
+                  "predicted_contrast_sum": 2011.7988143786788,
+                  "matched_gt_pixels_2px": 4524,
+                  "components_with_at_least_one_hit": 589
+                },
+                "metrics": {
+                  "component_count": 8463,
+                  "gt_peak_pixels": 72265,
+                  "rgb_mae": 0.3329398311089841,
+                  "target_contrast": 0.3611002100616774,
+                  "predicted_contrast": 0.02783918652706952,
+                  "contrast_ratio": 0.07709545924194969,
+                  "matched_gt_pixels_2px": 4524,
+                  "pixel_recall_2px": 0.06260291980903619,
+                  "components_with_at_least_one_hit": 589,
+                  "component_any_hit_fraction": 0.0695970695970696
+                }
+              },
+              "gt16": {
+                "sums": {
+                  "component_count": 3021,
+                  "gt_peak_pixels": 100183,
+                  "absolute_rgb_error_sum": 111947.12918305397,
+                  "target_contrast_sum": 32286.503668785095,
+                  "predicted_contrast_sum": 3569.774774707854,
+                  "matched_gt_pixels_2px": 13955,
+                  "components_with_at_least_one_hit": 675
+                },
+                "metrics": {
+                  "component_count": 3021,
+                  "gt_peak_pixels": 100183,
+                  "rgb_mae": 0.3724754671719219,
+                  "target_contrast": 0.3222752729383737,
+                  "predicted_contrast": 0.03563254019851526,
+                  "contrast_ratio": 0.11056554191586705,
+                  "matched_gt_pixels_2px": 13955,
+                  "pixel_recall_2px": 0.13929508998532686,
+                  "components_with_at_least_one_hit": 675,
+                  "component_any_hit_fraction": 0.2234359483614697
+                }
+              }
+            }
+          }
+        }
+      },
+      "references": {
+        "new_default": {
+          "PSNR": 20.543584098278636,
+          "SSIM": 0.8450647206373618,
+          "LPIPS": 0.1559933828006328
+        },
+        "legacy_DNA": {
+          "PSNR": 21.50295921110771,
+          "SSIM": 0.8482519295853628,
+          "LPIPS": 0.16702199087176525
+        },
+        "fixed_local": {
+          "PSNR": 21.90448059834225,
+          "SSIM": 0.8478263977547766,
+          "LPIPS": 0.17419682726473876
+        },
+        "legacy_default": {
+          "PSNR": 20.57824887020487,
+          "SSIM": 0.8455560047861556,
+          "LPIPS": 0.15668995405586672
+        }
+      },
+      "deltas": {
+        "new_default": {
+          "PSNR": 0.6412407243755496,
+          "SSIM": 0.0009589186856443499,
+          "LPIPS": 0.0021175658199149017
+        },
+        "legacy_DNA": {
+          "PSNR": -0.31813438845352593,
+          "SSIM": -0.0022282902623566025,
+          "LPIPS": -0.008911042251217555
+        },
+        "fixed_local": {
+          "PSNR": -0.7196557756880644,
+          "SSIM": -0.0018027584317704681,
+          "LPIPS": -0.01608587864419106
+        },
+        "legacy_default": {
+          "PSNR": 0.6065759524493153,
+          "SSIM": 0.00046763453685061407,
+          "LPIPS": 0.0014209945646809774
+        }
+      },
+      "geometry_review": {
+        "checkpoint": "runs/gggs_dna_joint/Real_NRHints/Pixiu/last.pt",
+        "representation": "distribution_material",
+        "step": 30000,
+        "source": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/gggs_normal_depth_geometry/Real_NRHints/Pixiu/last.pt",
+        "split": "train",
+        "fixed_indices": [
+          0,
+          281,
+          561
+        ],
+        "initial_points": 57741,
+        "final_points": 249373,
+        "views": [
+          {
+            "frame_index": 0,
+            "metrics": {
+              "GGGS continuous depth": {
+                "silhouette_IoU": 0.9072371125221252,
+                "alpha_L1": 0.018111038953065872,
+                "boundary_F1_2px": 0.44786458545858665,
+                "boundary_precision_2px": 0.4565916398713826,
+                "boundary_recall_2px": 0.4394648829431438,
+                "boundary_outward_fraction_over_2px": 0.5064308681672026,
+                "boundary_outward_p95_px": 18.027755737304688,
+                "boundary_depth_normal_roughness_p95_deg": 19.851850509643555
+              },
+              "Imported / default depth": {
+                "silhouette_IoU": 0.8988837599754333,
+                "alpha_L1": 0.0190762747079134,
+                "boundary_F1_2px": 0.402042913028016,
+                "boundary_precision_2px": 0.40617577197149646,
+                "boundary_recall_2px": 0.3979933110367893,
+                "boundary_outward_fraction_over_2px": 0.56215360253365,
+                "boundary_outward_p95_px": 18.788293838500977,
+                "boundary_depth_normal_roughness_p95_deg": 25.92064094543457
+              },
+              "Joint final / default depth": {
+                "silhouette_IoU": 0.8509623408317566,
+                "alpha_L1": 0.024555116891860962,
+                "boundary_F1_2px": 0.2310489399328392,
+                "boundary_precision_2px": 0.2333815028901734,
+                "boundary_recall_2px": 0.22876254180602007,
+                "boundary_outward_fraction_over_2px": 0.759393063583815,
+                "boundary_outward_p95_px": 19.235383987426758,
+                "boundary_depth_normal_roughness_p95_deg": 72.67638397216797
+              },
+              "Joint final / GGGS depth": {
+                "silhouette_IoU": 0.8678779006004333,
+                "alpha_L1": 0.021784868091344833,
+                "boundary_F1_2px": 0.27514147418830404,
+                "boundary_precision_2px": 0.2593532022828155,
+                "boundary_recall_2px": 0.2929765886287625,
+                "boundary_outward_fraction_over_2px": 0.7311350665821179,
+                "boundary_outward_p95_px": 18.00555114746093,
+                "boundary_depth_normal_roughness_p95_deg": 101.64640808105469
+              }
+            },
+            "initial_continuous_roundtrip": {
+              "alpha_max_abs": 0.0024511218070983887,
+              "alpha_mean_abs": 4.345998760868497e-08,
+              "alpha_p99_abs": 7.152557373046875e-07,
+              "physical_parameter_check": true,
+              "depth_median_abs_over_radius": 0.0,
+              "depth_p99_abs_over_radius": 6.769872129552823e-07,
+              "compared_depth_pixels": 42243
+            }
+          },
+          {
+            "frame_index": 281,
+            "metrics": {
+              "GGGS continuous depth": {
+                "silhouette_IoU": 0.9317732453346252,
+                "alpha_L1": 0.01357943657785654,
+                "boundary_F1_2px": 0.4791425421540669,
+                "boundary_precision_2px": 0.5167731629392971,
+                "boundary_recall_2px": 0.44662034112444726,
+                "boundary_outward_fraction_over_2px": 0.4480830670926518,
+                "boundary_outward_p95_px": 11.045360565185547,
+                "boundary_depth_normal_roughness_p95_deg": 10.134918212890625
+              },
+              "Imported / default depth": {
+                "silhouette_IoU": 0.9229776859283447,
+                "alpha_L1": 0.014473207294940948,
+                "boundary_F1_2px": 0.42444821129048005,
+                "boundary_precision_2px": 0.4580335731414868,
+                "boundary_recall_2px": 0.3954516740366393,
+                "boundary_outward_fraction_over_2px": 0.5059952038369304,
+                "boundary_outward_p95_px": 12.267421245574951,
+                "boundary_depth_normal_roughness_p95_deg": 18.048879623413086
+              },
+              "Joint final / default depth": {
+                "silhouette_IoU": 0.8978281617164612,
+                "alpha_L1": 0.016860980540513992,
+                "boundary_F1_2px": 0.32055395196730874,
+                "boundary_precision_2px": 0.31299212598425197,
+                "boundary_recall_2px": 0.32849020846494,
+                "boundary_outward_fraction_over_2px": 0.687007874015748,
+                "boundary_outward_p95_px": 14.142135620117188,
+                "boundary_depth_normal_roughness_p95_deg": 78.75775146484375
+              },
+              "Joint final / GGGS depth": {
+                "silhouette_IoU": 0.9202503561973572,
+                "alpha_L1": 0.01441273558884859,
+                "boundary_F1_2px": 0.39734762662882267,
+                "boundary_precision_2px": 0.3659647125782584,
+                "boundary_recall_2px": 0.43461781427668983,
+                "boundary_outward_fraction_over_2px": 0.6340352874217416,
+                "boundary_outward_p95_px": 12.083045959472656,
+                "boundary_depth_normal_roughness_p95_deg": 102.02778625488281
+              }
+            },
+            "initial_continuous_roundtrip": {
+              "alpha_max_abs": 0.0015999078750610352,
+              "alpha_mean_abs": 3.446365681725183e-08,
+              "alpha_p99_abs": 7.621129043400288e-07,
+              "physical_parameter_check": true,
+              "depth_median_abs_over_radius": 0.0,
+              "depth_p99_abs_over_radius": 1.3539744259105646e-06,
+              "compared_depth_pixels": 42973
+            }
+          },
+          {
+            "frame_index": 561,
+            "metrics": {
+              "GGGS continuous depth": {
+                "silhouette_IoU": 0.8818057775497437,
+                "alpha_L1": 0.02007831633090973,
+                "boundary_F1_2px": 0.21174392440446602,
+                "boundary_precision_2px": 0.2518955349620893,
+                "boundary_recall_2px": 0.18263266712611992,
+                "boundary_outward_fraction_over_2px": 0.544229149115417,
+                "boundary_outward_p95_px": 16.327502632141126,
+                "boundary_depth_normal_roughness_p95_deg": 9.95803451538086
+              },
+              "Imported / default depth": {
+                "silhouette_IoU": 0.8774287104606628,
+                "alpha_L1": 0.02062191441655159,
+                "boundary_F1_2px": 0.1891481575473809,
+                "boundary_precision_2px": 0.22731128074639526,
+                "boundary_recall_2px": 0.16195727084769124,
+                "boundary_outward_fraction_over_2px": 0.5708227311280747,
+                "boundary_outward_p95_px": 17.230610656738257,
+                "boundary_depth_normal_roughness_p95_deg": 13.433749198913574
+              },
+              "Joint final / default depth": {
+                "silhouette_IoU": 0.8631265759468079,
+                "alpha_L1": 0.021296896040439606,
+                "boundary_F1_2px": 0.16728758491970225,
+                "boundary_precision_2px": 0.1729807005003574,
+                "boundary_recall_2px": 0.16195727084769124,
+                "boundary_outward_fraction_over_2px": 0.6876340243030736,
+                "boundary_outward_p95_px": 19.944833374023418,
+                "boundary_depth_normal_roughness_p95_deg": 65.74553680419922
+              },
+              "Joint final / GGGS depth": {
+                "silhouette_IoU": 0.8878452181816101,
+                "alpha_L1": 0.018645044416189194,
+                "boundary_F1_2px": 0.23147152990689093,
+                "boundary_precision_2px": 0.23565998617829992,
+                "boundary_recall_2px": 0.22742935906271536,
+                "boundary_outward_fraction_over_2px": 0.6040082930200414,
+                "boundary_outward_p95_px": 17.779158592224125,
+                "boundary_depth_normal_roughness_p95_deg": 98.428466796875
+              }
+            },
+            "initial_continuous_roundtrip": {
+              "alpha_max_abs": 0.003488965332508087,
+              "alpha_mean_abs": 4.17438137390036e-08,
+              "alpha_p99_abs": 7.450580596923828e-07,
+              "physical_parameter_check": true,
+              "depth_median_abs_over_radius": 0.0,
+              "depth_p99_abs_over_radius": 1.3539744259105646e-06,
+              "compared_depth_pixels": 36768
+            }
+          }
+        ],
+        "scope": "No geometry GT. Three fixed train views, both initial/final expected-center-depth and initial/final GGGS continuous-depth. Imported filter is baked exactly once. Initial continuous roundtrip checked. Silhouette and roughness are proxies, not shape accuracy."
+      },
+      "fixed_three_train_view_means": {
+        "GGGS continuous depth": {
+          "silhouette_IoU": 0.9069387118021647,
+          "boundary_F1_2px": 0.3795836840057065,
+          "boundary_depth_normal_roughness_p95_deg": 13.314934412638346
+        },
+        "Imported / default depth": {
+          "silhouette_IoU": 0.8997633854548136,
+          "boundary_F1_2px": 0.33854642728862566,
+          "boundary_depth_normal_roughness_p95_deg": 19.13442325592041
+        },
+        "Joint final / default depth": {
+          "silhouette_IoU": 0.8706390261650085,
+          "boundary_F1_2px": 0.23963015893995007,
+          "boundary_depth_normal_roughness_p95_deg": 72.39322408040364
+        },
+        "Joint final / GGGS depth": {
+          "silhouette_IoU": 0.8919911583264669,
+          "boundary_F1_2px": 0.3013202102413392,
+          "boundary_depth_normal_roughness_p95_deg": 100.70088704427083
+        }
+      }
+    }
+  },
+  "comparison_audit": {
+    "all_targets_exact": true,
+    "all_rows_complete": true,
+    "manual_review": {
+      "Cat": "Reviewed4 fixed full images and7 GT-selected crops. DNA is sharper than legacyDNA in some regions, but still blurs fur and retains dark patch artifacts (notablyframe43). New default has betterLPIPS. No reliable high-frequency reconstruction or geometry preservation.",
+      "Pixiu": "Reviewed4 fixed full images and8 GT-selected crops. Some global shading/texture changes, but tiny white specular peaks remain absent and edges/geometry are still imperfect. HigherPSNR than newdefault does not constitute an overall visual improvement."
+    },
+    "comparison_exit_code": 0
+  }
+}

@@ -1,0 +1,67 @@
+{
+  "scope": "Single-option Gaussian-cap comparison:400000 versus1000000, same source geometry, decoder,30k steps512pxseed0 and all other training options. Fresh scene fits, no test tuning; historically observed test. Single seed, possible renderer nondeterminism.",
+  "scenes": [
+    {
+      "name": "Cat",
+      "dataset": "/workspace/datasets/SSD-GS/data/Real_NRHints/Cat",
+      "split": "test",
+      "resolution": 512,
+      "background": 0.0,
+      "display_gamma": 2.2,
+      "control": "Neural material 400k",
+      "crop_frames": [
+        0,
+        21,
+        43,
+        65
+      ],
+      "models": {
+        "Neural material 400k": {
+          "layout": "pairs",
+          "directory": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/gggs_neural_material_joint/Real_NRHints/Cat/test",
+          "metrics": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/gggs_neural_material_joint/Real_NRHints/Cat/test/metrics.json",
+          "primary_eligible": true,
+          "provenance": "Completed400k cap control; otherwise matching neural_material protocol."
+        },
+        "Neural material 1M": {
+          "layout": "pairs",
+          "directory": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/gggs_neural_material_1m/Real_NRHints/Cat/test",
+          "metrics": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/gggs_neural_material_1m/Real_NRHints/Cat/test/metrics.json",
+          "primary_eligible": true,
+          "provenance": "Fresh1M cap candidate; only max-points changed, source and other settings identical."
+        }
+      }
+    },
+    {
+      "name": "Pixiu",
+      "dataset": "/workspace/datasets/SSD-GS/data/Real_NRHints/Pixiu",
+      "split": "test",
+      "resolution": 512,
+      "background": 0.0,
+      "display_gamma": 2.2,
+      "control": "Neural material 400k",
+      "crop_frames": [
+        0,
+        23,
+        46,
+        70
+      ],
+      "models": {
+        "Neural material 400k": {
+          "layout": "pairs",
+          "directory": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/gggs_neural_material_joint/Real_NRHints/Pixiu/test",
+          "metrics": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/gggs_neural_material_joint/Real_NRHints/Pixiu/test/metrics.json",
+          "primary_eligible": true,
+          "provenance": "Completed400k cap control; otherwise matching neural_material protocol."
+        },
+        "Neural material 1M": {
+          "layout": "pairs",
+          "directory": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/gggs_neural_material_1m/Real_NRHints/Pixiu/test",
+          "metrics": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/gggs_neural_material_1m/Real_NRHints/Pixiu/test/metrics.json",
+          "primary_eligible": true,
+          "provenance": "Fresh1M cap candidate; only max-points changed, source and other settings identical."
+        }
+      }
+    }
+  ]
+}

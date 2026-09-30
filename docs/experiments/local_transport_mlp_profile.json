@@ -1,0 +1,8 @@
+{
+  "query_rows": 98304,
+  "scope": "Isolated network forward/backward,30 repetitions; not whole-training timing",
+  "torch_silu_seconds": 0.0009017178944001595,
+  "local_tcnn_relu_seconds": 0.0009833904293676218,
+  "decision": "retain existing PyTorch SiLU MLP; fused build did not improve this microbenchmark",
+  "unused_local_fused_artifacts_removed": true
+}

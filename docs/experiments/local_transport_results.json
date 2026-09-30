@@ -1,0 +1,230 @@
+{
+  "status": "completed",
+  "source_geometry_run": "runs/gggs_normal_depth_geometry",
+  "geometry_steps": 30000,
+  "material_steps": 30000,
+  "resolution": 512,
+  "seed": 0,
+  "geometry_frozen": true,
+  "default_unchanged": true,
+  "promoted": false,
+  "comparison_scope": "Observational references; different geometry, priors, parameter counts and sampled pixel budgets. Historically observed test, not newly blind.",
+  "scenes": {
+    "Cat": {
+      "test": {
+        "evaluated_frames": 66,
+        "metrics": {
+          "PSNR": 22.516769380280465,
+          "SSIM": 0.7745599683487054,
+          "silhouette_IoU": 0.9624391631646589,
+          "LPIPS": 0.26332965380314627,
+          "render_seconds": 2.0564472790468824
+        },
+        "neutral_peaks": {
+          "pixels": 1101,
+          "predicted_pixels": 2,
+          "matched_predicted_pixels_2px": 2,
+          "matched_target_pixels_2px": 5,
+          "rgb_mae": 0.1432981336088369,
+          "target_contrast": 0.2363260817814696,
+          "predicted_contrast": 0.01925334748224128,
+          "contrast_ratio": 0.08146941436639576,
+          "precision_2px": 1.0,
+          "recall_2px": 0.004541326067211626
+        },
+        "tiny_peaks": {
+          "component_count": 368,
+          "gt_peak_pixels": 575,
+          "rgb_mae": 0.16538562743560128,
+          "target_contrast": 0.22868423394534898,
+          "predicted_contrast": 0.014646703238072602,
+          "contrast_ratio": 0.06404771761210647,
+          "matched_gt_pixels_2px": 0,
+          "pixel_recall_2px": 0.0,
+          "components_with_at_least_one_hit": 0,
+          "component_any_hit_fraction": 0.0
+        }
+      },
+      "fit_full": {
+        "evaluated_frames": 522,
+        "metrics": {
+          "PSNR": 21.315974902375906,
+          "SSIM": 0.7712676613038527,
+          "silhouette_IoU": 0.944391886279044,
+          "LPIPS": 0.26943975635643663,
+          "render_seconds": 2.069313235366824
+        },
+        "neutral_peaks": {
+          "pixels": 8917,
+          "predicted_pixels": 5,
+          "matched_predicted_pixels_2px": 0,
+          "matched_target_pixels_2px": 0,
+          "rgb_mae": 0.2040942704504122,
+          "target_contrast": 0.22890575212575107,
+          "predicted_contrast": 0.01204951718733829,
+          "contrast_ratio": 0.05263964350148265,
+          "precision_2px": 0.0,
+          "recall_2px": 0.0
+        },
+        "tiny_peaks": {
+          "component_count": 2505,
+          "gt_peak_pixels": 3999,
+          "rgb_mae": 0.20767251989826954,
+          "target_contrast": 0.22318381365462225,
+          "predicted_contrast": 0.00973760460441218,
+          "contrast_ratio": 0.04363042482767661,
+          "matched_gt_pixels_2px": 0,
+          "pixel_recall_2px": 0.0,
+          "components_with_at_least_one_hit": 0,
+          "component_any_hit_fraction": 0.0
+        }
+      },
+      "DNA_test_reference": {
+        "PSNR": 22.14167852112741,
+        "SSIM": 0.7763807701342034,
+        "LPIPS": 0.2677139946908662
+      },
+      "delta_vs_DNA": {
+        "PSNR": 0.3750908591530546,
+        "SSIM": -0.0018208017854979275,
+        "LPIPS": -0.00438434088771994
+      },
+      "all_reference_saved_targets_exact": true
+    },
+    "Pixiu": {
+      "test": {
+        "evaluated_frames": 71,
+        "metrics": {
+          "PSNR": 21.90448059834225,
+          "SSIM": 0.8478263977547766,
+          "silhouette_IoU": 0.894145732194605,
+          "LPIPS": 0.17419682726473876,
+          "render_seconds": 1.0188038691379864
+        },
+        "neutral_peaks": {
+          "pixels": 26147,
+          "predicted_pixels": 33,
+          "matched_predicted_pixels_2px": 4,
+          "matched_target_pixels_2px": 9,
+          "rgb_mae": 0.39647855653053227,
+          "target_contrast": 0.33904072472496316,
+          "predicted_contrast": 0.0005479004479356044,
+          "contrast_ratio": 0.0016160313731634233,
+          "precision_2px": 0.12121212121212122,
+          "recall_2px": 0.0003442077484988718
+        },
+        "tiny_peaks": {
+          "component_count": 2880,
+          "gt_peak_pixels": 5324,
+          "rgb_mae": 0.34562422531814824,
+          "target_contrast": 0.335257999660555,
+          "predicted_contrast": 0.00036105399448942366,
+          "contrast_ratio": 0.0010769437115743304,
+          "matched_gt_pixels_2px": 0,
+          "pixel_recall_2px": 0.0,
+          "components_with_at_least_one_hit": 0,
+          "component_any_hit_fraction": 0.0
+        }
+      },
+      "fit_full": {
+        "evaluated_frames": 562,
+        "metrics": {
+          "PSNR": 23.631425911845685,
+          "SSIM": 0.8649097210147627,
+          "silhouette_IoU": 0.9032517415985094,
+          "LPIPS": 0.16675204266644883,
+          "render_seconds": 1.0008136455601022
+        },
+        "neutral_peaks": {
+          "pixels": 212877,
+          "predicted_pixels": 164,
+          "matched_predicted_pixels_2px": 62,
+          "matched_target_pixels_2px": 160,
+          "rgb_mae": 0.39669191284613275,
+          "target_contrast": 0.338029432878416,
+          "predicted_contrast": 0.005213551749609654,
+          "contrast_ratio": 0.015423366259011204,
+          "precision_2px": 0.3780487804878049,
+          "recall_2px": 0.0007516077359226219
+        },
+        "tiny_peaks": {
+          "component_count": 21237,
+          "gt_peak_pixels": 40429,
+          "rgb_mae": 0.32641173568450443,
+          "target_contrast": 0.3358301684304966,
+          "predicted_contrast": 0.006200950294854677,
+          "contrast_ratio": 0.018464542134004336,
+          "matched_gt_pixels_2px": 14,
+          "pixel_recall_2px": 0.0003462860817729847,
+          "components_with_at_least_one_hit": 7,
+          "component_any_hit_fraction": 0.00032961341055704667
+        }
+      },
+      "DNA_test_reference": {
+        "PSNR": 21.50295921110771,
+        "SSIM": 0.8482519295853628,
+        "LPIPS": 0.16702199087176525
+      },
+      "delta_vs_DNA": {
+        "PSNR": 0.40152138723453845,
+        "SSIM": -0.0004255318305861344,
+        "LPIPS": 0.007174836392973505
+      },
+      "all_reference_saved_targets_exact": true
+    }
+  },
+  "audit": {
+    "Cat": {
+      "step": 30000,
+      "points": 128596,
+      "material_fit_count": 522,
+      "source_geometry_fit_count": 470,
+      "geometry_buffers_bitwise_unchanged": {
+        "means": true,
+        "scales": true,
+        "quats": true,
+        "opacities": true,
+        "center": true,
+        "world_scale": true,
+        "world_radius": true
+      },
+      "finite_weights_and_losses": true,
+      "material_parameters": 8626111,
+      "slopes_rms": 0.12209909409284592,
+      "intensity_zero_exact": true,
+      "intensity_double_max_error": 0.0,
+      "tested_fragments": 49334,
+      "preview_replay_max_byte_difference": 0,
+      "preview_replay_mean_byte_difference": 0.0,
+      "preview_replay_different_pixels": 0,
+      "training_seconds": 2433.3333360711113,
+      "peak_training_memory_GiB": 12.010977745056152
+    },
+    "Pixiu": {
+      "step": 30000,
+      "points": 57741,
+      "material_fit_count": 562,
+      "source_geometry_fit_count": 506,
+      "geometry_buffers_bitwise_unchanged": {
+        "means": true,
+        "scales": true,
+        "quats": true,
+        "opacities": true,
+        "center": true,
+        "world_scale": true,
+        "world_radius": true
+      },
+      "finite_weights_and_losses": true,
+      "material_parameters": 3878826,
+      "slopes_rms": 0.13679590821266174,
+      "intensity_zero_exact": true,
+      "intensity_double_max_error": 0.0,
+      "tested_fragments": 28522,
+      "preview_replay_max_byte_difference": 0,
+      "preview_replay_mean_byte_difference": 0.0,
+      "preview_replay_different_pixels": 0,
+      "training_seconds": 1996.8391636819579,
+      "peak_training_memory_GiB": 8.892149925231934
+    }
+  }
+}

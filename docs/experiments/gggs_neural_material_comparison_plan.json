@@ -1,0 +1,81 @@
+{
+  "scope": "Predeclared observational comparison: same original GGGS initialization, full official train and 30k joint steps; architectures, losses, transport activation and photometric-scale fitting differ. Test data historically observed; no test fitting/tuning.",
+  "scenes": [
+    {
+      "name": "Cat",
+      "dataset": "/workspace/datasets/SSD-GS/data/Real_NRHints/Cat",
+      "split": "test",
+      "resolution": 512,
+      "background": 0.0,
+      "display_gamma": 2.2,
+      "control": "GGGS + default joint",
+      "crop_frames": [
+        0,
+        21,
+        43,
+        65
+      ],
+      "models": {
+        "GGGS + default joint": {
+          "layout": "pairs",
+          "directory": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/gggs_default_joint/Real_NRHints/Cat/test",
+          "metrics": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/gggs_default_joint/Real_NRHints/Cat/test/metrics.json",
+          "primary_eligible": true,
+          "provenance": "GGGS normal/depth initialization, fresh default directional_port_v1, full official train,30k joint geometry/material, full512px images, default densify/prune, no test fitting."
+        },
+        "GGGS + DNA joint": {
+          "layout": "pairs",
+          "directory": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/gggs_dna_joint/Real_NRHints/Cat/test",
+          "metrics": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/gggs_dna_joint/Real_NRHints/Cat/test/metrics.json",
+          "primary_eligible": true,
+          "provenance": "Same original GGGS geometry as default joint;3D covariance-normal adapter, fresh GGX/32-mixture DNA; all official train,30000 full-image joint steps, no test fitting."
+        },
+        "GGGS + neural material joint": {
+          "layout": "pairs",
+          "directory": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/gggs_neural_material_joint/Real_NRHints/Cat/test",
+          "metrics": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/gggs_neural_material_joint/Real_NRHints/Cat/test/metrics.json",
+          "primary_eligible": true,
+          "provenance": "Fresh neural_material, frozen shared procedural BRDF decoder, original GGGS normal/depth geometry,30k full512 joint steps, positive scalar light-scale optimization; no test fitting."
+        }
+      }
+    },
+    {
+      "name": "Pixiu",
+      "dataset": "/workspace/datasets/SSD-GS/data/Real_NRHints/Pixiu",
+      "split": "test",
+      "resolution": 512,
+      "background": 0.0,
+      "display_gamma": 2.2,
+      "control": "GGGS + default joint",
+      "crop_frames": [
+        0,
+        23,
+        46,
+        70
+      ],
+      "models": {
+        "GGGS + default joint": {
+          "layout": "pairs",
+          "directory": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/gggs_default_joint/Real_NRHints/Pixiu/test",
+          "metrics": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/gggs_default_joint/Real_NRHints/Pixiu/test/metrics.json",
+          "primary_eligible": true,
+          "provenance": "GGGS normal/depth initialization, fresh default directional_port_v1, full official train,30k joint geometry/material, full512px images, default densify/prune, no test fitting."
+        },
+        "GGGS + DNA joint": {
+          "layout": "pairs",
+          "directory": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/gggs_dna_joint/Real_NRHints/Pixiu/test",
+          "metrics": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/gggs_dna_joint/Real_NRHints/Pixiu/test/metrics.json",
+          "primary_eligible": true,
+          "provenance": "Same original GGGS geometry as default joint;3D covariance-normal adapter, fresh GGX/32-mixture DNA; all official train,30000 full-image joint steps, no test fitting."
+        },
+        "GGGS + neural material joint": {
+          "layout": "pairs",
+          "directory": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/gggs_neural_material_joint/Real_NRHints/Pixiu/test",
+          "metrics": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/gggs_neural_material_joint/Real_NRHints/Pixiu/test/metrics.json",
+          "primary_eligible": true,
+          "provenance": "Fresh neural_material, frozen shared procedural BRDF decoder, original GGGS normal/depth geometry,30k full512 joint steps, positive scalar light-scale optimization; no test fitting."
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,39 @@
+{
+  "purpose": "800-step integration, not quality",
+  "final_update": {
+    "step": 800,
+    "frame_index": 171,
+    "loss": 0.19453838467597961,
+    "l1": 0.13857130706310272,
+    "photo": 0.18807753920555115,
+    "normal": 0.0,
+    "distortion": 0.0,
+    "silhouette": 0.0064608450047671795,
+    "loss_terms": {
+      "photo": 0.18807753920555115,
+      "normal": 0.0,
+      "distortion": 0.0,
+      "silhouette": 0.0064608450047671795
+    },
+    "points": 592,
+    "opacity_eligible": 592,
+    "sh_degree": 0,
+    "seconds": 7.409396893810481,
+    "topology_event": null,
+    "topology_totals": {
+      "cloned": 0,
+      "split_parents": 505,
+      "split_children": 1010,
+      "pruned": 913,
+      "pruned_opacity": 913,
+      "pruned_screen": 0,
+      "pruned_world": 0
+    },
+    "memory_GiB": 0.13921689987182617
+  },
+  "evaluated_reload_frames": 2,
+  "tests": "logs/native_topology_checks.log",
+  "train_log": "logs/native_topology_smoke.log",
+  "eval_log": "logs/native_topology_smoke_eval.log",
+  "nonfinal_directory_removed": "runs/native_topology_smoke"
+}

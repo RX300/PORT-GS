@@ -20,6 +20,10 @@ dist/
 .venv/
 /third_party/
 
+# Retired run/dependency archives stay local; only retired source archives are tracked
+/docs/experiments/retired/*.tar.gz
+!/docs/experiments/retired/methods_before_three_method_cleanup_20260930.tar.gz
+
 # Local credentials and editor files
 .env
 .env.*

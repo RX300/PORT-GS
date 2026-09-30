@@ -1,0 +1,143 @@
+{
+  "config": {
+    "representation": "gaussian_wrapping",
+    "geometry": "3dgs",
+    "scene": "/workspace/datasets/SSD-GS/data/Real_NRHints/Pixiu",
+    "resolution": 128,
+    "steps": 800,
+    "seed": 0,
+    "background": 0.0,
+    "depth_ratio": 0.0,
+    "sh_degree": 3,
+    "sdf": false,
+    "geometry_priors": false,
+    "mip_filter": true,
+    "optimizer": {
+      "iterations": 800,
+      "position_lr_init": 0.00016,
+      "position_lr_final": 1.6e-06,
+      "position_lr_delay_mult": 0.01,
+      "position_lr_max_steps": 800,
+      "feature_dc_lr": 0.0013,
+      "feature_rest_lr": 0.00011,
+      "opacity_lr": 0.05,
+      "scaling_lr": 0.005,
+      "rotation_lr": 0.001,
+      "percent_dense": 0.01,
+      "lambda_dssim": 0.2,
+      "densification_interval": 100,
+      "opacity_reset_interval": 3000,
+      "densify_from_iter": 500,
+      "densify_until_iter": 600,
+      "densify_grad_threshold": 0.0002,
+      "random_background": false,
+      "appearance_embeddings_lr": 0.001,
+      "appearance_network_lr": 0.001,
+      "gaussian_features_lr": 0.025,
+      "pgsr_appearance_lr": 0.001
+    },
+    "wrapping_start": 201,
+    "wrap_densify_start": 700,
+    "wrap_densify_end": 700,
+    "regularize_from": 100,
+    "prior_weight": 0.0,
+    "normal_priors": "",
+    "init_grid": 64,
+    "training_coordinate_transform": {
+      "scale": 14.737977981567383,
+      "center": [
+        0.14966660737991333,
+        -0.19815701246261597,
+        -0.17560622096061707
+      ]
+    },
+    "upstream_revision": "11e3b6fb5ca6f0a54e2b5587a09693488f3655af",
+    "protocol": "Oriented normals + five shell densification events + author slow MVS + exposure L1; fit-only masks, no SDF",
+    "adjustments": [
+      "NRHints fit-only mask seeds instead of SfM",
+      "full K via centered virtual canvas and cropped fields",
+      "mask L1 .2",
+      "stable per-axis Mip determinant ratio",
+      "MVS slow depth-map path for full K",
+      "shell errors only on supplied foreground; nearest resampling of contributor IDs",
+      "raw RGB evaluation without fitting validation exposures"
+    ]
+  },
+  "last_step": {
+    "step": 800,
+    "frame_index": 387,
+    "loss": 0.35963642597198486,
+    "loss_terms": {
+      "photo": 0.09157038480043411,
+      "silhouette": 0.004814270418137312,
+      "normal": 0.001231788075529039,
+      "ncc": 0.2612951993942261,
+      "multiview_geo": 0.00017283244233112782,
+      "wrap_normal": 0.0005519574624486268
+    },
+    "points": 2100,
+    "topology_event": null,
+    "seconds": 19.26622577290982
+  },
+  "evaluation": {
+    "checkpoint": "/tmp/port_wrapping_preflight/last.pt",
+    "split": "validation",
+    "evaluated_frames": 2,
+    "metrics": {
+      "PSNR": 18.930253982543945,
+      "SSIM": 0.8020409345626831,
+      "silhouette_IoU": 0.8465821743011475,
+      "alpha_L1": 0.034357648342847824,
+      "self_normal_angular_error": 0.0989910438656807,
+      "valid_surface_fraction": 0.1329345703125,
+      "boundary_F1_2px": 0.61864023693304,
+      "boundary_precision_2px": 0.6317489697562338,
+      "boundary_recall_2px": 0.6061157311157311,
+      "boundary_outward_fraction_over_2px": 0.1488789550883565,
+      "boundary_outward_p95_px": 3.4757663011550903,
+      "boundary_depth_normal_roughness_p95_deg": 27.22902774810791
+    },
+    "views": [
+      {
+        "frame_index": 32,
+        "name": "r_32",
+        "PSNR": 17.581377029418945,
+        "SSIM": 0.8060989379882812,
+        "silhouette_IoU": 0.8674418330192566,
+        "alpha_L1": 0.02577253058552742,
+        "self_normal_angular_error": 0.11864569783210754,
+        "valid_surface_fraction": 0.1302490234375,
+        "boundary_F1_2px": 0.7754520101526022,
+        "boundary_precision_2px": 0.7877697841726619,
+        "boundary_recall_2px": 0.7635135135135135,
+        "boundary_outward_fraction_over_2px": 0.06474820143884892,
+        "boundary_outward_p95_px": 2.8284270763397217,
+        "boundary_depth_normal_roughness_p95_deg": 26.51729393005371
+      },
+      {
+        "frame_index": 329,
+        "name": "r_329",
+        "PSNR": 20.279130935668945,
+        "SSIM": 0.797982931137085,
+        "silhouette_IoU": 0.8257225155830383,
+        "alpha_L1": 0.04294276610016823,
+        "self_normal_angular_error": 0.07933638989925385,
+        "valid_surface_fraction": 0.1356201171875,
+        "boundary_F1_2px": 0.4618284637134779,
+        "boundary_precision_2px": 0.47572815533980584,
+        "boundary_recall_2px": 0.44871794871794873,
+        "boundary_outward_fraction_over_2px": 0.23300970873786409,
+        "boundary_outward_p95_px": 4.123105525970459,
+        "boundary_depth_normal_roughness_p95_deg": 27.94076156616211
+      }
+    ],
+    "geometry_scope": "Silhouette and self consistency, no reference geometry. RGB under moving lights is not relighting quality.",
+    "camera_protocol": "original full intrinsics/extrinsics; no pose fitting",
+    "selected_geometry_frames": [
+      32,
+      329
+    ]
+  },
+  "scope": "800-step smoke including one wrapping shell event and camera-neighbor/MVS; not final quality",
+  "earlier_failure": "Camera adapter lacked image_name for neighbor metadata; fixed before rerun"
+}

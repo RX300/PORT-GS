@@ -1,0 +1,363 @@
+{
+  "status": "distribution_material_study_complete_default_unchanged",
+  "registered_method_count": 9,
+  "original_reference_count": 1,
+  "later_registered_candidates": 8,
+  "new_foundation_count_since_user_requested_replacement": 1,
+  "methods": [
+    {
+      "method": "learned_anchor_exchange",
+      "role": "original reference",
+      "status": "implemented; historical metrics only",
+      "evidence": "docs/experiments/results.md; historical original anchor reference, raw output removed before this task",
+      "caveat": "Derived rounded historical six-scene mean; no retained raw result audit. Different training setup from laterdefault.",
+      "raw_final_retained": false
+    },
+    {
+      "method": "directional_port_v1",
+      "role": "current default",
+      "status": "complete six-scene official test",
+      "PSNR_six_scene": 29.089976,
+      "SSIM_six_scene": 0.916603,
+      "LPIPS_six_scene": 0.089701,
+      "evidence": "runs/directional_port512_validation_20260915",
+      "caveat": "+0.850820dB vs rank64 includes rank/training-setup changes, not isolatedarchitecture.",
+      "official_test": {
+        "Cat": {
+          "frames": 66,
+          "metrics": {
+            "PSNR": 21.53618436871153,
+            "SSIM": 0.766465197909962,
+            "LPIPS": 0.23040520986824325
+          },
+          "source": "runs/directional_port512_validation_20260915/Real_NRHints/Cat/test/metrics.json"
+        },
+        "Pixiu": {
+          "frames": 71,
+          "metrics": {
+            "PSNR": 20.57824887020487,
+            "SSIM": 0.8455560047861556,
+            "LPIPS": 0.15668995405586672
+          },
+          "source": "runs/directional_port512_validation_20260915/Real_NRHints/Pixiu/test/metrics.json"
+        }
+      },
+      "raw_final_retained": true
+    },
+    {
+      "method": "paired_port",
+      "role": "candidate A",
+      "status": "implemented; final scores unavailable",
+      "evidence": "docs/experiments/research_methods_validation_20260917.md",
+      "caveat": "Historical output removed before this task; do not infer success/failure.",
+      "raw_final_retained": false
+    },
+    {
+      "method": "local_frame",
+      "role": "candidate B",
+      "status": "implemented; final scores unavailable",
+      "evidence": "docs/experiments/research_methods_validation_20260917.md",
+      "caveat": "Historical output removed before this task; do not infer success/failure.",
+      "raw_final_retained": false
+    },
+    {
+      "method": "directional_surfel",
+      "role": "2DGS with normal/depth priors",
+      "status": "historical complete six-scene official test",
+      "PSNR_six_scene": 28.472787,
+      "SSIM_six_scene": 0.917875,
+      "LPIPS_six_scene": 0.090103,
+      "evidence": "docs/experiments/results.md; original final outputs already absent, remaining generated priors deleted by final-only cleanup",
+      "caveat": "-0.617189dB vs default; raw training/results removed in earliercleanup.",
+      "raw_final_retained": false
+    },
+    {
+      "method": "surface_attention",
+      "role": "2DGS cross-attention",
+      "status": "complete six-scene official test",
+      "PSNR_six_scene": 28.622846,
+      "SSIM_six_scene": 0.918468,
+      "LPIPS_six_scene": 0.090192,
+      "evidence": "runs/surface_attention_validation_20260922",
+      "caveat": "-0.467130dB vs default; roughly1.92x training speed vs prior2DGS; notoverallwinner.",
+      "official_test": {
+        "Cat": {
+          "frames": 66,
+          "metrics": {
+            "PSNR": 21.806423476248078,
+            "SSIM": 0.7771634206627355,
+            "LPIPS": 0.23632414616418607
+          },
+          "source": "runs/surface_attention_validation_20260922/Real_NRHints/Cat/test/metrics.json"
+        },
+        "Pixiu": {
+          "frames": 71,
+          "metrics": {
+            "PSNR": 20.63966823631609,
+            "SSIM": 0.8475901778315155,
+            "LPIPS": 0.1575457247000345
+          },
+          "source": "runs/surface_attention_validation_20260922/Real_NRHints/Pixiu/test/metrics.json"
+        }
+      },
+      "raw_final_retained": true
+    },
+    {
+      "method": "neural_material",
+      "role": "2DGS shared BRDF/material representation",
+      "status": "complete Cat/Pixiu official test",
+      "PSNR_two_scene": 21.978902940509975,
+      "SSIM_two_scene": 0.8160734370293597,
+      "LPIPS_two_scene": 0.20864809399396755,
+      "evidence": "runs/neural_material_real_validation_20260922",
+      "caveat": "+0.921686dB vs default on same2scenes, LPIPSworse; narrowpeaksnotrecovered.",
+      "official_test": {
+        "Cat": {
+          "frames": 66,
+          "metrics": {
+            "PSNR": 22.479174122665867,
+            "SSIM": 0.7809298769994215,
+            "LPIPS": 0.25556306405500934
+          },
+          "source": "runs/neural_material_real_validation_20260922/Real_NRHints/Cat/test/metrics.json"
+        },
+        "Pixiu": {
+          "frames": 71,
+          "metrics": {
+            "PSNR": 21.47863175835408,
+            "SSIM": 0.8512169970592982,
+            "LPIPS": 0.16173312393292574
+          },
+          "source": "runs/neural_material_real_validation_20260922/Real_NRHints/Pixiu/test/metrics.json"
+        }
+      },
+      "raw_final_retained": true
+    },
+    {
+      "method": "surface_reflectance",
+      "role": "new foundation: local GGX at ray-surfel intersections",
+      "status": "complete fresh30000 Cat/Pixiu train and official tests; highlight gates failed",
+      "evidence": "runs/intersection_reflectance_pilot; runs/surface_opacity_recovery_pilot; runs/mask_surface_initialization_pilot; runs/surface_patch_proposal_pilot",
+      "caveat": "No reliable tiny-highlight recovery. Cat PSNR -0.416453dB; Pixiu +1.094297dB vs default, LPIPS worse in both. Official development-observed joint view/light tests, not blind or pure-light. Not promoted.",
+      "final_run": "runs/surface_reflectance_final",
+      "selected_sampler": "uniform",
+      "variants": {
+        "mask_surface_initialization_pilot": {
+          "cube": {
+            "validation_frames": 56,
+            "metrics": {
+              "PSNR": 14.367013335227966,
+              "SSIM": 0.6210701343204293,
+              "LPIPS": 0.3015351646712848
+            },
+            "tiny": {
+              "component_count": 2039,
+              "gt_peak_pixels": 3770,
+              "rgb_mae": 0.7647964018830992,
+              "target_contrast": 0.3359923032613901,
+              "predicted_contrast": 0.00014139644379186536,
+              "contrast_ratio": 0.0004208323893713242,
+              "matched_gt_pixels_2px": 0,
+              "pixel_recall_2px": 0.0,
+              "components_with_at_least_one_hit": 0,
+              "component_any_hit_fraction": 0.0
+            },
+            "source": "runs/mask_surface_initialization_pilot/cube/Real_NRHints/Pixiu/validation/metrics.json"
+          },
+          "mask_surface": {
+            "validation_frames": 56,
+            "metrics": {
+              "PSNR": 21.250333036695206,
+              "SSIM": 0.8468988495213645,
+              "LPIPS": 0.18166082738233463
+            },
+            "tiny": {
+              "component_count": 2039,
+              "gt_peak_pixels": 3770,
+              "rgb_mae": 0.40118167684944617,
+              "target_contrast": 0.3359923032613901,
+              "predicted_contrast": 0.002240537286832415,
+              "contrast_ratio": 0.006668418487816836,
+              "matched_gt_pixels_2px": 4,
+              "pixel_recall_2px": 0.0010610079575596816,
+              "components_with_at_least_one_hit": 1,
+              "component_any_hit_fraction": 0.0004904364884747426
+            },
+            "source": "runs/mask_surface_initialization_pilot/mask_surface/Real_NRHints/Pixiu/validation/metrics.json"
+          }
+        },
+        "surface_patch_proposal_pilot": {
+          "uniform": {
+            "validation_frames": 56,
+            "metrics": {
+              "PSNR": 21.389875888824463,
+              "SSIM": 0.8478558276380811,
+              "LPIPS": 0.1798377643738474
+            },
+            "tiny": {
+              "component_count": 2039,
+              "gt_peak_pixels": 3770,
+              "rgb_mae": 0.39030045796874135,
+              "target_contrast": 0.3359923032613901,
+              "predicted_contrast": 0.00201492920142428,
+              "contrast_ratio": 0.005996950471382484,
+              "matched_gt_pixels_2px": 0,
+              "pixel_recall_2px": 0.0,
+              "components_with_at_least_one_hit": 0,
+              "component_any_hit_fraction": 0.0
+            },
+            "source": "runs/surface_patch_proposal_pilot/uniform/Real_NRHints/Pixiu/validation/metrics.json"
+          },
+          "tiny": {
+            "validation_frames": 56,
+            "metrics": {
+              "PSNR": 21.37003207206726,
+              "SSIM": 0.847426278250558,
+              "LPIPS": 0.1809109067544341
+            },
+            "tiny": {
+              "component_count": 2039,
+              "gt_peak_pixels": 3770,
+              "rgb_mae": 0.390966178293675,
+              "target_contrast": 0.3359923032613901,
+              "predicted_contrast": 0.002916387202272523,
+              "contrast_ratio": 0.008679922646929435,
+              "matched_gt_pixels_2px": 10,
+              "pixel_recall_2px": 0.002652519893899204,
+              "components_with_at_least_one_hit": 5,
+              "component_any_hit_fraction": 0.0024521824423737125
+            },
+            "source": "runs/surface_patch_proposal_pilot/tiny/Real_NRHints/Pixiu/validation/metrics.json"
+          }
+        }
+      },
+      "official_test": {
+        "Cat": {
+          "frames": 66,
+          "metrics": {
+            "PSNR": 21.119731267293293,
+            "SSIM": 0.7633174612666621,
+            "LPIPS": 0.28750022726528573
+          },
+          "tiny": {
+            "component_count": 368,
+            "gt_peak_pixels": 575,
+            "rgb_mae": 0.18915373591409212,
+            "target_contrast": 0.22868421927742336,
+            "predicted_contrast": 0.007953165847322216,
+            "contrast_ratio": 0.034777939083212396,
+            "matched_gt_pixels_2px": 0,
+            "pixel_recall_2px": 0.0,
+            "components_with_at_least_one_hit": 0,
+            "component_any_hit_fraction": 0.0
+          },
+          "source": "runs/surface_reflectance_final/Real_NRHints/Cat/test/metrics.json"
+        },
+        "Pixiu": {
+          "frames": 71,
+          "metrics": {
+            "PSNR": 21.672545392748336,
+            "SSIM": 0.8484999780923548,
+            "LPIPS": 0.1730137524050726
+          },
+          "tiny": {
+            "component_count": 2880,
+            "gt_peak_pixels": 5324,
+            "rgb_mae": 0.3683949380239806,
+            "target_contrast": 0.33525798380777944,
+            "predicted_contrast": 0.00118030050306236,
+            "contrast_ratio": 0.0035205738865836723,
+            "matched_gt_pixels_2px": 6,
+            "pixel_recall_2px": 0.0011269722013523666,
+            "components_with_at_least_one_hit": 4,
+            "component_any_hit_fraction": 0.001388888888888889
+          },
+          "source": "runs/surface_reflectance_final/Real_NRHints/Pixiu/test/metrics.json"
+        }
+      },
+      "PSNR_two_scene": 21.396138330020815,
+      "SSIM_two_scene": 0.8059087196795085,
+      "LPIPS_two_scene": 0.23025698983517917,
+      "final_report": "docs/experiments/surface_reflectance_final.md",
+      "raw_final_retained": true
+    },
+    {
+      "method": "distribution_material",
+      "name": "PORT-DNA-2DGS",
+      "role": "8DNA-inspired image-supervised neural transport on 2DGS without SDF/pretrained geometry",
+      "status": "complete fresh30000 Cat/Pixiu; all137 official test frames and fixed-image review",
+      "evidence": "runs/distribution_material_final/results.json",
+      "caveat": "PSNR/SSIM better than original default; LPIPS worse in both scenes and tiny highlights not reliably recovered. Different priors/compute; not an isolated ablation. Default unchanged.",
+      "PSNR_two_scene": 21.822318866117563,
+      "SSIM_two_scene": 0.8123163498597831,
+      "LPIPS_two_scene": 0.21736799278131574,
+      "official_test": {
+        "Cat": {
+          "frames": 66,
+          "metrics": {
+            "PSNR": 22.14167852112741,
+            "SSIM": 0.7763807701342034,
+            "LPIPS": 0.2677139946908662,
+            "alpha_L1": 0.015215008124483355
+          },
+          "tiny": {
+            "component_count": 368,
+            "gt_peak_pixels": 575,
+            "rgb_mae": 0.17854390593542568,
+            "target_contrast": 0.22868421927742336,
+            "predicted_contrast": 0.012421833522941756,
+            "contrast_ratio": 0.05431871758441047,
+            "matched_gt_pixels_2px": 0,
+            "pixel_recall_2px": 0.0,
+            "components_with_at_least_one_hit": 0,
+            "component_any_hit_fraction": 0.0
+          },
+          "source": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/distribution_material_final/Real_NRHints/Cat/test/metrics.json"
+        },
+        "Pixiu": {
+          "frames": 71,
+          "metrics": {
+            "PSNR": 21.50295921110771,
+            "SSIM": 0.8482519295853628,
+            "LPIPS": 0.16702199087176525,
+            "alpha_L1": 0.023078855166447833
+          },
+          "tiny": {
+            "component_count": 2880,
+            "gt_peak_pixels": 5324,
+            "rgb_mae": 0.354215473003803,
+            "target_contrast": 0.33525798380777944,
+            "predicted_contrast": -0.0003394507750544129,
+            "contrast_ratio": -0.0010125061637578702,
+            "matched_gt_pixels_2px": 22,
+            "pixel_recall_2px": 0.004132231404958678,
+            "components_with_at_least_one_hit": 16,
+            "component_any_hit_fraction": 0.005555555555555556
+          },
+          "source": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/distribution_material_final/Real_NRHints/Pixiu/test/metrics.json"
+        }
+      },
+      "raw_final_retained": true
+    }
+  ],
+  "additional_routes_not_separate_registered_methods": [
+    "SDF geometry/volume auxiliary branch",
+    "fixed-GS light-conditioned RGB residual"
+  ],
+  "analytic_prototypes_not_scene_quality_methods": [
+    "clone relocation/transmittance partition",
+    "pixel footprint polygon integration and conditional-slope centroid"
+  ],
+  "scope": "Six-scene averages and two-scene averages must not be ranked directly; checkpoints trained on all562frames do not support retrospective unseen56 validation.",
+  "cleanup_manifest": "docs/experiments/runs_cleanup_final_only_20260924.json",
+  "highlight_goal_achieved": false,
+  "default_method": "directional_port_v1",
+  "retained_final_runs": {
+    "directional_port_v1": "directional_port512_validation_20260915",
+    "surface_attention": "surface_attention_validation_20260922",
+    "neural_material": "neural_material_real_validation_20260922",
+    "surface_reflectance": "surface_reflectance_final",
+    "distribution_material": "distribution_material_final"
+  },
+  "historical_variant_paths_note": "Pilot/ablation source paths are historical and were removed under the user-requested final-only cleanup; recorded values in docs remain."
+}

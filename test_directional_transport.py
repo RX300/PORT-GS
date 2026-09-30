@@ -5,7 +5,6 @@ import torch
 from torch.nn import functional as F
 
 from methods.directional import DirectionalTransport
-from methods.anchor import AnchorTransport
 from methods.base import quadrature_mass
 
 
@@ -52,9 +51,6 @@ def main():
     direct = model(g, receivers, eye, light, intensity, visibility, False)
     reference = (1-aout)*direct + aout*(bout[:,:,None]*h).sum(1)
     torch.testing.assert_close(out, reference, atol=1e-12, rtol=1e-10)
-    old = AnchorTransport(rank=5).double()
-    old.load_state_dict({k:v for k,v in model.state_dict().items() if k in old.state_dict()})
-    torch.testing.assert_close(direct, old(g,receivers,eye,light,intensity,visibility,False))
     torch.testing.assert_close(model(g,receivers,eye,light,intensity*3,visibility), out*3)
     dark = dict(receivers, visibility=torch.zeros(m, dtype=torch.double))
     torch.testing.assert_close(model(g,dark,eye,light,intensity,visibility), aout*(bout[:,:,None]*h).sum(1))
@@ -62,7 +58,7 @@ def main():
     for name, parameter in model.named_parameters():
         assert parameter.grad is not None and torch.isfinite(parameter.grad).all(), name
         assert parameter.grad.abs().sum() > 0, name
-    print('PASS: independent formula, legacy disabled ports, light linearity, shadowed receiver, all parameter gradients')
+    print('PASS: independent formula, light linearity, shadowed receiver, all parameter gradients')
 
     from data import SceneDataset
     from gaussians import Gaussians, camera_bounds

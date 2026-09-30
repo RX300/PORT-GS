@@ -1,0 +1,12 @@
+{
+  "output": "runs/neural_material_highlight_prior",
+  "steps": 50000,
+  "batch_size": 4096,
+  "learning_rate": 0.001,
+  "final_learning_rate": 0.00001,
+  "latent_jitter": 0.005,
+  "seed": 0,
+  "log_every": 500,
+  "validation_samples": 32768,
+  "compile_teacher": true
+}

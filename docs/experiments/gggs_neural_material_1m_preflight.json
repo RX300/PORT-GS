@@ -1,0 +1,82 @@
+{
+  "scope": "Artificial1M replicated trained Cat Gaussians; two full512 render/backward/Adam steps; resource-only, no quality claim or initialized scene saved",
+  "points": 1000000,
+  "training_frame": 0,
+  "rows": [
+    {
+      "step": 1,
+      "loss": 0.0638931393623352,
+      "peak_allocated_GiB": 26.50920343399048,
+      "peak_reserved_GiB": 40.619140625,
+      "seconds": 1.3702835449948907
+    },
+    {
+      "step": 2,
+      "loss": 0.058660540729761124,
+      "peak_allocated_GiB": 26.84775400161743,
+      "peak_reserved_GiB": 40.619140625,
+      "seconds": 1.797700862865895
+    }
+  ],
+  "decoder_frozen": true,
+  "all_geometry_gradients_finite": true,
+  "source_and_config_check": {
+    "control": "gggs_neural_material_joint",
+    "matched_python_sources": [
+      "angular_cues.py",
+      "foundation_comparison.py",
+      "geometry_review.py",
+      "gggs_reconstruction.py",
+      "local_fragments.py",
+      "local_relighting.py",
+      "materials/__init__.py",
+      "materials/decoder.py",
+      "materials/ggx.py",
+      "materials/normal_field.py",
+      "materials/procedural.py",
+      "materials/radiance_residual.py",
+      "materials/spatial_detail.py",
+      "methods/attention.py",
+      "methods/distribution_material.py",
+      "methods/local_transport.py",
+      "methods/neural_material.py",
+      "multiview_geometry.py",
+      "native_reconstruction.py",
+      "native_topology.py",
+      "prepare_surface_priors.py",
+      "pretrain_material.py",
+      "residual_sampling.py",
+      "sdf.py",
+      "sdf_volume.py",
+      "surface.py",
+      "surface_initialization.py",
+      "wrapping_reconstruction.py",
+      "cameras.py",
+      "data.py",
+      "diagnose_image_errors.py",
+      "evaluate.py",
+      "gaussians.py",
+      "make_validation_manifest.py",
+      "methods/__init__.py",
+      "methods/anchor.py",
+      "methods/base.py",
+      "methods/directional.py",
+      "plot_loss.py",
+      "refinement.py",
+      "renderer.py",
+      "run_benchmark.py",
+      "test_data_contract.py",
+      "test_directional_transport.py",
+      "test_encoded_alpha.py",
+      "test_method_integration.py",
+      "test_methods.py",
+      "train.py"
+    ],
+    "only_training_option_changed": {
+      "max-points": [
+        400000,
+        1000000
+      ]
+    }
+  }
+}

@@ -1,0 +1,62 @@
+diff --git a/submodules/diff-gaussian-rasterization/ext.cpp b/submodules/diff-gaussian-rasterization/ext.cpp
+index 4daee7d..a49b7ca 100755
+--- a/submodules/diff-gaussian-rasterization/ext.cpp
++++ b/submodules/diff-gaussian-rasterization/ext.cpp
+@@ -12,7 +12,10 @@
+ #include <torch/extension.h>
+ #include "rasterize_points.h"
+ 
++std::vector<torch::Tensor> FragmentDataCUDA(torch::Tensor, torch::Tensor, torch::Tensor, int, int, int);
++
+ PYBIND11_MODULE(TORCH_EXTENSION_NAME, m) {
++  m.def("fragment_data", &FragmentDataCUDA);
+   m.def("rasterize_gaussians", &RasterizeGaussiansCUDA);
+   m.def("rasterize_gaussians_backward", &RasterizeGaussiansBackwardCUDA);
+   m.def("evaluate_transmittance_from_signle_view", &evaluateTransmittancefromSingleView);
+diff --git a/submodules/diff-gaussian-rasterization/rasterize_points.cu b/submodules/diff-gaussian-rasterization/rasterize_points.cu
+index 87f1f90..b12479f 100755
+--- a/submodules/diff-gaussian-rasterization/rasterize_points.cu
++++ b/submodules/diff-gaussian-rasterization/rasterize_points.cu
+@@ -728,4 +728,22 @@ SampleRasterizedDepthBackwardCUDA(
+             debug);
+     }
+     return std::make_tuple(dL_dopacity, dL_dmeans3D, dL_dcov3D, dL_dscales, dL_drotations, dL_dpoint3D);
+-}
+\ No newline at end of file
++}
++
++// PORT-GS: expose the author's exact immutable EWA projection and tile order.
++#include "cuda_rasterizer/rasterizer_impl.h"
++std::vector<torch::Tensor> FragmentDataCUDA(torch::Tensor geom, torch::Tensor bins,
++    torch::Tensor tiles, int count, int rendered, int tile_count) {
++    char* g = reinterpret_cast<char*>(geom.data_ptr());
++    char* b = reinterpret_cast<char*>(bins.data_ptr());
++    char* t = reinterpret_cast<char*>(tiles.data_ptr());
++    auto gs = CudaRasterizer::GeometryState::fromChunk(g, count);
++    auto bs = CudaRasterizer::BinningState::fromChunk(b, rendered);
++    auto ts = CudaRasterizer::TileState<false>::fromChunk(t, tile_count);
++    auto f = geom.options().dtype(torch::kFloat32);
++    auto i = geom.options().dtype(torch::kInt32);
++    return {torch::from_blob(gs.means2D, {count, 2}, f).clone(),
++            torch::from_blob(gs.conic_opacity, {count, 4}, f).clone(),
++            torch::from_blob(ts.gaussian_ranges, {tile_count, 2}, i).clone(),
++            torch::from_blob(bs.point_list, {rendered}, i).clone()};
++}
+diff --git a/submodules/diff-gaussian-rasterization/setup.py b/submodules/diff-gaussian-rasterization/setup.py
+index 5fb3601..faceb8f 100755
+--- a/submodules/diff-gaussian-rasterization/setup.py
++++ b/submodules/diff-gaussian-rasterization/setup.py
+@@ -19,11 +19,11 @@ setup(
+                 "ext.cpp",
+             ],
+             extra_compile_args={
+-                "cxx": ["-std=c++20"],
++                "cxx": ["-std=c++17"],
+                 "nvcc": [
+                     "-O3",
+                     "--use_fast_math",
+-                    "-std=c++20",
++                    "-std=c++17",
+                     "--extended-lambda",
+                     # "--Werror=all-warnings",
+                     "--expt-relaxed-constexpr",

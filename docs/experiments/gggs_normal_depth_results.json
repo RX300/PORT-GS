@@ -1,0 +1,625 @@
+{
+  "status": "completed",
+  "date": "2026-09-27",
+  "geometry_gate_passed": false,
+  "relighting_started": false,
+  "official_test_evaluated": false,
+  "scope": "GGGS core plus fit-only StableNormal normal + DA3-Large relative depth; seed0, fresh30000,512px. No geometry GT. Control and candidate re-evaluated using training-normalized coordinates.",
+  "prior_audit": {
+    "Cat": {
+      "normal": {
+        "count": 470,
+        "validation_overlap": 0,
+        "all_finite": true,
+        "source_revision": "594b934630ab3bc71f35c77d14ec7feb98480cd0",
+        "model": "Stable-X/stable-normal-v0-1 + Stable-X/yoso-normal-v0-3",
+        "coordinates": "opencv_camera",
+        "depth_views": null,
+        "min_value": -1.0,
+        "max_value": 1.0
+      },
+      "depth": {
+        "count": 470,
+        "validation_overlap": 0,
+        "all_finite": true,
+        "source_revision": "3d835ec1a5802d64a8b8b15f817a1ab54809bfe4",
+        "model": "depth-anything/DA3-LARGE",
+        "coordinates": "opencv_camera",
+        "depth_views": 1,
+        "min_value": 0.7241784930229187,
+        "max_value": 2.784059524536133
+      }
+    },
+    "Pixiu": {
+      "normal": {
+        "count": 506,
+        "validation_overlap": 0,
+        "all_finite": true,
+        "source_revision": "594b934630ab3bc71f35c77d14ec7feb98480cd0",
+        "model": "Stable-X/stable-normal-v0-1 + Stable-X/yoso-normal-v0-3",
+        "coordinates": "opencv_camera",
+        "depth_views": null,
+        "min_value": -1.0,
+        "max_value": 1.0
+      },
+      "depth": {
+        "count": 506,
+        "validation_overlap": 0,
+        "all_finite": true,
+        "source_revision": "3d835ec1a5802d64a8b8b15f817a1ab54809bfe4",
+        "model": "depth-anything/DA3-LARGE",
+        "coordinates": "opencv_camera",
+        "depth_views": 1,
+        "min_value": 0.6284772157669067,
+        "max_value": 1.5966100692749023
+      }
+    }
+  },
+  "control_audit": {
+    "Cat": {
+      "pre_prior_logged_steps": [
+        1,
+        100,
+        200,
+        300,
+        400,
+        500,
+        600,
+        700,
+        800,
+        900
+      ],
+      "same_sampling_sequence": true,
+      "first_loss_equal": true,
+      "max_abs_loss_difference": 0.0010070055723190308,
+      "control_points_at900": 46083,
+      "candidate_points_at900": 46112
+    },
+    "Pixiu": {
+      "pre_prior_logged_steps": [
+        1,
+        100,
+        200,
+        300,
+        400,
+        500,
+        600,
+        700,
+        800,
+        900
+      ],
+      "same_sampling_sequence": true,
+      "first_loss_equal": true,
+      "max_abs_loss_difference": 0.001519419252872467,
+      "control_points_at900": 28899,
+      "candidate_points_at900": 28780
+    }
+  },
+  "model_audit": {
+    "Cat": {
+      "steps": 30000,
+      "points": 128596,
+      "finite_checkpoint_and_losses": true,
+      "canonical_world_parameters_match_capture": true,
+      "population_accounting_passed": true,
+      "split_matches_baseline": true,
+      "fit_count": 470,
+      "validation_count": 52,
+      "prior_first_logged_step": 1000,
+      "full_prior_first_logged_step": 3000,
+      "training_seconds": 535.503109046258,
+      "evaluation_protocol": "training normalized coordinates; depth rescaled to world units, validated by CUDA reload test",
+      "world_renderer_exact_depth_invariance_claimed": false
+    },
+    "Pixiu": {
+      "steps": 30000,
+      "points": 57741,
+      "finite_checkpoint_and_losses": true,
+      "canonical_world_parameters_match_capture": true,
+      "population_accounting_passed": true,
+      "split_matches_baseline": true,
+      "fit_count": 506,
+      "validation_count": 56,
+      "prior_first_logged_step": 1000,
+      "full_prior_first_logged_step": 3000,
+      "training_seconds": 536.8286634562537,
+      "evaluation_protocol": "training normalized coordinates; depth rescaled to world units, validated by CUDA reload test",
+      "world_renderer_exact_depth_invariance_claimed": false
+    },
+    "world_depth_issue": {
+      "rgb_mae": 1.405288969635876e-07,
+      "alpha_mae": 1.2970234308795625e-07,
+      "depth_mae_over_radius": 0.0004738327406812459,
+      "depth_quantiles_over_radius": [
+        1.3539744259105646e-06,
+        3.3849360079329927e-06,
+        8.123846782837063e-06,
+        10.075796127319336
+      ],
+      "depth_fraction_over_1e4": 0.00020620919531211257,
+      "radius": 1.40870361328125,
+      "scale": 14.737977981567383,
+      "frame": 32
+    }
+  },
+  "reevaluation": {
+    "state": "completed",
+    "reason": "Rare scale-sensitive continuous-depth pixels in world-coordinate rendering. Both GGGS control and candidate re-evaluated using training coordinates and world-unit depth. Models unchanged.",
+    "source_overlay": "evaluation_source.tar on top of training source.tar",
+    "jobs": [
+      {
+        "gpu": 0,
+        "kind": "candidate",
+        "scene": "Cat",
+        "argv": [
+          "/workspace/ubuntu2004_cuda12_1/utils/conda-envs/ssd-gs/bin/python",
+          "-u",
+          "evaluate.py",
+          "runs/gggs_normal_depth_geometry/Real_NRHints/Cat/last.pt",
+          "--gggs",
+          "--split",
+          "validation",
+          "--lpips",
+          "--resolution",
+          "512",
+          "--output",
+          "runs/gggs_normal_depth_geometry/Real_NRHints/Cat/validation"
+        ],
+        "state": "completed",
+        "evaluated_frames": 52
+      },
+      {
+        "gpu": 0,
+        "kind": "candidate",
+        "scene": "Cat",
+        "argv": [
+          "/workspace/ubuntu2004_cuda12_1/utils/conda-envs/ssd-gs/bin/python",
+          "-u",
+          "evaluate.py",
+          "runs/gggs_normal_depth_geometry/Real_NRHints/Cat/last.pt",
+          "--gggs",
+          "--split",
+          "fit",
+          "--lpips",
+          "--resolution",
+          "512",
+          "--output",
+          "runs/gggs_normal_depth_geometry/Real_NRHints/Cat/fit_full"
+        ],
+        "state": "completed",
+        "evaluated_frames": 470
+      },
+      {
+        "gpu": 1,
+        "kind": "candidate",
+        "scene": "Pixiu",
+        "argv": [
+          "/workspace/ubuntu2004_cuda12_1/utils/conda-envs/ssd-gs/bin/python",
+          "-u",
+          "evaluate.py",
+          "runs/gggs_normal_depth_geometry/Real_NRHints/Pixiu/last.pt",
+          "--gggs",
+          "--split",
+          "validation",
+          "--lpips",
+          "--resolution",
+          "512",
+          "--output",
+          "runs/gggs_normal_depth_geometry/Real_NRHints/Pixiu/validation"
+        ],
+        "state": "completed",
+        "evaluated_frames": 56
+      },
+      {
+        "gpu": 1,
+        "kind": "candidate",
+        "scene": "Pixiu",
+        "argv": [
+          "/workspace/ubuntu2004_cuda12_1/utils/conda-envs/ssd-gs/bin/python",
+          "-u",
+          "evaluate.py",
+          "runs/gggs_normal_depth_geometry/Real_NRHints/Pixiu/last.pt",
+          "--gggs",
+          "--split",
+          "fit",
+          "--lpips",
+          "--resolution",
+          "512",
+          "--output",
+          "runs/gggs_normal_depth_geometry/Real_NRHints/Pixiu/fit_full"
+        ],
+        "state": "completed",
+        "evaluated_frames": 506
+      },
+      {
+        "gpu": 0,
+        "kind": "reference",
+        "scene": "Cat",
+        "argv": [
+          "/workspace/ubuntu2004_cuda12_1/utils/conda-envs/ssd-gs/bin/python",
+          "-u",
+          "evaluate.py",
+          "runs/gggs_core_geometry/Real_NRHints/Cat/last.pt",
+          "--gggs",
+          "--split",
+          "validation",
+          "--lpips",
+          "--resolution",
+          "512",
+          "--output",
+          "runs/gggs_normal_depth_geometry/references/Cat/validation"
+        ],
+        "state": "completed",
+        "evaluated_frames": 52
+      },
+      {
+        "gpu": 0,
+        "kind": "reference",
+        "scene": "Cat",
+        "argv": [
+          "/workspace/ubuntu2004_cuda12_1/utils/conda-envs/ssd-gs/bin/python",
+          "-u",
+          "evaluate.py",
+          "runs/gggs_core_geometry/Real_NRHints/Cat/last.pt",
+          "--gggs",
+          "--split",
+          "fit",
+          "--lpips",
+          "--resolution",
+          "512",
+          "--output",
+          "runs/gggs_normal_depth_geometry/references/Cat/fit_full"
+        ],
+        "state": "completed",
+        "evaluated_frames": 470
+      },
+      {
+        "gpu": 1,
+        "kind": "reference",
+        "scene": "Pixiu",
+        "argv": [
+          "/workspace/ubuntu2004_cuda12_1/utils/conda-envs/ssd-gs/bin/python",
+          "-u",
+          "evaluate.py",
+          "runs/gggs_core_geometry/Real_NRHints/Pixiu/last.pt",
+          "--gggs",
+          "--split",
+          "validation",
+          "--lpips",
+          "--resolution",
+          "512",
+          "--output",
+          "runs/gggs_normal_depth_geometry/references/Pixiu/validation"
+        ],
+        "state": "completed",
+        "evaluated_frames": 56
+      },
+      {
+        "gpu": 1,
+        "kind": "reference",
+        "scene": "Pixiu",
+        "argv": [
+          "/workspace/ubuntu2004_cuda12_1/utils/conda-envs/ssd-gs/bin/python",
+          "-u",
+          "evaluate.py",
+          "runs/gggs_core_geometry/Real_NRHints/Pixiu/last.pt",
+          "--gggs",
+          "--split",
+          "fit",
+          "--lpips",
+          "--resolution",
+          "512",
+          "--output",
+          "runs/gggs_normal_depth_geometry/references/Pixiu/fit_full"
+        ],
+        "state": "completed",
+        "evaluated_frames": 506
+      }
+    ]
+  },
+  "teacher_fit_diagnostic": {
+    "scope": "Four fixed fit views; unweighted teacher losses on each model own training-valid mask, not geometry GT.",
+    "scenes": {
+      "Cat": {
+        "baseline": [
+          {
+            "frame": 0,
+            "normal_prior": 0.19520801305770874,
+            "depth_prior": 0.014575706794857979
+          },
+          {
+            "frame": 168,
+            "normal_prior": 0.1597575843334198,
+            "depth_prior": 0.010138053447008133
+          },
+          {
+            "frame": 337,
+            "normal_prior": 0.22753503918647766,
+            "depth_prior": 0.029553508386015892
+          },
+          {
+            "frame": 521,
+            "normal_prior": 0.19037604331970215,
+            "depth_prior": 0.002506932709366083
+          }
+        ],
+        "priors": [
+          {
+            "frame": 0,
+            "normal_prior": 0.1185472309589386,
+            "depth_prior": 0.014134903438389301
+          },
+          {
+            "frame": 168,
+            "normal_prior": 0.08909854292869568,
+            "depth_prior": 0.009762754663825035
+          },
+          {
+            "frame": 337,
+            "normal_prior": 0.1836850345134735,
+            "depth_prior": 0.02928069606423378
+          },
+          {
+            "frame": 521,
+            "normal_prior": 0.14364999532699585,
+            "depth_prior": 0.0024957088753581047
+          }
+        ]
+      },
+      "Pixiu": {
+        "baseline": [
+          {
+            "frame": 0,
+            "normal_prior": 0.3329632878303528,
+            "depth_prior": 0.024695780128240585
+          },
+          {
+            "frame": 184,
+            "normal_prior": 0.29268187284469604,
+            "depth_prior": 0.005923301447182894
+          },
+          {
+            "frame": 369,
+            "normal_prior": 0.3118496537208557,
+            "depth_prior": 0.02728748507797718
+          },
+          {
+            "frame": 561,
+            "normal_prior": 0.31138959527015686,
+            "depth_prior": 0.03880395367741585
+          }
+        ],
+        "priors": [
+          {
+            "frame": 0,
+            "normal_prior": 0.1043805181980133,
+            "depth_prior": 0.006731894798576832
+          },
+          {
+            "frame": 184,
+            "normal_prior": 0.09489341825246811,
+            "depth_prior": 0.007271711248904467
+          },
+          {
+            "frame": 369,
+            "normal_prior": 0.12136827409267426,
+            "depth_prior": 0.028256280347704887
+          },
+          {
+            "frame": 561,
+            "normal_prior": 0.14040786027908325,
+            "depth_prior": 0.03873499855399132
+          }
+        ]
+      }
+    }
+  },
+  "scenes": {
+    "Cat": {
+      "baseline": {
+        "validation": {
+          "checkpoint": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/gggs_core_geometry/Real_NRHints/Cat/last.pt",
+          "evaluated_frames": 52,
+          "metrics": {
+            "PSNR": 14.583541466639591,
+            "SSIM": 0.7192394435405731,
+            "silhouette_IoU": 0.9508583797858312,
+            "alpha_L1": 0.019488339733260755,
+            "self_normal_angular_error": 0.011976889522674564,
+            "valid_surface_fraction": 0.42568859687218297,
+            "boundary_F1_2px": 0.3430775724699548,
+            "boundary_precision_2px": 0.3891776642550553,
+            "boundary_recall_2px": 0.30741997211686534,
+            "boundary_outward_fraction_over_2px": 0.4818892572853232,
+            "boundary_outward_p95_px": 8.355455464583176,
+            "boundary_depth_normal_roughness_p95_deg": 14.62514039186331,
+            "LPIPS": 0.29148290678858757
+          },
+          "render_coordinate_protocol": "training-normalized GGGS solver, depth returned in world units"
+        },
+        "fit_full": {
+          "checkpoint": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/gggs_core_geometry/Real_NRHints/Cat/last.pt",
+          "evaluated_frames": 470,
+          "metrics": {
+            "PSNR": 15.48369546139494,
+            "SSIM": 0.7313348090395014,
+            "silhouette_IoU": 0.9448268862480813,
+            "alpha_L1": 0.0226233933467735,
+            "self_normal_angular_error": 0.012655323970706222,
+            "valid_surface_fraction": 0.41470040666296126,
+            "boundary_F1_2px": 0.3268007532552192,
+            "boundary_precision_2px": 0.3700617546568125,
+            "boundary_recall_2px": 0.2933511387477477,
+            "boundary_outward_fraction_over_2px": 0.48512965711378214,
+            "boundary_outward_p95_px": 9.543202887900332,
+            "boundary_depth_normal_roughness_p95_deg": 15.755407451061492,
+            "LPIPS": 0.28279709926945096
+          },
+          "render_coordinate_protocol": "training-normalized GGGS solver, depth returned in world units"
+        }
+      },
+      "normal_depth_priors": {
+        "validation": {
+          "checkpoint": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/gggs_normal_depth_geometry/Real_NRHints/Cat/last.pt",
+          "evaluated_frames": 52,
+          "metrics": {
+            "PSNR": 14.58672312589792,
+            "SSIM": 0.719738978606004,
+            "silhouette_IoU": 0.9501703633711889,
+            "alpha_L1": 0.01958793377539573,
+            "self_normal_angular_error": 0.025049948133528233,
+            "valid_surface_fraction": 0.42482933631310094,
+            "boundary_F1_2px": 0.33593977265208796,
+            "boundary_precision_2px": 0.3828663431439513,
+            "boundary_recall_2px": 0.3000322353446375,
+            "boundary_outward_fraction_over_2px": 0.496129236841264,
+            "boundary_outward_p95_px": 8.569574268047624,
+            "boundary_depth_normal_roughness_p95_deg": 13.059812114788937,
+            "LPIPS": 0.29406589900071806
+          },
+          "render_coordinate_protocol": "training-normalized GGGS solver, depth returned in world units"
+        },
+        "fit_full": {
+          "checkpoint": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/gggs_normal_depth_geometry/Real_NRHints/Cat/last.pt",
+          "evaluated_frames": 470,
+          "metrics": {
+            "PSNR": 15.491423121919023,
+            "SSIM": 0.7300944561653949,
+            "silhouette_IoU": 0.9437525324364926,
+            "alpha_L1": 0.02283033131265101,
+            "self_normal_angular_error": 0.02649302790734045,
+            "valid_surface_fraction": 0.41398206670233545,
+            "boundary_F1_2px": 0.31656329627260965,
+            "boundary_precision_2px": 0.3614502949848712,
+            "boundary_recall_2px": 0.28227777656264796,
+            "boundary_outward_fraction_over_2px": 0.5009166819213111,
+            "boundary_outward_p95_px": 9.83645367683248,
+            "boundary_depth_normal_roughness_p95_deg": 13.5326593703412,
+            "LPIPS": 0.28650837302842036
+          },
+          "render_coordinate_protocol": "training-normalized GGGS solver, depth returned in world units"
+        }
+      },
+      "validation_delta": {
+        "PSNR": 0.0031816592583293613,
+        "SSIM": 0.0004995350654308783,
+        "silhouette_IoU": -0.000688016414642334,
+        "alpha_L1": 9.959404213497405e-05,
+        "self_normal_angular_error": 0.013073058610853668,
+        "valid_surface_fraction": -0.0008592605590820312,
+        "boundary_F1_2px": -0.00713779981786683,
+        "boundary_precision_2px": -0.006311321111103996,
+        "boundary_recall_2px": -0.007387736772227815,
+        "boundary_outward_fraction_over_2px": 0.014239979555940752,
+        "boundary_outward_p95_px": 0.2141188034644479,
+        "boundary_depth_normal_roughness_p95_deg": -1.5653282770743733,
+        "LPIPS": 0.002582992212130486
+      },
+      "geometry_gate_passed": false,
+      "review": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/gggs_normal_depth_geometry/review/Cat/depth_clay_closeup.png"
+    },
+    "Pixiu": {
+      "baseline": {
+        "validation": {
+          "checkpoint": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/gggs_core_geometry/Real_NRHints/Pixiu/last.pt",
+          "evaluated_frames": 56,
+          "metrics": {
+            "PSNR": 18.33460783958435,
+            "SSIM": 0.8462304866739682,
+            "silhouette_IoU": 0.9105847211820739,
+            "alpha_L1": 0.01838652789592743,
+            "self_normal_angular_error": 0.030102616641670465,
+            "valid_surface_fraction": 0.1915144239153181,
+            "boundary_F1_2px": 0.380111965995204,
+            "boundary_precision_2px": 0.37774460925701764,
+            "boundary_recall_2px": 0.38428915282588394,
+            "boundary_outward_fraction_over_2px": 0.5083378771899706,
+            "boundary_outward_p95_px": 16.48435414433479,
+            "boundary_depth_normal_roughness_p95_deg": 29.09160762173789,
+            "LPIPS": 0.16110138621713435
+          },
+          "render_coordinate_protocol": "training-normalized GGGS solver, depth returned in world units"
+        },
+        "fit_full": {
+          "checkpoint": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/gggs_core_geometry/Real_NRHints/Pixiu/last.pt",
+          "evaluated_frames": 506,
+          "metrics": {
+            "PSNR": 20.158718772556472,
+            "SSIM": 0.8645477031059416,
+            "silhouette_IoU": 0.9139800591195525,
+            "alpha_L1": 0.01737172790828783,
+            "self_normal_angular_error": 0.029229674028166435,
+            "valid_surface_fraction": 0.18797973964525305,
+            "boundary_F1_2px": 0.39890571486851256,
+            "boundary_precision_2px": 0.39380910817227743,
+            "boundary_recall_2px": 0.406029948702562,
+            "boundary_outward_fraction_over_2px": 0.5109403071092045,
+            "boundary_outward_p95_px": 16.36117849448924,
+            "boundary_depth_normal_roughness_p95_deg": 29.26512435490906,
+            "LPIPS": 0.1507477822746684
+          },
+          "render_coordinate_protocol": "training-normalized GGGS solver, depth returned in world units"
+        }
+      },
+      "normal_depth_priors": {
+        "validation": {
+          "checkpoint": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/gggs_normal_depth_geometry/Real_NRHints/Pixiu/last.pt",
+          "evaluated_frames": 56,
+          "metrics": {
+            "PSNR": 18.33610234941755,
+            "SSIM": 0.8466946046267237,
+            "silhouette_IoU": 0.9009952821901867,
+            "alpha_L1": 0.022557381773367524,
+            "self_normal_angular_error": 0.038819010402741175,
+            "valid_surface_fraction": 0.18378148760114396,
+            "boundary_F1_2px": 0.3334585941495325,
+            "boundary_precision_2px": 0.35709846989024097,
+            "boundary_recall_2px": 0.31476464194934467,
+            "boundary_outward_fraction_over_2px": 0.5016426275040641,
+            "boundary_outward_p95_px": 13.906409124817163,
+            "boundary_depth_normal_roughness_p95_deg": 13.760859608650208,
+            "LPIPS": 0.16284688575459377
+          },
+          "render_coordinate_protocol": "training-normalized GGGS solver, depth returned in world units"
+        },
+        "fit_full": {
+          "checkpoint": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/gggs_normal_depth_geometry/Real_NRHints/Pixiu/last.pt",
+          "evaluated_frames": 506,
+          "metrics": {
+            "PSNR": 20.155591857291963,
+            "SSIM": 0.8639428217420465,
+            "silhouette_IoU": 0.9035014673890803,
+            "alpha_L1": 0.022121689431442926,
+            "self_normal_angular_error": 0.03795459340492138,
+            "valid_surface_fraction": 0.17990587257113852,
+            "boundary_F1_2px": 0.35279710152810057,
+            "boundary_precision_2px": 0.3747520772473002,
+            "boundary_recall_2px": 0.33476998301654093,
+            "boundary_outward_fraction_over_2px": 0.49564760114616546,
+            "boundary_outward_p95_px": 13.846619767303995,
+            "boundary_depth_normal_roughness_p95_deg": 13.788745914994493,
+            "LPIPS": 0.15225639831819554
+          },
+          "render_coordinate_protocol": "training-normalized GGGS solver, depth returned in world units"
+        }
+      },
+      "validation_delta": {
+        "PSNR": 0.0014945098332006523,
+        "SSIM": 0.00046411795275558276,
+        "silhouette_IoU": -0.009589438991887245,
+        "alpha_L1": 0.004170853877440095,
+        "self_normal_angular_error": 0.00871639376107071,
+        "valid_surface_fraction": -0.007732936314174127,
+        "boundary_F1_2px": -0.04665337184567153,
+        "boundary_precision_2px": -0.020646139366776672,
+        "boundary_recall_2px": -0.06952451087653927,
+        "boundary_outward_fraction_over_2px": -0.0066952496859065125,
+        "boundary_outward_p95_px": -2.577945019517628,
+        "boundary_depth_normal_roughness_p95_deg": -15.330748013087682,
+        "LPIPS": 0.0017454995374594218
+      },
+      "geometry_gate_passed": false,
+      "review": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/gggs_normal_depth_geometry/review/Pixiu/depth_clay_closeup.png"
+    }
+  }
+}

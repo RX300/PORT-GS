@@ -1,0 +1,891 @@
+{
+  "status": "completed",
+  "method": "directional_port_v1",
+  "steps": 30000,
+  "resolution": 512,
+  "geometry_frozen": false,
+  "geometry_source": "gggs_normal_depth_geometry",
+  "scenes": {
+    "Cat": {
+      "test": {
+        "evaluated_frames": 66,
+        "metrics": {
+          "PSNR": 21.819261579802543,
+          "SSIM": 0.7702229736429272,
+          "raw_MSE": 0.00760358524029002,
+          "alpha_L1": 0.014871252220914219,
+          "LPIPS": 0.2281268442218954,
+          "neutral_peak_metrics": {
+            "pixels": 1101,
+            "predicted_pixels": 105,
+            "matched_predicted_pixels_2px": 2,
+            "matched_target_pixels_2px": 4,
+            "rgb_mae": 0.16555597797564006,
+            "target_contrast": 0.2363260817814696,
+            "predicted_contrast": 0.010149132380998422,
+            "contrast_ratio": 0.04294546037615649,
+            "precision_2px": 0.01904761904761905,
+            "recall_2px": 0.0036330608537693005
+          },
+          "neutral_peak_components": {
+            "total_predicted_peak_pixels": 105,
+            "buckets": {
+              "1_to_4": {
+                "sums": {
+                  "component_count": 368,
+                  "gt_peak_pixels": 575,
+                  "absolute_rgb_error_sum": 315.97254943847656,
+                  "target_contrast_sum": 131.49342608451843,
+                  "predicted_contrast_sum": 4.8119931891560555,
+                  "matched_gt_pixels_2px": 2,
+                  "components_with_at_least_one_hit": 1
+                },
+                "metrics": {
+                  "component_count": 368,
+                  "gt_peak_pixels": 575,
+                  "rgb_mae": 0.18317249242810235,
+                  "target_contrast": 0.22868421927742336,
+                  "predicted_contrast": 0.008368683807227922,
+                  "contrast_ratio": 0.03659493354491432,
+                  "matched_gt_pixels_2px": 2,
+                  "pixel_recall_2px": 0.0034782608695652175,
+                  "components_with_at_least_one_hit": 1,
+                  "component_any_hit_fraction": 0.002717391304347826
+                }
+              },
+              "5_to_16": {
+                "sums": {
+                  "component_count": 42,
+                  "gt_peak_pixels": 294,
+                  "absolute_rgb_error_sum": 151.02744710445404,
+                  "target_contrast_sum": 69.79846578836441,
+                  "predicted_contrast_sum": 4.22549894452095,
+                  "matched_gt_pixels_2px": 2,
+                  "components_with_at_least_one_hit": 1
+                },
+                "metrics": {
+                  "component_count": 42,
+                  "gt_peak_pixels": 294,
+                  "rgb_mae": 0.17123293322500457,
+                  "target_contrast": 0.23740974757947078,
+                  "predicted_contrast": 0.014372445389527042,
+                  "contrast_ratio": 0.06053856480646817,
+                  "matched_gt_pixels_2px": 2,
+                  "pixel_recall_2px": 0.006802721088435374,
+                  "components_with_at_least_one_hit": 1,
+                  "component_any_hit_fraction": 0.023809523809523808
+                }
+              },
+              "gt16": {
+                "sums": {
+                  "component_count": 8,
+                  "gt_peak_pixels": 232,
+                  "absolute_rgb_error_sum": 79.83136796951294,
+                  "target_contrast_sum": 58.90310192108154,
+                  "predicted_contrast_sum": 2.136692315340042,
+                  "matched_gt_pixels_2px": 0,
+                  "components_with_at_least_one_hit": 0
+                },
+                "metrics": {
+                  "component_count": 8,
+                  "gt_peak_pixels": 232,
+                  "rgb_mae": 0.1147002413355071,
+                  "target_contrast": 0.253892680694317,
+                  "predicted_contrast": 0.009209880669569147,
+                  "contrast_ratio": 0.036274699390242394,
+                  "matched_gt_pixels_2px": 0,
+                  "pixel_recall_2px": 0.0,
+                  "components_with_at_least_one_hit": 0,
+                  "component_any_hit_fraction": 0.0
+                }
+              }
+            }
+          }
+        }
+      },
+      "fit_full": {
+        "evaluated_frames": 522,
+        "metrics": {
+          "PSNR": 24.813461420636525,
+          "SSIM": 0.8345130389677611,
+          "raw_MSE": 0.004252311621723033,
+          "alpha_L1": 0.025354488483376774,
+          "LPIPS": 0.20889188334973835,
+          "neutral_peak_metrics": {
+            "pixels": 8917,
+            "predicted_pixels": 457,
+            "matched_predicted_pixels_2px": 199,
+            "matched_target_pixels_2px": 290,
+            "rgb_mae": 0.17262042120259494,
+            "target_contrast": 0.22890575212575107,
+            "predicted_contrast": 0.04501919646519358,
+            "contrast_ratio": 0.19667132017050387,
+            "precision_2px": 0.43544857768052514,
+            "recall_2px": 0.03252214870472132
+          },
+          "neutral_peak_components": {
+            "total_predicted_peak_pixels": 457,
+            "buckets": {
+              "1_to_4": {
+                "sums": {
+                  "component_count": 2505,
+                  "gt_peak_pixels": 3999,
+                  "absolute_rgb_error_sum": 2137.929394096136,
+                  "target_contrast_sum": 892.5119990706444,
+                  "predicted_contrast_sum": 150.91391814872622,
+                  "matched_gt_pixels_2px": 57,
+                  "components_with_at_least_one_hit": 32
+                },
+                "metrics": {
+                  "component_count": 2505,
+                  "gt_peak_pixels": 3999,
+                  "rgb_mae": 0.1782053341748884,
+                  "target_contrast": 0.22318379571659025,
+                  "predicted_contrast": 0.03773791401568548,
+                  "contrast_ratio": 0.16908895152767692,
+                  "matched_gt_pixels_2px": 57,
+                  "pixel_recall_2px": 0.014253563390847712,
+                  "components_with_at_least_one_hit": 32,
+                  "component_any_hit_fraction": 0.01277445109780439
+                }
+              },
+              "5_to_16": {
+                "sums": {
+                  "component_count": 408,
+                  "gt_peak_pixels": 3213,
+                  "absolute_rgb_error_sum": 1508.847025513649,
+                  "target_contrast_sum": 751.172402381897,
+                  "predicted_contrast_sum": 185.82477916777134,
+                  "matched_gt_pixels_2px": 122,
+                  "components_with_at_least_one_hit": 20
+                },
+                "metrics": {
+                  "component_count": 408,
+                  "gt_peak_pixels": 3213,
+                  "rgb_mae": 0.1565356391237316,
+                  "target_contrast": 0.23379159737998662,
+                  "predicted_contrast": 0.05783528763391576,
+                  "contrast_ratio": 0.24737966754175,
+                  "matched_gt_pixels_2px": 122,
+                  "pixel_recall_2px": 0.037970743853096796,
+                  "components_with_at_least_one_hit": 20,
+                  "component_any_hit_fraction": 0.049019607843137254
+                }
+              },
+              "gt16": {
+                "sums": {
+                  "component_count": 53,
+                  "gt_peak_pixels": 1705,
+                  "absolute_rgb_error_sum": 970.9921171665192,
+                  "target_contrast_sum": 397.4679596424103,
+                  "predicted_contrast_sum": 64.69742541015148,
+                  "matched_gt_pixels_2px": 111,
+                  "components_with_at_least_one_hit": 6
+                },
+                "metrics": {
+                  "component_count": 53,
+                  "gt_peak_pixels": 1705,
+                  "rgb_mae": 0.1898322809709715,
+                  "target_contrast": 0.2331190379134371,
+                  "predicted_contrast": 0.03794570405287477,
+                  "contrast_ratio": 0.16277393898204467,
+                  "matched_gt_pixels_2px": 111,
+                  "pixel_recall_2px": 0.06510263929618769,
+                  "components_with_at_least_one_hit": 6,
+                  "component_any_hit_fraction": 0.11320754716981132
+                }
+              }
+            }
+          }
+        }
+      },
+      "references": {
+        "old_default": {
+          "PSNR": 21.53618436871153,
+          "SSIM": 0.766465197909962,
+          "LPIPS": 0.23040520986824325
+        },
+        "fixed_local": {
+          "PSNR": 22.516769380280465,
+          "SSIM": 0.7745599683487054,
+          "LPIPS": 0.26332965380314627
+        }
+      },
+      "delta_vs_old_default": {
+        "PSNR": 0.2830772110910118,
+        "SSIM": 0.0037577757329652073,
+        "LPIPS": -0.0022783656463478685
+      },
+      "geometry_review": {
+        "checkpoint": "runs/gggs_default_joint/Real_NRHints/Cat/last.pt",
+        "representation": "directional_port_v1",
+        "step": 30000,
+        "source": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/gggs_normal_depth_geometry/Real_NRHints/Cat/last.pt",
+        "split": "train",
+        "fixed_indices": [
+          0,
+          261,
+          521
+        ],
+        "initial_points": 128596,
+        "final_points": 399118,
+        "views": [
+          {
+            "frame_index": 0,
+            "metrics": {
+              "GGGS continuous depth": {
+                "silhouette_IoU": 0.9630324244499207,
+                "alpha_L1": 0.011029144749045372,
+                "boundary_F1_2px": 0.43811434302908725,
+                "boundary_precision_2px": 0.5016077170418006,
+                "boundary_recall_2px": 0.3888888888888889,
+                "boundary_outward_fraction_over_2px": 0.4964630225080386,
+                "boundary_outward_p95_px": 6.0,
+                "boundary_depth_normal_roughness_p95_deg": 15.509482383728027
+              },
+              "Imported / default depth": {
+                "silhouette_IoU": 0.9605344533920288,
+                "alpha_L1": 0.010906929150223732,
+                "boundary_F1_2px": 0.40280378135357364,
+                "boundary_precision_2px": 0.4656831302116741,
+                "boundary_recall_2px": 0.35488505747126436,
+                "boundary_outward_fraction_over_2px": 0.5330339961513791,
+                "boundary_outward_p95_px": 6.082762718200684,
+                "boundary_depth_normal_roughness_p95_deg": 30.472183227539062
+              },
+              "Joint final / default depth": {
+                "silhouette_IoU": 0.9402661323547363,
+                "alpha_L1": 0.01628546603024006,
+                "boundary_F1_2px": 0.191666564413414,
+                "boundary_precision_2px": 0.22125,
+                "boundary_recall_2px": 0.16906130268199235,
+                "boundary_outward_fraction_over_2px": 0.77875,
+                "boundary_outward_p95_px": 9.486832618713379,
+                "boundary_depth_normal_roughness_p95_deg": 44.71371078491211
+              },
+              "Joint final / GGGS depth": {
+                "silhouette_IoU": 0.944587767124176,
+                "alpha_L1": 0.015742715448141098,
+                "boundary_F1_2px": 0.224122937637739,
+                "boundary_precision_2px": 0.2577189666036547,
+                "boundary_recall_2px": 0.19827586206896552,
+                "boundary_outward_fraction_over_2px": 0.7422810333963453,
+                "boundary_outward_p95_px": 9.05538558959961,
+                "boundary_depth_normal_roughness_p95_deg": 50.561737060546875
+              }
+            },
+            "initial_continuous_roundtrip": {
+              "alpha_max_abs": 0.00034815073013305664,
+              "alpha_mean_abs": 2.338306792637468e-08,
+              "alpha_p99_abs": 4.470348358154297e-07,
+              "physical_parameter_check": true,
+              "depth_median_abs_over_radius": 0.0,
+              "depth_p99_abs_over_radius": 9.603704711480532e-07,
+              "compared_depth_pixels": 103205
+            }
+          },
+          {
+            "frame_index": 261,
+            "metrics": {
+              "GGGS continuous depth": {
+                "silhouette_IoU": 0.9629343748092651,
+                "alpha_L1": 0.009711839258670807,
+                "boundary_F1_2px": 0.44314313593398164,
+                "boundary_precision_2px": 0.5591250854408749,
+                "boundary_recall_2px": 0.36701208981001726,
+                "boundary_outward_fraction_over_2px": 0.43609022556390975,
+                "boundary_outward_p95_px": 5.830951690673828,
+                "boundary_depth_normal_roughness_p95_deg": 15.087555885314941
+              },
+              "Imported / default depth": {
+                "silhouette_IoU": 0.9603216648101807,
+                "alpha_L1": 0.009478574618697166,
+                "boundary_F1_2px": 0.4012254515789068,
+                "boundary_precision_2px": 0.5098841172460804,
+                "boundary_recall_2px": 0.33074265975820377,
+                "boundary_outward_fraction_over_2px": 0.4867075664621677,
+                "boundary_outward_p95_px": 6.082762718200684,
+                "boundary_depth_normal_roughness_p95_deg": 18.59900665283203
+              },
+              "Joint final / default depth": {
+                "silhouette_IoU": 0.9420942068099976,
+                "alpha_L1": 0.01315908133983612,
+                "boundary_F1_2px": 0.19032092791475005,
+                "boundary_precision_2px": 0.23258785942492013,
+                "boundary_recall_2px": 0.16105354058721935,
+                "boundary_outward_fraction_over_2px": 0.7674121405750799,
+                "boundary_outward_p95_px": 7.071067810058594,
+                "boundary_depth_normal_roughness_p95_deg": 39.707393646240234
+              },
+              "Joint final / GGGS depth": {
+                "silhouette_IoU": 0.9470883011817932,
+                "alpha_L1": 0.013078887015581131,
+                "boundary_F1_2px": 0.22423204174557856,
+                "boundary_precision_2px": 0.27444589308996087,
+                "boundary_recall_2px": 0.1895509499136442,
+                "boundary_outward_fraction_over_2px": 0.7255541069100391,
+                "boundary_outward_p95_px": 6.4031243324279785,
+                "boundary_depth_normal_roughness_p95_deg": 54.181480407714844
+              }
+            },
+            "initial_continuous_roundtrip": {
+              "alpha_max_abs": 0.000704348087310791,
+              "alpha_mean_abs": 2.148651923050693e-08,
+              "alpha_p99_abs": 3.650784492492676e-07,
+              "physical_parameter_check": true,
+              "depth_median_abs_over_radius": 0.0,
+              "depth_p99_abs_over_radius": 9.603704711480532e-07,
+              "compared_depth_pixels": 106930
+            }
+          },
+          {
+            "frame_index": 521,
+            "metrics": {
+              "GGGS continuous depth": {
+                "silhouette_IoU": 0.9665513634681702,
+                "alpha_L1": 0.008711258880794048,
+                "boundary_F1_2px": 0.3945255265333518,
+                "boundary_precision_2px": 0.4914251921939681,
+                "boundary_recall_2px": 0.32954545454545453,
+                "boundary_outward_fraction_over_2px": 0.5085748078060319,
+                "boundary_outward_p95_px": 5.049509763717651,
+                "boundary_depth_normal_roughness_p95_deg": 16.61585807800293
+              },
+              "Imported / default depth": {
+                "silhouette_IoU": 0.9615964889526367,
+                "alpha_L1": 0.00924373883754015,
+                "boundary_F1_2px": 0.31967449418178,
+                "boundary_precision_2px": 0.40242494226327946,
+                "boundary_recall_2px": 0.26515151515151514,
+                "boundary_outward_fraction_over_2px": 0.5975750577367206,
+                "boundary_outward_p95_px": 6.0,
+                "boundary_depth_normal_roughness_p95_deg": 34.24675369262695
+              },
+              "Joint final / default depth": {
+                "silhouette_IoU": 0.9512432813644409,
+                "alpha_L1": 0.014459210447967052,
+                "boundary_F1_2px": 0.20425590147109132,
+                "boundary_precision_2px": 0.25200918484500573,
+                "boundary_recall_2px": 0.1717171717171717,
+                "boundary_outward_fraction_over_2px": 0.7479908151549942,
+                "boundary_outward_p95_px": 8.062257766723633,
+                "boundary_depth_normal_roughness_p95_deg": 51.20443344116211
+              },
+              "Joint final / GGGS depth": {
+                "silhouette_IoU": 0.9560069441795349,
+                "alpha_L1": 0.013204049319028854,
+                "boundary_F1_2px": 0.2564382667335585,
+                "boundary_precision_2px": 0.31480397893504974,
+                "boundary_recall_2px": 0.21632996632996632,
+                "boundary_outward_fraction_over_2px": 0.6851960210649503,
+                "boundary_outward_p95_px": 7.211102485656738,
+                "boundary_depth_normal_roughness_p95_deg": 62.537818908691406
+              }
+            },
+            "initial_continuous_roundtrip": {
+              "alpha_max_abs": 4.786252975463867e-05,
+              "alpha_mean_abs": 2.0924559862578462e-08,
+              "alpha_p99_abs": 5.029141902923584e-07,
+              "physical_parameter_check": true,
+              "depth_median_abs_over_radius": 0.0,
+              "depth_p99_abs_over_radius": 9.603704711480532e-07,
+              "compared_depth_pixels": 126395
+            }
+          }
+        ],
+        "scope": "No geometry GT. Three fixed train views, both initial/final expected-center-depth and initial/final GGGS continuous-depth. Imported filter is baked exactly once. Initial continuous roundtrip checked. Silhouette and roughness are proxies, not shape accuracy."
+      },
+      "fixed_three_train_view_means": {
+        "GGGS continuous depth": {
+          "silhouette_IoU": 0.9641727209091187,
+          "boundary_F1_2px": 0.4252610018321403,
+          "boundary_depth_normal_roughness_p95_deg": 15.737632115681967
+        },
+        "Imported / default depth": {
+          "silhouette_IoU": 0.9608175357182821,
+          "boundary_F1_2px": 0.37456790903808684,
+          "boundary_depth_normal_roughness_p95_deg": 27.772647857666016
+        },
+        "Joint final / default depth": {
+          "silhouette_IoU": 0.9445345401763916,
+          "boundary_F1_2px": 0.19541446459975179,
+          "boundary_depth_normal_roughness_p95_deg": 45.20851262410482
+        },
+        "Joint final / GGGS depth": {
+          "silhouette_IoU": 0.9492276708285013,
+          "boundary_F1_2px": 0.2349310820389587,
+          "boundary_depth_normal_roughness_p95_deg": 55.760345458984375
+        }
+      }
+    },
+    "Pixiu": {
+      "test": {
+        "evaluated_frames": 71,
+        "metrics": {
+          "PSNR": 20.543584098278636,
+          "SSIM": 0.8450647206373618,
+          "raw_MSE": 0.00951476936215456,
+          "alpha_L1": 0.028462809654818455,
+          "LPIPS": 0.1559933828006328,
+          "neutral_peak_metrics": {
+            "pixels": 26147,
+            "predicted_pixels": 2407,
+            "matched_predicted_pixels_2px": 647,
+            "matched_target_pixels_2px": 643,
+            "rgb_mae": 0.40128995871668804,
+            "target_contrast": 0.33904072472496316,
+            "predicted_contrast": -0.0007720275198778866,
+            "contrast_ratio": -0.0022770937636007334,
+            "precision_2px": 0.26879933527212296,
+            "recall_2px": 0.024591731364974948
+          },
+          "neutral_peak_components": {
+            "total_predicted_peak_pixels": 2407,
+            "buckets": {
+              "1_to_4": {
+                "sums": {
+                  "component_count": 2880,
+                  "gt_peak_pixels": 5324,
+                  "absolute_rgb_error_sum": 5577.627531051636,
+                  "target_contrast_sum": 1784.9135057926178,
+                  "predicted_contrast_sum": -3.7983723171055317,
+                  "matched_gt_pixels_2px": 80,
+                  "components_with_at_least_one_hit": 46
+                },
+                "metrics": {
+                  "component_count": 2880,
+                  "gt_peak_pixels": 5324,
+                  "rgb_mae": 0.3492128431662682,
+                  "target_contrast": 0.33525798380777944,
+                  "predicted_contrast": -0.0007134433352940518,
+                  "contrast_ratio": -0.0021280427901848426,
+                  "matched_gt_pixels_2px": 80,
+                  "pixel_recall_2px": 0.015026296018031555,
+                  "components_with_at_least_one_hit": 46,
+                  "component_any_hit_fraction": 0.01597222222222222
+                }
+              },
+              "5_to_16": {
+                "sums": {
+                  "component_count": 1054,
+                  "gt_peak_pixels": 8964,
+                  "absolute_rgb_error_sum": 10400.999961853027,
+                  "target_contrast_sum": 3264.6245040893555,
+                  "predicted_contrast_sum": -4.882747244089842,
+                  "matched_gt_pixels_2px": 217,
+                  "components_with_at_least_one_hit": 45
+                },
+                "metrics": {
+                  "component_count": 1054,
+                  "gt_peak_pixels": 8964,
+                  "rgb_mae": 0.3867692980013769,
+                  "target_contrast": 0.3641928273192052,
+                  "predicted_contrast": -0.0005447062967525482,
+                  "contrast_ratio": -0.0014956535546350224,
+                  "matched_gt_pixels_2px": 217,
+                  "pixel_recall_2px": 0.024207942882641678,
+                  "components_with_at_least_one_hit": 45,
+                  "component_any_hit_fraction": 0.04269449715370019
+                }
+              },
+              "gt16": {
+                "sums": {
+                  "component_count": 365,
+                  "gt_peak_pixels": 11859,
+                  "absolute_rgb_error_sum": 15498.956937789917,
+                  "target_contrast_sum": 3815.35915851593,
+                  "predicted_contrast_sum": -11.505200289189816,
+                  "matched_gt_pixels_2px": 346,
+                  "components_with_at_least_one_hit": 27
+                },
+                "metrics": {
+                  "component_count": 365,
+                  "gt_peak_pixels": 11859,
+                  "rgb_mae": 0.43564541523427824,
+                  "target_contrast": 0.3217268874707758,
+                  "predicted_contrast": -0.0009701661429454267,
+                  "contrast_ratio": -0.0030154960021286756,
+                  "matched_gt_pixels_2px": 346,
+                  "pixel_recall_2px": 0.029176153132641876,
+                  "components_with_at_least_one_hit": 27,
+                  "component_any_hit_fraction": 0.07397260273972603
+                }
+              }
+            }
+          }
+        }
+      },
+      "fit_full": {
+        "evaluated_frames": 562,
+        "metrics": {
+          "PSNR": 27.497561515862408,
+          "SSIM": 0.9089816479920493,
+          "raw_MSE": 0.002038835508817661,
+          "alpha_L1": 0.0292702377044672,
+          "LPIPS": 0.11833003694953867,
+          "neutral_peak_metrics": {
+            "pixels": 212877,
+            "predicted_pixels": 28696,
+            "matched_predicted_pixels_2px": 24623,
+            "matched_target_pixels_2px": 28660,
+            "rgb_mae": 0.3184153919748138,
+            "target_contrast": 0.338029432878416,
+            "predicted_contrast": 0.038970391455969165,
+            "contrast_ratio": 0.11528697700707682,
+            "precision_2px": 0.8580638416504043,
+            "recall_2px": 0.13463173569713965
+          },
+          "neutral_peak_components": {
+            "total_predicted_peak_pixels": 28696,
+            "buckets": {
+              "1_to_4": {
+                "sums": {
+                  "component_count": 21237,
+                  "gt_peak_pixels": 40429,
+                  "absolute_rgb_error_sum": 32092.137357234955,
+                  "target_contrast_sum": 13577.277246713638,
+                  "predicted_contrast_sum": 1472.6217558830976,
+                  "matched_gt_pixels_2px": 2271,
+                  "components_with_at_least_one_hit": 1200
+                },
+                "metrics": {
+                  "component_count": 21237,
+                  "gt_peak_pixels": 40429,
+                  "rgb_mae": 0.26459667859898384,
+                  "target_contrast": 0.33583015277928313,
+                  "predicted_contrast": 0.03642488698417219,
+                  "contrast_ratio": 0.10846222914388404,
+                  "matched_gt_pixels_2px": 2271,
+                  "pixel_recall_2px": 0.05617254940760345,
+                  "components_with_at_least_one_hit": 1200,
+                  "component_any_hit_fraction": 0.05650515609549371
+                }
+              },
+              "5_to_16": {
+                "sums": {
+                  "component_count": 8463,
+                  "gt_peak_pixels": 72265,
+                  "absolute_rgb_error_sum": 65826.47459602356,
+                  "target_contrast_sum": 26094.906680107117,
+                  "predicted_contrast_sum": 2723.1505187898874,
+                  "matched_gt_pixels_2px": 7952,
+                  "components_with_at_least_one_hit": 1071
+                },
+                "metrics": {
+                  "component_count": 8463,
+                  "gt_peak_pixels": 72265,
+                  "rgb_mae": 0.3036346529948733,
+                  "target_contrast": 0.3611002100616774,
+                  "predicted_contrast": 0.037682841192692,
+                  "contrast_ratio": 0.10435563354077146,
+                  "matched_gt_pixels_2px": 7952,
+                  "pixel_recall_2px": 0.1100394381789248,
+                  "components_with_at_least_one_hit": 1071,
+                  "component_any_hit_fraction": 0.12655086848635236
+                }
+              },
+              "gt16": {
+                "sums": {
+                  "component_count": 3021,
+                  "gt_peak_pixels": 100183,
+                  "absolute_rgb_error_sum": 105431.31749105453,
+                  "target_contrast_sum": 32286.503668785095,
+                  "predicted_contrast_sum": 4100.126653216779,
+                  "matched_gt_pixels_2px": 18437,
+                  "components_with_at_least_one_hit": 701
+                },
+                "metrics": {
+                  "component_count": 3021,
+                  "gt_peak_pixels": 100183,
+                  "rgb_mae": 0.3507957687134362,
+                  "target_contrast": 0.3222752729383737,
+                  "predicted_contrast": 0.04092637127273868,
+                  "contrast_ratio": 0.126991968386494,
+                  "matched_gt_pixels_2px": 18437,
+                  "pixel_recall_2px": 0.1840332192088478,
+                  "components_with_at_least_one_hit": 701,
+                  "component_any_hit_fraction": 0.23204237007613374
+                }
+              }
+            }
+          }
+        }
+      },
+      "references": {
+        "old_default": {
+          "PSNR": 20.57824887020487,
+          "SSIM": 0.8455560047861556,
+          "LPIPS": 0.15668995405586672
+        },
+        "fixed_local": {
+          "PSNR": 21.90448059834225,
+          "SSIM": 0.8478263977547766,
+          "LPIPS": 0.17419682726473876
+        }
+      },
+      "delta_vs_old_default": {
+        "PSNR": -0.034664771926234295,
+        "SSIM": -0.0004912841487937358,
+        "LPIPS": -0.0006965712552339243
+      },
+      "geometry_review": {
+        "checkpoint": "runs/gggs_default_joint/Real_NRHints/Pixiu/last.pt",
+        "representation": "directional_port_v1",
+        "step": 30000,
+        "source": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/gggs_normal_depth_geometry/Real_NRHints/Pixiu/last.pt",
+        "split": "train",
+        "fixed_indices": [
+          0,
+          281,
+          561
+        ],
+        "initial_points": 57741,
+        "final_points": 141368,
+        "views": [
+          {
+            "frame_index": 0,
+            "metrics": {
+              "GGGS continuous depth": {
+                "silhouette_IoU": 0.9072371125221252,
+                "alpha_L1": 0.018111038953065872,
+                "boundary_F1_2px": 0.44786458545858665,
+                "boundary_precision_2px": 0.4565916398713826,
+                "boundary_recall_2px": 0.4394648829431438,
+                "boundary_outward_fraction_over_2px": 0.5064308681672026,
+                "boundary_outward_p95_px": 18.027755737304688,
+                "boundary_depth_normal_roughness_p95_deg": 19.851850509643555
+              },
+              "Imported / default depth": {
+                "silhouette_IoU": 0.8988837599754333,
+                "alpha_L1": 0.0190762747079134,
+                "boundary_F1_2px": 0.402042913028016,
+                "boundary_precision_2px": 0.40617577197149646,
+                "boundary_recall_2px": 0.3979933110367893,
+                "boundary_outward_fraction_over_2px": 0.56215360253365,
+                "boundary_outward_p95_px": 18.788293838500977,
+                "boundary_depth_normal_roughness_p95_deg": 25.92064094543457
+              },
+              "Joint final / default depth": {
+                "silhouette_IoU": 0.8376432061195374,
+                "alpha_L1": 0.02793809585273266,
+                "boundary_F1_2px": 0.1541095890410959,
+                "boundary_precision_2px": 0.15789473684210525,
+                "boundary_recall_2px": 0.1505016722408027,
+                "boundary_outward_fraction_over_2px": 0.8414127423822715,
+                "boundary_outward_p95_px": 20.840850543975804,
+                "boundary_depth_normal_roughness_p95_deg": 73.84068298339844
+              },
+              "Joint final / GGGS depth": {
+                "silhouette_IoU": 0.8590850234031677,
+                "alpha_L1": 0.02509332075715065,
+                "boundary_F1_2px": 0.18854738192635828,
+                "boundary_precision_2px": 0.1799617102744097,
+                "boundary_recall_2px": 0.1979933110367893,
+                "boundary_outward_fraction_over_2px": 0.8174856413529037,
+                "boundary_outward_p95_px": 18.608805656433063,
+                "boundary_depth_normal_roughness_p95_deg": 105.08870697021484
+              }
+            },
+            "initial_continuous_roundtrip": {
+              "alpha_max_abs": 0.0024511218070983887,
+              "alpha_mean_abs": 4.345998760868497e-08,
+              "alpha_p99_abs": 7.152557373046875e-07,
+              "physical_parameter_check": true,
+              "depth_median_abs_over_radius": 0.0,
+              "depth_p99_abs_over_radius": 6.769872129552823e-07,
+              "compared_depth_pixels": 42243
+            }
+          },
+          {
+            "frame_index": 281,
+            "metrics": {
+              "GGGS continuous depth": {
+                "silhouette_IoU": 0.9317732453346252,
+                "alpha_L1": 0.01357943657785654,
+                "boundary_F1_2px": 0.4791425421540669,
+                "boundary_precision_2px": 0.5167731629392971,
+                "boundary_recall_2px": 0.44662034112444726,
+                "boundary_outward_fraction_over_2px": 0.4480830670926518,
+                "boundary_outward_p95_px": 11.045360565185547,
+                "boundary_depth_normal_roughness_p95_deg": 10.134918212890625
+              },
+              "Imported / default depth": {
+                "silhouette_IoU": 0.9229776859283447,
+                "alpha_L1": 0.014473207294940948,
+                "boundary_F1_2px": 0.42444821129048005,
+                "boundary_precision_2px": 0.4580335731414868,
+                "boundary_recall_2px": 0.3954516740366393,
+                "boundary_outward_fraction_over_2px": 0.5059952038369304,
+                "boundary_outward_p95_px": 12.267421245574951,
+                "boundary_depth_normal_roughness_p95_deg": 18.048879623413086
+              },
+              "Joint final / default depth": {
+                "silhouette_IoU": 0.8904401659965515,
+                "alpha_L1": 0.019061416387557983,
+                "boundary_F1_2px": 0.182117480360901,
+                "boundary_precision_2px": 0.1842456608811749,
+                "boundary_recall_2px": 0.18003790271636133,
+                "boundary_outward_fraction_over_2px": 0.8157543391188251,
+                "boundary_outward_p95_px": 13.650508594512894,
+                "boundary_depth_normal_roughness_p95_deg": 83.1338882446289
+              },
+              "Joint final / GGGS depth": {
+                "silhouette_IoU": 0.9130443930625916,
+                "alpha_L1": 0.017400238662958145,
+                "boundary_F1_2px": 0.312386032367338,
+                "boundary_precision_2px": 0.313986013986014,
+                "boundary_recall_2px": 0.3108022741629817,
+                "boundary_outward_fraction_over_2px": 0.686013986013986,
+                "boundary_outward_p95_px": 10.544718313217155,
+                "boundary_depth_normal_roughness_p95_deg": 113.05401611328125
+              }
+            },
+            "initial_continuous_roundtrip": {
+              "alpha_max_abs": 0.0015999078750610352,
+              "alpha_mean_abs": 3.446365681725183e-08,
+              "alpha_p99_abs": 7.621129043400288e-07,
+              "physical_parameter_check": true,
+              "depth_median_abs_over_radius": 0.0,
+              "depth_p99_abs_over_radius": 1.3539744259105646e-06,
+              "compared_depth_pixels": 42973
+            }
+          },
+          {
+            "frame_index": 561,
+            "metrics": {
+              "GGGS continuous depth": {
+                "silhouette_IoU": 0.8818057775497437,
+                "alpha_L1": 0.02007831633090973,
+                "boundary_F1_2px": 0.21174392440446602,
+                "boundary_precision_2px": 0.2518955349620893,
+                "boundary_recall_2px": 0.18263266712611992,
+                "boundary_outward_fraction_over_2px": 0.544229149115417,
+                "boundary_outward_p95_px": 16.327502632141126,
+                "boundary_depth_normal_roughness_p95_deg": 9.95803451538086
+              },
+              "Imported / default depth": {
+                "silhouette_IoU": 0.8774287104606628,
+                "alpha_L1": 0.02062191441655159,
+                "boundary_F1_2px": 0.1891481575473809,
+                "boundary_precision_2px": 0.22731128074639526,
+                "boundary_recall_2px": 0.16195727084769124,
+                "boundary_outward_fraction_over_2px": 0.5708227311280747,
+                "boundary_outward_p95_px": 17.230610656738257,
+                "boundary_depth_normal_roughness_p95_deg": 13.433749198913574
+              },
+              "Joint final / default depth": {
+                "silhouette_IoU": 0.8635820746421814,
+                "alpha_L1": 0.022819869220256805,
+                "boundary_F1_2px": 0.2128315026564555,
+                "boundary_precision_2px": 0.22005772005772006,
+                "boundary_recall_2px": 0.20606478290833907,
+                "boundary_outward_fraction_over_2px": 0.70995670995671,
+                "boundary_outward_p95_px": 20.124610900878906,
+                "boundary_depth_normal_roughness_p95_deg": 66.5224380493164
+              },
+              "Joint final / GGGS depth": {
+                "silhouette_IoU": 0.8843948245048523,
+                "alpha_L1": 0.021951548755168915,
+                "boundary_F1_2px": 0.21843068963134638,
+                "boundary_precision_2px": 0.23415361670395227,
+                "boundary_recall_2px": 0.20468642315644384,
+                "boundary_outward_fraction_over_2px": 0.674123788217748,
+                "boundary_outward_p95_px": 17.8885440826416,
+                "boundary_depth_normal_roughness_p95_deg": 106.59861755371094
+              }
+            },
+            "initial_continuous_roundtrip": {
+              "alpha_max_abs": 0.003488965332508087,
+              "alpha_mean_abs": 4.17438137390036e-08,
+              "alpha_p99_abs": 7.450580596923828e-07,
+              "physical_parameter_check": true,
+              "depth_median_abs_over_radius": 0.0,
+              "depth_p99_abs_over_radius": 1.3539744259105646e-06,
+              "compared_depth_pixels": 36768
+            }
+          }
+        ],
+        "scope": "No geometry GT. Three fixed train views, both initial/final expected-center-depth and initial/final GGGS continuous-depth. Imported filter is baked exactly once. Initial continuous roundtrip checked. Silhouette and roughness are proxies, not shape accuracy."
+      },
+      "fixed_three_train_view_means": {
+        "GGGS continuous depth": {
+          "silhouette_IoU": 0.9069387118021647,
+          "boundary_F1_2px": 0.3795836840057065,
+          "boundary_depth_normal_roughness_p95_deg": 13.314934412638346
+        },
+        "Imported / default depth": {
+          "silhouette_IoU": 0.8997633854548136,
+          "boundary_F1_2px": 0.33854642728862566,
+          "boundary_depth_normal_roughness_p95_deg": 19.13442325592041
+        },
+        "Joint final / default depth": {
+          "silhouette_IoU": 0.8638884822527567,
+          "boundary_F1_2px": 0.18301952401948415,
+          "boundary_depth_normal_roughness_p95_deg": 74.49900309244792
+        },
+        "Joint final / GGGS depth": {
+          "silhouette_IoU": 0.8855080803235372,
+          "boundary_F1_2px": 0.23978803464168089,
+          "boundary_depth_normal_roughness_p95_deg": 108.24711354573567
+        }
+      }
+    }
+  },
+  "audit": {
+    "Pixiu": {
+      "step": 30000,
+      "initial_points": 57741,
+      "final_points": 141368,
+      "geometry_trainable": true,
+      "geometry_scales_dimensions": 3,
+      "finite_parameters_and_losses": true,
+      "all_official_train": true,
+      "official_test_images": 71,
+      "source": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/gggs_normal_depth_geometry/Real_NRHints/Pixiu/last.pt",
+      "source_geometry_fit_count": 506,
+      "scene_light_scale": 0.14099162817001343,
+      "training_seconds": 2311.69,
+      "peak_allocated_memory_GiB": 9.224461555480957,
+      "gaussian_parameter_count": 6502928,
+      "transport_parameter_count": 100402,
+      "preview_replay_max_byte_difference": 0,
+      "preview_replay_mean_byte_difference": 0.0,
+      "zero_light_exact": true,
+      "double_light_max_error": 0.0,
+      "caveat": "Joint geometry/topology updates; no one-to-one final point correspondence with source."
+    },
+    "Cat": {
+      "step": 30000,
+      "initial_points": 128596,
+      "final_points": 399118,
+      "geometry_trainable": true,
+      "geometry_scales_dimensions": 3,
+      "finite_parameters_and_losses": true,
+      "all_official_train": true,
+      "official_test_images": 66,
+      "source": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/gggs_normal_depth_geometry/Real_NRHints/Cat/last.pt",
+      "source_geometry_fit_count": 470,
+      "scene_light_scale": 1.3250305652618408,
+      "training_seconds": 4594.77,
+      "peak_allocated_memory_GiB": 13.56301498413086,
+      "gaussian_parameter_count": 18359428,
+      "transport_parameter_count": 100402,
+      "preview_replay_max_byte_difference": 0,
+      "preview_replay_mean_byte_difference": 0.0,
+      "zero_light_exact": true,
+      "double_light_max_error": 0.0,
+      "caveat": "Joint geometry/topology updates; no one-to-one final point correspondence with source."
+    }
+  },
+  "promoted": false,
+  "scope": "GGGS initialization followed by ordinary default3DGS joint optimization; renderer/objective differ from GGGS geometry stage; observational pipeline comparisons, noGT geometry.",
+  "comparison_audit": {
+    "all_saved_targets_exact": true,
+    "all_frame_rows_complete": true,
+    "manual_review": {
+      "Cat": "Reviewed all4 fixed full images and7 GT-only crops. Joint default is similar to old Default, modestly better globally and sharper than fixed local; fur strands/paper details remain under-resolved. Geometry review shows increased roughness and weaker silhouette proxies. No substantial overall geometry/material improvement.",
+      "Pixiu": "Reviewed all4 fixed full images and8 GT-only crops. Joint default closely resembles old Default; tiny highlights remain missing and some edges look fuzzy. Fixed geometry review shows marked roughness and silhouette deterioration. Not an overall improvement."
+    },
+    "execution_note": "Tool session reported exit143 after all71 Pixiu frames and complete summary/figures were written. All per-model66/71 rows, exact canonical targets, both full/crop figures and matching primaryPSNR were explicitly checked; underlying train/test/fit scheduler completed normally."
+  }
+}

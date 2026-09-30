@@ -39,7 +39,9 @@ def quadrature_mass(params):
     Detaching the measure keeps its normalization outside geometry optimization.
     """
     scales = params["scales"].exp()
-    area = scales[:, 0] * scales[:, 1] + scales[:, 1] * scales[:, 2] + scales[:, 2] * scales[:, 0]
+    area = scales[:, 0] * scales[:, 1]
+    if scales.shape[-1] == 3:
+        area = area + scales[:, 1] * scales[:, 2] + scales[:, 2] * scales[:, 0]
     mass = (params["opacities"].sigmoid() * area).detach()
     return mass / mass.sum()
 
@@ -56,6 +58,7 @@ class TransportBase(nn.Module, ABC):
     Shared scene geometry, observations and optimizers remain outside this class.
     """
     defaults = dict(feature_dim=32)
+    geometry = "3dgs"
     cli_fields = ("feature_dim",)
 
     def __init__(self, light_scale=1.0):
@@ -68,7 +71,7 @@ class TransportBase(nn.Module, ABC):
         """Return [M, 3] linear foreground radiance for the pixel receivers."""
 
 
-class PortTransport(TransportBase):
+class NeuralTransport(TransportBase):
     """Return linear foreground RGB at the renderer's pixel receivers.
 
     Subclasses implement exchange_radiance(source, receiver). The shared forward
@@ -76,10 +79,10 @@ class PortTransport(TransportBase):
     transform or alpha composition belongs in a transport method.
     """
 
-    defaults = dict(TransportBase.defaults, width=128, rank=512)
-    cli_fields = TransportBase.cli_fields + ("width", "rank")
+    defaults = dict(TransportBase.defaults, width=128)
+    cli_fields = TransportBase.cli_fields + ("width",)
 
-    def __init__(self, feature_dim=32, width=128, rank=512, light_scale=1.0):
+    def __init__(self, feature_dim=32, width=128, light_scale=1.0):
         super().__init__(light_scale)
         self.local = nn.Sequential(
             nn.Linear(feature_dim + 82 + 51, width), nn.SiLU(),
@@ -93,14 +96,6 @@ class PortTransport(TransportBase):
         self.exchange = nn.Linear(feature_dim, 3)
         nn.init.zeros_(self.exchange.weight)
         nn.init.constant_(self.exchange.bias, -2.0)
-        self.anchor_centers = nn.Parameter(torch.empty(rank, 3).uniform_(-0.5, 0.5))
-        widths = torch.full((rank,), 0.5)
-        widths[: rank // 2] = 0.15
-        self.log_width = nn.Parameter(widths.log())
-
-    def partition(self, xyz):
-        return spatial_partition(xyz, self.anchor_centers, self.log_width)
-
     def material_directions(self, features, light_dir, view_dir):
         return light_dir, view_dir
 
@@ -139,3 +134,19 @@ class PortTransport(TransportBase):
     @abstractmethod
     def exchange_radiance(self, source: SourceLight, receiver: ReceiverLight):
         """Combine direct and nonlocal light, returning [receivers, 3] linear RGB."""
+
+
+class PortTransport(NeuralTransport):
+    """Shared neural response with learned spatial port supports."""
+    defaults = dict(NeuralTransport.defaults, rank=512)
+    cli_fields = NeuralTransport.cli_fields + ("rank",)
+
+    def __init__(self, feature_dim=32, width=128, rank=512, light_scale=1.0):
+        super().__init__(feature_dim, width, light_scale)
+        self.anchor_centers = nn.Parameter(torch.empty(rank, 3).uniform_(-0.5, 0.5))
+        widths = torch.full((rank,), 0.5)
+        widths[:rank // 2] = 0.15
+        self.log_width = nn.Parameter(widths.log())
+
+    def partition(self, xyz):
+        return spatial_partition(xyz, self.anchor_centers, self.log_width)

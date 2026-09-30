@@ -1,0 +1,294 @@
+{
+  "scope": "Read-only terminal checkpoint statistics and complete train/test metrics; no model or data mutation. Test metadata correlations are exploratory, not causal or new validation.",
+  "scenes": {
+    "Cat": {
+      "rank": 32,
+      "kappa": {
+        "min": 0.08530309051275253,
+        "p10": 10.932631492614746,
+        "p50": 16.036636352539062,
+        "p90": 23.077472686767578,
+        "max": 32.02296447753906
+      },
+      "source_lobe_half_width_degrees": {
+        "defined_lobes": 1279884,
+        "no_half_maximum_crossing_on_sphere": 116,
+        "quantiles_defined": {
+          "min": 11.942794799804688,
+          "p10": 14.078216552734375,
+          "p50": 16.906696319580078,
+          "p90": 20.51032066345215,
+          "max": 155.82662963867188
+        }
+      },
+      "effective_source_surfels_per_component": {
+        "min": 404.2930603027344,
+        "p10": 516.52099609375,
+        "p50": 1057.5318603515625,
+        "p90": 1742.6451416015625,
+        "max": 2282.851318359375
+      },
+      "spatial_sigma_over_scene_radius": {
+        "min": 0.13660429418087006,
+        "p10": 0.14986154437065125,
+        "p50": 0.1788523644208908,
+        "p90": 0.202196404337883,
+        "max": 0.20706294476985931
+      },
+      "opacity": {
+        "min": 0.000804365670774132,
+        "p10": 0.003751069772988558,
+        "p50": 0.003920133225619793,
+        "p90": 0.9841100573539734,
+        "max": 0.9900000691413879
+      },
+      "tangent_sigma_over_scene_radius": {
+        "min": 0.00027615754515863955,
+        "p10": 0.010664246045053005,
+        "p50": 0.01835254207253456,
+        "p90": 0.030011624097824097,
+        "max": 0.10000000149011612
+      },
+      "metrics": {
+        "train": {
+          "frames": 522,
+          "PSNR": 22.53166497804196,
+          "SSIM": 0.7905821628954218,
+          "LPIPS": 0.2652147273565161,
+          "alpha_L1": 0.026025169266751785,
+          "tiny": {
+            "component_count": 2505,
+            "gt_peak_pixels": 3999,
+            "rgb_mae": 0.20908691123534096,
+            "target_contrast": 0.22318379571659025,
+            "predicted_contrast": 0.010856119707640364,
+            "contrast_ratio": 0.04864206056171748,
+            "matched_gt_pixels_2px": 6,
+            "pixel_recall_2px": 0.0015003750937734434,
+            "components_with_at_least_one_hit": 4,
+            "component_any_hit_fraction": 0.0015968063872255488
+          },
+          "source": "runs/distribution_material_final/Real_NRHints/Cat/fit_full/metrics.json"
+        },
+        "test": {
+          "frames": 66,
+          "PSNR": 22.14167852112741,
+          "SSIM": 0.7763807701342034,
+          "LPIPS": 0.2677139946908662,
+          "alpha_L1": 0.015215008124483355,
+          "tiny": {
+            "component_count": 368,
+            "gt_peak_pixels": 575,
+            "rgb_mae": 0.17854390593542568,
+            "target_contrast": 0.22868421927742336,
+            "predicted_contrast": 0.012421833522941756,
+            "contrast_ratio": 0.05431871758441047,
+            "matched_gt_pixels_2px": 0,
+            "pixel_recall_2px": 0.0,
+            "components_with_at_least_one_hit": 0,
+            "component_any_hit_fraction": 0.0
+          },
+          "source": "runs/distribution_material_final/Real_NRHints/Cat/test/metrics.json"
+        }
+      },
+      "camera_fx": 3160.438232421875,
+      "pixels_per_0_01_degree_rotation": 0.5516005296167152,
+      "nearest_training_condition": {
+        "joint_angle_definition": "sqrt(view_center_angle_deg^2 + light_center_angle_deg^2); center proxy only; ignores radius/occlusion",
+        "joint_angle_p10_p50_p90": [
+          9.270626383815262,
+          13.815905966692831,
+          20.15054591501402
+        ],
+        "view_angle_at_joint_neighbor_p50": 9.880220650996382,
+        "light_angle_at_joint_neighbor_p50": 9.217578744536292,
+        "Pearson_joint_angle_vs_test_PSNR": -0.06687302072283975
+      },
+      "surfel_activity": {
+        "total": 40000,
+        "below_native_max_alpha_cutoff_1_255": 21975,
+        "at_or_above_native_alpha_cutoff": 18025,
+        "below_cutoff_fraction": 0.5493749976158142,
+        "source_mass_of_below_cutoff_surfels": 0.004407824482768774,
+        "refine_stop": 0,
+        "opacity_regularizer": false
+      },
+      "direct_GGX": {
+        "population": "opacity>=1/255, not visibility-weighted",
+        "core_alpha_p10_p50_p90": [
+          0.029989708214998245,
+          0.32726728916168213,
+          0.7831571698188782
+        ],
+        "broad_alpha_p10_p50_p90": [
+          0.03187447786331177,
+          0.36241117119789124,
+          0.7411041259765625
+        ],
+        "core_alpha_below_0_01_fraction": 0.03900138661265373,
+        "F0_mean_rgb": [
+          0.12030323594808578,
+          0.12073864042758942,
+          0.11521676927804947
+        ]
+      }
+    },
+    "Pixiu": {
+      "rank": 32,
+      "kappa": {
+        "min": 2.752288341522217,
+        "p10": 10.320673942565918,
+        "p50": 13.89065933227539,
+        "p90": 27.03148078918457,
+        "max": 32.049842834472656
+      },
+      "source_lobe_half_width_degrees": {
+        "defined_lobes": 1280000,
+        "no_half_maximum_crossing_on_sphere": 0,
+        "quantiles_defined": {
+          "min": 11.937777519226074,
+          "p10": 13.00312614440918,
+          "p50": 18.176557540893555,
+          "p90": 21.118227005004883,
+          "max": 41.569095611572266
+        }
+      },
+      "effective_source_surfels_per_component": {
+        "min": 508.75836181640625,
+        "p10": 668.0037231445312,
+        "p50": 1336.9210205078125,
+        "p90": 2607.751953125,
+        "max": 3923.67919921875
+      },
+      "spatial_sigma_over_scene_radius": {
+        "min": 0.12445138394832611,
+        "p10": 0.13384713232517242,
+        "p50": 0.17076584696769714,
+        "p90": 0.21175238490104675,
+        "max": 0.24050603806972504
+      },
+      "opacity": {
+        "min": 0.0008064463036134839,
+        "p10": 0.0037662810645997524,
+        "p50": 0.003918944392353296,
+        "p90": 0.9856199622154236,
+        "max": 0.9900000691413879
+      },
+      "tangent_sigma_over_scene_radius": {
+        "min": 0.00038447711267508566,
+        "p10": 0.007075674831867218,
+        "p50": 0.012155422940850258,
+        "p90": 0.020715875551104546,
+        "max": 0.09999998658895493
+      },
+      "metrics": {
+        "train": {
+          "frames": 562,
+          "PSNR": 25.12601919615396,
+          "SSIM": 0.8838975990582191,
+          "LPIPS": 0.14829573804161303,
+          "alpha_L1": 0.02573971611570262,
+          "tiny": {
+            "component_count": 21237,
+            "gt_peak_pixels": 40429,
+            "rgb_mae": 0.3167742362867628,
+            "target_contrast": 0.33583015277928313,
+            "predicted_contrast": 0.009556620905910699,
+            "contrast_ratio": 0.028456708925096358,
+            "matched_gt_pixels_2px": 205,
+            "pixel_recall_2px": 0.0050706176259615625,
+            "components_with_at_least_one_hit": 117,
+            "component_any_hit_fraction": 0.005509252719310637
+          },
+          "source": "runs/distribution_material_final/Real_NRHints/Pixiu/fit_full/metrics.json"
+        },
+        "test": {
+          "frames": 71,
+          "PSNR": 21.50295921110771,
+          "SSIM": 0.8482519295853628,
+          "LPIPS": 0.16702199087176525,
+          "alpha_L1": 0.023078855166447833,
+          "tiny": {
+            "component_count": 2880,
+            "gt_peak_pixels": 5324,
+            "rgb_mae": 0.354215473003803,
+            "target_contrast": 0.33525798380777944,
+            "predicted_contrast": -0.0003394507750544129,
+            "contrast_ratio": -0.0010125061637578702,
+            "matched_gt_pixels_2px": 22,
+            "pixel_recall_2px": 0.004132231404958678,
+            "components_with_at_least_one_hit": 16,
+            "component_any_hit_fraction": 0.005555555555555556
+          },
+          "source": "runs/distribution_material_final/Real_NRHints/Pixiu/test/metrics.json"
+        }
+      },
+      "camera_fx": 3095.45068359375,
+      "pixels_per_0_01_degree_rotation": 0.5402580626182016,
+      "nearest_training_condition": {
+        "joint_angle_definition": "sqrt(view_center_angle_deg^2 + light_center_angle_deg^2); center proxy only; ignores radius/occlusion",
+        "joint_angle_p10_p50_p90": [
+          7.489261397978659,
+          12.826649290464152,
+          18.783406758311926
+        ],
+        "view_angle_at_joint_neighbor_p50": 7.517790327124994,
+        "light_angle_at_joint_neighbor_p50": 8.418772800002676,
+        "Pearson_joint_angle_vs_test_PSNR": -0.18398060116578205
+      },
+      "surfel_activity": {
+        "total": 40000,
+        "below_native_max_alpha_cutoff_1_255": 22647,
+        "at_or_above_native_alpha_cutoff": 17353,
+        "below_cutoff_fraction": 0.5661749839782715,
+        "source_mass_of_below_cutoff_surfels": 0.003967142663896084,
+        "refine_stop": 0,
+        "opacity_regularizer": false
+      },
+      "direct_GGX": {
+        "population": "opacity>=1/255, not visibility-weighted",
+        "core_alpha_p10_p50_p90": [
+          0.021191859617829323,
+          0.21257764101028442,
+          0.6822503209114075
+        ],
+        "broad_alpha_p10_p50_p90": [
+          0.02839081548154354,
+          0.23039978742599487,
+          0.66256183385849
+        ],
+        "core_alpha_below_0_01_fraction": 0.05002016946673393,
+        "F0_mean_rgb": [
+          0.20425546169281006,
+          0.1740110069513321,
+          0.16474348306655884
+        ]
+      }
+    }
+  },
+  "diagnostic_notes": [
+    "Initial HWHM evaluation used acos without handling kappa<log(2)/2; those broad lobes never fall to half maximum on S2. Report now explicitly separates them; no NaN values.",
+    "CPU metadata and checkpoint calculations; not view/occlusion-weighted primitive counts."
+  ],
+  "surfel_activity_note": "CUDA ALPHA_THRESHOLD=1/255; alpha=min(.999,opacity*exp(-sigma)), sigma>=0. Below-threshold opacity implies no camera-raster contribution. This is an upper bound on eligible points, not visibility or geometry accuracy.",
+  "source_checks": {
+    "evaluate.py": true,
+    "renderer.py": true,
+    "methods/distribution_material.py": true,
+    "data.py": true
+  },
+  "environment": {
+    "python": "/workspace/ubuntu2004_cuda12_1/utils/conda-envs/ssd-gs/bin/python",
+    "cuda_target": "12.1",
+    "torch": "2.4.1",
+    "gsplat": "1.5.3",
+    "model_update": false
+  },
+  "evaluation_commands": [
+    "CUDA_VISIBLE_DEVICES=0 OMP_NUM_THREADS=8 TORCH_HOME=/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/third_party/torch_cache /workspace/ubuntu2004_cuda12_1/utils/conda-envs/ssd-gs/bin/python -u evaluate.py runs/distribution_material_final/Real_NRHints/Cat/last.pt --split fit --output runs/distribution_material_final/Real_NRHints/Cat/fit_full --lpips --highlights",
+    "CUDA_VISIBLE_DEVICES=1 OMP_NUM_THREADS=8 TORCH_HOME=/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/third_party/torch_cache /workspace/ubuntu2004_cuda12_1/utils/conda-envs/ssd-gs/bin/python -u evaluate.py runs/distribution_material_final/Real_NRHints/Pixiu/last.pt --split fit --output runs/distribution_material_final/Real_NRHints/Pixiu/fit_full --lpips --highlights"
+  ],
+  "revision": "47028ea0ff77f427aa6a016cb64e039432935a5e (dirty worktree; relevant evaluator files byte-matched retained source.tar)",
+  "status": "completed",
+  "proposed_method_status": "not implemented or trained"
+}

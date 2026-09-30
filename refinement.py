@@ -5,6 +5,37 @@ from dataclasses import dataclass
 import torch
 from gsplat.strategy import DefaultStrategy
 from gsplat.strategy.ops import duplicate, reset_opa, split
+from gsplat.strategy.ops import _update_param_with_optimizer
+from gsplat.utils import normalized_quat_to_rotmat
+
+
+@torch.no_grad()
+def split_surfels(params, optimizers, state, mask):
+    """Split in the tangent plane; retain two scales and optimizer alignment."""
+    selected, rest = torch.where(mask)[0], torch.where(~mask)[0]
+    scales = params["scales"][selected].exp()
+    rotation = normalized_quat_to_rotmat(torch.nn.functional.normalize(params["quats"][selected], dim=-1))
+    offsets = torch.randn((2, len(selected), 2), device=scales.device, dtype=scales.dtype) * scales
+    offsets = torch.einsum("nij,bnj->bni", rotation[..., :2], offsets)
+
+    def param_fn(name, value):
+        repeat = [2] + [1] * (value.ndim - 1)
+        if name == "means":
+            children = (value[selected] + offsets).reshape(-1, 3)
+        elif name == "scales":
+            children = (scales / 1.6).log().repeat(2, 1)
+        else:
+            children = value[selected].repeat(repeat)
+        return torch.nn.Parameter(torch.cat((value[rest], children)), requires_grad=value.requires_grad)
+
+    def optimizer_fn(key, value):
+        return torch.cat((value[rest], value.new_zeros((2 * len(selected), *value.shape[1:]))))
+
+    _update_param_with_optimizer(param_fn, optimizer_fn, params, optimizers)
+    for key, value in state.items():
+        if isinstance(value, torch.Tensor):
+            repeat = [2] + [1] * (value.ndim - 1)
+            state[key] = torch.cat((value[rest], value[selected].repeat(repeat)))
 
 
 @dataclass
@@ -70,4 +101,7 @@ class Refinement(DefaultStrategy):
             duplicate(params, optimizers, state, duplicate_mask)
         split_mask = torch.cat((split_mask, split_mask.new_zeros(count)))
         if split_mask.any():
-            split(params, optimizers, state, split_mask, revised_opacity=self.revised_opacity)
+            if params["scales"].shape[-1] == 2:
+                split_surfels(params, optimizers, state, split_mask)
+            else:
+                split(params, optimizers, state, split_mask, revised_opacity=self.revised_opacity)

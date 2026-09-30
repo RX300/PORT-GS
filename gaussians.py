@@ -24,17 +24,22 @@ def camera_bounds(samples):
 
 
 class Gaussians(nn.Module):
-    def __init__(self, count, center, radius, feature_dim=32, device="cuda"):
+    def __init__(self, count, center, radius, feature_dim=32, device="cuda", geometry="3dgs"):
         super().__init__()
+        self.geometry = geometry
+        self.surface_depth = "center"
         means = (torch.rand(count, 3, device=device) * 2 - 1) * radius
         means += center.to(device)
         quats = torch.zeros(count, 4, device=device)
         quats[:, 0] = 1
+        if geometry == "2dgs":
+            quats = torch.nn.functional.normalize(torch.randn_like(quats), dim=-1)
         self.params = nn.ParameterDict(
             {
                 "means": nn.Parameter(means),
                 "scales": nn.Parameter(
-                    torch.full((count, 3), math.log(radius * 1.5 / count ** (1 / 3)), device=device)
+                    torch.full((count, 2 if geometry == "2dgs" else 3),
+                               math.log(radius * 1.5 / count ** (1 / 3)), device=device)
                 ),
                 "quats": nn.Parameter(quats),
                 "opacities": nn.Parameter(torch.full((count,), -2.2, device=device)),
@@ -62,10 +67,14 @@ class Gaussians(nn.Module):
 
     def raster_inputs(self):
         p = self.params
+        scales = p["scales"].exp()
+        if self.geometry == "2dgs":
+            # gsplat's surfel API accepts three entries, but uses only the first two.
+            scales = torch.cat((scales, torch.ones_like(scales[:, :1])), dim=-1)
         return dict(
             means=p["means"],
             quats=p["quats"],
-            scales=p["scales"].exp(),
+            scales=scales,
             opacities=p["opacities"].sigmoid(),
         )
 
