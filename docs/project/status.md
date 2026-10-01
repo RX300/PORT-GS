@@ -1,3 +1,23 @@
+## 2026-10-01：Surface Attention 六场景已完成
+
+6/6完成，0失败，1,937个完整test帧，GPU释放；六场景等权PSNR/SSIM/LPIPS为29.9735/0.931154/0.070094。[最终指标与三方法对比](../../runs/surface_attention_six_scene_20261001/RESULTS.md)。
+
+## 2026-10-01：Surface Attention 六场景补充实验
+
+17:33 JST启动，GPU0/1/2，六场景30k并完整official test；协议对齐刚完成的默认/Neural实验，复用相同训练先验。短训练/重载/评价通过，随后每小时检查。[记录](../experiments/surface_attention_six_scene_20261001.md)。
+
+## 2026-10-01：重构后六场景实验已全部完成
+
+默认directional_port_v1与neural_material共12/12组完成，0失败，3,874个完整test评估帧；全部30k、原生初始化、固定测试标定。默认方法六场景主指标均更优。[最终结果](../../runs/refactored_six_scene_20261001/RESULTS.md)。以下启动信息为历史记录。
+
+## 2026-10-01：重构代码六场景重训已启动
+
+用户要求默认directional_port_v1与neural_material各跑此前六场景，共12组；GPU0/1/2。规范配置为configs/validation.json，输出runs/refactored_six_scene_20261001/<方法>/<family>/<scene>/。
+
+启动时runs为空，因此原生fresh初始化；不依赖已丢失的GGGS或旧材质权重。共享材质decoder已完成50k预训练；默认与neural短训练/重载评估、StableNormal/DA3先验生成均通过。真实训练采用rotation+translation gauge，完整official test保持固定标定。
+
+10:25 JST启动核验：默认Cat/Pixiu/AnisoMetal实际子进程100288/100289/100290，分别GPU0/1/2，step1900/2100/500，GPU活动正常。当前3运行、9待执行；随后按小时检查。[协议与进度](../experiments/refactored_six_scene_20261001.md)。
+
 ## 2026-09-30：训练代码重构完成（分支 refactor/port-gs-structure）
 
 重构前代码快照 `54fd659` 已推送至 `origin/feature/selectable-transport-methods`。

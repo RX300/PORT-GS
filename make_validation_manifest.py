@@ -170,8 +170,12 @@ def _build_single_manifest(config, output_dir, provenance):
             for key in ('surface-priors', 'init-checkpoint', 'init-geometry'):
                 if key in options:
                     options[key] = options[key].format(family=family, scene=scene)
+            needs_surface_priors = (
+                METHODS[representation].geometry == '2dgs'
+                and options.get('init-geometry-format', 'port') != 'gggs'
+            )
             preparation = (_surface_preparation(config, options, dataset, output_dir, family, scene)
-                           if "surface_preprocessing" in config else [])
+                           if "surface_preprocessing" in config and needs_surface_priors else [])
             checkpoints = [(f"step_{step:06d}.pt", f"{eval_directory}_{step:06d}", f"eval_{step:06d}")
                            for step in options.get("save-steps", [])]
             checkpoints.append(("last.pt", eval_directory, "eval"))
