@@ -2,6 +2,13 @@
 > 其余方法和独立几何训练入口已删除；已有 GGGS 几何读取/诊断和三种方法的公共依赖保留。
 > 以下涉及已删除方法的内容仅作历史记录，不是可运行入口。清理详情见 `docs/experiments/method_retirement_20260930.md`（项目根目录相对路径）。
 
+## 2026-10-01：LiSA 的系统位置
+
+`light_atlas` 与其他方法同在 `methods.METHODS` 注册表；类属性 `light_space=True` 使 `renderer.render` 不计算逐Gaussian深阴影，
+并把 `shadow` 开关传入 `forward`。光源空间光栅化、金字塔与读取都在该方法内部完成，复用 `renderer._rasterize`、
+`renderer.light_view`、`renderer.covariance_normals`；训练循环、增密、相机校正、checkpoint与评价器不变。
+[模块](modules/light_atlas.md)。
+
 # PORT-GS系统架构
 
 更新：2026-09-23。方法选择与通用训练/渲染解耦。

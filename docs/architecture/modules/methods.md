@@ -1,5 +1,8 @@
 # 当前光传输方法与接口
 
+2026-10-01：注册表新增第四个方法 `light_atlas`（LiSA），默认方法仍为 `directional_port_v1`。它声明 `light_space = True`：渲染器跳过逐Gaussian深阴影体，并把 `shadow` 开关传入 `forward`。
+
+
 2026-09-30：唯一活动注册表 `methods.METHODS` 只包含三个方法，默认 `directional_port_v1`。
 所有训练、评价和检查点加载都使用显式 `representation`；不再默认回退到旧 Anchor 方法。
 
@@ -8,6 +11,7 @@
 | directional_port_v1 | methods/directional.py | 空间端口内的方向池化与读取；默认 3DGS |
 | surface_attention | methods/attention.py | 固定空间聚合、单次 cross-attention；2DGS |
 | neural_material | methods/neural_material.py | 冻结共享 BRDF 解码器、材质编码与方向端口；默认 2DGS，可导入 3D GGGS |
+| light_atlas | methods/light_atlas.py | LiSA：光源空间通量特征图集与多尺度接收点读取（矩阴影+学习残差、对通量线性的传输核）；3DGS。[模块](light_atlas.md) |
 
 `methods/base.py` 中的 TransportBase、NeuralTransport、PortTransport 是公共实现，不是额外方法。
 `materials/`、`surface.py`、`refinement.py`、`cameras.py` 继续为保留方法服务。

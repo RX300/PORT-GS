@@ -487,6 +487,150 @@ def preview_relighting(checkpoint, output):
         scope='Fixed camera and four dataset lights. Onlylight0 has pairedGT; other combinations are qualitative, not scored accuracy.'),indent=2)+'\n')
 
 
+@torch.no_grad()
+def preview_light_atlas(checkpoint, output, split, frames):
+    """Export actual LiSA buffers and independently verify the shading decomposition."""
+    import sys
+    import numpy as np
+    from evaluate import observation_image
+
+    torch.set_num_threads(8)
+    g, t, saved = load_model(checkpoint)
+    cfg = saved['config']
+    if cfg['representation'] != 'light_atlas':
+        raise ValueError('Light-atlas preview requires a light_atlas checkpoint')
+    t.eval()
+    dataset = SceneDataset(cfg['scene'], split, cfg['resolution'], cfg['unit_light_intensity'])
+    shadow = saved['step'] >= cfg['shadow_start']
+    port_active = saved['step'] >= cfg['port_start']
+    out = Path(output)
+    out.mkdir(parents=True, exist_ok=False)
+    report = dict(checkpoint=str(Path(checkpoint).resolve()), scene=cfg['scene'], split=split,
+                  material_head=t.material_head, step=saved['step'], command=sys.argv,
+                  torch_version=torch.__version__, cuda_version=torch.version.cuda,
+                  gpu=torch.cuda.get_device_name(), seed=cfg['seed'], shadow=shadow, port_active=port_active,
+                  flux_note='Learned channels, not RGB or calibrated irradiance; no PCA used.',
+                  depth_note='Normalized light-camera depth; uncovered texels masked.',
+                  display_note='Radiance components gamma-encoded separately; only linear components add.',
+                  frames=[])
+    for index in frames:
+        sample = to_device(dataset[index], 'cuda')
+        capture = {}
+        def capture_receivers(module, inputs):
+            capture['receivers'] = inputs[1]
+        hook = t.register_forward_pre_hook(capture_receivers)
+        try:
+            predicted, alpha, _ = render_observation(
+                g, t, sample, cfg['background'], shadow, port_active, cfg['display_gamma'], cfg['shadow_mode'])
+        finally:
+            hook.remove()
+        receivers = capture['receivers']
+        points = receivers['means']
+        wi = F.normalize(sample['light_pos'] - points, dim=-1)
+        wo = F.normalize(sample['c2w'][:3, 3] - points, dim=-1)
+        half = F.normalize(wi + wo, dim=-1)
+        rho, cosines = t.local_response(receivers, receivers['normals'], wi, wo, half,
+                                        (points - g.center) / g.radius)
+        atlas = t.light_atlas(g, sample['light_pos'])
+        stats, fluxes = t.gather(atlas, points, g.radius)
+        visibility = torch.ones_like(cosines[:, :1])
+        if shadow and t.visibility_model != 'none':
+            visibility = (receivers['visibility'][:, None] if t.per_gaussian_visibility else
+                          t.receiver_visibility(stats, receivers['features'], cosines[:, :1]))
+        transfer = (t.transfer(stats, fluxes, receivers['features'], cosines)
+                    if port_active and t.light_transport == 'atlas' else torch.zeros_like(rho))
+        incident = sample['light_intensity'][None] / t.light_scale / (
+            sample['light_pos'] - points).square().sum(-1, keepdim=True)
+        covered = alpha[..., 0] > 0
+        local_linear = torch.zeros_like(predicted)
+        transfer_linear = torch.zeros_like(predicted)
+        local_linear[covered] = incident * visibility * rho
+        transfer_linear[covered] = incident * transfer
+        reconstructed = observation_image(
+            (local_linear + transfer_linear) * alpha + cfg['background'] * (1 - alpha),
+            cfg['display_gamma'], alpha=None if sample['is_hdr'] else alpha, background=cfg['background'])
+        torch.testing.assert_close(reconstructed, predicted, rtol=1e-5, atol=1e-6)
+        for tensor in atlas['levels'] + [visibility, local_linear, transfer_linear]:
+            assert torch.isfinite(tensor).all()
+        stem = f'frame_{index:03d}'
+        levels = [level[0].cpu().numpy() for level in atlas['levels']]
+        raw = levels[0]
+        c = t.flux_dim
+        coverage = raw[c + 2]
+        support = coverage > 0.01
+        mean = raw[c] / np.maximum(coverage, 1e-4)
+        spread = np.sqrt(np.maximum(raw[c + 1] / np.maximum(coverage, 1e-4) - mean**2, 0))
+        depth = np.ma.masked_where(~support, mean)
+        depth_spread = np.ma.masked_where(~support, spread)
+
+        fig, axes = plt.subplots(2, 6, figsize=(18, 6.3))
+        panels = [(coverage, 'Coverage M0 (light view)', 'gray', 0, 1),
+                  (depth, 'Mean depth M1 / M0', 'viridis', *np.quantile(mean[support], [.01, .99])),
+                  (depth_spread, 'Depth standard deviation', 'magma', 0, np.quantile(spread[support], .99))]
+        ranges = []
+        for channel in range(c):
+            upper = float(np.quantile(raw[channel][support], .99))
+            ranges.append([0, upper])
+            panels.append((raw[channel], f'Learned flux feature {channel}', 'inferno', 0, upper))
+        for ax, (data, title, cmap, low, high) in zip(axes.flat, panels):
+            artist = ax.imshow(data, cmap=cmap, vmin=low, vmax=high)
+            ax.set_title(title, fontsize=11)
+            ax.axis('off')
+            fig.colorbar(artist, ax=ax, fraction=.035, pad=.025)
+        for ax in list(axes.flat)[len(panels):]:
+            ax.axis('off')
+        fig.suptitle(f"{Path(cfg['scene']).name} #{index} | LiSA {t.material_head} | actual {t.atlas_resolution}x{t.atlas_resolution} light-space buffers\n"
+                     'Feature heatmaps use separate 99th-percentile display ranges; colors are not object RGB.', fontsize=13)
+        fig.tight_layout()
+        fig.savefig(out / (stem + '_atlas.png'), dpi=140)
+        plt.close(fig)
+
+        fig, axes = plt.subplots(2, len(levels), figsize=(17.5, 5.2))
+        for k, level in enumerate(levels):
+            axes[0, k].imshow(level[c + 2], cmap='gray', vmin=0, vmax=1, interpolation='nearest')
+            axes[1, k].imshow(level[0], cmap='inferno', vmin=0, vmax=ranges[0][1], interpolation='nearest')
+            axes[0, k].set_title(f'L{k}: {level.shape[-1]}x{level.shape[-2]}')
+            axes[0, k].axis('off'); axes[1, k].axis('off')
+        fig.suptitle('Actual atlas pyramid | top: coverage | bottom: flux feature 0 (same color range)')
+        fig.tight_layout()
+        fig.savefig(out / (stem + '_pyramid.png'), dpi=140)
+        plt.close(fig)
+
+        def component_display(values):
+            return observation_image(values * alpha, cfg['display_gamma'],
+                                     alpha=None if sample['is_hdr'] else alpha, background=0.0).clamp(0, 1).cpu()
+        visibility_image = predicted.new_full(covered.shape, float('nan'))
+        visibility_image[covered] = visibility[:, 0]
+        target = target_image(sample, cfg['background'], cfg['display_gamma']).clamp(0, 1).cpu()
+        fig, axes = plt.subplots(1, 5, figsize=(17, 3.8))
+        images = [target, predicted.clamp(0, 1).cpu(), visibility_image.cpu(),
+                  component_display(local_linear), component_display(transfer_linear)]
+        titles = ['GT (camera view)', f'Final LiSA ({t.material_head})', 'Visibility V: black=shadow',
+                  'Local contribution E * V * rho', 'Transport contribution E * transfer']
+        for ax, data, title in zip(axes, images, titles):
+            ax.imshow(data, cmap='gray', vmin=0, vmax=1)
+            ax.set_title(title, fontsize=10); ax.axis('off')
+        fig.suptitle(f"{Path(cfg['scene']).name} #{index} | camera view | components encoded separately, not additive in display space")
+        fig.tight_layout()
+        fig.savefig(out / (stem + '_decomposition.png'), dpi=140)
+        plt.close(fig)
+        save_pair(out / (stem + '_pair.png'), predicted, target.to(predicted.device))
+        np.savez_compressed(out / (stem + '_buffers.npz'),
+                            **{f'atlas_level_{k}': level for k, level in enumerate(levels)},
+                            visibility=visibility_image.cpu().numpy(),
+                            local_linear=local_linear.cpu().numpy(), transfer_linear=transfer_linear.cpu().numpy(),
+                            alpha=alpha.cpu().numpy(), light_view=atlas['view'].cpu().numpy(),
+                            focal=float(atlas['focal']), depth_center=float(atlas['depth_center']), radius=g.radius)
+        report['frames'].append(dict(frame_index=index, name=sample['name'],
+            light_position=sample['light_pos'].tolist(), intensity=sample['light_intensity'].tolist(),
+            channel_display_ranges=ranges, atlas_shapes=[list(x.shape) for x in levels],
+            decomposition_max_abs_error=float((reconstructed - predicted).abs().max()),
+            visibility_mean=float(visibility.mean()), transport_share_linear=float(
+                transfer_linear.sum() / (local_linear + transfer_linear).sum())))
+        print(json.dumps(report['frames'][-1]), flush=True)
+    (out / 'preview.json').write_text(json.dumps(report, indent=2) + '\n')
+
+
 def score_external_renders(renders, scene, output, radius):
     """Score another method's saved official-test PNGs against canonical PORT targets.
 
@@ -628,6 +772,8 @@ def main():
     parser.add_argument('--compare-geometry-buffers', type=Path, help='Candidate evaluation directory; --reference-geometry is the reference evaluation directory')
     parser.add_argument('--reference-geometry', type=Path, help='Reference evaluation directory for saved geometry buffers')
     parser.add_argument('--relight-preview', action='store_true', help='Fixed-camera four-light preview of the directional or neural-material pipeline')
+    parser.add_argument('--light-atlas-preview', action='store_true', help='Export actual LiSA atlas channels, pyramid and shading decomposition')
+    parser.add_argument('--atlas-frames', type=int, nargs='+', default=[0], help='Dataset frame indices for --light-atlas-preview')
     parser.add_argument('--gggs-default-review', action='store_true', help='Compare source GGGS, its default-renderer import and jointly optimized geometry')
     parser.add_argument("--limit", type=int, default=32)
     parser.add_argument("--split", choices=['train','test'], default='train')
@@ -664,6 +810,9 @@ def main():
     parser.add_argument('--shift-align', type=int, default=24,
                         help='Search radius of the secondary shift-aligned metrics for --external-renders; 0 disables')
     args = parser.parse_args()
+    if args.light_atlas_preview:
+        if not args.checkpoint:parser.error('Light-atlas preview requires a checkpoint')
+        return preview_light_atlas(args.checkpoint, args.output, args.split, args.atlas_frames)
     if args.silhouette_audit:
         if not args.checkpoint:parser.error('--silhouette-audit requires a checkpoint')
         return silhouette_split_audit(args.checkpoint, args.output)

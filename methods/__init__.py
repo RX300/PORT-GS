@@ -5,12 +5,14 @@ from .base import PortTransport, TransportBase
 from .directional import DirectionalTransport
 from .attention import SurfaceAttention
 from .neural_material import NeuralMaterialTransport
+from .light_atlas import LightAtlasTransport
 
 
 METHODS = {
     "directional_port_v1": DirectionalTransport,
     "surface_attention": SurfaceAttention,
     "neural_material": NeuralMaterialTransport,
+    "light_atlas": LightAtlasTransport,
 }
 DEFAULT_METHOD = "directional_port_v1"
 

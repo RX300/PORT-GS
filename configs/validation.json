@@ -1,12 +1,12 @@
 {
-  "name": "surface_attention_six_scene_20261001",
-  "note": "Surface attention native 2DGS, matching refactored_six_scene_20261001 six-scene 30k protocol. Reuse identical train-only normal/depth priors; original held-out camera calibration.",
+  "name": "light_atlas_svbrdf_remaining_scenes",
+  "note": "Frozen final LiSA svbrdf recipe, complete the nine remaining dataset scenes. The central timed GPU queue executes these phases; no separate PORT queue is launched.",
   "python": "/workspace/ubuntu2004_cuda12_1/utils/conda-envs/ssd-gs/bin/python",
   "data_root": "/workspace/datasets/SSD-GS/data",
   "worker_gpus": [
     0,
-    1,
-    2
+    2,
+    3
   ],
   "launch_environment": {
     "PATH_prefix": "/workspace/ubuntu2004_cuda12_1/utils/conda-envs/ssd-gs/bin:/usr/local/cuda-12.1/bin",
@@ -28,13 +28,16 @@
     "resolution": 512,
     "background": 0.0,
     "display-gamma": 2.2,
-    "surface-priors": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/refactored_six_scene_20261001/dependencies/surface_priors/{family}/{scene}"
+    "shadow-start": 2000,
+    "port-start": 2000
   },
   "families": {
     "Real_NRHints": {
       "scenes": [
-        "Cat",
-        "Pixiu"
+        "CatSmall",
+        "CupFabric",
+        "Fish",
+        "Pikachu"
       ],
       "train": {
         "optimize-cameras": true,
@@ -47,8 +50,9 @@
     },
     "Synthetic_GS3": {
       "scenes": [
-        "AnisoMetal",
-        "Translucent"
+        "FurBall",
+        "Hotdog",
+        "Lego"
       ],
       "train": {
         "background": 1.0
@@ -56,8 +60,8 @@
     },
     "Synthetic_SSS-GS": {
       "scenes": [
-        "bunny_small",
-        "dragon_small"
+        "candle_small",
+        "soap_small"
       ],
       "train": {
         "resolution": 256,
@@ -66,8 +70,9 @@
     }
   },
   "variants": {
-    "surface_attention": {
-      "representation": "surface_attention"
+    "lisa_svbrdf": {
+      "representation": "light_atlas",
+      "material-head": "svbrdf"
     }
   },
   "eval_split": "test",

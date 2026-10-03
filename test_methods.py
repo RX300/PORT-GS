@@ -9,7 +9,7 @@ from torch.nn import functional as F
 
 from gaussians import Gaussians
 from methods import METHODS, add_method_arguments, build_transport, resolve_config
-from methods.base import quadrature_mass
+from methods.base import direction_encoding, quadrature_mass
 from surface import depth_normals, surface_losses
 from refinement import split_surfels
 
@@ -724,12 +724,39 @@ class MethodTests(unittest.TestCase):
     def model(self, name):
         torch.manual_seed(7)
         config = resolve_config(dict(representation=name, rank=5))
-        return build_transport(config, 1.).double(), config
+        return self.placed(build_transport(config, 1.)), config
+
+    @staticmethod
+    def placed(model):
+        # Light-space methods rasterize their light pass with gsplat, which needs CUDA float32.
+        return model.cuda().float() if getattr(model, 'light_space', False) else model.double()
+
+    def light_space_inputs(self):
+        g = Gaussians(17, torch.zeros(3), 1., 32, device='cuda')
+        with torch.no_grad():
+            for key, value in self.g.params.items():
+                g.params[key].copy_(value.float())
+        p = g.params
+        receivers = dict(means=p['means'][:11], features=p['features'][:11], base=p['base'][:11],
+                         visibility=self.receivers['visibility'].float().cuda(),
+                         normals=self.receivers['normals'].float().cuda())
+        return g, receivers
 
     def shade(self, model, active=True, intensity=None, receivers=None):
+        intensity = self.intensity if intensity is None else intensity
+        if getattr(model, 'light_space', False):
+            if not hasattr(self, '_light_space_inputs'):
+                self._light_space_inputs = self.light_space_inputs()
+            g, light_receivers = self._light_space_inputs
+            cuda = lambda value: value.float().cuda()
+            return model(g, light_receivers if receivers is None else receivers, cuda(self.eye), cuda(self.light),
+                         cuda(intensity), None, active)
         return model(self.g, self.receivers if receivers is None else receivers,
-                     self.eye, self.light, self.intensity if intensity is None else intensity,
-                     self.visibility, active)
+                     self.eye, self.light, intensity, self.visibility, active)
+
+    @staticmethod
+    def needs_unavailable_cuda(name):
+        return getattr(METHODS[name], 'light_space', False) and not torch.cuda.is_available()
 
     def test_method_selection_and_config_roundtrip(self):
         for name in METHODS:
@@ -741,12 +768,14 @@ class MethodTests(unittest.TestCase):
                 add_method_arguments(parser, argv)
                 config = resolve_config(vars(parser.parse_args(argv)))
                 self.assertEqual(config['representation'], name)
-                model = build_transport(config, 1.).double()
+                if self.needs_unavailable_cuda(name):
+                    continue
+                model = self.placed(build_transport(config, 1.))
                 buffer = io.BytesIO()
                 torch.save(dict(config=config, transport=model.state_dict()), buffer)
                 buffer.seek(0)
                 saved = torch.load(buffer, weights_only=False)
-                restored = build_transport(saved['config'], 1.).double()
+                restored = self.placed(build_transport(saved['config'], 1.))
                 restored.load_state_dict(saved['transport'], strict=True)
                 torch.testing.assert_close(self.shade(model), self.shade(restored), rtol=0, atol=0)
         with self.assertRaises(ValueError):
@@ -844,6 +873,8 @@ class MethodTests(unittest.TestCase):
     def test_zero_light_linearity_and_optimization(self):
         for name in METHODS:
             with self.subTest(name=name):
+                if self.needs_unavailable_cuda(name):
+                    continue
                 model, _ = self.model(name)
                 out = self.shade(model)
                 torch.testing.assert_close(self.shade(model, intensity=self.intensity*3), out*3)
@@ -2186,6 +2217,123 @@ class TrainingStructureTests(unittest.TestCase):
         self.assertEqual(provenance['dirty'], bool(provenance['status']))
         self.assertEqual(manifest['jobs'][0]['source_dirty'], provenance['dirty'])
         self.assertEqual(len(provenance['diff_sha256']), 64)
+
+
+class LightAtlasTests(unittest.TestCase):
+    """Light-space atlas conventions on a floor with an occluding square under an overhead light."""
+
+    @staticmethod
+    def scene():
+        axis = torch.linspace(-1, 1, 48)
+        floor = torch.stack(torch.meshgrid(axis, axis, indexing='ij'), -1).reshape(-1, 2)
+        floor = torch.stack((floor[:, 0], torch.zeros(len(floor)), floor[:, 1]), -1)
+        axis = torch.linspace(-.25, .25, 12)
+        square = torch.stack(torch.meshgrid(axis, axis, indexing='ij'), -1).reshape(-1, 2)
+        square = torch.stack((square[:, 0], torch.full((len(square),), .5), square[:, 1]), -1)
+        means = torch.cat((floor, square)).cuda()
+        g = Gaussians(len(means), torch.tensor([0., .25, 0.]), 1.5, 8, device='cuda')
+        with torch.no_grad():
+            g.params['means'].copy_(means)
+            g.params['quats'].copy_(torch.tensor([1., 0, 0, 0]).expand(len(means), 4))
+            scales = torch.tensor([.045, .002, .045]).expand(len(means), 3).clone()
+            scales[len(floor):] = torch.tensor([.03, .002, .03])
+            g.params['scales'].copy_(scales.log())
+            g.params['opacities'].fill_(4.)
+        return g
+
+    @unittest.skipUnless(torch.cuda.is_available(), 'CUDA light-space rasterization')
+    def test_moment_visibility_matches_cast_shadow_and_reaches_occluder(self):
+        torch.manual_seed(0)
+        g = self.scene()
+        transport = build_transport(dict(representation='light_atlas', feature_dim=8), 1.).cuda()
+        light = torch.tensor([0., 3., 0.], device='cuda')
+        # Shadow of the |x|,|z|<=.25 square at height .5 spans |x|<=.3 on the floor.
+        receivers = torch.tensor([[0., 0., 0.], [.15, 0., -.1], [.8, 0., .8], [.5, 0., 0.], [0., .5, 0.]],
+                                 device='cuda')
+        atlas = transport.light_atlas(g, light)
+        self.assertEqual([level.shape[-1] for level in atlas['levels']], [512, 256, 128, 64, 32, 16, 8])
+        stats, fluxes = transport.gather(atlas, receivers, g.radius)
+        self.assertEqual(stats.shape, (5, 5 * 7))
+        self.assertEqual(fluxes.shape, (5, 7, 8))
+        visibility = stats[:, 4]
+        self.assertTrue((visibility[:2] < .05).all(), visibility)
+        self.assertTrue((visibility[2:] > .95).all(), visibility)
+        occluder = torch.autograd.grad(stats[0, 4], g.params['means'])[0][48 * 48:]
+        self.assertTrue(torch.isfinite(occluder).all() and occluder.abs().sum() > 0)
+
+    @unittest.skipUnless(torch.cuda.is_available(), 'CUDA light-space rasterization')
+    def test_inactive_light_pass_is_local_shading_and_transport_is_flux_linear(self):
+        torch.manual_seed(0)
+        g = self.scene()
+        transport = build_transport(dict(representation='light_atlas', feature_dim=8), 1.).cuda()
+        points = torch.tensor([[.6, 0., .6], [0., .5, 0.]], device='cuda')
+        receivers = {'means': points, 'features': torch.randn(2, 8, device='cuda'),
+                     'base': torch.zeros(2, 3, device='cuda'),
+                     'normals': torch.tensor([[0., 1., 0.]], device='cuda').expand(2, 3)}
+        eye, light = torch.tensor([0., 2., 3.], device='cuda'), torch.tensor([0., 3., 0.], device='cuda')
+        intensity = torch.ones(3, device='cuda')
+        local = transport(g, receivers, eye, light, intensity, None, port_active=False, shadow=False)
+        delta = light - points
+        rho, _ = transport.local_response(receivers, receivers['normals'], F.normalize(delta, dim=-1),
+                                          F.normalize(eye - points, dim=-1),
+                                          F.normalize(F.normalize(delta, dim=-1) + F.normalize(eye - points, dim=-1), dim=-1))
+        torch.testing.assert_close(local, rho / delta.square().sum(-1, keepdim=True))
+        stats, fluxes = transport.gather(transport.light_atlas(g, light), points, g.radius)
+        cosines = torch.randn(2, 5, device='cuda')
+        torch.testing.assert_close(transport.transfer(stats, 2 * fluxes, receivers['features'], cosines),
+                                   2 * transport.transfer(stats, fluxes, receivers['features'], cosines))
+        full = transport(g, receivers, eye, light, intensity, None, port_active=True, shadow=True)
+        self.assertTrue(torch.isfinite(full).all() and (full >= 0).all())
+
+    @unittest.skipUnless(torch.cuda.is_available(), 'CUDA light-space rasterization')
+    def test_material_heads_and_per_gaussian_visibility_ablation(self):
+        torch.manual_seed(0)
+        g = self.scene()
+        points = torch.tensor([[0., 0., 0.], [.8, 0., .8]], device='cuda')
+        receivers = {'means': points, 'features': torch.randn(2, 8, device='cuda'),
+                     'base': torch.zeros(2, 3, device='cuda'),
+                     'normals': torch.tensor([[0., 1., 0.]], device='cuda').expand(2, 3),
+                     'visibility': torch.tensor([.25, 1.], device='cuda')}
+        eye, light = torch.tensor([0., 2., 3.], device='cuda'), torch.tensor([0., 3., 0.], device='cuda')
+        intensity = torch.ones(3, device='cuda')
+        compact = build_transport(dict(representation='light_atlas', feature_dim=8), 1.)
+        spatial = build_transport(dict(representation='light_atlas', feature_dim=8, material_head='spatial'), 1.)
+        # The compact head keeps the first-run parameter layout so its checkpoints still load.
+        self.assertEqual(compact.material[0].in_features, 8 + 75)
+        self.assertEqual(len(compact.material), 7)
+        self.assertEqual(spatial.material[0].in_features, 8 + 3 + 4 * 27 + 5 + 5 + 51)
+        self.assertEqual(len(spatial.material), 9)
+        out = spatial.cuda()(g, receivers, eye, light, intensity, None, port_active=True, shadow=True)
+        self.assertTrue(torch.isfinite(out).all() and (out >= 0).all())
+        ablation = build_transport(dict(representation='light_atlas', feature_dim=8, visibility_model='gaussian',
+                                        light_transport='none'), 1.).cuda()
+        self.assertTrue(ablation.per_gaussian_visibility)
+        shaded = ablation(g, receivers, eye, light, intensity, None, port_active=True, shadow=True)
+        unshadowed = ablation(g, receivers, eye, light, intensity, None, port_active=True, shadow=False)
+        torch.testing.assert_close(shaded, unshadowed * receivers['visibility'][:, None])
+
+    @unittest.skipUnless(torch.cuda.is_available(), 'CUDA light-space rasterization')
+    def test_svbrdf_head_limits_position_to_light_independent_coefficients(self):
+        torch.manual_seed(0)
+        g = self.scene()
+        head = build_transport(dict(representation='light_atlas', feature_dim=8, material_head='svbrdf'), 1.).cuda()
+        self.assertEqual(head.material[0].in_features, 8 + 3 + 4 * 27 + 5 + 5)  # no positional input
+        self.assertEqual(head.material[-1].out_features, 3 * 9)
+        self.assertEqual(head.coefficients[0].in_features, 8 + 51)
+        points = torch.tensor([[0., 0., 0.], [.8, 0., .8]], device='cuda')
+        receivers = {'means': points, 'features': torch.randn(2, 8, device='cuda'),
+                     'base': torch.zeros(2, 3, device='cuda'),
+                     'normals': torch.tensor([[0., 1., 0.]], device='cuda').expand(2, 3)}
+        eye, intensity = torch.tensor([0., 2., 3.], device='cuda'), torch.ones(3, device='cuda')
+        light = torch.tensor([0., 3., 0.], device='cuda')
+        out = head(g, receivers, eye, light, intensity, None, port_active=True, shadow=True)
+        self.assertTrue(torch.isfinite(out).all() and (out >= 0).all())
+        # Zero-initialized coefficients: the positional branch starts silent.
+        xyz = (points - g.center) / g.radius
+        with torch.no_grad():
+            head.coefficients[-1].bias.fill_(1.)
+        first = head.coefficients(torch.cat((receivers['features'], direction_encoding(xyz, 8)), -1))
+        torch.testing.assert_close(first, torch.ones_like(first))
 
 
 if __name__ == '__main__':

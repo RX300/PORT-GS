@@ -361,9 +361,13 @@ def render(
     """Render a full HWC image."""
     h, w = sample["image"].shape[:2]
     means = gaussians.params["means"]
+    # Light-space methods shade visibility per receiver from their own light pass, unless
+    # they explicitly request the per-Gaussian deep shadow (an ablation of light_atlas).
+    light_space = getattr(transport, "light_space", False)
+    gaussian_shadow = not light_space or getattr(transport, "per_gaussian_visibility", False)
     visibility = (
         visibility_hint(gaussians, sample["light_pos"], mode=shadow_mode)
-        if shadow and not geometry_only
+        if shadow and not geometry_only and gaussian_shadow
         else torch.ones(len(means), device=means.device)
     )
     if geometry_only:
@@ -438,6 +442,7 @@ def render(
         sample["light_intensity"],
         visibility,
         port_active,
+        **({"shadow": shadow} if light_space else {}),
     )
     if radiance_residual is not None:
         foreground, alpha, info['residual_stats'] = apply_radiance_residual(
