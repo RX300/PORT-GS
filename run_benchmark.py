@@ -1,4 +1,8 @@
-"""Run explicit experiment phases with one serial worker per GPU."""
+"""Run explicit experiment phases with serial workers on the listed GPUs.
+
+A GPU listed k > 1 times in ``worker_gpus`` gets k concurrent worker slots
+named ``<gpu>.<i>``; a GPU listed once keeps the plain ``<gpu>`` slot name.
+"""
 
 from __future__ import annotations
 
@@ -65,6 +69,17 @@ def job_status_record(job):
     }
 
 
+def worker_slots(gpus):
+    """Slot names for worker_gpus; the part before '.' is the CUDA device."""
+    counts, seen, slots = {}, {}, []
+    for gpu in gpus:
+        counts[gpu] = counts.get(gpu, 0) + 1
+    for gpu in gpus:
+        seen[gpu] = seen.get(gpu, 0) + 1
+        slots.append(str(gpu) if counts[gpu] == 1 else f"{gpu}.{seen[gpu] - 1}")
+    return slots
+
+
 def initial_status(manifest, manifest_path):
     jobs = {job["id"]: job_status_record(job) for job in manifest["jobs"]}
     return {
@@ -75,8 +90,8 @@ def initial_status(manifest, manifest_path):
         "scheduler_pid": None,
         "updated_utc": utc_now(),
         "workers": {
-            str(gpu): {"state": "idle", "job": None, "pid": None}
-            for gpu in manifest["worker_gpus"]
+            slot: {"state": "idle", "job": None, "pid": None}
+            for slot in worker_slots(manifest["worker_gpus"])
         },
         "jobs": jobs,
     }
@@ -113,8 +128,8 @@ def resume_status(manifest, manifest_path):
         else:
             job_status.update(state="completed", phase=None, pid=None)
     status["workers"] = {
-        str(gpu): {"state": "idle", "job": None, "pid": None}
-        for gpu in manifest["worker_gpus"]
+        slot: {"state": "idle", "job": None, "pid": None}
+        for slot in worker_slots(manifest["worker_gpus"])
     }
     status["state"] = "pending"
     status["started_utc"] = None
@@ -331,7 +346,7 @@ class Scheduler:
         environment.update({key: value for key, value in runtime.items() if key != "PATH_prefix"})
         environment["PATH"] = runtime["PATH_prefix"] + os.pathsep + environment["PATH"]
         environment.update(phase.get("env", {}))
-        environment["CUDA_VISIBLE_DEVICES"] = str(gpu)
+        environment["CUDA_VISIBLE_DEVICES"] = str(gpu).split(".")[0]
         pid = None
         startup = None
         with logpath.open("a", buffering=1) as log:
@@ -427,8 +442,8 @@ def run(manifest_path, resume=False):
     )
     scheduler.save()
     threads = [
-        threading.Thread(target=worker, args=(scheduler, gpu, jobs), name=f"gpu-{gpu}")
-        for gpu in manifest["worker_gpus"]
+        threading.Thread(target=worker, args=(scheduler, slot, jobs), name=f"gpu-{slot}")
+        for slot in worker_slots(manifest["worker_gpus"])
     ]
     for thread in threads:
         thread.start()

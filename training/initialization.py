@@ -20,6 +20,9 @@ def select_frames(args, config, dataset, saved):
     if saved is not None:
         config["fit_all"] = len(saved["val_indices"]) == 0
         return saved["fit_indices"], saved["val_indices"]
+    if args.holdout_every:
+        held_out = list(range(args.holdout_every // 2, len(dataset), args.holdout_every))
+        return [i for i in range(len(dataset)) if i not in set(held_out)], held_out
     return split_train_lights(dataset.frames)
 
 

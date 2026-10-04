@@ -534,23 +534,30 @@ def preview_light_atlas(checkpoint, output, split, frames):
         atlas = t.light_atlas(g, sample['light_pos'])
         stats, fluxes = t.gather(atlas, points, g.radius)
         visibility = torch.ones_like(cosines[:, :1])
+        # Optional specular lobes (2026-10-04) use the geometric level-0 moment test, as in forward.
+        specular_visibility = torch.ones_like(cosines[:, :1])
         if shadow and t.visibility_model != 'none':
             visibility = (receivers['visibility'][:, None] if t.per_gaussian_visibility else
                           t.receiver_visibility(stats, receivers['features'], cosines[:, :1]))
+            specular_visibility = (visibility if t.per_gaussian_visibility else stats[:, t.STATS - 1:t.STATS])
+        specular = (t.specular_response(receivers, cosines, (points - g.center) / g.radius)
+                    if getattr(t, 'specular', 'none') == 'lobes' else torch.zeros_like(rho))
         transfer = (t.transfer(stats, fluxes, receivers['features'], cosines)
                     if port_active and t.light_transport == 'atlas' else torch.zeros_like(rho))
         incident = sample['light_intensity'][None] / t.light_scale / (
             sample['light_pos'] - points).square().sum(-1, keepdim=True)
         covered = alpha[..., 0] > 0
         local_linear = torch.zeros_like(predicted)
+        specular_linear = torch.zeros_like(predicted)
         transfer_linear = torch.zeros_like(predicted)
         local_linear[covered] = incident * visibility * rho
+        specular_linear[covered] = incident * specular_visibility * specular
         transfer_linear[covered] = incident * transfer
         reconstructed = observation_image(
-            (local_linear + transfer_linear) * alpha + cfg['background'] * (1 - alpha),
+            (local_linear + specular_linear + transfer_linear) * alpha + cfg['background'] * (1 - alpha),
             cfg['display_gamma'], alpha=None if sample['is_hdr'] else alpha, background=cfg['background'])
         torch.testing.assert_close(reconstructed, predicted, rtol=1e-5, atol=1e-6)
-        for tensor in atlas['levels'] + [visibility, local_linear, transfer_linear]:
+        for tensor in atlas['levels'] + [visibility, local_linear, specular_linear, transfer_linear]:
             assert torch.isfinite(tensor).all()
         stem = f'frame_{index:03d}'
         levels = [level[0].cpu().numpy() for level in atlas['levels']]
@@ -602,11 +609,14 @@ def preview_light_atlas(checkpoint, output, split, frames):
         visibility_image = predicted.new_full(covered.shape, float('nan'))
         visibility_image[covered] = visibility[:, 0]
         target = target_image(sample, cfg['background'], cfg['display_gamma']).clamp(0, 1).cpu()
-        fig, axes = plt.subplots(1, 5, figsize=(17, 3.8))
         images = [target, predicted.clamp(0, 1).cpu(), visibility_image.cpu(),
                   component_display(local_linear), component_display(transfer_linear)]
         titles = ['GT (camera view)', f'Final LiSA ({t.material_head})', 'Visibility V: black=shadow',
                   'Local contribution E * V * rho', 'Transport contribution E * transfer']
+        if getattr(t, 'specular', 'none') == 'lobes':
+            images.insert(4, component_display(specular_linear))
+            titles.insert(4, 'Specular lobes E * V0 * s')
+        fig, axes = plt.subplots(1, len(images), figsize=(3.4 * len(images), 3.8))
         for ax, data, title in zip(axes, images, titles):
             ax.imshow(data, cmap='gray', vmin=0, vmax=1)
             ax.set_title(title, fontsize=10); ax.axis('off')
@@ -618,7 +628,8 @@ def preview_light_atlas(checkpoint, output, split, frames):
         np.savez_compressed(out / (stem + '_buffers.npz'),
                             **{f'atlas_level_{k}': level for k, level in enumerate(levels)},
                             visibility=visibility_image.cpu().numpy(),
-                            local_linear=local_linear.cpu().numpy(), transfer_linear=transfer_linear.cpu().numpy(),
+                            local_linear=local_linear.cpu().numpy(), specular_linear=specular_linear.cpu().numpy(),
+                            transfer_linear=transfer_linear.cpu().numpy(),
                             alpha=alpha.cpu().numpy(), light_view=atlas['view'].cpu().numpy(),
                             focal=float(atlas['focal']), depth_center=float(atlas['depth_center']), radius=g.radius)
         report['frames'].append(dict(frame_index=index, name=sample['name'],
@@ -626,7 +637,9 @@ def preview_light_atlas(checkpoint, output, split, frames):
             channel_display_ranges=ranges, atlas_shapes=[list(x.shape) for x in levels],
             decomposition_max_abs_error=float((reconstructed - predicted).abs().max()),
             visibility_mean=float(visibility.mean()), transport_share_linear=float(
-                transfer_linear.sum() / (local_linear + transfer_linear).sum())))
+                transfer_linear.sum() / (local_linear + specular_linear + transfer_linear).sum()),
+            specular_share_linear=float(
+                specular_linear.sum() / (local_linear + specular_linear + transfer_linear).sum())))
         print(json.dumps(report['frames'][-1]), flush=True)
     (out / 'preview.json').write_text(json.dumps(report, indent=2) + '\n')
 

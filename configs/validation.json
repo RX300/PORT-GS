@@ -1,11 +1,16 @@
 {
-  "name": "light_atlas_svbrdf_remaining_scenes",
-  "note": "Frozen final LiSA svbrdf recipe, complete the nine remaining dataset scenes. The central timed GPU queue executes these phases; no separate PORT queue is launched.",
+  "name": "lisa_v2_full_dataset_20261004",
+  "note": "Final LiSA-v2 run of the variant selected on train-internal holdouts (G_spec); all official train frames, full official test with the original calibration, last checkpoint, seed 0, 30k steps (same budget as the original LiSA). No test frame was used for any selection. Selection evidence: docs/experiments/lisa_v2_root_causes_20261004.md.",
   "python": "/workspace/ubuntu2004_cuda12_1/utils/conda-envs/ssd-gs/bin/python",
   "data_root": "/workspace/datasets/SSD-GS/data",
   "worker_gpus": [
     0,
+    0,
+    1,
+    1,
     2,
+    2,
+    3,
     3
   ],
   "launch_environment": {
@@ -32,12 +37,28 @@
     "port-start": 2000
   },
   "families": {
+    "Synthetic_GS3": {
+      "scenes": [
+        "Lego",
+        "Drums",
+        "Hotdog",
+        "AnisoMetal",
+        "FurBall",
+        "Translucent"
+      ],
+      "train": {
+        "background": 1.0
+      }
+    },
     "Real_NRHints": {
       "scenes": [
+        "Cat",
         "CatSmall",
         "CupFabric",
         "Fish",
-        "Pikachu"
+        "FurScene",
+        "Pikachu",
+        "Pixiu"
       ],
       "train": {
         "optimize-cameras": true,
@@ -48,20 +69,13 @@
         "camera-lr-final": 1e-05
       }
     },
-    "Synthetic_GS3": {
-      "scenes": [
-        "FurBall",
-        "Hotdog",
-        "Lego"
-      ],
-      "train": {
-        "background": 1.0
-      }
-    },
     "Synthetic_SSS-GS": {
       "scenes": [
+        "bunny_small",
         "candle_small",
-        "soap_small"
+        "dragon_small",
+        "soap_small",
+        "statue_small"
       ],
       "train": {
         "resolution": 256,
@@ -70,9 +84,12 @@
     }
   },
   "variants": {
-    "lisa_svbrdf": {
+    "lisa_v2": {
       "representation": "light_atlas",
-      "material-head": "svbrdf"
+      "material-head": "svbrdf",
+      "mask-weight": 0.5,
+      "foreground-appearance-until": 2000,
+      "specular": "lobes"
     }
   },
   "eval_split": "test",

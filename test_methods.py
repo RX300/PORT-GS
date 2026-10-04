@@ -2335,6 +2335,81 @@ class LightAtlasTests(unittest.TestCase):
         first = head.coefficients(torch.cat((receivers['features'], direction_encoding(xyz, 8)), -1))
         torch.testing.assert_close(first, torch.ones_like(first))
 
+    @unittest.skipUnless(torch.cuda.is_available(), 'CUDA light-space rasterization')
+    def test_specular_lobes_use_geometric_shadow_and_bounded_visibility(self):
+        torch.manual_seed(0)
+        g = self.scene()
+        default = build_transport(dict(representation='light_atlas', feature_dim=8, material_head='svbrdf'), 1.)
+        # Defaults add no parameters, so checkpoints from before 2026-10-04 keep loading.
+        self.assertFalse(any(key.startswith('specular_weights') for key in default.state_dict()))
+        self.assertEqual(default.visibility_bound, 0.)
+        lobes = build_transport(dict(representation='light_atlas', feature_dim=8, material_head='svbrdf',
+                                     specular='lobes', light_transport='none'), 1.).cuda()
+        self.assertEqual(lobes.specular_weights[0].in_features, 8 + 51)
+        self.assertEqual(lobes.specular_weights[-1].out_features, 3 * 5)
+        # Floor point in the cast shadow, lit floor point; mirror geometry for the lit one.
+        points = torch.tensor([[0., 0., 0.], [.6, 0., 0.]], device='cuda')
+        receivers = {'means': points, 'features': torch.randn(2, 8, device='cuda'),
+                     'base': torch.zeros(2, 3, device='cuda'),
+                     'normals': torch.tensor([[0., 1., 0.]], device='cuda').expand(2, 3)}
+        light, eye = torch.tensor([0., 3., 0.], device='cuda'), torch.tensor([1.2, 3., 0.], device='cuda')
+        intensity = torch.ones(3, device='cuda')
+        with torch.no_grad():
+            lobes.material[-1].weight.zero_()
+            lobes.material[-1].bias.fill_(-100.)  # local rho ~ 0: only the lobes remain
+            lobes.specular_weights[-1].bias.fill_(1.)
+            before = lobes(g, receivers, eye, light, intensity, None, port_active=True, shadow=True)
+            lobes.visibility[-1].bias.fill_(-100.)  # learned visibility collapses to 0
+            after = lobes(g, receivers, eye, light, intensity, None, port_active=True, shadow=True)
+        self.assertTrue((before[0] < 1e-3).all(), before)  # shadowed by the moment test
+        self.assertTrue((before[1] > 1e-2).all(), before)
+        torch.testing.assert_close(after, before)
+        bounded = build_transport(dict(representation='light_atlas', feature_dim=8, visibility_bound=2.), 1.).cuda()
+        with torch.no_grad():
+            bounded.visibility[-1].bias.fill_(-100.)
+            stats, _ = bounded.gather(bounded.light_atlas(g, light), points, g.radius)
+            visibility = bounded.receiver_visibility(stats, receivers['features'], torch.ones(2, 1, device='cuda'))
+            prior = stats[:, 4:5].clamp(1e-4, 1 - 1e-4)
+        torch.testing.assert_close(visibility, torch.sigmoid(torch.logit(prior) - 2 * math.tanh(50.)))
+
+
+class RefinementBudgetTests(unittest.TestCase):
+    def test_point_cap_ramps_linearly_and_defaults_to_fixed_cap(self):
+        from refinement import Refinement
+        fixed = Refinement(max_points=1000)
+        self.assertEqual([fixed.point_cap(step) for step in (0, 500, 10**6)], [1000, 1000, 1000])
+        ramp = Refinement(refine_start_iter=500, max_points=1000, budget_ramp=1500, initial_points=100)
+        self.assertEqual([ramp.point_cap(step) for step in (0, 500, 1000, 1500, 9000)], [100, 100, 550, 1000, 1000])
+
+
+class AppearanceWeightTests(unittest.TestCase):
+    @unittest.skipUnless(torch.cuda.is_available(), 'CUDA rasterization')
+    def test_zero_weight_pixels_supervise_coverage_only(self):
+        from renderer import render
+        torch.manual_seed(0)
+        g = LightAtlasTests.scene()
+        transport = build_transport(dict(representation='light_atlas', feature_dim=8), 1.).cuda()
+        c2w = torch.eye(4, device='cuda')
+        c2w[:3, :3] = torch.tensor([[1., 0, 0], [0, 0, 1], [0, -1, 0]], device='cuda')  # look down -y
+        c2w[:3, 3] = torch.tensor([0., 3., 0.], device='cuda')
+        viewmat = torch.linalg.inv(c2w @ torch.diag(torch.tensor([1., -1., -1., 1.], device='cuda')))
+        K = torch.tensor([[40., 0, 32], [0, 40., 32], [0, 0, 1]], device='cuda')
+        sample = {'image': torch.zeros(64, 64, 3, device='cuda'), 'viewmat': viewmat, 'K': K, 'c2w': c2w,
+                  'light_pos': torch.tensor([0., 3., 1.], device='cuda'), 'light_intensity': torch.ones(3, device='cuda')}
+        grads = {}
+        for weight in (0., 1.):
+            for parameter in [*transport.parameters(), *g.params.values()]:
+                parameter.grad = None
+            image, alpha, _ = render(g, transport, sample, background=1., shadow=True, port_active=True,
+                                     appearance_weight=torch.full((64, 64, 1), weight, device='cuda'))
+            self.assertGreater(alpha.mean().item(), .1)
+            image.sum().backward()
+            grads[weight] = (sum(p.grad.abs().sum() for p in transport.parameters() if p.grad is not None),
+                             g.params['opacities'].grad.abs().sum())
+        self.assertEqual(float(grads[0.][0]), 0.)
+        self.assertGreater(float(grads[1.][0]), 0.)
+        self.assertGreater(float(grads[0.][1]), 0.)  # coverage is still supervised
+
 
 if __name__ == '__main__':
     unittest.main()

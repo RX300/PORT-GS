@@ -108,16 +108,19 @@ def main():
                          else torch.tensor(source_shift, device="cuda", dtype=torch.float32))
 
     strategy = Refinement(
+        refine_start_iter=args.refine_start,
         refine_stop_iter=args.refine_stop,
-        refine_scale2d_stop_iter=args.refine_stop,
+        refine_scale2d_stop_iter=args.refine_stop if args.split_scale2d_stop is None else args.split_scale2d_stop,
         grow_scale2d=0.03,
         # Split broad footprints; opacity and world size determine pruning.
         prune_scale2d=float("inf"),
-        grow_grad2d=0.0008 if args.absgrad else 0.0002,
+        grow_grad2d=args.grow_grad2d if args.grow_grad2d is not None else 0.0008 if args.absgrad else 0.0002,
         reset_every=3000,
         opacity_reset_every=args.opacity_reset_every,
         absgrad=args.absgrad,
         max_points=args.max_points,
+        budget_ramp=args.budget_ramp,
+        initial_points=min(len(gaussians.params["means"]), args.max_points),
         # gsplat 1.5.3 attaches absolute 2DGS gradients to means2d, while
         # signed densification gradients live on gradient_2dgs.
         key_for_gradient="gradient_2dgs" if config["geometry"] == "2dgs" and not args.absgrad else "means2d",
@@ -220,6 +223,9 @@ def main():
             normal_field=normal_field,
             radiance_residual=None if residual is None else residual.module,
             residual_indices=residual_indices,
+            # GT-background pixels supervise coverage only, never the shared appearance model.
+            appearance_weight=(sample["alpha"] if (args.foreground_appearance or step <= args.foreground_appearance_until)
+                               and sample["alpha"] is not None else None),
         )
         target = target_image(sample, args.background, args.display_gamma)
         if residual is not None:
@@ -299,6 +305,8 @@ def main():
                 "seconds": round(time.monotonic() - start, 2),
                 "memory_GiB": torch.cuda.max_memory_allocated() / 2**30,
             }
+            if getattr(transport, "diagnostics", None):
+                row["transport_stats"] = {name: value.item() for name, value in transport.diagnostics.items()}
             if light_scale_fit is not None:
                 row.update(light_scale_fit.log_fields(transport))
             if camera is not None:

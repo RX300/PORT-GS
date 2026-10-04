@@ -357,8 +357,13 @@ def render(
     normal_field=None,
     radiance_residual=None,
     residual_indices=None,
+    appearance_weight=None,
 ):
-    """Render a full HWC image."""
+    """Render a full HWC image.
+
+    ``appearance_weight`` (HW1, training only) scales the gradient that reaches the
+    foreground radiance per pixel; the rest of the pixel's gradient reaches coverage only.
+    """
     h, w = sample["image"].shape[:2]
     means = gaussians.params["means"]
     # Light-space methods shade visibility per receiver from their own light pass, unless
@@ -447,4 +452,6 @@ def render(
     if radiance_residual is not None:
         foreground, alpha, info['residual_stats'] = apply_radiance_residual(
             foreground, alpha, receivers, covered, transport, sample, radiance_residual, residual_indices)
+    if appearance_weight is not None:
+        foreground = foreground * appearance_weight + foreground.detach() * (1 - appearance_weight)
     return foreground * alpha + background * (1 - alpha), alpha, info

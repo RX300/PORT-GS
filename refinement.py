@@ -49,6 +49,17 @@ class Refinement(DefaultStrategy):
 
     max_points: int = 200000
     opacity_reset_every: int | None = None
+    # 0 applies max_points from the start. Otherwise the cap rises linearly from
+    # initial_points at refine_start_iter to max_points at this step, so points
+    # are not all committed while the appearance model is still incomplete.
+    budget_ramp: int = 0
+    initial_points: int = 0
+
+    def point_cap(self, step):
+        if not self.budget_ramp:
+            return self.max_points
+        progress = min(1.0, max(0.0, (step - self.refine_start_iter) / (self.budget_ramp - self.refine_start_iter)))
+        return int(self.initial_points + progress * (self.max_points - self.initial_points))
 
     @torch.no_grad()
     def step_post_backward(self, params, optimizers, state, step, info, packed=False):
@@ -81,8 +92,8 @@ class Refinement(DefaultStrategy):
     @torch.no_grad()
     def _grow_gs(self, params, optimizers, state, step):
         """Spend available points on the largest eligible image gradients."""
-        capacity = self.max_points - len(params["means"])
-        if capacity == 0:
+        capacity = self.point_cap(step) - len(params["means"])
+        if capacity <= 0:
             return
 
         gradients = state["grad2d"] / state["count"].clamp_min(1)

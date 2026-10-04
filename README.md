@@ -68,6 +68,7 @@ LiSA（light_atlas + svbrdf）三类数据集全部18场景完成。
 
 2026-10-03核查：本地总体SSIM/LPIPS最佳，总PSNR尚低于SSD-GS/GS³；优先问题为几何覆盖与局部分支退化。
 [结果分析](docs/experiments/full_dataset_analysis.md) · [SOTA判断](docs/research/sota_assessment.md) · [改进提案（未实施）](docs/research/improvement_proposal.md)
+[2025年3月起逐场景OLAT论文与三类数据出处](docs/research/per_scene_olat_literature_202503_202610.md)
 
 [材质头、消融与留出光照实验](docs/experiments/development.md)单独记录研发证据。其他PORT方法的历史结果见其各自实验文档；不混入LiSA主结果。
 [当前状态](docs/project/status.md) · [方法流程](docs/method/pipeline.md) · [架构](docs/architecture/system.md) · [决策记录](docs/project/decisions.md)

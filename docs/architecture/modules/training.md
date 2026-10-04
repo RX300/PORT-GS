@@ -44,6 +44,25 @@ checkpoint 启动残差阶段时直接报错。
 - 端口空间划分 `spatial_partition` 按 65536 行分块并在反向时重算，不保存 [N, ports, 3] 偏移：
   400k 源 ×200k 像素 ×512 端口的传输前后向峰值显存 10.99 → 4.32 GiB。前向逐位不变；端口参数梯度只改变求和顺序（相对差 ≤1.3e-6）。
 
+## 2026-10-04 新增选项（LiSA v2；默认值保持此前行为）
+
+根因与证据见[LiSA v2根因记录](../../experiments/lisa_v2_root_causes_20261004.md)。
+
+- `--split-scale2d-stop N`：此前代码固定把 gsplat `refine_scale2d_stop_iter` 设为 `--refine-stop`，即在 25k 步前
+  无条件分裂所有屏幕半径超过图像 3% 的高斯（与梯度无关）。省略时保持该行为；`0` 关闭此规则，只保留基于梯度的
+  克隆/分裂（原始 3DGS、GS³、SSD-GS 的规则）。该规则是 Lego/Drums 外壳的触发因素。
+- `--foreground-appearance`：渲染器把前景辐射的梯度按 GT alpha 加权（`foreground*w + foreground.detach()*(1-w)`），
+  GT 背景像素只监督覆盖。防止初始随机高斯覆盖黑背景时把共享外观网络推入 softplus 饱和。评价与推理不受影响。
+- `--refine-start`（默认 500）、`--grow-grad2d`（省略时 absgrad 0.0008 / 否则 0.0002）、`--budget-ramp N`
+  （点数上限从初始数在 `--refine-start` 线性升到 `--max-points` 于第 N 步；0 为固定上限）：增密调度实验开关。
+- 日志：transport 若提供 `diagnostics`（LiSA：可见度均值、学习残差、局部/镜面/传输线性辐射均值、rho），
+  每 100 步写入 history 行的 `transport_stats`。
+- `run_benchmark.py`：`worker_gpus` 中重复列出的 GPU 得到多个并发 worker（名称 `<gpu>.<i>`）；只列一次时名称不变。
+  LiSA 每 GPU 两个 worker 吞吐约为单个的 1.47 倍。
+
+注意：不透明度重置在 `--refine-stop` 前每 3000 步执行，保存步若恰好是重置步，权重的不透明度≈0.01；
+30k/25k 默认配置不受影响，诊断性前缀运行应避免以 3000 的倍数结束。
+
 ## 已知限制（未改变行为）
 
 - GGGS 导入在初始化时跳过 `project_geometry`，但第一步后照常执行 opacity≤0.99 与尺度范围投影；只有 `--freeze-geometry` 时完全保留。

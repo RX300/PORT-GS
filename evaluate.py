@@ -312,6 +312,7 @@ def render_observation(
     normal_field=None,
     radiance_residual=None,
     residual_indices=None,
+    appearance_weight=None,
 ):
     """Apply the observation model to a full view."""
     linear, alpha, info = render(
@@ -328,6 +329,7 @@ def render_observation(
         normal_field=normal_field,
         radiance_residual=radiance_residual,
         residual_indices=residual_indices,
+        appearance_weight=appearance_weight,
     )
     predicted = observation_image(
         linear,

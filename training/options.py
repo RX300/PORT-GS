@@ -26,7 +26,16 @@ def build_parser(argv=None):
     add_method_arguments(p, argv)
     p.add_argument("--port-start", type=int, default=5000)
     p.add_argument("--shadow-start", type=int, default=5000)
+    p.add_argument("--refine-start", type=int, default=500, help="First densification/pruning step")
     p.add_argument("--refine-stop", type=int, default=25000)
+    p.add_argument("--grow-grad2d", type=float,
+                   help="Densification gradient threshold; omitted keeps 0.0008 with absgrad, else 0.0002")
+    p.add_argument("--split-scale2d-stop", type=int,
+                   help="Last step that splits every Gaussian whose footprint exceeds 3%% of the image, "
+                        "independent of its gradient; omitted keeps --refine-stop, 0 disables the rule")
+    p.add_argument("--budget-ramp", type=int, default=0,
+                   help="Raise the point cap linearly from the initial count at --refine-start to --max-points "
+                        "at this step; 0 applies --max-points from the start")
     p.add_argument("--opacity-reset-every", type=int, default=3000,
                    help="Opacity reset interval before --refine-stop; 0 disables resets. Large-Gaussian pruning "
                         "keeps its fixed 3000-step start")
@@ -46,6 +55,13 @@ def build_parser(argv=None):
     p.add_argument("--freeze-geometry", action="store_true")
     p.add_argument("--unit-light-intensity", type=float)
     p.add_argument("--mask-weight", type=float, default=0.05)
+    p.add_argument("--foreground-appearance", action="store_true",
+                   help="Weight the photometric gradient reaching foreground radiance by GT alpha, so pixels of "
+                        "the GT background supervise coverage only and cannot drive the shared appearance "
+                        "networks (e.g. into saturation while random initial Gaussians cover a black background)")
+    p.add_argument("--foreground-appearance-until", type=int, default=0,
+                   help="Apply the --foreground-appearance weighting only for steps <= N (early-collapse guard that "
+                        "later lets fringe pixels be shaded toward the background); 0 adds nothing")
     p.add_argument("--highlight-weight", type=float, default=0.,
                    help="Extra RGB and local-contrast loss on training-only neutral bright peaks")
     p.add_argument('--radiance-residual', action='store_true',
@@ -140,6 +156,9 @@ def build_parser(argv=None):
                         help="Add a position-only continuous residual to neural-material shading normal codes")
     surface.add_argument("--surface-depth", choices=['center', 'intersection'], default='center',
                         help="2DGS receiver/SDF depth: native center Z or per-ray surfel intersections")
+    p.add_argument("--holdout-every", type=int, default=0,
+                   help="Train-internal validation: hold out every Nth official train frame (offset N//2), an "
+                        "interpolation split like the official test; 0 keeps whole light-angle groups (extrapolation)")
     p.add_argument(
         "--fit-all",
         action="store_true",
@@ -154,6 +173,14 @@ def validate_arguments(parser, args):
         parser.error('--val-limit must be positive')
     if args.opacity_reset_every < 0:
         parser.error('--opacity-reset-every must be nonnegative')
+    if args.budget_ramp and args.budget_ramp <= args.refine_start:
+        parser.error('--budget-ramp must lie after --refine-start')
+    if args.grow_grad2d is not None and args.grow_grad2d <= 0:
+        parser.error('--grow-grad2d must be positive')
+    if args.foreground_appearance_until < 0:
+        parser.error('--foreground-appearance-until must be nonnegative')
+    if args.holdout_every and (args.holdout_every < 2 or args.fit_all or args.init_checkpoint):
+        parser.error('--holdout-every needs N >= 2, a fresh run and no --fit-all')
     if args.init_geometry_format == 'gggs' and (not args.init_geometry
             or args.representation not in ('directional_port_v1','neural_material')
             or (args.optimize_cameras and args.freeze_geometry) or args.sdf):

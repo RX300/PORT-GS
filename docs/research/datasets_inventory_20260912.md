@@ -61,3 +61,13 @@ SSS-GS 需要显式 `--unit-light-intensity 1`，其物理含义限于等功率�
 ReCap、SSS-GS 真实子集未出现在共享根目录的已识别重光照数据目录中。
 本次未修改、移动或下载任何数据；官方下载入口和推荐场景见
 [调研记录](related_work_20260912.md)。
+
+## 2026-10-03：数据血缘与源包核验
+
+当前18场景是沿用SSD-GS论文的三类评测组合，不是SSD-GS原创的一套数据。真实7场景是NRHints发布/使用的数据集合（其中4个继承DNL、3个为NRHints新增）；合成6场景采用GS³公开的2000/400图像版本；SSS合成5场景采用作者的256px small版本。
+
+本地直接源包分别保留在/workspace/datasets/SSD-GS/_sources/gsrelight-data/NRHints、gsrelight-data/Synthetic和SSS-GS/synthetic。对18个zip/tar对应的48份transforms JSON作解析后比较，全部与data/现有元数据一致；没有重划分或改动数据。本次未重新下载并认证整套远端图像字节。
+
+别名：Cat_on_Decor → CatSmall、Cup-Fabric → CupFabric、Cluttered → FurScene。CatSmall不是Cat的下采样版。相同Lego/Hotdog等资产在NRHints和GS³中存在不同渲染与划分版本，不能仅凭同名认定评测相同。
+
+[完整数据出处与论文筛选](per_scene_olat_literature_202503_202610.md) · [18场景源包核验记录](dataset_provenance_audit_20261003.json)
