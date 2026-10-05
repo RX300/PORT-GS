@@ -1,0 +1,1669 @@
+{
+  "protocol": "Same200-frame training-internal holdout,16k/30k-LR,8k geometry warmup, seed0. Full observation metric protocol unchanged. Matched controls exist only for Lego/Drums; original FurBall-neural control was cancelled before starting. No official test.",
+  "change": "raw radiance fits observation targets during warmup first2/3; target exponent ramps to1 over final1/3; later training remains linear. Evaluation still original gamma.",
+  "results": [
+    {
+      "scene": "Lego",
+      "steps": 16000,
+      "lr_decay_steps": 30000,
+      "geometry_warmup_steps": 8000,
+      "output": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_radiometric_curriculum_20261004/curriculum/Synthetic_GS3/Lego",
+      "source_archive": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_radiometric_curriculum_20261004/source.tar",
+      "train_argv": [
+        "/workspace/ubuntu2004_cuda12_1/utils/conda-envs/ssd-gs/bin/python",
+        "-u",
+        "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/train.py",
+        "--steps",
+        "16000",
+        "--seed",
+        "0",
+        "--resolution",
+        "512",
+        "--background",
+        "1.0",
+        "--display-gamma",
+        "2.2",
+        "--shadow-start",
+        "2000",
+        "--port-start",
+        "2000",
+        "--lr-decay-steps",
+        "30000",
+        "--holdout-every",
+        "10",
+        "--representation",
+        "light_atlas",
+        "--material-head",
+        "svbrdf",
+        "--mask-weight",
+        "0.5",
+        "--foreground-appearance-until",
+        "2000",
+        "--specular",
+        "lobes",
+        "--shading",
+        "gaussian",
+        "--split-scale2d-stop",
+        "0",
+        "--refinement-metric",
+        "gradient",
+        "--material-activation",
+        "softplus",
+        "--geometry-warmup-steps",
+        "8000",
+        "--normal-model",
+        "learned",
+        "--save-steps",
+        "8000",
+        "--initialization",
+        "hull",
+        "--radiometric-curriculum",
+        "--scene",
+        "/workspace/datasets/SSD-GS/data/Synthetic_GS3/Lego",
+        "--output",
+        "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_radiometric_curriculum_20261004/curriculum/Synthetic_GS3/Lego"
+      ],
+      "metrics": {
+        "validation": {
+          "PSNR": 30.249754362106323,
+          "SSIM": 0.9493447214365005,
+          "raw_MSE": 0.001130999856541166,
+          "alpha_L1": 0.0012879100034479051,
+          "LPIPS": 0.05664782612584531
+        },
+        "validation_008000": {
+          "PSNR": 22.861412563323974,
+          "SSIM": 0.8840540352463723,
+          "raw_MSE": 0.006342810375499539,
+          "alpha_L1": 0.0019482989225070924,
+          "LPIPS": 0.10471041984856129
+        }
+      },
+      "points": 218261,
+      "seconds": 442.3,
+      "initial_state_verification": {
+        "scene": "Lego",
+        "import_source": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_shading_analysis_20261004/initial_support_inputs/hull/Lego/geometry.pt",
+        "same_initial_state": {
+          "gaussians": true,
+          "transport": true,
+          "cuda_rng": true
+        },
+        "fit_split_matches_seed_source": true,
+        "validation_split_matches_seed_source": true,
+        "actual_center_matches_seed_source": true,
+        "actual_radius_matches_seed_source": true
+      },
+      "matched_control": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_material_geometry_20261004/neural_diffuse/Synthetic_GS3/Lego/step_016000.pt",
+      "matched_control_metrics": {
+        "PSNR": 23.01962631225586,
+        "SSIM": 0.8939066669344902,
+        "raw_MSE": 0.005733273189980537,
+        "alpha_L1": 0.005598569613648578,
+        "LPIPS": 0.12175826858729125
+      },
+      "delta_psnr": 7.230128049850464,
+      "fit_split_equal": true,
+      "validation_split_equal": true,
+      "light_scale_equal": true,
+      "paired_view_improvement": {
+        "frames": 200,
+        "improved_frames": 200,
+        "median_delta_psnr": 7.223130226135254,
+        "minimum_delta_psnr": 3.0116519927978516,
+        "p10_delta_psnr": 5.617374992370605,
+        "p90_delta_psnr": 8.642071151733399
+      }
+    },
+    {
+      "scene": "Drums",
+      "steps": 16000,
+      "lr_decay_steps": 30000,
+      "geometry_warmup_steps": 8000,
+      "output": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_radiometric_curriculum_20261004/curriculum/Synthetic_GS3/Drums",
+      "source_archive": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_radiometric_curriculum_20261004/source.tar",
+      "train_argv": [
+        "/workspace/ubuntu2004_cuda12_1/utils/conda-envs/ssd-gs/bin/python",
+        "-u",
+        "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/train.py",
+        "--steps",
+        "16000",
+        "--seed",
+        "0",
+        "--resolution",
+        "512",
+        "--background",
+        "1.0",
+        "--display-gamma",
+        "2.2",
+        "--shadow-start",
+        "2000",
+        "--port-start",
+        "2000",
+        "--lr-decay-steps",
+        "30000",
+        "--holdout-every",
+        "10",
+        "--representation",
+        "light_atlas",
+        "--material-head",
+        "svbrdf",
+        "--mask-weight",
+        "0.5",
+        "--foreground-appearance-until",
+        "2000",
+        "--specular",
+        "lobes",
+        "--shading",
+        "gaussian",
+        "--split-scale2d-stop",
+        "0",
+        "--refinement-metric",
+        "gradient",
+        "--material-activation",
+        "softplus",
+        "--geometry-warmup-steps",
+        "8000",
+        "--normal-model",
+        "learned",
+        "--save-steps",
+        "8000",
+        "--initialization",
+        "hull",
+        "--radiometric-curriculum",
+        "--scene",
+        "/workspace/datasets/SSD-GS/data/Synthetic_GS3/Drums",
+        "--output",
+        "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_radiometric_curriculum_20261004/curriculum/Synthetic_GS3/Drums"
+      ],
+      "metrics": {
+        "validation": {
+          "PSNR": 30.09941226005554,
+          "SSIM": 0.9662680661678315,
+          "raw_MSE": 0.001876885516976472,
+          "alpha_L1": 0.002700389865785837,
+          "LPIPS": 0.03391418275423348
+        },
+        "validation_008000": {
+          "PSNR": 26.852434091567993,
+          "SSIM": 0.9480991762876511,
+          "raw_MSE": 0.003387247283826582,
+          "alpha_L1": 0.0038192938873544335,
+          "LPIPS": 0.0479731385409832
+        }
+      },
+      "points": 190574,
+      "seconds": 393.81,
+      "initial_state_verification": {
+        "scene": "Drums",
+        "import_source": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_shading_analysis_20261004/initial_support_inputs/hull/Drums/geometry.pt",
+        "same_initial_state": {
+          "gaussians": true,
+          "transport": true,
+          "cuda_rng": true
+        },
+        "fit_split_matches_seed_source": true,
+        "validation_split_matches_seed_source": true,
+        "actual_center_matches_seed_source": true,
+        "actual_radius_matches_seed_source": true
+      },
+      "matched_control": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_material_geometry_20261004/neural_diffuse/Synthetic_GS3/Drums/step_016000.pt",
+      "matched_control_metrics": {
+        "PSNR": 24.097419643402098,
+        "SSIM": 0.9424971982836723,
+        "raw_MSE": 0.0050475048989756036,
+        "alpha_L1": 0.010848623814526946,
+        "LPIPS": 0.059461477734148505
+      },
+      "delta_psnr": 6.0019926166534425,
+      "fit_split_equal": true,
+      "validation_split_equal": true,
+      "light_scale_equal": true,
+      "paired_view_improvement": {
+        "frames": 200,
+        "improved_frames": 200,
+        "median_delta_psnr": 6.0338945388793945,
+        "minimum_delta_psnr": 1.04473876953125,
+        "p10_delta_psnr": 3.908438301086426,
+        "p90_delta_psnr": 8.107716369628905
+      }
+    },
+    {
+      "scene": "FurBall",
+      "steps": 16000,
+      "lr_decay_steps": 30000,
+      "geometry_warmup_steps": 8000,
+      "output": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_radiometric_curriculum_20261004/curriculum/Synthetic_GS3/FurBall",
+      "source_archive": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_radiometric_curriculum_20261004/source.tar",
+      "train_argv": [
+        "/workspace/ubuntu2004_cuda12_1/utils/conda-envs/ssd-gs/bin/python",
+        "-u",
+        "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/train.py",
+        "--steps",
+        "16000",
+        "--seed",
+        "0",
+        "--resolution",
+        "512",
+        "--background",
+        "1.0",
+        "--display-gamma",
+        "2.2",
+        "--shadow-start",
+        "2000",
+        "--port-start",
+        "2000",
+        "--lr-decay-steps",
+        "30000",
+        "--holdout-every",
+        "10",
+        "--representation",
+        "light_atlas",
+        "--material-head",
+        "svbrdf",
+        "--mask-weight",
+        "0.5",
+        "--foreground-appearance-until",
+        "2000",
+        "--specular",
+        "lobes",
+        "--shading",
+        "gaussian",
+        "--split-scale2d-stop",
+        "0",
+        "--refinement-metric",
+        "gradient",
+        "--material-activation",
+        "softplus",
+        "--geometry-warmup-steps",
+        "8000",
+        "--normal-model",
+        "learned",
+        "--save-steps",
+        "8000",
+        "--initialization",
+        "hull",
+        "--radiometric-curriculum",
+        "--scene",
+        "/workspace/datasets/SSD-GS/data/Synthetic_GS3/FurBall",
+        "--output",
+        "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_radiometric_curriculum_20261004/curriculum/Synthetic_GS3/FurBall"
+      ],
+      "metrics": {
+        "validation": {
+          "PSNR": 36.179600629806515,
+          "SSIM": 0.9710294365882873,
+          "raw_MSE": 0.00025629745425248985,
+          "alpha_L1": 0.00165871854609577,
+          "LPIPS": 0.0757741604745388
+        },
+        "validation_008000": {
+          "PSNR": 25.889976205825807,
+          "SSIM": 0.9258723068237305,
+          "raw_MSE": 0.002915130347828381,
+          "alpha_L1": 0.002692952699144371,
+          "LPIPS": 0.16612417306751012
+        }
+      },
+      "points": 130578,
+      "seconds": 338.82,
+      "initial_state_verification": {
+        "scene": "FurBall",
+        "import_source": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_shading_analysis_20261004/initial_support_inputs/hull/FurBall/geometry.pt",
+        "same_initial_state": {
+          "gaussians": true,
+          "transport": true,
+          "cuda_rng": true
+        },
+        "fit_split_matches_seed_source": true,
+        "validation_split_matches_seed_source": true,
+        "actual_center_matches_seed_source": true,
+        "actual_radius_matches_seed_source": true
+      },
+      "appearance_refinement": {
+        "output": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_radiometric_appearance_20261004/appearance/Synthetic_GS3/FurBall",
+        "source_step": 16000,
+        "appearance_steps": 8000,
+        "total_steps": 24000,
+        "metrics": {
+          "PSNR": 36.979050960540775,
+          "SSIM": 0.9742047038674354,
+          "raw_MSE": 0.00021284355228999628,
+          "alpha_L1": 0.00165871854609577,
+          "LPIPS": 0.06602003825828433
+        },
+        "geometry_bit_identical": {
+          "params.means": true,
+          "params.scales": true,
+          "params.quats": true,
+          "params.opacities": true,
+          "center": true
+        },
+        "radius_equal": true,
+        "split_equal": true
+      }
+    }
+  ],
+  "appearance_scope": "Only FurBall completed. Lego/Drums interrupted to honor the user two-GPU limit; no final scores for them.",
+  "thirty_k_validation": [
+    {
+      "family": "Synthetic_GS3",
+      "scene": "FurBall",
+      "steps": 30000,
+      "metrics": {
+        "PSNR": 37.64984815597534,
+        "SSIM": 0.9747143203020096,
+        "raw_MSE": 0.00018120825705409516,
+        "alpha_L1": 0.0013726205690181815,
+        "LPIPS": 0.072301962133497
+      },
+      "output": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_radiometric_validation_20261004/curriculum/Synthetic_GS3/FurBall",
+      "points": 130896,
+      "seconds": 1074.7,
+      "source_archive": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_radiometric_validation_20261004/source.tar"
+    },
+    {
+      "family": "Real_NRHints",
+      "scene": "Cat",
+      "steps": 30000,
+      "metrics": {
+        "PSNR": 20.20959999011113,
+        "SSIM": 0.7316638964873093,
+        "raw_MSE": 0.013035549368046654,
+        "alpha_L1": 0.026780646992847323,
+        "LPIPS": 0.2288986326983342
+      },
+      "output": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_radiometric_validation_20261004/curriculum/Real_NRHints/Cat",
+      "points": 169440,
+      "seconds": 1243.41,
+      "source_archive": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_radiometric_validation_20261004/source.tar"
+    },
+    {
+      "family": "Synthetic_SSS-GS",
+      "scene": "soap_small",
+      "steps": 30000,
+      "output": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_radiometric_cross_family_20261004/curriculum/Synthetic_SSS-GS/soap_small",
+      "metrics": {
+        "PSNR": 40.344782791137696,
+        "SSIM": 0.9827283871173859,
+        "raw_MSE": 0.00014982423192122952,
+        "alpha_L1": 0.0004360655165510252,
+        "LPIPS": 0.020199164329096676
+      },
+      "source_archive": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_radiometric_cross_family_20261004/source_after_cleanup.tar"
+    }
+  ],
+  "resource_limit": "At most two idle GPUs, one worker per GPU, per user instruction. Incomplete trials interrupted; no fabricated final results.",
+  "implementation_cleanup": {
+    "removed_prototypes": [
+      "factorized material",
+      "raster-only geometry gradients",
+      "diffuse/ASG material and expansion",
+      "LiSA2D surfaces",
+      "residual/variance refinement probes",
+      "appearance gradient preconditioning"
+    ],
+    "retained": [
+      "v2 default behavior",
+      "Gaussian shading with correct foreground geometry gradients",
+      "training-silhouette initialization",
+      "learned material normals",
+      "radiometric geometry warmup"
+    ],
+    "verification": "Three real saved checkpoints (v2 Lego, candidate Lego, candidate Cat): all initialized transport parameters and local radiance/geometry/material gradients exactly equal on CPU before/after cleanup; all pending queue commands parse. No temporary test file saved. Full CUDA render comparison will use an idle permitted GPU before final full-dataset launch.",
+    "refinement_verification": "Using actual Lego checkpoint parameters, old/new native gradient refinement gave identical parameters, state and RNG in six CPU cases: caps40/45/120, footprint splitting enabled/disabled. No test file saved.",
+    "full_cuda_render_verification": {
+      "device": "temporarily idle GPU1 while onlyGPU2 training; GPU3 occupied by another task",
+      "checkpoints": [
+        "v2 Lego final",
+        "radiometric Lego16k",
+        "radiometric Cat30k"
+      ],
+      "frame": 5,
+      "foreground_weights": [
+        "none",
+        "GT alpha"
+      ],
+      "max_linear_difference": 0.0,
+      "max_observation_difference": 0.0,
+      "alpha_exact": true,
+      "temporary_files_saved": false
+    },
+    "staged_camera_schedule": {
+      "scope": "16k stage uses explicit30k LR horizon; source Cat30k prefix schedule unchanged; default without horizon unchanged",
+      "matching_recorded_steps": 141
+    }
+  },
+  "matched_v2_controls": [
+    {
+      "family": "Real_NRHints",
+      "scene": "Cat",
+      "steps": 30000,
+      "output": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_radiometric_cross_family_20261004/v2_reference/Real_NRHints/Cat",
+      "metrics": {
+        "PSNR": 20.168235503710232,
+        "SSIM": 0.7338789242964524,
+        "raw_MSE": 0.013242042276453083,
+        "alpha_L1": 0.02674380263600212,
+        "LPIPS": 0.22064790330254114
+      }
+    },
+    {
+      "family": "Synthetic_SSS-GS",
+      "scene": "soap_small",
+      "steps": 30000,
+      "output": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_radiometric_cross_family_20261004/v2_reference/Synthetic_SSS-GS/soap_small",
+      "metrics": {
+        "PSNR": 41.86145385742188,
+        "SSIM": 0.9939993584156036,
+        "raw_MSE": 9.279787198465783e-05,
+        "alpha_L1": 0.0004395799624035135,
+        "LPIPS": 0.011241165492683648
+      }
+    }
+  ],
+  "cat_matched_delta": {
+    "PSNR": 0.04136448640089796,
+    "SSIM": -0.0022150278091430664,
+    "LPIPS": 0.00825072939579305
+  },
+  "deferred_appearance": {
+    "protocol": "Same global16k radiometric source +8k frozen-geometry deferred pixel shading in observation space; total24k, fixed source cameras and light scale. Full training-internal holdouts, no official test.",
+    "manifest": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_deferred_appearance_20261004/manifest.json",
+    "results": [
+      {
+        "family": "Synthetic_GS3",
+        "scene": "Lego",
+        "total_steps": 24000,
+        "metrics": {
+          "PSNR": 30.4380997467041,
+          "SSIM": 0.9563798424601555,
+          "raw_MSE": 0.0010565194774244447,
+          "alpha_L1": 0.0012879100034479051,
+          "LPIPS": 0.04763729652389884
+        },
+        "metrics_file": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_deferred_appearance_20261004/deferred/Synthetic_GS3/Lego/validation/metrics.json",
+        "checkpoint": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_deferred_appearance_20261004/deferred/Synthetic_GS3/Lego/last.pt",
+        "source_checkpoint": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_radiometric_curriculum_20261004/curriculum/Synthetic_GS3/Lego/last.pt",
+        "source_archive": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_deferred_appearance_20261004/source.tar",
+        "geometry_and_calibration_equal_to_source": true
+      },
+      {
+        "family": "Synthetic_GS3",
+        "scene": "Drums",
+        "total_steps": 24000,
+        "metrics": {
+          "PSNR": 30.492614526748657,
+          "SSIM": 0.970689657330513,
+          "raw_MSE": 0.0017532093659974634,
+          "alpha_L1": 0.002700389865785837,
+          "LPIPS": 0.028904754696413876
+        },
+        "metrics_file": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_deferred_appearance_20261004/deferred/Synthetic_GS3/Drums/validation/metrics.json",
+        "checkpoint": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_deferred_appearance_20261004/deferred/Synthetic_GS3/Drums/last.pt",
+        "source_checkpoint": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_radiometric_curriculum_20261004/curriculum/Synthetic_GS3/Drums/last.pt",
+        "source_archive": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_deferred_appearance_20261004/source.tar",
+        "geometry_and_calibration_equal_to_source": true
+      },
+      {
+        "family": "Synthetic_GS3",
+        "scene": "FurBall",
+        "total_steps": 24000,
+        "metrics": {
+          "PSNR": 36.28220817565918,
+          "SSIM": 0.9722633662819863,
+          "raw_MSE": 0.0002487756633854588,
+          "alpha_L1": 0.00165871854609577,
+          "LPIPS": 0.051166971195489165
+        },
+        "metrics_file": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_deferred_appearance_20261004/deferred/Synthetic_GS3/FurBall/validation/metrics.json",
+        "checkpoint": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_deferred_appearance_20261004/deferred/Synthetic_GS3/FurBall/last.pt",
+        "source_checkpoint": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_radiometric_curriculum_20261004/curriculum/Synthetic_GS3/FurBall/last.pt",
+        "source_archive": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_deferred_appearance_20261004/source.tar",
+        "geometry_and_calibration_equal_to_source": true
+      },
+      {
+        "family": "Real_NRHints",
+        "scene": "Cat",
+        "total_steps": 24000,
+        "metrics": {
+          "PSNR": 20.147602521456204,
+          "SSIM": 0.7375618139138589,
+          "raw_MSE": 0.013120442904227484,
+          "alpha_L1": 0.026753309845494535,
+          "LPIPS": 0.22765809756058913
+        },
+        "metrics_file": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_deferred_appearance_20261004/deferred/Real_NRHints/Cat/validation/metrics.json",
+        "checkpoint": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_deferred_appearance_20261004/deferred/Real_NRHints/Cat/last.pt",
+        "source_checkpoint": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_radiometric_validation_20261004/curriculum/Real_NRHints/Cat/step_016000.pt",
+        "source_archive": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_deferred_appearance_20261004/source.tar",
+        "geometry_and_calibration_equal_to_source": true
+      },
+      {
+        "family": "Synthetic_SSS-GS",
+        "scene": "soap_small",
+        "total_steps": 24000,
+        "metrics": {
+          "PSNR": 40.833975639343265,
+          "SSIM": 0.9925570046901703,
+          "raw_MSE": 0.00012544146284199087,
+          "alpha_L1": 0.0004503056185785681,
+          "LPIPS": 0.01207619033753872
+        },
+        "metrics_file": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_deferred_appearance_20261004/deferred/Synthetic_SSS-GS/soap_small/validation/metrics.json",
+        "checkpoint": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_deferred_appearance_20261004/deferred/Synthetic_SSS-GS/soap_small/last.pt",
+        "source_checkpoint": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_radiometric_cross_family_20261004/curriculum/Synthetic_SSS-GS/soap_small/step_016000.pt",
+        "source_archive": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_deferred_appearance_20261004/source.tar",
+        "geometry_and_calibration_equal_to_source": true
+      }
+    ],
+    "completed_scenes": 5,
+    "expected_scenes": 5,
+    "decision": "Evaluate one global30k radiometric geometry/joint +8k deferred appearance recipe (total38k) on all18 official train/test scenes. Five-scene24k probe validates the handoff but soap PSNR still trails v2 control1.0275dB. Existing30k geometry results improve FurBall andsoap versus16k by1.4702/1.7850dB. No per-scene selection or official test tuning; total38k disclosed versus v2 30k."
+  },
+  "official_evaluation": {
+    "manifest": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_staged_full_dataset_20261004/manifest.json",
+    "source_archive": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_staged_full_dataset_20261004/source.tar",
+    "source_files_verified": 51,
+    "steps": {
+      "radiometric_geometry": 8000,
+      "linear_joint": 22000,
+      "frozen_deferred_appearance": 8000,
+      "total": 38000
+    },
+    "scenes": 18,
+    "expected_test_frames": 5691,
+    "worker_gpus": [
+      1,
+      2
+    ],
+    "protocol": "all official train; own hull initialization; fixed last weights; original official test cameras/lights; complete test and saved image pairs; no GT test calibration or selection",
+    "state": "completed",
+    "completed_scenes": 18,
+    "results": [
+      {
+        "family": "Synthetic_GS3",
+        "scene": "Lego",
+        "metrics": {
+          "PSNR": 30.80068196296692,
+          "SSIM": 0.9586086572706699,
+          "raw_MSE": 0.0009340706512739416,
+          "alpha_L1": 0.0006453588584554382,
+          "LPIPS": 0.04443604055326432
+        },
+        "test_frames": 400,
+        "checkpoint": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_staged_full_dataset_20261004/Synthetic_GS3/Lego/appearance/last.pt",
+        "metrics_file": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_staged_full_dataset_20261004/Synthetic_GS3/Lego/appearance/test/metrics.json",
+        "total_steps": 38000,
+        "geometry_calibration_split_preserved": true,
+        "references": {
+          "GS3": {
+            "PSNR": 30.90594033241272,
+            "SSIM": 0.956048229187727,
+            "LPIPS": 0.049541424671187995
+          },
+          "LiSA-v2": {
+            "PSNR": 23.191624398231507,
+            "SSIM": 0.8879301489889622,
+            "LPIPS": 0.13030106058344246
+          },
+          "LiSA": {
+            "PSNR": 21.235089168548583,
+            "SSIM": 0.8638676549494266,
+            "LPIPS": 0.15611358024179936
+          }
+        },
+        "delta_PSNR_vs_v2": 7.609057564735412,
+        "delta_PSNR_vs_GS3": -0.10525836944579936,
+        "points": 237667,
+        "v2_points": 399468
+      },
+      {
+        "family": "Synthetic_GS3",
+        "scene": "Drums",
+        "metrics": {
+          "PSNR": 30.451472096443176,
+          "SSIM": 0.9764554658532143,
+          "raw_MSE": 0.0019149942389049101,
+          "alpha_L1": 0.001888691117928829,
+          "LPIPS": 0.03036192969419062
+        },
+        "test_frames": 400,
+        "checkpoint": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_staged_full_dataset_20261004/Synthetic_GS3/Drums/appearance/last.pt",
+        "metrics_file": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_staged_full_dataset_20261004/Synthetic_GS3/Drums/appearance/test/metrics.json",
+        "total_steps": 38000,
+        "geometry_calibration_split_preserved": true,
+        "references": {
+          "GS3": {
+            "PSNR": 31.516670145988464,
+            "SSIM": 0.9762926083803177,
+            "LPIPS": 0.02914199674502015
+          },
+          "LiSA-v2": {
+            "PSNR": 25.034574222564697,
+            "SSIM": 0.9530652922391891,
+            "LPIPS": 0.05116457272320986
+          },
+          "LiSA": {
+            "PSNR": 23.17505235671997,
+            "SSIM": 0.945045854151249,
+            "LPIPS": 0.0625554802455008
+          }
+        },
+        "delta_PSNR_vs_v2": 5.416897873878479,
+        "delta_PSNR_vs_GS3": -1.0651980495452875,
+        "points": 228132,
+        "v2_points": 399944
+      },
+      {
+        "family": "Synthetic_GS3",
+        "scene": "Hotdog",
+        "metrics": {
+          "PSNR": 35.21929623126984,
+          "SSIM": 0.9799060806632042,
+          "raw_MSE": 0.0024759964569966543,
+          "alpha_L1": 0.0005170886264386354,
+          "LPIPS": 0.028631162056699397
+        },
+        "test_frames": 400,
+        "checkpoint": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_staged_full_dataset_20261004/Synthetic_GS3/Hotdog/appearance/last.pt",
+        "metrics_file": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_staged_full_dataset_20261004/Synthetic_GS3/Hotdog/appearance/test/metrics.json",
+        "total_steps": 38000,
+        "points": 161417,
+        "geometry_calibration_split_preserved": true,
+        "references": {
+          "GS3": {
+            "PSNR": 33.3153027009964,
+            "SSIM": 0.9739106032252312,
+            "LPIPS": 0.035745652834884824
+          },
+          "LiSA-v2": {
+            "PSNR": 29.864726700782775,
+            "SSIM": 0.9669067880511284,
+            "LPIPS": 0.04515227832831442
+          },
+          "LiSA": {
+            "PSNR": 30.200206379890442,
+            "SSIM": 0.9685964626073837,
+            "LPIPS": 0.04247574154287577
+          }
+        },
+        "delta_PSNR_vs_v2": 5.354569530487062,
+        "delta_PSNR_vs_GS3": 1.9039935302734392,
+        "v2_points": 399984
+      },
+      {
+        "family": "Synthetic_GS3",
+        "scene": "AnisoMetal",
+        "metrics": {
+          "PSNR": 27.148405995368957,
+          "SSIM": 0.9560596506297588,
+          "raw_MSE": 0.010159221174544654,
+          "alpha_L1": 0.0007136725289456081,
+          "LPIPS": 0.04044522687792778
+        },
+        "test_frames": 400,
+        "checkpoint": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_staged_full_dataset_20261004/Synthetic_GS3/AnisoMetal/appearance/last.pt",
+        "metrics_file": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_staged_full_dataset_20261004/Synthetic_GS3/AnisoMetal/appearance/test/metrics.json",
+        "total_steps": 38000,
+        "points": 269343,
+        "geometry_calibration_split_preserved": true,
+        "references": {
+          "GS3": {
+            "PSNR": 27.513082661628722,
+            "SSIM": 0.9501612767577171,
+            "LPIPS": 0.058494577975943686
+          },
+          "LiSA-v2": {
+            "PSNR": 28.082604861259462,
+            "SSIM": 0.9618282733857632,
+            "LPIPS": 0.03699664999730885
+          },
+          "LiSA": {
+            "PSNR": 27.599303755760193,
+            "SSIM": 0.9605561839044094,
+            "LPIPS": 0.03659363913349807
+          }
+        },
+        "delta_PSNR_vs_v2": -0.9341988658905045,
+        "delta_PSNR_vs_GS3": -0.3646766662597649,
+        "v2_points": 399887
+      },
+      {
+        "family": "Synthetic_GS3",
+        "scene": "FurBall",
+        "metrics": {
+          "PSNR": 36.112702741622925,
+          "SSIM": 0.9709053458273411,
+          "raw_MSE": 0.0002495047129195882,
+          "alpha_L1": 0.0009468080024817027,
+          "LPIPS": 0.05428742109797895
+        },
+        "test_frames": 400,
+        "checkpoint": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_staged_full_dataset_20261004/Synthetic_GS3/FurBall/appearance/last.pt",
+        "metrics_file": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_staged_full_dataset_20261004/Synthetic_GS3/FurBall/appearance/test/metrics.json",
+        "total_steps": 38000,
+        "points": 133031,
+        "geometry_calibration_split_preserved": true,
+        "references": {
+          "GS3": {
+            "PSNR": 35.831938943862916,
+            "SSIM": 0.9684871909022331,
+            "LPIPS": 0.07919993123039604
+          },
+          "LiSA-v2": {
+            "PSNR": 34.84315037727356,
+            "SSIM": 0.9664997853338718,
+            "LPIPS": 0.05981370287947357
+          },
+          "LiSA": {
+            "PSNR": 36.84968005180359,
+            "SSIM": 0.9736282528936863,
+            "LPIPS": 0.04345285846851766
+          }
+        },
+        "delta_PSNR_vs_v2": 1.2695523643493658,
+        "delta_PSNR_vs_GS3": 0.2807637977600095,
+        "delta_PSNR_vs_original_lisa": -0.7369773101806629,
+        "v2_points": 399897
+      },
+      {
+        "family": "Synthetic_GS3",
+        "scene": "Translucent",
+        "metrics": {
+          "PSNR": 34.66810043334961,
+          "SSIM": 0.9805627129971981,
+          "raw_MSE": 0.0006085588564747013,
+          "alpha_L1": 0.0007303405947459396,
+          "LPIPS": 0.031240236212033777
+        },
+        "test_frames": 400,
+        "checkpoint": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_staged_full_dataset_20261004/Synthetic_GS3/Translucent/appearance/last.pt",
+        "metrics_file": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_staged_full_dataset_20261004/Synthetic_GS3/Translucent/appearance/test/metrics.json",
+        "total_steps": 38000,
+        "points": 191111,
+        "geometry_calibration_split_preserved": true,
+        "references": {
+          "GS3": {
+            "PSNR": 32.75649468421936,
+            "SSIM": 0.9752302786707878,
+            "LPIPS": 0.041664104107767344
+          },
+          "LiSA-v2": {
+            "PSNR": 30.806407160758972,
+            "SSIM": 0.9757436138391494,
+            "LPIPS": 0.03247222134377807
+          },
+          "LiSA": {
+            "PSNR": 31.039618973731994,
+            "SSIM": 0.9761861032247543,
+            "LPIPS": 0.032273544417694214
+          }
+        },
+        "delta_PSNR_vs_v2": 3.861693272590635,
+        "delta_PSNR_vs_GS3": 1.9116057491302456,
+        "v2_points": 399965
+      },
+      {
+        "family": "Real_NRHints",
+        "scene": "Cat",
+        "metrics": {
+          "PSNR": 25.328759309017297,
+          "SSIM": 0.8207732809312416,
+          "raw_MSE": 0.003283000277764531,
+          "alpha_L1": 0.009387642653150991,
+          "LPIPS": 0.17066671654130472
+        },
+        "test_frames": 66,
+        "checkpoint": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_staged_full_dataset_20261004/Real_NRHints/Cat/appearance/last.pt",
+        "metrics_file": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_staged_full_dataset_20261004/Real_NRHints/Cat/appearance/test/metrics.json",
+        "total_steps": 38000,
+        "points": 165067,
+        "geometry_calibration_split_preserved": true,
+        "references": {
+          "GS3": {
+            "PSNR": 19.119789759318035,
+            "SSIM": 0.7171379020719817,
+            "LPIPS": 0.2318497227899956
+          },
+          "LiSA-v2": {
+            "PSNR": 25.284327246926047,
+            "SSIM": 0.8208160635196802,
+            "LPIPS": 0.16751624892155328
+          },
+          "LiSA": {
+            "PSNR": 25.199131069761336,
+            "SSIM": 0.8196598571358304,
+            "LPIPS": 0.16708532585339111
+          }
+        },
+        "delta_PSNR_vs_v2": 0.044432062091249946,
+        "delta_PSNR_vs_GS3": 6.208969549699262,
+        "v2_points": 399924
+      },
+      {
+        "family": "Real_NRHints",
+        "scene": "CatSmall",
+        "metrics": {
+          "PSNR": 33.01693434654912,
+          "SSIM": 0.9609867277779157,
+          "raw_MSE": 0.0005769800121050116,
+          "alpha_L1": 0.004690764832923401,
+          "LPIPS": 0.08157715689438054
+        },
+        "test_frames": 158,
+        "checkpoint": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_staged_full_dataset_20261004/Real_NRHints/CatSmall/appearance/last.pt",
+        "metrics_file": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_staged_full_dataset_20261004/Real_NRHints/CatSmall/appearance/test/metrics.json",
+        "total_steps": 38000,
+        "points": 38397,
+        "geometry_calibration_split_preserved": true,
+        "references": {
+          "GS3": {
+            "PSNR": 33.25266403487966,
+            "SSIM": 0.966304249401334,
+            "LPIPS": 0.0756583240920607
+          },
+          "LiSA-v2": {
+            "PSNR": 33.39381970031352,
+            "SSIM": 0.9635657811466651,
+            "LPIPS": 0.07345983944833279
+          },
+          "LiSA": {
+            "PSNR": 33.53019393244876,
+            "SSIM": 0.9641560025607483,
+            "LPIPS": 0.07214741578584985
+          }
+        },
+        "delta_PSNR_vs_v2": -0.3768853537644006,
+        "delta_PSNR_vs_GS3": -0.23572968833053665,
+        "v2_points": 399828
+      },
+      {
+        "family": "Real_NRHints",
+        "scene": "CupFabric",
+        "metrics": {
+          "PSNR": 35.30714999231799,
+          "SSIM": 0.9759266849221855,
+          "raw_MSE": 0.00031503500689848745,
+          "alpha_L1": 0.0027460323751036975,
+          "LPIPS": 0.058730702590325784
+        },
+        "test_frames": 145,
+        "checkpoint": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_staged_full_dataset_20261004/Real_NRHints/CupFabric/appearance/last.pt",
+        "metrics_file": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_staged_full_dataset_20261004/Real_NRHints/CupFabric/appearance/test/metrics.json",
+        "total_steps": 38000,
+        "points": 36884,
+        "geometry_calibration_split_preserved": true,
+        "references": {
+          "GS3": {
+            "PSNR": 35.17152119340568,
+            "SSIM": 0.9766593855002831,
+            "LPIPS": 0.05116990866332219
+          },
+          "LiSA-v2": {
+            "PSNR": 35.845986504390325,
+            "SSIM": 0.9791026818341222,
+            "LPIPS": 0.05182165579292281
+          },
+          "LiSA": {
+            "PSNR": 30.601852351221545,
+            "SSIM": 0.967043567114863,
+            "LPIPS": 0.06496653716112005
+          }
+        },
+        "delta_PSNR_vs_v2": -0.5388365120723364,
+        "delta_PSNR_vs_GS3": 0.1356287989123075,
+        "v2_points": 399825
+      },
+      {
+        "family": "Real_NRHints",
+        "scene": "Fish",
+        "metrics": {
+          "PSNR": 28.96661593697288,
+          "SSIM": 0.8958259315201731,
+          "raw_MSE": 0.0017455594303707282,
+          "alpha_L1": 0.005432546015292632,
+          "LPIPS": 0.1105335188860243
+        },
+        "test_frames": 66,
+        "checkpoint": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_staged_full_dataset_20261004/Real_NRHints/Fish/appearance/last.pt",
+        "metrics_file": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_staged_full_dataset_20261004/Real_NRHints/Fish/appearance/test/metrics.json",
+        "total_steps": 38000,
+        "points": 89216,
+        "geometry_calibration_split_preserved": true,
+        "references": {
+          "GS3": {
+            "PSNR": 22.41270722764911,
+            "SSIM": 0.8088061701167714,
+            "LPIPS": 0.17094004425135526
+          },
+          "LiSA-v2": {
+            "PSNR": 28.877693696455523,
+            "SSIM": 0.8941926206603195,
+            "LPIPS": 0.11022887864347661
+          },
+          "LiSA": {
+            "PSNR": 27.68217372894287,
+            "SSIM": 0.8893432066296086,
+            "LPIPS": 0.1090566378199693
+          }
+        },
+        "delta_PSNR_vs_v2": 0.08892224051735553,
+        "delta_PSNR_vs_GS3": 6.553908709323768,
+        "v2_points": 399630
+      },
+      {
+        "family": "Real_NRHints",
+        "scene": "FurScene",
+        "metrics": {
+          "PSNR": 24.474096814323875,
+          "SSIM": 0.8637560066054849,
+          "raw_MSE": 0.004195415979141698,
+          "alpha_L1": 0.009231030447956394,
+          "LPIPS": 0.11946962037507225
+        },
+        "test_frames": 85,
+        "checkpoint": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_staged_full_dataset_20261004/Real_NRHints/FurScene/appearance/last.pt",
+        "metrics_file": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_staged_full_dataset_20261004/Real_NRHints/FurScene/appearance/test/metrics.json",
+        "total_steps": 38000,
+        "points": 96989,
+        "geometry_calibration_split_preserved": true,
+        "references": {
+          "GS3": {
+            "PSNR": 26.090391809800092,
+            "SSIM": 0.8911249890046962,
+            "LPIPS": 0.10321322714581209
+          },
+          "LiSA-v2": {
+            "PSNR": 24.593913336361155,
+            "SSIM": 0.8652531897320467,
+            "LPIPS": 0.116434145674986
+          },
+          "LiSA": {
+            "PSNR": 23.843977670108572,
+            "SSIM": 0.8599038558847764,
+            "LPIPS": 0.12463427431443158
+          }
+        },
+        "delta_PSNR_vs_v2": -0.11981652203727933,
+        "delta_PSNR_vs_GS3": -1.616294995476217,
+        "v2_points": 399940
+      },
+      {
+        "family": "Real_NRHints",
+        "scene": "Pikachu",
+        "metrics": {
+          "PSNR": 31.648550939559936,
+          "SSIM": 0.9670677816867829,
+          "raw_MSE": 0.0007623423925542739,
+          "alpha_L1": 0.003273319243453443,
+          "LPIPS": 0.055567427277565
+        },
+        "test_frames": 200,
+        "checkpoint": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_staged_full_dataset_20261004/Real_NRHints/Pikachu/appearance/last.pt",
+        "metrics_file": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_staged_full_dataset_20261004/Real_NRHints/Pikachu/appearance/test/metrics.json",
+        "total_steps": 38000,
+        "points": 60326,
+        "geometry_calibration_split_preserved": true,
+        "references": {
+          "GS3": {
+            "PSNR": 31.14660569190979,
+            "SSIM": 0.9682189676165581,
+            "LPIPS": 0.05438019443303346
+          },
+          "LiSA-v2": {
+            "PSNR": 32.212921390533445,
+            "SSIM": 0.9694276428222657,
+            "LPIPS": 0.052239425303414466
+          },
+          "LiSA": {
+            "PSNR": 32.17032156944275,
+            "SSIM": 0.9691121220588684,
+            "LPIPS": 0.05241620604880154
+          }
+        },
+        "delta_PSNR_vs_v2": -0.5643704509735095,
+        "delta_PSNR_vs_GS3": 0.5019452476501449,
+        "v2_points": 399890
+      },
+      {
+        "family": "Real_NRHints",
+        "scene": "Pixiu",
+        "metrics": {
+          "PSNR": 26.202849992564026,
+          "SSIM": 0.8813556718154693,
+          "raw_MSE": 0.002637370677277918,
+          "alpha_L1": 0.00862997816219716,
+          "LPIPS": 0.10694687608891809
+        },
+        "test_frames": 71,
+        "checkpoint": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_staged_full_dataset_20261004/Real_NRHints/Pixiu/appearance/last.pt",
+        "metrics_file": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_staged_full_dataset_20261004/Real_NRHints/Pixiu/appearance/test/metrics.json",
+        "total_steps": 38000,
+        "points": 92656,
+        "geometry_calibration_split_preserved": true,
+        "references": {
+          "GS3": {
+            "PSNR": 23.72180927975077,
+            "SSIM": 0.8641741913808904,
+            "LPIPS": 0.11702784680774514
+          },
+          "LiSA-v2": {
+            "PSNR": 26.246407146185216,
+            "SSIM": 0.8809828758239746,
+            "LPIPS": 0.1035866589928177
+          },
+          "LiSA": {
+            "PSNR": 26.282751486335002,
+            "SSIM": 0.8810107422546601,
+            "LPIPS": 0.10146989148687309
+          }
+        },
+        "delta_PSNR_vs_v2": -0.04355715362119028,
+        "delta_PSNR_vs_GS3": 2.4810407128132574,
+        "v2_points": 399826
+      },
+      {
+        "family": "Synthetic_SSS-GS",
+        "scene": "bunny_small",
+        "metrics": {
+          "PSNR": 39.85741077041626,
+          "SSIM": 0.9896387219429016,
+          "raw_MSE": 0.0005403742044691171,
+          "alpha_L1": 0.000981869668350555,
+          "LPIPS": 0.01608280799165368
+        },
+        "test_frames": 500,
+        "checkpoint": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_staged_full_dataset_20261004/Synthetic_SSS-GS/bunny_small/appearance/last.pt",
+        "metrics_file": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_staged_full_dataset_20261004/Synthetic_SSS-GS/bunny_small/appearance/test/metrics.json",
+        "total_steps": 38000,
+        "points": 37418,
+        "geometry_calibration_split_preserved": true,
+        "references": {
+          "GS3": {
+            "PSNR": 34.41810637283325,
+            "SSIM": 0.9797750390768051,
+            "LPIPS": 0.031906292796134945
+          },
+          "LiSA-v2": {
+            "PSNR": 40.64300473022461,
+            "SSIM": 0.9914266512393951,
+            "LPIPS": 0.016286373395472765
+          },
+          "LiSA": {
+            "PSNR": 40.15638362884521,
+            "SSIM": 0.9913395998477936,
+            "LPIPS": 0.016510110424831508
+          }
+        },
+        "delta_PSNR_vs_v2": -0.7855939598083523,
+        "delta_PSNR_vs_GS3": 5.439304397583008,
+        "v2_points": 399883
+      },
+      {
+        "family": "Synthetic_SSS-GS",
+        "scene": "candle_small",
+        "metrics": {
+          "PSNR": 45.19560298156738,
+          "SSIM": 0.9959647023677826,
+          "raw_MSE": 6.918949642567896e-05,
+          "alpha_L1": 0.00034995412593707444,
+          "LPIPS": 0.0075390766356140376
+        },
+        "test_frames": 500,
+        "checkpoint": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_staged_full_dataset_20261004/Synthetic_SSS-GS/candle_small/appearance/last.pt",
+        "metrics_file": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_staged_full_dataset_20261004/Synthetic_SSS-GS/candle_small/appearance/test/metrics.json",
+        "total_steps": 38000,
+        "points": 24836,
+        "geometry_calibration_split_preserved": true,
+        "references": {
+          "GS3": {
+            "PSNR": 38.74031980514526,
+            "SSIM": 0.9884551144838333,
+            "LPIPS": 0.021661556366831064
+          },
+          "LiSA-v2": {
+            "PSNR": 45.38155730056763,
+            "SSIM": 0.9964858206510544,
+            "LPIPS": 0.0072216065456159415
+          },
+          "LiSA": {
+            "PSNR": 45.26099027252197,
+            "SSIM": 0.996608955860138,
+            "LPIPS": 0.006687308584339917
+          }
+        },
+        "delta_PSNR_vs_v2": -0.1859543190002455,
+        "delta_PSNR_vs_GS3": 6.455283176422121,
+        "v2_points": 371924
+      },
+      {
+        "family": "Synthetic_SSS-GS",
+        "scene": "dragon_small",
+        "metrics": {
+          "PSNR": 37.37829332733154,
+          "SSIM": 0.9811799812316895,
+          "raw_MSE": 0.0002325928926511551,
+          "alpha_L1": 0.0012908513965085148,
+          "LPIPS": 0.026198354510590435
+        },
+        "test_frames": 500,
+        "checkpoint": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_staged_full_dataset_20261004/Synthetic_SSS-GS/dragon_small/appearance/last.pt",
+        "metrics_file": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_staged_full_dataset_20261004/Synthetic_SSS-GS/dragon_small/appearance/test/metrics.json",
+        "total_steps": 38000,
+        "points": 31722,
+        "geometry_calibration_split_preserved": true,
+        "references": {
+          "GS3": {
+            "PSNR": 36.1067657661438,
+            "SSIM": 0.9768311425447463,
+            "LPIPS": 0.0323555568754673
+          },
+          "LiSA-v2": {
+            "PSNR": 38.12822295379639,
+            "SSIM": 0.9835451344251632,
+            "LPIPS": 0.023384995222091674
+          },
+          "LiSA": {
+            "PSNR": 37.923206161499024,
+            "SSIM": 0.9831115958690644,
+            "LPIPS": 0.023894865699112415
+          }
+        },
+        "delta_PSNR_vs_v2": -0.7499296264648478,
+        "delta_PSNR_vs_GS3": 1.2715275611877388,
+        "v2_points": 399743
+      },
+      {
+        "family": "Synthetic_SSS-GS",
+        "scene": "soap_small",
+        "metrics": {
+          "PSNR": 40.90556867980957,
+          "SSIM": 0.9915942479372024,
+          "raw_MSE": 0.00026964294593199154,
+          "alpha_L1": 0.0013153444502386265,
+          "LPIPS": 0.012247943711467087
+        },
+        "test_frames": 500,
+        "checkpoint": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_staged_full_dataset_20261004/Synthetic_SSS-GS/soap_small/appearance/last.pt",
+        "metrics_file": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_staged_full_dataset_20261004/Synthetic_SSS-GS/soap_small/appearance/test/metrics.json",
+        "total_steps": 38000,
+        "points": 24269,
+        "geometry_calibration_split_preserved": true,
+        "references": {
+          "GS3": {
+            "PSNR": 38.342960807800296,
+            "SSIM": 0.9842670515775681,
+            "LPIPS": 0.02733709473349154
+          },
+          "LiSA-v2": {
+            "PSNR": 41.46624115371704,
+            "SSIM": 0.9926442190408706,
+            "LPIPS": 0.0111757453661412
+          },
+          "LiSA": {
+            "PSNR": 35.833108642578125,
+            "SSIM": 0.9812048417329788,
+            "LPIPS": 0.022381940563675016
+          }
+        },
+        "delta_PSNR_vs_v2": -0.5606724739074735,
+        "delta_PSNR_vs_GS3": 2.5626078720092735,
+        "v2_points": 399949
+      },
+      {
+        "family": "Synthetic_SSS-GS",
+        "scene": "statue_small",
+        "metrics": {
+          "PSNR": 39.817317350387576,
+          "SSIM": 0.9891859586238861,
+          "raw_MSE": 0.00046322739044899207,
+          "alpha_L1": 0.0009499814032169525,
+          "LPIPS": 0.019576579778455196
+        },
+        "test_frames": 500,
+        "checkpoint": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_staged_full_dataset_20261004/Synthetic_SSS-GS/statue_small/appearance/last.pt",
+        "metrics_file": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_staged_full_dataset_20261004/Synthetic_SSS-GS/statue_small/appearance/test/metrics.json",
+        "total_steps": 38000,
+        "points": 38556,
+        "geometry_calibration_split_preserved": true,
+        "references": {
+          "GS3": {
+            "PSNR": 36.42973213005066,
+            "SSIM": 0.9846527292728424,
+            "LPIPS": 0.025303844191133976
+          },
+          "LiSA-v2": {
+            "PSNR": 39.523031185150145,
+            "SSIM": 0.990466992855072,
+            "LPIPS": 0.018476413361728193
+          },
+          "LiSA": {
+            "PSNR": 36.18474901580811,
+            "SSIM": 0.9847319749593735,
+            "LPIPS": 0.028456796107813716
+          }
+        },
+        "delta_PSNR_vs_v2": 0.29428616523743045,
+        "delta_PSNR_vs_GS3": 3.3875852203369163,
+        "v2_points": 399868
+      }
+    ],
+    "Drums_error_regions": {
+      "scope": "All400 official Drums views, existing saved renders, CPU only; diagnostic does not alter the current recipe. GS3 and new renders are compared to the same quantized target. Pooled squared-error shares are not shares of mean PSNR and do not prove a material-model cause.",
+      "bright_local_peak_rule": "minRGB>.55; minRGB minus11x11 local average>.15; every alpha value in5x5 neighborhood>.9. Existing neutral_peaks additionally require local desaturation contrast>.15.",
+      "gt_rounding": {
+        "max_byte_difference": 1,
+        "changed_channel_values": 267,
+        "total_channel_values": 314572800
+      },
+      "regions": {
+        "all": {
+          "pixels": 104857600,
+          "new_sse": 310971.0931180316,
+          "gs3_sse": 229031.8057208768,
+          "sse_difference": 81939.28739715484,
+          "share_of_pooled_sse_difference": 1.0
+        },
+        "neutral_peaks": {
+          "pixels": 98891,
+          "new_sse": 48485.24627450982,
+          "gs3_sse": 20912.021591695506,
+          "sse_difference": 27573.22468281431,
+          "share_of_pooled_sse_difference": 0.3365079873000181
+        },
+        "bright_local_peaks": {
+          "pixels": 285042,
+          "new_sse": 116139.85663975387,
+          "gs3_sse": 57203.640169165716,
+          "sse_difference": 58936.21647058815,
+          "share_of_pooled_sse_difference": 0.7192668906788001
+        },
+        "other": {
+          "pixels": 104572558,
+          "new_sse": 194831.23647827757,
+          "gs3_sse": 171828.16555171082,
+          "sse_difference": 23003.070926566754,
+          "share_of_pooled_sse_difference": 0.2807331093212007
+        }
+      }
+    },
+    "hull_input_audit": [
+      {
+        "family": "Synthetic_GS3",
+        "scene": "Lego",
+        "checked_train_masks": 32,
+        "minimum_foreground_fraction": 0.17472076416015625
+      },
+      {
+        "family": "Synthetic_GS3",
+        "scene": "Drums",
+        "checked_train_masks": 32,
+        "minimum_foreground_fraction": 0.12305450439453125
+      },
+      {
+        "family": "Synthetic_GS3",
+        "scene": "Hotdog",
+        "checked_train_masks": 32,
+        "minimum_foreground_fraction": 0.08850479125976562
+      },
+      {
+        "family": "Synthetic_GS3",
+        "scene": "AnisoMetal",
+        "checked_train_masks": 32,
+        "minimum_foreground_fraction": 0.18146514892578125
+      },
+      {
+        "family": "Synthetic_GS3",
+        "scene": "FurBall",
+        "checked_train_masks": 32,
+        "minimum_foreground_fraction": 0.2856101989746094
+      },
+      {
+        "family": "Synthetic_GS3",
+        "scene": "Translucent",
+        "checked_train_masks": 32,
+        "minimum_foreground_fraction": 0.18147659301757812
+      },
+      {
+        "family": "Real_NRHints",
+        "scene": "Cat",
+        "checked_train_masks": 32,
+        "minimum_foreground_fraction": 0.382476806640625
+      },
+      {
+        "family": "Real_NRHints",
+        "scene": "CatSmall",
+        "checked_train_masks": 32,
+        "minimum_foreground_fraction": 0.16617584228515625
+      },
+      {
+        "family": "Real_NRHints",
+        "scene": "CupFabric",
+        "checked_train_masks": 32,
+        "minimum_foreground_fraction": 0.19985198974609375
+      },
+      {
+        "family": "Real_NRHints",
+        "scene": "Fish",
+        "checked_train_masks": 32,
+        "minimum_foreground_fraction": 0.20577239990234375
+      },
+      {
+        "family": "Real_NRHints",
+        "scene": "FurScene",
+        "checked_train_masks": 32,
+        "minimum_foreground_fraction": 0.2701225280761719
+      },
+      {
+        "family": "Real_NRHints",
+        "scene": "Pikachu",
+        "checked_train_masks": 32,
+        "minimum_foreground_fraction": 0.16583633422851562
+      },
+      {
+        "family": "Real_NRHints",
+        "scene": "Pixiu",
+        "checked_train_masks": 32,
+        "minimum_foreground_fraction": 0.12804412841796875
+      },
+      {
+        "family": "Synthetic_SSS-GS",
+        "scene": "bunny_small",
+        "checked_train_masks": 32,
+        "minimum_foreground_fraction": 0.15093994140625
+      },
+      {
+        "family": "Synthetic_SSS-GS",
+        "scene": "candle_small",
+        "checked_train_masks": 32,
+        "minimum_foreground_fraction": 0.0584716796875
+      },
+      {
+        "family": "Synthetic_SSS-GS",
+        "scene": "dragon_small",
+        "checked_train_masks": 32,
+        "minimum_foreground_fraction": 0.1220245361328125
+      },
+      {
+        "family": "Synthetic_SSS-GS",
+        "scene": "soap_small",
+        "checked_train_masks": 32,
+        "minimum_foreground_fraction": 0.12615966796875
+      },
+      {
+        "family": "Synthetic_SSS-GS",
+        "scene": "statue_small",
+        "checked_train_masks": 32,
+        "minimum_foreground_fraction": 0.1198577880859375
+      }
+    ],
+    "AnisoMetal_error_regions": {
+      "scope": "All400 official AnisoMetal views, existing saved renders, CPU-only diagnostic against v2. Region shares describe pooled RGB squared-error differences, not mean PSNR or physical material causes.",
+      "region_rules": "Interior: all5x5 alpha>.9; background alpha<=.01; edge otherwise. Local peaks: value>.55 and value minus11x11 mean>.15 inside interior. Luminance uses Rec709 coefficients; neutral uses minRGB.",
+      "gt_rounding": {
+        "max_byte_difference": 0,
+        "changed_channel_values": 0
+      },
+      "regions": {
+        "all": {
+          "pixels": 104857600,
+          "new_sse": 622892.5759938485,
+          "v2_sse": 506280.69347174163,
+          "sse_difference": 116611.88252210687,
+          "share_of_pooled_sse_difference": 1.0
+        },
+        "interior": {
+          "pixels": 47621899,
+          "new_sse": 612140.6912879659,
+          "v2_sse": 497217.46903498645,
+          "sse_difference": 114923.22225297941,
+          "share_of_pooled_sse_difference": 0.9855189691427259
+        },
+        "edge": {
+          "pixels": 2226834,
+          "new_sse": 10748.462191464823,
+          "v2_sse": 9058.034663590928,
+          "sse_difference": 1690.427527873895,
+          "share_of_pooled_sse_difference": 0.014496185905869667
+        },
+        "background": {
+          "pixels": 55008867,
+          "new_sse": 3.422514417531721,
+          "v2_sse": 5.189773164167624,
+          "sse_difference": -1.7672587466359033,
+          "share_of_pooled_sse_difference": -1.515504859722055e-05
+        },
+        "luminance_peaks": {
+          "pixels": 5121148,
+          "new_sse": 286086.65022683586,
+          "v2_sse": 215525.37122645133,
+          "sse_difference": 70561.27900038453,
+          "share_of_pooled_sse_difference": 0.6050951024395629
+        },
+        "neutral_bright_peaks": {
+          "pixels": 4955637,
+          "new_sse": 255355.0658054597,
+          "v2_sse": 188660.0906574392,
+          "sse_difference": 66694.97514802049,
+          "share_of_pooled_sse_difference": 0.5719397861137924
+        },
+        "non_peak_interior": {
+          "pixels": 42500751,
+          "new_sse": 326054.0410611302,
+          "v2_sse": 281692.09780853527,
+          "sse_difference": 44361.94325259491,
+          "share_of_pooled_sse_difference": 0.3804238667031632
+        }
+      }
+    },
+    "evaluated_test_frames": 5691,
+    "summary": [
+      {
+        "scope": "all",
+        "method": "LiSA-staged",
+        "scenes": 18,
+        "PSNR": 33.47221166121327,
+        "SSIM": 0.9519863117002276,
+        "LPIPS": 0.05636326654297034
+      },
+      {
+        "scope": "all",
+        "method": "LiSA-v2",
+        "scenes": 18,
+        "PSNR": 32.41223411474956,
+        "SSIM": 0.9466601986438165,
+        "LPIPS": 0.06154069291800447
+      },
+      {
+        "scope": "all",
+        "method": "LiSA",
+        "scenes": 18,
+        "PSNR": 31.375988345331557,
+        "SSIM": 0.9430614907577564,
+        "LPIPS": 0.06462067521667196
+      },
+      {
+        "scope": "all",
+        "method": "GS3",
+        "scenes": 18,
+        "PSNR": 31.488489074877503,
+        "SSIM": 0.9392520621762402,
+        "LPIPS": 0.06869951670619906
+      },
+      {
+        "scope": "all",
+        "method": "SSD-GS",
+        "scenes": 18,
+        "PSNR": 31.58188156580083,
+        "SSIM": 0.9388374104468612,
+        "LPIPS": 0.0681995716705739
+      },
+      {
+        "scope": "all",
+        "method": "RNG",
+        "scenes": 18,
+        "PSNR": 25.83281949596401,
+        "SSIM": 0.8932387511867683,
+        "LPIPS": 0.1304054277028434
+      },
+      {
+        "scope": "Synthetic_GS3",
+        "method": "LiSA-staged",
+        "scenes": 6,
+        "PSNR": 32.40010991017024,
+        "SSIM": 0.9704163188735645,
+        "LPIPS": 0.038233669415349135
+      },
+      {
+        "scope": "Synthetic_GS3",
+        "method": "LiSA-v2",
+        "scenes": 6,
+        "PSNR": 28.637181286811828,
+        "SSIM": 0.951995650306344,
+        "LPIPS": 0.059316747642587875
+      },
+      {
+        "scope": "Synthetic_GS3",
+        "method": "LiSA",
+        "scenes": 6,
+        "PSNR": 28.34982511440913,
+        "SSIM": 0.9479800852884849,
+        "LPIPS": 0.06224414067498097
+      },
+      {
+        "scope": "Synthetic_GS3",
+        "method": "GS3",
+        "scenes": 6,
+        "PSNR": 31.973238244851427,
+        "SSIM": 0.9666883645206689,
+        "LPIPS": 0.048964614594200005
+      },
+      {
+        "scope": "Synthetic_GS3",
+        "method": "SSD-GS",
+        "scenes": 6,
+        "PSNR": 31.530732058684034,
+        "SSIM": 0.9650299631307523,
+        "LPIPS": 0.04965177402055512
+      },
+      {
+        "scope": "Synthetic_GS3",
+        "method": "RNG",
+        "scenes": 6,
+        "PSNR": 22.139881679217023,
+        "SSIM": 0.8947733970483144,
+        "LPIPS": 0.1317782322100053
+      },
+      {
+        "scope": "Real_NRHints",
+        "method": "LiSA-staged",
+        "scenes": 7,
+        "PSNR": 29.2778510473293,
+        "SSIM": 0.9093845836084646,
+        "LPIPS": 0.10049885980765581
+      },
+      {
+        "scope": "Real_NRHints",
+        "method": "LiSA-v2",
+        "scenes": 7,
+        "PSNR": 29.49358128873789,
+        "SSIM": 0.9104772650770104,
+        "LPIPS": 0.09646955039678624
+      },
+      {
+        "scope": "Real_NRHints",
+        "method": "LiSA",
+        "scenes": 7,
+        "PSNR": 28.47291454403726,
+        "SSIM": 0.9071756219484792,
+        "LPIPS": 0.09882518406720521
+      },
+      {
+        "scope": "Real_NRHints",
+        "method": "GS3",
+        "scenes": 7,
+        "PSNR": 27.273641285244736,
+        "SSIM": 0.8846322650132163,
+        "LPIPS": 0.11489132402618919
+      },
+      {
+        "scope": "Real_NRHints",
+        "method": "SSD-GS",
+        "scenes": 7,
+        "PSNR": 27.1935829645349,
+        "SSIM": 0.8825594116241394,
+        "LPIPS": 0.11637038752868421
+      },
+      {
+        "scope": "Real_NRHints",
+        "method": "RNG",
+        "scenes": 7,
+        "PSNR": 20.94058870675212,
+        "SSIM": 0.8280975063370974,
+        "LPIPS": 0.20270727478137007
+      },
+      {
+        "scope": "Synthetic_SSS-GS",
+        "method": "LiSA-staged",
+        "scenes": 5,
+        "PSNR": 40.63083862190247,
+        "SSIM": 0.9895127224206923,
+        "LPIPS": 0.01632895252555609
+      },
+      {
+        "scope": "Synthetic_SSS-GS",
+        "method": "LiSA-v2",
+        "scenes": 5,
+        "PSNR": 41.02841146469117,
+        "SSIM": 0.9909137636423111,
+        "LPIPS": 0.015309026778209955
+      },
+      {
+        "scope": "Synthetic_SSS-GS",
+        "method": "LiSA",
+        "scenes": 5,
+        "PSNR": 39.07168754425049,
+        "SSIM": 0.9873993936538696,
+        "LPIPS": 0.019586204275954512
+      },
+      {
+        "scope": "Synthetic_SSS-GS",
+        "method": "GS3",
+        "scenes": 5,
+        "PSNR": 36.80757697639466,
+        "SSIM": 0.982796215391159,
+        "LPIPS": 0.027712868992611765
+      },
+      {
+        "scope": "Synthetic_SSS-GS",
+        "method": "SSD-GS",
+        "scenes": 5,
+        "PSNR": 37.786879016113275,
+        "SSIM": 0.9861955455780029,
+        "LPIPS": 0.023017786649242044
+      },
+      {
+        "scope": "Synthetic_SSS-GS",
+        "method": "RNG",
+        "scenes": 5,
+        "PSNR": 37.11346798095703,
+        "SSIM": 0.9825949189424514,
+        "LPIPS": 0.027535476384311912
+      }
+    ],
+    "improved_scene_counts_vs_v2": {
+      "PSNR": 8,
+      "SSIM": 7,
+      "LPIPS": 6
+    },
+    "pure_v2_git_files_verified": 265,
+    "completed_utc": "2026-10-04T14:17:30.027756+00:00",
+    "metadata_contracts_verified": true,
+    "method": "LiSA-staged",
+    "comparison_manifest": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/benchmarks/full_dataset_comparison/comparison_manifest.json",
+    "comparison_audit": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/benchmarks/full_dataset_comparison/completion_audit.json",
+    "uniform_actual_configs_verified": true,
+    "old90_result_rows_preserved": true
+  }
+}

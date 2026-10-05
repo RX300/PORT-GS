@@ -30,9 +30,13 @@ class CameraFit:
             self.offsets.requires_grad_(False)
         self.indices = {index: local for local, index in enumerate(fit_indices)}
         self.lr, self.lr_final = args.camera_lr, args.camera_lr_final
-        self.start, self.steps = args.camera_start, args.steps
+        self.start = args.camera_start
+        self.steps = args.steps if args.lr_decay_steps is None else args.lr_decay_steps
+        # LiSA's light-normalized geometry stage still needs the real scenes'
+        # train-camera calibration at its configured start iteration.
+        self.geometry_stage = config.get('representation') == 'light_atlas'
         self.gauge = trainable and args.camera_gauge == 'translation'
-        if args.camera_gauge == 'translation':
+        if self.gauge:
             self.offsets.set_translation_gauge(torch.stack([samples[i]["viewmat"] for i in fit_indices]),
                                                torch.stack([samples[i]["K"] for i in fit_indices]),
                                                gaussians.center)
@@ -42,14 +46,15 @@ class CameraFit:
         return self.optimizer is not None
 
     def active(self, step, geometry_only):
-        return not geometry_only and step >= self.start
+        return (not geometry_only or self.geometry_stage) and step >= self.start
 
     def begin(self, step, sample, sample_index):
         """Reset gradients, schedule the rate, and return the corrected fit sample."""
         if self.trainable:
             self.optimizer.zero_grad(set_to_none=True)
             if self.lr_final is not None:
-                self.optimizer.param_groups[0]["lr"] = decayed_rate(self.lr, self.lr_final, step, self.start, self.steps)
+                self.optimizer.param_groups[0]["lr"] = decayed_rate(
+                    self.lr, self.lr_final, min(step, self.steps), self.start, self.steps)
         return self.offsets.correct(sample, self.indices[sample_index])
 
     def regularization(self, sample_index):

@@ -1,0 +1,250 @@
+{
+  "protocol": "8k prefix with30k LR; fixed seed0;200 train-internal held-out frames; fresh20k fit-silhouette seeds; Gaussian shading;400k cap; no official test. Same full/0.0008 control as completed hull-initialization study.",
+  "run": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_geometry_gradients_20261004",
+  "state": "completed",
+  "source_note": "Source option fields and source-history records identify the version; added inactive options preserve numerical operations of these configurations. Evaluation uses parameter-compatible current source.",
+  "controls": [
+    {
+      "scene": "Lego",
+      "metrics": {
+        "PSNR": 22.652442035675048,
+        "SSIM": 0.8836345186829567,
+        "raw_MSE": 0.006050877758534625,
+        "alpha_L1": 0.0053681476181373,
+        "LPIPS": 0.13305093560367823
+      },
+      "metrics_file": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_initial_support_20261004/hull_init/Synthetic_GS3/Lego/validation/metrics.json"
+    },
+    {
+      "scene": "Drums",
+      "metrics": {
+        "PSNR": 23.464295434951783,
+        "SSIM": 0.9388751721382141,
+        "raw_MSE": 0.005811763904057443,
+        "alpha_L1": 0.008755881602410228,
+        "LPIPS": 0.061163723841309546
+      },
+      "metrics_file": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_initial_support_20261004/hull_init/Synthetic_GS3/Drums/validation/metrics.json"
+    },
+    {
+      "scene": "FurBall",
+      "metrics": {
+        "PSNR": 34.76153725624084,
+        "SSIM": 0.9684762507677078,
+        "raw_MSE": 0.0003497522465477232,
+        "alpha_L1": 0.0022153058752883226,
+        "LPIPS": 0.07619375227019191
+      },
+      "metrics_file": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_initial_support_20261004/hull_init/Synthetic_GS3/FurBall/validation/metrics.json"
+    }
+  ],
+  "results": [
+    {
+      "job": "PORT-Synthetic_GS3-Lego-full_low_gradient",
+      "scene": "Lego",
+      "variant": "full_low_gradient",
+      "metrics": {
+        "PSNR": 22.63354663848877,
+        "SSIM": 0.8821966800093651,
+        "raw_MSE": 0.006151117915287614,
+        "alpha_L1": 0.006914959382265806,
+        "LPIPS": 0.13373306345194577
+      },
+      "frames": 200,
+      "output": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_geometry_gradients_20261004/full_low_gradient/Synthetic_GS3/Lego",
+      "metrics_file": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_geometry_gradients_20261004/full_low_gradient/Synthetic_GS3/Lego/validation/metrics.json",
+      "checkpoint": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_geometry_gradients_20261004/full_low_gradient/Synthetic_GS3/Lego/last.pt",
+      "config": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_geometry_gradients_20261004/full_low_gradient/Synthetic_GS3/Lego/config.json",
+      "training_source_archive": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_geometry_gradients_20261004/source.tar",
+      "step": 8000,
+      "points": 399655,
+      "train_seconds": 1132.11,
+      "peak_memory_GiB": 14.317538738250732,
+      "gpu": "2.0"
+    },
+    {
+      "job": "PORT-Synthetic_GS3-Drums-full_low_gradient",
+      "scene": "Drums",
+      "variant": "full_low_gradient",
+      "metrics": {
+        "PSNR": 22.767868547439576,
+        "SSIM": 0.9370166411995888,
+        "raw_MSE": 0.006761786437127739,
+        "alpha_L1": 0.009887056229636072,
+        "LPIPS": 0.06359542321413755
+      },
+      "frames": 200,
+      "output": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_geometry_gradients_20261004/full_low_gradient/Synthetic_GS3/Drums",
+      "metrics_file": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_geometry_gradients_20261004/full_low_gradient/Synthetic_GS3/Drums/validation/metrics.json",
+      "checkpoint": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_geometry_gradients_20261004/full_low_gradient/Synthetic_GS3/Drums/last.pt",
+      "config": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_geometry_gradients_20261004/full_low_gradient/Synthetic_GS3/Drums/config.json",
+      "training_source_archive": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_geometry_gradients_20261004/source.tar",
+      "step": 8000,
+      "points": 399815,
+      "train_seconds": 1114.34,
+      "peak_memory_GiB": 14.312891006469727,
+      "gpu": "2.1"
+    },
+    {
+      "job": "PORT-Synthetic_GS3-FurBall-full_low_gradient",
+      "scene": "FurBall",
+      "variant": "full_low_gradient",
+      "metrics": {
+        "PSNR": 34.45815889358521,
+        "SSIM": 0.9687001720070839,
+        "raw_MSE": 0.0003781188265566016,
+        "alpha_L1": 0.0028228788758860902,
+        "LPIPS": 0.07097833547741175
+      },
+      "frames": 200,
+      "output": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_geometry_gradients_20261004/full_low_gradient/Synthetic_GS3/FurBall",
+      "metrics_file": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_geometry_gradients_20261004/full_low_gradient/Synthetic_GS3/FurBall/validation/metrics.json",
+      "checkpoint": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_geometry_gradients_20261004/full_low_gradient/Synthetic_GS3/FurBall/last.pt",
+      "config": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_geometry_gradients_20261004/full_low_gradient/Synthetic_GS3/FurBall/config.json",
+      "training_source_archive": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_geometry_gradients_20261004/source.tar",
+      "step": 8000,
+      "points": 357080,
+      "train_seconds": 630.93,
+      "peak_memory_GiB": 13.564802646636963,
+      "gpu": "3.0"
+    },
+    {
+      "job": "PORT-Synthetic_GS3-Lego-raster",
+      "scene": "Lego",
+      "variant": "raster",
+      "metrics": {
+        "PSNR": 22.408801250457763,
+        "SSIM": 0.8814463731646538,
+        "raw_MSE": 0.006390107539482414,
+        "alpha_L1": 0.005342767620459199,
+        "LPIPS": 0.13322129555046558
+      },
+      "frames": 200,
+      "output": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_geometry_gradients_20261004/raster/Synthetic_GS3/Lego",
+      "metrics_file": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_geometry_gradients_20261004/raster/Synthetic_GS3/Lego/validation/metrics.json",
+      "checkpoint": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_geometry_gradients_20261004/raster/Synthetic_GS3/Lego/last.pt",
+      "config": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_geometry_gradients_20261004/raster/Synthetic_GS3/Lego/config.json",
+      "training_source_archive": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_geometry_gradients_20261004/source.tar",
+      "step": 8000,
+      "points": 145188,
+      "train_seconds": 465.09,
+      "peak_memory_GiB": 10.12474775314331,
+      "gpu": "3.1"
+    },
+    {
+      "job": "PORT-Synthetic_GS3-Drums-raster",
+      "scene": "Drums",
+      "variant": "raster",
+      "metrics": {
+        "PSNR": 23.37385524749756,
+        "SSIM": 0.9383175897598267,
+        "raw_MSE": 0.005956857394776307,
+        "alpha_L1": 0.00878444637870416,
+        "LPIPS": 0.0612851832807064
+      },
+      "frames": 200,
+      "output": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_geometry_gradients_20261004/raster/Synthetic_GS3/Drums",
+      "metrics_file": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_geometry_gradients_20261004/raster/Synthetic_GS3/Drums/validation/metrics.json",
+      "checkpoint": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_geometry_gradients_20261004/raster/Synthetic_GS3/Drums/last.pt",
+      "config": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_geometry_gradients_20261004/raster/Synthetic_GS3/Drums/config.json",
+      "training_source_archive": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_geometry_gradients_20261004/source.tar",
+      "step": 8000,
+      "points": 148736,
+      "train_seconds": 320.96,
+      "peak_memory_GiB": 10.159644603729248,
+      "gpu": "3.1"
+    },
+    {
+      "job": "PORT-Synthetic_GS3-FurBall-raster",
+      "scene": "FurBall",
+      "variant": "raster",
+      "metrics": {
+        "PSNR": 34.745313816070556,
+        "SSIM": 0.9678887432813644,
+        "raw_MSE": 0.0003516850215237355,
+        "alpha_L1": 0.002206320711411536,
+        "LPIPS": 0.0783602231554687
+      },
+      "frames": 200,
+      "output": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_geometry_gradients_20261004/raster/Synthetic_GS3/FurBall",
+      "metrics_file": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_geometry_gradients_20261004/raster/Synthetic_GS3/FurBall/validation/metrics.json",
+      "checkpoint": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_geometry_gradients_20261004/raster/Synthetic_GS3/FurBall/last.pt",
+      "config": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_geometry_gradients_20261004/raster/Synthetic_GS3/FurBall/config.json",
+      "training_source_archive": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_geometry_gradients_20261004/source_after_material_normals.tar",
+      "step": 8000,
+      "points": 98839,
+      "train_seconds": 287.06,
+      "peak_memory_GiB": 9.400973320007324,
+      "gpu": "3.0"
+    },
+    {
+      "job": "PORT-Synthetic_GS3-Lego-raster_low_gradient",
+      "scene": "Lego",
+      "variant": "raster_low_gradient",
+      "metrics": {
+        "PSNR": 22.07688617706299,
+        "SSIM": 0.8769346114993095,
+        "raw_MSE": 0.006981275179423391,
+        "alpha_L1": 0.007484490252099931,
+        "LPIPS": 0.13745731871575118
+      },
+      "frames": 200,
+      "output": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_geometry_gradients_20261004/raster_low_gradient/Synthetic_GS3/Lego",
+      "metrics_file": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_geometry_gradients_20261004/raster_low_gradient/Synthetic_GS3/Lego/validation/metrics.json",
+      "checkpoint": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_geometry_gradients_20261004/raster_low_gradient/Synthetic_GS3/Lego/last.pt",
+      "config": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_geometry_gradients_20261004/raster_low_gradient/Synthetic_GS3/Lego/config.json",
+      "training_source_archive": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_geometry_gradients_20261004/source_after_fresh_initialization.tar",
+      "step": 8000,
+      "points": 399664,
+      "train_seconds": 968.85,
+      "peak_memory_GiB": 14.060754776000977,
+      "gpu": "3.1"
+    },
+    {
+      "job": "PORT-Synthetic_GS3-Drums-raster_low_gradient",
+      "scene": "Drums",
+      "variant": "raster_low_gradient",
+      "metrics": {
+        "PSNR": 22.50630980491638,
+        "SSIM": 0.9361391693353653,
+        "raw_MSE": 0.008061353616649286,
+        "alpha_L1": 0.00986820567632094,
+        "LPIPS": 0.06526630997657776
+      },
+      "frames": 200,
+      "output": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_geometry_gradients_20261004/raster_low_gradient/Synthetic_GS3/Drums",
+      "metrics_file": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_geometry_gradients_20261004/raster_low_gradient/Synthetic_GS3/Drums/validation/metrics.json",
+      "checkpoint": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_geometry_gradients_20261004/raster_low_gradient/Synthetic_GS3/Drums/last.pt",
+      "config": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_geometry_gradients_20261004/raster_low_gradient/Synthetic_GS3/Drums/config.json",
+      "training_source_archive": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_geometry_gradients_20261004/source_after_fresh_initialization.tar",
+      "step": 8000,
+      "points": 399851,
+      "train_seconds": 995.75,
+      "peak_memory_GiB": 14.055983066558838,
+      "gpu": "3.0"
+    },
+    {
+      "job": "PORT-Synthetic_GS3-FurBall-raster_low_gradient",
+      "scene": "FurBall",
+      "variant": "raster_low_gradient",
+      "metrics": {
+        "PSNR": 34.31606860160828,
+        "SSIM": 0.967434201836586,
+        "raw_MSE": 0.00038968094253505114,
+        "alpha_L1": 0.0028260036249412226,
+        "LPIPS": 0.07430709160864353
+      },
+      "frames": 200,
+      "output": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_geometry_gradients_20261004/raster_low_gradient/Synthetic_GS3/FurBall",
+      "metrics_file": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_geometry_gradients_20261004/raster_low_gradient/Synthetic_GS3/FurBall/validation/metrics.json",
+      "checkpoint": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_geometry_gradients_20261004/raster_low_gradient/Synthetic_GS3/FurBall/last.pt",
+      "config": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_geometry_gradients_20261004/raster_low_gradient/Synthetic_GS3/FurBall/config.json",
+      "training_source_archive": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_geometry_gradients_20261004/source_after_fresh_initialization.tar",
+      "step": 8000,
+      "points": 366392,
+      "train_seconds": 389.22,
+      "peak_memory_GiB": 13.48046350479126,
+      "gpu": "2.1"
+    }
+  ]
+}

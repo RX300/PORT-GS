@@ -14,8 +14,13 @@ Added 2026-10-01 on branch `feature_claude_neural_relighting`. Implementation:
 - skip the per-Gaussian deep-shadow volume (`visibility_hint`), leaving the splatted visibility channel at 1;
 - pass `shadow=step >= --shadow-start` to `forward` in addition to `port_active=step >= --port-start`.
 
-`forward(...)` returns linear foreground RGB for covered pixels, like every other method; alpha
-composition and the observation transform stay in the renderer/evaluator.
+`forward(...)` returns linear RGB at the supplied receivers; alpha composition and the observation
+transform stay in the renderer/evaluator. With `shading=pixel` (the existing checkpoints), receivers are
+covered pixels with blended attributes and expected depth. The experimental `shading=gaussian` queries
+the same networks and atlas at individual Gaussian centers, then composites their RGB front to back.
+This preserves separate material/shadow responses across overlapping surfaces and gives densification
+the native RGB rasterization gradients. It adds no network parameters. Quality validation is in progress;
+see [shading/refinement experiments](../../experiments/shading_refinement.md).
 
 ## Data flow per training/evaluation image
 
@@ -41,17 +46,23 @@ composition and the observation transform stay in the renderer/evaluator.
    `t = delta / s`, moment visibility `V_k = 1 - M0 * Phi_N(t - 3)`. Statistics vector per level:
    `[M0, clamp(t/4), clamp(4 delta), log s, V_k]`.
 5. **Visibility** (`receiver_visibility`): `sigmoid(logit(V_0) + MLP_v(stats, f, n.l))`; the residual MLP is
-   zero-initialized. `visibility_model=moment` uses `V_0` only; `none` uses 1.
+   zero-initialized. `visibility_model=moment` uses `V_0` only; `none` uses 1. With `visibility_bound=B > 0` the
+   residual is `B tanh(r / B)` (default 0: unbounded, as in all runs before 2026-10-04).
 6. **Transfer** (`transfer`): `W = softplus(MLP_k(stats, f, n.l, n.v))` reshaped to `[levels, 3, flux_dim]`;
    transport radiance `sum_k sum_c W[k,:,c] Phi_k[c]`, linear in the gathered flux. `light_transport=none`
    disables it.
-7. Output `E * (V * rho + transfer)`.
+7. **Specular lobes** (optional, `specular=lobes`, added 2026-10-04): `s = clamp(n.l, 0) * sum_j softplus(MLP_s(f, enc(x)))_j
+   * exp(kappa_j (n.h - 1))` over the head's sharpness values (RGB weight per lobe, light independent). They are shaded by
+   the geometric level-0 moment test `V_0`, not by the learned visibility, so highlights keep a gradient path when the
+   learned visibility or the diffuse local term collapses. Built last and only when enabled (no parameters otherwise).
+8. Output `E * (V * rho + V_0 * s + transfer)` (`s = 0` unless enabled).
 
 ## Options (CLI fields)
 
 | Option | Default | Meaning |
 |---|---|---|
 | `--feature-dim` | 32 | per-Gaussian latent material code |
+| `--shading` | `pixel` | `pixel` shades mixed camera receivers; `gaussian` shades primitives before RGB composition |
 | `--width` | 128 | width of material and transfer MLPs |
 | `--flux-dim` | 8 | flux feature channels splatted from the light |
 | `--atlas-resolution` | 512 | light atlas side; divisible by `2^(levels-1)` |
@@ -59,6 +70,8 @@ composition and the observation transform stay in the renderer/evaluator.
 | `--light-transport` | `atlas` | `none` = ablation without light-space transfer |
 | `--visibility-model` | `neural` | `moment` = classical test only; `gaussian` = ablation with the renderer's per-Gaussian deep-shadow visibility splatted as an attribute (atlas only feeds transfer); `none` = no shadows |
 | `--atlas-coverage` | 0.999 | fraction of Gaussians the light frustum must contain |
+| `--visibility-bound` | 0 | bound `B` of the learned logit residual (`B tanh(r/B)`); 0 = unbounded |
+| `--specular` | `none` | `lobes` adds the moment-shaded specular lobe bank (step 7) |
 | `--material-head` | `compact` | local material head: `compact` (first run; default so its checkpoints load), `reflect` (+ reflection-vector encoding, 4 direction bands, 2048 hint, 4 hidden layers), `spatial` (`reflect` + 8-band positional encoding of the receiver), `svbrdf` (**final**: `reflect` whose MLP outputs 1+8 light-dependent RGB responses without position; an 8-band positional MLP gives 8 light-independent coefficients that scale the 8 basis responses, zero-initialized) |
 
 Training-loop switches: `--shadow-start` enables visibility, `--port-start` enables transfer (both light
@@ -67,7 +80,17 @@ pass); the six-scene protocol uses 2000 for both.
 ## Initialization
 
 Flux encoder output bias `softplus^-1(1)`; material head last layer N(0, 1e-3), zero bias (so `rho` starts at
-`softplus(b)`); visibility residual zero; transfer head bias -7 (transport starts near zero).
+`softplus(b)`); visibility residual zero; transfer head bias -7 (transport starts near zero); specular lobe weights
+zero weight, bias -6 (each lobe starts at softplus(-6) = 0.0025).
+
+## Training diagnostics
+
+In training mode `forward` stores detached means of the last pass in `diagnostics` (`visibility`,
+`visibility_residual`, `rho`, `local` = linear `E * (V rho + V_0 s)`, `specular`, `transport`); the trainer writes them
+every 100 steps as `transport_stats`. These statistics exposed the early local-branch saturation documented in
+[the v2 root-cause record](../../experiments/lisa_v2_root_causes_20261004.md).
+These are means over receivers: camera pixels for pixel shading and primitives for Gaussian shading. They must
+not be compared as camera-integrated component shares. The preview tool reports alpha-weighted radiance shares.
 
 ## Tests
 
@@ -78,6 +101,10 @@ Flux encoder output bias `softplus^-1(1)`; material head last layer N(0, 1e-3), 
 - `test_methods.LightAtlasTests.test_material_heads_and_per_gaussian_visibility_ablation`: compact layout unchanged
   (first-run checkpoints load), spatial layout, per-Gaussian visibility ablation multiplies by the splatted visibility.
 
+- `test_methods.LightAtlasTests.test_specular_lobes_use_geometric_shadow_and_bounded_visibility`: defaults add no
+  parameters (old checkpoints load), lobes vanish in the cast shadow and are unchanged when the learned visibility is
+  forced to zero, and the bounded residual equals `B tanh(r/B)`.
+- `test_methods.AppearanceWeightTests`: with appearance weight 0 the transport receives no gradient while opacities do.
 - `test_methods.LightAtlasTests`: a floor and an occluding square under an overhead light. Checks pyramid
   sizes, statistic shapes, moment visibility in the cast shadow (< 0.05) and on lit floor/occluder (> 0.95),
   occluder-position gradients, local-only output before the light pass and linearity of the transfer in flux.
@@ -125,3 +152,13 @@ not object RGB or calibrated physical irradiance. `M0` is light-view coverage, n
 depth mean/spread are derived from `M1/M0` and `M2/M0`, masking uncovered texels. Display-encoded component
 images do not add numerically: only their underlying linear radiance does. The nonlocal term is a learned
 approximation and is not ground-truth isolated subsurface scattering or a full multi-bounce solution.
+## 当前几何优化入口
+
+`--shading gaussian` 在每个高斯上计算局部响应、阴影和atlas传输，再合成RGB；默认pixel保留v2行为。
+`--normal-model learned` 将feature前三维定义为单位化材质法线，初始化为从场景中心指向种子的方向。
+latent网络读取这些方向的detach值，方向着色路径仍训练法线；其余feature参与材质和传输。
+局部响应乘平滑余弦`softplus(20 n·l)/20`。几何预热只优化基色、几何及材质法线，交接保留反射响应与优化器。
+配合统一辐射域目标过渡的证据见[开发记录](../../experiments/shading_refinement.md)。
+
+未采用的factorized、几何梯度阻断、diffuse/ASG材质、ASG扩展及LiSA2D表面原型已从当前实现移除。
+历史实验保留其源码快照和结果，需使用对应快照复现；原有其它方法的2DGS支持不变。

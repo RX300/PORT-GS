@@ -1,0 +1,126 @@
+[
+  {
+    "id": "PORT-Synthetic_GS3-Lego-residual",
+    "scene": "Lego",
+    "state": "completed",
+    "output": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_residual_refinement_20261004/residual/Synthetic_GS3/Lego",
+    "metrics": {
+      "PSNR": 19.1423014831543,
+      "SSIM": 0.8321365940570832,
+      "LPIPS": 0.18476852856576442,
+      "alpha_L1": 0.04290723090060055
+    }
+  },
+  {
+    "id": "PORT-Synthetic_GS3-Drums-residual",
+    "scene": "Drums",
+    "state": "completed",
+    "output": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_residual_refinement_20261004/residual/Synthetic_GS3/Drums",
+    "metrics": {
+      "PSNR": 20.846531248092653,
+      "SSIM": 0.912318937778473,
+      "LPIPS": 0.08901123350486159,
+      "alpha_L1": 0.029332467429339884
+    }
+  },
+  {
+    "id": "PORT-Synthetic_GS3-FurBall-residual",
+    "scene": "FurBall",
+    "state": "completed",
+    "output": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_residual_refinement_20261004/residual/Synthetic_GS3/FurBall",
+    "metrics": {
+      "PSNR": 28.65518436431885,
+      "SSIM": 0.9445867341756821,
+      "LPIPS": 0.13314866945147513,
+      "alpha_L1": 0.004365800288505852
+    }
+  },
+  {
+    "id": "PORT-Synthetic_GS3-Lego-factorized",
+    "scene": "Lego",
+    "state": "completed",
+    "output": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_residual_refinement_20261004/factorized/Synthetic_GS3/Lego",
+    "metrics": {
+      "PSNR": 22.56996120452881,
+      "SSIM": 0.8836098107695579,
+      "LPIPS": 0.13173346944153308,
+      "alpha_L1": 0.004892881927080452
+    }
+  },
+  {
+    "id": "PORT-Synthetic_GS3-Drums-factorized",
+    "scene": "Drums",
+    "state": "completed",
+    "output": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_residual_refinement_20261004/factorized/Synthetic_GS3/Drums",
+    "metrics": {
+      "PSNR": 23.216740598678587,
+      "SSIM": 0.9366918852925301,
+      "LPIPS": 0.0650021629780531,
+      "alpha_L1": 0.009315451181028039
+    }
+  },
+  {
+    "id": "PORT-Synthetic_GS3-FurBall-factorized",
+    "scene": "FurBall",
+    "state": "completed",
+    "output": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_residual_refinement_20261004/factorized/Synthetic_GS3/FurBall",
+    "metrics": {
+      "PSNR": 34.62428091049194,
+      "SSIM": 0.9673868843913078,
+      "LPIPS": 0.0779680161550641,
+      "alpha_L1": 0.0022162778611527754
+    }
+  },
+  {
+    "id": "PORT-Synthetic_GS3-Lego-residual_factorized",
+    "scene": "Lego",
+    "state": "completed",
+    "output": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_residual_refinement_20261004/residual_factorized/Synthetic_GS3/Lego",
+    "metrics": {
+      "PSNR": 18.929414253234864,
+      "SSIM": 0.8305517214536667,
+      "LPIPS": 0.1830122147500515,
+      "alpha_L1": 0.0449510205257684
+    }
+  },
+  {
+    "id": "PORT-Synthetic_GS3-Drums-residual_factorized",
+    "scene": "Drums",
+    "state": "completed",
+    "output": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_residual_refinement_20261004/residual_factorized/Synthetic_GS3/Drums",
+    "metrics": {
+      "PSNR": 20.16184003829956,
+      "SSIM": 0.913180755674839,
+      "LPIPS": 0.08857397248968482,
+      "alpha_L1": 0.023978040660731493
+    }
+  },
+  {
+    "id": "PORT-Synthetic_GS3-FurBall-residual_factorized",
+    "scene": "FurBall",
+    "state": "failed",
+    "output": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_residual_refinement_20261004/residual_factorized/Synthetic_GS3/FurBall",
+    "research_cancellation": "Research cancellation: residual-credit refinement worsened all three completed 8k scenes; prioritize the newly evidenced initialization-support bottleneck. Completed results and logs are retained. Not an implementation failure."
+  },
+  {
+    "id": "PORT-Synthetic_GS3-Lego-pixel_residual_factorized",
+    "scene": "Lego",
+    "state": "failed",
+    "output": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_residual_refinement_20261004/pixel_residual_factorized/Synthetic_GS3/Lego",
+    "research_cancellation": "Research cancellation: residual-credit refinement worsened all three completed 8k scenes; prioritize the newly evidenced initialization-support bottleneck. Completed results and logs are retained. Not an implementation failure."
+  },
+  {
+    "id": "PORT-Synthetic_GS3-Drums-pixel_residual_factorized",
+    "scene": "Drums",
+    "state": "failed",
+    "output": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_residual_refinement_20261004/pixel_residual_factorized/Synthetic_GS3/Drums",
+    "research_cancellation": "Research cancellation: residual-credit refinement worsened all three completed 8k scenes; prioritize the newly evidenced initialization-support bottleneck. Completed results and logs are retained. Not an implementation failure."
+  },
+  {
+    "id": "PORT-Synthetic_GS3-FurBall-pixel_residual_factorized",
+    "scene": "FurBall",
+    "state": "failed",
+    "output": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_residual_refinement_20261004/pixel_residual_factorized/Synthetic_GS3/FurBall",
+    "research_cancellation": "Research cancellation: residual-credit refinement worsened all three completed 8k scenes; prioritize the newly evidenced initialization-support bottleneck. Completed results and logs are retained. Not an implementation failure."
+  }
+]

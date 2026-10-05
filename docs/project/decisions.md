@@ -1,3 +1,63 @@
+# LiSA与PORT方法决策记录
+
+## 2026-10-04：完成统一分阶段实验，保留全部质量取舍
+
+LiSA-staged的18场景/5691帧官方test完成，总体PSNR/SSIM/LPIPS为33.4722/.95199/.05636，
+相对v2提高1.0600dB/.00533，LPIPS下降.00518；困难的Lego/Drums分别提高7.6091/5.4169dB。
+采用这一统一方案作为本轮完整实验结果，保留v2作对照，不按测试结果给不同场景切换配方。
+PSNR有10场景下降（最大.9342dB），Real/SSS三项均值均略退，FurBall未完全恢复原LiSA水平；
+因此不称为全场景替代或全面SOTA。后续方向为稀疏亮峰及内部细节，尚无已隔离的单一原因。
+
+两张GPU已释放，20分钟监测随任务完成结束。源码/参数、最终几何继承、原始test标定、完整帧和中央108项比较均核验。
+纯v2的Git标签`lisa-v2`保持原265文件，本轮代码未提交；没有额外源码备份目录或新增临时测试脚本。
+[结果与预算](../experiments/results.md) · [分析与机制边界](../experiments/shading_refinement.md)。
+
+以下是当时依据下的阶段决策，涉及“待完成”的表述由上述完整结果取代。
+## 2026-10-04：统一几何与外观分阶段，完整运行18场景
+
+五场景16k辐射域+8k冻结几何的像素外观验证保住Lego/Drums的提升，并恢复soap感知细节；soap仍比v2控制低1.0275dB，
+FurBall相对同源逐高斯外观的PSNR下降.6968dB而LPIPS改善.01485，不将这些取舍隐藏为全面胜出。
+完整30k几何阶段已在FurBall/soap比16k提高1.4702/1.7850dB。因此全18场景统一采用30k几何/联合+8k像素外观，总38k，
+按原家族观察协议从头训练、原始官方test标定评价，不设逐场景配置或权重选择。正式结论等待完整结果。
+已有入口增加`appearance_train`顺序阶段，不新增启动脚本；最多两张空闲GPU、每张一个worker，无临时测试文件。
+[开发与取舍](../experiments/shading_refinement.md)。
+
+## 2026-10-04：以辐射域修正推进完整验证
+
+在相同初始化/种子/16k日程/200帧训练内留出下，新辐射目标过渡让Lego23.0196→30.2498、Drums24.0974→30.0994dB，
+LPIPS同时明显改善，固定图像的细部结构也恢复。三场景初始Gaussian、transport和CUDA RNG逐元素一致；
+困难场景新旧light scale与fit/validation也一致，排除了标定或数据划分变化。
+[完整记录](../experiments/radiometric_curriculum_results.json) · [成对图像](../figures/lisa_radiometric_comparison_20261004.png)。
+
+这是训练目标域及过渡整体的受控证据，尚未分别消融早期目标过渡与末期线性损失；不与官方GS³ test直接混比。
+停止未完成的2D质量候选并保留取消记录，将预算用于3D候选30k、真实/SSS对照及随后18场景统一验证。
+正式推荐暂仍为纯v2；验证结束后才更新主结果。
+
+## 2026-10-04：困难场景改进仍处研究阶段，不推广无效候选
+
+统一着色/初始化/增密阈值、独立材质法线及60k解析ASG均未让Lego/Drums接近GS³；
+空间方差增密与冻结外观的贡献归一化亦不足，不采用为新主方法。机器结果和取消原因保存在
+[开发记录](../experiments/shading_refinement.md)及[后续结果](../experiments/post_bootstrap_results.json)。
+
+后续检验两个结构/优化假设：LiSA内的圆盘表面深度/法线一致性；几何阶段由观测目标向线性辐射目标过渡。
+二者都从训练数据重建自身几何，不导入GS³权重，不使用外部先验，不按场景选择配置。
+表面方差初版读取gsplat未初始化的裁剪行，已定位并修复，须通过真实复验后重新开始统一对照。
+最终是否采用由完整训练内留出与后续18场景官方评价决定，当前正式方法仍为Git标签`lisa-v2`。
+
+## 2026-10-04：LiSA-v2 = 原增密 + mask 0.5 + 前2000步前景外观 + 矩阴影镜面瓣（按train内插值留出选定）
+
+用户要求分析LiSA总体PSNR未超过前SOTA的原因并改进重跑。根因（[记录](../experiments/lisa_v2_root_causes_20261004.md)）：
+①Lego/Drums外壳由继承自最早PORT-GS的梯度无关2D足迹分裂触发，白背景下被分裂出的高斯可着色为背景白而不受罚；
+②黑背景场景在最初约500步、随机高斯覆盖背景时，共享材质MLP被推入softplus饱和，局部分支永久死亡，传输接管全部外观，高光丢失；
+③LiSA的延迟着色使absgrad比阈值小一个数量级，**真正的增密机制就是2D足迹分裂**，去掉它会欠拟合（训练视角PSNR ref高0.6–1.4 dB）。
+
+决策：保留原增密；mask权重0.05→0.5压制外壳；`--foreground-appearance-until 2000`只在早期把背景像素的外观梯度去掉以防塌缩，
+之后允许边缘像素着色为背景（全程去掉会让白背景残余覆盖变暗，F变体Drums 22.45→19.36）；`--specular lobes`为高光提供不经学习可见度的通路。
+选型：先按事先规则用光照组留出（外推）选出D（关2D分裂，+0.98 dB），但发现其拟合能力不足且该协议测外推、与官方test的近插值不符，
+遂增加插值留出（每10帧1帧）并在读取任何test前登记规则：G_spec 29.655 > D 29.204 > ref 28.319，采用G_spec，以同一30k预算跑全18场景。
+未采用：按梯度排名的预算增长E、200k稠密初始化、提前光源通道、保留2D分裂+全程前景外观F/F2、全程关闭2D分裂D（插值第二）。
+所有新选项默认关闭，旧checkpoint与旧配置行为不变。
+
 ## 2026-10-02：最终局部材质头改为 `svbrdf`（按事先登记的留出光照规则）
 
 `svbrdf`：位置编码只产生与光照无关的8个系数，去缩放不含位置输入的光照相关基响应（位置×光照的交互秩受限），
@@ -1019,3 +1079,17 @@ Change only max-points to1000000 in canonical validation config. Fresh originalG
 ## 1M cap result reviewed
 
 Completed and reviewed both full datasets. Cat nearly doubles final points but slightly reduces PSNR/SSIM, increases time59% and memory89%; LPIPS change tiny. Pixiu cap inactive under both settings. Geometry roughness remains; do not promote1M or infer benefit from small nondeterministic differences. No further training launched. [Report](../experiments/gggs_neural_material_1m.md).
+
+## 2026-10-04：继续开发的材质/几何约束实验（尚未替换主结果）
+
+用户允许大幅改动但要求纯LiSA-v2使用Git保存、排除本轮改动。已建立tag `lisa-v2` / `14f28d5`，
+由原18场景source.tar复原并逐文件验证；本轮改动保持未提交，原18场景权重与结果保留。
+
+固定外观的容量诊断提示主要瓶颈是自身几何：同一LiSA外观使用GS³几何时Lego/Drums的fit PSNR高9.21/7.06dB，
+但这不是等点数/等训练预算的单变量证明，也不是最终方法借用GS³权重。已完成的前向着色、初始化、梯度路径、
+较低增密阈值与简单预热均未使两个困难场景接近目标；失败/取消候选的记录保留。
+
+当前实验重点转向受约束局部材质：独立材质frame、漫反射及可学习各向异性高光bank，保留LiSA light atlas。
+设计参照GS³的独立材质frame与解析材质思想，在PORT自己的renderer/method接口内实现，不改动GS³/SSD代码。
+60k统一实验明确单列额外训练成本（v2为30k，GS³为100k），不以步数翻倍声称等预算优势。
+原默认方法仍是v2，尚无新正式18场景结果。完整设计、验证、对照与取消记录见[shading_refinement.md](../experiments/shading_refinement.md)。

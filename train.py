@@ -22,7 +22,7 @@ from training.initialization import (select_frames, load_surface_priors, load_tr
                                      scene_normalization, build_scene)
 from training.options import parse_arguments
 from training.residual import residual_frame_pool
-from training.schedule import learning_rates, set_training_stage
+from training.schedule import learning_rates, set_training_stage, radiometric_target
 from training.source import load_source, inherit_residual_source, check_geometry_options, check_source_compatibility
 
 
@@ -66,7 +66,7 @@ def main():
     samples, peak_masks, peak_context_masks = load_training_samples(args, dataset, fit_indices)
     center, radius, light_scale = scene_normalization(args, samples, fit_indices)
     gaussians, transport, source_shift = build_scene(
-        args, config, dataset, saved, output, fit_indices, val_indices, center, radius, light_scale)
+        args, config, dataset, saved, output, fit_indices, val_indices, center, radius, light_scale, samples)
     camera_origins = torch.stack([samples[i]["c2w"][:3, 3] for i in fit_indices])
     camera_extent = 1.1 * (camera_origins - camera_origins.mean(0)).norm(dim=-1).max().item()
     position_scale = camera_extent if args.position_scale == "camera" else gaussians.radius
@@ -98,7 +98,8 @@ def main():
     camera = None
     if args.optimize_cameras:
         from training.pose import CameraFit
-        camera = CameraFit(args, config, saved, samples, fit_indices, gaussians, trainable=not frozen_stage)
+        fixed_camera = frozen_stage or (args.representation == 'light_atlas' and args.freeze_geometry)
+        camera = CameraFit(args, config, saved, samples, fit_indices, gaussians, trainable=not fixed_camera)
     lights = None
     if args.optimize_lights:
         from training.pose import LightFit
@@ -108,16 +109,19 @@ def main():
                          else torch.tensor(source_shift, device="cuda", dtype=torch.float32))
 
     strategy = Refinement(
+        refine_start_iter=args.refine_start,
         refine_stop_iter=args.refine_stop,
-        refine_scale2d_stop_iter=args.refine_stop,
+        refine_scale2d_stop_iter=args.refine_stop if args.split_scale2d_stop is None else args.split_scale2d_stop,
         grow_scale2d=0.03,
         # Split broad footprints; opacity and world size determine pruning.
         prune_scale2d=float("inf"),
-        grow_grad2d=0.0008 if args.absgrad else 0.0002,
+        grow_grad2d=args.grow_grad2d if args.grow_grad2d is not None else 0.0008 if args.absgrad else 0.0002,
         reset_every=3000,
         opacity_reset_every=args.opacity_reset_every,
         absgrad=args.absgrad,
         max_points=args.max_points,
+        budget_ramp=args.budget_ramp,
+        initial_points=min(len(gaussians.params["means"]), args.max_points),
         # gsplat 1.5.3 attaches absolute 2DGS gradients to means2d, while
         # signed densification gradients live on gradient_2dgs.
         key_for_gradient="gradient_2dgs" if config["geometry"] == "2dgs" and not args.absgrad else "means2d",
@@ -127,7 +131,7 @@ def main():
     state = strategy.initialize_state(density_scale)
     excess = len(gaussians.params["means"]) - args.max_points
     if excess > 0:
-        if frozen_stage or (args.init_geometry_format == 'gggs' and args.freeze_geometry):
+        if frozen_stage or args.freeze_geometry:
             raise ValueError('A fixed Gaussian teacher requires max-points >= checkpoint point count')
         remove_mask = torch.zeros(len(gaussians.params["means"]), device="cuda", dtype=torch.bool)
         remove_mask[gaussians.params["opacities"].detach().argsort()[:excess]] = True
@@ -179,7 +183,7 @@ def main():
             gaussians.requires_grad_(False)
             transport.requires_grad_(False)
         if args.geometry_warmup_steps and step == args.geometry_warmup_steps + 1:
-            event = {"event": "relighting_start", "step": step, "warmup_rgb_reset": True}
+            event = {"event": "relighting_start", "step": step, "warmup_rgb_reset": config['geometry']=='2dgs'}
             history.write(json.dumps(event) + "\n")
             print(json.dumps(event), flush=True)
         sample_index = random.choice(sample_pool)
@@ -212,7 +216,7 @@ def main():
             args.background,
             step >= args.shadow_start,
             step >= args.port_start,
-            args.display_gamma,
+            1. if args.radiometric_curriculum else args.display_gamma,
             args.shadow_mode,
             absgrad=args.absgrad,
             geometry_only=geometry_only,
@@ -220,8 +224,12 @@ def main():
             normal_field=normal_field,
             radiance_residual=None if residual is None else residual.module,
             residual_indices=residual_indices,
+            # GT-background pixels supervise coverage only, never the shared appearance model.
+            appearance_weight=(sample["alpha"] if (args.foreground_appearance or step <= args.foreground_appearance_until)
+                               and sample["alpha"] is not None else None),
         )
-        target = target_image(sample, args.background, args.display_gamma)
+        target = (radiometric_target(sample, args.background, args.display_gamma, step, args.geometry_warmup_steps)
+                  if args.radiometric_curriculum else target_image(sample, args.background, args.display_gamma))
         if residual is not None:
             loss_terms, l1 = residual.loss_terms(predicted, target, alpha, residual_indices, sample_index)
         else:
@@ -283,7 +291,7 @@ def main():
             if event is not None:
                 history.write(json.dumps(event) + '\n')
                 print(json.dumps(event), flush=True)
-        if not (frozen_stage or (args.init_geometry_format == 'gggs' and args.freeze_geometry)):
+        if not (frozen_stage or args.freeze_geometry):
             gaussians.project_geometry(args.opacity_cap, args.min_scale, args.max_scale)
 
         if step % 100 == 0 or step == 1 or step == args.steps:
@@ -299,6 +307,8 @@ def main():
                 "seconds": round(time.monotonic() - start, 2),
                 "memory_GiB": torch.cuda.max_memory_allocated() / 2**30,
             }
+            if getattr(transport, "diagnostics", None):
+                row["transport_stats"] = {name: value.item() for name, value in transport.diagnostics.items()}
             if light_scale_fit is not None:
                 row.update(light_scale_fit.log_fields(transport))
             if camera is not None:

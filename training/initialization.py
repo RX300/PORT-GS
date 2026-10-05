@@ -5,6 +5,7 @@ the transport even when a checkpoint or imported geometry later replaces them.
 """
 
 import json
+import math
 
 import torch
 
@@ -14,12 +15,62 @@ from gaussians import Gaussians, camera_bounds
 from methods import build_transport
 
 
+@torch.no_grad()
+def silhouette_seeds(samples, center, radius, count, seed):
+    """Fresh volume seeds supported by training silhouettes, not a fitted surface."""
+    import numpy as np
+    from scipy.spatial import cKDTree
+    from torch.nn import functional as F
+
+    generator = torch.Generator(device=center.device).manual_seed(seed)
+    masks = [F.max_pool2d((s['alpha'][..., 0] > .05).float()[None, None], 5, 1, 2) for s in samples]
+    def accepted(points):
+        votes = torch.zeros(len(points), device=points.device, dtype=torch.int32)
+        for sample, mask in zip(samples, masks):
+            h, w = sample['alpha'].shape[:2]
+            view = sample['viewmat']
+            camera = points @ view[:3, :3].T + view[:3, 3]
+            projected = camera @ sample['K'].T
+            xy = projected[:, :2] / projected[:, 2:]
+            grid = (2 * xy / points.new_tensor([w, h]) - 1).view(1, 1, -1, 2)
+            inside = F.grid_sample(mask, grid, align_corners=False)[0, 0, 0] > .5
+            votes += inside & (camera[:, 2] > 0)
+        return points[votes >= math.ceil(.9 * len(samples))]
+
+    coarse = (torch.rand(262144, 3, device=center.device, generator=generator) * 2 - 1) * radius + center
+    support = accepted(coarse)
+    if not len(support):
+        raise ValueError('Training silhouettes have no consistent support in the camera bounds')
+    pad = 2 * radius / 64
+    low, high = support.amin(0) - pad, support.amax(0) + pad
+    chunks, total, proposed = [], 0, 0
+    while total < count:
+        proposal = torch.rand(max(65536, 8 * count), 3, device=center.device,
+                              generator=generator) * (high-low) + low
+        keep = accepted(proposal)
+        chunks.append(keep)
+        total += len(keep)
+        proposed += len(proposal)
+    points = torch.cat(chunks)[:count]
+    distances = cKDTree(points.cpu().numpy()).query(points.cpu().numpy(), k=4)[0][:, 1:]
+    sigma = np.sqrt((distances ** 2).mean(-1))
+    scales = torch.from_numpy(np.log(sigma)).to(points)[:, None].expand(-1, 3).clone()
+    metadata = dict(coarse_supported_points=len(support), proposal_bounds=[low.tolist(), high.tolist()],
+                    proposal_points=proposed, accepted_points=total, mask_dilation_pixels=2,
+                    minimum_view_fraction=.9, alpha_threshold=.05,
+                    scale_rule='RMS distance to the three nearest neighbors')
+    return points, scales, metadata
+
+
 def select_frames(args, config, dataset, saved):
     if args.fit_all:
         return list(range(len(dataset))), []
     if saved is not None:
         config["fit_all"] = len(saved["val_indices"]) == 0
         return saved["fit_indices"], saved["val_indices"]
+    if args.holdout_every:
+        held_out = list(range(args.holdout_every // 2, len(dataset), args.holdout_every))
+        return [i for i in range(len(dataset)) if i not in set(held_out)], held_out
     return split_train_lights(dataset.frames)
 
 
@@ -88,7 +139,7 @@ def _import_geometry(args, config, dataset, output, fit_indices, val_indices):
     return state, geometry
 
 
-def build_scene(args, config, dataset, saved, output, fit_indices, val_indices, center, radius, light_scale):
+def build_scene(args, config, dataset, saved, output, fit_indices, val_indices, center, radius, light_scale, samples):
     """Return (gaussians, transport, source scene-gauge shift) ready for optimizer construction."""
     gaussians = Gaussians(args.points, center, radius, args.feature_dim, geometry=config["geometry"])
     transport = build_transport(config, light_scale).cuda()
@@ -112,8 +163,22 @@ def build_scene(args, config, dataset, saved, output, fit_indices, val_indices, 
             transport_state.update({'decoder.' + key: value for key, value in transport.decoder.state_dict().items()})
         transport.load_state_dict(transport_state)
         source_shift = saved.get("scene_gauge_shift")
-    elif args.init_geometry:
-        state, geometry = _import_geometry(args, config, dataset, output, fit_indices, val_indices)
+    elif args.init_geometry or args.initialization == 'hull':
+        if args.initialization == 'hull':
+            frames = fit_indices[::max(1, len(fit_indices)//32)][:32]
+            points, scales, metadata = silhouette_seeds(
+                [samples[i] for i in frames], center, radius, args.points, args.seed)
+            state = {'center': center, 'params.means': points,
+                     'params.scales': scales,
+                     'params.quats': gaussians.params['quats'].detach(),
+                     'params.opacities': gaussians.params['opacities'].detach()}
+            geometry = {'radius': radius}
+            metadata.update(mode='hull', scene=str(dataset.scene_path), fit_frames=frames,
+                            points=args.points, seed=args.seed, radius=radius,
+                            scope='Fresh seeds from training cameras and masks only')
+            (output/'initialization.json').write_text(json.dumps(metadata, indent=2)+'\n')
+        else:
+            state, geometry = _import_geometry(args, config, dataset, output, fit_indices, val_indices)
         if state["params.scales"].shape[-1] != gaussians.params["scales"].shape[-1]:
             raise ValueError("--init-geometry requires matching 3DGS/2DGS geometry; no implicit flattening")
         gaussians = Gaussians(
@@ -129,10 +194,12 @@ def build_scene(args, config, dataset, saved, output, fit_indices, val_indices, 
         if args.init_geometry_format != 'gggs':
             source_shift = geometry.get("scene_gauge_shift")
     gaussians.surface_depth = args.surface_depth
-    if not (args.sdf_volume_only or args.radiance_residual or args.init_geometry_format == 'gggs'):
+    if not (args.sdf_volume_only or args.radiance_residual or args.init_geometry_format == 'gggs' or args.freeze_geometry):
         gaussians.project_geometry(args.opacity_cap, args.min_scale, args.max_scale)
     if config["representation"] == "neural_material" and (not args.init_checkpoint or args.reset_material):
         transport.initialize_material(gaussians, reset_normal=not args.init_checkpoint)
+    if config["representation"] == "light_atlas" and not args.init_checkpoint:
+        transport.initialize_material(gaussians)
     if args.freeze_geometry:
         for key in ["means", "scales", "quats", "opacities"]:
             gaussians.params[key].requires_grad_(False)

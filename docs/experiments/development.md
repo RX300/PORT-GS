@@ -3,6 +3,13 @@
 本页整理既有研发记录，不是新分析。compact/spatial均为历史配置；当前主结果为svbrdf的[全18场景记录](results.md)。以下旧六场景对照和对齐诊断不与当前train-only全量表混用；其中机制解释保留为当时观察，不升级为已证实因果结论。所有实验均已结束，旧启动时间/PID仅供追溯。
 
 
+## 2026-10-04 LiSA-v2 研发（根因诊断、train内选择、全量重跑）
+
+全部证据单独记录于[LiSA-v2根因、修复与选型](lisa_v2_root_causes_20261004.md)：外壳/塌缩的单因素诊断批次
+（`runs/lisa_shell_diagnosis_20261004`、`runs/lisa_collapse_diagnosis_20261004`、`runs/lisa_v2_early_light_pass_20261004`），
+光照组留出选择（`runs/lisa_v2_selection_20261004`及`*_split_fg*`、`*_ramp_*`、`*_dense_init_*`扩展，部分为有记录的提前停止），
+插值留出选择（`runs/lisa_v2_interp_selection_20261004`），正式全量（`runs/lisa_v2_full_dataset_20261004`）。
+
 Method: [module](../architecture/modules/light_atlas.md) · [proposal and review](../research/lisa_light_space_atlas_20261001.md).
 
 ## Protocol

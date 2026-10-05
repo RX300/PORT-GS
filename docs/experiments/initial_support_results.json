@@ -1,0 +1,68 @@
+[
+  {
+    "variant": "camera_init",
+    "scene": "Drums",
+    "metrics": {
+      "PSNR": 23.29026044845581,
+      "SSIM": 0.9382541751861573,
+      "LPIPS": 0.06223047018051148,
+      "alpha_L1": 0.009387866724282504
+    },
+    "metrics_file": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_initial_support_20261004/camera_init/Synthetic_GS3/Drums/validation/metrics.json"
+  },
+  {
+    "variant": "camera_init",
+    "scene": "FurBall",
+    "metrics": {
+      "PSNR": 34.55591475486755,
+      "SSIM": 0.9674631142616272,
+      "LPIPS": 0.078774837795645,
+      "alpha_L1": 0.002238719464512542
+    },
+    "metrics_file": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_initial_support_20261004/camera_init/Synthetic_GS3/FurBall/validation/metrics.json"
+  },
+  {
+    "variant": "camera_init",
+    "scene": "Lego",
+    "metrics": {
+      "PSNR": 22.37545738220215,
+      "SSIM": 0.8829004961252213,
+      "LPIPS": 0.13316554080694915,
+      "alpha_L1": 0.0053728454385418446
+    },
+    "metrics_file": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_initial_support_20261004/camera_init/Synthetic_GS3/Lego/validation/metrics.json"
+  },
+  {
+    "variant": "hull_init",
+    "scene": "Drums",
+    "metrics": {
+      "PSNR": 23.464295434951783,
+      "SSIM": 0.9388751721382141,
+      "LPIPS": 0.061163723841309546,
+      "alpha_L1": 0.008755881602410228
+    },
+    "metrics_file": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_initial_support_20261004/hull_init/Synthetic_GS3/Drums/validation/metrics.json"
+  },
+  {
+    "variant": "hull_init",
+    "scene": "FurBall",
+    "metrics": {
+      "PSNR": 34.76153725624084,
+      "SSIM": 0.9684762507677078,
+      "LPIPS": 0.07619375227019191,
+      "alpha_L1": 0.0022153058752883226
+    },
+    "metrics_file": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_initial_support_20261004/hull_init/Synthetic_GS3/FurBall/validation/metrics.json"
+  },
+  {
+    "variant": "hull_init",
+    "scene": "Lego",
+    "metrics": {
+      "PSNR": 22.652442035675048,
+      "SSIM": 0.8836345186829567,
+      "LPIPS": 0.13305093560367823,
+      "alpha_L1": 0.0053681476181373
+    },
+    "metrics_file": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_initial_support_20261004/hull_init/Synthetic_GS3/Lego/validation/metrics.json"
+  }
+]

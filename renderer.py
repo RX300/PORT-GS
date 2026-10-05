@@ -33,7 +33,7 @@ def intersection_depth(info):
         groups = torch.repeat_interleave(torch.arange(len(starts), device=pid.device),
                                         lengths)
     if not len(pid):
-        return transforms.sum()*0 + means2d.new_zeros((1, h, w, 1))
+        return transforms[:, :0].sum() + means2d.new_zeros((1, h, w, 1))
     px, py = pid % w + .5, pid // w + .5
     matrix = transforms[iid, gid]
     cross = torch.linalg.cross(px[:, None]*matrix[:, 2]-matrix[:, 0],
@@ -343,6 +343,32 @@ def covariance_normals(gaussians, eye):
     return normal*torch.where(((eye-p['means'])*normal).sum(-1,keepdim=True)>=0,1.,-1.)
 
 
+def _render_shaded_gaussians(gaussians, transport, sample, background, shadow, port_active,
+                            shadow_mode, absgrad, appearance_weight):
+    """Shade each LiSA primitive, then composite its linear RGB."""
+    p = gaussians.params
+    h, w = sample['image'].shape[:2]
+    visibility = (visibility_hint(gaussians, sample['light_pos'], mode=shadow_mode)
+                  if shadow and transport.per_gaussian_visibility else torch.ones_like(p['opacities']))
+    receivers = dict(means=p['means'], base=p['base'], features=p['features'],
+                     normals=covariance_normals(gaussians, sample['c2w'][:3, 3]), visibility=visibility)
+    colors = transport(gaussians, receivers, sample['c2w'][:3, 3], sample['light_pos'],
+                       sample['light_intensity'], visibility, port_active, shadow=shadow)
+    kwargs = dict(**gaussians.raster_inputs(), viewmats=sample['viewmat'][None], Ks=sample['K'][None],
+                  width=w, height=h, packed=False, absgrad=absgrad)
+    rendered, alpha, info = _rasterize('3dgs', colors=colors, **kwargs)
+    foreground = rendered[0]
+    if appearance_weight is not None:
+        # A fixed-color pass preserves background geometry gradients while
+        # GT-foreground weights restrict the appearance gradients.
+        geometry, _, geometry_info = _rasterize('3dgs', colors=colors.detach(), **kwargs)
+        foreground = foreground * appearance_weight + geometry[0] * (1 - appearance_weight)
+        if geometry_info['means2d'].requires_grad:
+            geometry_info['means2d'].retain_grad()
+        info['appearance_geometry_info'] = geometry_info
+    return foreground + background * (1 - alpha[0]), alpha[0], info
+
+
 def render(
     gaussians,
     transport,
@@ -357,8 +383,16 @@ def render(
     normal_field=None,
     radiance_residual=None,
     residual_indices=None,
+    appearance_weight=None,
 ):
-    """Render a full HWC image."""
+    """Render a full HWC image.
+
+    ``appearance_weight`` (HW1, training only) scales the gradient that reaches the
+    foreground radiance per pixel; the rest of the pixel's gradient reaches coverage only.
+    """
+    if not geometry_only and getattr(transport, 'shading', 'pixel') == 'gaussian':
+        return _render_shaded_gaussians(gaussians, transport, sample, background, shadow, port_active,
+                                        shadow_mode, absgrad, appearance_weight)
     h, w = sample["image"].shape[:2]
     means = gaussians.params["means"]
     # Light-space methods shade visibility per receiver from their own light pass, unless
@@ -373,6 +407,13 @@ def render(
     if geometry_only:
         # Degree-zero RGB splatting, independent of lights and all transport networks.
         attributes = F.softplus(gaussians.params["base"])
+        if light_space and gaussians.geometry == '3dgs':
+            distance2 = (sample['light_pos']-means).square().sum(-1,keepdim=True)
+            attributes = attributes * sample['light_intensity'][None] / transport.light_scale / distance2
+            if transport.normal_model == 'learned':
+                normal = transport.material_normal(dict(features=gaussians.params['features']), None)
+                direction = F.normalize(sample['light_pos']-means, dim=-1)
+                attributes = attributes * transport.diffuse_cosine((normal*direction).sum(-1,keepdim=True))
     else:
         attributes = torch.cat(
             (gaussians.params["base"], gaussians.params["features"], visibility[:, None]), dim=-1
@@ -447,4 +488,6 @@ def render(
     if radiance_residual is not None:
         foreground, alpha, info['residual_stats'] = apply_radiance_residual(
             foreground, alpha, receivers, covered, transport, sample, radiance_residual, residual_indices)
+    if appearance_weight is not None:
+        foreground = foreground * appearance_weight + foreground.detach() * (1 - appearance_weight)
     return foreground * alpha + background * (1 - alpha), alpha, info

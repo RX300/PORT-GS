@@ -46,8 +46,11 @@ def check_geometry_options(args, config):
     """Options whose validity depends on the resolved 3DGS/2DGS geometry."""
     if args.surface_depth == 'intersection' and config['geometry'] != '2dgs':
         raise ValueError('Intersection surface depth requires 2DGS geometry')
-    if args.geometry_warmup_steps and (config["geometry"] != "2dgs" or args.freeze_geometry):
-        raise ValueError("Geometry warmup requires trainable 2DGS geometry")
+    if args.initialization == "hull" and config["geometry"] != "3dgs":
+        raise ValueError("Hull initialization requires 3DGS geometry")
+    if args.geometry_warmup_steps and (args.freeze_geometry or
+            (config["geometry"] != "2dgs" and args.representation != "light_atlas")):
+        raise ValueError("Geometry warmup requires trainable 2DGS or light_atlas geometry")
     if args.sdf and (config["geometry"] != "2dgs" or (args.freeze_geometry and not args.sdf_volume_only)):
         raise ValueError("SDF supervision requires trainable 2DGS geometry, except in volume-only mode")
     if args.sdf_shading and (not args.sdf or args.representation != 'neural_material' or args.geometry_warmup_steps):
@@ -78,10 +81,27 @@ def check_source_compatibility(args, config, saved):
         return
     if saved["config"]["representation"] != args.representation:
         raise ValueError("--init-checkpoint requires the same method; use --init-geometry for another method")
+    config['source_checkpoint_step'] = saved['step']
+    config['training_steps_before'] = saved['config'].get('training_steps_before', 0) + saved['step']
+    if (args.representation == 'light_atlas' and
+            saved['config'].get('normal_model', 'covariance') != args.normal_model):
+        raise ValueError('Changing LiSA normal parameter meanings requires fresh material via --init-geometry')
     if (args.representation == 'neural_material' and not args.reset_material and
             saved['config'].get('material_model', 'neural') != args.material_model):
         raise ValueError('Changing material model requires --reset-material to initialize its parameter meanings')
-    if args.sdf_volume_only or args.radiance_residual:
+    fixed_lisa = args.representation == 'light_atlas' and args.freeze_geometry
+    if fixed_lisa:
+        if saved['step'] <= saved['config'].get('geometry_warmup_steps', 0):
+            raise ValueError('Frozen LiSA appearance requires completed geometry warmup')
+        if saved.get('light_offsets') is not None or args.optimize_lights or args.optimize_light_scale:
+            raise ValueError('Frozen LiSA appearance requires fixed source light calibration')
+        for key in ['camera_mode', 'camera_gauge']:
+            setattr(args, key, saved['config'][key])
+            config[key] = saved['config'][key]
+        args.camera_start = config['camera_start'] = 1
+        args.camera_lr = config['camera_lr'] = 0.
+        args.camera_lr_final = config['camera_lr_final'] = None
+    if args.sdf_volume_only or args.radiance_residual or fixed_lisa:
         args.optimize_cameras = saved['camera_offsets'] is not None
         config['optimize_cameras'] = args.optimize_cameras
         for key in ['port_start', 'shadow_start']:

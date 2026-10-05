@@ -1,13 +1,62 @@
 # LiSA 当前状态
 
-2026-10-03：三类数据集全部18/18场景完成，四方法合计72/72有效结果。最后任务于17:31:31 JST完成，完整测试图评价22764次，中央collector审计通过。
+2026-10-04。本轮统一方法改进、18场景全量训练及分析已完成；残余质量问题保留如下。
 
-[完整实验记录](../experiments/results.md) · [环境与协议](../experiments/setup.md) · [逐场景机器记录](../experiments/records.json) · [四方法比较](../../../benchmarks/full_dataset_comparison/RESULTS.md)
+## 完成结果
 
-本轮没有运行或待跑任务。用户于2026-10-03明确恢复SOTA核查、问题诊断与方案研究；分析现已完成，改进尚未实施。
+LiSA-staged采用同一30k+8k流程，18/18场景成功，完整评价5691张官方test。
+场景等权PSNR/SSIM/LPIPS为 **33.4722 / .95199 / .05636**；v2为32.4122 / .94666 / .06154。
+全部六种本地方法的108/108项通过中央collector，原90项结果逐行保持不变。
 
-LiSA总体SSIM/LPIPS与Real/SSS类别平均指标领先本地三条baseline，但总体PSNR比SSD-GS低0.2059 dB，不能宣称全面SOTA。主要问题是Lego/Drums的几何覆盖异常，以及多个场景的局部材质分支退化。72项结果复核通过；18个LiSA权重、62帧冻结探针及统一GT的PSNR敏感性检查完成，没有训练或修改模型/超参数。
+| 范围 | 新PSNR | 相对v2 | 相对GS³ |
+|---|---:|---:|---:|
+| 全18场景 | 33.4722 | +1.0600 | +1.9837 |
+| Synthetic_GS3（6） | 32.4001 | +3.7629 | +.4269 |
+| Real_NRHints（7） | 29.2779 | −.2157 | +2.0042 |
+| Synthetic_SSS-GS（5） | 40.6308 | −.3976 | +3.8233 |
 
-[完整分析与证据图](../experiments/full_dataset_analysis.md) · [公开文献SOTA核查](../research/sota_assessment.md) · [优先级改进提案（全部未实施）](../research/improvement_proposal.md)
+Lego/Drums改善7.6091/5.4169dB，距GS³仅.1053/1.0652dB；Hotdog/Translucent也有大幅改善。
+PSNR共8场景上升、10场景下降，SSIM/LPIPS分别7/6场景改善。最大PSNR回退为AnisoMetal的.9342dB。
+FurBall比v2改善1.2696dB、超过GS³，但相对最初LiSA仍低.7370dB；FurScene仍低于GS³ 1.6163dB。
 
-权重、原始日志、配置和源码留在原目录，派生诊断位于runs/light_atlas_analysis_20261003。架构、适配和恢复决策见[decisions.md](decisions.md)。
+## 方法、验证与边界
+
+训练轮廓种子、独立材质法线 → 8k几何预热/辐射目标过渡 → 22k线性域逐高斯联合训练 →
+固定几何/相机/光强，8k观测域像素外观精修。没有外部几何输入或逐场景参数/权重选择。
+相同初始状态与16k预算的训练内留出对照让Lego/Drums提高7.2301/6.0020dB，支持目标域及过渡整体有效。
+预验证覆盖五场景的16k+8k流程；最终38k配方首次完整验证就是本轮全量实验。
+正式比较为38k对v2 30k、GS³ 100k；单种子，不把全量增益说成等预算或全面SOTA。
+
+所有最终权重的几何、划分、训练相机与光强严格等于自身30k源；官方test保持原始标定，无测试拟合。
+实际配置已核验为统一规则及原家族观察/相机设置；51份运行源码/配置与启动归档逐字节一致。
+使用真实checkpoint的针对性检查及本次完整端到端实验验证，没有新增临时测试文件。
+
+## 资源与保存
+
+全量仅使用物理GPU1/2，每卡一个worker，已全部释放；用户要求的20分钟进度检查随队列完成而结束。
+纯LiSA-v2在Git标签`lisa-v2`，commit `14f28d55b7d8444960a3d60b6ffcca6d880ec506`；265个文件与原源码归档一致。
+本轮代码由2026-10-05 Git保存提交记录，未混入v2标签。没有额外源码备份目录；原模型和实验输出保留。
+新增临时测试/调试代码和无效实现分支已清理，已有回归测试保留，测试夹具接口更新见下文。
+
+### 2026-10-05 Git保存说明
+
+保存范围：LiSA-staged训练/渲染实现、统一18场景配置、两阶段调度、图像误差诊断、
+实验机器记录、结果图表及方法/协议/文献审计文档。沿用当前分支
+`feature_claude_neural_relighting`，远端为 `https://github.com/RX300/PORT-GS.git`。
+`lisa-v2`标签仍指向纯v2实现，不移动；首次向远端同步该既有标签。
+`runs/`、`logs/`、权重、数据与本地依赖按既有`.gitignore`留在本地，Git保存不包含这些大型资产。
+跨项目的中央benchmark文档属于其自身目录，不纳入PORT-GS提交。
+
+保存检查：修改的14份Python文件通过AST解析、13份JSON通过解析、启动脚本通过`bash -n`；
+训练结构、相机标定和点数预算共12项CPU回归通过。旧冻结相机测试夹具补齐`lr_decay_steps=None`，
+与当前参数接口一致；5项LiSA CUDA测试在本次CPU检查中跳过，没有重跑训练或GPU渲染。
+`git diff --check`通过。完整GPU实验的既有证据与局限见上文及实验记录。
+
+## 剩余研究问题
+
+Drums剩余误差集中在稀疏亮峰；AnisoMetal新增误差主要位于物体内部亮峰/细节，不能主要归于轮廓漏光。
+新方案点数减少而Real/SSS略退，细节增密和法线/材质方向响应值得继续研究；当前证据尚未隔离其因果贡献。
+本轮结论是困难合成场景大幅改善与整体均值提升，同时保留上述回退；不按test给场景切换新旧方案。
+
+[完整结果](../experiments/results.md) · [分析](../experiments/shading_refinement.md) ·
+[机器记录](../experiments/radiometric_curriculum_results.json) · [六方法总表](../../../benchmarks/full_dataset_comparison/RESULTS.md)

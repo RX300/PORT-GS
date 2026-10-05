@@ -1,0 +1,2778 @@
+{
+  "checked_on": "2026-10-04",
+  "publication_window": {
+    "from": "2025-03-01",
+    "through": "2026-10-03",
+    "basis": "formal conference publication; user explicitly includes March"
+  },
+  "scope": [
+    "relighting as a core task",
+    "per-scene optimization",
+    "exclude lighting-OOD-centered studies",
+    "official evidence for independently varying calibrated point-light / OLAT observations",
+    "already-run SSD-GS and RNG are not new candidates"
+  ],
+  "classification_source": "per_scene_olat_literature_202503_202610.md",
+  "notes": [
+    "Catalog entries are keyword-discovered leads, not accepted candidates or a count of full texts read.",
+    "Citation graph results are raw discovery metadata, may mislabel venues or separate preprint and proceedings records, and are not technical evidence.",
+    "SIGGRAPH catalog mirror requests failed with HTTP 403/406; author sources and citation searches were used instead. No exhaustive full-catalog claim is made for those venues.",
+    "The initial ECVA papers.php retrieval mixed older ECCV years and was not used as the ECCV2026 catalog; the dedicated 2026 virtual catalog is recorded here.",
+    "Final compatibility and task classifications rely on author papers and official code, as linked in the report.",
+    "No method installation, data conversion, or training was performed."
+  ],
+  "official_catalogs": [
+    {
+      "venue": "CVPR2025",
+      "url": "https://openaccess.thecvf.com/CVPR2025?day=all",
+      "total_links": 28036,
+      "candidates": [
+        [
+          "https://openaccess.thecvf.com/content/CVPR2025/html/Ren_S3-Face_SSS-Compliant_Facial_Reflectance_Estimation_via_Diffusion_Priors_CVPR_2025_paper.html",
+          "S^3-Face: SSS-Compliant Facial Reflectance Estimation via Diffusion Priors"
+        ],
+        [
+          "https://openaccess.thecvf.com/content/CVPR2025/html/Wu_PBR-NeRF_Inverse_Rendering_with_Physics-Based_Neural_Fields_CVPR_2025_paper.html",
+          "PBR-NeRF: Inverse Rendering with Physics-Based Neural Fields"
+        ],
+        [
+          "https://openaccess.thecvf.com/content/CVPR2025/html/Fan_RNG_Relightable_Neural_Gaussians_CVPR_2025_paper.html",
+          "RNG: Relightable Neural Gaussians"
+        ],
+        [
+          "https://openaccess.thecvf.com/content/CVPR2025/html/Yang_PIAD_Pose_and_Illumination_agnostic_Anomaly_Detection_CVPR_2025_paper.html",
+          "PIAD: Pose and Illumination agnostic Anomaly Detection"
+        ],
+        [
+          "https://openaccess.thecvf.com/content/CVPR2025/html/Alzayer_Generative_Multiview_Relighting_for_3D_Reconstruction_under_Extreme_Illumination_Variation_CVPR_2025_paper.html",
+          "Generative Multiview Relighting for 3D Reconstruction under Extreme Illumination Variation"
+        ],
+        [
+          "https://openaccess.thecvf.com/content/CVPR2025/html/Boss_SF3D_Stable_Fast_3D_Mesh_Reconstruction_with_UV-unwrapping_and_Illumination_CVPR_2025_paper.html",
+          "SF3D: Stable Fast 3D Mesh Reconstruction with UV-unwrapping and Illumination Disentanglement"
+        ],
+        [
+          "https://openaccess.thecvf.com/content/CVPR2025/html/Lin_IRIS_Inverse_Rendering_of_Indoor_Scenes_from_Low_Dynamic_Range_CVPR_2025_paper.html",
+          "IRIS: Inverse Rendering of Indoor Scenes from Low Dynamic Range Images"
+        ],
+        [
+          "https://openaccess.thecvf.com/content/CVPR2025/html/Zhou_LITA-GS_Illumination-Agnostic_Novel_View_Synthesis_via_Reference-Free_3D_Gaussian_Splatting_CVPR_2025_paper.html",
+          "LITA-GS: Illumination-Agnostic Novel View Synthesis via Reference-Free 3D Gaussian Splatting and Physical Priors"
+        ],
+        [
+          "https://openaccess.thecvf.com/content/CVPR2025/html/Oh_Illumination_Spectrum_Estimation_for_Multispectral_Images_via_Surface_Reflectance_Modeling_CVPR_2025_paper.html",
+          "Illumination Spectrum Estimation for Multispectral Images via Surface Reflectance Modeling and Spatial-Spectral Feature Generation"
+        ],
+        [
+          "https://openaccess.thecvf.com/content/CVPR2025/html/Chung_Differentiable_Inverse_Rendering_with_Interpretable_Basis_BRDFs_CVPR_2025_paper.html",
+          "Differentiable Inverse Rendering with Interpretable Basis BRDFs"
+        ],
+        [
+          "https://openaccess.thecvf.com/content/CVPR2025/html/Malik_Neural_Inverse_Rendering_from_Propagating_Light_CVPR_2025_paper.html",
+          "Neural Inverse Rendering from Propagating Light"
+        ],
+        [
+          "https://openaccess.thecvf.com/content/CVPR2025/html/Yang_Towards_Explicit_Geometry-Reflectance_Collaboration_for_Generalized_LiDAR_Segmentation_in_Adverse_CVPR_2025_paper.html",
+          "Towards Explicit Geometry-Reflectance Collaboration for Generalized LiDAR Segmentation in Adverse Weather"
+        ],
+        [
+          "https://openaccess.thecvf.com/content/CVPR2025/html/Jin_SFDM_Robust_Decomposition_of_Geometry_and_Reflectance_for_Realistic_Face_CVPR_2025_paper.html",
+          "SFDM: Robust Decomposition of Geometry and Reflectance for Realistic Face Rendering from Sparse-view Images"
+        ],
+        [
+          "https://openaccess.thecvf.com/content/CVPR2025/html/Sun_SVG-IR_Spatially-Varying_Gaussian_Splatting_for_Inverse_Rendering_CVPR_2025_paper.html",
+          "SVG-IR: Spatially-Varying Gaussian Splatting for Inverse Rendering"
+        ],
+        [
+          "https://openaccess.thecvf.com/content/CVPR2025/html/Choi_ScribbleLight_Single_Image_Indoor_Relighting_with_Scribbles_CVPR_2025_paper.html",
+          "ScribbleLight: Single Image Indoor Relighting with Scribbles"
+        ],
+        [
+          "https://openaccess.thecvf.com/content/CVPR2025/html/Guo_High-Fidelity_Relightable_Monocular_Portrait_Animation_with_Lighting-Controllable_Video_Diffusion_Model_CVPR_2025_paper.html",
+          "High-Fidelity Relightable Monocular Portrait Animation with Lighting-Controllable Video Diffusion Model"
+        ],
+        [
+          "https://openaccess.thecvf.com/content/CVPR2025/html/Gu_TensoFlow_Tensorial_Flow-based_Sampler_for_Inverse_Rendering_CVPR_2025_paper.html",
+          "TensoFlow: Tensorial Flow-based Sampler for Inverse Rendering"
+        ],
+        [
+          "https://openaccess.thecvf.com/content/CVPR2025/html/Mei_Lux_Post_Facto_Learning_Portrait_Performance_Relighting_with_Conditional_Video_CVPR_2025_paper.html",
+          "Lux Post Facto: Learning Portrait Performance Relighting with Conditional Video Diffusion and a Hybrid Dataset"
+        ],
+        [
+          "https://openaccess.thecvf.com/content/CVPR2025/html/Chaturvedi_SynthLight_Portrait_Relighting_with_Diffusion_Model_by_Learning_to_Re-render_CVPR_2025_paper.html",
+          "SynthLight: Portrait Relighting with Diffusion Model by Learning to Re-render Synthetic Faces"
+        ],
+        [
+          "https://openaccess.thecvf.com/content/CVPR2025/html/Kitazawa_PS-EIP_Robust_Photometric_Stereo_Based_on_Event_Interval_Profile_CVPR_2025_paper.html",
+          "PS-EIP: Robust Photometric Stereo Based on Event Interval Profile"
+        ],
+        [
+          "https://openaccess.thecvf.com/content/CVPR2025/html/Zhang_HRAvatar_High-Quality_and_Relightable_Gaussian_Head_Avatar_CVPR_2025_paper.html",
+          "HRAvatar: High-Quality and Relightable Gaussian Head Avatar"
+        ],
+        [
+          "https://openaccess.thecvf.com/content/CVPR2025/html/Leonard_Light_Transport-aware_Diffusion_Posterior_Sampling_for_Single-View_Reconstruction_of_3D_CVPR_2025_paper.html",
+          "Light Transport-aware Diffusion Posterior Sampling for Single-View Reconstruction of 3D Volumes"
+        ],
+        [
+          "https://openaccess.thecvf.com/content/CVPR2025/html/Li_NeISF_Neural_Incident_Stokes_Field_for_Polarized_Inverse_Rendering_of_CVPR_2025_paper.html",
+          "NeISF++: Neural Incident Stokes Field for Polarized Inverse Rendering of Conductors and Dielectrics"
+        ],
+        [
+          "https://openaccess.thecvf.com/content/CVPR2025/html/Feng_ARM_Appearance_Reconstruction_Model_for_Relightable_3D_Generation_CVPR_2025_paper.html",
+          "ARM: Appearance Reconstruction Model for Relightable 3D Generation"
+        ],
+        [
+          "https://openaccess.thecvf.com/content/CVPR2025/html/Yu_EventPSR_Surface_Normal_and_Reflectance_Estimation_from_Photometric_Stereo_Using_CVPR_2025_paper.html",
+          "EventPSR: Surface Normal and Reflectance Estimation from Photometric Stereo Using an Event Camera"
+        ],
+        [
+          "https://openaccess.thecvf.com/content/CVPR2025/html/Li_LIRM_Large_Inverse_Rendering_Model_for_Progressive_Reconstruction_of_Shape_CVPR_2025_paper.html",
+          "LIRM: Large Inverse Rendering Model for Progressive Reconstruction of Shape, Materials and View-dependent Radiance Fields"
+        ],
+        [
+          "https://openaccess.thecvf.com/content/CVPR2025/html/Zheng_GroomLight_Hybrid_Inverse_Rendering_for_Relightable_Human_Hair_Appearance_Modeling_CVPR_2025_paper.html",
+          "GroomLight: Hybrid Inverse Rendering for Relightable Human Hair Appearance Modeling"
+        ],
+        [
+          "https://openaccess.thecvf.com/content/CVPR2025/html/Choi_Channel-wise_Noise_Scheduled_Diffusion_for_Inverse_Rendering_in_Indoor_Scenes_CVPR_2025_paper.html",
+          "Channel-wise Noise Scheduled Diffusion for Inverse Rendering in Indoor Scenes"
+        ],
+        [
+          "https://openaccess.thecvf.com/content/CVPR2025/html/Fan_Factored-NeuS_Reconstructing_Surfaces_Illumination_and_Materials_of_Possibly_Glossy_Objects_CVPR_2025_paper.html",
+          "Factored-NeuS: Reconstructing Surfaces, Illumination, and Materials of Possibly Glossy Objects"
+        ],
+        [
+          "https://openaccess.thecvf.com/content/CVPR2025/html/Xing_LumiNet_Latent_Intrinsics_Meets_Diffusion_Models_for_Indoor_Scene_Relighting_CVPR_2025_paper.html",
+          "LumiNet: Latent Intrinsics Meets Diffusion Models for Indoor Scene Relighting"
+        ],
+        [
+          "https://openaccess.thecvf.com/content/CVPR2025/html/Chen_Uni-Renderer_Unifying_Rendering_and_Inverse_Rendering_Via_Dual_Stream_Diffusion_CVPR_2025_paper.html",
+          "Uni-Renderer: Unifying Rendering and Inverse Rendering Via Dual Stream Diffusion"
+        ],
+        [
+          "https://openaccess.thecvf.com/content/CVPR2025/html/Wang_Comprehensive_Relighting_Generalizable_and_Consistent_Monocular_Human_Relighting_and_Harmonization_CVPR_2025_paper.html",
+          "Comprehensive Relighting: Generalizable and Consistent Monocular Human Relighting and Harmonization"
+        ],
+        [
+          "https://openaccess.thecvf.com/content/CVPR2025/html/Li_ReCap_Better_Gaussian_Relighting_with_Cross-Environment_Captures_CVPR_2025_paper.html",
+          "ReCap: Better Gaussian Relighting with Cross-Environment Captures"
+        ]
+      ]
+    },
+    {
+      "venue": "CVPR2026",
+      "url": "https://openaccess.thecvf.com/CVPR2026?day=all",
+      "total_links": 40122,
+      "candidates": [
+        [
+          "https://openaccess.thecvf.com/content/CVPR2026/html/Deutsch_PPISP_Physically-Plausible_Compensation_and_Control_of_Photometric_Variations_in_Radiance_CVPR_2026_paper.html",
+          "PPISP: Physically-Plausible Compensation and Control of Photometric Variations in Radiance Field Reconstruction"
+        ],
+        [
+          "https://openaccess.thecvf.com/content/CVPR2026/html/Xu_Event-Illumination_Collaborative_Low-light_Image_Enhancement_with_a_High-resolution_Real-world_Dataset_CVPR_2026_paper.html",
+          "Event-Illumination Collaborative Low-light Image Enhancement with a High-resolution Real-world Dataset"
+        ],
+        [
+          "https://openaccess.thecvf.com/content/CVPR2026/html/Han_WildCap_Facial_Albedo_Capture_in_the_Wild_via_Hybrid_Inverse_CVPR_2026_paper.html",
+          "WildCap: Facial Albedo Capture in the Wild via Hybrid Inverse Rendering"
+        ],
+        [
+          "https://openaccess.thecvf.com/content/CVPR2026/html/Zhang_IR-HGP_Physically-Aware_Gaussian_Inverse_Rendering_for_High-Illumination_Scenes_via_Generative_CVPR_2026_paper.html",
+          "IR-HGP: Physically-Aware Gaussian Inverse Rendering for High-Illumination Scenes via Generative Priors"
+        ],
+        [
+          "https://openaccess.thecvf.com/content/CVPR2026/html/Kaleta_LumiMotion_Improving_Gaussian_Relighting_with_Scene_Dynamics_CVPR_2026_paper.html",
+          "LumiMotion: Improving Gaussian Relighting with Scene Dynamics"
+        ],
+        [
+          "https://openaccess.thecvf.com/content/CVPR2026/html/Gao_FlowPortal_Residual-Corrected_Flow_for_Training-Free_Video_Relighting_and_Background_Replacement_CVPR_2026_paper.html",
+          "FlowPortal: Residual-Corrected Flow for Training-Free Video Relighting and Background Replacement"
+        ],
+        [
+          "https://openaccess.thecvf.com/content/CVPR2026/html/Shimomura_P2GS_Physical_Prior-guided_Gaussian_Splatting_for_Photometrically_Consistent_Urban_Reconstruction_CVPR_2026_paper.html",
+          "P2GS: Physical Prior-guided Gaussian Splatting for Photometrically Consistent Urban Reconstruction"
+        ],
+        [
+          "https://openaccess.thecvf.com/content/CVPR2026/html/Xue_GeoRelight_Learning_Joint_Geometrical_Relighting_and_Reconstruction_with_Flexible_Multi-Modal_CVPR_2026_paper.html",
+          "GeoRelight: Learning Joint Geometrical Relighting and Reconstruction with Flexible Multi-Modal Diffusion Transformers"
+        ],
+        [
+          "https://openaccess.thecvf.com/content/CVPR2026/html/Walker_VENI_Variational_Encoder_for_Natural_Illumination_CVPR_2026_paper.html",
+          "VENI: Variational Encoder for Natural Illumination"
+        ],
+        [
+          "https://openaccess.thecvf.com/content/CVPR2026/html/Chen_POLAR_A_Portrait_OLAT_Dataset_and_Generative_Framework_for_Illumination-Aware_CVPR_2026_paper.html",
+          "POLAR: A Portrait OLAT Dataset and Generative Framework for Illumination-Aware Face Modeling"
+        ],
+        [
+          "https://openaccess.thecvf.com/content/CVPR2026/html/Zhong_GraspALL_Adaptive_Structural_Compensation_from_Illumination_Variation_for_Robotic_Garment_CVPR_2026_paper.html",
+          "GraspALL: Adaptive Structural Compensation from Illumination Variation for Robotic Garment Grasping in Any Low-Light Conditions"
+        ],
+        [
+          "https://openaccess.thecvf.com/content/CVPR2026/html/Kohyama_Geometric-Photometric_Event-based_3D_Gaussian_Ray_Tracing_CVPR_2026_paper.html",
+          "Geometric-Photometric Event-based 3D Gaussian Ray Tracing"
+        ],
+        [
+          "https://openaccess.thecvf.com/content/CVPR2026/html/Novikov_Color-Encoded_Illumination_for_High-Speed_Volumetric_Scene_Reconstruction_CVPR_2026_paper.html",
+          "Color-Encoded Illumination for High-Speed Volumetric Scene Reconstruction"
+        ],
+        [
+          "https://openaccess.thecvf.com/content/CVPR2026/html/Singh_Relightable_Holoported_Characters_Capturing_and_Relighting_Dynamic_Human_Performance_from_CVPR_2026_paper.html",
+          "Relightable Holoported Characters: Capturing and Relighting Dynamic Human Performance from Sparse Views"
+        ],
+        [
+          "https://openaccess.thecvf.com/content/CVPR2026/html/Wu_MVInverse_Feed-forward_Multiview_Inverse_Rendering_in_Seconds_CVPR_2026_paper.html",
+          "MVInverse: Feed-forward Multiview Inverse Rendering in Seconds"
+        ],
+        [
+          "https://openaccess.thecvf.com/content/CVPR2026/html/Jiang_ZeroIDIR_Zero-Reference_Illumination_Degradation_Image_Restoration_with_Perturbed_Consistency_Diffusion_CVPR_2026_paper.html",
+          "ZeroIDIR: Zero-Reference Illumination Degradation Image Restoration with Perturbed Consistency Diffusion Models"
+        ],
+        [
+          "https://openaccess.thecvf.com/content/CVPR2026/html/Ding_Differentiable_Adaptive_4D_Structured_Illumination_for_Joint_Capture_of_Shape_CVPR_2026_paper.html",
+          "Differentiable Adaptive 4D Structured Illumination for Joint Capture of Shape and Reflectance"
+        ],
+        [
+          "https://openaccess.thecvf.com/content/CVPR2026/html/Lin_Clair_Obscur_an_Illumination-Aware_Method_for_Real-World_Image_Vectorization_CVPR_2026_paper.html",
+          "Clair Obscur: an Illumination-Aware Method for Real-World Image Vectorization"
+        ],
+        [
+          "https://openaccess.thecvf.com/content/CVPR2026/html/Choi_Relightful_Video_Portrait_Harmonization_CVPR_2026_paper.html",
+          "Relightful Video Portrait Harmonization"
+        ],
+        [
+          "https://openaccess.thecvf.com/content/CVPR2026/html/Zheng_Illumination-Consistent_Human-Scene_Reconstruction_from_Monocular_Video_CVPR_2026_paper.html",
+          "Illumination-Consistent Human-Scene Reconstruction from Monocular Video"
+        ],
+        [
+          "https://openaccess.thecvf.com/content/CVPR2026/html/Du_UAVLight_A_Benchmark_for_Illumination-Robust_3D_Reconstruction_in_Unmanned_Aerial_CVPR_2026_paper.html",
+          "UAVLight: A Benchmark for Illumination-Robust 3D Reconstruction in Unmanned Aerial Vehicle (UAV) Scenes"
+        ],
+        [
+          "https://openaccess.thecvf.com/content/CVPR2026/html/Xu_RelightAnyone_A_Generalized_Relightable_3D_Gaussian_Head_Model_CVPR_2026_paper.html",
+          "RelightAnyone: A Generalized Relightable 3D Gaussian Head Model"
+        ],
+        [
+          "https://openaccess.thecvf.com/content/CVPR2026/html/Niu_SGS-Intrinsic_Semantic-Invariant_Gaussian_Splatting_for_Sparse-View_Indoor_Inverse_Rendering_CVPR_2026_paper.html",
+          "SGS-Intrinsic: Semantic-Invariant Gaussian Splatting for Sparse-View Indoor Inverse Rendering"
+        ],
+        [
+          "https://openaccess.thecvf.com/content/CVPR2026/html/Verma_Lumosaic_Hyperspectral_Video_via_Active_Illumination_and_Coded-Exposure_Pixels_CVPR_2026_paper.html",
+          "Lumosaic: Hyperspectral Video via Active Illumination and Coded-Exposure Pixels"
+        ],
+        [
+          "https://openaccess.thecvf.com/content/CVPR2026/html/Zhang_Learning_to_See_through_Illumination_Extremes_with_Event_Streaming_in_CVPR_2026_paper.html",
+          "Learning to See through Illumination Extremes with Event Streaming in Multimodal Large Language Models"
+        ],
+        [
+          "https://openaccess.thecvf.com/content/CVPR2026/html/Chang_SunFaded_Illumination-Aware_Gaussian_Splatting_for_Dark_Scenes_with_Camera-Mounted_Active_CVPR_2026_paper.html",
+          "SunFaded: Illumination-Aware Gaussian Splatting for Dark Scenes with Camera-Mounted Active Lighting"
+        ],
+        [
+          "https://openaccess.thecvf.com/content/CVPR2026/html/Yuan_VT-Intrinsic_Physics-Based_Decomposition_of_Reflectance_and_Shading_using_a_Single_CVPR_2026_paper.html",
+          "VT-Intrinsic: Physics-Based Decomposition of Reflectance and Shading using a Single Visible-Thermal Image Pair"
+        ],
+        [
+          "https://openaccess.thecvf.com/content/CVPR2026/html/Bo_GHPT_Real-Time_Relightable_Gaussian_Splatting_using_Hybrid_Path_Tracing_CVPR_2026_paper.html",
+          "GHPT: Real-Time Relightable Gaussian Splatting using Hybrid Path Tracing"
+        ],
+        [
+          "https://openaccess.thecvf.com/content/CVPR2026/html/Zheng_Learning_Latent_Proxies_for_Controllable_Single-Image_Relighting_CVPR_2026_paper.html",
+          "Learning Latent Proxies for Controllable Single-Image Relighting"
+        ]
+      ]
+    },
+    {
+      "venue": "ICCV2025",
+      "url": "https://openaccess.thecvf.com/ICCV2025?day=all",
+      "total_links": 25521,
+      "candidates": [
+        [
+          "https://openaccess.thecvf.com/content/ICCV2025/html/Shou_Unsupervised_RGB-D_Point_Cloud_Registration_for_Scenes_with_Low_Overlap_ICCV_2025_paper.html",
+          "Unsupervised RGB-D Point Cloud Registration for Scenes with Low Overlap and Photometric Inconsistency"
+        ],
+        [
+          "https://openaccess.thecvf.com/content/ICCV2025/html/Ren_GauUpdate_New_Object_Insertion_in_3D_Gaussian_Fields_with_Consistent_ICCV_2025_paper.html",
+          "GauUpdate: New Object Insertion in 3D Gaussian Fields with Consistent Global Illumination"
+        ],
+        [
+          "https://openaccess.thecvf.com/content/ICCV2025/html/Zhang_SU-RGS_Relightable_3D_Gaussian_Splatting_from_Sparse_Views_under_Unconstrained_ICCV_2025_paper.html",
+          "SU-RGS: Relightable 3D Gaussian Splatting from Sparse Views under Unconstrained Illuminations"
+        ],
+        [
+          "https://openaccess.thecvf.com/content/ICCV2025/html/Liu_When_Lighting_Deceives_Exposing_Vision-Language_Models_Illumination_Vulnerability_Through_Illumination_ICCV_2025_paper.html",
+          "When Lighting Deceives: Exposing Vision-Language Models' Illumination Vulnerability Through Illumination Transformation Attack"
+        ],
+        [
+          "https://openaccess.thecvf.com/content/ICCV2025/html/Wang_LightCity_An_Urban_Dataset_for_Outdoor_Inverse_Rendering_and_Reconstruction_ICCV_2025_paper.html",
+          "LightCity: An Urban Dataset for Outdoor Inverse Rendering and Reconstruction under Multi-illumination Conditions"
+        ],
+        [
+          "https://openaccess.thecvf.com/content/ICCV2025/html/Urakawa_Neural_Inverse_Rendering_for_High-Accuracy_3D_Measurement_of_Moving_Objects_ICCV_2025_paper.html",
+          "Neural Inverse Rendering for High-Accuracy 3D Measurement of Moving Objects with Fewer Phase-Shifting Patterns"
+        ],
+        [
+          "https://openaccess.thecvf.com/content/ICCV2025/html/He_MaterialMVP_Illumination-Invariant_Material_Generation_via_Multi-view_PBR_Diffusion_ICCV_2025_paper.html",
+          "MaterialMVP: Illumination-Invariant Material Generation via Multi-view PBR Diffusion"
+        ],
+        [
+          "https://openaccess.thecvf.com/content/ICCV2025/html/Ye_GeoSplatting_Towards_Geometry_Guided_Gaussian_Splatting_for_Physically-based_Inverse_Rendering_ICCV_2025_paper.html",
+          "GeoSplatting: Towards Geometry Guided Gaussian Splatting for Physically-based Inverse Rendering"
+        ],
+        [
+          "https://openaccess.thecvf.com/content/ICCV2025/html/Liang_EventUPS_Uncalibrated_Photometric_Stereo_Using_an_Event_Camera_ICCV_2025_paper.html",
+          "EventUPS: Uncalibrated Photometric Stereo Using an Event Camera"
+        ],
+        [
+          "https://openaccess.thecvf.com/content/ICCV2025/html/Cao_Neural_Multi-View_Self-Calibrated_Photometric_Stereo_without_Photometric_Stereo_Cues_ICCV_2025_paper.html",
+          "Neural Multi-View Self-Calibrated Photometric Stereo without Photometric Stereo Cues"
+        ],
+        [
+          "https://openaccess.thecvf.com/content/ICCV2025/html/Sun_Ouroboros_Single-step_Diffusion_Models_for_Cycle-consistent_Forward_and_Inverse_Rendering_ICCV_2025_paper.html",
+          "Ouroboros: Single-step Diffusion Models for Cycle-consistent Forward and Inverse Rendering"
+        ],
+        [
+          "https://openaccess.thecvf.com/content/ICCV2025/html/Teufel_HumanOLAT_A_Large-Scale_Dataset_for_Full-Body_Human_Relighting_and_Novel-View_ICCV_2025_paper.html",
+          "HumanOLAT: A Large-Scale Dataset for Full-Body Human Relighting and Novel-View Synthesis"
+        ],
+        [
+          "https://openaccess.thecvf.com/content/ICCV2025/html/She_Relative_Illumination_Fields_Learning_Medium_and_Light_Independent_Underwater_Scenes_ICCV_2025_paper.html",
+          "Relative Illumination Fields: Learning Medium and Light Independent Underwater Scenes"
+        ],
+        [
+          "https://openaccess.thecvf.com/content/ICCV2025/html/Du_GS-ID_Illumination_Decomposition_on_Gaussian_Splatting_via_Adaptive_Light_Aggregation_ICCV_2025_paper.html",
+          "GS-ID: Illumination Decomposition on Gaussian Splatting via Adaptive Light Aggregation and Diffusion-Guided Material Priors"
+        ],
+        [
+          "https://openaccess.thecvf.com/content/ICCV2025/html/Zhu_Gaussian_Splatting_with_Discretized_SDF_for_Relightable_Assets_ICCV_2025_paper.html",
+          "Gaussian Splatting with Discretized SDF for Relightable Assets"
+        ],
+        [
+          "https://openaccess.thecvf.com/content/ICCV2025/html/Choi_A_Real-world_Display_Inverse_Rendering_Dataset_ICCV_2025_paper.html",
+          "A Real-world Display Inverse Rendering Dataset"
+        ],
+        [
+          "https://openaccess.thecvf.com/content/ICCV2025/html/Sun_Low-Light_Image_Enhancement_Using_Event-Based_Illumination_Estimation_ICCV_2025_paper.html",
+          "Low-Light Image Enhancement Using Event-Based Illumination Estimation"
+        ],
+        [
+          "https://openaccess.thecvf.com/content/ICCV2025/html/Ogren_Visual_Surface_Wave_Elastography_Revealing_Subsurface_Physical_Properties_via_Visible_ICCV_2025_paper.html",
+          "Visual Surface Wave Elastography: Revealing Subsurface Physical Properties via Visible Surface Waves"
+        ],
+        [
+          "https://openaccess.thecvf.com/content/ICCV2025/html/Bai_GaRe_Relightable_3D_Gaussian_Splatting_for_Outdoor_Scenes_from_Unconstrained_ICCV_2025_paper.html",
+          "GaRe: Relightable 3D Gaussian Splatting for Outdoor Scenes from Unconstrained Photo Collections"
+        ],
+        [
+          "https://openaccess.thecvf.com/content/ICCV2025/html/Ishihara_Spatio-Spectral_Pattern_Illumination_for_Direct_and_Indirect_Separation_from_a_ICCV_2025_paper.html",
+          "Spatio-Spectral Pattern Illumination for Direct and Indirect Separation from a Single Hyperspectral Image"
+        ],
+        [
+          "https://openaccess.thecvf.com/content/ICCV2025/html/Ge_PRM_Photometric_Stereo_based_Large_Reconstruction_Model_ICCV_2025_paper.html",
+          "PRM: Photometric Stereo based Large Reconstruction Model"
+        ],
+        [
+          "https://openaccess.thecvf.com/content/ICCV2025/html/Chen_InvRGBL_Inverse_Rendering_of_Complex_Scenes_with_Unified_Color_and_ICCV_2025_paper.html",
+          "InvRGB+L: Inverse Rendering of Complex Scenes with Unified Color and LiDAR Reflectance Modeling"
+        ],
+        [
+          "https://openaccess.thecvf.com/content/ICCV2025/html/Zheng_DNF-Intrinsic_Deterministic_Noise-Free_Diffusion_for_Indoor_Inverse_Rendering_ICCV_2025_paper.html",
+          "DNF-Intrinsic: Deterministic Noise-Free Diffusion for Indoor Inverse Rendering"
+        ],
+        [
+          "https://openaccess.thecvf.com/content/ICCV2025/html/Litman_LightSwitch_Multi-view_Relighting_with_Material-guided_Diffusion_ICCV_2025_paper.html",
+          "LightSwitch: Multi-view Relighting with Material-guided Diffusion"
+        ],
+        [
+          "https://openaccess.thecvf.com/content/ICCV2025/html/Zhou_Light-A-Video_Training-free_Video_Relighting_via_Progressive_Light_Fusion_ICCV_2025_paper.html",
+          "Light-A-Video: Training-free Video Relighting via Progressive Light Fusion"
+        ],
+        [
+          "https://openaccess.thecvf.com/content/ICCV2025/html/Li_Robust_Low-light_Scene_Restoration_via_Illumination_Transition_ICCV_2025_paper.html",
+          "Robust Low-light Scene Restoration via Illumination Transition"
+        ]
+      ]
+    },
+    {
+      "venue": "ECCV2026_official",
+      "url": "https://eccv.ecva.net/virtual/2026/papers.html",
+      "total_links": 2860,
+      "candidates": [
+        [
+          "https://eccv.ecva.net/virtual/2026/poster/5324",
+          "Monocular Avatar Reconstruction via Cascaded Diffusion Priors and UV-Space Differentiable Shading"
+        ],
+        [
+          "https://eccv.ecva.net/virtual/2026/poster/5578",
+          "Consistent Feature Transport for Image Relighting"
+        ],
+        [
+          "https://eccv.ecva.net/virtual/2026/poster/5632",
+          "Don’t Mask Out the Background! Natural-Light Photometric Stereo via Illumination Reconstruction"
+        ],
+        [
+          "https://eccv.ecva.net/virtual/2026/poster/5614",
+          "DualResPS: Dual-Resolution Photometric Stereo Using a Frame-Event Hybrid Camera"
+        ],
+        [
+          "https://eccv.ecva.net/virtual/2026/poster/5306",
+          "WilLaGS: Latent-Conditional 3D Appearance Fields for Robust Gaussian Splatting In-the-Wild"
+        ],
+        [
+          "https://eccv.ecva.net/virtual/2026/poster/3190",
+          "SceneHI: High-Resolution 3D-Consistent Scene Texturing with Controllable Illumination"
+        ],
+        [
+          "https://eccv.ecva.net/virtual/2026/poster/5513",
+          "Dynamic Inverse Rendering for Enhanced Material-Lighting Decomposition"
+        ],
+        [
+          "https://eccv.ecva.net/virtual/2026/poster/5703",
+          "SHINE-PPG: Non-Lambertian Intrinsic Decomposition for Illumination-Robust rPPG"
+        ],
+        [
+          "https://eccv.ecva.net/virtual/2026/poster/5293",
+          "SyntheticDoc: A Large Synthetic Dataset for Document Unwarping and Illumination Correction"
+        ],
+        [
+          "https://eccv.ecva.net/virtual/2026/poster/5310",
+          "LumiDepth: Stable Monocular Depth in Multi-Illumination Scenes"
+        ],
+        [
+          "https://eccv.ecva.net/virtual/2026/poster/5636",
+          "mmIR: Frequency-Space Inverse Rendering for 3D Millimeter-Wave Radar ADC Synthesis"
+        ],
+        [
+          "https://eccv.ecva.net/virtual/2026/poster/4921",
+          "D-Rex : Diffusion Rendering for Relightable Expressive Avatars"
+        ],
+        [
+          "https://eccv.ecva.net/virtual/2026/poster/4531",
+          "Generative Relightable Avatars"
+        ],
+        [
+          "https://eccv.ecva.net/virtual/2026/poster/4889",
+          "MaterialFlow: Attribute-Disentangled Material Transfer via Trajectory-Aware Velocity Modulation"
+        ],
+        [
+          "https://eccv.ecva.net/virtual/2026/poster/4343",
+          "Under One Sun: Multi-Object Generative Perception of Materials and Illumination"
+        ],
+        [
+          "https://eccv.ecva.net/virtual/2026/poster/4677",
+          "EventSpecPS: Photometric Stereo with Multispectral Reflectance Using an Event Camera"
+        ],
+        [
+          "https://eccv.ecva.net/virtual/2026/poster/4077",
+          "DualDiff3D: Dual Structure-Appearance Diffusion Priors for Reliability-Enhanced 3D Gaussian Splatting"
+        ],
+        [
+          "https://eccv.ecva.net/virtual/2026/poster/3325",
+          "Bridge-UniPS: Bridging Calibrated Photometric Stereo toward Universal Photometric Stereo"
+        ],
+        [
+          "https://eccv.ecva.net/virtual/2026/poster/4584",
+          "GAINS: Gaussian-based Inverse Rendering from Sparse Multi-View Captures"
+        ],
+        [
+          "https://eccv.ecva.net/virtual/2026/poster/4803",
+          "MotionEditGS: Editing Motion and Appearance of 4D Scenes from Monocular Video via Semantically Anchored Gaussians"
+        ],
+        [
+          "https://eccv.ecva.net/virtual/2026/poster/3441",
+          "Diffusion-Based Material Regularization for Physics-Based Inverse Rendering"
+        ],
+        [
+          "https://eccv.ecva.net/virtual/2026/poster/4974",
+          "Reflecting Process Expertise in Procedural Material Generation"
+        ],
+        [
+          "https://eccv.ecva.net/virtual/2026/poster/3838",
+          "SkyLume: A Large-Scale Multi-Illumination Aerial Benchmark for Urban Scene Reconstruction and Beyond"
+        ],
+        [
+          "https://eccv.ecva.net/virtual/2026/poster/5439",
+          "CulinaryCut: A Physics-aware Vision-Language-Action Benchmark for Food Cutting via Material Point Method"
+        ],
+        [
+          "https://eccv.ecva.net/virtual/2026/poster/5286",
+          "MVI2V: Human Centric Image to Video Generation with Multiview Consistent Appearance"
+        ],
+        [
+          "https://eccv.ecva.net/virtual/2026/poster/3250",
+          "PRISM-VO: Scale-Aware Visual Odometry Using Photometric Plenoptic Bundle Adjustment"
+        ],
+        [
+          "https://eccv.ecva.net/virtual/2026/poster/3142",
+          "MinerU-Diffusion: Rethinking Document OCR as Inverse Rendering via Diffusion Decoding"
+        ],
+        [
+          "https://eccv.ecva.net/virtual/2026/poster/3256",
+          "Decoupled Illumination Priors for Spatially Controllable Multi-View Indoor Scene Relighting"
+        ],
+        [
+          "https://eccv.ecva.net/virtual/2026/poster/5806",
+          "Dynamic-Robust Photometric–Semantic Reconstruction for Open-Vocabulary 3D Scene Understanding"
+        ],
+        [
+          "https://eccv.ecva.net/virtual/2026/poster/3547",
+          "From Phase to Phenomenon: Self-Supervised Learning of Subsurface Scattering with Minimal Phase-shift Inputs"
+        ],
+        [
+          "https://eccv.ecva.net/virtual/2026/poster/5011",
+          "Predictive Photometric Uncertainty in Gaussian Splatting for Novel View Synthesis"
+        ],
+        [
+          "https://eccv.ecva.net/virtual/2026/poster/4952",
+          "ReconPhys: Reconstruct Appearance and Physical Attributes from Single Video"
+        ],
+        [
+          "https://eccv.ecva.net/virtual/2026/poster/5551",
+          "LumiTokens: 3D Relighting via Token-Space Lighting Transformation"
+        ],
+        [
+          "https://eccv.ecva.net/virtual/2026/poster/5048",
+          "RealDyadic: Synthesizing Realistic Dyadic 3D Dialogue with Neural Appearance Priors"
+        ],
+        [
+          "https://eccv.ecva.net/virtual/2026/poster/4415",
+          "Φeat: Physically-Grounded Material Feature Representation"
+        ],
+        [
+          "https://eccv.ecva.net/virtual/2026/poster/4328",
+          "FlexAM: Flexible Appearance-Motion Decomposition for Versatile Video Generation Control"
+        ],
+        [
+          "https://eccv.ecva.net/virtual/2026/poster/4707",
+          "HorizonRelight: Relighting Long-horizon Videos Consistently via Diffusion Transformers"
+        ],
+        [
+          "https://eccv.ecva.net/virtual/2026/poster/5185",
+          "3D Gaussian Texture for Real-time Mesoscale Appearance Synthesis and Rendering"
+        ],
+        [
+          "https://eccv.ecva.net/virtual/2026/poster/4617",
+          "Temporally Stable Generative Illumination with a One-Step Diffusion Model"
+        ],
+        [
+          "https://eccv.ecva.net/virtual/2026/poster/4152",
+          "DR-GS: Physically-Based Deformable and Relightable 2D Gaussians"
+        ]
+      ]
+    },
+    {
+      "venue": "ICLR2025",
+      "url": "https://iclr.cc/virtual/2025/papers.html",
+      "total_links": 3887,
+      "candidates": [
+        [
+          "https://iclr.cc/virtual/2025/poster/28002",
+          "Scaling In-the-Wild Training for Diffusion-based Illumination Harmonization and Editing by Imposing Consistent Light Transport"
+        ],
+        [
+          "https://iclr.cc/virtual/2025/poster/28550",
+          "Reti-Diff: Illumination Degradation Image Restoration with Retinex-based Latent Diffusion Model"
+        ],
+        [
+          "https://iclr.cc/virtual/2025/poster/27736",
+          "A Unified Framework for Forward and Inverse Problems in Subsurface Imaging using Latent Space Translations"
+        ],
+        [
+          "https://iclr.cc/virtual/2025/poster/28771",
+          "GI-GS: Global Illumination Decomposition on Gaussian Splatting for Inverse Rendering"
+        ],
+        [
+          "https://iclr.cc/virtual/2025/poster/27948",
+          "IDArb: Intrinsic Decomposition for Arbitrary Number of Input Views and Illuminations"
+        ],
+        [
+          "https://iclr.cc/virtual/2025/poster/31081",
+          "RelitLRM: Generative Relightable Radiance for Large Reconstruction Models"
+        ],
+        [
+          "https://iclr.cc/virtual/2025/poster/30069",
+          "Inverse Rendering using Multi-Bounce Path Tracing and Reservoir Sampling"
+        ]
+      ]
+    },
+    {
+      "venue": "ICLR2026",
+      "url": "https://iclr.cc/virtual/2026/papers.html",
+      "total_links": 5524,
+      "candidates": [
+        [
+          "https://iclr.cc/virtual/2026/poster/10011264",
+          "SSD-GS: Scattering and Shadow Decomposition for Relightable 3D Gaussian Splatting"
+        ],
+        [
+          "https://iclr.cc/virtual/2026/poster/10010031",
+          "PI-Light: Physics-Inspired Diffusion for Full-Image Relighting"
+        ],
+        [
+          "https://iclr.cc/virtual/2026/poster/10010878",
+          "LumiTex: Towards High-Fidelity PBR Texture Generation with Illumination Context"
+        ],
+        [
+          "https://iclr.cc/virtual/2026/poster/10009167",
+          "Light-X: Generative 4D Video Rendering with Camera and Illumination Control"
+        ],
+        [
+          "https://iclr.cc/virtual/2026/poster/10010505",
+          "CroCoDiLight: Repurposing Cross-View Completion Encoders for Relighting"
+        ],
+        [
+          "https://iclr.cc/virtual/2026/poster/10011434",
+          "LightCtrl: Training-free Controllable Video Relighting"
+        ],
+        [
+          "https://iclr.cc/virtual/2026/poster/10007690",
+          "Radiometrically Consistent Gaussian Surfels for Inverse Rendering"
+        ],
+        [
+          "https://iclr.cc/virtual/2026/poster/10006512",
+          "Joint Shadow Generation and Relighting via Light-Geometry Interaction Maps"
+        ],
+        [
+          "https://iclr.cc/virtual/2026/poster/10008213",
+          "Designing Affine-Invariant Neural Networks for Photometric Corruption Robustness and Generalization"
+        ],
+        [
+          "https://iclr.cc/virtual/2026/poster/10010035",
+          "Light of Normals: Unified Feature Representation for Universal Photometric Stereo"
+        ],
+        [
+          "https://iclr.cc/virtual/2026/poster/10010916",
+          "ReLi3D: Relightable Multi-view 3D Reconstruction with Disentangled Illumination"
+        ]
+      ]
+    },
+    {
+      "venue": "NeurIPS2025",
+      "url": "https://neurips.cc/virtual/2025/papers.html",
+      "total_links": 5929,
+      "candidates": [
+        [
+          "https://neurips.cc/virtual/2025/poster/115491",
+          "3D Gaussian Flats: Hybrid 2D/3D Photometric Scene Reconstruction"
+        ],
+        [
+          "https://neurips.cc/virtual/2025/poster/121555",
+          "IR3D-Bench: Evaluating Vision-Language Model Scene Understanding as Agentic Inverse Rendering"
+        ],
+        [
+          "https://neurips.cc/virtual/2025/poster/116947",
+          "UniLumos: Fast and Unified Image and Video Relighting with Physics-Plausible Feedback"
+        ],
+        [
+          "https://neurips.cc/virtual/2025/poster/118433",
+          "Luminance-Aware Statistical Quantization: Unsupervised Hierarchical Learning for Illumination Enhancement"
+        ],
+        [
+          "https://neurips.cc/virtual/2025/poster/115390",
+          "IllumiCraft: Unified Geometry and Illumination Diffusion for Controllable Video Generation"
+        ],
+        [
+          "https://neurips.cc/virtual/2025/poster/120215",
+          "UniRelight: Learning Joint Decomposition and Synthesis for Video Relighting"
+        ],
+        [
+          "https://neurips.cc/virtual/2025/poster/117687",
+          "ROGR: Relightable 3D Objects using Generative Relighting"
+        ],
+        [
+          "https://neurips.cc/virtual/2025/poster/120132",
+          "See through the Dark: Learning Illumination-affined Representations for Nighttime Occupancy Prediction"
+        ],
+        [
+          "https://neurips.cc/virtual/2025/poster/116917",
+          "BecomingLit: Relightable Gaussian Avatars with Hybrid Neural Shading"
+        ],
+        [
+          "https://neurips.cc/virtual/2025/poster/115189",
+          "DreamLight: Towards Harmonious and Consistent Image Relighting"
+        ],
+        [
+          "https://neurips.cc/virtual/2025/poster/117757",
+          "MetaGS: A Meta-Learned Gaussian-Phong Model for Out-of-Distribution 3D Scene Relighting"
+        ],
+        [
+          "https://neurips.cc/virtual/2025/poster/118421",
+          "ICLScan: Detecting Backdoors in Black-Box Large Language Models via Targeted In-context Illumination"
+        ]
+      ]
+    }
+  ],
+  "forward_citation_discovery": [
+    {
+      "seed": "GS3",
+      "api_url": "https://api.semanticscholar.org/graph/v1/paper/ARXIV:2410.11419/citations?limit=100&fields=title,year,venue,externalIds,url",
+      "returned_edges": 63,
+      "next": null,
+      "records": [
+        {
+          "citingPaper": {
+            "paperId": "fe8d544582b2b2d8098fe4ec402689587c33935e",
+            "externalIds": {
+              "DOI": "10.1109/icip61757.2026.11629888",
+              "CorpusId": 291122016
+            },
+            "url": "https://www.semanticscholar.org/paper/fe8d544582b2b2d8098fe4ec402689587c33935e",
+            "title": "Multi-Light Relightable Gaussian Splatting with Phong Reflectance from In-the-Wild Images",
+            "venue": "International Conference on Information Photonics",
+            "year": 2026
+          }
+        },
+        {
+          "citingPaper": {
+            "paperId": "1b1f86d26b9eb5eb1091684542767c1e49ccf70b",
+            "externalIds": {
+              "DOI": "10.1111/cgf.70592",
+              "CorpusId": 291355166
+            },
+            "url": "https://www.semanticscholar.org/paper/1b1f86d26b9eb5eb1091684542767c1e49ccf70b",
+            "title": "Recent Trends in Inverse Rendering",
+            "venue": "Computer graphics forum (Print)",
+            "year": 2026
+          }
+        },
+        {
+          "citingPaper": {
+            "paperId": "72ebb1e5eaeabf15e9a6a08b9305ef1b14258457",
+            "externalIds": {
+              "DBLP": "journals/ral/RamazzinaGBHT26",
+              "DOI": "10.1109/LRA.2026.3703261",
+              "CorpusId": 289368473
+            },
+            "url": "https://www.semanticscholar.org/paper/72ebb1e5eaeabf15e9a6a08b9305ef1b14258457",
+            "title": "Learning 3D Scene Reconstruction From Nighttime Driving Videos",
+            "venue": "IEEE Robotics and Automation Letters",
+            "year": 2026
+          }
+        },
+        {
+          "citingPaper": {
+            "paperId": "1c9a934465d497a294c5a0cb147482a01e819ac0",
+            "externalIds": {
+              "DBLP": "journals/corr/abs-2607-08016",
+              "ArXiv": "2607.08016",
+              "DOI": "10.48550/arXiv.2607.08016",
+              "CorpusId": 290009867
+            },
+            "url": "https://www.semanticscholar.org/paper/1c9a934465d497a294c5a0cb147482a01e819ac0",
+            "title": "LightCrafter: PBR-Conditioned Video Diffusion Refinement for Controllable and Consistent Relighting",
+            "venue": "arXiv.org",
+            "year": 2026
+          }
+        },
+        {
+          "citingPaper": {
+            "paperId": "d3e47f53d79f56dae390538bdccca30e010cfb70",
+            "externalIds": {
+              "DBLP": "journals/pr/YeZBMTXAH26",
+              "DOI": "10.1016/j.patcog.2026.114438",
+              "CorpusId": 290495242
+            },
+            "url": "https://www.semanticscholar.org/paper/d3e47f53d79f56dae390538bdccca30e010cfb70",
+            "title": "PAGS-relight: Position-aware Gaussian Splatting scene relighting with multi-view diffusion models",
+            "venue": "Pattern Recognition",
+            "year": 2026
+          }
+        },
+        {
+          "citingPaper": {
+            "paperId": "87325bbb5561fe768b5e3179f0a6700c7706646d",
+            "externalIds": {
+              "ArXiv": "2606.29329",
+              "DBLP": "journals/corr/abs-2606-29329",
+              "DOI": "10.48550/arXiv.2606.29329",
+              "CorpusId": 289683811
+            },
+            "url": "https://www.semanticscholar.org/paper/87325bbb5561fe768b5e3179f0a6700c7706646d",
+            "title": "RAGA: Real Time Ray Traced Gaussian Shadow Casting for 3DGS Avatar-Scene Interaction",
+            "venue": "arXiv.org",
+            "year": 2026
+          }
+        },
+        {
+          "citingPaper": {
+            "paperId": "7f20bd64001ccc3318af34092c133f464d7314ec",
+            "externalIds": {
+              "ArXiv": "2606.26007",
+              "DBLP": "journals/corr/abs-2606-26007",
+              "DOI": "10.48550/arXiv.2606.26007",
+              "CorpusId": 289624109
+            },
+            "url": "https://www.semanticscholar.org/paper/7f20bd64001ccc3318af34092c133f464d7314ec",
+            "title": "From Sparse and Imperfect 2D Anchors to Consistent 3D Gaussian Street Scenes: Support-Aware Appearance",
+            "venue": "arXiv.org",
+            "year": 2026
+          }
+        },
+        {
+          "citingPaper": {
+            "paperId": "8f39208c1d3a3f248df66f41f0a228403e538687",
+            "externalIds": {
+              "DBLP": "journals/corr/abs-2606-11314",
+              "ArXiv": "2606.11314",
+              "DOI": "10.48550/arXiv.2606.11314",
+              "CorpusId": 289167075
+            },
+            "url": "https://www.semanticscholar.org/paper/8f39208c1d3a3f248df66f41f0a228403e538687",
+            "title": "TRON: Tracing Rays to Orchestrate a Neural Renderer for 3D Gaussian Reconstructions",
+            "venue": "arXiv.org",
+            "year": 2026
+          }
+        },
+        {
+          "citingPaper": {
+            "paperId": "4be98c0dd1ea4ba80b57816040c04341bdd6f8f1",
+            "externalIds": {
+              "DBLP": "journals/corr/abs-2605-30250",
+              "ArXiv": "2605.30250",
+              "DOI": "10.1145/3799902.3811078",
+              "CorpusId": 288743012
+            },
+            "url": "https://www.semanticscholar.org/paper/4be98c0dd1ea4ba80b57816040c04341bdd6f8f1",
+            "title": "Ambient-robust Inverse Rendering using Active RGB-NIR Imaging",
+            "venue": "International Conference on Computer Graphics and Interactive Techniques",
+            "year": 2026
+          }
+        },
+        {
+          "citingPaper": {
+            "paperId": "e1233d955c072d455b506f78de23f21e0e9ce244",
+            "externalIds": {
+              "DBLP": "journals/corr/abs-2605-25426",
+              "ArXiv": "2605.25426",
+              "DOI": "10.1145/3799902.3811064",
+              "CorpusId": 288670182
+            },
+            "url": "https://www.semanticscholar.org/paper/e1233d955c072d455b506f78de23f21e0e9ce244",
+            "title": "Learning View-Dependent Splatting Kernels",
+            "venue": "International Conference on Computer Graphics and Interactive Techniques",
+            "year": 2026
+          }
+        },
+        {
+          "citingPaper": {
+            "paperId": "7b045e372594c6e53b79a875840e718a76ee774b",
+            "externalIds": {
+              "DBLP": "journals/corr/abs-2605-09024",
+              "ArXiv": "2605.09024",
+              "DOI": "10.48550/arXiv.2605.09024",
+              "CorpusId": 288257369
+            },
+            "url": "https://www.semanticscholar.org/paper/7b045e372594c6e53b79a875840e718a76ee774b",
+            "title": "Relightable Gaussian Splatting for Virtual Production Using Image-Based Illumination",
+            "venue": "arXiv.org",
+            "year": 2026
+          }
+        },
+        {
+          "citingPaper": {
+            "paperId": "badc65dc4a245228140b18bf2c8bf9aa02ec8131",
+            "externalIds": {
+              "ArXiv": "2605.06214",
+              "DBLP": "journals/corr/abs-2605-06214",
+              "DOI": "10.48550/arXiv.2605.06214",
+              "CorpusId": 288014776
+            },
+            "url": "https://www.semanticscholar.org/paper/badc65dc4a245228140b18bf2c8bf9aa02ec8131",
+            "title": "Differentiable Adaptive 4D Structured Illumination for Joint Capture of Shape and Reflectance",
+            "venue": "arXiv.org",
+            "year": 2026
+          }
+        },
+        {
+          "citingPaper": {
+            "paperId": "f2fda4707e43638e6708c8d28c3843d0c57cc09f",
+            "externalIds": {
+              "DBLP": "journals/corr/abs-2605-04524",
+              "ArXiv": "2605.04524",
+              "DOI": "10.48550/arXiv.2605.04524",
+              "CorpusId": 287981752
+            },
+            "url": "https://www.semanticscholar.org/paper/f2fda4707e43638e6708c8d28c3843d0c57cc09f",
+            "title": "High-Fidelity Single-Image Head Modeling with Industry-Grade Topology",
+            "venue": "arXiv.org",
+            "year": 2026
+          }
+        },
+        {
+          "citingPaper": {
+            "paperId": "966197dac54c76f3ef68c1a666046542616e6d6b",
+            "externalIds": {
+              "DBLP": "journals/tvcg/HuGWL26",
+              "DOI": "10.1109/TVCG.2026.3689199",
+              "CorpusId": 288065235,
+              "PubMed": "42081411"
+            },
+            "url": "https://www.semanticscholar.org/paper/966197dac54c76f3ef68c1a666046542616e6d6b",
+            "title": "Dynamic Global Illumination for Interactive Gaussian Splatting Scenes in Real Time",
+            "venue": "IEEE Transactions on Visualization and Computer Graphics",
+            "year": 2026
+          }
+        },
+        {
+          "citingPaper": {
+            "paperId": "46c4ed204216105643a28b93c6d3c25d12cf5aea",
+            "externalIds": {
+              "DBLP": "journals/tvcg/LiHFH26",
+              "DOI": "10.1109/TVCG.2026.3687668",
+              "CorpusId": 289095976,
+              "PubMed": "42048215"
+            },
+            "url": "https://www.semanticscholar.org/paper/46c4ed204216105643a28b93c6d3c25d12cf5aea",
+            "title": "GANG: Geometrically-Aligned Neural Gaussians for Efficient and Realistic Relighting",
+            "venue": "IEEE Transactions on Visualization and Computer Graphics",
+            "year": 2026
+          }
+        },
+        {
+          "citingPaper": {
+            "paperId": "229306e3ea3f22b68f18e19846291ac2c1c8d13f",
+            "externalIds": {
+              "ArXiv": "2604.10994",
+              "DBLP": "journals/corr/abs-2604-10994",
+              "DOI": "10.48550/arXiv.2604.10994",
+              "CorpusId": 287432956
+            },
+            "url": "https://www.semanticscholar.org/paper/229306e3ea3f22b68f18e19846291ac2c1c8d13f",
+            "title": "LumiMotion: Improving Gaussian Relighting with Scene Dynamics",
+            "venue": "arXiv.org",
+            "year": 2026
+          }
+        },
+        {
+          "citingPaper": {
+            "paperId": "e53f240ea0c59122d61dc6f4a007c0bb3241c594",
+            "externalIds": {
+              "DBLP": "journals/tcsv/ZengLZG26",
+              "DOI": "10.1109/TCSVT.2025.3636679",
+              "CorpusId": 283374465
+            },
+            "url": "https://www.semanticscholar.org/paper/e53f240ea0c59122d61dc6f4a007c0bb3241c594",
+            "title": "ReGA: Relighting Dynamic Gaussian Avatars From Sparse Views",
+            "venue": "IEEE transactions on circuits and systems for video technology (Print)",
+            "year": 2026
+          }
+        },
+        {
+          "citingPaper": {
+            "paperId": "3d1d026ae432dba71b4c6bba4115ba6c639fdd3f",
+            "externalIds": {
+              "ArXiv": "2603.23637",
+              "DBLP": "journals/corr/abs-2603-23637",
+              "DOI": "10.48550/arXiv.2603.23637",
+              "CorpusId": 286776025
+            },
+            "url": "https://www.semanticscholar.org/paper/3d1d026ae432dba71b4c6bba4115ba6c639fdd3f",
+            "title": "Stochastic Ray Tracing for the Reconstruction of 3D Gaussian Splatting",
+            "venue": "arXiv.org",
+            "year": 2026
+          }
+        },
+        {
+          "citingPaper": {
+            "paperId": "23353472f259f822c93296c803e3a23a4bbe2f2a",
+            "externalIds": {
+              "ArXiv": "2603.20714",
+              "CorpusId": 286762301
+            },
+            "url": "https://www.semanticscholar.org/paper/23353472f259f822c93296c803e3a23a4bbe2f2a",
+            "title": "The Role of Initialization in 3D Gaussian Splatting",
+            "venue": "",
+            "year": 2026
+          }
+        },
+        {
+          "citingPaper": {
+            "paperId": "bb91890813c63d833cbfd0bf1ce9c4d618c19b40",
+            "externalIds": {
+              "ArXiv": "2603.01491",
+              "DBLP": "journals/corr/abs-2603-01491",
+              "DOI": "10.48550/arXiv.2603.01491",
+              "CorpusId": 286223088
+            },
+            "url": "https://www.semanticscholar.org/paper/bb91890813c63d833cbfd0bf1ce9c4d618c19b40",
+            "title": "Radiometrically Consistent Gaussian Surfels for Inverse Rendering",
+            "venue": "arXiv.org",
+            "year": 2026
+          }
+        },
+        {
+          "citingPaper": {
+            "paperId": "be6fc20cc031ff9a6f97cc2a0fb0e540a96c00fb",
+            "externalIds": {
+              "DBLP": "journals/corr/abs-2601-15283",
+              "ArXiv": "2601.15283",
+              "DOI": "10.48550/arXiv.2601.15283",
+              "CorpusId": 284916857
+            },
+            "url": "https://www.semanticscholar.org/paper/be6fc20cc031ff9a6f97cc2a0fb0e540a96c00fb",
+            "title": "LuxRemix: Lighting Decomposition and Remixing for Indoor Scenes",
+            "venue": "arXiv.org",
+            "year": 2026
+          }
+        },
+        {
+          "citingPaper": {
+            "paperId": "cfc8b6b08b35e381934f7bebb4ef9cd84b17ea8a",
+            "externalIds": {
+              "ArXiv": "2601.01660",
+              "DBLP": "journals/corr/abs-2601-01660",
+              "DOI": "10.48550/arXiv.2601.01660",
+              "CorpusId": 284488588
+            },
+            "url": "https://www.semanticscholar.org/paper/cfc8b6b08b35e381934f7bebb4ef9cd84b17ea8a",
+            "title": "Animated 3DGS Avatars in Diverse Scenes with Consistent Lighting and Shadows",
+            "venue": "arXiv.org",
+            "year": 2026
+          }
+        },
+        {
+          "citingPaper": {
+            "paperId": "2f20ab0f872bb3e8bf5297834f387941714b80f4",
+            "externalIds": {
+              "DBLP": "journals/corr/abs-2512-21003",
+              "ArXiv": "2512.21003",
+              "DOI": "10.48550/arXiv.2512.21003",
+              "CorpusId": 284153731
+            },
+            "url": "https://www.semanticscholar.org/paper/2f20ab0f872bb3e8bf5297834f387941714b80f4",
+            "title": "MVInverse: Feed-forward Multi-view Inverse Rendering in Seconds",
+            "venue": "arXiv.org",
+            "year": 2025
+          }
+        },
+        {
+          "citingPaper": {
+            "paperId": "20908ee7b76aa23da1bad49e1a9eb4bc00746d37",
+            "externalIds": {
+              "DBLP": "conf/siggrapha/JungH25",
+              "DOI": "10.1145/3757376.3771401",
+              "CorpusId": 283713240
+            },
+            "url": "https://www.semanticscholar.org/paper/20908ee7b76aa23da1bad49e1a9eb4bc00746d37",
+            "title": "Markov Chain Monte Carlo-Guided Compact 3D Gaussian Splatting for Relightable Rendering",
+            "venue": "SIGGRAPH Asia Technical Communications",
+            "year": 2025
+          }
+        },
+        {
+          "citingPaper": {
+            "paperId": "6012cd9f2992fe9697b575fdecb6514d91a81b2e",
+            "externalIds": {
+              "DBLP": "conf/siggrapha/GaoX0WDBS0Z025",
+              "DOI": "10.1145/3757377.3763865",
+              "CorpusId": 283691333
+            },
+            "url": "https://www.semanticscholar.org/paper/6012cd9f2992fe9697b575fdecb6514d91a81b2e",
+            "title": "Efficient Object Reconstruction with Differentiable Area Light Shading",
+            "venue": "ACM SIGGRAPH Conference and Exhibition on Computer Graphics and Interactive Techniques in Asia",
+            "year": 2025
+          }
+        },
+        {
+          "citingPaper": {
+            "paperId": "3874fae8778f03c784e0227dc13828dc3bed6aa3",
+            "externalIds": {
+              "DBLP": "journals/corr/abs-2512-10095",
+              "ArXiv": "2512.10095",
+              "DOI": "10.48550/arXiv.2512.10095",
+              "CorpusId": 283737358
+            },
+            "url": "https://www.semanticscholar.org/paper/3874fae8778f03c784e0227dc13828dc3bed6aa3",
+            "title": "TraceFlow: Dynamic 3D Reconstruction of Specular Scenes Driven by Ray Tracing",
+            "venue": "arXiv.org",
+            "year": 2025
+          }
+        },
+        {
+          "citingPaper": {
+            "paperId": "b80f7767db800c6d0112b1b69511347849deb3c2",
+            "externalIds": {
+              "DBLP": "journals/corr/abs-2512-08334",
+              "ArXiv": "2512.08334",
+              "DOI": "10.48550/arXiv.2512.08334",
+              "CorpusId": 283711569
+            },
+            "url": "https://www.semanticscholar.org/paper/b80f7767db800c6d0112b1b69511347849deb3c2",
+            "title": "HybridSplat: Fast Reflection-baked Gaussian Tracing using Hybrid Splatting",
+            "venue": "arXiv.org",
+            "year": 2025
+          }
+        },
+        {
+          "citingPaper": {
+            "paperId": "edba048582c65beed30316ec6c7f52d901ee2435",
+            "externalIds": {
+              "DBLP": "journals/corr/abs-2512-23998",
+              "ArXiv": "2512.23998",
+              "DOI": "10.1109/iSpaRo66239.2025.11437016",
+              "CorpusId": 284350627
+            },
+            "url": "https://www.semanticscholar.org/paper/edba048582c65beed30316ec6c7f52d901ee2435",
+            "title": "Improved 3D Gaussian Splatting of Unknown Spacecraft Structure Using Space Environment Illumination Knowledge",
+            "venue": "2025 International Conference on Space Robotics (iSpaRo)",
+            "year": 2025
+          }
+        },
+        {
+          "citingPaper": {
+            "paperId": "01fa69346964922a84806ca73466c2d26e157fea",
+            "externalIds": {
+              "ArXiv": "2511.18600",
+              "DBLP": "journals/corr/abs-2511-18600",
+              "DOI": "10.48550/arXiv.2511.18600",
+              "CorpusId": 283244325
+            },
+            "url": "https://www.semanticscholar.org/paper/01fa69346964922a84806ca73466c2d26e157fea",
+            "title": "NeAR: Coupled Neural Asset-Renderer Stack",
+            "venue": "arXiv.org",
+            "year": 2025
+          }
+        },
+        {
+          "citingPaper": {
+            "paperId": "58da341851534c1bd444e28efe6e7bfc9e6e2bd6",
+            "externalIds": {
+              "ArXiv": "2511.13684",
+              "DBLP": "journals/corr/abs-2511-13684",
+              "DOI": "10.48550/arXiv.2511.13684",
+              "CorpusId": 283072637
+            },
+            "url": "https://www.semanticscholar.org/paper/58da341851534c1bd444e28efe6e7bfc9e6e2bd6",
+            "title": "Training-Free Multi-View Extension of IC-Light for Textual Position-Aware Scene Relighting",
+            "venue": "arXiv.org",
+            "year": 2025
+          }
+        },
+        {
+          "citingPaper": {
+            "paperId": "8ddd85ccb0999b717d4e4e4c4235547caa69843e",
+            "externalIds": {
+              "ArXiv": "2511.02483",
+              "DBLP": "journals/corr/abs-2511-02483",
+              "DOI": "10.48550/arXiv.2511.02483",
+              "CorpusId": 282749082
+            },
+            "url": "https://www.semanticscholar.org/paper/8ddd85ccb0999b717d4e4e4c4235547caa69843e",
+            "title": "OLATverse: A Large-scale Real-world Object Dataset with Precise Lighting Control",
+            "venue": "arXiv.org",
+            "year": 2025
+          }
+        },
+        {
+          "citingPaper": {
+            "paperId": "7927dde914506351492724f99c82abb1f9782fe2",
+            "externalIds": {
+              "DBLP": "conf/icpr/JuttnerPKKDHP26",
+              "ArXiv": "2510.23494",
+              "DOI": "10.48550/arXiv.2510.23494",
+              "CorpusId": 282389822
+            },
+            "url": "https://www.semanticscholar.org/paper/7927dde914506351492724f99c82abb1f9782fe2",
+            "title": "Yesnt: Are Diffusion Relighting Models Ready for Capture Stage Compositing? A Hybrid Alternative to Bridge the Gap",
+            "venue": "International Conference on Pattern Recognition",
+            "year": 2025
+          }
+        },
+        {
+          "citingPaper": {
+            "paperId": "39ddaf3c8021b050a7c4a6e8ab39853a732a0a18",
+            "externalIds": {
+              "DBLP": "conf/iccv/PeiBFBZW25",
+              "DOI": "10.1109/ICCV51701.2025.00496",
+              "CorpusId": 285546274
+            },
+            "url": "https://www.semanticscholar.org/paper/39ddaf3c8021b050a7c4a6e8ab39853a732a0a18",
+            "title": "OpenSubstance: A High-Quality Measured Dataset of Multi-View and -Lighting Images and Shapes",
+            "venue": "IEEE International Conference on Computer Vision",
+            "year": 2025
+          }
+        },
+        {
+          "citingPaper": {
+            "paperId": "dff54c15538f4fb293794df35b2fbb4c3110e573",
+            "externalIds": {
+              "ArXiv": "2510.08491",
+              "DBLP": "journals/corr/abs-2510-08491",
+              "DOI": "10.48550/arXiv.2510.08491",
+              "CorpusId": 281951061
+            },
+            "url": "https://www.semanticscholar.org/paper/dff54c15538f4fb293794df35b2fbb4c3110e573",
+            "title": "Splat the Net: Radiance Fields with Splattable Neural Primitives",
+            "venue": "arXiv.org",
+            "year": 2025
+          }
+        },
+        {
+          "citingPaper": {
+            "paperId": "801075f4a21b6a1a94fde9dca59fc32ceadfcf0f",
+            "externalIds": {
+              "DBLP": "conf/ismar/XuBWTZLG25",
+              "DOI": "10.1109/ISMAR67309.2025.00046",
+              "CorpusId": 282942191
+            },
+            "url": "https://www.semanticscholar.org/paper/801075f4a21b6a1a94fde9dca59fc32ceadfcf0f",
+            "title": "Real-Time Physically-Based Relighting and Composition of Radiance Fields with Proxy Meshes",
+            "venue": "International Symposium on Mixed and Augmented Reality",
+            "year": 2025
+          }
+        },
+        {
+          "citingPaper": {
+            "paperId": "4dc93729ef904940c783360a5b9a125bc0b796f1",
+            "externalIds": {
+              "ArXiv": "2509.22276",
+              "DBLP": "journals/cgf/NguyenAL26",
+              "DOI": "10.1111/cgf.70347",
+              "CorpusId": 281659018
+            },
+            "url": "https://www.semanticscholar.org/paper/4dc93729ef904940c783360a5b9a125bc0b796f1",
+            "title": "GS-2M: Material-aware Gaussian Splatting for High-fidelity Mesh Reconstruction",
+            "venue": "Computer graphics forum (Print)",
+            "year": 2025
+          }
+        },
+        {
+          "citingPaper": {
+            "paperId": "db6f61df505c52a58b438977b3eaeac83c6fc82a",
+            "externalIds": {
+              "DBLP": "conf/siggrapha/ChenLDWLH0Y25",
+              "ArXiv": "2509.19937",
+              "DOI": "10.1145/3757377.3763892",
+              "CorpusId": 281505450
+            },
+            "url": "https://www.semanticscholar.org/paper/db6f61df505c52a58b438977b3eaeac83c6fc82a",
+            "title": "GS-RoadPatching: Inpainting Gaussians via 3D Searching and Placing for Driving Scenes",
+            "venue": "ACM SIGGRAPH Conference and Exhibition on Computer Graphics and Interactive Techniques in Asia",
+            "year": 2025
+          }
+        },
+        {
+          "citingPaper": {
+            "paperId": "2e37cf80329bab1b1e1b65acaa745f8fa59396fd",
+            "externalIds": {
+              "DBLP": "journals/corr/abs-2509-18497",
+              "ArXiv": "2509.18497",
+              "DOI": "10.1145/3763305",
+              "CorpusId": 281496180
+            },
+            "url": "https://www.semanticscholar.org/paper/2e37cf80329bab1b1e1b65acaa745f8fa59396fd",
+            "title": "Differentiable Light Transport with Gaussian Surfels via Adapted Radiosity for Efficient Relighting and Geometry Reconstruction",
+            "venue": "ACM Transactions on Graphics",
+            "year": 2025
+          }
+        },
+        {
+          "citingPaper": {
+            "paperId": "c69293f5b875063ccbf9c65ef0fefe37da69fa06",
+            "externalIds": {
+              "DBLP": "journals/tvcg/LiaoZWLDG26",
+              "ArXiv": "2509.11275",
+              "DOI": "10.1109/TVCG.2026.3709027",
+              "CorpusId": 281316035,
+              "PubMed": "42384506"
+            },
+            "url": "https://www.semanticscholar.org/paper/c69293f5b875063ccbf9c65ef0fefe37da69fa06",
+            "title": "ROS-GS: Relightable Outdoor Scenes With Gaussian Splatting",
+            "venue": "IEEE Transactions on Visualization and Computer Graphics",
+            "year": 2025
+          }
+        },
+        {
+          "citingPaper": {
+            "paperId": "ab9118b00fcb206605dc292db76ad3f384f2b35d",
+            "externalIds": {
+              "DBLP": "journals/corr/abs-2509-07782",
+              "ArXiv": "2509.07782",
+              "DOI": "10.1109/ICCV51701.2025.02560",
+              "CorpusId": 281217879
+            },
+            "url": "https://www.semanticscholar.org/paper/ab9118b00fcb206605dc292db76ad3f384f2b35d",
+            "title": "RayGaussX: Accelerating Gaussian-Based Ray Marching for Real-Time and High-Quality Novel View Synthesis",
+            "venue": "IEEE International Conference on Computer Vision",
+            "year": 2025
+          }
+        },
+        {
+          "citingPaper": {
+            "paperId": "398edf04b2887333318a65643bb87990ad3de056",
+            "externalIds": {
+              "DBLP": "conf/ijcai/FengYZZL25",
+              "DOI": "10.24963/ijcai.2025/111",
+              "CorpusId": 281488699
+            },
+            "url": "https://www.semanticscholar.org/paper/398edf04b2887333318a65643bb87990ad3de056",
+            "title": "2D Gaussian Splatting for Outdoor Scene Decomposition and Relighting",
+            "venue": "International Joint Conference on Artificial Intelligence",
+            "year": 2025
+          }
+        },
+        {
+          "citingPaper": {
+            "paperId": "ffe9f4d07eacbc927b9c5488c9800b2ad269b99e",
+            "externalIds": {
+              "DBLP": "journals/access/LiuLSN26",
+              "ArXiv": "2508.15372",
+              "DOI": "10.1109/ACCESS.2026.3666779",
+              "CorpusId": 280700295
+            },
+            "url": "https://www.semanticscholar.org/paper/ffe9f4d07eacbc927b9c5488c9800b2ad269b99e",
+            "title": "Image-Conditioned 3-D Gaussian Splat Quantization for Scene Archival",
+            "venue": "IEEE Access",
+            "year": 2025
+          }
+        },
+        {
+          "citingPaper": {
+            "paperId": "346d49a315bacd3ae328f15bb26d45feb500c3f6",
+            "externalIds": {
+              "ArXiv": "2508.14563",
+              "DBLP": "journals/corr/abs-2508-14563",
+              "DOI": "10.48550/arXiv.2508.14563",
+              "CorpusId": 280692343
+            },
+            "url": "https://www.semanticscholar.org/paper/346d49a315bacd3ae328f15bb26d45feb500c3f6",
+            "title": "GOGS: High-Fidelity Geometry and Relighting for Glossy Objects via Gaussian Surfels",
+            "venue": "arXiv.org",
+            "year": 2025
+          }
+        },
+        {
+          "citingPaper": {
+            "paperId": "29f9eac1cc2bca4dff6e608679d2cf1668f1d89b",
+            "externalIds": {
+              "DBLP": "conf/iccv/ChoiCJNB25",
+              "ArXiv": "2508.14411",
+              "DOI": "10.1109/ICCV51701.2025.02344",
+              "CorpusId": 280692486
+            },
+            "url": "https://www.semanticscholar.org/paper/29f9eac1cc2bca4dff6e608679d2cf1668f1d89b",
+            "title": "A Real-World Display Inverse Rendering Dataset",
+            "venue": "IEEE International Conference on Computer Vision",
+            "year": 2025
+          }
+        },
+        {
+          "citingPaper": {
+            "paperId": "8f7b6676f3ed5728cf856202711bd30ac74732b2",
+            "externalIds": {
+              "DBLP": "journals/corr/abs-2508-14930",
+              "ArXiv": "2508.14930",
+              "DOI": "10.48550/arXiv.2508.14930",
+              "CorpusId": 280699836
+            },
+            "url": "https://www.semanticscholar.org/paper/8f7b6676f3ed5728cf856202711bd30ac74732b2",
+            "title": "Hybrelighter: Combining Deep Anisotropic Diffusion and Scene Reconstruction for On-device Real-time Relighting in Mixed Reality",
+            "venue": "arXiv.org",
+            "year": 2025
+          }
+        },
+        {
+          "citingPaper": {
+            "paperId": "1055af262aeac918b4debeff4c45813fda3f20fb",
+            "externalIds": {
+              "DBLP": "journals/corr/abs-2508-09137",
+              "ArXiv": "2508.09137",
+              "DOI": "10.1109/ICCV51701.2025.02705",
+              "CorpusId": 280635164
+            },
+            "url": "https://www.semanticscholar.org/paper/1055af262aeac918b4debeff4c45813fda3f20fb",
+            "title": "HumanOLAT: A Large-Scale Dataset for Full-Body Human Relighting and Novel-View Synthesis",
+            "venue": "IEEE International Conference on Computer Vision",
+            "year": 2025
+          }
+        },
+        {
+          "citingPaper": {
+            "paperId": "f4d6e4307493675b85b97b6fe4214362f1dd3753",
+            "externalIds": {
+              "DBLP": "conf/iccv/BaiZJHLLGFGC25",
+              "ArXiv": "2507.20512",
+              "DOI": "10.1109/ICCV51701.2025.02455",
+              "CorpusId": 280324131
+            },
+            "url": "https://www.semanticscholar.org/paper/f4d6e4307493675b85b97b6fe4214362f1dd3753",
+            "title": "GaRe: Relightable 3D Gaussian Splatting for Outdoor Scenes from Unconstrained Photo Collections",
+            "venue": "IEEE International Conference on Computer Vision",
+            "year": 2025
+          }
+        },
+        {
+          "citingPaper": {
+            "paperId": "032fcf50d20f5c0bc45d2dd1502a4a0c667d41c1",
+            "externalIds": {
+              "DBLP": "journals/corr/abs-2504-13159",
+              "ArXiv": "2504.13159",
+              "DOI": "10.48550/arXiv.2504.13159",
+              "CorpusId": 277857373
+            },
+            "url": "https://www.semanticscholar.org/paper/032fcf50d20f5c0bc45d2dd1502a4a0c667d41c1",
+            "title": "Digital Twin Generation from Visual Data: A Survey",
+            "venue": "arXiv.org",
+            "year": 2025
+          }
+        },
+        {
+          "citingPaper": {
+            "paperId": "f5a9bd49071f752a39892eaff691ab990188c5fd",
+            "externalIds": {
+              "ArXiv": "2503.17897",
+              "DBLP": "journals/corr/abs-2503-17897",
+              "DOI": "10.48550/arXiv.2503.17897",
+              "CorpusId": 277271793
+            },
+            "url": "https://www.semanticscholar.org/paper/f5a9bd49071f752a39892eaff691ab990188c5fd",
+            "title": "Real-time Global Illumination for Dynamic 3D Gaussian Scenes",
+            "venue": "arXiv.org",
+            "year": 2025
+          }
+        },
+        {
+          "citingPaper": {
+            "paperId": "343b383add4f83e2abdbdf9bace3e3490b056723",
+            "externalIds": {
+              "DBLP": "journals/corr/abs-2503-10597",
+              "ArXiv": "2503.10597",
+              "DOI": "10.1109/CVPR52734.2025.01495",
+              "CorpusId": 276961698
+            },
+            "url": "https://www.semanticscholar.org/paper/343b383add4f83e2abdbdf9bace3e3490b056723",
+            "title": "GroomLight: Hybrid Inverse Rendering for Relightable Human Hair Appearance Modeling",
+            "venue": "Computer Vision and Pattern Recognition",
+            "year": 2025
+          }
+        },
+        {
+          "citingPaper": {
+            "paperId": "1cc968aadb7f02e761a9e04bfc427e404f0c9f2d",
+            "externalIds": {
+              "DBLP": "conf/uist/0001LHY025",
+              "DOI": "10.1145/3746059.3747803",
+              "CorpusId": 278063411
+            },
+            "url": "https://www.semanticscholar.org/paper/1cc968aadb7f02e761a9e04bfc427e404f0c9f2d",
+            "title": "GaussianShopVR: Facilitating Immersive 3D Authoring Using Gaussian Splatting in VR",
+            "venue": "2025 IEEE Conference on Virtual Reality and 3D User Interfaces Abstracts and Workshops (VRW)",
+            "year": 2025
+          }
+        },
+        {
+          "citingPaper": {
+            "paperId": "f3c39ed9ba33b939901cc0f508ac411e44e87603",
+            "externalIds": {
+              "DBLP": "conf/cvpr/XieCXXJSPBZ25",
+              "ArXiv": "2412.15215",
+              "DOI": "10.1109/CVPR52734.2025.00539",
+              "CorpusId": 274859989
+            },
+            "url": "https://www.semanticscholar.org/paper/f3c39ed9ba33b939901cc0f508ac411e44e87603",
+            "title": "EnvGS: Modeling View-Dependent Appearance with Environment Gaussian",
+            "venue": "Computer Vision and Pattern Recognition",
+            "year": 2024
+          }
+        },
+        {
+          "citingPaper": {
+            "paperId": "193110ba5b5d373479eed9ce20cdd0469a281b77",
+            "externalIds": {
+              "DBLP": "journals/corr/abs-2412-12765",
+              "ArXiv": "2412.12765",
+              "DOI": "10.1109/ICCV51701.2025.01123",
+              "CorpusId": 274788991
+            },
+            "url": "https://www.semanticscholar.org/paper/193110ba5b5d373479eed9ce20cdd0469a281b77",
+            "title": "Monocular Facial Appearance Capture in the Wild",
+            "venue": "IEEE International Conference on Computer Vision",
+            "year": 2024
+          }
+        },
+        {
+          "citingPaper": {
+            "paperId": "90e2f9fa7444bf396e68214d58c9e508c25c83c7",
+            "externalIds": {
+              "DBLP": "journals/corr/abs-2411-17994",
+              "ArXiv": "2411.17994",
+              "DOI": "10.1109/CVPR52734.2025.00053",
+              "CorpusId": 274306363
+            },
+            "url": "https://www.semanticscholar.org/paper/90e2f9fa7444bf396e68214d58c9e508c25c83c7",
+            "title": "Differentiable Inverse Rendering with Interpretable Basis BRDFs",
+            "venue": "Computer Vision and Pattern Recognition",
+            "year": 2024
+          }
+        },
+        {
+          "citingPaper": {
+            "paperId": "effa44939aff75dc05ebb21d154761421844e79b",
+            "externalIds": {
+              "DBLP": "journals/corr/abs-2411-12510",
+              "ArXiv": "2411.12510",
+              "DOI": "10.48550/arXiv.2411.12510",
+              "CorpusId": 274141364
+            },
+            "url": "https://www.semanticscholar.org/paper/effa44939aff75dc05ebb21d154761421844e79b",
+            "title": "PR-ENDO: Physically Based Relightable Gaussian Splatting for Endoscopy",
+            "venue": "International Conference on Medical Image Computing and Computer-Assisted Intervention",
+            "year": 2024
+          }
+        },
+        {
+          "citingPaper": {
+            "paperId": "bcbedb4cbe3026d2ab7d79cf55177100f33b0839",
+            "externalIds": {
+              "DBLP": "journals/corr/abs-2411-10825",
+              "ArXiv": "2411.10825",
+              "DOI": "10.1109/CVPR52734.2025.01996",
+              "CorpusId": 274131528
+            },
+            "url": "https://www.semanticscholar.org/paper/bcbedb4cbe3026d2ab7d79cf55177100f33b0839",
+            "title": "ARM: Appearance Reconstruction Model for Relightable 3D Generation",
+            "venue": "Computer Vision and Pattern Recognition",
+            "year": 2024
+          }
+        },
+        {
+          "citingPaper": {
+            "paperId": "a5e742c34c0360d565256a15b595f2dec21e2550",
+            "externalIds": {
+              "DBLP": "journals/corr/abs-2409-19702",
+              "ArXiv": "2409.19702",
+              "DOI": "10.1109/CVPR52734.2025.02470",
+              "CorpusId": 272987216
+            },
+            "url": "https://www.semanticscholar.org/paper/a5e742c34c0360d565256a15b595f2dec21e2550",
+            "title": "RNG: Relightable Neural Gaussians",
+            "venue": "Computer Vision and Pattern Recognition",
+            "year": 2024
+          }
+        },
+        {
+          "citingPaper": {
+            "paperId": "3aa105ef462900d095473bd19990828d5f78abb1",
+            "externalIds": {
+              "DBLP": "conf/iccv/DuLSW25",
+              "ArXiv": "2408.08524",
+              "DOI": "10.1109/ICCV51701.2025.02433",
+              "CorpusId": 280422756
+            },
+            "url": "https://www.semanticscholar.org/paper/3aa105ef462900d095473bd19990828d5f78abb1",
+            "title": "GS-ID: Illumination Decomposition on Gaussian Splatting via Adaptive Light Aggregation and Diffusion-Guided Material Priors",
+            "venue": "IEEE International Conference on Computer Vision",
+            "year": 2024
+          }
+        },
+        {
+          "citingPaper": {
+            "paperId": "7dd4d621f344f71939ec5e943fc50f018ee043ec",
+            "externalIds": {
+              "ArXiv": "2407.17418",
+              "DBLP": "journals/corr/abs-2407-17418",
+              "DOI": "10.1109/TCSVT.2025.3538684",
+              "CorpusId": 271404782
+            },
+            "url": "https://www.semanticscholar.org/paper/7dd4d621f344f71939ec5e943fc50f018ee043ec",
+            "title": "3D Gaussian Splatting: Survey, Technologies, Challenges, and Opportunities",
+            "venue": "IEEE transactions on circuits and systems for video technology (Print)",
+            "year": 2024
+          }
+        },
+        {
+          "citingPaper": {
+            "paperId": "a5d89bf553bd71395e3888514ddc41c541528740",
+            "externalIds": {
+              "ArXiv": "2405.20791",
+              "DBLP": "conf/nips/HeW25",
+              "DOI": "10.52202/085713-5800",
+              "CorpusId": 270199413
+            },
+            "url": "https://www.semanticscholar.org/paper/a5d89bf553bd71395e3888514ddc41c541528740",
+            "title": "MetaGS: A Meta-Learned Gaussian-Phong Model for Out-of-Distribution 3D Scene Relighting",
+            "venue": "Neural Information Processing Systems",
+            "year": 2024
+          }
+        },
+        {
+          "citingPaper": {
+            "paperId": "ced82b15e9d736654138aa0704a4a849ba08c2dd",
+            "externalIds": {
+              "DBLP": "journals/corr/abs-2503-05511",
+              "DOI": "10.48550/arXiv.2503.05511",
+              "CorpusId": 276937953
+            },
+            "url": "https://www.semanticscholar.org/paper/ced82b15e9d736654138aa0704a4a849ba08c2dd",
+            "title": "Free Your Hands: Lightweight Relightable Turntable Capture Pipeline",
+            "venue": "arXiv.org",
+            "year": 2025
+          }
+        },
+        {
+          "citingPaper": {
+            "paperId": "4ec0d8c374a16662172c3685212bbc5a292b315e",
+            "externalIds": {
+              "DBLP": "journals/access/KooKSK25",
+              "DOI": "10.1109/ACCESS.2025.3582863",
+              "CorpusId": 279713250
+            },
+            "url": "https://www.semanticscholar.org/paper/4ec0d8c374a16662172c3685212bbc5a292b315e",
+            "title": "Comprehensive Review of Digital Twin Technology for Deformable Objects: Integration of Modeling, Rendering, and Simulation",
+            "venue": "IEEE Access",
+            "year": 2025
+          }
+        },
+        {
+          "citingPaper": {
+            "paperId": "36889f28582f0d4fbeb8c83f53dbbf518485783c",
+            "externalIds": {
+              "CorpusId": 292444711
+            },
+            "url": "https://www.semanticscholar.org/paper/36889f28582f0d4fbeb8c83f53dbbf518485783c",
+            "title": "GTS: Gaussian Transmittance Splatting for Efﬁcient Neural Inverse Rendering and Relighting with Shadows",
+            "venue": "",
+            "year": null
+          }
+        }
+      ]
+    },
+    {
+      "seed": "NRHints",
+      "api_url": "https://api.semanticscholar.org/graph/v1/paper/ARXIV:2308.13404/citations?limit=100&fields=title,year,venue,externalIds,url",
+      "returned_edges": 75,
+      "next": null,
+      "records": [
+        {
+          "citingPaper": {
+            "paperId": "fe8d544582b2b2d8098fe4ec402689587c33935e",
+            "externalIds": {
+              "DOI": "10.1109/icip61757.2026.11629888",
+              "CorpusId": 291122016
+            },
+            "url": "https://www.semanticscholar.org/paper/fe8d544582b2b2d8098fe4ec402689587c33935e",
+            "title": "Multi-Light Relightable Gaussian Splatting with Phong Reflectance from In-the-Wild Images",
+            "venue": "International Conference on Information Photonics",
+            "year": 2026
+          }
+        },
+        {
+          "citingPaper": {
+            "paperId": "99b03c1710c11bbd15eaf3f7c6a1466c5439cc9e",
+            "externalIds": {
+              "ArXiv": "2606.26715",
+              "CorpusId": 289628796
+            },
+            "url": "https://www.semanticscholar.org/paper/99b03c1710c11bbd15eaf3f7c6a1466c5439cc9e",
+            "title": "Extracting Neural Materials from Images",
+            "venue": "",
+            "year": 2026
+          }
+        },
+        {
+          "citingPaper": {
+            "paperId": "21989c1181987eaab7eb9e4cb13e9605e12ee054",
+            "externalIds": {
+              "DOI": "10.5909/jbe.2026.31.3.501",
+              "CorpusId": 289162758
+            },
+            "url": "https://www.semanticscholar.org/paper/21989c1181987eaab7eb9e4cb13e9605e12ee054",
+            "title": "A Survey of Lighting Inconsistency Correction Methods for Multi-View 3D Reconstruction",
+            "venue": "Journal of Broadcast Engineering",
+            "year": 2026
+          }
+        },
+        {
+          "citingPaper": {
+            "paperId": "4be98c0dd1ea4ba80b57816040c04341bdd6f8f1",
+            "externalIds": {
+              "DBLP": "journals/corr/abs-2605-30250",
+              "ArXiv": "2605.30250",
+              "DOI": "10.1145/3799902.3811078",
+              "CorpusId": 288743012
+            },
+            "url": "https://www.semanticscholar.org/paper/4be98c0dd1ea4ba80b57816040c04341bdd6f8f1",
+            "title": "Ambient-robust Inverse Rendering using Active RGB-NIR Imaging",
+            "venue": "International Conference on Computer Graphics and Interactive Techniques",
+            "year": 2026
+          }
+        },
+        {
+          "citingPaper": {
+            "paperId": "badc65dc4a245228140b18bf2c8bf9aa02ec8131",
+            "externalIds": {
+              "ArXiv": "2605.06214",
+              "DBLP": "journals/corr/abs-2605-06214",
+              "DOI": "10.48550/arXiv.2605.06214",
+              "CorpusId": 288014776
+            },
+            "url": "https://www.semanticscholar.org/paper/badc65dc4a245228140b18bf2c8bf9aa02ec8131",
+            "title": "Differentiable Adaptive 4D Structured Illumination for Joint Capture of Shape and Reflectance",
+            "venue": "arXiv.org",
+            "year": 2026
+          }
+        },
+        {
+          "citingPaper": {
+            "paperId": "966197dac54c76f3ef68c1a666046542616e6d6b",
+            "externalIds": {
+              "DBLP": "journals/tvcg/HuGWL26",
+              "DOI": "10.1109/TVCG.2026.3689199",
+              "CorpusId": 288065235,
+              "PubMed": "42081411"
+            },
+            "url": "https://www.semanticscholar.org/paper/966197dac54c76f3ef68c1a666046542616e6d6b",
+            "title": "Dynamic Global Illumination for Interactive Gaussian Splatting Scenes in Real Time",
+            "venue": "IEEE Transactions on Visualization and Computer Graphics",
+            "year": 2026
+          }
+        },
+        {
+          "citingPaper": {
+            "paperId": "46c4ed204216105643a28b93c6d3c25d12cf5aea",
+            "externalIds": {
+              "DBLP": "journals/tvcg/LiHFH26",
+              "DOI": "10.1109/TVCG.2026.3687668",
+              "CorpusId": 289095976,
+              "PubMed": "42048215"
+            },
+            "url": "https://www.semanticscholar.org/paper/46c4ed204216105643a28b93c6d3c25d12cf5aea",
+            "title": "GANG: Geometrically-Aligned Neural Gaussians for Efficient and Realistic Relighting",
+            "venue": "IEEE Transactions on Visualization and Computer Graphics",
+            "year": 2026
+          }
+        },
+        {
+          "citingPaper": {
+            "paperId": "be9e762dd72be1550dde4acdec9817785e25cc6d",
+            "externalIds": {
+              "DBLP": "journals/corr/abs-2603-27948",
+              "ArXiv": "2603.27948",
+              "DOI": "10.1007/s11263-026-02816-0",
+              "CorpusId": 286973920
+            },
+            "url": "https://www.semanticscholar.org/paper/be9e762dd72be1550dde4acdec9817785e25cc6d",
+            "title": "RehearsalNeRF: Decoupling Intrinsic Neural Fields of Dynamic Illuminations for Scene Editing",
+            "venue": "International Journal of Computer Vision",
+            "year": 2026
+          }
+        },
+        {
+          "citingPaper": {
+            "paperId": "3d1d026ae432dba71b4c6bba4115ba6c639fdd3f",
+            "externalIds": {
+              "ArXiv": "2603.23637",
+              "DBLP": "journals/corr/abs-2603-23637",
+              "DOI": "10.48550/arXiv.2603.23637",
+              "CorpusId": 286776025
+            },
+            "url": "https://www.semanticscholar.org/paper/3d1d026ae432dba71b4c6bba4115ba6c639fdd3f",
+            "title": "Stochastic Ray Tracing for the Reconstruction of 3D Gaussian Splatting",
+            "venue": "arXiv.org",
+            "year": 2026
+          }
+        },
+        {
+          "citingPaper": {
+            "paperId": "dda104d3b5ec788bcaa5aabceac22f0c75fff716",
+            "externalIds": {
+              "DBLP": "journals/corr/abs-2603-22036",
+              "ArXiv": "2603.22036",
+              "DOI": "10.48550/arXiv.2603.22036",
+              "CorpusId": 286765728
+            },
+            "url": "https://www.semanticscholar.org/paper/dda104d3b5ec788bcaa5aabceac22f0c75fff716",
+            "title": "GTSR: Subsurface Scattering Awared 3D Gaussians for Translucent Surface Reconstruction",
+            "venue": "arXiv.org",
+            "year": 2026
+          }
+        },
+        {
+          "citingPaper": {
+            "paperId": "650b9c766c85b1f29aa0afe16a0e098f772e5985",
+            "externalIds": {
+              "PubMedCentral": "12963613",
+              "DOI": "10.1038/s41377-026-02234-4",
+              "CorpusId": 286325845,
+              "PubMed": "41786687"
+            },
+            "url": "https://www.semanticscholar.org/paper/650b9c766c85b1f29aa0afe16a0e098f772e5985",
+            "title": "Single-view neural illumination estimation and editing for dynamic light field display",
+            "venue": "Light: Science & Applications",
+            "year": 2026
+          }
+        },
+        {
+          "citingPaper": {
+            "paperId": "afe6d49762a4c1b8808dc9ac12661af9eff6e325",
+            "externalIds": {
+              "DOI": "10.1117/12.3092535",
+              "CorpusId": 284646273
+            },
+            "url": "https://www.semanticscholar.org/paper/afe6d49762a4c1b8808dc9ac12661af9eff6e325",
+            "title": "Neural relighting with limited views of illumination observations",
+            "venue": "International Computing Imaging Conference",
+            "year": 2026
+          }
+        },
+        {
+          "citingPaper": {
+            "paperId": "6012cd9f2992fe9697b575fdecb6514d91a81b2e",
+            "externalIds": {
+              "DBLP": "conf/siggrapha/GaoX0WDBS0Z025",
+              "DOI": "10.1145/3757377.3763865",
+              "CorpusId": 283691333
+            },
+            "url": "https://www.semanticscholar.org/paper/6012cd9f2992fe9697b575fdecb6514d91a81b2e",
+            "title": "Efficient Object Reconstruction with Differentiable Area Light Shading",
+            "venue": "ACM SIGGRAPH Conference and Exhibition on Computer Graphics and Interactive Techniques in Asia",
+            "year": 2025
+          }
+        },
+        {
+          "citingPaper": {
+            "paperId": "bc6ea438c2890d19ec13b5158dc47cf440289af2",
+            "externalIds": {
+              "DBLP": "conf/siggrapha/XingZDW025",
+              "DOI": "10.1145/3757377.3763809",
+              "CorpusId": 283691460
+            },
+            "url": "https://www.semanticscholar.org/paper/bc6ea438c2890d19ec13b5158dc47cf440289af2",
+            "title": "Diffusion-Guided Relighting for Single-Image SVBRDF Estimation",
+            "venue": "ACM SIGGRAPH Conference and Exhibition on Computer Graphics and Interactive Techniques in Asia",
+            "year": 2025
+          }
+        },
+        {
+          "citingPaper": {
+            "paperId": "88ada209aa86c9d6df8ba3d8d258cb3d6f4e5eb4",
+            "externalIds": {
+              "DBLP": "journals/corr/abs-2512-09925",
+              "ArXiv": "2512.09925",
+              "DOI": "10.48550/arXiv.2512.09925",
+              "CorpusId": 283721923
+            },
+            "url": "https://www.semanticscholar.org/paper/88ada209aa86c9d6df8ba3d8d258cb3d6f4e5eb4",
+            "title": "GAINS: Gaussian-based Inverse Rendering from Sparse Multi-View Captures",
+            "venue": "arXiv.org",
+            "year": 2025
+          }
+        },
+        {
+          "citingPaper": {
+            "paperId": "b318a45b86eb6d261763e56bfcaea8b4d03a35a6",
+            "externalIds": {
+              "ArXiv": "2511.22857",
+              "DBLP": "journals/corr/abs-2511-22857",
+              "DOI": "10.48550/arXiv.2511.22857",
+              "CorpusId": 283439064
+            },
+            "url": "https://www.semanticscholar.org/paper/b318a45b86eb6d261763e56bfcaea8b4d03a35a6",
+            "title": "GLOW: Global Illumination-Aware Inverse Rendering of Indoor Scenes Captured with Dynamic Co-Located Light & Camera",
+            "venue": "arXiv.org",
+            "year": 2025
+          }
+        },
+        {
+          "citingPaper": {
+            "paperId": "01fa69346964922a84806ca73466c2d26e157fea",
+            "externalIds": {
+              "ArXiv": "2511.18600",
+              "DBLP": "journals/corr/abs-2511-18600",
+              "DOI": "10.48550/arXiv.2511.18600",
+              "CorpusId": 283244325
+            },
+            "url": "https://www.semanticscholar.org/paper/01fa69346964922a84806ca73466c2d26e157fea",
+            "title": "NeAR: Coupled Neural Asset-Renderer Stack",
+            "venue": "arXiv.org",
+            "year": 2025
+          }
+        },
+        {
+          "citingPaper": {
+            "paperId": "8ddd85ccb0999b717d4e4e4c4235547caa69843e",
+            "externalIds": {
+              "ArXiv": "2511.02483",
+              "DBLP": "journals/corr/abs-2511-02483",
+              "DOI": "10.48550/arXiv.2511.02483",
+              "CorpusId": 282749082
+            },
+            "url": "https://www.semanticscholar.org/paper/8ddd85ccb0999b717d4e4e4c4235547caa69843e",
+            "title": "OLATverse: A Large-scale Real-world Object Dataset with Precise Lighting Control",
+            "venue": "arXiv.org",
+            "year": 2025
+          }
+        },
+        {
+          "citingPaper": {
+            "paperId": "adc0fdbd020f1f6a286e91869fab6d3520450b49",
+            "externalIds": {
+              "DOI": "10.1109/ICCE-Asia67487.2025.11263730",
+              "CorpusId": 283568908
+            },
+            "url": "https://www.semanticscholar.org/paper/adc0fdbd020f1f6a286e91869fab6d3520450b49",
+            "title": "Automated Theatrical Lighting Design through Parameter-Efficient Fine-Tuning with LoRA-Adapted LLMs",
+            "venue": "2025 IEEE/IEIE International Conference on Consumer Electronics-Asia (ICCE-Asia)",
+            "year": 2025
+          }
+        },
+        {
+          "citingPaper": {
+            "paperId": "39ddaf3c8021b050a7c4a6e8ab39853a732a0a18",
+            "externalIds": {
+              "DBLP": "conf/iccv/PeiBFBZW25",
+              "DOI": "10.1109/ICCV51701.2025.00496",
+              "CorpusId": 285546274
+            },
+            "url": "https://www.semanticscholar.org/paper/39ddaf3c8021b050a7c4a6e8ab39853a732a0a18",
+            "title": "OpenSubstance: A High-Quality Measured Dataset of Multi-View and -Lighting Images and Shapes",
+            "venue": "IEEE International Conference on Computer Vision",
+            "year": 2025
+          }
+        },
+        {
+          "citingPaper": {
+            "paperId": "801075f4a21b6a1a94fde9dca59fc32ceadfcf0f",
+            "externalIds": {
+              "DBLP": "conf/ismar/XuBWTZLG25",
+              "DOI": "10.1109/ISMAR67309.2025.00046",
+              "CorpusId": 282942191
+            },
+            "url": "https://www.semanticscholar.org/paper/801075f4a21b6a1a94fde9dca59fc32ceadfcf0f",
+            "title": "Real-Time Physically-Based Relighting and Composition of Radiance Fields with Proxy Meshes",
+            "venue": "International Symposium on Mixed and Augmented Reality",
+            "year": 2025
+          }
+        },
+        {
+          "citingPaper": {
+            "paperId": "843cf23876d7a9f0f0dfa99ea3a85fc1ce7cd320",
+            "externalIds": {
+              "DBLP": "conf/nips/TangLVGNMSH25",
+              "ArXiv": "2510.03163",
+              "DOI": "10.48550/arXiv.2510.03163",
+              "CorpusId": 281829741
+            },
+            "url": "https://www.semanticscholar.org/paper/843cf23876d7a9f0f0dfa99ea3a85fc1ce7cd320",
+            "title": "ROGR: Relightable 3D Objects using Generative Relighting",
+            "venue": "Neural Information Processing Systems",
+            "year": 2025
+          }
+        },
+        {
+          "citingPaper": {
+            "paperId": "2e37cf80329bab1b1e1b65acaa745f8fa59396fd",
+            "externalIds": {
+              "DBLP": "journals/corr/abs-2509-18497",
+              "ArXiv": "2509.18497",
+              "DOI": "10.1145/3763305",
+              "CorpusId": 281496180
+            },
+            "url": "https://www.semanticscholar.org/paper/2e37cf80329bab1b1e1b65acaa745f8fa59396fd",
+            "title": "Differentiable Light Transport with Gaussian Surfels via Adapted Radiosity for Efficient Relighting and Geometry Reconstruction",
+            "venue": "ACM Transactions on Graphics",
+            "year": 2025
+          }
+        },
+        {
+          "citingPaper": {
+            "paperId": "dde0c53c03e1bdd7d3a53a1a834db7f64c2b2eef",
+            "externalIds": {
+              "DOI": "10.1145/3773365.3773626",
+              "CorpusId": 283936085
+            },
+            "url": "https://www.semanticscholar.org/paper/dde0c53c03e1bdd7d3a53a1a834db7f64c2b2eef",
+            "title": "FFGS: Preemptive Filtering for Robust 3D Gaussian Splatting",
+            "venue": "Proceedings of the 2025 8th International Conference on Computer Information Science and Artificial Intelligence",
+            "year": 2025
+          }
+        },
+        {
+          "citingPaper": {
+            "paperId": "a29feb9e91bae7bbcccc35b95b4219fea90e8a4a",
+            "externalIds": {
+              "DBLP": "journals/tog/MengistuBP26",
+              "DOI": "10.1145/3759452",
+              "CorpusId": 281017327
+            },
+            "url": "https://www.semanticscholar.org/paper/a29feb9e91bae7bbcccc35b95b4219fea90e8a4a",
+            "title": "A Neural Reflectance Field Model for Accurate Relighting in RTI Applications",
+            "venue": "ACM Transactions on Graphics",
+            "year": 2025
+          }
+        },
+        {
+          "citingPaper": {
+            "paperId": "29f9eac1cc2bca4dff6e608679d2cf1668f1d89b",
+            "externalIds": {
+              "DBLP": "conf/iccv/ChoiCJNB25",
+              "ArXiv": "2508.14411",
+              "DOI": "10.1109/ICCV51701.2025.02344",
+              "CorpusId": 280692486
+            },
+            "url": "https://www.semanticscholar.org/paper/29f9eac1cc2bca4dff6e608679d2cf1668f1d89b",
+            "title": "A Real-World Display Inverse Rendering Dataset",
+            "venue": "IEEE International Conference on Computer Vision",
+            "year": 2025
+          }
+        },
+        {
+          "citingPaper": {
+            "paperId": "8f7b6676f3ed5728cf856202711bd30ac74732b2",
+            "externalIds": {
+              "DBLP": "journals/corr/abs-2508-14930",
+              "ArXiv": "2508.14930",
+              "DOI": "10.48550/arXiv.2508.14930",
+              "CorpusId": 280699836
+            },
+            "url": "https://www.semanticscholar.org/paper/8f7b6676f3ed5728cf856202711bd30ac74732b2",
+            "title": "Hybrelighter: Combining Deep Anisotropic Diffusion and Scene Reconstruction for On-device Real-time Relighting in Mixed Reality",
+            "venue": "arXiv.org",
+            "year": 2025
+          }
+        },
+        {
+          "citingPaper": {
+            "paperId": "f4d6e4307493675b85b97b6fe4214362f1dd3753",
+            "externalIds": {
+              "DBLP": "conf/iccv/BaiZJHLLGFGC25",
+              "ArXiv": "2507.20512",
+              "DOI": "10.1109/ICCV51701.2025.02455",
+              "CorpusId": 280324131
+            },
+            "url": "https://www.semanticscholar.org/paper/f4d6e4307493675b85b97b6fe4214362f1dd3753",
+            "title": "GaRe: Relightable 3D Gaussian Splatting for Outdoor Scenes from Unconstrained Photo Collections",
+            "venue": "IEEE International Conference on Computer Vision",
+            "year": 2025
+          }
+        },
+        {
+          "citingPaper": {
+            "paperId": "b7b45736779d01cdf9d0b09b7d586ddb6e346f15",
+            "externalIds": {
+              "DBLP": "conf/icmcs/WangHW25",
+              "DOI": "10.1109/ICME59968.2025.11209944",
+              "CorpusId": 282613798
+            },
+            "url": "https://www.semanticscholar.org/paper/b7b45736779d01cdf9d0b09b7d586ddb6e346f15",
+            "title": "ATM-NeRF: Learning Adaptive Tone Mapping for Normal-Light Neural Radiance Field Reconstruction",
+            "venue": "IEEE International Conference on Multimedia and Expo",
+            "year": 2025
+          }
+        },
+        {
+          "citingPaper": {
+            "paperId": "9bea0b6679fe663cf877df43abfde3a858c317cc",
+            "externalIds": {
+              "DBLP": "journals/corr/abs-2504-10024",
+              "ArXiv": "2504.10024",
+              "DOI": "10.1109/ICCV51701.2025.02703",
+              "CorpusId": 277781591
+            },
+            "url": "https://www.semanticscholar.org/paper/9bea0b6679fe663cf877df43abfde3a858c317cc",
+            "title": "Relative Illumination Fields: Learning Medium and Light Independent Underwater Scenes",
+            "venue": "IEEE International Conference on Computer Vision",
+            "year": 2025
+          }
+        },
+        {
+          "citingPaper": {
+            "paperId": "d1c8f163063832570d099b3df8d0254150d91b61",
+            "externalIds": {
+              "DBLP": "conf/3dim/LiuGLBZ25",
+              "DOI": "10.1109/3DV66043.2025.00099",
+              "CorpusId": 280884194
+            },
+            "url": "https://www.semanticscholar.org/paper/d1c8f163063832570d099b3df8d0254150d91b61",
+            "title": "BiGS: Bidirectional Primitives for Relightable 3D Gaussian Splatting",
+            "venue": "International Conference on 3D Vision",
+            "year": 2025
+          }
+        },
+        {
+          "citingPaper": {
+            "paperId": "f5a9bd49071f752a39892eaff691ab990188c5fd",
+            "externalIds": {
+              "ArXiv": "2503.17897",
+              "DBLP": "journals/corr/abs-2503-17897",
+              "DOI": "10.48550/arXiv.2503.17897",
+              "CorpusId": 277271793
+            },
+            "url": "https://www.semanticscholar.org/paper/f5a9bd49071f752a39892eaff691ab990188c5fd",
+            "title": "Real-time Global Illumination for Dynamic 3D Gaussian Scenes",
+            "venue": "arXiv.org",
+            "year": 2025
+          }
+        },
+        {
+          "citingPaper": {
+            "paperId": "00bf58b7bc720c49b41c7545e2b46ab4c57b297d",
+            "externalIds": {
+              "ArXiv": "2503.05511",
+              "CorpusId": 279402950
+            },
+            "url": "https://www.semanticscholar.org/paper/00bf58b7bc720c49b41c7545e2b46ab4c57b297d",
+            "title": "Free Your Hands: Lightweight Turntable-Based Object Capture Pipeline",
+            "venue": "",
+            "year": 2025
+          }
+        },
+        {
+          "citingPaper": {
+            "paperId": "f6f45bffcc4abd942c1e8dee1119f2bde4393875",
+            "externalIds": {
+              "DBLP": "conf/wacv/HofherrHC25",
+              "ArXiv": "2502.15480",
+              "DOI": "10.1109/WACV61041.2025.00181",
+              "CorpusId": 276558270
+            },
+            "url": "https://www.semanticscholar.org/paper/f6f45bffcc4abd942c1e8dee1119f2bde4393875",
+            "title": "On Neural BRDFs: A Thorough Comparison of State-of-the-Art Approaches",
+            "venue": "IEEE Workshop/Winter Conference on Applications of Computer Vision",
+            "year": 2025
+          }
+        },
+        {
+          "citingPaper": {
+            "paperId": "5997ab3bb3a631942f84ecaebbc408d99aacaeda",
+            "externalIds": {
+              "DBLP": "journals/tvcg/ChristodoulidesTCSHMMVW25",
+              "DOI": "10.1109/TVCG.2025.3540669",
+              "CorpusId": 276488890,
+              "PubMed": "40031857"
+            },
+            "url": "https://www.semanticscholar.org/paper/5997ab3bb3a631942f84ecaebbc408d99aacaeda",
+            "title": "Survey on 3D Reconstruction Techniques: Large-Scale Urban City Reconstruction and Requirements",
+            "venue": "IEEE Transactions on Visualization and Computer Graphics",
+            "year": 2025
+          }
+        },
+        {
+          "citingPaper": {
+            "paperId": "9689a7cd2d6f2f25d392ad8b13f7326cac193a8d",
+            "externalIds": {
+              "DBLP": "conf/mm/HongWSGJZ00025",
+              "ArXiv": "2502.08297",
+              "DOI": "10.1145/3746027.3755233",
+              "CorpusId": 276287617
+            },
+            "url": "https://www.semanticscholar.org/paper/9689a7cd2d6f2f25d392ad8b13f7326cac193a8d",
+            "title": "BEAM: Bridging Physically-based Rendering and Gaussian Modeling for Relightable Volumetric Video",
+            "venue": "ACM Multimedia",
+            "year": 2025
+          }
+        },
+        {
+          "citingPaper": {
+            "paperId": "2aeff25b8e1bb864216cb1c65967a5c535447dd3",
+            "externalIds": {
+              "DBLP": "conf/siggrapha/KuangYDM0Z24",
+              "DOI": "10.1145/3680528.3687671",
+              "CorpusId": 274465524
+            },
+            "url": "https://www.semanticscholar.org/paper/2aeff25b8e1bb864216cb1c65967a5c535447dd3",
+            "title": "OLAT Gaussians for Generic Relightable Appearance Acquisition",
+            "venue": "ACM SIGGRAPH Conference and Exhibition on Computer Graphics and Interactive Techniques in Asia",
+            "year": 2024
+          }
+        },
+        {
+          "citingPaper": {
+            "paperId": "90e2f9fa7444bf396e68214d58c9e508c25c83c7",
+            "externalIds": {
+              "DBLP": "journals/corr/abs-2411-17994",
+              "ArXiv": "2411.17994",
+              "DOI": "10.1109/CVPR52734.2025.00053",
+              "CorpusId": 274306363
+            },
+            "url": "https://www.semanticscholar.org/paper/90e2f9fa7444bf396e68214d58c9e508c25c83c7",
+            "title": "Differentiable Inverse Rendering with Interpretable Basis BRDFs",
+            "venue": "Computer Vision and Pattern Recognition",
+            "year": 2024
+          }
+        },
+        {
+          "citingPaper": {
+            "paperId": "07811ef0e9e472f27e39e55a59827c91aed5f4d2",
+            "externalIds": {
+              "DBLP": "journals/corr/abs-2411-17235",
+              "ArXiv": "2411.17235",
+              "DOI": "10.1109/3DV66043.2025.00059",
+              "CorpusId": 274281532
+            },
+            "url": "https://www.semanticscholar.org/paper/07811ef0e9e472f27e39e55a59827c91aed5f4d2",
+            "title": "mli-NeRF: Multi-Light Intrinsic-Aware Neural Radiance Fields",
+            "venue": "International Conference on 3D Vision",
+            "year": 2024
+          }
+        },
+        {
+          "citingPaper": {
+            "paperId": "bcbedb4cbe3026d2ab7d79cf55177100f33b0839",
+            "externalIds": {
+              "DBLP": "journals/corr/abs-2411-10825",
+              "ArXiv": "2411.10825",
+              "DOI": "10.1109/CVPR52734.2025.01996",
+              "CorpusId": 274131528
+            },
+            "url": "https://www.semanticscholar.org/paper/bcbedb4cbe3026d2ab7d79cf55177100f33b0839",
+            "title": "ARM: Appearance Reconstruction Model for Relightable 3D Generation",
+            "venue": "Computer Vision and Pattern Recognition",
+            "year": 2024
+          }
+        },
+        {
+          "citingPaper": {
+            "paperId": "236ec2afb548003709bc27dd5090bc232fd9d570",
+            "externalIds": {
+              "DBLP": "conf/mm/LiJYD024",
+              "DOI": "10.1145/3664647.3680800",
+              "CorpusId": 273641251
+            },
+            "url": "https://www.semanticscholar.org/paper/236ec2afb548003709bc27dd5090bc232fd9d570",
+            "title": "Harmony Everything! Masked Autoencoders for Video Harmonization",
+            "venue": "ACM Multimedia",
+            "year": 2024
+          }
+        },
+        {
+          "citingPaper": {
+            "paperId": "b816e713af9901aeee6f5c1b20c3b4503b4c38ea",
+            "externalIds": {
+              "ArXiv": "2410.13349",
+              "DBLP": "journals/tvcg/LaiHGCPLLLG25",
+              "DOI": "10.1109/TVCG.2025.3547063",
+              "CorpusId": 273404301,
+              "PubMed": "40031713"
+            },
+            "url": "https://www.semanticscholar.org/paper/b816e713af9901aeee6f5c1b20c3b4503b4c38ea",
+            "title": "GlossyGS: Inverse Rendering of Glossy Objects With 3D Gaussian Splatting",
+            "venue": "IEEE Transactions on Visualization and Computer Graphics",
+            "year": 2024
+          }
+        },
+        {
+          "citingPaper": {
+            "paperId": "9e4c3c49d16df91895c57afca19cd11cb3e1a681",
+            "externalIds": {
+              "DBLP": "conf/siggrapha/Bi00PF0W24",
+              "ArXiv": "2410.11419",
+              "DOI": "10.1145/3680528.3687576",
+              "CorpusId": 273351309
+            },
+            "url": "https://www.semanticscholar.org/paper/9e4c3c49d16df91895c57afca19cd11cb3e1a681",
+            "title": "GS3: Efficient Relighting with Triple Gaussian Splatting",
+            "venue": "ACM SIGGRAPH Conference and Exhibition on Computer Graphics and Interactive Techniques in Asia",
+            "year": 2024
+          }
+        },
+        {
+          "citingPaper": {
+            "paperId": "df693df2bb4f9efbd593dfb152eb721f93ab11c6",
+            "externalIds": {
+              "DBLP": "conf/siggrapha/HeCTMPXRYBYD24",
+              "ArXiv": "2410.08188",
+              "DOI": "10.1145/3680528.3687644",
+              "CorpusId": 273233609
+            },
+            "url": "https://www.semanticscholar.org/paper/df693df2bb4f9efbd593dfb152eb721f93ab11c6",
+            "title": "DifFRelight: Diffusion-Based Facial Performance Relighting",
+            "venue": "ACM SIGGRAPH Conference and Exhibition on Computer Graphics and Interactive Techniques in Asia",
+            "year": 2024
+          }
+        },
+        {
+          "citingPaper": {
+            "paperId": "a5e742c34c0360d565256a15b595f2dec21e2550",
+            "externalIds": {
+              "DBLP": "journals/corr/abs-2409-19702",
+              "ArXiv": "2409.19702",
+              "DOI": "10.1109/CVPR52734.2025.02470",
+              "CorpusId": 272987216
+            },
+            "url": "https://www.semanticscholar.org/paper/a5e742c34c0360d565256a15b595f2dec21e2550",
+            "title": "RNG: Relightable Neural Gaussians",
+            "venue": "Computer Vision and Pattern Recognition",
+            "year": 2024
+          }
+        },
+        {
+          "citingPaper": {
+            "paperId": "a8a52bdc831e57bbb306ced5a4a52bc408e4119e",
+            "externalIds": {
+              "DBLP": "journals/corr/abs-2408-13370",
+              "ArXiv": "2408.13370",
+              "DOI": "10.48550/arXiv.2408.13370",
+              "CorpusId": 271956889
+            },
+            "url": "https://www.semanticscholar.org/paper/a8a52bdc831e57bbb306ced5a4a52bc408e4119e",
+            "title": "BiGS: Bidirectional Gaussian Primitives for Relightable 3D Gaussian Splatting",
+            "venue": "arXiv.org",
+            "year": 2024
+          }
+        },
+        {
+          "citingPaper": {
+            "paperId": "44764a693fa85c632c0ba082e041ab3bb52205d2",
+            "externalIds": {
+              "DBLP": "conf/3dim/BaoCC25",
+              "ArXiv": "2408.06828",
+              "DOI": "10.1109/3DV66043.2025.00055",
+              "CorpusId": 271859765
+            },
+            "url": "https://www.semanticscholar.org/paper/44764a693fa85c632c0ba082e041ab3bb52205d2",
+            "title": "PIR: Photometric Inverse Rendering with Shading Cues Modeling and Surface Reflectance Regularization",
+            "venue": "International Conference on 3D Vision",
+            "year": 2024
+          }
+        },
+        {
+          "citingPaper": {
+            "paperId": "aa90b43e31e1cbb6e0f45263089cebda3ba5cfad",
+            "externalIds": {
+              "ArXiv": "2408.05631",
+              "DBLP": "journals/corr/abs-2408-05631",
+              "DOI": "10.1109/APSIPAASC63619.2025.10849016",
+              "CorpusId": 271855489
+            },
+            "url": "https://www.semanticscholar.org/paper/aa90b43e31e1cbb6e0f45263089cebda3ba5cfad",
+            "title": "PRTGaussian: Efficient Relighting Using 3D Gaussians with Precomputed Radiance Transfer",
+            "venue": "Asia-Pacific Signal and Information Processing Association Annual Summit and Conference",
+            "year": 2024
+          }
+        },
+        {
+          "citingPaper": {
+            "paperId": "b45472bfab2c95a2ac704845281c2ad41ae14c20",
+            "externalIds": {
+              "ArXiv": "2408.04474",
+              "DBLP": "conf/wacv/KaletaKTK25",
+              "DOI": "10.1109/WACV61041.2025.00011",
+              "CorpusId": 274596892
+            },
+            "url": "https://www.semanticscholar.org/paper/b45472bfab2c95a2ac704845281c2ad41ae14c20",
+            "title": "LumiGauss: Relightable Gaussian Splatting in the Wild",
+            "venue": "IEEE Workshop/Winter Conference on Applications of Computer Vision",
+            "year": 2024
+          }
+        },
+        {
+          "citingPaper": {
+            "paperId": "ff6c29f2fb2ecd3f25f9559288c2080085ef79f0",
+            "externalIds": {
+              "DBLP": "conf/wacv/XiaoCHXYPZ25",
+              "ArXiv": "2408.00083",
+              "DOI": "10.1109/WACV61041.2025.00509",
+              "CorpusId": 271600904
+            },
+            "url": "https://www.semanticscholar.org/paper/ff6c29f2fb2ecd3f25f9559288c2080085ef79f0",
+            "title": "Localized Gaussian Splatting Editing with Contextual Awareness",
+            "venue": "IEEE Workshop/Winter Conference on Applications of Computer Vision",
+            "year": 2024
+          }
+        },
+        {
+          "citingPaper": {
+            "paperId": "4f9111d10321350e56bf019a27825fa8b542f5ff",
+            "externalIds": {
+              "DBLP": "journals/vc/WirthRBKKF24",
+              "DOI": "10.1007/s00371-024-03507-y",
+              "CorpusId": 270912747
+            },
+            "url": "https://www.semanticscholar.org/paper/4f9111d10321350e56bf019a27825fa8b542f5ff",
+            "title": "NeRF-FF: a plug-in method to mitigate defocus blur for runtime optimized neural radiance fields",
+            "venue": "The Visual Computer",
+            "year": 2024
+          }
+        },
+        {
+          "citingPaper": {
+            "paperId": "dd9285b0ed73e8e081228aecc7981562dbab2dfd",
+            "externalIds": {
+              "DBLP": "journals/corr/abs-2409-08947",
+              "ArXiv": "2409.08947",
+              "DOI": "10.1111/cgf.15147",
+              "CorpusId": 270969842
+            },
+            "url": "https://www.semanticscholar.org/paper/dd9285b0ed73e8e081228aecc7981562dbab2dfd",
+            "title": "A Diffusion Approach to Radiance Field Relighting using Multi‐Illumination Synthesis",
+            "venue": "Computer graphics forum (Print)",
+            "year": 2024
+          }
+        },
+        {
+          "citingPaper": {
+            "paperId": "fee5909c201d63f54a3d5c5d25fb3a6eb3f120ec",
+            "externalIds": {
+              "DBLP": "journals/cgf/TGTJRF24",
+              "DOI": "10.1111/cgf.15158",
+              "CorpusId": 271440160
+            },
+            "url": "https://www.semanticscholar.org/paper/fee5909c201d63f54a3d5c5d25fb3a6eb3f120ec",
+            "title": "Neural SSS: Lightweight Object Appearance Representation",
+            "venue": "Computer graphics forum (Print)",
+            "year": 2024
+          }
+        },
+        {
+          "citingPaper": {
+            "paperId": "af88219dc5351f943a741093ef11749004ec5b4c",
+            "externalIds": {
+              "DBLP": "journals/tcsv/ZhuYWZX25",
+              "ArXiv": "2406.14806",
+              "DOI": "10.1109/TCSVT.2025.3535599",
+              "CorpusId": 270688473
+            },
+            "url": "https://www.semanticscholar.org/paper/af88219dc5351f943a741093ef11749004ec5b4c",
+            "title": "Relighting Scenes With Object Insertions in Neural Radiance Fields",
+            "venue": "IEEE transactions on circuits and systems for video technology (Print)",
+            "year": 2024
+          }
+        },
+        {
+          "citingPaper": {
+            "paperId": "1feffda5cfb1c0e0718cd334f70353bfb0dab7bc",
+            "externalIds": {
+              "DBLP": "journals/corr/abs-2406-11077",
+              "ArXiv": "2406.11077",
+              "DOI": "10.48550/arXiv.2406.11077",
+              "CorpusId": 270559204
+            },
+            "url": "https://www.semanticscholar.org/paper/1feffda5cfb1c0e0718cd334f70353bfb0dab7bc",
+            "title": "Learning Relighting and Intrinsic Decomposition in Neural Radiance Fields",
+            "venue": "arXiv.org",
+            "year": 2024
+          }
+        },
+        {
+          "citingPaper": {
+            "paperId": "9852bb5728bd77ae4c53dae72a5256ec727dec62",
+            "externalIds": {
+              "DBLP": "conf/cvpr/FeiTTS24",
+              "DOI": "10.1109/CVPR52733.2024.01121",
+              "CorpusId": 272709573
+            },
+            "url": "https://www.semanticscholar.org/paper/9852bb5728bd77ae4c53dae72a5256ec727dec62",
+            "title": "VMINer: Versatile Multi-view Inverse Rendering with Near-and Far-field Light Sources",
+            "venue": "Computer Vision and Pattern Recognition",
+            "year": 2024
+          }
+        },
+        {
+          "citingPaper": {
+            "paperId": "6345c60808d327751cbb8d39e8ba913c513289ed",
+            "externalIds": {
+              "DBLP": "journals/corr/abs-2406-09733",
+              "ArXiv": "2406.09733",
+              "DOI": "10.1145/3829352",
+              "CorpusId": 270522020
+            },
+            "url": "https://www.semanticscholar.org/paper/6345c60808d327751cbb8d39e8ba913c513289ed",
+            "title": "Unified Gaussian Primitives for Scene Representation and Rendering",
+            "venue": "ACM Transactions on Graphics",
+            "year": 2024
+          }
+        },
+        {
+          "citingPaper": {
+            "paperId": "a5d89bf553bd71395e3888514ddc41c541528740",
+            "externalIds": {
+              "ArXiv": "2405.20791",
+              "DBLP": "conf/nips/HeW25",
+              "DOI": "10.52202/085713-5800",
+              "CorpusId": 270199413
+            },
+            "url": "https://www.semanticscholar.org/paper/a5d89bf553bd71395e3888514ddc41c541528740",
+            "title": "MetaGS: A Meta-Learned Gaussian-Phong Model for Out-of-Distribution 3D Scene Relighting",
+            "venue": "Neural Information Processing Systems",
+            "year": 2024
+          }
+        },
+        {
+          "citingPaper": {
+            "paperId": "7204683b5b36852b8ef203353c988bc1ad71737f",
+            "externalIds": {
+              "DBLP": "conf/siggraph/LiuHYCWCCGZ24",
+              "ArXiv": "2405.02386",
+              "DOI": "10.1145/3641519.3657402",
+              "CorpusId": 269605685
+            },
+            "url": "https://www.semanticscholar.org/paper/7204683b5b36852b8ef203353c988bc1ad71737f",
+            "title": "Rip-NeRF: Anti-aliasing Radiance Fields with Ripmap-Encoded Platonic Solids",
+            "venue": "International Conference on Computer Graphics and Interactive Techniques",
+            "year": 2024
+          }
+        },
+        {
+          "citingPaper": {
+            "paperId": "5c5d7dbc56dad97de708003782c12146bb52f3a7",
+            "externalIds": {
+              "ArXiv": "2404.15707",
+              "DBLP": "conf/cvpr/JeongKZK24",
+              "DOI": "10.1109/CVPR52733.2024.00440",
+              "CorpusId": 269330353
+            },
+            "url": "https://www.semanticscholar.org/paper/5c5d7dbc56dad97de708003782c12146bb52f3a7",
+            "title": "ESR-NeRF: Emissive Source Reconstruction Using LDR Multi-View Images",
+            "venue": "Computer Vision and Pattern Recognition",
+            "year": 2024
+          }
+        },
+        {
+          "citingPaper": {
+            "paperId": "f6f3c4e200b7a116cd70fcf5d8548e3f9674fd0e",
+            "externalIds": {
+              "DBLP": "conf/aaai/WuZGZG024",
+              "DOI": "10.1609/aaai.v38i6.28420",
+              "CorpusId": 268692697
+            },
+            "url": "https://www.semanticscholar.org/paper/f6f3c4e200b7a116cd70fcf5d8548e3f9674fd0e",
+            "title": "Swift-Mapping: Online Neural Implicit Dense Mapping in Urban Scenes",
+            "venue": "AAAI Conference on Artificial Intelligence",
+            "year": 2024
+          }
+        },
+        {
+          "citingPaper": {
+            "paperId": "124925da6b8318883c91ae54d1da732d08640665",
+            "externalIds": {
+              "DBLP": "journals/corr/abs-2401-12451",
+              "ArXiv": "2401.12451",
+              "DOI": "10.1109/ACCESS.2024.3382997",
+              "CorpusId": 267095072
+            },
+            "url": "https://www.semanticscholar.org/paper/124925da6b8318883c91ae54d1da732d08640665",
+            "title": "Methods and Strategies for Improving the Novel View Synthesis Quality of Neural Radiation Field",
+            "venue": "IEEE Access",
+            "year": 2024
+          }
+        },
+        {
+          "citingPaper": {
+            "paperId": "dfb02b663f8037706b344be667caf49ae1f8f94d",
+            "externalIds": {
+              "DBLP": "journals/cgf/TGFRJ24",
+              "ArXiv": "2312.15711",
+              "DOI": "10.1111/cgf.15234",
+              "CorpusId": 266551434
+            },
+            "url": "https://www.semanticscholar.org/paper/dfb02b663f8037706b344be667caf49ae1f8f94d",
+            "title": "NeuPreSS: Compact Neural Precomputed Subsurface Scattering for Distant Lighting of Heterogeneous Translucent Objects",
+            "venue": "Computer graphics forum (Print)",
+            "year": 2023
+          }
+        },
+        {
+          "citingPaper": {
+            "paperId": "fb7ecb95b707483a2e9d1fc78b73836f898368bf",
+            "externalIds": {
+              "DBLP": "conf/cvpr/MaAT00SZR24",
+              "ArXiv": "2312.13102",
+              "DOI": "10.48550/arXiv.2312.13102",
+              "CorpusId": 266375151
+            },
+            "url": "https://www.semanticscholar.org/paper/fb7ecb95b707483a2e9d1fc78b73836f898368bf",
+            "title": "SpecNeRF: Gaussian Directional Encoding for Specular Reflections",
+            "venue": "Computer Vision and Pattern Recognition",
+            "year": 2023
+          }
+        },
+        {
+          "citingPaper": {
+            "paperId": "ac206573aeecda84bc3f119d6d912f4383af6420",
+            "externalIds": {
+              "ArXiv": "2312.09398",
+              "DBLP": "journals/tog/MulliaLSH25",
+              "DOI": "10.1145/3695866",
+              "CorpusId": 272671105
+            },
+            "url": "https://www.semanticscholar.org/paper/ac206573aeecda84bc3f119d6d912f4383af6420",
+            "title": "RNA: Relightable Neural Assets",
+            "venue": "ACM Transactions on Graphics",
+            "year": 2023
+          }
+        },
+        {
+          "citingPaper": {
+            "paperId": "e9efe9e01680c539ebf2581dc6cc8a10711df670",
+            "externalIds": {
+              "DBLP": "journals/corr/abs-2312-05133",
+              "ArXiv": "2312.05133",
+              "DOI": "10.48550/arXiv.2312.05133",
+              "CorpusId": 266149844,
+              "PubMed": "40498620"
+            },
+            "url": "https://www.semanticscholar.org/paper/e9efe9e01680c539ebf2581dc6cc8a10711df670",
+            "title": "GIR: 3D Gaussian Inverse Rendering for Relightable Scene Factorization",
+            "venue": "IEEE Transactions on Pattern Analysis and Machine Intelligence",
+            "year": 2023
+          }
+        },
+        {
+          "citingPaper": {
+            "paperId": "f5e2f8bac28a9da6547f854f650831ba121e8d7e",
+            "externalIds": {
+              "DBLP": "journals/corr/abs-2312-03420",
+              "ArXiv": "2312.03420",
+              "DOI": "10.1109/CVPR52733.2024.00238",
+              "CorpusId": 265722917
+            },
+            "url": "https://www.semanticscholar.org/paper/f5e2f8bac28a9da6547f854f650831ba121e8d7e",
+            "title": "Artist-Friendly Relightable and Animatable Neural Heads",
+            "venue": "Computer Vision and Pattern Recognition",
+            "year": 2023
+          }
+        },
+        {
+          "citingPaper": {
+            "paperId": "e207703fa051ea8e540c59003b83c2ba65aecba7",
+            "externalIds": {
+              "ArXiv": "2308.03492",
+              "DBLP": "journals/corr/abs-2308-03492",
+              "DOI": "10.1109/TVCG.2024.3515478",
+              "CorpusId": 260680521,
+              "PubMed": "40030491"
+            },
+            "url": "https://www.semanticscholar.org/paper/e207703fa051ea8e540c59003b83c2ba65aecba7",
+            "title": "Learning Photometric Feature Transform for Free-Form Object Scan",
+            "venue": "IEEE Transactions on Visualization and Computer Graphics",
+            "year": 2023
+          }
+        },
+        {
+          "citingPaper": {
+            "paperId": "ab17b9894c9993577d24d764bf01214bc56daf47",
+            "externalIds": {
+              "ArXiv": "2306.09322",
+              "CorpusId": 259171770
+            },
+            "url": "https://www.semanticscholar.org/paper/ab17b9894c9993577d24d764bf01214bc56daf47",
+            "title": "Fast Image-based Neural Relighting with Translucency-Reflection Modeling",
+            "venue": "",
+            "year": 2023
+          }
+        },
+        {
+          "citingPaper": {
+            "paperId": "a29032996e3b096481cb2569fb271e467708af7d",
+            "externalIds": {
+              "DBLP": "journals/cvm/MaoWSWWZ25",
+              "ArXiv": "2306.07632",
+              "DOI": "10.48550/arXiv.2306.07632",
+              "CorpusId": 259145241
+            },
+            "url": "https://www.semanticscholar.org/paper/a29032996e3b096481cb2569fb271e467708af7d",
+            "title": "NeuS-PIR: Learning Relightable Neural Surface using Pre-Integrated Rendering",
+            "venue": "Computational Visual Media",
+            "year": 2023
+          }
+        },
+        {
+          "citingPaper": {
+            "paperId": "da7957dbf568f4136f4781785aa291a978aeedd3",
+            "externalIds": {
+              "DOI": "10.37188/lam.2026.057",
+              "CorpusId": 289121989
+            },
+            "url": "https://www.semanticscholar.org/paper/da7957dbf568f4136f4781785aa291a978aeedd3",
+            "title": "Single observation for light-field editing",
+            "venue": "Light: Advanced Manufacturing",
+            "year": 2026
+          }
+        },
+        {
+          "citingPaper": {
+            "paperId": "ced82b15e9d736654138aa0704a4a849ba08c2dd",
+            "externalIds": {
+              "DBLP": "journals/corr/abs-2503-05511",
+              "DOI": "10.48550/arXiv.2503.05511",
+              "CorpusId": 276937953
+            },
+            "url": "https://www.semanticscholar.org/paper/ced82b15e9d736654138aa0704a4a849ba08c2dd",
+            "title": "Free Your Hands: Lightweight Relightable Turntable Capture Pipeline",
+            "venue": "arXiv.org",
+            "year": 2025
+          }
+        },
+        {
+          "citingPaper": {
+            "paperId": "b86808e42fe23ddc0b61010f952cc6dee47cbe18",
+            "externalIds": {
+              "DBLP": "journals/spl/LiangZGFJ25",
+              "DOI": "10.1109/LSP.2025.3545291",
+              "CorpusId": 276590343
+            },
+            "url": "https://www.semanticscholar.org/paper/b86808e42fe23ddc0b61010f952cc6dee47cbe18",
+            "title": "IR-Pro: Baking Probes to Model Indirect Illumination for Inverse Rendering of Scenes",
+            "venue": "IEEE Signal Processing Letters",
+            "year": 2025
+          }
+        },
+        {
+          "citingPaper": {
+            "paperId": "957e0a5728440b7fa391fb76fc2f8236e8f1bf20",
+            "externalIds": {
+              "DBLP": "journals/corr/abs-2312-09398",
+              "DOI": "10.48550/arXiv.2312.09398",
+              "CorpusId": 266335817
+            },
+            "url": "https://www.semanticscholar.org/paper/957e0a5728440b7fa391fb76fc2f8236e8f1bf20",
+            "title": "Relightable Neural Assets",
+            "venue": "arXiv.org",
+            "year": 2023
+          }
+        },
+        {
+          "citingPaper": {
+            "paperId": "36889f28582f0d4fbeb8c83f53dbbf518485783c",
+            "externalIds": {
+              "CorpusId": 292444711
+            },
+            "url": "https://www.semanticscholar.org/paper/36889f28582f0d4fbeb8c83f53dbbf518485783c",
+            "title": "GTS: Gaussian Transmittance Splatting for Efﬁcient Neural Inverse Rendering and Relighting with Shadows",
+            "venue": "",
+            "year": null
+          }
+        }
+      ]
+    },
+    {
+      "seed": "SSDGS",
+      "api_url": "https://api.semanticscholar.org/graph/v1/paper/ARXIV:2604.13333/citations?limit=100&fields=title,year,venue,externalIds,url",
+      "returned_edges": 2,
+      "next": null,
+      "records": [
+        {
+          "citingPaper": {
+            "paperId": "ab4f397ed34c26367e20cd470321a98f0b766fc3",
+            "externalIds": {
+              "ArXiv": "2609.10363",
+              "CorpusId": 291876588
+            },
+            "url": "https://www.semanticscholar.org/paper/ab4f397ed34c26367e20cd470321a98f0b766fc3",
+            "title": "SceneHI: High-Resolution 3D-Consistent Scene Texturing with Controllable Illumination",
+            "venue": "",
+            "year": 2026
+          }
+        },
+        {
+          "citingPaper": {
+            "paperId": "87325bbb5561fe768b5e3179f0a6700c7706646d",
+            "externalIds": {
+              "ArXiv": "2606.29329",
+              "DBLP": "journals/corr/abs-2606-29329",
+              "DOI": "10.48550/arXiv.2606.29329",
+              "CorpusId": 289683811
+            },
+            "url": "https://www.semanticscholar.org/paper/87325bbb5561fe768b5e3179f0a6700c7706646d",
+            "title": "RAGA: Real Time Ray Traced Gaussian Shadow Casting for 3DGS Avatar-Scene Interaction",
+            "venue": "arXiv.org",
+            "year": 2026
+          }
+        }
+      ]
+    }
+  ]
+}

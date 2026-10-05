@@ -2,7 +2,7 @@
 
 共享 ssd-gs：Python 3.10 / PyTorch 2.4.1 / CUDA 12.1 / gsplat 1.5.3。
 
-最终配置为 light_atlas + svbrdf 材质头；每场景30k步、seed0、原生3DGS从头初始化，无外部预训练或几何先验。真实场景仅训练相机旋转优化及平移规范，测试使用原始标定。此前六场景参与过研发观察，不能把整个研发流程描述为独立盲测。
+当前LiSA-staged全量使用30k+8k（38k），见下文分阶段协议；以下原LiSA基线配置为 light_atlas + svbrdf 材质头，每场景30k步、seed0、原生3DGS从头初始化，无外部预训练或几何先验。真实场景仅训练相机旋转优化及平移规范，测试使用原始标定。此前六场景参与过研发观察，不能把整个研发流程描述为独立盲测。
 
 ## 全18场景共同协议
 
@@ -10,11 +10,11 @@
 
 单种子seed0，各方法训练预算不同；全量表不构成等计算量对照。历史命令应从对应源码快照重现，并将输出改为新目录，避免覆盖已完成结果。原始运行文件中的GPU分配仅用于追溯，不是新的资源使用授权。
 
-## 初始化与固定参数
+## 原LiSA初始化与固定参数
 
 原生3DGS：20k初始点、400k点上限，细化至25k；训练30k步。shadow-start与port-start均2000。svbrdf为最终材质头，训练所有official train帧；真实数据仅训练相机旋转优化（camera-mode rotation、camera-gauge translation）。精确解析参数以各场景config.json/命令清单为准，不从当前validation.json推定历史设置。
 
-## 训练与评价入口
+## 原LiSA训练与评价入口
 
 ```bash
 python train.py --scene SCENE --output NEW_OUTPUT --representation light_atlas --material-head svbrdf --steps 30000 --seed 0 --fit-all --shadow-start 2000 --port-start 2000
@@ -22,6 +22,35 @@ python evaluate.py NEW_OUTPUT/last.pt --split test --output NEW_OUTPUT/test --lp
 ```
 
 上述为入口示意；分辨率、背景、真实场景相机参数等必须按records.json中的对应场景命令补齐。其他PORT方法的历史协议分别保留在各自实验文档，不用来解释LiSA结果。
+
+## LiSA-v2协议（2026-10-04）
+
+根因与选型：[lisa_v2_root_causes_20261004.md](lisa_v2_root_causes_20261004.md)。与上文原LiSA协议相同（30k、seed0、20k随机初始点、400k上限、
+2D足迹分裂与梯度增密至25k、光源通道2000步、svbrdf、真实场景训练相机旋转校正、全official train、完整official test原始标定、最终权重），
+只增加三个显式选项：`--mask-weight 0.5`、`--foreground-appearance-until 2000`、`--specular lobes`。
+
+```bash
+# 单场景（真实场景另加 --optimize-cameras --camera-mode rotation --camera-gauge translation --camera-start 2000 --camera-lr 0.001 --camera-lr-final 1e-05；
+# GS3 加 --background 1.0；SSS 加 --resolution 256 --unit-light-intensity 1.0）
+python train.py --scene SCENE --output NEW_OUTPUT --representation light_atlas --material-head svbrdf \
+  --steps 30000 --seed 0 --fit-all --shadow-start 2000 --port-start 2000 \
+  --mask-weight 0.5 --foreground-appearance-until 2000 --specular lobes
+python evaluate.py NEW_OUTPUT/last.pt --split test --output NEW_OUTPUT/test --lpips --highlights --save-all
+```
+
+原LiSA-v2全18场景配置快照在`runs/lisa_v2_full_dataset_20261004/validation.json`，
+输出 `runs/lisa_v2_full_dataset_20261004/lisa_v2/<family>/<scene>/`，`source.tar` 与 `manifest.json` 记录源码、diff哈希与精确argv。
+历史调度曾每GPU两个worker；当前用户约束为全任务至多两张空闲GPU、每张一个worker。
+
+## LiSA-staged分阶段协议（2026-10-04）
+
+当前规范配置`configs/validation.json`为`lisa_staged_full_dataset_20261004`，仍用`bash launch_validation.sh`。
+每场景从全部官方train独立初始化，30k辐射域几何/联合阶段→8k固定几何的观测域像素外观阶段→完整official test。
+模型分别位于`<family>/<scene>/geometry/last.pt`与`appearance/last.pt`，test指标与全部成对图在`appearance/test/`。
+总预算38k（8000几何预热+22000联合+8000外观），明确区分v2 30k及GS³100k；不根据test选择阶段或checkpoint。
+
+选型只用train内留出：光照组留出（`split_train_lights`，外推）与插值留出（`--holdout-every 10`，近似官方test），均不渲染官方test帧。
+插值留出中真实场景的留出帧保持原始标定（同官方test），Cat等标定误差较大的场景分数偏低，但对各变体相同。
 
 ## 原六场景数据泄漏审计（2026-10-02）
 

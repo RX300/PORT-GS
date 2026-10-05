@@ -1,0 +1,203 @@
+{
+  "protocol": "30k total, hull20k, Gaussian shading, full200-frame training-internal holdout; bootstrap8k+22k versus joint30k; no official test.",
+  "results": [
+    {
+      "job": "PORT-Synthetic_GS3-Lego-bootstrap",
+      "scene": "Lego",
+      "variant": "bootstrap",
+      "metrics": {
+        "validation_008000": {
+          "PSNR": 18.548538341522217,
+          "SSIM": 0.8250664210319519,
+          "raw_MSE": 0.016990879715885965,
+          "alpha_L1": 0.002453677251760382,
+          "LPIPS": 0.13977164421230553
+        },
+        "validation_016000": {
+          "PSNR": 22.73888500213623,
+          "SSIM": 0.8921129179000854,
+          "raw_MSE": 0.005996181669761427,
+          "alpha_L1": 0.005290912509663031,
+          "LPIPS": 0.12338575329631567
+        },
+        "validation": {
+          "PSNR": 22.981809768676758,
+          "SSIM": 0.8894444623589516,
+          "raw_MSE": 0.005688984246226028,
+          "alpha_L1": 0.014554044236429036,
+          "LPIPS": 0.1309252992272377
+        }
+      },
+      "output": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_geometry_bootstrap_20261004/bootstrap/Synthetic_GS3/Lego",
+      "training_source_archive": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_geometry_bootstrap_20261004/source.tar",
+      "steps": 30000,
+      "points": 168576,
+      "seconds": 2069.3
+    },
+    {
+      "job": "PORT-Synthetic_GS3-Drums-bootstrap",
+      "scene": "Drums",
+      "variant": "bootstrap",
+      "metrics": {
+        "validation_008000": {
+          "PSNR": 24.29027066230774,
+          "SSIM": 0.935411534011364,
+          "raw_MSE": 0.005381408812827431,
+          "alpha_L1": 0.00511043030070141,
+          "LPIPS": 0.05499424790963531
+        },
+        "validation_016000": {
+          "PSNR": 24.348082628250122,
+          "SSIM": 0.9438101544976234,
+          "raw_MSE": 0.004853115626610815,
+          "alpha_L1": 0.009738133361097426,
+          "LPIPS": 0.05723971864208579
+        },
+        "validation": {
+          "PSNR": 24.46172194480896,
+          "SSIM": 0.9431219285726548,
+          "raw_MSE": 0.004769917944795452,
+          "alpha_L1": 0.01652022000635043,
+          "LPIPS": 0.060935990158468484
+        }
+      },
+      "output": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_geometry_bootstrap_20261004/bootstrap/Synthetic_GS3/Drums",
+      "training_source_archive": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_geometry_bootstrap_20261004/source.tar",
+      "steps": 30000,
+      "points": 220089,
+      "seconds": 2141.17
+    },
+    {
+      "job": "PORT-Synthetic_GS3-FurBall-bootstrap",
+      "scene": "FurBall",
+      "variant": "bootstrap",
+      "metrics": {
+        "validation_008000": {
+          "PSNR": 22.166779747009276,
+          "SSIM": 0.9043555963039398,
+          "raw_MSE": 0.006855651740916073,
+          "alpha_L1": 0.0023577181593282147,
+          "LPIPS": 0.1218880720436573
+        },
+        "validation_016000": {
+          "PSNR": 36.3116659450531,
+          "SSIM": 0.9736528652906418,
+          "raw_MSE": 0.00024946546083810974,
+          "alpha_L1": 0.0017262676625978202,
+          "LPIPS": 0.06551850842311978
+        },
+        "validation": {
+          "PSNR": 37.3583119392395,
+          "SSIM": 0.9757358714938164,
+          "raw_MSE": 0.00019614083095802925,
+          "alpha_L1": 0.0014091708620253484,
+          "LPIPS": 0.06780529599636793
+        }
+      },
+      "output": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_geometry_bootstrap_20261004/bootstrap/Synthetic_GS3/FurBall",
+      "training_source_archive": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_geometry_bootstrap_20261004/source.tar",
+      "steps": 30000,
+      "points": 133419,
+      "seconds": 1557.57
+    },
+    {
+      "job": "PORT-Synthetic_GS3-Lego-joint",
+      "scene": "Lego",
+      "variant": "joint",
+      "metrics": {
+        "validation_008000": {
+          "PSNR": 22.693915433883667,
+          "SSIM": 0.8840389409661293,
+          "raw_MSE": 0.005994847178226337,
+          "alpha_L1": 0.005277298806468025,
+          "LPIPS": 0.13104730926454067
+        },
+        "validation_016000": {
+          "PSNR": 23.16011826515198,
+          "SSIM": 0.8912211722135543,
+          "raw_MSE": 0.005484100977191701,
+          "alpha_L1": 0.007733527213567868,
+          "LPIPS": 0.1253691417351365
+        },
+        "validation": {
+          "PSNR": 23.024774703979492,
+          "SSIM": 0.8899570414423943,
+          "raw_MSE": 0.005607659347588196,
+          "alpha_L1": 0.01610535498941317,
+          "LPIPS": 0.13070064205676318
+        }
+      },
+      "output": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_geometry_bootstrap_20261004/joint/Synthetic_GS3/Lego",
+      "training_source_archive": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_geometry_bootstrap_20261004/source.tar",
+      "steps": 30000,
+      "points": 164575,
+      "seconds": 2044.17
+    },
+    {
+      "job": "PORT-Synthetic_GS3-Drums-joint",
+      "scene": "Drums",
+      "variant": "joint",
+      "metrics": {
+        "validation_008000": {
+          "PSNR": 23.4288800239563,
+          "SSIM": 0.9384699377417565,
+          "raw_MSE": 0.0058212220412679015,
+          "alpha_L1": 0.008917591371573507,
+          "LPIPS": 0.061587235927581786
+        },
+        "validation_016000": {
+          "PSNR": 23.54617533683777,
+          "SSIM": 0.9420355442166328,
+          "raw_MSE": 0.005661704146768897,
+          "alpha_L1": 0.008021780892740936,
+          "LPIPS": 0.0581497423350811
+        },
+        "validation": {
+          "PSNR": 23.476591424942015,
+          "SSIM": 0.940314821600914,
+          "raw_MSE": 0.005754168753046542,
+          "alpha_L1": 0.010790127667132766,
+          "LPIPS": 0.06122828617691994
+        }
+      },
+      "output": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_geometry_bootstrap_20261004/joint/Synthetic_GS3/Drums",
+      "training_source_archive": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_geometry_bootstrap_20261004/source_after_geometry_gradients.tar",
+      "steps": 30000,
+      "points": 232694,
+      "seconds": 2469.53
+    },
+    {
+      "job": "PORT-Synthetic_GS3-FurBall-joint",
+      "scene": "FurBall",
+      "variant": "joint",
+      "metrics": {
+        "validation_008000": {
+          "PSNR": 34.79671732902527,
+          "SSIM": 0.96839121311903,
+          "raw_MSE": 0.00034668790111027194,
+          "alpha_L1": 0.002267406536848284,
+          "LPIPS": 0.07669293139129878
+        },
+        "validation_016000": {
+          "PSNR": 37.364675979614255,
+          "SSIM": 0.9763637498021126,
+          "raw_MSE": 0.00019442228778643767,
+          "alpha_L1": 0.0016993462055688725,
+          "LPIPS": 0.05973427066579461
+        },
+        "validation": {
+          "PSNR": 37.67816074371338,
+          "SSIM": 0.9763788515329361,
+          "raw_MSE": 0.00018023926510068121,
+          "alpha_L1": 0.0014649915041809436,
+          "LPIPS": 0.06689801216125488
+        }
+      },
+      "output": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_geometry_bootstrap_20261004/joint/Synthetic_GS3/FurBall",
+      "training_source_archive": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_geometry_bootstrap_20261004/source_after_material_normals.tar",
+      "steps": 30000,
+      "points": 128021,
+      "seconds": 1978.42
+    }
+  ]
+}

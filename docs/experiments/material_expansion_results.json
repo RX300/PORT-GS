@@ -1,0 +1,101 @@
+{
+  "protocol": "Own16k ASG source +8k zero-residual reflect/ASG expansion; original source geometry and training calibration frozen;200 inherited held-out training frames; no official test. Geometry LR used the60k source prefix, appearance uses a fresh8k optimizer.",
+  "results": [
+    {
+      "job": "PORT-Synthetic_GS3-Lego-frozen_neural",
+      "scene": "Lego",
+      "source": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_surface_material_corrected_20261004/surface_material/Synthetic_GS3/Lego/step_016000.pt",
+      "output": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_material_expansion_20261004/frozen_neural/Synthetic_GS3/Lego",
+      "source_step": 16000,
+      "appearance_steps": 8000,
+      "total_optimized_steps": 24000,
+      "geometry_bit_identical": {
+        "params.means": true,
+        "params.scales": true,
+        "params.quats": true,
+        "params.opacities": true,
+        "center": true
+      },
+      "radius_equal": true,
+      "split_equal": true,
+      "parent_metrics": {
+        "PSNR": 22.59700264930725,
+        "SSIM": 0.8862343090772629,
+        "raw_MSE": 0.006258303866488859,
+        "alpha_L1": 0.0057270384184084835,
+        "LPIPS": 0.12823525298386812
+      },
+      "metrics": {
+        "PSNR": 23.809991340637207,
+        "SSIM": 0.896572308242321,
+        "raw_MSE": 0.004721210197894834,
+        "alpha_L1": 0.0057270384184084835,
+        "LPIPS": 0.12093574501574039
+      }
+    },
+    {
+      "job": "PORT-Synthetic_GS3-Drums-frozen_neural",
+      "scene": "Drums",
+      "source": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_surface_material_parallel_20261004/surface_material/Synthetic_GS3/Drums/step_016000.pt",
+      "output": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_material_expansion_20261004/frozen_neural/Synthetic_GS3/Drums",
+      "source_step": 16000,
+      "appearance_steps": 8000,
+      "total_optimized_steps": 24000,
+      "geometry_bit_identical": {
+        "params.means": true,
+        "params.scales": true,
+        "params.quats": true,
+        "params.opacities": true,
+        "center": true
+      },
+      "radius_equal": true,
+      "split_equal": true,
+      "parent_metrics": {
+        "PSNR": 23.79472580909729,
+        "SSIM": 0.9416134098172187,
+        "raw_MSE": 0.0053657251497497786,
+        "alpha_L1": 0.00799942405661568,
+        "LPIPS": 0.05887683894485235
+      },
+      "metrics": {
+        "PSNR": 24.96203408241272,
+        "SSIM": 0.9474707186222077,
+        "raw_MSE": 0.00420370452105999,
+        "alpha_L1": 0.00799942405661568,
+        "LPIPS": 0.05559661267325282
+      }
+    },
+    {
+      "job": "PORT-Synthetic_GS3-FurBall-frozen_neural",
+      "scene": "FurBall",
+      "source": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_surface_material_parallel_20261004/surface_material/Synthetic_GS3/FurBall/step_016000.pt",
+      "output": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_material_expansion_20261004/frozen_neural/Synthetic_GS3/FurBall",
+      "source_step": 16000,
+      "appearance_steps": 8000,
+      "total_optimized_steps": 24000,
+      "geometry_bit_identical": {
+        "params.means": true,
+        "params.scales": true,
+        "params.quats": true,
+        "params.opacities": true,
+        "center": true
+      },
+      "radius_equal": true,
+      "split_equal": true,
+      "parent_metrics": {
+        "PSNR": 35.525109186172486,
+        "SSIM": 0.9712777063250542,
+        "raw_MSE": 0.00035444082437606993,
+        "alpha_L1": 0.0019214123839628883,
+        "LPIPS": 0.07429411033168436
+      },
+      "metrics": {
+        "PSNR": 37.41729383468628,
+        "SSIM": 0.9749043196439743,
+        "raw_MSE": 0.0001925429850962246,
+        "alpha_L1": 0.0019214123839628883,
+        "LPIPS": 0.06436326010152697
+      }
+    }
+  ]
+}

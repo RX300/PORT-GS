@@ -1,0 +1,459 @@
+{
+  "audit_date_jst": "2026-10-03",
+  "scope": "Read-only parsed JSON comparison between all local scene transform files and retained source archives; images and current remote contents not byte-audited; no extraction or data changes.",
+  "scene_count": 18,
+  "json_count": 48,
+  "all_equal": true,
+  "records": [
+    {
+      "family": "Real_NRHints",
+      "local_scene": "Cat",
+      "archive_scene": "Cat",
+      "archive_path": "/workspace/datasets/SSD-GS/_sources/gsrelight-data/NRHints/Cat.zip",
+      "official_dataset_repository": "https://huggingface.co/datasets/gsrelight/gsrelight-data",
+      "metadata_checks": [
+        {
+          "file": "/workspace/datasets/SSD-GS/data/Real_NRHints/Cat/transforms_test.json",
+          "archive_member": "Cat/transforms_test.json",
+          "parsed_json_equal": true,
+          "frames": 66
+        },
+        {
+          "file": "/workspace/datasets/SSD-GS/data/Real_NRHints/Cat/transforms_train.json",
+          "archive_member": "Cat/transforms_train.json",
+          "parsed_json_equal": true,
+          "frames": 522
+        },
+        {
+          "file": "/workspace/datasets/SSD-GS/data/Real_NRHints/Cat/transforms_valid.json",
+          "archive_member": "Cat/transforms_valid.json",
+          "parsed_json_equal": true,
+          "frames": 400
+        }
+      ]
+    },
+    {
+      "family": "Real_NRHints",
+      "local_scene": "CatSmall",
+      "archive_scene": "Cat_on_Decor",
+      "archive_path": "/workspace/datasets/SSD-GS/_sources/gsrelight-data/NRHints/Cat_on_Decor.zip",
+      "official_dataset_repository": "https://huggingface.co/datasets/gsrelight/gsrelight-data",
+      "metadata_checks": [
+        {
+          "file": "/workspace/datasets/SSD-GS/data/Real_NRHints/CatSmall/transforms_test.json",
+          "archive_member": "Cat_on_Decor/transforms_test.json",
+          "parsed_json_equal": true,
+          "frames": 158
+        },
+        {
+          "file": "/workspace/datasets/SSD-GS/data/Real_NRHints/CatSmall/transforms_train.json",
+          "archive_member": "Cat_on_Decor/transforms_train.json",
+          "parsed_json_equal": true,
+          "frames": 1258
+        },
+        {
+          "file": "/workspace/datasets/SSD-GS/data/Real_NRHints/CatSmall/transforms_valid.json",
+          "archive_member": "Cat_on_Decor/transforms_valid.json",
+          "parsed_json_equal": true,
+          "frames": 400
+        }
+      ]
+    },
+    {
+      "family": "Real_NRHints",
+      "local_scene": "CupFabric",
+      "archive_scene": "Cup-Fabric",
+      "archive_path": "/workspace/datasets/SSD-GS/_sources/gsrelight-data/NRHints/Cup-Fabric.zip",
+      "official_dataset_repository": "https://huggingface.co/datasets/gsrelight/gsrelight-data",
+      "metadata_checks": [
+        {
+          "file": "/workspace/datasets/SSD-GS/data/Real_NRHints/CupFabric/transforms_test.json",
+          "archive_member": "Cup-Fabric/transforms_test.json",
+          "parsed_json_equal": true,
+          "frames": 145
+        },
+        {
+          "file": "/workspace/datasets/SSD-GS/data/Real_NRHints/CupFabric/transforms_train.json",
+          "archive_member": "Cup-Fabric/transforms_train.json",
+          "parsed_json_equal": true,
+          "frames": 1153
+        },
+        {
+          "file": "/workspace/datasets/SSD-GS/data/Real_NRHints/CupFabric/transforms_valid.json",
+          "archive_member": "Cup-Fabric/transforms_valid.json",
+          "parsed_json_equal": true,
+          "frames": 400
+        }
+      ]
+    },
+    {
+      "family": "Real_NRHints",
+      "local_scene": "Fish",
+      "archive_scene": "Fish",
+      "archive_path": "/workspace/datasets/SSD-GS/_sources/gsrelight-data/NRHints/Fish.zip",
+      "official_dataset_repository": "https://huggingface.co/datasets/gsrelight/gsrelight-data",
+      "metadata_checks": [
+        {
+          "file": "/workspace/datasets/SSD-GS/data/Real_NRHints/Fish/transforms_test.json",
+          "archive_member": "Fish/transforms_test.json",
+          "parsed_json_equal": true,
+          "frames": 66
+        },
+        {
+          "file": "/workspace/datasets/SSD-GS/data/Real_NRHints/Fish/transforms_train.json",
+          "archive_member": "Fish/transforms_train.json",
+          "parsed_json_equal": true,
+          "frames": 526
+        },
+        {
+          "file": "/workspace/datasets/SSD-GS/data/Real_NRHints/Fish/transforms_valid.json",
+          "archive_member": "Fish/transforms_valid.json",
+          "parsed_json_equal": true,
+          "frames": 400
+        }
+      ]
+    },
+    {
+      "family": "Real_NRHints",
+      "local_scene": "FurScene",
+      "archive_scene": "Cluttered",
+      "archive_path": "/workspace/datasets/SSD-GS/_sources/gsrelight-data/NRHints/Cluttered.zip",
+      "official_dataset_repository": "https://huggingface.co/datasets/gsrelight/gsrelight-data",
+      "metadata_checks": [
+        {
+          "file": "/workspace/datasets/SSD-GS/data/Real_NRHints/FurScene/transforms_test.json",
+          "archive_member": "Cluttered/transforms_test.json",
+          "parsed_json_equal": true,
+          "frames": 85
+        },
+        {
+          "file": "/workspace/datasets/SSD-GS/data/Real_NRHints/FurScene/transforms_train.json",
+          "archive_member": "Cluttered/transforms_train.json",
+          "parsed_json_equal": true,
+          "frames": 676
+        },
+        {
+          "file": "/workspace/datasets/SSD-GS/data/Real_NRHints/FurScene/transforms_valid.json",
+          "archive_member": "Cluttered/transforms_valid.json",
+          "parsed_json_equal": true,
+          "frames": 400
+        }
+      ]
+    },
+    {
+      "family": "Real_NRHints",
+      "local_scene": "Pikachu",
+      "archive_scene": "Pikachu",
+      "archive_path": "/workspace/datasets/SSD-GS/_sources/gsrelight-data/NRHints/Pikachu.zip",
+      "official_dataset_repository": "https://huggingface.co/datasets/gsrelight/gsrelight-data",
+      "metadata_checks": [
+        {
+          "file": "/workspace/datasets/SSD-GS/data/Real_NRHints/Pikachu/transforms_test.json",
+          "archive_member": "Pikachu/transforms_test.json",
+          "parsed_json_equal": true,
+          "frames": 200
+        },
+        {
+          "file": "/workspace/datasets/SSD-GS/data/Real_NRHints/Pikachu/transforms_train.json",
+          "archive_member": "Pikachu/transforms_train.json",
+          "parsed_json_equal": true,
+          "frames": 1500
+        },
+        {
+          "file": "/workspace/datasets/SSD-GS/data/Real_NRHints/Pikachu/transforms_valid.json",
+          "archive_member": "Pikachu/transforms_valid.json",
+          "parsed_json_equal": true,
+          "frames": 400
+        }
+      ]
+    },
+    {
+      "family": "Real_NRHints",
+      "local_scene": "Pixiu",
+      "archive_scene": "Pixiu",
+      "archive_path": "/workspace/datasets/SSD-GS/_sources/gsrelight-data/NRHints/Pixiu.zip",
+      "official_dataset_repository": "https://huggingface.co/datasets/gsrelight/gsrelight-data",
+      "metadata_checks": [
+        {
+          "file": "/workspace/datasets/SSD-GS/data/Real_NRHints/Pixiu/transforms_test.json",
+          "archive_member": "Pixiu/transforms_test.json",
+          "parsed_json_equal": true,
+          "frames": 71
+        },
+        {
+          "file": "/workspace/datasets/SSD-GS/data/Real_NRHints/Pixiu/transforms_train.json",
+          "archive_member": "Pixiu/transforms_train.json",
+          "parsed_json_equal": true,
+          "frames": 562
+        },
+        {
+          "file": "/workspace/datasets/SSD-GS/data/Real_NRHints/Pixiu/transforms_valid.json",
+          "archive_member": "Pixiu/transforms_valid.json",
+          "parsed_json_equal": true,
+          "frames": 400
+        }
+      ]
+    },
+    {
+      "family": "Synthetic_GS3",
+      "local_scene": "AnisoMetal",
+      "archive_scene": "AnisoMetal",
+      "archive_path": "/workspace/datasets/SSD-GS/_sources/gsrelight-data/Synthetic/AnisoMetal.zip",
+      "official_dataset_repository": "https://huggingface.co/datasets/gsrelight/gsrelight-data",
+      "metadata_checks": [
+        {
+          "file": "/workspace/datasets/SSD-GS/data/Synthetic_GS3/AnisoMetal/transforms_test.json",
+          "archive_member": "AnisoMetal/transforms_test.json",
+          "parsed_json_equal": true,
+          "frames": 400
+        },
+        {
+          "file": "/workspace/datasets/SSD-GS/data/Synthetic_GS3/AnisoMetal/transforms_train.json",
+          "archive_member": "AnisoMetal/transforms_train.json",
+          "parsed_json_equal": true,
+          "frames": 2000
+        }
+      ]
+    },
+    {
+      "family": "Synthetic_GS3",
+      "local_scene": "Drums",
+      "archive_scene": "Drums",
+      "archive_path": "/workspace/datasets/SSD-GS/_sources/gsrelight-data/Synthetic/Drums.zip",
+      "official_dataset_repository": "https://huggingface.co/datasets/gsrelight/gsrelight-data",
+      "metadata_checks": [
+        {
+          "file": "/workspace/datasets/SSD-GS/data/Synthetic_GS3/Drums/transforms_test.json",
+          "archive_member": "Drums/transforms_test.json",
+          "parsed_json_equal": true,
+          "frames": 400
+        },
+        {
+          "file": "/workspace/datasets/SSD-GS/data/Synthetic_GS3/Drums/transforms_train.json",
+          "archive_member": "Drums/transforms_train.json",
+          "parsed_json_equal": true,
+          "frames": 2000
+        }
+      ]
+    },
+    {
+      "family": "Synthetic_GS3",
+      "local_scene": "FurBall",
+      "archive_scene": "FurBall",
+      "archive_path": "/workspace/datasets/SSD-GS/_sources/gsrelight-data/Synthetic/FurBall.zip",
+      "official_dataset_repository": "https://huggingface.co/datasets/gsrelight/gsrelight-data",
+      "metadata_checks": [
+        {
+          "file": "/workspace/datasets/SSD-GS/data/Synthetic_GS3/FurBall/transforms_test.json",
+          "archive_member": "FurBall/transforms_test.json",
+          "parsed_json_equal": true,
+          "frames": 400
+        },
+        {
+          "file": "/workspace/datasets/SSD-GS/data/Synthetic_GS3/FurBall/transforms_train.json",
+          "archive_member": "FurBall/transforms_train.json",
+          "parsed_json_equal": true,
+          "frames": 2000
+        }
+      ]
+    },
+    {
+      "family": "Synthetic_GS3",
+      "local_scene": "Hotdog",
+      "archive_scene": "Hotdog",
+      "archive_path": "/workspace/datasets/SSD-GS/_sources/gsrelight-data/Synthetic/Hotdog.zip",
+      "official_dataset_repository": "https://huggingface.co/datasets/gsrelight/gsrelight-data",
+      "metadata_checks": [
+        {
+          "file": "/workspace/datasets/SSD-GS/data/Synthetic_GS3/Hotdog/transforms_test.json",
+          "archive_member": "Hotdog/transforms_test.json",
+          "parsed_json_equal": true,
+          "frames": 400
+        },
+        {
+          "file": "/workspace/datasets/SSD-GS/data/Synthetic_GS3/Hotdog/transforms_train.json",
+          "archive_member": "Hotdog/transforms_train.json",
+          "parsed_json_equal": true,
+          "frames": 2000
+        }
+      ]
+    },
+    {
+      "family": "Synthetic_GS3",
+      "local_scene": "Lego",
+      "archive_scene": "Lego",
+      "archive_path": "/workspace/datasets/SSD-GS/_sources/gsrelight-data/Synthetic/Lego.zip",
+      "official_dataset_repository": "https://huggingface.co/datasets/gsrelight/gsrelight-data",
+      "metadata_checks": [
+        {
+          "file": "/workspace/datasets/SSD-GS/data/Synthetic_GS3/Lego/transforms_test.json",
+          "archive_member": "Lego/transforms_test.json",
+          "parsed_json_equal": true,
+          "frames": 400
+        },
+        {
+          "file": "/workspace/datasets/SSD-GS/data/Synthetic_GS3/Lego/transforms_train.json",
+          "archive_member": "Lego/transforms_train.json",
+          "parsed_json_equal": true,
+          "frames": 2000
+        }
+      ]
+    },
+    {
+      "family": "Synthetic_GS3",
+      "local_scene": "Translucent",
+      "archive_scene": "Translucent",
+      "archive_path": "/workspace/datasets/SSD-GS/_sources/gsrelight-data/Synthetic/Translucent.zip",
+      "official_dataset_repository": "https://huggingface.co/datasets/gsrelight/gsrelight-data",
+      "metadata_checks": [
+        {
+          "file": "/workspace/datasets/SSD-GS/data/Synthetic_GS3/Translucent/transforms_test.json",
+          "archive_member": "Translucent/transforms_test.json",
+          "parsed_json_equal": true,
+          "frames": 400
+        },
+        {
+          "file": "/workspace/datasets/SSD-GS/data/Synthetic_GS3/Translucent/transforms_train.json",
+          "archive_member": "Translucent/transforms_train.json",
+          "parsed_json_equal": true,
+          "frames": 2000
+        }
+      ]
+    },
+    {
+      "family": "Synthetic_SSS-GS",
+      "local_scene": "bunny_small",
+      "archive_scene": "bunny_small",
+      "archive_path": "/workspace/datasets/SSD-GS/_sources/SSS-GS/synthetic/bunny_small.tar",
+      "official_dataset_repository": "https://huggingface.co/datasets/CGTuebingen/SSS-GS",
+      "metadata_checks": [
+        {
+          "file": "/workspace/datasets/SSD-GS/data/Synthetic_SSS-GS/bunny_small/transforms_test.json",
+          "archive_member": "bunny_small/transforms_test.json",
+          "parsed_json_equal": true,
+          "frames": 500
+        },
+        {
+          "file": "/workspace/datasets/SSD-GS/data/Synthetic_SSS-GS/bunny_small/transforms_train.json",
+          "archive_member": "bunny_small/transforms_train.json",
+          "parsed_json_equal": true,
+          "frames": 500
+        },
+        {
+          "file": "/workspace/datasets/SSD-GS/data/Synthetic_SSS-GS/bunny_small/transforms_val.json",
+          "archive_member": "bunny_small/transforms_val.json",
+          "parsed_json_equal": true,
+          "frames": 500
+        }
+      ]
+    },
+    {
+      "family": "Synthetic_SSS-GS",
+      "local_scene": "candle_small",
+      "archive_scene": "candle_small",
+      "archive_path": "/workspace/datasets/SSD-GS/_sources/SSS-GS/synthetic/candle_small.tar",
+      "official_dataset_repository": "https://huggingface.co/datasets/CGTuebingen/SSS-GS",
+      "metadata_checks": [
+        {
+          "file": "/workspace/datasets/SSD-GS/data/Synthetic_SSS-GS/candle_small/transforms_test.json",
+          "archive_member": "candle_small/transforms_test.json",
+          "parsed_json_equal": true,
+          "frames": 500
+        },
+        {
+          "file": "/workspace/datasets/SSD-GS/data/Synthetic_SSS-GS/candle_small/transforms_train.json",
+          "archive_member": "candle_small/transforms_train.json",
+          "parsed_json_equal": true,
+          "frames": 500
+        },
+        {
+          "file": "/workspace/datasets/SSD-GS/data/Synthetic_SSS-GS/candle_small/transforms_val.json",
+          "archive_member": "candle_small/transforms_val.json",
+          "parsed_json_equal": true,
+          "frames": 500
+        }
+      ]
+    },
+    {
+      "family": "Synthetic_SSS-GS",
+      "local_scene": "dragon_small",
+      "archive_scene": "dragon_small",
+      "archive_path": "/workspace/datasets/SSD-GS/_sources/SSS-GS/synthetic/dragon_small.tar",
+      "official_dataset_repository": "https://huggingface.co/datasets/CGTuebingen/SSS-GS",
+      "metadata_checks": [
+        {
+          "file": "/workspace/datasets/SSD-GS/data/Synthetic_SSS-GS/dragon_small/transforms_test.json",
+          "archive_member": "dragon_small/transforms_test.json",
+          "parsed_json_equal": true,
+          "frames": 500
+        },
+        {
+          "file": "/workspace/datasets/SSD-GS/data/Synthetic_SSS-GS/dragon_small/transforms_train.json",
+          "archive_member": "dragon_small/transforms_train.json",
+          "parsed_json_equal": true,
+          "frames": 500
+        },
+        {
+          "file": "/workspace/datasets/SSD-GS/data/Synthetic_SSS-GS/dragon_small/transforms_val.json",
+          "archive_member": "dragon_small/transforms_val.json",
+          "parsed_json_equal": true,
+          "frames": 500
+        }
+      ]
+    },
+    {
+      "family": "Synthetic_SSS-GS",
+      "local_scene": "soap_small",
+      "archive_scene": "soap_small",
+      "archive_path": "/workspace/datasets/SSD-GS/_sources/SSS-GS/synthetic/soap_small.tar",
+      "official_dataset_repository": "https://huggingface.co/datasets/CGTuebingen/SSS-GS",
+      "metadata_checks": [
+        {
+          "file": "/workspace/datasets/SSD-GS/data/Synthetic_SSS-GS/soap_small/transforms_test.json",
+          "archive_member": "soap_small/transforms_test.json",
+          "parsed_json_equal": true,
+          "frames": 500
+        },
+        {
+          "file": "/workspace/datasets/SSD-GS/data/Synthetic_SSS-GS/soap_small/transforms_train.json",
+          "archive_member": "soap_small/transforms_train.json",
+          "parsed_json_equal": true,
+          "frames": 500
+        },
+        {
+          "file": "/workspace/datasets/SSD-GS/data/Synthetic_SSS-GS/soap_small/transforms_val.json",
+          "archive_member": "soap_small/transforms_val.json",
+          "parsed_json_equal": true,
+          "frames": 500
+        }
+      ]
+    },
+    {
+      "family": "Synthetic_SSS-GS",
+      "local_scene": "statue_small",
+      "archive_scene": "statue_small",
+      "archive_path": "/workspace/datasets/SSD-GS/_sources/SSS-GS/synthetic/statue_small.tar",
+      "official_dataset_repository": "https://huggingface.co/datasets/CGTuebingen/SSS-GS",
+      "metadata_checks": [
+        {
+          "file": "/workspace/datasets/SSD-GS/data/Synthetic_SSS-GS/statue_small/transforms_test.json",
+          "archive_member": "statue_small/transforms_test.json",
+          "parsed_json_equal": true,
+          "frames": 500
+        },
+        {
+          "file": "/workspace/datasets/SSD-GS/data/Synthetic_SSS-GS/statue_small/transforms_train.json",
+          "archive_member": "statue_small/transforms_train.json",
+          "parsed_json_equal": true,
+          "frames": 500
+        },
+        {
+          "file": "/workspace/datasets/SSD-GS/data/Synthetic_SSS-GS/statue_small/transforms_val.json",
+          "archive_member": "statue_small/transforms_val.json",
+          "parsed_json_equal": true,
+          "frames": 500
+        }
+      ]
+    }
+  ]
+}

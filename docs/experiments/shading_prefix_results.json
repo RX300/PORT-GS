@@ -1,0 +1,146 @@
+[
+  {
+    "variant": "v2_reference",
+    "scene": "Drums",
+    "metrics": {
+      "PSNR": 24.078729305267334,
+      "SSIM": 0.9406847694516182,
+      "LPIPS": 0.06202993541955948,
+      "alpha_L1": 0.015443526185117662
+    },
+    "points": 399933,
+    "metrics_file": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_shading_diagnosis_20261004/v2_reference/Synthetic_GS3/Drums/validation/metrics.json"
+  },
+  {
+    "variant": "v2_reference",
+    "scene": "FurBall",
+    "metrics": {
+      "PSNR": 30.64531425476074,
+      "SSIM": 0.9510481944680214,
+      "LPIPS": 0.09867369789630175,
+      "alpha_L1": 0.0027575582795543595
+    },
+    "points": 399462,
+    "metrics_file": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_shading_diagnosis_20261004/v2_reference/Synthetic_GS3/FurBall/validation/metrics.json"
+  },
+  {
+    "variant": "v2_reference",
+    "scene": "Lego",
+    "metrics": {
+      "PSNR": 21.944261713027956,
+      "SSIM": 0.8758518075942994,
+      "LPIPS": 0.13907897047698498,
+      "alpha_L1": 0.01606579054147005
+    },
+    "points": 399733,
+    "metrics_file": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_shading_diagnosis_20261004/v2_reference/Synthetic_GS3/Lego/validation/metrics.json"
+  },
+  {
+    "variant": "gaussian_footprint",
+    "scene": "Drums",
+    "metrics": {
+      "PSNR": 24.15375436782837,
+      "SSIM": 0.9391148215532303,
+      "LPIPS": 0.06421418821439147,
+      "alpha_L1": 0.013437704287935049
+    },
+    "points": 399951,
+    "metrics_file": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_shading_diagnosis_20261004/gaussian_footprint/Synthetic_GS3/Drums/validation/metrics.json"
+  },
+  {
+    "variant": "gaussian_footprint",
+    "scene": "FurBall",
+    "metrics": {
+      "PSNR": 32.113476819992066,
+      "SSIM": 0.9592463490366936,
+      "LPIPS": 0.0907637356221676,
+      "alpha_L1": 0.0024717082164715976
+    },
+    "points": 399280,
+    "metrics_file": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_shading_diagnosis_20261004/gaussian_footprint/Synthetic_GS3/FurBall/validation/metrics.json"
+  },
+  {
+    "variant": "gaussian_footprint",
+    "scene": "Lego",
+    "metrics": {
+      "PSNR": 22.173541221618652,
+      "SSIM": 0.8764240279793739,
+      "LPIPS": 0.14034123204648494,
+      "alpha_L1": 0.010280745779164135
+    },
+    "points": 399702,
+    "metrics_file": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_shading_diagnosis_20261004/gaussian_footprint/Synthetic_GS3/Lego/validation/metrics.json"
+  },
+  {
+    "variant": "pixel_gradient",
+    "scene": "Drums",
+    "metrics": {
+      "PSNR": 22.405145874023436,
+      "SSIM": 0.9372861993312835,
+      "LPIPS": 0.06283402815461159,
+      "alpha_L1": 0.010072588114999234
+    },
+    "points": 399840,
+    "metrics_file": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_shading_diagnosis_20261004/pixel_gradient/Synthetic_GS3/Drums/validation/metrics.json"
+  },
+  {
+    "variant": "pixel_gradient",
+    "scene": "FurBall",
+    "metrics": {
+      "PSNR": 32.876694431304934,
+      "SSIM": 0.9606705719232559,
+      "LPIPS": 0.07594640478491783,
+      "alpha_L1": 0.002356133406283334
+    },
+    "points": 399021,
+    "metrics_file": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_shading_diagnosis_20261004/pixel_gradient/Synthetic_GS3/FurBall/validation/metrics.json"
+  },
+  {
+    "variant": "pixel_gradient",
+    "scene": "Lego",
+    "metrics": {
+      "PSNR": 22.51876817703247,
+      "SSIM": 0.8818737742304802,
+      "LPIPS": 0.13123928457498552,
+      "alpha_L1": 0.008608938261168077
+    },
+    "points": 399611,
+    "metrics_file": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_shading_diagnosis_20261004/pixel_gradient/Synthetic_GS3/Lego/validation/metrics.json"
+  },
+  {
+    "variant": "gaussian_gradient",
+    "scene": "Drums",
+    "metrics": {
+      "PSNR": 23.25898602485657,
+      "SSIM": 0.9380345779657364,
+      "LPIPS": 0.062363892439752815,
+      "alpha_L1": 0.009306085081771016
+    },
+    "points": 139053,
+    "metrics_file": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_shading_diagnosis_20261004/gaussian_gradient/Synthetic_GS3/Drums/validation/metrics.json"
+  },
+  {
+    "variant": "gaussian_gradient",
+    "scene": "FurBall",
+    "metrics": {
+      "PSNR": 34.55261284828186,
+      "SSIM": 0.9675489965081215,
+      "LPIPS": 0.07891280207782984,
+      "alpha_L1": 0.00223048860905692
+    },
+    "points": 91256,
+    "metrics_file": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_shading_diagnosis_20261004/gaussian_gradient/Synthetic_GS3/FurBall/validation/metrics.json"
+  },
+  {
+    "variant": "gaussian_gradient",
+    "scene": "Lego",
+    "metrics": {
+      "PSNR": 22.527681884765624,
+      "SSIM": 0.884062106013298,
+      "LPIPS": 0.13148106049746275,
+      "alpha_L1": 0.004866134016774595
+    },
+    "points": 139264,
+    "metrics_file": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_shading_diagnosis_20261004/gaussian_gradient/Synthetic_GS3/Lego/validation/metrics.json"
+  }
+]

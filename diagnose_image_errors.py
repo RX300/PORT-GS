@@ -487,6 +487,114 @@ def preview_relighting(checkpoint, output):
         scope='Fixed camera and four dataset lights. Onlylight0 has pairedGT; other combinations are qualitative, not scored accuracy.'),indent=2)+'\n')
 
 
+def fit_free_colors(checkpoint, output, frames, steps):
+    """Fit independent nonnegative Gaussian colors per fit view; never a relighting result.
+
+    A fixed-geometry projection is reused. Diagonally majorized FISTA first fits
+    linear radiance; projected Adam then fits the observed image. Display metrics
+    are diagnostic and are not a certificate of global optimality.
+    """
+    from gsplat.cuda._wrapper import rasterize_to_pixels
+    from evaluate import observation_image
+    torch.set_num_threads(8)
+    g,t,saved = load_model(checkpoint)
+    cfg=saved['config']
+    if g.geometry != '3dgs' or cfg['representation'] != 'light_atlas':
+        raise ValueError('Free-color capacity diagnosis requires a 3D LiSA checkpoint')
+    if not set(frames).issubset(saved['fit_indices']):
+        raise ValueError('Free-color fitting may use only source fit frames')
+    g.requires_grad_(False);t.requires_grad_(False);t.eval()
+    out=Path(output);out.mkdir(parents=True,exist_ok=False)
+    dataset=SceneDataset(cfg['scene'],'train',cfg['resolution'],cfg['unit_light_intensity'])
+    cameras=load_camera_offsets(saved,g.radius).cuda() if saved['camera_offsets'] is not None else None
+    camera_indices={index:local for local,index in enumerate(saved['fit_indices'])}
+    results=[]
+    def metrics(predicted,target):
+        x=(predicted.clamp(0,1)*255).round()/255
+        y=(target.clamp(0,1)*255).round()/255
+        return dict(PSNR=float(-10*torch.log10((x-y).square().mean())),SSIM=float(ssim(x,y)))
+    for index in frames:
+        started=time.monotonic()
+        sample=to_device(dataset[index],'cuda')
+        if cameras is not None:
+            sample=cameras.correct(sample,camera_indices[index])
+        target=target_image(sample,cfg['background'],cfg['display_gamma'])
+        linear_target=(sample['image'] if sample['is_hdr'] else
+                       sample['image'].clamp_min(0).pow(cfg['display_gamma']))
+        if sample['alpha'] is not None:
+            linear_target=linear_target*sample['alpha']+cfg['background']*(1-sample['alpha'])
+        h,w=sample['image'].shape[:2]
+        with torch.no_grad():
+            native,_,_=render_observation(g,t,sample,cfg['background'],saved['step']>=cfg['shadow_start'],
+                saved['step']>=cfg['port_start'],cfg['display_gamma'],cfg['shadow_mode'])
+            initial=g.params['means'].new_full((len(g.params['means']),3),.2)
+            reference,alpha,info=_rasterize('3dgs',**g.raster_inputs(),colors=initial,
+                viewmats=sample['viewmat'][None],Ks=sample['K'][None],width=w,height=h,packed=False)
+            alpha=alpha[0]
+        def splat(colors):
+            rgb,a=rasterize_to_pixels(info['means2d'],info['conics'],colors[None],info['opacities'],
+                w,h,info['tile_size'],info['isect_offsets'],info['flatten_ids'],packed=False)
+            return rgb[0],a[0]
+        with torch.no_grad():
+            check,check_alpha=splat(initial)
+            torch.testing.assert_close(check,reference[0],rtol=0,atol=0)
+            torch.testing.assert_close(check_alpha,alpha,rtol=0,atol=0)
+        probe=initial.new_zeros((len(initial),1),requires_grad=True)
+        mass=torch.autograd.grad(splat(probe)[0].sum(),probe)[0].detach().clamp_min(1e-12)
+        background=cfg['background']*(1-alpha)
+        def display(rgb):
+            return observation_image(rgb,cfg['display_gamma'],
+                alpha=None if sample['is_hdr'] else alpha,background=cfg['background'])
+        colors=initial;extrapolated=colors;momentum=1.;trace=[];best_psnr=-math.inf;best_image=None;best_colors=None
+        linear_steps=steps//2
+        for step in range(1,linear_steps+1):
+            variable=extrapolated.detach().requires_grad_()
+            rgb=splat(variable)[0]+background
+            gradient=torch.autograd.grad(.5*(rgb-linear_target).square().sum(),variable)[0]
+            with torch.no_grad():
+                updated=(variable-gradient/mass).clamp_min(0)
+                next_momentum=.5*(1+math.sqrt(1+4*momentum*momentum))
+                extrapolated=updated+(momentum-1)/next_momentum*(updated-colors)
+                colors=updated;momentum=next_momentum
+                if step==1 or step%100==0 or step==linear_steps:
+                    fitted=splat(colors)[0]+background
+                    observed=display(fitted)
+                    item=dict(step=step,stage='linear_nnls',linear_MSE=float((fitted-linear_target).square().mean()),
+                              **metrics(observed,target))
+                    trace.append(item)
+                    if item['PSNR']>best_psnr:
+                        best_psnr=item['PSNR'];best_image=observed.clone();best_colors=colors.clone()
+        free=torch.nn.Parameter(best_colors)
+        optimizer=torch.optim.Adam([free],lr=.03,eps=1e-15)
+        for step in range(linear_steps+1,steps+1):
+            optimizer.zero_grad(set_to_none=True)
+            observed=display(splat(free)[0]+background)
+            (observed-target.clamp(0,1)).square().mean().backward()
+            optimizer.step()
+            with torch.no_grad():
+                free.clamp_(min=0)
+                if step%100==0 or step==steps:
+                    fitted=splat(free)[0]+background;observed=display(fitted)
+                    item=dict(step=step,stage='observation_adam',linear_MSE=float((fitted-linear_target).square().mean()),
+                              **metrics(observed,target))
+                    trace.append(item)
+                    if item['PSNR']>best_psnr:
+                        best_psnr=item['PSNR'];best_image=observed.clone()
+        save_pair(out/f'frame_{index:04d}_native.png',native,target)
+        save_pair(out/f'frame_{index:04d}_free_colors.png',best_image,target)
+        row=dict(frame=index,native=metrics(native,target),best_sampled_free_color=metrics(best_image,target),
+                 trace=trace,seconds=time.monotonic()-started,projection_matches_native=True,
+                 geometry_frozen=True,gaussians=len(colors))
+        results.append(row)
+        print(json.dumps({k:v for k,v in row.items() if k!='trace'}),flush=True)
+    report=dict(checkpoint=str(Path(checkpoint).resolve()),scope='Per-fit-view independent nonnegative colors; '
+        'fixed geometry, no shared BRDF/lighting. These images are fitting-capacity diagnostics, not novel-view or '
+        'relighting results. Finite iterations do not prove a global display-PSNR ceiling.',
+        optimization='First half diagonal-majorized FISTA NNLS in linear radiance; second half projected Adam in observed RGB.',
+        steps=steps,results=results)
+    (out/'metrics.json').write_text(json.dumps(report,indent=2)+'\n')
+
+
 @torch.no_grad()
 def preview_light_atlas(checkpoint, output, split, frames):
     """Export actual LiSA buffers and independently verify the shading decomposition."""
@@ -506,15 +614,21 @@ def preview_light_atlas(checkpoint, output, split, frames):
     out = Path(output)
     out.mkdir(parents=True, exist_ok=False)
     report = dict(checkpoint=str(Path(checkpoint).resolve()), scene=cfg['scene'], split=split,
-                  material_head=t.material_head, step=saved['step'], command=sys.argv,
+                  material_head=t.material_head, shading=t.shading, step=saved['step'], command=sys.argv,
                   torch_version=torch.__version__, cuda_version=torch.version.cuda,
                   gpu=torch.cuda.get_device_name(), seed=cfg['seed'], shadow=shadow, port_active=port_active,
                   flux_note='Learned channels, not RGB or calibrated irradiance; no PCA used.',
                   depth_note='Normalized light-camera depth; uncovered texels masked.',
                   display_note='Radiance components gamma-encoded separately; only linear components add.',
+                  radiance_share_protocol='Alpha-weighted linear foreground radiance summed over camera pixels.',
                   frames=[])
+    camera_offsets = (load_camera_offsets(saved, g.radius).cuda()
+                      if split == 'train' and saved['camera_offsets'] is not None else None)
+    camera_indices = {index: local for local, index in enumerate(saved['fit_indices'])}
     for index in frames:
         sample = to_device(dataset[index], 'cuda')
+        if camera_offsets is not None and index in camera_indices:
+            sample = camera_offsets.correct(sample, camera_indices[index])
         capture = {}
         def capture_receivers(module, inputs):
             capture['receivers'] = inputs[1]
@@ -534,23 +648,44 @@ def preview_light_atlas(checkpoint, output, split, frames):
         atlas = t.light_atlas(g, sample['light_pos'])
         stats, fluxes = t.gather(atlas, points, g.radius)
         visibility = torch.ones_like(cosines[:, :1])
+        # Optional specular lobes (2026-10-04) use the geometric level-0 moment test, as in forward.
+        specular_visibility = torch.ones_like(cosines[:, :1])
         if shadow and t.visibility_model != 'none':
             visibility = (receivers['visibility'][:, None] if t.per_gaussian_visibility else
                           t.receiver_visibility(stats, receivers['features'], cosines[:, :1]))
+            specular_visibility = (visibility if t.per_gaussian_visibility else stats[:, t.STATS - 1:t.STATS])
+        specular = (t.specular_response(receivers, cosines, (points - g.center) / g.radius)
+                    if t.specular != 'none' else torch.zeros_like(rho))
         transfer = (t.transfer(stats, fluxes, receivers['features'], cosines)
                     if port_active and t.light_transport == 'atlas' else torch.zeros_like(rho))
         incident = sample['light_intensity'][None] / t.light_scale / (
             sample['light_pos'] - points).square().sum(-1, keepdim=True)
         covered = alpha[..., 0] > 0
         local_linear = torch.zeros_like(predicted)
+        specular_linear = torch.zeros_like(predicted)
         transfer_linear = torch.zeros_like(predicted)
-        local_linear[covered] = incident * visibility * rho
-        transfer_linear[covered] = incident * transfer
+        visibility_image = predicted.new_full(covered.shape, float('nan'))
+        if t.shading == 'gaussian':
+            # Composite each contribution with the exact same geometry and order
+            # as the RGB renderer, then normalize to the preview's foreground convention.
+            colors = torch.cat((incident * visibility * rho, incident * specular_visibility * specular,
+                                incident * transfer, visibility), -1)
+            components, _, _ = _rasterize('3dgs', **g.raster_inputs(), colors=colors,
+                viewmats=sample['viewmat'][None], Ks=sample['K'][None],
+                width=predicted.shape[1], height=predicted.shape[0], packed=False)
+            values = components[0][covered] / alpha[covered]
+            local_linear[covered], specular_linear[covered], transfer_linear[covered] = values[:, :3], values[:, 3:6], values[:, 6:9]
+            visibility_image[covered] = values[:, 9]
+        else:
+            local_linear[covered] = incident * visibility * rho
+            specular_linear[covered] = incident * specular_visibility * specular
+            transfer_linear[covered] = incident * transfer
+            visibility_image[covered] = visibility[:, 0]
         reconstructed = observation_image(
-            (local_linear + transfer_linear) * alpha + cfg['background'] * (1 - alpha),
+            (local_linear + specular_linear + transfer_linear) * alpha + cfg['background'] * (1 - alpha),
             cfg['display_gamma'], alpha=None if sample['is_hdr'] else alpha, background=cfg['background'])
         torch.testing.assert_close(reconstructed, predicted, rtol=1e-5, atol=1e-6)
-        for tensor in atlas['levels'] + [visibility, local_linear, transfer_linear]:
+        for tensor in atlas['levels'] + [visibility, local_linear, specular_linear, transfer_linear]:
             assert torch.isfinite(tensor).all()
         stem = f'frame_{index:03d}'
         levels = [level[0].cpu().numpy() for level in atlas['levels']]
@@ -599,14 +734,15 @@ def preview_light_atlas(checkpoint, output, split, frames):
         def component_display(values):
             return observation_image(values * alpha, cfg['display_gamma'],
                                      alpha=None if sample['is_hdr'] else alpha, background=0.0).clamp(0, 1).cpu()
-        visibility_image = predicted.new_full(covered.shape, float('nan'))
-        visibility_image[covered] = visibility[:, 0]
         target = target_image(sample, cfg['background'], cfg['display_gamma']).clamp(0, 1).cpu()
-        fig, axes = plt.subplots(1, 5, figsize=(17, 3.8))
         images = [target, predicted.clamp(0, 1).cpu(), visibility_image.cpu(),
                   component_display(local_linear), component_display(transfer_linear)]
         titles = ['GT (camera view)', f'Final LiSA ({t.material_head})', 'Visibility V: black=shadow',
                   'Local contribution E * V * rho', 'Transport contribution E * transfer']
+        if t.specular != 'none':
+            images.insert(4, component_display(specular_linear))
+            titles.insert(4, 'Specular lobes E * V0 * s')
+        fig, axes = plt.subplots(1, len(images), figsize=(3.4 * len(images), 3.8))
         for ax, data, title in zip(axes, images, titles):
             ax.imshow(data, cmap='gray', vmin=0, vmax=1)
             ax.set_title(title, fontsize=10); ax.axis('off')
@@ -618,17 +754,186 @@ def preview_light_atlas(checkpoint, output, split, frames):
         np.savez_compressed(out / (stem + '_buffers.npz'),
                             **{f'atlas_level_{k}': level for k, level in enumerate(levels)},
                             visibility=visibility_image.cpu().numpy(),
-                            local_linear=local_linear.cpu().numpy(), transfer_linear=transfer_linear.cpu().numpy(),
+                            local_linear=local_linear.cpu().numpy(), specular_linear=specular_linear.cpu().numpy(),
+                            transfer_linear=transfer_linear.cpu().numpy(),
                             alpha=alpha.cpu().numpy(), light_view=atlas['view'].cpu().numpy(),
                             focal=float(atlas['focal']), depth_center=float(atlas['depth_center']), radius=g.radius)
+        error = ((predicted.clamp(0, 1) * 255).round() / 255 - (target.to(predicted.device) * 255).round() / 255).square().mean(-1)
+        gt_mask = sample['alpha'][..., 0] > .5
+        inner = -F.max_pool2d(-gt_mask[None, None].float(), 5, 1, 2)[0, 0]
+        outer = F.max_pool2d(gt_mask[None, None].float(), 5, 1, 2)[0, 0]
+        regions = dict(interior=inner, boundary=outer-inner, background=1-outer)
         report['frames'].append(dict(frame_index=index, name=sample['name'],
             light_position=sample['light_pos'].tolist(), intensity=sample['light_intensity'].tolist(),
+            PSNR=float(-10 * error.mean().log10()), alpha_L1=float((alpha-sample['alpha']).abs().mean()),
+            error_share={key:float((error*mask).sum()/error.sum()) for key,mask in regions.items()},
             channel_display_ranges=ranges, atlas_shapes=[list(x.shape) for x in levels],
             decomposition_max_abs_error=float((reconstructed - predicted).abs().max()),
             visibility_mean=float(visibility.mean()), transport_share_linear=float(
-                transfer_linear.sum() / (local_linear + transfer_linear).sum())))
+                (transfer_linear * alpha).sum() / ((local_linear + specular_linear + transfer_linear) * alpha).sum()),
+            specular_share_linear=float(
+                (specular_linear * alpha).sum() / ((local_linear + specular_linear + transfer_linear) * alpha).sum())))
         print(json.dumps(report['frames'][-1]), flush=True)
     (out / 'preview.json').write_text(json.dumps(report, indent=2) + '\n')
+
+
+def export_initial_support(reference_checkpoint, output, mode):
+    """Compare camera-cube seeding with training-silhouette-supported seeding.
+
+    Only the reference split, camera normalization and seed are read. No fitted
+    positions, material, test frame or external reconstruction is transferred.
+    Both outputs use the existing geometry importer to keep their feature/network
+    initialization streams identical in the controlled comparison.
+    """
+
+    torch.set_num_threads(8)
+    saved = torch.load(reference_checkpoint,map_location='cpu',weights_only=False)
+    cfg = saved['config']
+    center = saved['gaussians']['center'].cuda()
+    radius, count = saved['radius'], cfg['points']
+    generator = torch.Generator(device='cuda').manual_seed(cfg['seed'])
+    fit = saved['fit_indices']
+    frames = fit[::max(1,len(fit)//32)][:32]
+    metadata = dict(mode=mode,reference=str(Path(reference_checkpoint).resolve()),scene=cfg['scene'],
+                    seed=cfg['seed'],points=count,radius=radius,fit_frames=frames,
+                    scope='Training-camera/mask initialization only; no fitted geometry or official test input')
+    if mode == 'camera':
+        points = (torch.rand(count,3,device='cuda',generator=generator)*2-1)*radius+center
+        scales = torch.full_like(points,math.log(radius*1.5/count**(1/3)))
+    else:
+        dataset = SceneDataset(cfg['scene'],'train',cfg['resolution'],cfg['unit_light_intensity'])
+        samples = [to_device(dataset[i],'cuda') for i in frames]
+        from training.initialization import silhouette_seeds
+        points, scales, support_metadata = silhouette_seeds(samples, center, radius, count, cfg['seed'])
+        metadata.update(support_metadata)
+    quats = torch.zeros(count,4,device='cuda');quats[:,0]=1
+    state={'center':center.cpu(),'params.means':points.cpu(),'params.scales':scales.cpu(),
+           'params.quats':quats.cpu(),'params.opacities':torch.full((count,),-2.2)}
+    metadata['scale_median']=float(scales[:,0].exp().median())
+    out=Path(output);out.mkdir(parents=True,exist_ok=False)
+    torch.save(dict(config=cfg,gaussians=state,radius=radius,fit_indices=fit,val_indices=saved['val_indices'],
+                    initial_support=metadata),out/'geometry.pt')
+    (out/'provenance.json').write_text(json.dumps(metadata,indent=2)+'\n')
+    print(json.dumps(metadata),flush=True)
+
+
+def export_gs3_geometry(ply_path, reference_checkpoint, output):
+    """Geometry-only capacity probe in the existing PORT geometry-import format.
+
+    The GS3 model used all official training frames. These artifacts are for
+    fitting-capacity diagnosis, never for train-internal holdout selection or
+    the from-scratch final method. No GS3 material or shading normal is copied.
+    """
+    import numpy as np
+    from plyfile import PlyData
+
+    saved = torch.load(reference_checkpoint, map_location='cpu', weights_only=False)
+    if not saved['config']['fit_all'] or saved['val_indices']:
+        raise ValueError('GS3 full-train geometry needs a fit-all reference checkpoint')
+    ply_path = Path(ply_path).resolve()
+    if ply_path.parents[2].name != Path(saved['config']['scene']).name:
+        raise ValueError('GS3 PLY scene and reference scene differ')
+    vertices = PlyData.read(ply_path)['vertex']
+    def columns(names):
+        return torch.from_numpy(np.stack([vertices[name] for name in names], -1).copy())
+    state = {'center':saved['gaussians']['center'],
+             'params.means':columns(['x','y','z']),
+             'params.scales':columns([f'scale_{i}' for i in range(3)]),
+             'params.quats':columns([f'rot_{i}' for i in range(4)]),
+             'params.opacities':columns(['opacity'])[:,0]}
+    out = Path(output)
+    out.mkdir(parents=True, exist_ok=False)
+    metadata = dict(source_ply=str(ply_path), reference_checkpoint=str(Path(reference_checkpoint).resolve()),
+        scene=saved['config']['scene'], points=len(vertices.data), radius=saved['radius'],
+        scope='Fixed-geometry, all-training-data capacity diagnosis only; not an independent validation model',
+        imported=['position','covariance','opacity'], excluded=['material','shading normal','neural phase function'])
+    torch.save(dict(config=saved['config'], gaussians=state, radius=saved['radius'],
+                    fit_indices=saved['fit_indices'], val_indices=[], source_geometry=metadata), out/'geometry.pt')
+    (out/'provenance.json').write_text(json.dumps(metadata,indent=2)+'\n')
+    print(json.dumps(metadata),flush=True)
+
+
+def audit_atlas_refinement(checkpoint, output, limit):
+    """Measure training-view image gradients, actual contribution and residual per primitive."""
+    import sys
+    import numpy as np
+
+    torch.set_num_threads(8)
+    g, t, saved = load_model(checkpoint)
+    cfg = saved['config']
+    if cfg['representation'] != 'light_atlas':
+        raise ValueError('Atlas refinement audit requires light_atlas')
+    out = Path(output)
+    out.mkdir(parents=True, exist_ok=False)
+    data = SceneDataset(cfg['scene'], 'train', cfg['resolution'], cfg['unit_light_intensity'])
+    selected = saved['fit_indices'][::max(1, len(saved['fit_indices'])//limit)][:limit]
+    offsets = load_camera_offsets(saved, g.radius).cuda() if saved['camera_offsets'] is not None else None
+    frame_rows = {index:row for row,index in enumerate(saved['fit_indices'])}
+    n = len(g.params['means'])
+    grad = g.center.new_zeros(n)
+    count = torch.zeros_like(grad)
+    contribution = torch.zeros_like(grad)
+    residual = torch.zeros_like(grad)
+    frames = []
+    for index in selected:
+        sample = to_device(data[index], 'cuda')
+        if offsets is not None:
+            sample = offsets.correct(sample, frame_rows[index])
+        g.zero_grad(set_to_none=True)
+        t.zero_grad(set_to_none=True)
+        predicted, alpha, info = render_observation(g, t, sample, cfg['background'],
+            saved['step'] >= cfg['shadow_start'], saved['step'] >= cfg['port_start'],
+            cfg['display_gamma'], cfg['shadow_mode'], absgrad=True)
+        target = target_image(sample, cfg['background'], cfg['display_gamma'])
+        error = (predicted.detach().clamp(0, 1) - target.clamp(0, 1)).square().mean(-1)
+        loss = .8*(predicted-target).abs().mean() + .2*(1-ssim(predicted.clamp(0,1),target.clamp(0,1)))
+        loss = loss + cfg['mask_weight']*(alpha-sample['alpha']).abs().mean()
+        loss.backward()
+        h, w = predicted.shape[:2]
+        with torch.no_grad():
+            visible = (info['radii'][0] > 0).all(-1)
+            screen = info['means2d'].absgrad[0] * grad.new_tensor([w/2, h/2])
+            grad[visible] += screen.norm(dim=-1)[visible]
+            count += visible
+            frames.append(dict(frame_index=index, loss=float(loss), PSNR=float(-10*error.mean().log10()),
+                               alpha_L1=float((alpha-sample['alpha']).abs().mean())))
+        del predicted, info, loss
+        # A zero-color splat is a linear probe of front-to-back weights. Its
+        # color derivative is sum_p T_ip alpha_ip; it cannot change this model.
+        probe = g.center.new_zeros((n, 1), requires_grad=True)
+        image, _, _ = _rasterize('3dgs', **{key:value.detach() for key,value in g.raster_inputs().items()},
+            colors=probe, viewmats=sample['viewmat'].detach()[None], Ks=sample['K'].detach()[None],
+            width=w, height=h, packed=False)
+        mass = torch.autograd.grad(image, probe, torch.ones_like(image), retain_graph=True)[0][:,0]
+        weighted_error = torch.autograd.grad(image, probe, error[None,...,None])[0][:,0]
+        torch.testing.assert_close(mass.sum(), alpha.detach().sum(), rtol=5e-5, atol=1e-3)
+        contribution += mass.detach()/(h*w)
+        residual += weighted_error.detach()/(h*w)
+    with torch.no_grad():
+        gradient = grad/count.clamp_min(1)
+        contribution /= len(selected)
+        residual /= len(selected)
+        scale = g.params['scales'].exp().amax(-1)/g.radius
+        buckets = {}
+        for name,mask in [('all', torch.ones_like(count, dtype=torch.bool)),
+                          ('scale_lt_0.01', scale < .01), ('scale_0.01_0.03', (scale >= .01)&(scale < .03)),
+                          ('scale_ge_0.03', scale >= .03)]:
+            values = gradient[mask]
+            if not len(values):
+                continue
+            buckets[name] = dict(count=int(mask.sum()),
+                gradient_quantiles=values.quantile(values.new_tensor([0.,.5,.9,.99,1.])).tolist(),
+                above_0_0008=int((values>.0008).sum()), above_0_00008=int((values>.00008).sum()),
+                zero_contribution=int((contribution[mask]==0).sum()),
+                contribution_share=float(contribution[mask].sum()/contribution.sum()),
+                residual_share=float(residual[mask].sum()/residual.sum()))
+        report = dict(checkpoint=str(Path(checkpoint).resolve()), command=sys.argv, shading=t.shading,
+            step=saved['step'], scene=cfg['scene'], frames=frames, buckets=buckets,
+            scope='Fixed training views; per-primitive native absgrad and alpha-composited contribution; no fitting')
+        np.savez_compressed(out/'primitive_statistics.npz', gradient=gradient.cpu().numpy(),
+            contribution=contribution.cpu().numpy(), residual=residual.cpu().numpy(), scale=scale.cpu().numpy())
+    (out/'metrics.json').write_text(json.dumps(report,indent=2)+'\n')
+    print(json.dumps(buckets),flush=True)
 
 
 def score_external_renders(renders, scene, output, radius):
@@ -773,7 +1078,12 @@ def main():
     parser.add_argument('--reference-geometry', type=Path, help='Reference evaluation directory for saved geometry buffers')
     parser.add_argument('--relight-preview', action='store_true', help='Fixed-camera four-light preview of the directional or neural-material pipeline')
     parser.add_argument('--light-atlas-preview', action='store_true', help='Export actual LiSA atlas channels, pyramid and shading decomposition')
-    parser.add_argument('--atlas-frames', type=int, nargs='+', default=[0], help='Dataset frame indices for --light-atlas-preview')
+    parser.add_argument('--atlas-refinement-audit', action='store_true', help='Measure LiSA native gradients and per-Gaussian contribution on fit frames')
+    parser.add_argument('--free-color-steps', type=int, default=0,
+                        help='Diagnostic per-fit-view nonnegative color fitting on fixed geometry; not relighting evaluation')
+    parser.add_argument('--gs3-geometry', type=Path, help='Export this GS3 PLY for a fixed-geometry capacity probe, using the positional checkpoint for normalization/splits')
+    parser.add_argument('--initial-support', choices=['camera','hull'], help='Export fresh 20k initialization from reference split/camera normalization, optionally restricted by fit silhouettes')
+    parser.add_argument('--atlas-frames', type=int, nargs='+', default=[0], help='Dataset frame indices for atlas preview or free-color diagnosis')
     parser.add_argument('--gggs-default-review', action='store_true', help='Compare source GGGS, its default-renderer import and jointly optimized geometry')
     parser.add_argument("--limit", type=int, default=32)
     parser.add_argument("--split", choices=['train','test'], default='train')
@@ -810,6 +1120,22 @@ def main():
     parser.add_argument('--shift-align', type=int, default=24,
                         help='Search radius of the secondary shift-aligned metrics for --external-renders; 0 disables')
     args = parser.parse_args()
+    if args.free_color_steps:
+        if not args.checkpoint or args.split != 'train' or args.free_color_steps < 2:
+            parser.error('Free-color fitting needs a checkpoint, train split and at least two steps')
+        return fit_free_colors(args.checkpoint,args.output,args.atlas_frames,args.free_color_steps)
+    if args.initial_support:
+        if not args.checkpoint:
+            parser.error('Initial support export requires a reference split/normalization checkpoint')
+        return export_initial_support(args.checkpoint,args.output,args.initial_support)
+    if args.gs3_geometry:
+        if not args.checkpoint:
+            parser.error('GS3 geometry export requires a fit-all reference checkpoint')
+        return export_gs3_geometry(args.gs3_geometry, args.checkpoint, args.output)
+    if args.atlas_refinement_audit:
+        if not args.checkpoint or args.split != 'train' or args.limit < 1:
+            parser.error('Atlas refinement audit requires a checkpoint, train split and positive --limit')
+        return audit_atlas_refinement(args.checkpoint, args.output, args.limit)
     if args.light_atlas_preview:
         if not args.checkpoint:parser.error('Light-atlas preview requires a checkpoint')
         return preview_light_atlas(args.checkpoint, args.output, args.split, args.atlas_frames)

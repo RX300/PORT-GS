@@ -1,3 +1,12 @@
+# 当前研究概览（2026-10-04）
+
+PORT-GS与SSD-GS基线隔离，当前LiSA-staged在原光源空间图集上采用统一的几何成形与外观精修流程。
+全部18场景完成：总体33.4722/.95199/.05636，Lego/Drums比v2提高7.6091/5.4169dB；
+Real/SSS均值略退，未达成全场景改善。纯v2保留在Git标签`lisa-v2`，新方案总预算38k。
+[当前状态](project/status.md) · [结果](experiments/results.md) · [方法](method/pipeline.md)。
+
+以下保留各时期的设计记录，当前支持的方法与入口以README为准。
+
 > **2026-09-30 方法清理更新：** 当前只保留 `directional_port_v1`、`surface_attention`、`neural_material`。
 > 其余方法和独立几何训练入口已删除；已有 GGGS 几何读取/诊断和三种方法的公共依赖保留。
 > 以下涉及已删除方法的内容仅作历史记录，不是可运行入口。清理详情见 `docs/experiments/method_retirement_20260930.md`（项目根目录相对路径）。

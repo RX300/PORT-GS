@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
 set -euo pipefail
+export PYTHONDONTWRITEBYTECODE=1
 
 PROJECT_DIR=$(cd -- "$(dirname -- "$0")" && pwd)
 PYTHON=/workspace/ubuntu2004_cuda12_1/utils/conda-envs/ssd-gs/bin/python

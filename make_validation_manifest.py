@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Resolve the six-scene validation JSON into a fresh scheduler manifest."""
+"""Resolve the canonical experiment JSON into a fresh scheduler manifest."""
 
 import argparse
 import hashlib
@@ -116,6 +116,17 @@ def _evaluation_step(python, name, checkpoint, split, output, directory, log_dir
     }
 
 
+def _training_step(python, name, options, log_dir, scene):
+    output = Path(options['output'])
+    return {
+        'name': name, 'state': 'pending', 'cwd': str(ROOT),
+        'argv': train_argv(python, options),
+        'logpath': str(log_dir / f'{scene}.{name}.log'),
+        'output': str(output), 'resultpath': str(output / 'last.pt'),
+        'progress_path': str(output / 'history.jsonl'),
+    }
+
+
 def _surface_preparation(config, options, dataset, output_dir, family, scene):
     settings_prior = config["surface_preprocessing"]
     prior_dir = Path(options['surface-priors'])
@@ -176,17 +187,22 @@ def _build_single_manifest(config, output_dir, provenance):
             )
             preparation = (_surface_preparation(config, options, dataset, output_dir, family, scene)
                            if "surface_preprocessing" in config and needs_surface_priors else [])
+            appearance = config.get('appearance_train')
+            if appearance:
+                geometry_output = output / 'geometry'
+                training = [_training_step(python, 'train', dict(options, output=str(geometry_output)),
+                                           log_dir, scene)]
+                output = output / 'appearance'
+                options = {**options, **appearance, 'output': str(output),
+                           'init-checkpoint': str(geometry_output / 'last.pt')}
+                training.append(_training_step(python, 'appearance', options, log_dir, scene))
+            else:
+                training = [_training_step(python, 'train', options, log_dir, scene)]
             checkpoints = [(f"step_{step:06d}.pt", f"{eval_directory}_{step:06d}", f"eval_{step:06d}")
                            for step in options.get("save-steps", [])]
             checkpoints.append(("last.pt", eval_directory, "eval"))
             last = output / 'last.pt'
-            steps = preparation + [
-                {"name": "train", "state": "pending", "cwd": str(ROOT),
-                 "argv": train_argv(python, options),
-                 "logpath": str(log_dir / f"{scene}.train.log"),
-                 "output": str(output), "resultpath": str(output / "last.pt"),
-                 "progress_path": str(output / "history.jsonl")},
-            ] + [
+            steps = preparation + training + [
                 _evaluation_step(python, phase, output / snapshot, eval_split, output, directory,
                                  log_dir, scene, eval_options)
                 for snapshot, directory, phase in checkpoints
@@ -227,6 +243,7 @@ def _build_single_manifest(config, output_dir, provenance):
             "selection": {name: settings["scenes"] for name, settings in config["families"].items()},
             "representation": config["train"].get("representation", DEFAULT_METHOD),
             "train": config["train"],
+            "appearance_train": config.get("appearance_train"),
             "family_overrides": {name: settings["train"] for name, settings in config["families"].items()},
             "evaluation": {"split": eval_split, "branch":eval_branch, "limit": eval_limit, "checkpoint": "last.pt", "lpips": True,
                            "resolution":config.get('eval_resolution'), "highlights":config.get('eval_highlights', False),

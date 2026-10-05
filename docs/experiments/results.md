@@ -1,8 +1,97 @@
 # LiSA：三类数据集完整实验记录
 
-覆盖 Real_NRHints 7场景、Synthetic_GS3 6场景、Synthetic_SSS-GS 5场景，**18/18完成**。2026-10-03全量比较完成并经中央collector核验。本页统一替代此前六场景、困难场景及剩余场景的分批结果记录。
+覆盖Real_NRHints 7场景、Synthetic_GS3 6场景、Synthetic_SSS-GS 5场景。
+2026-10-04 LiSA-staged全18场景完成，原LiSA-v2与LiSA记录保留。中央collector已核验六方法108/108项。
 
-[实验环境与协议](setup.md) · [完整机器记录（配置、命令、阶段日志、GPU及来源）](records.json) · [四方法总表与单场景对比](../../../benchmarks/full_dataset_comparison/RESULTS.md)
+[环境与协议](setup.md) · [六方法完整对比](../../../benchmarks/full_dataset_comparison/RESULTS.md) · [机器记录](radiometric_curriculum_results.json)
+
+## LiSA-staged（2026-10-04，最新完整结果）
+
+同一30k+8k流程：8k几何预热/辐射目标过渡、22k线性域联合训练、8k固定几何的观测域像素外观精修。
+从训练轮廓初始化自身3DGS，无外部几何或预训练；全部official train、seed0、固定最后权重、原始标定完整official test。
+18场景共5691帧，参数只保留原家族的观察/相机协议差异；没有逐场景选型。
+预算38k，v2/原LiSA为30k、GS³为100k；结果按场景等权，非等预算比较。
+
+| 范围 | PSNR ↑ | SSIM ↑ | LPIPS ↓ | ΔPSNR vs v2 | ΔPSNR vs GS³ |
+|---|---:|---:|---:|---:|---:|
+| all | 33.4722 | 0.95199 | 0.05636 | +1.0600 | +1.9837 |
+| Synthetic_GS3 | 32.4001 | 0.97042 | 0.03823 | +3.7629 | +0.4269 |
+| Real_NRHints | 29.2779 | 0.90938 | 0.10050 | -0.2157 | +2.0042 |
+| Synthetic_SSS-GS | 40.6308 | 0.98951 | 0.01633 | -0.3976 | +3.8233 |
+
+| 场景 | PSNR ↑ | SSIM ↑ | LPIPS ↓ | ΔPSNR vs v2 | ΔPSNR vs GS³ |
+|---|---:|---:|---:|---:|---:|
+| [Lego](../../runs/lisa_staged_full_dataset_20261004/Synthetic_GS3/Lego/appearance/test/metrics.json) | 30.8007 | 0.95861 | 0.04444 | +7.6091 | -0.1053 |
+| [Drums](../../runs/lisa_staged_full_dataset_20261004/Synthetic_GS3/Drums/appearance/test/metrics.json) | 30.4515 | 0.97646 | 0.03036 | +5.4169 | -1.0652 |
+| [Hotdog](../../runs/lisa_staged_full_dataset_20261004/Synthetic_GS3/Hotdog/appearance/test/metrics.json) | 35.2193 | 0.97991 | 0.02863 | +5.3546 | +1.9040 |
+| [AnisoMetal](../../runs/lisa_staged_full_dataset_20261004/Synthetic_GS3/AnisoMetal/appearance/test/metrics.json) | 27.1484 | 0.95606 | 0.04045 | -0.9342 | -0.3647 |
+| [FurBall](../../runs/lisa_staged_full_dataset_20261004/Synthetic_GS3/FurBall/appearance/test/metrics.json) | 36.1127 | 0.97091 | 0.05429 | +1.2696 | +0.2808 |
+| [Translucent](../../runs/lisa_staged_full_dataset_20261004/Synthetic_GS3/Translucent/appearance/test/metrics.json) | 34.6681 | 0.98056 | 0.03124 | +3.8617 | +1.9116 |
+| [Cat](../../runs/lisa_staged_full_dataset_20261004/Real_NRHints/Cat/appearance/test/metrics.json) | 25.3288 | 0.82077 | 0.17067 | +0.0444 | +6.2090 |
+| [CatSmall](../../runs/lisa_staged_full_dataset_20261004/Real_NRHints/CatSmall/appearance/test/metrics.json) | 33.0169 | 0.96099 | 0.08158 | -0.3769 | -0.2357 |
+| [CupFabric](../../runs/lisa_staged_full_dataset_20261004/Real_NRHints/CupFabric/appearance/test/metrics.json) | 35.3071 | 0.97593 | 0.05873 | -0.5388 | +0.1356 |
+| [Fish](../../runs/lisa_staged_full_dataset_20261004/Real_NRHints/Fish/appearance/test/metrics.json) | 28.9666 | 0.89583 | 0.11053 | +0.0889 | +6.5539 |
+| [FurScene](../../runs/lisa_staged_full_dataset_20261004/Real_NRHints/FurScene/appearance/test/metrics.json) | 24.4741 | 0.86376 | 0.11947 | -0.1198 | -1.6163 |
+| [Pikachu](../../runs/lisa_staged_full_dataset_20261004/Real_NRHints/Pikachu/appearance/test/metrics.json) | 31.6486 | 0.96707 | 0.05557 | -0.5644 | +0.5019 |
+| [Pixiu](../../runs/lisa_staged_full_dataset_20261004/Real_NRHints/Pixiu/appearance/test/metrics.json) | 26.2028 | 0.88136 | 0.10695 | -0.0436 | +2.4810 |
+| [bunny_small](../../runs/lisa_staged_full_dataset_20261004/Synthetic_SSS-GS/bunny_small/appearance/test/metrics.json) | 39.8574 | 0.98964 | 0.01608 | -0.7856 | +5.4393 |
+| [candle_small](../../runs/lisa_staged_full_dataset_20261004/Synthetic_SSS-GS/candle_small/appearance/test/metrics.json) | 45.1956 | 0.99596 | 0.00754 | -0.1860 | +6.4553 |
+| [dragon_small](../../runs/lisa_staged_full_dataset_20261004/Synthetic_SSS-GS/dragon_small/appearance/test/metrics.json) | 37.3783 | 0.98118 | 0.02620 | -0.7499 | +1.2715 |
+| [soap_small](../../runs/lisa_staged_full_dataset_20261004/Synthetic_SSS-GS/soap_small/appearance/test/metrics.json) | 40.9056 | 0.99159 | 0.01225 | -0.5607 | +2.5626 |
+| [statue_small](../../runs/lisa_staged_full_dataset_20261004/Synthetic_SSS-GS/statue_small/appearance/test/metrics.json) | 39.8173 | 0.98919 | 0.01958 | +0.2943 | +3.3876 |
+
+总体相对v2：PSNR +1.0600dB、SSIM +.00533、LPIPS −.00518；三项均值均为本地六方法最佳。
+但PSNR仅8/18场景上升，SSIM为7/18、LPIPS为6/18；Real和SSS三项均值均略退。
+Lego/Drums大幅改善；AnisoMetal回退.9342dB，FurScene仍低于GS³ 1.6163dB。
+FurBall超过v2和GS³，但相对原LiSA36.8497/.97363/.04345仍未完全恢复，PSNR低.7370dB。
+
+![全部18场景PSNR变化](../figures/lisa_staged_full_dataset_20261004.png)
+
+匹配16k训练内留出支持辐射目标及过渡整体有效；完整38k配方首次全跑就是本轮实验。
+细亮高光与内部细节的残余误差分解、预验证范围及未隔离的机制见[分析](shading_refinement.md)。
+完成时两张GPU均释放；纯v2的Git标签及原模型保留，本轮代码未混入标签。
+
+以下保留v2与原LiSA历史结果，不以新结果覆盖。
+
+## LiSA-v2（2026-10-04，历史对照）
+
+根因修复后的配方：原LiSA + `--mask-weight 0.5` + `--foreground-appearance-until 2000` + `--specular lobes`；
+同一30k预算、seed0、原增密、全official train、完整official test原始标定、最终权重。变体只在train内留出上选择（未用test）。
+[根因与选型记录](lisa_v2_root_causes_20261004.md) · [机器记录](records_lisa_v2.json) · [对比总表](../../../benchmarks/full_dataset_comparison/RESULTS.md)
+
+| 范围 | 场景数 | PSNR ↑ | SSIM ↑ | LPIPS ↓ | 原LiSA PSNR | 最强baseline PSNR |
+| --- | ---: | ---: | ---: | ---: | ---: | ---: |
+| all | 18 | 32.4122 | 0.9467 | 0.0615 | 31.3760 | SSD-GS 31.5819 |
+| Real_NRHints | 7 | 29.4936 | 0.9105 | 0.0965 | 28.4729 | GS3 27.2736 |
+| Synthetic_GS3 | 6 | 28.6372 | 0.9520 | 0.0593 | 28.3498 | GS3 31.9732 |
+| Synthetic_SSS-GS | 5 | 41.0284 | 0.9909 | 0.0153 | 39.0717 | SSD-GS 37.7869 |
+
+| 场景 | PSNR ↑ | SSIM ↑ | LPIPS ↓ | 相对原LiSA | 相对最强baseline | 原始指标 |
+| --- | ---: | ---: | ---: | ---: | ---: | --- |
+| Cat | 25.2843 | 0.8208 | 0.1675 | +0.09 | +4.29（RNG） | [metrics.json](../../runs/lisa_v2_full_dataset_20261004/lisa_v2/Real_NRHints/Cat/test/metrics.json) |
+| CatSmall | 33.3938 | 0.9636 | 0.0735 | -0.14 | -0.39（SSD-GS） | [metrics.json](../../runs/lisa_v2_full_dataset_20261004/lisa_v2/Real_NRHints/CatSmall/test/metrics.json) |
+| CupFabric | 35.8460 | 0.9791 | 0.0518 | +5.24 | -0.15（SSD-GS） | [metrics.json](../../runs/lisa_v2_full_dataset_20261004/lisa_v2/Real_NRHints/CupFabric/test/metrics.json) |
+| Fish | 28.8777 | 0.8942 | 0.1102 | +1.20 | +4.76（RNG） | [metrics.json](../../runs/lisa_v2_full_dataset_20261004/lisa_v2/Real_NRHints/Fish/test/metrics.json) |
+| FurScene | 24.5939 | 0.8653 | 0.1164 | +0.75 | -1.50（GS3） | [metrics.json](../../runs/lisa_v2_full_dataset_20261004/lisa_v2/Real_NRHints/FurScene/test/metrics.json) |
+| Pikachu | 32.2129 | 0.9694 | 0.0522 | +0.04 | +1.07（GS3） | [metrics.json](../../runs/lisa_v2_full_dataset_20261004/lisa_v2/Real_NRHints/Pikachu/test/metrics.json) |
+| Pixiu | 26.2464 | 0.8810 | 0.1036 | -0.04 | +2.52（GS3） | [metrics.json](../../runs/lisa_v2_full_dataset_20261004/lisa_v2/Real_NRHints/Pixiu/test/metrics.json) |
+| AnisoMetal | 28.0826 | 0.9618 | 0.0370 | +0.48 | +0.08（SSD-GS） | [metrics.json](../../runs/lisa_v2_full_dataset_20261004/lisa_v2/Synthetic_GS3/AnisoMetal/test/metrics.json) |
+| Drums | 25.0346 | 0.9531 | 0.0512 | +1.86 | -6.51（SSD-GS） | [metrics.json](../../runs/lisa_v2_full_dataset_20261004/lisa_v2/Synthetic_GS3/Drums/test/metrics.json) |
+| FurBall | 34.8432 | 0.9665 | 0.0598 | -2.01 | -0.99（GS3） | [metrics.json](../../runs/lisa_v2_full_dataset_20261004/lisa_v2/Synthetic_GS3/FurBall/test/metrics.json) |
+| Hotdog | 29.8647 | 0.9669 | 0.0452 | -0.34 | -3.45（GS3） | [metrics.json](../../runs/lisa_v2_full_dataset_20261004/lisa_v2/Synthetic_GS3/Hotdog/test/metrics.json) |
+| Lego | 23.1916 | 0.8879 | 0.1303 | +1.96 | -7.71（GS3） | [metrics.json](../../runs/lisa_v2_full_dataset_20261004/lisa_v2/Synthetic_GS3/Lego/test/metrics.json) |
+| Translucent | 30.8064 | 0.9757 | 0.0325 | -0.23 | -1.95（GS3） | [metrics.json](../../runs/lisa_v2_full_dataset_20261004/lisa_v2/Synthetic_GS3/Translucent/test/metrics.json) |
+| bunny_small | 40.6430 | 0.9914 | 0.0163 | +0.49 | +2.16（SSD-GS） | [metrics.json](../../runs/lisa_v2_full_dataset_20261004/lisa_v2/Synthetic_SSS-GS/bunny_small/test/metrics.json) |
+| candle_small | 45.3816 | 0.9965 | 0.0072 | +0.12 | +3.47（RNG） | [metrics.json](../../runs/lisa_v2_full_dataset_20261004/lisa_v2/Synthetic_SSS-GS/candle_small/test/metrics.json) |
+| dragon_small | 38.1282 | 0.9835 | 0.0234 | +0.21 | +0.75（SSD-GS） | [metrics.json](../../runs/lisa_v2_full_dataset_20261004/lisa_v2/Synthetic_SSS-GS/dragon_small/test/metrics.json) |
+| soap_small | 41.4662 | 0.9926 | 0.0112 | +5.63 | +1.18（RNG） | [metrics.json](../../runs/lisa_v2_full_dataset_20261004/lisa_v2/Synthetic_SSS-GS/soap_small/test/metrics.json) |
+| statue_small | 39.5230 | 0.9905 | 0.0185 | +3.34 | +3.09（GS3） | [metrics.json](../../runs/lisa_v2_full_dataset_20261004/lisa_v2/Synthetic_SSS-GS/statue_small/test/metrics.json) |
+
+![LiSA-v2逐场景PSNR变化](../figures/lisa_v2_full_dataset_gains_20261004.png)
+
+以下为原LiSA（2026-10-03）记录，保持不变。
+
+# 原LiSA（2026-10-03）
 
 ## 固定协议与结果口径
 
