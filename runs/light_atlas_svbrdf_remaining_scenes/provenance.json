@@ -1,0 +1,42 @@
+{
+  "method": "LiSA",
+  "revision": "bcb2f468b6773c9c9c6bab570561b63c7f323eaf",
+  "working_tree": [
+    " M README.md",
+    " M configs/validation.json",
+    " M diagnose_image_errors.py",
+    " M docs/architecture/modules/methods.md",
+    " M docs/architecture/system.md",
+    " M docs/experiments/results.md",
+    " M docs/experiments/setup.md",
+    " M docs/method/pipeline.md",
+    " M docs/method/principles.md",
+    " M docs/overview.md",
+    " M docs/project/decisions.md",
+    " M docs/project/status.md",
+    " M methods/__init__.py",
+    " M renderer.py",
+    " M test_methods.py",
+    "?? docs/architecture/modules/light_atlas.md",
+    "?? docs/experiments/full_dataset_comparison.md",
+    "?? docs/experiments/hard_scenes_supplement.md",
+    "?? docs/experiments/light_atlas_six_scene_20261001.md",
+    "?? docs/experiments/lisa_data_leakage_audit_20261002.md",
+    "?? docs/figures/lisa_decomposition_20261002.png",
+    "?? docs/figures/lisa_qualitative_20261002.png",
+    "?? docs/research/lisa_introduction_zh_cn.md",
+    "?? docs/research/lisa_light_space_atlas_20261001.md",
+    "?? methods/light_atlas.py"
+  ],
+  "new_jobs": 9,
+  "seed": 0,
+  "source_archive": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/light_atlas_svbrdf_remaining_scenes/source.tar",
+  "gpu_policy": {
+    "2": {
+      "admit_until_epoch": 1790978400.0,
+      "release_epoch": 1790981990.0,
+      "admit_until_jst": "2026-10-03 07:00:00 JST",
+      "release_jst": "2026-10-03 07:59:50 JST"
+    }
+  }
+}

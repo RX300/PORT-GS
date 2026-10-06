@@ -1,0 +1,25 @@
+{"event": "startup_confirmed", "job": "PORT-Synthetic_SSS-GS-bunny_small-compact", "gpu": 3, "pid": 224727, "phase": "train", "step": 100}
+{"event": "startup_confirmed", "job": "PORT-Synthetic_GS3-AnisoMetal-compact", "gpu": 2, "pid": 224725, "phase": "train", "step": 100}
+{"event": "phasefinish", "job": "PORT-Synthetic_SSS-GS-bunny_small-compact", "gpu": 3, "phase": "train", "pid": 224727}
+{"event": "phasefinish", "job": "PORT-Synthetic_SSS-GS-bunny_small-compact", "gpu": 3, "phase": "eval", "pid": 226735}
+{"event": "jobfinish", "job": "PORT-Synthetic_SSS-GS-bunny_small-compact", "gpu": 3}
+{"event": "startup_confirmed", "job": "PORT-Synthetic_GS3-AnisoMetal-reflect", "gpu": 3, "pid": 226793, "phase": "train", "step": 100}
+{"event": "phasefinish", "job": "PORT-Synthetic_GS3-AnisoMetal-compact", "gpu": 2, "phase": "train", "pid": 224725}
+{"event": "phasefinish", "job": "PORT-Synthetic_GS3-AnisoMetal-compact", "gpu": 2, "phase": "eval", "pid": 226991}
+{"event": "jobfinish", "job": "PORT-Synthetic_GS3-AnisoMetal-compact", "gpu": 2}
+{"event": "startup_confirmed", "job": "PORT-Synthetic_SSS-GS-bunny_small-reflect", "gpu": 2, "pid": 227069, "phase": "train", "step": 100}
+{"event": "phasefinish", "job": "PORT-Synthetic_SSS-GS-bunny_small-reflect", "gpu": 2, "phase": "train", "pid": 227069}
+{"event": "phasefinish", "job": "PORT-Synthetic_SSS-GS-bunny_small-reflect", "gpu": 2, "phase": "eval", "pid": 228319}
+{"event": "jobfinish", "job": "PORT-Synthetic_SSS-GS-bunny_small-reflect", "gpu": 2}
+{"event": "startup_confirmed", "job": "PORT-Synthetic_GS3-AnisoMetal-spatial", "gpu": 2, "pid": 228369, "phase": "train", "step": 100}
+{"event": "phasefinish", "job": "PORT-Synthetic_GS3-AnisoMetal-reflect", "gpu": 3, "phase": "train", "pid": 226793}
+{"event": "phasefinish", "job": "PORT-Synthetic_GS3-AnisoMetal-reflect", "gpu": 3, "phase": "eval", "pid": 228532}
+{"event": "jobfinish", "job": "PORT-Synthetic_GS3-AnisoMetal-reflect", "gpu": 3}
+{"event": "startup_confirmed", "job": "PORT-Synthetic_SSS-GS-bunny_small-spatial", "gpu": 3, "pid": 228593, "phase": "train", "step": 100}
+{"event": "phasefinish", "job": "PORT-Synthetic_SSS-GS-bunny_small-spatial", "gpu": 3, "phase": "train", "pid": 228593}
+{"event": "phasefinish", "job": "PORT-Synthetic_SSS-GS-bunny_small-spatial", "gpu": 3, "phase": "eval", "pid": 229917}
+{"event": "jobfinish", "job": "PORT-Synthetic_SSS-GS-bunny_small-spatial", "gpu": 3}
+{"event": "phasefinish", "job": "PORT-Synthetic_GS3-AnisoMetal-spatial", "gpu": 2, "phase": "train", "pid": 228369}
+{"event": "phasefinish", "job": "PORT-Synthetic_GS3-AnisoMetal-spatial", "gpu": 2, "phase": "eval", "pid": 230178}
+{"event": "jobfinish", "job": "PORT-Synthetic_GS3-AnisoMetal-spatial", "gpu": 2}
+{"event": "queue_complete", "status": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/light_atlas_head_selection_20261001/status.json"}

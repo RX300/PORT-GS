@@ -1,0 +1,72 @@
+{
+  "name": "lisa_geometry_capacity_20261004",
+  "note": "Capacity diagnosis only: fresh identical LiSA appearance fitted on fixed LiSA-v2 or GS3 full-train geometry. All official training frames, 8k appearance steps, 64 fixed fit views for evaluation. No official test and no train-holdout selection, since GS3 geometry used the complete training data. No GS3 appearance or learned normals transferred. Geometry differences include point count; no equal-capacity or final-method claim.",
+  "python": "/workspace/ubuntu2004_cuda12_1/utils/conda-envs/ssd-gs/bin/python",
+  "data_root": "/workspace/datasets/SSD-GS/data",
+  "worker_gpus": [
+    0,
+    0,
+    1,
+    1
+  ],
+  "launch_environment": {
+    "PATH_prefix": "/workspace/ubuntu2004_cuda12_1/utils/conda-envs/ssd-gs/bin:/usr/local/cuda-12.1/bin",
+    "CUDA_HOME": "/usr/local/cuda-12.1",
+    "TORCH_CUDA_ARCH_LIST": "8.9",
+    "MAX_JOBS": "8",
+    "OMP_NUM_THREADS": "8",
+    "HF_HOME": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/third_party/hf_cache",
+    "TORCH_HOME": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/third_party/torch_cache",
+    "MPLCONFIGDIR": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/third_party/mpl_cache",
+    "PYTHONDONTWRITEBYTECODE": "1",
+    "OPENBLAS_NUM_THREADS": "1",
+    "PYTORCH_CUDA_ALLOC_CONF": "expandable_segments:True"
+  },
+  "train": {
+    "steps": 8000,
+    "seed": 0,
+    "fit-all": true,
+    "resolution": 512,
+    "background": 0.0,
+    "display-gamma": 2.2,
+    "shadow-start": 2000,
+    "port-start": 2000,
+    "lr-decay-steps": 30000,
+    "representation": "light_atlas",
+    "material-head": "svbrdf",
+    "mask-weight": 0.5,
+    "foreground-appearance-until": 2000,
+    "specular": "lobes",
+    "freeze-geometry": true,
+    "max-points": 600000,
+    "shading": "gaussian",
+    "opacity-cap": 1.0,
+    "min-scale": 0.0,
+    "max-scale": 0.0
+  },
+  "families": {
+    "Synthetic_GS3": {
+      "scenes": [
+        "Lego",
+        "Drums"
+      ],
+      "train": {
+        "background": 1.0
+      }
+    }
+  },
+  "variants": {
+    "lisa_geometry": {
+      "init-geometry": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_v2_full_dataset_20261004/lisa_v2/{family}/{scene}/last.pt"
+    },
+    "gs3_geometry": {
+      "init-geometry": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_shading_analysis_20261004/geometry_inputs/{scene}/geometry.pt"
+    }
+  },
+  "eval_split": "fit",
+  "eval_limit": 64,
+  "eval_save_all": false,
+  "eval_highlights": false,
+  "eval_shift_align": 0,
+  "eval_calibrate_test": 0
+}

@@ -1,0 +1,33 @@
+{
+  "split": "fit",
+  "checkpoint": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/refactored_six_scene_20261001_preflight/neural_material_integration/neural_material/last.pt",
+  "render_branch": "gaussian",
+  "metrics": {
+    "PSNR": 8.608869552612305,
+    "SSIM": 0.20219866931438446,
+    "raw_MSE": 0.13777470588684082,
+    "alpha_L1": 0.3978239893913269
+  },
+  "views": [
+    {
+      "frame_index": 0,
+      "name": "r_0",
+      "PSNR": 8.608869552612305,
+      "SSIM": 0.20219866931438446,
+      "raw_MSE": 0.13777470588684082,
+      "alpha_L1": 0.3978239893913269
+    }
+  ],
+  "protocol": "uint8-quantized observation RGB, unit PSNR, zero-padded 11x11 SSIM sigma1.5; LPIPS standard [-1,1]; raw_MSE is unclipped observation MSE; original held-out camera calibration",
+  "training_resolution": 32,
+  "resolution": 32,
+  "background": 0.0,
+  "evaluated_frames": 1,
+  "limit": 1,
+  "save_all": false,
+  "display_gamma": 2.2,
+  "camera_protocol": "saved training offsets on fit frames; original calibration on held-out frames",
+  "light_protocol": "original calibration",
+  "corrected_fit_frames": 0,
+  "observation_protocol": "PNG foreground gamma then alpha composition; HDR full-image gamma"
+}

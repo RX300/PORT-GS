@@ -1,0 +1,79 @@
+{
+  "name": "surface_attention_six_scene_20261001",
+  "note": "Surface attention native 2DGS, matching refactored_six_scene_20261001 six-scene 30k protocol. Reuse identical train-only normal/depth priors; original held-out camera calibration.",
+  "python": "/workspace/ubuntu2004_cuda12_1/utils/conda-envs/ssd-gs/bin/python",
+  "data_root": "/workspace/datasets/SSD-GS/data",
+  "worker_gpus": [
+    0,
+    1,
+    2
+  ],
+  "launch_environment": {
+    "PATH_prefix": "/workspace/ubuntu2004_cuda12_1/utils/conda-envs/ssd-gs/bin:/usr/local/cuda-12.1/bin",
+    "CUDA_HOME": "/usr/local/cuda-12.1",
+    "TORCH_CUDA_ARCH_LIST": "8.9",
+    "MAX_JOBS": "8",
+    "OMP_NUM_THREADS": "8",
+    "HF_HOME": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/third_party/hf_cache",
+    "TORCH_HOME": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/third_party/torch_cache",
+    "MPLCONFIGDIR": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/third_party/mpl_cache",
+    "PYTHONDONTWRITEBYTECODE": "1",
+    "OPENBLAS_NUM_THREADS": "1",
+    "PYTORCH_CUDA_ALLOC_CONF": "expandable_segments:True"
+  },
+  "train": {
+    "steps": 30000,
+    "seed": 0,
+    "fit-all": true,
+    "resolution": 512,
+    "background": 0.0,
+    "display-gamma": 2.2,
+    "surface-priors": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/refactored_six_scene_20261001/dependencies/surface_priors/{family}/{scene}"
+  },
+  "families": {
+    "Real_NRHints": {
+      "scenes": [
+        "Cat",
+        "Pixiu"
+      ],
+      "train": {
+        "optimize-cameras": true,
+        "camera-mode": "rotation",
+        "camera-gauge": "translation",
+        "camera-start": 2000,
+        "camera-lr": 0.001,
+        "camera-lr-final": 1e-05
+      }
+    },
+    "Synthetic_GS3": {
+      "scenes": [
+        "AnisoMetal",
+        "Translucent"
+      ],
+      "train": {
+        "background": 1.0
+      }
+    },
+    "Synthetic_SSS-GS": {
+      "scenes": [
+        "bunny_small",
+        "dragon_small"
+      ],
+      "train": {
+        "resolution": 256,
+        "unit-light-intensity": 1.0
+      }
+    }
+  },
+  "variants": {
+    "surface_attention": {
+      "representation": "surface_attention"
+    }
+  },
+  "eval_split": "test",
+  "eval_limit": 0,
+  "eval_save_all": true,
+  "eval_highlights": true,
+  "eval_shift_align": 0,
+  "eval_calibrate_test": 0
+}

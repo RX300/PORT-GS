@@ -1,0 +1,75 @@
+{
+  "name": "lisa_material_expansion_20261004",
+  "note": "Own16k analytic-ASG scene expands to a reflect neural local head with a zero output layer, preserving the starting render, source material frames and atlas. Geometry and saved train cameras are frozen;8k additional appearance fitting. Total24k optimized steps with geometry LR following the60k source prefix. Identical protocol on Lego/Drums/FurBall; full inherited train-internal holdout, no official test or GS3 weights.",
+  "python": "/workspace/ubuntu2004_cuda12_1/utils/conda-envs/ssd-gs/bin/python",
+  "data_root": "/workspace/datasets/SSD-GS/data",
+  "worker_gpus": [
+    1,
+    1
+  ],
+  "launch_environment": {
+    "PATH_prefix": "/workspace/ubuntu2004_cuda12_1/utils/conda-envs/ssd-gs/bin:/usr/local/cuda-12.1/bin",
+    "CUDA_HOME": "/usr/local/cuda-12.1",
+    "TORCH_CUDA_ARCH_LIST": "8.9",
+    "MAX_JOBS": "8",
+    "OMP_NUM_THREADS": "8",
+    "HF_HOME": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/third_party/hf_cache",
+    "TORCH_HOME": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/third_party/torch_cache",
+    "MPLCONFIGDIR": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/third_party/mpl_cache",
+    "PYTHONDONTWRITEBYTECODE": "1",
+    "OPENBLAS_NUM_THREADS": "1",
+    "PYTORCH_CUDA_ALLOC_CONF": "expandable_segments:True"
+  },
+  "train": {
+    "steps": 8000,
+    "seed": 0,
+    "fit-all": false,
+    "resolution": 512,
+    "background": 0.0,
+    "display-gamma": 2.2,
+    "shadow-start": 1,
+    "port-start": 1,
+    "lr-decay-steps": 8000,
+    "representation": "light_atlas",
+    "material-head": "reflect",
+    "mask-weight": 0.5,
+    "foreground-appearance-until": 2000,
+    "specular": "asg",
+    "shading": "gaussian",
+    "split-scale2d-stop": 0,
+    "refinement-metric": "gradient",
+    "material-activation": "softplus",
+    "geometry-warmup-steps": 0,
+    "normal-model": "learned",
+    "save-steps": [],
+    "refine-stop": 0,
+    "initialization": "camera",
+    "init-checkpoint": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_shading_analysis_20261004/material_expansion_sources/{scene}.pt",
+    "reset-material": true,
+    "freeze-geometry": true,
+    "opacity-cap": 1.0,
+    "min-scale": 0.0,
+    "max-scale": 0.0
+  },
+  "families": {
+    "Synthetic_GS3": {
+      "scenes": [
+        "Lego",
+        "Drums",
+        "FurBall"
+      ],
+      "train": {
+        "background": 1.0
+      }
+    }
+  },
+  "variants": {
+    "frozen_neural": {}
+  },
+  "eval_split": "validation",
+  "eval_limit": 0,
+  "eval_save_all": false,
+  "eval_highlights": false,
+  "eval_shift_align": 0,
+  "eval_calibrate_test": 0
+}

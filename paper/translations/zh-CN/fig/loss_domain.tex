@@ -1,0 +1,15 @@
+\begin{figure}[t]
+\centering
+\setlength{\tabcolsep}{0.8pt}
+\renewcommand{\arraystretch}{0.5}
+\newcommand{\lw}{0.322\linewidth}
+\begin{tabular}{@{}ccc@{}}
+\small 显示域损失 & \small 辐射度量分阶段流程 & \small 真值 \\[2pt]
+\includegraphics[width=\lw]{figures/loss_domain/lego/control_crop.png} & \includegraphics[width=\lw]{figures/loss_domain/lego/ours_crop.png} & \includegraphics[width=\lw]{figures/loss_domain/lego/gt_crop.png} \\
+\footnotesize 23.02\,dB & \footnotesize \textbf{30.25\,dB} & \footnotesize Lego \\[3pt]
+\includegraphics[width=\lw]{figures/loss_domain/drums/control_crop.png} & \includegraphics[width=\lw]{figures/loss_domain/drums/ours_crop.png} & \includegraphics[width=\lw]{figures/loss_domain/drums/gt_crop.png} \\
+\footnotesize 24.10\,dB & \footnotesize \textbf{30.10\,dB} & \footnotesize Drums \\[3pt]
+\end{tabular}
+\caption{\textbf{损失计算域与几何。}两次训练共享初始化、训练流程、随机状态及所有其他设置，仅损失计算域不同：显示编码辐亮度，或退火预热后的线性辐亮度。训练 16k 次迭代，PSNR 在 200 个留出训练视图上计算。两个场景的全部 200 个视图均得到改善。}
+\label{fig:loss_domain}
+\end{figure}

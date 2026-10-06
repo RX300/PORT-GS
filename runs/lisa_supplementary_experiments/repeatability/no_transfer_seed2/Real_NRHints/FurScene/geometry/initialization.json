@@ -1,0 +1,61 @@
+{
+  "coarse_supported_points": 21261,
+  "proposal_bounds": [
+    [
+      -0.7999700307846069,
+      -0.7861436009407043,
+      -0.7878682613372803
+    ],
+    [
+      0.7990710139274597,
+      0.35655683279037476,
+      0.7793176174163818
+    ]
+  ],
+  "proposal_points": 160000,
+  "accepted_points": 48798,
+  "mask_dilation_pixels": 2,
+  "minimum_view_fraction": 0.9,
+  "alpha_threshold": 0.05,
+  "scale_rule": "RMS distance to the three nearest neighbors",
+  "mode": "hull",
+  "scene": "/workspace/datasets/SSD-GS/data/Real_NRHints/FurScene",
+  "fit_frames": [
+    0,
+    21,
+    42,
+    63,
+    84,
+    105,
+    126,
+    147,
+    168,
+    189,
+    210,
+    231,
+    252,
+    273,
+    294,
+    315,
+    336,
+    357,
+    378,
+    399,
+    420,
+    441,
+    462,
+    483,
+    504,
+    525,
+    546,
+    567,
+    588,
+    609,
+    630,
+    651
+  ],
+  "points": 20000,
+  "seed": 2,
+  "radius": 1.106094217300415,
+  "scope": "Fresh seeds from training cameras and masks only"
+}

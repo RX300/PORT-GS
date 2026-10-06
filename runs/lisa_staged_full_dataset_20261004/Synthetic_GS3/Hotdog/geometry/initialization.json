@@ -1,0 +1,61 @@
+{
+  "coarse_supported_points": 10007,
+  "proposal_bounds": [
+    [
+      -1.0418422222137451,
+      -1.1264744997024536,
+      -0.3029389977455139
+    ],
+    [
+      1.0554358959197998,
+      0.9757091403007507,
+      0.31654438376426697
+    ]
+  ],
+  "proposal_points": 160000,
+  "accepted_points": 53183,
+  "mask_dilation_pixels": 2,
+  "minimum_view_fraction": 0.9,
+  "alpha_threshold": 0.05,
+  "scale_rule": "RMS distance to the three nearest neighbors",
+  "mode": "hull",
+  "scene": "/workspace/datasets/SSD-GS/data/Synthetic_GS3/Hotdog",
+  "fit_frames": [
+    0,
+    62,
+    124,
+    186,
+    248,
+    310,
+    372,
+    434,
+    496,
+    558,
+    620,
+    682,
+    744,
+    806,
+    868,
+    930,
+    992,
+    1054,
+    1116,
+    1178,
+    1240,
+    1302,
+    1364,
+    1426,
+    1488,
+    1550,
+    1612,
+    1674,
+    1736,
+    1798,
+    1860,
+    1922
+  ],
+  "points": 20000,
+  "seed": 0,
+  "radius": 1.4360734462738036,
+  "scope": "Fresh seeds from training cameras and masks only"
+}

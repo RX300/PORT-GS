@@ -1,0 +1,98 @@
+\section{光源空间图集}
+\label{sec:method}
+
+\input{fig/pipeline}
+
+我们从图像集合 $\{Y_m\}$ 重建物体。每张图像均由经过标定的相机拍摄，并由位于 $\vect p_m$、RGB 强度为 $\vect I_m$ 的点光源照明（\cref{fig:pipeline}）。
+
+\subsection{预备知识}
+\label{sec:prelim}
+场景由一组三维高斯组成，其均值、协方差和不透明度分别为 $\mu_i$、$\Sigma_i$ 和 $o_i$~\cite{kerbl20233d}。
+每个高斯携带基础颜色 $\vect b_i\in\mathbb R^3$ 和潜在材质编码 $\vect f_i\in\mathbb R^{32}$，其中前三个通道定义可学习的单位法线 $\vect n_i$。
+泼溅按从前到后的顺序合成逐高斯属性 $\vect c_i$：
+\begin{equation}
+  \bar{\vect c}(u)=\sum_i w_i(u)\,\vect c_i,\qquad w_i(u)=\alpha_i(u)\prod_{j<i}\big(1-\alpha_j(u)\big),
+  \label{eq:composite}
+\end{equation}
+其中，$\alpha_i(u)$ 为高斯 $i$ 在像素 $u$ 处的不透明度。
+对于点 $\vect x$，以 $\vect l,\vect v,\vect h$ 分别表示单位光照方向、视线方向和半程向量，并以 $\bar E(\vect x)=\vect I/\|\vect p-\vect x\|^2$ 表示法向入射时的辐照度。
+
+\subsection{从光源视角泼溅以记录沉积量}
+\label{sec:deposit}
+在光源位置放置一台朝向场景中心的透视相机，视场覆盖 99.9\% 高斯的泼溅范围。
+其像素 $u$ 对应立体角 $d\omega_u$，接收通量 $\vect I\,d\omega_u$。
+在泼溅模型中，每个高斯吸收沿射线继续传播的光中 $\alpha_i(u)$ 的比例，因此其截获通量为
+\begin{equation}
+  P_i(u)=\vect I\,d\omega_u\,w_i(u),
+  \label{eq:flux}
+\end{equation}
+其中权重由 \cref{eq:composite} 给出。
+这一关系成立于光栅化泼溅模型内部；该模型通过瓦片内按中心深度排序、低通滤波和不透明度截断，近似体积透射率~\cite{radl2024stopthepop,huang2024error,talegaonkar2025volumetrically,yu2024mip}。
+\cref{eq:flux} 不显式包含法线或距离：距离为 $r$、入射角为 $\theta$ 的面元 $dA$ 接收 $\vect I\cos\theta\,dA/r^2=\vect I\,d\omega$，因此投影缩短和距离衰减已经由表面覆盖的光源像素数量体现。
+
+\paragraph{图集。}
+每个高斯输出 $\vect c_i=[\boldsymbol\phi_i,\,z_i,\,z_i^2,\,1]$，其中 $z_i$ 是其中心沿光源光轴的深度，以场景中心为基准并用场景半径归一化；$\boldsymbol\phi_i=\softplus(\mathrm{MLP}_\phi(\vect f_i,\vect b_i,\vect n_i\cdot\vect l_i))\in\mathbb R_+^{C}$ 为 $C=8$ 个可学习通量特征。
+一次 $512^2$ 光栅化得到图集
+\begin{equation}
+  \vect A(u)=\sum_i w_i(u)\,\vect c_i=\big[\boldsymbol\Phi(u),\,M_1(u),\,M_2(u),\,M_0(u)\big],
+  \label{eq:atlas}
+\end{equation}
+它表示以该像素入射通量为单位的沉积量：$M_0$ 是被场景吸收的通量比例，$M_1/M_0$ 和 $M_2/M_0$ 是吸收深度的前两个矩，$\boldsymbol\Phi$ 则描述光落在了何种物体上。
+绝对沉积量 $\vect I\,d\omega_u\vect A(u)$ 还涉及立体角因子，且 $d\omega_u\propto\cos^3$，其中余弦对应偏离光轴的角度。
+在我们的数据中，典型图集内该量的变化小于 30\%（最宽视场的图集角落可相差 $2.1\times$）；下文的阴影统计量是比值，不依赖它，而光传输项忽略了这一因子。
+反复进行二项式模糊和 $2\times$ 下采样，得到具有 $K=7$ 个层级的金字塔 $\vect A_0,\dots,\vect A_{K-1}$。
+由于每个通道对权重 $w_i$ 都呈线性，各层仍保存相应覆盖区域内沉积量的矩与特征和；覆盖范围从单个纹素逐渐增至约三分之一物体大小，这正是此类阴影图可以进行滤波的原因~\cite{donnelly2006variance,peters2015moment}。
+
+\subsection{根据图集着色}
+\label{sec:shading}
+接收点 $\vect x$ 以归一化深度 $z(\vect x)$ 投影至光源视图的 $u(\vect x)$，并对每个层级进行双线性采样。
+在层级 $k$，我们构造平均沉积深度 $\bar z_k=M_{1,k}/M_{0,k}$、包含纹素尺寸 $\tau_k$ 的离散程度 $\eta_k=(M_{2,k}/M_{0,k}-\bar z_k^2+\tau_k^2)^{1/2}$、接收点相对沉积深度的后向偏移 $\delta_k=z-\bar z_k$，以及 $t_k=\delta_k/\eta_k$。
+若覆盖区域内的沉积深度服从正态分布，则在接收点之前吸收的光比例为 $M_{0,k}\,G(t_k)$，其中 $G$ 为标准正态累积分布函数，由此得到基于矩的检验：
+\begin{equation}
+  V_k=1-M_{0,k}\,G(t_k-\beta),
+  \label{eq:moment}
+\end{equation}
+其中偏置 $\beta=3$ 以局部离散程度为单位，用于避免自阴影。
+所有层级的描述子 $\vect q_k=[M_{0,k},t_k,\delta_k,\log\eta_k,V_k]$ 组成 $\vect Q(\vect x)\in\mathbb R^{5K}$。
+当遮挡物与接收点处于同一覆盖区域时，这一检验只能提供较弱的先验（例如，不透明接收点前方有半透明遮挡物时，$t_0=1$，\cref{eq:moment} 返回的是 $0.98$ 而非 $0.5$，方差阴影图的切比雪夫界则能给出正确结果~\cite{donnelly2006variance}）。
+此外，每个高斯存入的是中心深度，因此一个受到斜向照明的大型高斯会被表示为单一深度。
+
+\paragraph{可见性。}
+以零初始化的残差网络 $\mathcal G$ 修正最细层级的检验：
+\begin{equation}
+  V(\vect x)=\sigma\big(\logit V_0(\vect x)+\mathcal G(\vect Q,\vect f,\vect n\cdot\vect l)\big),
+  \label{eq:visibility}
+\end{equation}
+因此，训练从经典滤波阴影图出发，$\mathcal G$ 根据多尺度统计量学习修正上述情形，以及毛发的部分透光和真实有限尺寸光源产生的柔软阴影边界。
+
+\paragraph{光传输。}
+根据 \cref{eq:flux}，进入半透明物体并在 $\vect x$ 处离开的光，其贡献为 $\vect I\!\int\!\sum_i R(\vect x,\mu_i)\,w_i(\omega)\,d\omega$：即将依赖接收点的核 $R$ 与沉积量相乘，在光源立体角范围内积分。
+半透明阴影图通过存储辐照度和固定扩散核计算此类积分~\cite{dachsbacher2003translucent,deon2007efficient,jimenez2010real}。
+我们同时学习沉积特征和核，并将金字塔层级作为宽度递增的核：
+\begin{align}
+  L_{\mathrm{tr}}(\vect x)&=\textstyle\sum_{k}\vect W_k\,\boldsymbol\Phi_k(\vect x),\label{eq:transfer}\\
+  \{\vect W_k\}_k&=\softplus\big(\mathcal K(\vect Q,\vect f,\vect n\cdot\vect l,\vect n\cdot\vect v)\big),\quad \vect W_k\in\mathbb R_+^{3\times C}.\nonumber
+\end{align}
+这些核仅依赖接收点及几何统计量 $\vect Q$，因此在给定几何与光源时，$L_{\mathrm{tr}}$ 对沉积特征呈线性。
+由于接收点自身的沉积量也位于其覆盖区域内，$L_{\mathrm{tr}}$ 同样可能吸收部分直接反射，各项之间的分配由学习决定。
+
+\paragraph{局部材质与辐亮度。}
+局部反射率 $\rho(\vect x)$ 是由潜在编码驱动的神经 BRDF：MLP 的输入包括 $\vect f$、$\vect n$、$\vect l,\vect v,\vect h$ 及反射视线方向 $\vect r$ 的傅里叶编码、相关余弦项和高光提示 $e^{\kappa(\vect n\cdot\vect h-1)}$~\cite{zeng2023nrhints}，其输出再乘以平滑余弦 $\psi(\vect n\cdot\vect l)=\softplus(20\,\vect n\cdot\vect l)/20$。
+位置信息仅通过八个与光源无关的系数进入模型，用于混合八个依赖光源的响应，从而限制投射阴影被固化到材质中的程度（自由的逐高斯编码仍允许其中一部分）。
+各向同性瓣函数 $s(\vect x)$ 采用固定锐度 $\kappa\in\{8,\dots,2048\}$ 和与光源无关的权重，负责表达尖锐高光。
+出射辐亮度为
+\begin{equation}
+  L(\vect x)=\bar E(\vect x)\big[V(\vect x)\,\rho(\vect x)+V_0(\vect x)\,s(\vect x)+L_{\mathrm{tr}}(\vect x)\big].
+  \label{eq:radiance}
+\end{equation}
+瓣函数使用几何检验 $V_0$，使高光在可学习的 $V$ 尚不准确时仍保有梯度传播路径。
+将 $\bar E(\vect x)$ 提取到括号外，使网络能够预测类似反射率的量；对 $L_{\mathrm{tr}}$ 而言，这相当于以接收点处的距离衰减替代入射点处的衰减，在背光透射情形中会产生两者到光源距离平方比 $(r_{\mathrm{out}}/r_{\mathrm{in}})^2$ 的偏差。
+核只能在平均意义上吸收这一误差；当同一次拍摄中的光源距离变化较小时，这种近似足够有效（合成场景中距离不变，真实场景中变化不超过 $1.8\times$；见补充材料）。
+$\mathcal G$ 和 $\mathcal K$ 的所有输入都相对于光源定义，因此算子定义在光源坐标系中，而非按光源位置索引；这是否有助于外推，将由实验 E1 检验（\cref{sec:exp_atlas}）。
+
+\subsection{接收点：高斯或像素}
+\label{sec:receivers}
+\emph{高斯接收点}对每个高斯中心 $\mu_i$ 着色，再用 \cref{eq:composite} 合成颜色；\emph{像素接收点}则先合成 $\vect b,\vect f$ 和期望深度，将每个像素反投影为世界坐标点，再进行一次着色。
+高斯接收点为几何提供增密所依赖的常规光栅化梯度，并避免重叠表面的材质混合，但也继承了 \cref{sec:intro} 所述逐图元阴影的局限。
+像素接收点在每个像素对应的表面位置求值阴影检验，因此阴影边界可以穿过大型高斯。
+与 RNG 从前向着色切换到延迟着色的做法类似~\cite{fan2025rng}，\ours 在几何优化期间使用高斯接收点，几何固定后改用像素接收点（\cref{sec:optimization}），两者共享同一图集。

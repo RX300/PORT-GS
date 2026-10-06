@@ -1,0 +1,61 @@
+{
+  "coarse_supported_points": 11547,
+  "proposal_bounds": [
+    [
+      -0.7581942677497864,
+      -1.0740023851394653,
+      -0.8707653284072876
+    ],
+    [
+      0.7866256833076477,
+      0.4748402535915375,
+      0.8701398372650146
+    ]
+  ],
+  "proposal_points": 160000,
+  "accepted_points": 49031,
+  "mask_dilation_pixels": 2,
+  "minimum_view_fraction": 0.9,
+  "alpha_threshold": 0.05,
+  "scale_rule": "RMS distance to the three nearest neighbors",
+  "mode": "hull",
+  "scene": "/workspace/datasets/SSD-GS/data/Real_NRHints/CupFabric",
+  "fit_frames": [
+    0,
+    36,
+    72,
+    108,
+    144,
+    180,
+    216,
+    252,
+    288,
+    324,
+    360,
+    396,
+    432,
+    468,
+    504,
+    540,
+    576,
+    612,
+    648,
+    684,
+    720,
+    756,
+    792,
+    828,
+    864,
+    900,
+    936,
+    972,
+    1008,
+    1044,
+    1080,
+    1116
+  ],
+  "points": 20000,
+  "seed": 0,
+  "radius": 1.5346717357635498,
+  "scope": "Fresh seeds from training cameras and masks only"
+}

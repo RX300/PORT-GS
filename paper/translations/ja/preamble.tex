@@ -1,0 +1,65 @@
+%% Preamble for the LiSA CVPR 2027 submission.
+%% Based on preamble.tex of the official cvpr-org/author-kit (main branch); only additions below.
+
+%% Official support for 2-column teaser figure
+\usepackage{cuted} %< for strip environment
+\usepackage{currfile} %< for \currfilebase macro
+\usepackage{caption} %< for "\captionof" commands (teaser)
+
+%% Tables and figures
+\usepackage{multirow}
+\usepackage{tikz}
+\usetikzlibrary{positioning,fit,calc,arrows.meta,backgrounds}
+
+%% Text layout (enabled to stay within the page limit without altering the official margins)
+\usepackage{microtype}
+
+%% Inline annotations (from the kit). Placeholders for experiments that still have to be run are
+%% rendered in red so that they cannot be overlooked; see paper/README.md, "Experiments to run".
+\newcommand{\red}[1]{{\color{red}#1}}
+\newcommand{\todo}[1]{{\color{red}#1}}
+\newcommand{\TODO}[1]{\textbf{\color{red}[TODO: #1]}}
+\newcommand{\TBD}{{\color{red}\textbf{TBD}}}
+\newcommand{\torun}[1]{{\color{red}\textbf{[TO RUN]} #1}}
+%% For the camera-ready / final submission, all \torun and \TBD entries must be resolved.
+
+%% Shorthands
+\usepackage{xspace}
+\newcommand{\ours}{LiSA\xspace}
+\newcommand{\gsthree}{GS$^3$\xspace}
+\newcommand{\vect}[1]{\mathbf{#1}}
+\DeclareMathOperator{\logit}{logit}
+\DeclareMathOperator{\softplus}{softplus}
+
+%% Japanese reading edition. XeLaTeX; fonts stay local to the translation.
+\usepackage{fontspec}
+\setmainfont[Path=../assets/fonts/,AutoFakeBold=2,AutoFakeSlant=0.15]{NotoSerifCJKjp-Regular.otf}
+\setsansfont[Path=../assets/fonts/,AutoFakeBold=2,AutoFakeSlant=0.15]{NotoSerifCJKjp-Regular.otf}
+\setmonofont[Path=../assets/fonts/,AutoFakeBold=2]{NotoSerifCJKjp-Regular.otf}
+\XeTeXlinebreaklocale "ja"
+\XeTeXlinebreakskip=0pt plus 1pt
+\setlength{\emergencystretch}{1em}
+\renewcommand{\baselinestretch}{1.05}
+\def\elvbf{\normalfont\bfseries\fontsize{11}{13}\selectfont}
+\def\tenbf{\normalfont\bfseries\fontsize{10}{12}\selectfont}
+\renewcommand{\figurename}{図}
+\renewcommand{\tablename}{表}
+\renewcommand{\refname}{参考文献}
+\renewcommand{\torun}[1]{{\color{red}\textbf{[未実施]} #1}}
+\renewcommand{\TBD}{{\color{red}\textbf{未定}}}
+\AtBeginDocument{
+\crefname{figure}{図}{図}
+\Crefname{figure}{図}{図}
+\crefname{table}{表}{表}
+\Crefname{table}{表}{表}
+\crefname{equation}{式}{式}
+\Crefname{equation}{式}{式}
+\crefformat{section}{第~#2#1#3~節}
+\Crefformat{section}{第~#2#1#3~節}
+}
+\makeatletter
+\patchcmd{\abstract}{Abstract}{要旨}{}{}
+\patchcmd{\@maketitle}{Anonymous \confName~submission}{\confName~匿名投稿}{}{}
+\patchcmd{\@maketitle}{Paper ID}{論文番号}{}{}
+\patchcmd{\maketitlesupplementary}{Supplementary Material}{補足資料}{}{}
+\makeatother

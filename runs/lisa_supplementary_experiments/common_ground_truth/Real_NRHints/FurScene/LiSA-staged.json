@@ -1,0 +1,787 @@
+{
+  "method": "LiSA-staged",
+  "family": "Real_NRHints",
+  "scene": "FurScene",
+  "metrics": {
+    "PSNR": 24.474097150914808,
+    "SSIM": 0.8637559505069957,
+    "LPIPS": 0.11946947688565535,
+    "unitRGBMSE": 0.004179130619912244
+  },
+  "views": [
+    {
+      "frame_index": 0,
+      "name": "r_0",
+      "file_path": "./test/r_0",
+      "PSNR": 26.93073272705078,
+      "SSIM": 0.9067475199699402,
+      "LPIPS": 0.10708712041378021,
+      "unitRGBMSE": 0.002027340466156602
+    },
+    {
+      "frame_index": 1,
+      "name": "r_1",
+      "file_path": "./test/r_1",
+      "PSNR": 24.458660125732422,
+      "SSIM": 0.8595630526542664,
+      "LPIPS": 0.13982237875461578,
+      "unitRGBMSE": 0.0035820691846311092
+    },
+    {
+      "frame_index": 2,
+      "name": "r_2",
+      "file_path": "./test/r_2",
+      "PSNR": 19.854761123657227,
+      "SSIM": 0.7978721857070923,
+      "LPIPS": 0.1510591208934784,
+      "unitRGBMSE": 0.010340079665184021
+    },
+    {
+      "frame_index": 3,
+      "name": "r_3",
+      "file_path": "./test/r_3",
+      "PSNR": 20.438640594482422,
+      "SSIM": 0.7787742614746094,
+      "LPIPS": 0.1435782015323639,
+      "unitRGBMSE": 0.009039327502250671
+    },
+    {
+      "frame_index": 4,
+      "name": "r_4",
+      "file_path": "./test/r_4",
+      "PSNR": 25.31184196472168,
+      "SSIM": 0.8655699491500854,
+      "LPIPS": 0.10246125608682632,
+      "unitRGBMSE": 0.0029431735165417194
+    },
+    {
+      "frame_index": 5,
+      "name": "r_5",
+      "file_path": "./test/r_5",
+      "PSNR": 25.11886215209961,
+      "SSIM": 0.8674446940422058,
+      "LPIPS": 0.13749220967292786,
+      "unitRGBMSE": 0.0030769032891839743
+    },
+    {
+      "frame_index": 6,
+      "name": "r_6",
+      "file_path": "./test/r_6",
+      "PSNR": 26.350967407226562,
+      "SSIM": 0.9170732498168945,
+      "LPIPS": 0.08698107302188873,
+      "unitRGBMSE": 0.0023168781772255898
+    },
+    {
+      "frame_index": 7,
+      "name": "r_7",
+      "file_path": "./test/r_7",
+      "PSNR": 26.510408401489258,
+      "SSIM": 0.895797610282898,
+      "LPIPS": 0.10115348547697067,
+      "unitRGBMSE": 0.0022333632223308086
+    },
+    {
+      "frame_index": 8,
+      "name": "r_8",
+      "file_path": "./test/r_8",
+      "PSNR": 22.695253372192383,
+      "SSIM": 0.7891616821289062,
+      "LPIPS": 0.1675587296485901,
+      "unitRGBMSE": 0.005376189947128296
+    },
+    {
+      "frame_index": 9,
+      "name": "r_9",
+      "file_path": "./test/r_9",
+      "PSNR": 24.044414520263672,
+      "SSIM": 0.8705768585205078,
+      "LPIPS": 0.09673300385475159,
+      "unitRGBMSE": 0.0039405664429068565
+    },
+    {
+      "frame_index": 10,
+      "name": "r_10",
+      "file_path": "./test/r_10",
+      "PSNR": 22.883285522460938,
+      "SSIM": 0.8504173159599304,
+      "LPIPS": 0.13230103254318237,
+      "unitRGBMSE": 0.005148387514054775
+    },
+    {
+      "frame_index": 11,
+      "name": "r_11",
+      "file_path": "./test/r_11",
+      "PSNR": 23.251060485839844,
+      "SSIM": 0.8360235095024109,
+      "LPIPS": 0.1421491503715515,
+      "unitRGBMSE": 0.004730356857180595
+    },
+    {
+      "frame_index": 12,
+      "name": "r_12",
+      "file_path": "./test/r_12",
+      "PSNR": 29.10161018371582,
+      "SSIM": 0.9336122274398804,
+      "LPIPS": 0.08148656040430069,
+      "unitRGBMSE": 0.0012298126239329576
+    },
+    {
+      "frame_index": 13,
+      "name": "r_13",
+      "file_path": "./test/r_13",
+      "PSNR": 20.503456115722656,
+      "SSIM": 0.8086899518966675,
+      "LPIPS": 0.15359671413898468,
+      "unitRGBMSE": 0.008905419148504734
+    },
+    {
+      "frame_index": 14,
+      "name": "r_14",
+      "file_path": "./test/r_14",
+      "PSNR": 29.189340591430664,
+      "SSIM": 0.9140661954879761,
+      "LPIPS": 0.10274051129817963,
+      "unitRGBMSE": 0.001205218955874443
+    },
+    {
+      "frame_index": 15,
+      "name": "r_15",
+      "file_path": "./test/r_15",
+      "PSNR": 23.77993392944336,
+      "SSIM": 0.8570702075958252,
+      "LPIPS": 0.10507122427225113,
+      "unitRGBMSE": 0.0041879997588694096
+    },
+    {
+      "frame_index": 16,
+      "name": "r_16",
+      "file_path": "./test/r_16",
+      "PSNR": 22.978364944458008,
+      "SSIM": 0.8470420837402344,
+      "LPIPS": 0.12189711630344391,
+      "unitRGBMSE": 0.0050369021482765675
+    },
+    {
+      "frame_index": 17,
+      "name": "r_17",
+      "file_path": "./test/r_17",
+      "PSNR": 30.841842651367188,
+      "SSIM": 0.9339541792869568,
+      "LPIPS": 0.09831736981868744,
+      "unitRGBMSE": 0.0008237886941060424
+    },
+    {
+      "frame_index": 18,
+      "name": "r_18",
+      "file_path": "./test/r_18",
+      "PSNR": 23.28568458557129,
+      "SSIM": 0.8541692495346069,
+      "LPIPS": 0.12691007554531097,
+      "unitRGBMSE": 0.0046927956864237785
+    },
+    {
+      "frame_index": 19,
+      "name": "r_19",
+      "file_path": "./test/r_19",
+      "PSNR": 24.471914291381836,
+      "SSIM": 0.8601198196411133,
+      "LPIPS": 0.12711746990680695,
+      "unitRGBMSE": 0.003571153152734041
+    },
+    {
+      "frame_index": 20,
+      "name": "r_20",
+      "file_path": "./test/r_20",
+      "PSNR": 21.75714683532715,
+      "SSIM": 0.839251697063446,
+      "LPIPS": 0.10820987075567245,
+      "unitRGBMSE": 0.006672452669590712
+    },
+    {
+      "frame_index": 21,
+      "name": "r_21",
+      "file_path": "./test/r_21",
+      "PSNR": 22.734371185302734,
+      "SSIM": 0.8358020782470703,
+      "LPIPS": 0.143832728266716,
+      "unitRGBMSE": 0.005327984690666199
+    },
+    {
+      "frame_index": 22,
+      "name": "r_22",
+      "file_path": "./test/r_22",
+      "PSNR": 22.82358169555664,
+      "SSIM": 0.8367214202880859,
+      "LPIPS": 0.11242445558309555,
+      "unitRGBMSE": 0.0052196551114320755
+    },
+    {
+      "frame_index": 23,
+      "name": "r_23",
+      "file_path": "./test/r_23",
+      "PSNR": 22.6195125579834,
+      "SSIM": 0.822060227394104,
+      "LPIPS": 0.14624035358428955,
+      "unitRGBMSE": 0.005470774136483669
+    },
+    {
+      "frame_index": 24,
+      "name": "r_24",
+      "file_path": "./test/r_24",
+      "PSNR": 23.776668548583984,
+      "SSIM": 0.8688734769821167,
+      "LPIPS": 0.10045314580202103,
+      "unitRGBMSE": 0.004191149957478046
+    },
+    {
+      "frame_index": 25,
+      "name": "r_25",
+      "file_path": "./test/r_25",
+      "PSNR": 24.375423431396484,
+      "SSIM": 0.8385792970657349,
+      "LPIPS": 0.12331531196832657,
+      "unitRGBMSE": 0.003651384962722659
+    },
+    {
+      "frame_index": 26,
+      "name": "r_26",
+      "file_path": "./test/r_26",
+      "PSNR": 21.472549438476562,
+      "SSIM": 0.7926310300827026,
+      "LPIPS": 0.14619873464107513,
+      "unitRGBMSE": 0.007124347146600485
+    },
+    {
+      "frame_index": 27,
+      "name": "r_27",
+      "file_path": "./test/r_27",
+      "PSNR": 30.79477310180664,
+      "SSIM": 0.9203387498855591,
+      "LPIPS": 0.09667408466339111,
+      "unitRGBMSE": 0.0008327655377797782
+    },
+    {
+      "frame_index": 28,
+      "name": "r_28",
+      "file_path": "./test/r_28",
+      "PSNR": 24.693910598754883,
+      "SSIM": 0.8696084022521973,
+      "LPIPS": 0.10129749774932861,
+      "unitRGBMSE": 0.0033931960351765156
+    },
+    {
+      "frame_index": 29,
+      "name": "r_29",
+      "file_path": "./test/r_29",
+      "PSNR": 28.5446720123291,
+      "SSIM": 0.9266469478607178,
+      "LPIPS": 0.0906648337841034,
+      "unitRGBMSE": 0.001398082822561264
+    },
+    {
+      "frame_index": 30,
+      "name": "r_30",
+      "file_path": "./test/r_30",
+      "PSNR": 24.957183837890625,
+      "SSIM": 0.8417601585388184,
+      "LPIPS": 0.1320505142211914,
+      "unitRGBMSE": 0.00319360732100904
+    },
+    {
+      "frame_index": 31,
+      "name": "r_31",
+      "file_path": "./test/r_31",
+      "PSNR": 28.43551254272461,
+      "SSIM": 0.90460604429245,
+      "LPIPS": 0.09860195219516754,
+      "unitRGBMSE": 0.0014336694730445743
+    },
+    {
+      "frame_index": 32,
+      "name": "r_32",
+      "file_path": "./test/r_32",
+      "PSNR": 25.667144775390625,
+      "SSIM": 0.9026691913604736,
+      "LPIPS": 0.12959986925125122,
+      "unitRGBMSE": 0.0027119736187160015
+    },
+    {
+      "frame_index": 33,
+      "name": "r_33",
+      "file_path": "./test/r_33",
+      "PSNR": 22.15839385986328,
+      "SSIM": 0.8171937465667725,
+      "LPIPS": 0.13800466060638428,
+      "unitRGBMSE": 0.006083599757403135
+    },
+    {
+      "frame_index": 34,
+      "name": "r_34",
+      "file_path": "./test/r_34",
+      "PSNR": 29.65890884399414,
+      "SSIM": 0.9260229468345642,
+      "LPIPS": 0.08075323700904846,
+      "unitRGBMSE": 0.0010817059082910419
+    },
+    {
+      "frame_index": 35,
+      "name": "r_35",
+      "file_path": "./test/r_35",
+      "PSNR": 21.98481559753418,
+      "SSIM": 0.8386308550834656,
+      "LPIPS": 0.1518464982509613,
+      "unitRGBMSE": 0.0063316710293293
+    },
+    {
+      "frame_index": 36,
+      "name": "r_36",
+      "file_path": "./test/r_36",
+      "PSNR": 26.53519630432129,
+      "SSIM": 0.9015781283378601,
+      "LPIPS": 0.10255203396081924,
+      "unitRGBMSE": 0.0022206520661711693
+    },
+    {
+      "frame_index": 37,
+      "name": "r_37",
+      "file_path": "./test/r_37",
+      "PSNR": 23.078405380249023,
+      "SSIM": 0.8471978902816772,
+      "LPIPS": 0.10419469326734543,
+      "unitRGBMSE": 0.004922203719615936
+    },
+    {
+      "frame_index": 38,
+      "name": "r_38",
+      "file_path": "./test/r_38",
+      "PSNR": 22.342426300048828,
+      "SSIM": 0.8296813368797302,
+      "LPIPS": 0.11820220947265625,
+      "unitRGBMSE": 0.0058311945758759975
+    },
+    {
+      "frame_index": 39,
+      "name": "r_39",
+      "file_path": "./test/r_39",
+      "PSNR": 27.897701263427734,
+      "SSIM": 0.9210027456283569,
+      "LPIPS": 0.08363965153694153,
+      "unitRGBMSE": 0.0016226688167080283
+    },
+    {
+      "frame_index": 40,
+      "name": "r_40",
+      "file_path": "./test/r_40",
+      "PSNR": 26.78072738647461,
+      "SSIM": 0.8854910731315613,
+      "LPIPS": 0.10482212156057358,
+      "unitRGBMSE": 0.002098588738590479
+    },
+    {
+      "frame_index": 41,
+      "name": "r_41",
+      "file_path": "./test/r_41",
+      "PSNR": 22.788188934326172,
+      "SSIM": 0.867879331111908,
+      "LPIPS": 0.12100102007389069,
+      "unitRGBMSE": 0.0052623688243329525
+    },
+    {
+      "frame_index": 42,
+      "name": "r_42",
+      "file_path": "./test/r_42",
+      "PSNR": 23.827037811279297,
+      "SSIM": 0.8710988759994507,
+      "LPIPS": 0.11556123197078705,
+      "unitRGBMSE": 0.004142820835113525
+    },
+    {
+      "frame_index": 43,
+      "name": "r_43",
+      "file_path": "./test/r_43",
+      "PSNR": 25.328845977783203,
+      "SSIM": 0.8589932322502136,
+      "LPIPS": 0.13807299733161926,
+      "unitRGBMSE": 0.002931672614067793
+    },
+    {
+      "frame_index": 44,
+      "name": "r_44",
+      "file_path": "./test/r_44",
+      "PSNR": 25.758020401000977,
+      "SSIM": 0.8904987573623657,
+      "LPIPS": 0.1160401999950409,
+      "unitRGBMSE": 0.0026558160316199064
+    },
+    {
+      "frame_index": 45,
+      "name": "r_45",
+      "file_path": "./test/r_45",
+      "PSNR": 24.482528686523438,
+      "SSIM": 0.8961889743804932,
+      "LPIPS": 0.10781959444284439,
+      "unitRGBMSE": 0.0035624373704195023
+    },
+    {
+      "frame_index": 46,
+      "name": "r_46",
+      "file_path": "./test/r_46",
+      "PSNR": 26.079681396484375,
+      "SSIM": 0.9014860987663269,
+      "LPIPS": 0.1017322689294815,
+      "unitRGBMSE": 0.002466220874339342
+    },
+    {
+      "frame_index": 47,
+      "name": "r_47",
+      "file_path": "./test/r_47",
+      "PSNR": 28.785646438598633,
+      "SSIM": 0.9239975810050964,
+      "LPIPS": 0.09242400527000427,
+      "unitRGBMSE": 0.001322621013969183
+    },
+    {
+      "frame_index": 48,
+      "name": "r_48",
+      "file_path": "./test/r_48",
+      "PSNR": 21.129150390625,
+      "SSIM": 0.8322024345397949,
+      "LPIPS": 0.11722313612699509,
+      "unitRGBMSE": 0.007710543926805258
+    },
+    {
+      "frame_index": 49,
+      "name": "r_49",
+      "file_path": "./test/r_49",
+      "PSNR": 20.092077255249023,
+      "SSIM": 0.8223912119865417,
+      "LPIPS": 0.149612694978714,
+      "unitRGBMSE": 0.009790221229195595
+    },
+    {
+      "frame_index": 50,
+      "name": "r_50",
+      "file_path": "./test/r_50",
+      "PSNR": 24.491336822509766,
+      "SSIM": 0.8999950289726257,
+      "LPIPS": 0.1049002930521965,
+      "unitRGBMSE": 0.0035552200861275196
+    },
+    {
+      "frame_index": 51,
+      "name": "r_51",
+      "file_path": "./test/r_51",
+      "PSNR": 22.210704803466797,
+      "SSIM": 0.8482665419578552,
+      "LPIPS": 0.10998719185590744,
+      "unitRGBMSE": 0.006010761018842459
+    },
+    {
+      "frame_index": 52,
+      "name": "r_52",
+      "file_path": "./test/r_52",
+      "PSNR": 23.283370971679688,
+      "SSIM": 0.8190605044364929,
+      "LPIPS": 0.1465103179216385,
+      "unitRGBMSE": 0.004695294424891472
+    },
+    {
+      "frame_index": 53,
+      "name": "r_53",
+      "file_path": "./test/r_53",
+      "PSNR": 22.156169891357422,
+      "SSIM": 0.8425177335739136,
+      "LPIPS": 0.144089013338089,
+      "unitRGBMSE": 0.006086717359721661
+    },
+    {
+      "frame_index": 54,
+      "name": "r_54",
+      "file_path": "./test/r_54",
+      "PSNR": 24.2296142578125,
+      "SSIM": 0.8645283579826355,
+      "LPIPS": 0.11332160979509354,
+      "unitRGBMSE": 0.003776056692004204
+    },
+    {
+      "frame_index": 55,
+      "name": "r_55",
+      "file_path": "./test/r_55",
+      "PSNR": 24.36566925048828,
+      "SSIM": 0.8556928634643555,
+      "LPIPS": 0.10748599469661713,
+      "unitRGBMSE": 0.0036595971323549747
+    },
+    {
+      "frame_index": 56,
+      "name": "r_56",
+      "file_path": "./test/r_56",
+      "PSNR": 26.205530166625977,
+      "SSIM": 0.8817110061645508,
+      "LPIPS": 0.1282823085784912,
+      "unitRGBMSE": 0.002395781222730875
+    },
+    {
+      "frame_index": 57,
+      "name": "r_57",
+      "file_path": "./test/r_57",
+      "PSNR": 26.06012725830078,
+      "SSIM": 0.9089936017990112,
+      "LPIPS": 0.09705047309398651,
+      "unitRGBMSE": 0.002477350179105997
+    },
+    {
+      "frame_index": 58,
+      "name": "r_58",
+      "file_path": "./test/r_58",
+      "PSNR": 20.733203887939453,
+      "SSIM": 0.807776927947998,
+      "LPIPS": 0.1551680862903595,
+      "unitRGBMSE": 0.008446555584669113
+    },
+    {
+      "frame_index": 59,
+      "name": "r_59",
+      "file_path": "./test/r_59",
+      "PSNR": 18.719348907470703,
+      "SSIM": 0.7931325435638428,
+      "LPIPS": 0.1531282365322113,
+      "unitRGBMSE": 0.013429660350084305
+    },
+    {
+      "frame_index": 60,
+      "name": "r_60",
+      "file_path": "./test/r_60",
+      "PSNR": 23.79610252380371,
+      "SSIM": 0.8685630559921265,
+      "LPIPS": 0.10185548663139343,
+      "unitRGBMSE": 0.004172435961663723
+    },
+    {
+      "frame_index": 61,
+      "name": "r_61",
+      "file_path": "./test/r_61",
+      "PSNR": 23.552841186523438,
+      "SSIM": 0.8513898849487305,
+      "LPIPS": 0.11234048008918762,
+      "unitRGBMSE": 0.004412815906107426
+    },
+    {
+      "frame_index": 62,
+      "name": "r_62",
+      "file_path": "./test/r_62",
+      "PSNR": 25.40088653564453,
+      "SSIM": 0.8848215937614441,
+      "LPIPS": 0.12140446901321411,
+      "unitRGBMSE": 0.0028834431432187557
+    },
+    {
+      "frame_index": 63,
+      "name": "r_63",
+      "file_path": "./test/r_63",
+      "PSNR": 24.00464630126953,
+      "SSIM": 0.8467318415641785,
+      "LPIPS": 0.12765973806381226,
+      "unitRGBMSE": 0.003976816311478615
+    },
+    {
+      "frame_index": 64,
+      "name": "r_64",
+      "file_path": "./test/r_64",
+      "PSNR": 25.06778907775879,
+      "SSIM": 0.8746349811553955,
+      "LPIPS": 0.10557066649198532,
+      "unitRGBMSE": 0.0031133010052144527
+    },
+    {
+      "frame_index": 65,
+      "name": "r_65",
+      "file_path": "./test/r_65",
+      "PSNR": 20.866525650024414,
+      "SSIM": 0.7995114326477051,
+      "LPIPS": 0.15133875608444214,
+      "unitRGBMSE": 0.008191198110580444
+    },
+    {
+      "frame_index": 66,
+      "name": "r_66",
+      "file_path": "./test/r_66",
+      "PSNR": 22.88521957397461,
+      "SSIM": 0.8503000140190125,
+      "LPIPS": 0.11400888860225677,
+      "unitRGBMSE": 0.00514609832316637
+    },
+    {
+      "frame_index": 67,
+      "name": "r_67",
+      "file_path": "./test/r_67",
+      "PSNR": 24.31045150756836,
+      "SSIM": 0.8599590063095093,
+      "LPIPS": 0.12267845124006271,
+      "unitRGBMSE": 0.0037064242642372847
+    },
+    {
+      "frame_index": 68,
+      "name": "r_68",
+      "file_path": "./test/r_68",
+      "PSNR": 23.345996856689453,
+      "SSIM": 0.841199517250061,
+      "LPIPS": 0.14314720034599304,
+      "unitRGBMSE": 0.004628072492778301
+    },
+    {
+      "frame_index": 69,
+      "name": "r_69",
+      "file_path": "./test/r_69",
+      "PSNR": 25.833236694335938,
+      "SSIM": 0.8772015571594238,
+      "LPIPS": 0.11151449382305145,
+      "unitRGBMSE": 0.0026102159172296524
+    },
+    {
+      "frame_index": 70,
+      "name": "r_70",
+      "file_path": "./test/r_70",
+      "PSNR": 22.74275779724121,
+      "SSIM": 0.8366521596908569,
+      "LPIPS": 0.13099274039268494,
+      "unitRGBMSE": 0.005317705683410168
+    },
+    {
+      "frame_index": 71,
+      "name": "r_71",
+      "file_path": "./test/r_71",
+      "PSNR": 27.215824127197266,
+      "SSIM": 0.8937907218933105,
+      "LPIPS": 0.09487148374319077,
+      "unitRGBMSE": 0.0018985308706760406
+    },
+    {
+      "frame_index": 72,
+      "name": "r_72",
+      "file_path": "./test/r_72",
+      "PSNR": 22.047386169433594,
+      "SSIM": 0.8753439784049988,
+      "LPIPS": 0.14232727885246277,
+      "unitRGBMSE": 0.006241105496883392
+    },
+    {
+      "frame_index": 73,
+      "name": "r_73",
+      "file_path": "./test/r_73",
+      "PSNR": 21.64999771118164,
+      "SSIM": 0.8140157461166382,
+      "LPIPS": 0.15121829509735107,
+      "unitRGBMSE": 0.006839122623205185
+    },
+    {
+      "frame_index": 74,
+      "name": "r_74",
+      "file_path": "./test/r_74",
+      "PSNR": 23.321142196655273,
+      "SSIM": 0.8443136215209961,
+      "LPIPS": 0.1315462738275528,
+      "unitRGBMSE": 0.004654638469219208
+    },
+    {
+      "frame_index": 75,
+      "name": "r_75",
+      "file_path": "./test/r_75",
+      "PSNR": 25.472318649291992,
+      "SSIM": 0.8485722541809082,
+      "LPIPS": 0.14133119583129883,
+      "unitRGBMSE": 0.002836404135450721
+    },
+    {
+      "frame_index": 76,
+      "name": "r_76",
+      "file_path": "./test/r_76",
+      "PSNR": 26.31589126586914,
+      "SSIM": 0.8946700096130371,
+      "LPIPS": 0.09733591228723526,
+      "unitRGBMSE": 0.0023356671445071697
+    },
+    {
+      "frame_index": 77,
+      "name": "r_77",
+      "file_path": "./test/r_77",
+      "PSNR": 26.876537322998047,
+      "SSIM": 0.8747142553329468,
+      "LPIPS": 0.11661704629659653,
+      "unitRGBMSE": 0.0020527986343950033
+    },
+    {
+      "frame_index": 78,
+      "name": "r_78",
+      "file_path": "./test/r_78",
+      "PSNR": 29.18541717529297,
+      "SSIM": 0.9304924011230469,
+      "LPIPS": 0.08032815158367157,
+      "unitRGBMSE": 0.0012063083704560995
+    },
+    {
+      "frame_index": 79,
+      "name": "r_79",
+      "file_path": "./test/r_79",
+      "PSNR": 24.387496948242188,
+      "SSIM": 0.885980486869812,
+      "LPIPS": 0.10052921622991562,
+      "unitRGBMSE": 0.003641247283667326
+    },
+    {
+      "frame_index": 80,
+      "name": "r_80",
+      "file_path": "./test/r_80",
+      "PSNR": 26.644886016845703,
+      "SSIM": 0.8704423904418945,
+      "LPIPS": 0.09915539622306824,
+      "unitRGBMSE": 0.0021652677096426487
+    },
+    {
+      "frame_index": 81,
+      "name": "r_81",
+      "file_path": "./test/r_81",
+      "PSNR": 24.462417602539062,
+      "SSIM": 0.8532068729400635,
+      "LPIPS": 0.14487072825431824,
+      "unitRGBMSE": 0.0035789706744253635
+    },
+    {
+      "frame_index": 82,
+      "name": "r_82",
+      "file_path": "./test/r_82",
+      "PSNR": 26.75654411315918,
+      "SSIM": 0.8822747468948364,
+      "LPIPS": 0.1140112355351448,
+      "unitRGBMSE": 0.0021103068720549345
+    },
+    {
+      "frame_index": 83,
+      "name": "r_83",
+      "file_path": "./test/r_83",
+      "PSNR": 25.280174255371094,
+      "SSIM": 0.8921842575073242,
+      "LPIPS": 0.13165467977523804,
+      "unitRGBMSE": 0.0029647117480635643
+    },
+    {
+      "frame_index": 84,
+      "name": "r_84",
+      "file_path": "./test/r_84",
+      "PSNR": 23.05945587158203,
+      "SSIM": 0.8717841506004333,
+      "LPIPS": 0.10809433460235596,
+      "unitRGBMSE": 0.004943724721670151
+    }
+  ],
+  "prediction_source": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_staged_full_dataset_20261004/Real_NRHints/FurScene/appearance/test/metrics.json",
+  "target_source": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_staged_full_dataset_20261004/Real_NRHints/FurScene/appearance/test",
+  "gt_difference": {
+    "differing_channels": 0,
+    "total_channels": 66846720,
+    "maximum_byte_difference": 0,
+    "absolute_byte_difference": 0
+  },
+  "protocol": "Common uint8 targets from left panels of the complete LiSA evaluation; these are dataset targets, not model predictions. No alignment, fitting, resizing, re-rendering or model changes. Unit RGB PSNR, 11x11 zero-pad SSIM, VGG LPIPS."
+}

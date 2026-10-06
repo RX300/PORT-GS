@@ -1,0 +1,40 @@
+\section{Radiometrically Staged Optimization}
+\label{sec:optimization}
+
+\subsection{Where the loss is computed}
+\label{sec:lossdomain}
+Photometric losses for relighting are commonly computed on display-encoded images, the native format of LDR captures.
+With the pure power law $\Gamma(L)=L^{1/\gamma}$, $\gamma=2.2$, which we use to display HDR data and to linearize LDR data, the gradient of an $\ell_1$ loss with respect to a predicted radiance $\hat L$ has magnitude
+\begin{equation}
+  \Gamma'(\hat L)=\tfrac{1}{\gamma}\,\hat L^{\,1/\gamma-1},
+  \label{eq:slope}
+\end{equation}
+independently of the size of the residual.
+A pixel predicted at one percent of white thus receives twelve times the gradient of a white one, even when its residual is tiny.
+Since the prediction in \cref{eq:radiance} is a product of learned factors, a pixel is often dark early in training only because its visibility, normal or material is still wrong; we hypothesize that such pixels then dominate the gradients reaching the geometry, which the optimizer resolves by smoothing thin structures.
+The controlled study of \cref{sec:exp_optimization} shows that the loss domain decides whether thin geometry forms in our model; it does not isolate the mechanism, and we have not tested remedies such as an offset inside $\Gamma$ or loss reweighting~\cite{mildenhall2022nerf}.
+
+\subsection{Three stages}
+\label{sec:stages}
+We seed 20k Gaussians uniformly inside the visual hull of 32 training silhouettes (a point is kept if it falls inside at least 90\% of them) and initialize normals to point away from the scene center.
+
+\paragraph{I. Geometry warm-up (8k iterations).}
+A network-free point-light model colors every Gaussian with $\softplus(\vect b_i)\,\bar E(\mu_i)\,\psi(\vect n_i\cdot\vect l_i)$, and only geometry, base colors and normals are optimized.
+The renderer output is linear while the target moves: it is the display-encoded image $\Gamma(Y)$ for the first two thirds of the warm-up, after which its exponent is annealed linearly from $1/\gamma$ to $1$.
+The geometry thus forms against a target with compressed dynamic range and is carried continuously into linear radiance.
+\gsthree and SSD-GS apply a comparable annealing to their HDR training images~\cite{bi2024gs3,zheng2026ssdgs}; we apply it to every data family and keep the joint training that follows in linear radiance.
+
+\paragraph{II. Joint training (22k iterations).}
+The full model of \cref{eq:radiance} is trained with Gaussian receivers and a linear-radiance loss; densification and pruning follow 3DGS~\cite{kerbl20233d} until iteration 25k, with at most 400k Gaussians.
+
+\paragraph{III. Appearance refinement (8k iterations).}
+Geometry and camera calibration are frozen, receivers switch to pixels, and the loss returns to the display domain in which images are evaluated.
+With the geometry fixed, the extra weight on dark pixels improves all three metrics for both kinds of receivers in our experiments (\cref{sec:exp_optimization}).
+
+All stages minimize $0.8\,\ell_1+0.2\,(1-\mathrm{SSIM})$, both computed in the current target domain, plus $0.5\,\|\hat\alpha-\alpha\|_1$ on the rendered opacity with the foreground masks $\alpha$ provided by the benchmarks and a weak $\ell_2$ penalty on the codes $\vect f$.
+
+\subsection{Implementation details}
+\label{sec:implementation}
+\ours uses PyTorch and gsplat~\cite{ye2025gsplat}, an atlas of $512^2$ texels with $K=7$ levels and $C=8$ flux channels, MLPs of width 128 (64 for visibility) initialized so that training starts from $L_{\mathrm{tr}}\approx 0$ and $V=V_0$, and Adam (networks: $10^{-3}$, decayed to about a quarter; Gaussians: as in 3DGS).
+On real captures we also refine the rotation of every training camera about its calibrated center and, after each step, remove the global translation that such refinements can absorb, so that the reconstruction stays in the calibrated frame; test cameras and lights are never adjusted.
+One configuration serves all 18 scenes, with only the data conventions of each benchmark differing, and a complete run takes 17 to 28 minutes (21 on average) on one NVIDIA RTX 6000 Ada.

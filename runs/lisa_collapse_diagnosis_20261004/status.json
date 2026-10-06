@@ -1,0 +1,1340 @@
+{
+  "manifest": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_collapse_diagnosis_20261004/manifest.json",
+  "state": "completed",
+  "started_utc": "2026-10-03T18:08:03.103022+00:00",
+  "finished_utc": "2026-10-03T18:26:33.836907+00:00",
+  "scheduler_pid": 446073,
+  "updated_utc": "2026-10-03T18:26:33.836928+00:00",
+  "workers": {
+    "0": {
+      "state": "idle",
+      "job": null,
+      "pid": null
+    },
+    "1": {
+      "state": "idle",
+      "job": null,
+      "pid": null
+    },
+    "2": {
+      "state": "idle",
+      "job": null,
+      "pid": null
+    },
+    "3": {
+      "state": "idle",
+      "job": null,
+      "pid": null
+    }
+  },
+  "jobs": {
+    "PORT-Real_NRHints-CupFabric-ref": {
+      "method": "PORT-GS",
+      "family": "Real_NRHints",
+      "scene": "CupFabric",
+      "state": "completed",
+      "gpu": "0",
+      "phase": null,
+      "pid": null,
+      "output": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_collapse_diagnosis_20261004/ref/Real_NRHints/CupFabric",
+      "resultpath": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_collapse_diagnosis_20261004/ref/Real_NRHints/CupFabric/validation/metrics.json",
+      "source_archive": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_collapse_diagnosis_20261004/source.tar",
+      "reused_from": null,
+      "steps": {
+        "train": {
+          "state": "completed",
+          "cwd": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS",
+          "argv": [
+            "/workspace/ubuntu2004_cuda12_1/utils/conda-envs/ssd-gs/bin/python",
+            "-u",
+            "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/train.py",
+            "--steps",
+            "6000",
+            "--lr-decay-steps",
+            "30000",
+            "--seed",
+            "0",
+            "--resolution",
+            "512",
+            "--background",
+            "0.0",
+            "--display-gamma",
+            "2.2",
+            "--shadow-start",
+            "2000",
+            "--port-start",
+            "2000",
+            "--representation",
+            "light_atlas",
+            "--material-head",
+            "svbrdf",
+            "--optimize-cameras",
+            "--camera-mode",
+            "rotation",
+            "--camera-gauge",
+            "translation",
+            "--camera-start",
+            "2000",
+            "--camera-lr",
+            "0.001",
+            "--camera-lr-final",
+            "1e-05",
+            "--scene",
+            "/workspace/datasets/SSD-GS/data/Real_NRHints/CupFabric",
+            "--output",
+            "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_collapse_diagnosis_20261004/ref/Real_NRHints/CupFabric"
+          ],
+          "logpath": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_collapse_diagnosis_20261004/ref/Real_NRHints/CupFabric.train.log",
+          "output": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_collapse_diagnosis_20261004/ref/Real_NRHints/CupFabric",
+          "resultpath": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_collapse_diagnosis_20261004/ref/Real_NRHints/CupFabric/last.pt",
+          "started_utc": "2026-10-03T18:08:03.105897+00:00",
+          "pid": null,
+          "startup_confirmed": {
+            "pid": 446081,
+            "gpu": "0",
+            "step": 100,
+            "row": {
+              "step": 100,
+              "stage": "relighting",
+              "frame_index": 230,
+              "loss": 0.12186822295188904,
+              "l1": 0.05682415887713432,
+              "loss_terms": {
+                "l1": 0.0454593263566494,
+                "ssim": 0.0499616377055645,
+                "mask": 0.026447227224707603,
+                "feature_reg": 3.2497844415502186e-08,
+                "camera_reg": 0.0
+              },
+              "points": 20000,
+              "seconds": 9.26,
+              "memory_GiB": 6.566495418548584,
+              "camera_rotation_rms": 0.0,
+              "camera_lr": 0.001,
+              "scene_gauge_shift": [
+                0.0,
+                0.0,
+                0.0
+              ]
+            }
+          },
+          "finished_utc": "2026-10-03T18:15:26.707063+00:00",
+          "last_pid": 446081
+        },
+        "eval": {
+          "state": "completed",
+          "cwd": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS",
+          "argv": [
+            "/workspace/ubuntu2004_cuda12_1/utils/conda-envs/ssd-gs/bin/python",
+            "-u",
+            "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/evaluate.py",
+            "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_collapse_diagnosis_20261004/ref/Real_NRHints/CupFabric/last.pt",
+            "--split",
+            "validation",
+            "--output",
+            "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_collapse_diagnosis_20261004/ref/Real_NRHints/CupFabric/validation",
+            "--lpips",
+            "--highlights"
+          ],
+          "logpath": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_collapse_diagnosis_20261004/ref/Real_NRHints/CupFabric.validation.log",
+          "output": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_collapse_diagnosis_20261004/ref/Real_NRHints/CupFabric/validation",
+          "resultpath": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_collapse_diagnosis_20261004/ref/Real_NRHints/CupFabric/validation/metrics.json",
+          "started_utc": "2026-10-03T18:15:26.708522+00:00",
+          "pid": null,
+          "finished_utc": "2026-10-03T18:15:49.839870+00:00",
+          "last_pid": 448544
+        }
+      },
+      "started_utc": "2026-10-03T18:08:03.105008+00:00",
+      "startup_confirmed": {
+        "pid": 446081,
+        "gpu": "0",
+        "step": 100,
+        "row": {
+          "step": 100,
+          "stage": "relighting",
+          "frame_index": 230,
+          "loss": 0.12186822295188904,
+          "l1": 0.05682415887713432,
+          "loss_terms": {
+            "l1": 0.0454593263566494,
+            "ssim": 0.0499616377055645,
+            "mask": 0.026447227224707603,
+            "feature_reg": 3.2497844415502186e-08,
+            "camera_reg": 0.0
+          },
+          "points": 20000,
+          "seconds": 9.26,
+          "memory_GiB": 6.566495418548584,
+          "camera_rotation_rms": 0.0,
+          "camera_lr": 0.001,
+          "scene_gauge_shift": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        }
+      },
+      "finished_utc": "2026-10-03T18:15:49.841427+00:00"
+    },
+    "PORT-Real_NRHints-FurScene-ref": {
+      "method": "PORT-GS",
+      "family": "Real_NRHints",
+      "scene": "FurScene",
+      "state": "completed",
+      "gpu": "1",
+      "phase": null,
+      "pid": null,
+      "output": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_collapse_diagnosis_20261004/ref/Real_NRHints/FurScene",
+      "resultpath": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_collapse_diagnosis_20261004/ref/Real_NRHints/FurScene/validation/metrics.json",
+      "source_archive": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_collapse_diagnosis_20261004/source.tar",
+      "reused_from": null,
+      "steps": {
+        "train": {
+          "state": "completed",
+          "cwd": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS",
+          "argv": [
+            "/workspace/ubuntu2004_cuda12_1/utils/conda-envs/ssd-gs/bin/python",
+            "-u",
+            "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/train.py",
+            "--steps",
+            "6000",
+            "--lr-decay-steps",
+            "30000",
+            "--seed",
+            "0",
+            "--resolution",
+            "512",
+            "--background",
+            "0.0",
+            "--display-gamma",
+            "2.2",
+            "--shadow-start",
+            "2000",
+            "--port-start",
+            "2000",
+            "--representation",
+            "light_atlas",
+            "--material-head",
+            "svbrdf",
+            "--optimize-cameras",
+            "--camera-mode",
+            "rotation",
+            "--camera-gauge",
+            "translation",
+            "--camera-start",
+            "2000",
+            "--camera-lr",
+            "0.001",
+            "--camera-lr-final",
+            "1e-05",
+            "--scene",
+            "/workspace/datasets/SSD-GS/data/Real_NRHints/FurScene",
+            "--output",
+            "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_collapse_diagnosis_20261004/ref/Real_NRHints/FurScene"
+          ],
+          "logpath": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_collapse_diagnosis_20261004/ref/Real_NRHints/FurScene.train.log",
+          "output": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_collapse_diagnosis_20261004/ref/Real_NRHints/FurScene",
+          "resultpath": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_collapse_diagnosis_20261004/ref/Real_NRHints/FurScene/last.pt",
+          "started_utc": "2026-10-03T18:08:03.108705+00:00",
+          "pid": null,
+          "startup_confirmed": {
+            "pid": 446082,
+            "gpu": "1",
+            "step": 100,
+            "row": {
+              "step": 100,
+              "stage": "relighting",
+              "frame_index": 663,
+              "loss": 0.14683184027671814,
+              "l1": 0.07919548451900482,
+              "loss_terms": {
+                "l1": 0.06335639208555222,
+                "ssim": 0.06209808588027954,
+                "mask": 0.021377326920628548,
+                "feature_reg": 3.567724959907537e-08,
+                "camera_reg": 0.0
+              },
+              "points": 20000,
+              "seconds": 6.81,
+              "memory_GiB": 4.702753067016602,
+              "camera_rotation_rms": 0.0,
+              "camera_lr": 0.001,
+              "scene_gauge_shift": [
+                0.0,
+                0.0,
+                0.0
+              ]
+            }
+          },
+          "finished_utc": "2026-10-03T18:13:25.101773+00:00",
+          "last_pid": 446082
+        },
+        "eval": {
+          "state": "completed",
+          "cwd": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS",
+          "argv": [
+            "/workspace/ubuntu2004_cuda12_1/utils/conda-envs/ssd-gs/bin/python",
+            "-u",
+            "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/evaluate.py",
+            "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_collapse_diagnosis_20261004/ref/Real_NRHints/FurScene/last.pt",
+            "--split",
+            "validation",
+            "--output",
+            "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_collapse_diagnosis_20261004/ref/Real_NRHints/FurScene/validation",
+            "--lpips",
+            "--highlights"
+          ],
+          "logpath": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_collapse_diagnosis_20261004/ref/Real_NRHints/FurScene.validation.log",
+          "output": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_collapse_diagnosis_20261004/ref/Real_NRHints/FurScene/validation",
+          "resultpath": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_collapse_diagnosis_20261004/ref/Real_NRHints/FurScene/validation/metrics.json",
+          "started_utc": "2026-10-03T18:13:25.103069+00:00",
+          "pid": null,
+          "finished_utc": "2026-10-03T18:13:34.526633+00:00",
+          "last_pid": 447462
+        }
+      },
+      "started_utc": "2026-10-03T18:08:03.107318+00:00",
+      "startup_confirmed": {
+        "pid": 446082,
+        "gpu": "1",
+        "step": 100,
+        "row": {
+          "step": 100,
+          "stage": "relighting",
+          "frame_index": 663,
+          "loss": 0.14683184027671814,
+          "l1": 0.07919548451900482,
+          "loss_terms": {
+            "l1": 0.06335639208555222,
+            "ssim": 0.06209808588027954,
+            "mask": 0.021377326920628548,
+            "feature_reg": 3.567724959907537e-08,
+            "camera_reg": 0.0
+          },
+          "points": 20000,
+          "seconds": 6.81,
+          "memory_GiB": 4.702753067016602,
+          "camera_rotation_rms": 0.0,
+          "camera_lr": 0.001,
+          "scene_gauge_shift": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        }
+      },
+      "finished_utc": "2026-10-03T18:13:34.528815+00:00"
+    },
+    "PORT-Synthetic_SSS-GS-soap_small-ref": {
+      "method": "PORT-GS",
+      "family": "Synthetic_SSS-GS",
+      "scene": "soap_small",
+      "state": "completed",
+      "gpu": "3",
+      "phase": null,
+      "pid": null,
+      "output": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_collapse_diagnosis_20261004/ref/Synthetic_SSS-GS/soap_small",
+      "resultpath": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_collapse_diagnosis_20261004/ref/Synthetic_SSS-GS/soap_small/validation/metrics.json",
+      "source_archive": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_collapse_diagnosis_20261004/source.tar",
+      "reused_from": null,
+      "steps": {
+        "train": {
+          "state": "completed",
+          "cwd": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS",
+          "argv": [
+            "/workspace/ubuntu2004_cuda12_1/utils/conda-envs/ssd-gs/bin/python",
+            "-u",
+            "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/train.py",
+            "--steps",
+            "6000",
+            "--lr-decay-steps",
+            "30000",
+            "--seed",
+            "0",
+            "--resolution",
+            "256",
+            "--background",
+            "0.0",
+            "--display-gamma",
+            "2.2",
+            "--shadow-start",
+            "2000",
+            "--port-start",
+            "2000",
+            "--representation",
+            "light_atlas",
+            "--material-head",
+            "svbrdf",
+            "--unit-light-intensity",
+            "1.0",
+            "--scene",
+            "/workspace/datasets/SSD-GS/data/Synthetic_SSS-GS/soap_small",
+            "--output",
+            "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_collapse_diagnosis_20261004/ref/Synthetic_SSS-GS/soap_small"
+          ],
+          "logpath": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_collapse_diagnosis_20261004/ref/Synthetic_SSS-GS/soap_small.train.log",
+          "output": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_collapse_diagnosis_20261004/ref/Synthetic_SSS-GS/soap_small",
+          "resultpath": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_collapse_diagnosis_20261004/ref/Synthetic_SSS-GS/soap_small/last.pt",
+          "started_utc": "2026-10-03T18:08:03.113281+00:00",
+          "pid": null,
+          "startup_confirmed": {
+            "pid": 446083,
+            "gpu": "3",
+            "step": 100,
+            "row": {
+              "step": 100,
+              "stage": "relighting",
+              "frame_index": 462,
+              "loss": 0.051952868700027466,
+              "l1": 0.005263039376586676,
+              "loss_terms": {
+                "l1": 0.004210431594401598,
+                "ssim": 0.008309006690979004,
+                "mask": 0.039433401077985764,
+                "feature_reg": 3.110210400336655e-08,
+                "camera_reg": 0.0
+              },
+              "points": 20000,
+              "seconds": 5.84,
+              "memory_GiB": 1.0346760749816895
+            }
+          },
+          "finished_utc": "2026-10-03T18:15:54.022589+00:00",
+          "last_pid": 446083
+        },
+        "eval": {
+          "state": "completed",
+          "cwd": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS",
+          "argv": [
+            "/workspace/ubuntu2004_cuda12_1/utils/conda-envs/ssd-gs/bin/python",
+            "-u",
+            "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/evaluate.py",
+            "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_collapse_diagnosis_20261004/ref/Synthetic_SSS-GS/soap_small/last.pt",
+            "--split",
+            "validation",
+            "--output",
+            "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_collapse_diagnosis_20261004/ref/Synthetic_SSS-GS/soap_small/validation",
+            "--lpips",
+            "--highlights"
+          ],
+          "logpath": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_collapse_diagnosis_20261004/ref/Synthetic_SSS-GS/soap_small.validation.log",
+          "output": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_collapse_diagnosis_20261004/ref/Synthetic_SSS-GS/soap_small/validation",
+          "resultpath": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_collapse_diagnosis_20261004/ref/Synthetic_SSS-GS/soap_small/validation/metrics.json",
+          "started_utc": "2026-10-03T18:15:54.024055+00:00",
+          "pid": null,
+          "finished_utc": "2026-10-03T18:16:01.526678+00:00",
+          "last_pid": 448735
+        }
+      },
+      "started_utc": "2026-10-03T18:08:03.109552+00:00",
+      "startup_confirmed": {
+        "pid": 446083,
+        "gpu": "3",
+        "step": 100,
+        "row": {
+          "step": 100,
+          "stage": "relighting",
+          "frame_index": 462,
+          "loss": 0.051952868700027466,
+          "l1": 0.005263039376586676,
+          "loss_terms": {
+            "l1": 0.004210431594401598,
+            "ssim": 0.008309006690979004,
+            "mask": 0.039433401077985764,
+            "feature_reg": 3.110210400336655e-08,
+            "camera_reg": 0.0
+          },
+          "points": 20000,
+          "seconds": 5.84,
+          "memory_GiB": 1.0346760749816895
+        }
+      },
+      "finished_utc": "2026-10-03T18:16:01.528107+00:00"
+    },
+    "PORT-Real_NRHints-CupFabric-no_split2d": {
+      "method": "PORT-GS",
+      "family": "Real_NRHints",
+      "scene": "CupFabric",
+      "state": "completed",
+      "gpu": "2",
+      "phase": null,
+      "pid": null,
+      "output": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_collapse_diagnosis_20261004/no_split2d/Real_NRHints/CupFabric",
+      "resultpath": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_collapse_diagnosis_20261004/no_split2d/Real_NRHints/CupFabric/validation/metrics.json",
+      "source_archive": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_collapse_diagnosis_20261004/source.tar",
+      "reused_from": null,
+      "steps": {
+        "train": {
+          "state": "completed",
+          "cwd": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS",
+          "argv": [
+            "/workspace/ubuntu2004_cuda12_1/utils/conda-envs/ssd-gs/bin/python",
+            "-u",
+            "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/train.py",
+            "--steps",
+            "6000",
+            "--lr-decay-steps",
+            "30000",
+            "--seed",
+            "0",
+            "--resolution",
+            "512",
+            "--background",
+            "0.0",
+            "--display-gamma",
+            "2.2",
+            "--shadow-start",
+            "2000",
+            "--port-start",
+            "2000",
+            "--representation",
+            "light_atlas",
+            "--material-head",
+            "svbrdf",
+            "--split-scale2d-stop",
+            "0",
+            "--optimize-cameras",
+            "--camera-mode",
+            "rotation",
+            "--camera-gauge",
+            "translation",
+            "--camera-start",
+            "2000",
+            "--camera-lr",
+            "0.001",
+            "--camera-lr-final",
+            "1e-05",
+            "--scene",
+            "/workspace/datasets/SSD-GS/data/Real_NRHints/CupFabric",
+            "--output",
+            "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_collapse_diagnosis_20261004/no_split2d/Real_NRHints/CupFabric"
+          ],
+          "logpath": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_collapse_diagnosis_20261004/no_split2d/Real_NRHints/CupFabric.train.log",
+          "output": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_collapse_diagnosis_20261004/no_split2d/Real_NRHints/CupFabric",
+          "resultpath": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_collapse_diagnosis_20261004/no_split2d/Real_NRHints/CupFabric/last.pt",
+          "started_utc": "2026-10-03T18:08:03.115974+00:00",
+          "pid": null,
+          "startup_confirmed": {
+            "pid": 446085,
+            "gpu": "2",
+            "step": 100,
+            "row": {
+              "step": 100,
+              "stage": "relighting",
+              "frame_index": 230,
+              "loss": 0.12192565947771072,
+              "l1": 0.056825242936611176,
+              "loss_terms": {
+                "l1": 0.04546019434928894,
+                "ssim": 0.049963343888521194,
+                "mask": 0.02650209702551365,
+                "feature_reg": 3.252564795275248e-08,
+                "camera_reg": 0.0
+              },
+              "points": 20000,
+              "seconds": 7.29,
+              "memory_GiB": 6.566420555114746,
+              "camera_rotation_rms": 0.0,
+              "camera_lr": 0.001,
+              "scene_gauge_shift": [
+                0.0,
+                0.0,
+                0.0
+              ]
+            }
+          },
+          "finished_utc": "2026-10-03T18:13:39.198719+00:00",
+          "last_pid": 446085
+        },
+        "eval": {
+          "state": "completed",
+          "cwd": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS",
+          "argv": [
+            "/workspace/ubuntu2004_cuda12_1/utils/conda-envs/ssd-gs/bin/python",
+            "-u",
+            "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/evaluate.py",
+            "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_collapse_diagnosis_20261004/no_split2d/Real_NRHints/CupFabric/last.pt",
+            "--split",
+            "validation",
+            "--output",
+            "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_collapse_diagnosis_20261004/no_split2d/Real_NRHints/CupFabric/validation",
+            "--lpips",
+            "--highlights"
+          ],
+          "logpath": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_collapse_diagnosis_20261004/no_split2d/Real_NRHints/CupFabric.validation.log",
+          "output": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_collapse_diagnosis_20261004/no_split2d/Real_NRHints/CupFabric/validation",
+          "resultpath": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_collapse_diagnosis_20261004/no_split2d/Real_NRHints/CupFabric/validation/metrics.json",
+          "started_utc": "2026-10-03T18:13:39.200841+00:00",
+          "pid": null,
+          "finished_utc": "2026-10-03T18:13:54.479420+00:00",
+          "last_pid": 448179
+        }
+      },
+      "started_utc": "2026-10-03T18:08:03.114498+00:00",
+      "startup_confirmed": {
+        "pid": 446085,
+        "gpu": "2",
+        "step": 100,
+        "row": {
+          "step": 100,
+          "stage": "relighting",
+          "frame_index": 230,
+          "loss": 0.12192565947771072,
+          "l1": 0.056825242936611176,
+          "loss_terms": {
+            "l1": 0.04546019434928894,
+            "ssim": 0.049963343888521194,
+            "mask": 0.02650209702551365,
+            "feature_reg": 3.252564795275248e-08,
+            "camera_reg": 0.0
+          },
+          "points": 20000,
+          "seconds": 7.29,
+          "memory_GiB": 6.566420555114746,
+          "camera_rotation_rms": 0.0,
+          "camera_lr": 0.001,
+          "scene_gauge_shift": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        }
+      },
+      "finished_utc": "2026-10-03T18:13:54.480754+00:00"
+    },
+    "PORT-Real_NRHints-FurScene-no_split2d": {
+      "method": "PORT-GS",
+      "family": "Real_NRHints",
+      "scene": "FurScene",
+      "state": "completed",
+      "gpu": "1",
+      "phase": null,
+      "pid": null,
+      "output": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_collapse_diagnosis_20261004/no_split2d/Real_NRHints/FurScene",
+      "resultpath": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_collapse_diagnosis_20261004/no_split2d/Real_NRHints/FurScene/validation/metrics.json",
+      "source_archive": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_collapse_diagnosis_20261004/source.tar",
+      "reused_from": null,
+      "steps": {
+        "train": {
+          "state": "completed",
+          "cwd": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS",
+          "argv": [
+            "/workspace/ubuntu2004_cuda12_1/utils/conda-envs/ssd-gs/bin/python",
+            "-u",
+            "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/train.py",
+            "--steps",
+            "6000",
+            "--lr-decay-steps",
+            "30000",
+            "--seed",
+            "0",
+            "--resolution",
+            "512",
+            "--background",
+            "0.0",
+            "--display-gamma",
+            "2.2",
+            "--shadow-start",
+            "2000",
+            "--port-start",
+            "2000",
+            "--representation",
+            "light_atlas",
+            "--material-head",
+            "svbrdf",
+            "--split-scale2d-stop",
+            "0",
+            "--optimize-cameras",
+            "--camera-mode",
+            "rotation",
+            "--camera-gauge",
+            "translation",
+            "--camera-start",
+            "2000",
+            "--camera-lr",
+            "0.001",
+            "--camera-lr-final",
+            "1e-05",
+            "--scene",
+            "/workspace/datasets/SSD-GS/data/Real_NRHints/FurScene",
+            "--output",
+            "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_collapse_diagnosis_20261004/no_split2d/Real_NRHints/FurScene"
+          ],
+          "logpath": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_collapse_diagnosis_20261004/no_split2d/Real_NRHints/FurScene.train.log",
+          "output": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_collapse_diagnosis_20261004/no_split2d/Real_NRHints/FurScene",
+          "resultpath": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_collapse_diagnosis_20261004/no_split2d/Real_NRHints/FurScene/last.pt",
+          "started_utc": "2026-10-03T18:13:34.544455+00:00",
+          "pid": null,
+          "startup_confirmed": {
+            "pid": 447672,
+            "gpu": "1",
+            "step": 100,
+            "row": {
+              "step": 100,
+              "stage": "relighting",
+              "frame_index": 663,
+              "loss": 0.14666560292243958,
+              "l1": 0.07919522374868393,
+              "loss_terms": {
+                "l1": 0.0633561834692955,
+                "ssim": 0.062098026275634766,
+                "mask": 0.021211354061961174,
+                "feature_reg": 3.562137251833519e-08,
+                "camera_reg": 0.0
+              },
+              "points": 20000,
+              "seconds": 6.63,
+              "memory_GiB": 4.702678203582764,
+              "camera_rotation_rms": 0.0,
+              "camera_lr": 0.001,
+              "scene_gauge_shift": [
+                0.0,
+                0.0,
+                0.0
+              ]
+            }
+          },
+          "finished_utc": "2026-10-03T18:20:24.421397+00:00",
+          "last_pid": 447672
+        },
+        "eval": {
+          "state": "completed",
+          "cwd": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS",
+          "argv": [
+            "/workspace/ubuntu2004_cuda12_1/utils/conda-envs/ssd-gs/bin/python",
+            "-u",
+            "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/evaluate.py",
+            "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_collapse_diagnosis_20261004/no_split2d/Real_NRHints/FurScene/last.pt",
+            "--split",
+            "validation",
+            "--output",
+            "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_collapse_diagnosis_20261004/no_split2d/Real_NRHints/FurScene/validation",
+            "--lpips",
+            "--highlights"
+          ],
+          "logpath": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_collapse_diagnosis_20261004/no_split2d/Real_NRHints/FurScene.validation.log",
+          "output": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_collapse_diagnosis_20261004/no_split2d/Real_NRHints/FurScene/validation",
+          "resultpath": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_collapse_diagnosis_20261004/no_split2d/Real_NRHints/FurScene/validation/metrics.json",
+          "started_utc": "2026-10-03T18:20:24.423133+00:00",
+          "pid": null,
+          "finished_utc": "2026-10-03T18:20:37.005046+00:00",
+          "last_pid": 450500
+        }
+      },
+      "started_utc": "2026-10-03T18:13:34.531135+00:00",
+      "startup_confirmed": {
+        "pid": 447672,
+        "gpu": "1",
+        "step": 100,
+        "row": {
+          "step": 100,
+          "stage": "relighting",
+          "frame_index": 663,
+          "loss": 0.14666560292243958,
+          "l1": 0.07919522374868393,
+          "loss_terms": {
+            "l1": 0.0633561834692955,
+            "ssim": 0.062098026275634766,
+            "mask": 0.021211354061961174,
+            "feature_reg": 3.562137251833519e-08,
+            "camera_reg": 0.0
+          },
+          "points": 20000,
+          "seconds": 6.63,
+          "memory_GiB": 4.702678203582764,
+          "camera_rotation_rms": 0.0,
+          "camera_lr": 0.001,
+          "scene_gauge_shift": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        }
+      },
+      "finished_utc": "2026-10-03T18:20:37.007352+00:00"
+    },
+    "PORT-Synthetic_SSS-GS-soap_small-no_split2d": {
+      "method": "PORT-GS",
+      "family": "Synthetic_SSS-GS",
+      "scene": "soap_small",
+      "state": "completed",
+      "gpu": "2",
+      "phase": null,
+      "pid": null,
+      "output": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_collapse_diagnosis_20261004/no_split2d/Synthetic_SSS-GS/soap_small",
+      "resultpath": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_collapse_diagnosis_20261004/no_split2d/Synthetic_SSS-GS/soap_small/validation/metrics.json",
+      "source_archive": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_collapse_diagnosis_20261004/source.tar",
+      "reused_from": null,
+      "steps": {
+        "train": {
+          "state": "completed",
+          "cwd": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS",
+          "argv": [
+            "/workspace/ubuntu2004_cuda12_1/utils/conda-envs/ssd-gs/bin/python",
+            "-u",
+            "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/train.py",
+            "--steps",
+            "6000",
+            "--lr-decay-steps",
+            "30000",
+            "--seed",
+            "0",
+            "--resolution",
+            "256",
+            "--background",
+            "0.0",
+            "--display-gamma",
+            "2.2",
+            "--shadow-start",
+            "2000",
+            "--port-start",
+            "2000",
+            "--representation",
+            "light_atlas",
+            "--material-head",
+            "svbrdf",
+            "--split-scale2d-stop",
+            "0",
+            "--unit-light-intensity",
+            "1.0",
+            "--scene",
+            "/workspace/datasets/SSD-GS/data/Synthetic_SSS-GS/soap_small",
+            "--output",
+            "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_collapse_diagnosis_20261004/no_split2d/Synthetic_SSS-GS/soap_small"
+          ],
+          "logpath": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_collapse_diagnosis_20261004/no_split2d/Synthetic_SSS-GS/soap_small.train.log",
+          "output": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_collapse_diagnosis_20261004/no_split2d/Synthetic_SSS-GS/soap_small",
+          "resultpath": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_collapse_diagnosis_20261004/no_split2d/Synthetic_SSS-GS/soap_small/last.pt",
+          "started_utc": "2026-10-03T18:13:54.483311+00:00",
+          "pid": null,
+          "startup_confirmed": {
+            "pid": 448285,
+            "gpu": "2",
+            "step": 100,
+            "row": {
+              "step": 100,
+              "stage": "relighting",
+              "frame_index": 462,
+              "loss": 0.05199664086103439,
+              "l1": 0.005262335762381554,
+              "loss_terms": {
+                "l1": 0.004209868609905243,
+                "ssim": 0.008315766230225563,
+                "mask": 0.03947097435593605,
+                "feature_reg": 3.114128332981636e-08,
+                "camera_reg": 0.0
+              },
+              "points": 20000,
+              "seconds": 2.69,
+              "memory_GiB": 1.0346012115478516
+            }
+          },
+          "finished_utc": "2026-10-03T18:19:28.181926+00:00",
+          "last_pid": 448285
+        },
+        "eval": {
+          "state": "completed",
+          "cwd": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS",
+          "argv": [
+            "/workspace/ubuntu2004_cuda12_1/utils/conda-envs/ssd-gs/bin/python",
+            "-u",
+            "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/evaluate.py",
+            "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_collapse_diagnosis_20261004/no_split2d/Synthetic_SSS-GS/soap_small/last.pt",
+            "--split",
+            "validation",
+            "--output",
+            "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_collapse_diagnosis_20261004/no_split2d/Synthetic_SSS-GS/soap_small/validation",
+            "--lpips",
+            "--highlights"
+          ],
+          "logpath": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_collapse_diagnosis_20261004/no_split2d/Synthetic_SSS-GS/soap_small.validation.log",
+          "output": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_collapse_diagnosis_20261004/no_split2d/Synthetic_SSS-GS/soap_small/validation",
+          "resultpath": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_collapse_diagnosis_20261004/no_split2d/Synthetic_SSS-GS/soap_small/validation/metrics.json",
+          "started_utc": "2026-10-03T18:19:28.183751+00:00",
+          "pid": null,
+          "finished_utc": "2026-10-03T18:19:37.250168+00:00",
+          "last_pid": 450278
+        }
+      },
+      "started_utc": "2026-10-03T18:13:54.482151+00:00",
+      "startup_confirmed": {
+        "pid": 448285,
+        "gpu": "2",
+        "step": 100,
+        "row": {
+          "step": 100,
+          "stage": "relighting",
+          "frame_index": 462,
+          "loss": 0.05199664086103439,
+          "l1": 0.005262335762381554,
+          "loss_terms": {
+            "l1": 0.004209868609905243,
+            "ssim": 0.008315766230225563,
+            "mask": 0.03947097435593605,
+            "feature_reg": 3.114128332981636e-08,
+            "camera_reg": 0.0
+          },
+          "points": 20000,
+          "seconds": 2.69,
+          "memory_GiB": 1.0346012115478516
+        }
+      },
+      "finished_utc": "2026-10-03T18:19:37.251635+00:00"
+    },
+    "PORT-Real_NRHints-CupFabric-no_split2d_spec": {
+      "method": "PORT-GS",
+      "family": "Real_NRHints",
+      "scene": "CupFabric",
+      "state": "completed",
+      "gpu": "0",
+      "phase": null,
+      "pid": null,
+      "output": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_collapse_diagnosis_20261004/no_split2d_spec/Real_NRHints/CupFabric",
+      "resultpath": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_collapse_diagnosis_20261004/no_split2d_spec/Real_NRHints/CupFabric/validation/metrics.json",
+      "source_archive": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_collapse_diagnosis_20261004/source.tar",
+      "reused_from": null,
+      "steps": {
+        "train": {
+          "state": "completed",
+          "cwd": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS",
+          "argv": [
+            "/workspace/ubuntu2004_cuda12_1/utils/conda-envs/ssd-gs/bin/python",
+            "-u",
+            "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/train.py",
+            "--steps",
+            "6000",
+            "--lr-decay-steps",
+            "30000",
+            "--seed",
+            "0",
+            "--resolution",
+            "512",
+            "--background",
+            "0.0",
+            "--display-gamma",
+            "2.2",
+            "--shadow-start",
+            "2000",
+            "--port-start",
+            "2000",
+            "--representation",
+            "light_atlas",
+            "--material-head",
+            "svbrdf",
+            "--split-scale2d-stop",
+            "0",
+            "--specular",
+            "lobes",
+            "--optimize-cameras",
+            "--camera-mode",
+            "rotation",
+            "--camera-gauge",
+            "translation",
+            "--camera-start",
+            "2000",
+            "--camera-lr",
+            "0.001",
+            "--camera-lr-final",
+            "1e-05",
+            "--scene",
+            "/workspace/datasets/SSD-GS/data/Real_NRHints/CupFabric",
+            "--output",
+            "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_collapse_diagnosis_20261004/no_split2d_spec/Real_NRHints/CupFabric"
+          ],
+          "logpath": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_collapse_diagnosis_20261004/no_split2d_spec/Real_NRHints/CupFabric.train.log",
+          "output": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_collapse_diagnosis_20261004/no_split2d_spec/Real_NRHints/CupFabric",
+          "resultpath": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_collapse_diagnosis_20261004/no_split2d_spec/Real_NRHints/CupFabric/last.pt",
+          "started_utc": "2026-10-03T18:15:49.844037+00:00",
+          "pid": null,
+          "startup_confirmed": {
+            "pid": 448658,
+            "gpu": "0",
+            "step": 100,
+            "row": {
+              "step": 100,
+              "stage": "relighting",
+              "frame_index": 230,
+              "loss": 0.12466279417276382,
+              "l1": 0.05545108765363693,
+              "loss_terms": {
+                "l1": 0.044360872358083725,
+                "ssim": 0.044962432235479355,
+                "mask": 0.03533939644694328,
+                "feature_reg": 9.367676057081553e-08,
+                "camera_reg": 0.0
+              },
+              "points": 20000,
+              "seconds": 8.19,
+              "memory_GiB": 6.843838214874268,
+              "transport_stats": {
+                "specular": 2.3213975509861484e-05
+              },
+              "camera_rotation_rms": 0.0,
+              "camera_lr": 0.001,
+              "scene_gauge_shift": [
+                0.0,
+                0.0,
+                0.0
+              ]
+            }
+          },
+          "finished_utc": "2026-10-03T18:24:22.685949+00:00",
+          "last_pid": 448658
+        },
+        "eval": {
+          "state": "completed",
+          "cwd": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS",
+          "argv": [
+            "/workspace/ubuntu2004_cuda12_1/utils/conda-envs/ssd-gs/bin/python",
+            "-u",
+            "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/evaluate.py",
+            "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_collapse_diagnosis_20261004/no_split2d_spec/Real_NRHints/CupFabric/last.pt",
+            "--split",
+            "validation",
+            "--output",
+            "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_collapse_diagnosis_20261004/no_split2d_spec/Real_NRHints/CupFabric/validation",
+            "--lpips",
+            "--highlights"
+          ],
+          "logpath": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_collapse_diagnosis_20261004/no_split2d_spec/Real_NRHints/CupFabric.validation.log",
+          "output": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_collapse_diagnosis_20261004/no_split2d_spec/Real_NRHints/CupFabric/validation",
+          "resultpath": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_collapse_diagnosis_20261004/no_split2d_spec/Real_NRHints/CupFabric/validation/metrics.json",
+          "started_utc": "2026-10-03T18:24:22.687776+00:00",
+          "pid": null,
+          "finished_utc": "2026-10-03T18:24:45.334871+00:00",
+          "last_pid": 451043
+        }
+      },
+      "started_utc": "2026-10-03T18:15:49.842624+00:00",
+      "startup_confirmed": {
+        "pid": 448658,
+        "gpu": "0",
+        "step": 100,
+        "row": {
+          "step": 100,
+          "stage": "relighting",
+          "frame_index": 230,
+          "loss": 0.12466279417276382,
+          "l1": 0.05545108765363693,
+          "loss_terms": {
+            "l1": 0.044360872358083725,
+            "ssim": 0.044962432235479355,
+            "mask": 0.03533939644694328,
+            "feature_reg": 9.367676057081553e-08,
+            "camera_reg": 0.0
+          },
+          "points": 20000,
+          "seconds": 8.19,
+          "memory_GiB": 6.843838214874268,
+          "transport_stats": {
+            "specular": 2.3213975509861484e-05
+          },
+          "camera_rotation_rms": 0.0,
+          "camera_lr": 0.001,
+          "scene_gauge_shift": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        }
+      },
+      "finished_utc": "2026-10-03T18:24:45.336711+00:00"
+    },
+    "PORT-Real_NRHints-FurScene-no_split2d_spec": {
+      "method": "PORT-GS",
+      "family": "Real_NRHints",
+      "scene": "FurScene",
+      "state": "completed",
+      "gpu": "3",
+      "phase": null,
+      "pid": null,
+      "output": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_collapse_diagnosis_20261004/no_split2d_spec/Real_NRHints/FurScene",
+      "resultpath": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_collapse_diagnosis_20261004/no_split2d_spec/Real_NRHints/FurScene/validation/metrics.json",
+      "source_archive": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_collapse_diagnosis_20261004/source.tar",
+      "reused_from": null,
+      "steps": {
+        "train": {
+          "state": "completed",
+          "cwd": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS",
+          "argv": [
+            "/workspace/ubuntu2004_cuda12_1/utils/conda-envs/ssd-gs/bin/python",
+            "-u",
+            "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/train.py",
+            "--steps",
+            "6000",
+            "--lr-decay-steps",
+            "30000",
+            "--seed",
+            "0",
+            "--resolution",
+            "512",
+            "--background",
+            "0.0",
+            "--display-gamma",
+            "2.2",
+            "--shadow-start",
+            "2000",
+            "--port-start",
+            "2000",
+            "--representation",
+            "light_atlas",
+            "--material-head",
+            "svbrdf",
+            "--split-scale2d-stop",
+            "0",
+            "--specular",
+            "lobes",
+            "--optimize-cameras",
+            "--camera-mode",
+            "rotation",
+            "--camera-gauge",
+            "translation",
+            "--camera-start",
+            "2000",
+            "--camera-lr",
+            "0.001",
+            "--camera-lr-final",
+            "1e-05",
+            "--scene",
+            "/workspace/datasets/SSD-GS/data/Real_NRHints/FurScene",
+            "--output",
+            "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_collapse_diagnosis_20261004/no_split2d_spec/Real_NRHints/FurScene"
+          ],
+          "logpath": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_collapse_diagnosis_20261004/no_split2d_spec/Real_NRHints/FurScene.train.log",
+          "output": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_collapse_diagnosis_20261004/no_split2d_spec/Real_NRHints/FurScene",
+          "resultpath": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_collapse_diagnosis_20261004/no_split2d_spec/Real_NRHints/FurScene/last.pt",
+          "started_utc": "2026-10-03T18:16:01.530648+00:00",
+          "pid": null,
+          "startup_confirmed": {
+            "pid": 448836,
+            "gpu": "3",
+            "step": 100,
+            "row": {
+              "step": 100,
+              "stage": "relighting",
+              "frame_index": 663,
+              "loss": 0.15272369980812073,
+              "l1": 0.07880547642707825,
+              "loss_terms": {
+                "l1": 0.06304438412189484,
+                "ssim": 0.0596439503133297,
+                "mask": 0.030035292729735374,
+                "feature_reg": 7.523298251044253e-08,
+                "camera_reg": 0.0
+              },
+              "points": 20000,
+              "seconds": 6.83,
+              "memory_GiB": 4.980144023895264,
+              "transport_stats": {
+                "specular": 1.7755073713487945e-06
+              },
+              "camera_rotation_rms": 0.0,
+              "camera_lr": 0.001,
+              "scene_gauge_shift": [
+                0.0,
+                0.0,
+                0.0
+              ]
+            }
+          },
+          "finished_utc": "2026-10-03T18:22:12.168960+00:00",
+          "last_pid": 448836
+        },
+        "eval": {
+          "state": "completed",
+          "cwd": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS",
+          "argv": [
+            "/workspace/ubuntu2004_cuda12_1/utils/conda-envs/ssd-gs/bin/python",
+            "-u",
+            "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/evaluate.py",
+            "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_collapse_diagnosis_20261004/no_split2d_spec/Real_NRHints/FurScene/last.pt",
+            "--split",
+            "validation",
+            "--output",
+            "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_collapse_diagnosis_20261004/no_split2d_spec/Real_NRHints/FurScene/validation",
+            "--lpips",
+            "--highlights"
+          ],
+          "logpath": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_collapse_diagnosis_20261004/no_split2d_spec/Real_NRHints/FurScene.validation.log",
+          "output": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_collapse_diagnosis_20261004/no_split2d_spec/Real_NRHints/FurScene/validation",
+          "resultpath": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_collapse_diagnosis_20261004/no_split2d_spec/Real_NRHints/FurScene/validation/metrics.json",
+          "started_utc": "2026-10-03T18:22:12.170673+00:00",
+          "pid": null,
+          "finished_utc": "2026-10-03T18:22:23.173833+00:00",
+          "last_pid": 450768
+        }
+      },
+      "started_utc": "2026-10-03T18:16:01.529534+00:00",
+      "startup_confirmed": {
+        "pid": 448836,
+        "gpu": "3",
+        "step": 100,
+        "row": {
+          "step": 100,
+          "stage": "relighting",
+          "frame_index": 663,
+          "loss": 0.15272369980812073,
+          "l1": 0.07880547642707825,
+          "loss_terms": {
+            "l1": 0.06304438412189484,
+            "ssim": 0.0596439503133297,
+            "mask": 0.030035292729735374,
+            "feature_reg": 7.523298251044253e-08,
+            "camera_reg": 0.0
+          },
+          "points": 20000,
+          "seconds": 6.83,
+          "memory_GiB": 4.980144023895264,
+          "transport_stats": {
+            "specular": 1.7755073713487945e-06
+          },
+          "camera_rotation_rms": 0.0,
+          "camera_lr": 0.001,
+          "scene_gauge_shift": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        }
+      },
+      "finished_utc": "2026-10-03T18:22:23.175573+00:00"
+    },
+    "PORT-Synthetic_SSS-GS-soap_small-no_split2d_spec": {
+      "method": "PORT-GS",
+      "family": "Synthetic_SSS-GS",
+      "scene": "soap_small",
+      "state": "completed",
+      "gpu": "2",
+      "phase": null,
+      "pid": null,
+      "output": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_collapse_diagnosis_20261004/no_split2d_spec/Synthetic_SSS-GS/soap_small",
+      "resultpath": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_collapse_diagnosis_20261004/no_split2d_spec/Synthetic_SSS-GS/soap_small/validation/metrics.json",
+      "source_archive": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_collapse_diagnosis_20261004/source.tar",
+      "reused_from": null,
+      "steps": {
+        "train": {
+          "state": "completed",
+          "cwd": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS",
+          "argv": [
+            "/workspace/ubuntu2004_cuda12_1/utils/conda-envs/ssd-gs/bin/python",
+            "-u",
+            "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/train.py",
+            "--steps",
+            "6000",
+            "--lr-decay-steps",
+            "30000",
+            "--seed",
+            "0",
+            "--resolution",
+            "256",
+            "--background",
+            "0.0",
+            "--display-gamma",
+            "2.2",
+            "--shadow-start",
+            "2000",
+            "--port-start",
+            "2000",
+            "--representation",
+            "light_atlas",
+            "--material-head",
+            "svbrdf",
+            "--split-scale2d-stop",
+            "0",
+            "--specular",
+            "lobes",
+            "--unit-light-intensity",
+            "1.0",
+            "--scene",
+            "/workspace/datasets/SSD-GS/data/Synthetic_SSS-GS/soap_small",
+            "--output",
+            "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_collapse_diagnosis_20261004/no_split2d_spec/Synthetic_SSS-GS/soap_small"
+          ],
+          "logpath": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_collapse_diagnosis_20261004/no_split2d_spec/Synthetic_SSS-GS/soap_small.train.log",
+          "output": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_collapse_diagnosis_20261004/no_split2d_spec/Synthetic_SSS-GS/soap_small",
+          "resultpath": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_collapse_diagnosis_20261004/no_split2d_spec/Synthetic_SSS-GS/soap_small/last.pt",
+          "started_utc": "2026-10-03T18:19:37.254021+00:00",
+          "pid": null,
+          "startup_confirmed": {
+            "pid": 450397,
+            "gpu": "2",
+            "step": 100,
+            "row": {
+              "step": 100,
+              "stage": "relighting",
+              "frame_index": 462,
+              "loss": 0.06279359012842178,
+              "l1": 0.006360750179737806,
+              "loss_terms": {
+                "l1": 0.00508860033005476,
+                "ssim": 0.016674494370818138,
+                "mask": 0.041030436754226685,
+                "feature_reg": 6.279913122853031e-08,
+                "camera_reg": 0.0
+              },
+              "points": 20000,
+              "seconds": 5.24,
+              "memory_GiB": 1.104687213897705,
+              "transport_stats": {
+                "specular": 3.5152252166881226e-06
+              }
+            }
+          },
+          "finished_utc": "2026-10-03T18:26:24.902207+00:00",
+          "last_pid": 450397
+        },
+        "eval": {
+          "state": "completed",
+          "cwd": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS",
+          "argv": [
+            "/workspace/ubuntu2004_cuda12_1/utils/conda-envs/ssd-gs/bin/python",
+            "-u",
+            "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/evaluate.py",
+            "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_collapse_diagnosis_20261004/no_split2d_spec/Synthetic_SSS-GS/soap_small/last.pt",
+            "--split",
+            "validation",
+            "--output",
+            "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_collapse_diagnosis_20261004/no_split2d_spec/Synthetic_SSS-GS/soap_small/validation",
+            "--lpips",
+            "--highlights"
+          ],
+          "logpath": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_collapse_diagnosis_20261004/no_split2d_spec/Synthetic_SSS-GS/soap_small.validation.log",
+          "output": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_collapse_diagnosis_20261004/no_split2d_spec/Synthetic_SSS-GS/soap_small/validation",
+          "resultpath": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_collapse_diagnosis_20261004/no_split2d_spec/Synthetic_SSS-GS/soap_small/validation/metrics.json",
+          "started_utc": "2026-10-03T18:26:24.903999+00:00",
+          "pid": null,
+          "finished_utc": "2026-10-03T18:26:33.828471+00:00",
+          "last_pid": 451319
+        }
+      },
+      "started_utc": "2026-10-03T18:19:37.252965+00:00",
+      "startup_confirmed": {
+        "pid": 450397,
+        "gpu": "2",
+        "step": 100,
+        "row": {
+          "step": 100,
+          "stage": "relighting",
+          "frame_index": 462,
+          "loss": 0.06279359012842178,
+          "l1": 0.006360750179737806,
+          "loss_terms": {
+            "l1": 0.00508860033005476,
+            "ssim": 0.016674494370818138,
+            "mask": 0.041030436754226685,
+            "feature_reg": 6.279913122853031e-08,
+            "camera_reg": 0.0
+          },
+          "points": 20000,
+          "seconds": 5.24,
+          "memory_GiB": 1.104687213897705,
+          "transport_stats": {
+            "specular": 3.5152252166881226e-06
+          }
+        }
+      },
+      "finished_utc": "2026-10-03T18:26:33.831541+00:00"
+    }
+  }
+}

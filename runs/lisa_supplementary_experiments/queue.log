@@ -1,0 +1,446 @@
+{"event": "hourly_check", "checked_utc": "2026-10-05T08:06:21.190977+00:00", "checked_jst": "2026-10-05T17:06:21.191304+09:00", "scheduler_pid": 701029, "workers": {"1": {"state": "idle", "job": null, "pid": null, "process_alive": false}, "2": {"state": "idle", "job": null, "pid": null, "process_alive": false}}, "gpu_observation": ["0, 4093, 0", "1, 17, 0", "2, 17, 0", "3, 17, 0"]}
+{"event": "startup_confirmed", "job": "PORT-Synthetic_GS3-AnisoMetal-no_transfer-structure_ablation", "gpu": "2", "pid": 701047, "phase": "train", "step": 100}
+{"event": "startup_confirmed", "job": "PORT-Synthetic_GS3-Drums-no_transfer-structure_ablation", "gpu": "1", "pid": 701048, "phase": "train", "step": 100}
+{"event": "phasefinish", "job": "PORT-Synthetic_GS3-Drums-no_transfer-structure_ablation", "gpu": "1", "phase": "train", "pid": 701048}
+{"event": "phasefinish", "job": "PORT-Synthetic_GS3-AnisoMetal-no_transfer-structure_ablation", "gpu": "2", "phase": "train", "pid": 701047}
+{"event": "startup_confirmed", "job": "PORT-Synthetic_GS3-Drums-no_transfer-structure_ablation", "gpu": "1", "pid": 702420, "phase": "appearance", "step": 100}
+{"event": "startup_confirmed", "job": "PORT-Synthetic_GS3-AnisoMetal-no_transfer-structure_ablation", "gpu": "2", "pid": 702495, "phase": "appearance", "step": 100}
+{"event": "phasefinish", "job": "PORT-Synthetic_GS3-Drums-no_transfer-structure_ablation", "gpu": "1", "phase": "appearance", "pid": 702420}
+{"event": "phasefinish", "job": "PORT-Synthetic_GS3-AnisoMetal-no_transfer-structure_ablation", "gpu": "2", "phase": "appearance", "pid": 702495}
+{"event": "phasefinish", "job": "PORT-Synthetic_GS3-Drums-no_transfer-structure_ablation", "gpu": "1", "phase": "eval", "pid": 703060}
+{"event": "jobfinish", "job": "PORT-Synthetic_GS3-Drums-no_transfer-structure_ablation", "gpu": "1"}
+{"event": "phasefinish", "job": "PORT-Synthetic_GS3-AnisoMetal-no_transfer-structure_ablation", "gpu": "2", "phase": "eval", "pid": 703126}
+{"event": "jobfinish", "job": "PORT-Synthetic_GS3-AnisoMetal-no_transfer-structure_ablation", "gpu": "2"}
+{"event": "startup_confirmed", "job": "PORT-Synthetic_GS3-Translucent-no_transfer-structure_ablation", "gpu": "1", "pid": 703179, "phase": "train", "step": 100}
+{"event": "startup_confirmed", "job": "PORT-Real_NRHints-FurScene-no_transfer-structure_ablation", "gpu": "2", "pid": 703274, "phase": "train", "step": 100}
+{"event": "phasefinish", "job": "PORT-Real_NRHints-FurScene-no_transfer-structure_ablation", "gpu": "2", "phase": "train", "pid": 703274}
+{"event": "startup_confirmed", "job": "PORT-Real_NRHints-FurScene-no_transfer-structure_ablation", "gpu": "2", "pid": 704356, "phase": "appearance", "step": 100}
+{"event": "phasefinish", "job": "PORT-Synthetic_GS3-Translucent-no_transfer-structure_ablation", "gpu": "1", "phase": "train", "pid": 703179}
+{"event": "startup_confirmed", "job": "PORT-Synthetic_GS3-Translucent-no_transfer-structure_ablation", "gpu": "1", "pid": 704449, "phase": "appearance", "step": 100}
+{"event": "phasefinish", "job": "PORT-Real_NRHints-FurScene-no_transfer-structure_ablation", "gpu": "2", "phase": "appearance", "pid": 704356}
+{"event": "phasefinish", "job": "PORT-Real_NRHints-FurScene-no_transfer-structure_ablation", "gpu": "2", "phase": "eval", "pid": 704824}
+{"event": "jobfinish", "job": "PORT-Real_NRHints-FurScene-no_transfer-structure_ablation", "gpu": "2"}
+{"event": "startup_confirmed", "job": "PORT-Synthetic_SSS-GS-soap_small-no_transfer-structure_ablation", "gpu": "2", "pid": 704875, "phase": "train", "step": 100}
+{"event": "phasefinish", "job": "PORT-Synthetic_GS3-Translucent-no_transfer-structure_ablation", "gpu": "1", "phase": "appearance", "pid": 704449}
+{"event": "phasefinish", "job": "PORT-Synthetic_GS3-Translucent-no_transfer-structure_ablation", "gpu": "1", "phase": "eval", "pid": 705044}
+{"event": "jobfinish", "job": "PORT-Synthetic_GS3-Translucent-no_transfer-structure_ablation", "gpu": "1"}
+{"event": "startup_confirmed", "job": "PORT-Synthetic_GS3-Drums-single_scale-structure_ablation", "gpu": "1", "pid": 705112, "phase": "train", "step": 100}
+{"event": "phasefinish", "job": "PORT-Synthetic_SSS-GS-soap_small-no_transfer-structure_ablation", "gpu": "2", "phase": "train", "pid": 704875}
+{"event": "startup_confirmed", "job": "PORT-Synthetic_SSS-GS-soap_small-no_transfer-structure_ablation", "gpu": "2", "pid": 705840, "phase": "appearance", "step": 100}
+{"event": "phasefinish", "job": "PORT-Synthetic_SSS-GS-soap_small-no_transfer-structure_ablation", "gpu": "2", "phase": "appearance", "pid": 705840}
+{"event": "hourly_check", "checked_utc": "2026-10-05T09:06:21.760232+00:00", "checked_jst": "2026-10-05T18:06:21.760256+09:00", "scheduler_pid": 701029, "workers": {"1": {"state": "running", "job": "PORT-Synthetic_GS3-Drums-single_scale-structure_ablation", "pid": 705112, "process_alive": true, "progress": [{"step": 29000, "stage": "relighting", "frame_index": 864, "loss": 0.005240812432020903, "l1": 0.0028027608059346676, "loss_terms": {"l1": 0.002242208691313863, "ssim": 0.001721334527246654, "mask": 0.0012750070309266448, "feature_reg": 2.262122961838031e-06, "camera_reg": 0.0}, "points": 222407, "seconds": 818.69, "memory_GiB": 10.82197093963623, "transport_stats": {"specular": 0.0001306198100792244, "visibility_residual": -0.8333783745765686, "local": 0.030930066481232643, "rho": 0.030941728502511978, "visibility": 0.47491759061813354, "transport": 0.029648486524820328}}, null]}, "2": {"state": "running", "job": "PORT-Synthetic_SSS-GS-soap_small-no_transfer-structure_ablation", "pid": 706169, "process_alive": true, "progress": [{"step": 30000, "stage": "relighting", "frame_index": 138, "loss": 0.0026142974384129047, "l1": 0.0015900151338428259, "loss_terms": {"l1": 0.001272012130357325, "ssim": 0.0011564731830731034, "mask": 0.00018284567340742797, "feature_reg": 2.966546617244603e-06, "camera_reg": 0.0}, "points": 24433, "seconds": 734.74, "memory_GiB": 0.8699374198913574, "transport_stats": {"specular": 0.0011885657440871, "visibility_residual": 8.695213317871094, "local": 0.07736578583717346, "rho": 0.0717187449336052, "visibility": 0.7304234504699707}}, {"step": 8000, "stage": "relighting", "frame_index": 412, "loss": 0.0030160844326019287, "l1": 0.001740003703162074, "loss_terms": {"l1": 0.0013920030323788524, "ssim": 0.001403641770593822, "mask": 0.00021633639698848128, "feature_reg": 4.103082574147265e-06, "camera_reg": 0.0}, "points": 24433, "seconds": 242.43, "memory_GiB": 0.8437180519104004, "transport_stats": {"specular": 0.0001278811105294153, "visibility_residual": 3.396195650100708, "local": 0.04468708857893944, "rho": 0.0415065735578537, "visibility": 0.9453890919685364}}]}}, "gpu_observation": ["0, 4093, 0", "1, 11897, 96", "2, 829, 40", "3, 17, 0"]}
+{"event": "phasefinish", "job": "PORT-Synthetic_SSS-GS-soap_small-no_transfer-structure_ablation", "gpu": "2", "phase": "eval", "pid": 706169}
+{"event": "jobfinish", "job": "PORT-Synthetic_SSS-GS-soap_small-no_transfer-structure_ablation", "gpu": "2"}
+{"event": "phasefinish", "job": "PORT-Synthetic_GS3-Drums-single_scale-structure_ablation", "gpu": "1", "phase": "train", "pid": 705112}
+{"event": "startup_confirmed", "job": "PORT-Synthetic_GS3-AnisoMetal-single_scale-structure_ablation", "gpu": "2", "pid": 706268, "phase": "train", "step": 100}
+{"event": "startup_confirmed", "job": "PORT-Synthetic_GS3-Drums-single_scale-structure_ablation", "gpu": "1", "pid": 706310, "phase": "appearance", "step": 100}
+{"event": "phasefinish", "job": "PORT-Synthetic_GS3-Drums-single_scale-structure_ablation", "gpu": "1", "phase": "appearance", "pid": 706310}
+{"event": "phasefinish", "job": "PORT-Synthetic_GS3-Drums-single_scale-structure_ablation", "gpu": "1", "phase": "eval", "pid": 706768}
+{"event": "jobfinish", "job": "PORT-Synthetic_GS3-Drums-single_scale-structure_ablation", "gpu": "1"}
+{"event": "startup_confirmed", "job": "PORT-Synthetic_GS3-Translucent-single_scale-structure_ablation", "gpu": "1", "pid": 706848, "phase": "train", "step": 100}
+{"event": "phasefinish", "job": "PORT-Synthetic_GS3-AnisoMetal-single_scale-structure_ablation", "gpu": "2", "phase": "train", "pid": 706268}
+{"event": "startup_confirmed", "job": "PORT-Synthetic_GS3-AnisoMetal-single_scale-structure_ablation", "gpu": "2", "pid": 707623, "phase": "appearance", "step": 100}
+{"event": "phasefinish", "job": "PORT-Synthetic_GS3-Translucent-single_scale-structure_ablation", "gpu": "1", "phase": "train", "pid": 706848}
+{"event": "startup_confirmed", "job": "PORT-Synthetic_GS3-Translucent-single_scale-structure_ablation", "gpu": "1", "pid": 707890, "phase": "appearance", "step": 100}
+{"event": "phasefinish", "job": "PORT-Synthetic_GS3-AnisoMetal-single_scale-structure_ablation", "gpu": "2", "phase": "appearance", "pid": 707623}
+{"event": "phasefinish", "job": "PORT-Synthetic_GS3-AnisoMetal-single_scale-structure_ablation", "gpu": "2", "phase": "eval", "pid": 708079}
+{"event": "jobfinish", "job": "PORT-Synthetic_GS3-AnisoMetal-single_scale-structure_ablation", "gpu": "2"}
+{"event": "startup_confirmed", "job": "PORT-Real_NRHints-FurScene-single_scale-structure_ablation", "gpu": "2", "pid": 708153, "phase": "train", "step": 100}
+{"event": "phasefinish", "job": "PORT-Synthetic_GS3-Translucent-single_scale-structure_ablation", "gpu": "1", "phase": "appearance", "pid": 707890}
+{"event": "phasefinish", "job": "PORT-Synthetic_GS3-Translucent-single_scale-structure_ablation", "gpu": "1", "phase": "eval", "pid": 708352}
+{"event": "jobfinish", "job": "PORT-Synthetic_GS3-Translucent-single_scale-structure_ablation", "gpu": "1"}
+{"event": "startup_confirmed", "job": "PORT-Synthetic_SSS-GS-soap_small-single_scale-structure_ablation", "gpu": "1", "pid": 708453, "phase": "train", "step": 100}
+{"event": "phasefinish", "job": "PORT-Real_NRHints-FurScene-single_scale-structure_ablation", "gpu": "2", "phase": "train", "pid": 708153}
+{"event": "startup_confirmed", "job": "PORT-Real_NRHints-FurScene-single_scale-structure_ablation", "gpu": "2", "pid": 709053, "phase": "appearance", "step": 100}
+{"event": "phasefinish", "job": "PORT-Synthetic_SSS-GS-soap_small-single_scale-structure_ablation", "gpu": "1", "phase": "train", "pid": 708453}
+{"event": "startup_confirmed", "job": "PORT-Synthetic_SSS-GS-soap_small-single_scale-structure_ablation", "gpu": "1", "pid": 709219, "phase": "appearance", "step": 100}
+{"event": "phasefinish", "job": "PORT-Real_NRHints-FurScene-single_scale-structure_ablation", "gpu": "2", "phase": "appearance", "pid": 709053}
+{"event": "phasefinish", "job": "PORT-Real_NRHints-FurScene-single_scale-structure_ablation", "gpu": "2", "phase": "eval", "pid": 709411}
+{"event": "jobfinish", "job": "PORT-Real_NRHints-FurScene-single_scale-structure_ablation", "gpu": "2"}
+{"event": "startup_confirmed", "job": "PORT-Synthetic_GS3-Drums-moment_visibility-structure_ablation", "gpu": "2", "pid": 709470, "phase": "train", "step": 100}
+{"event": "phasefinish", "job": "PORT-Synthetic_SSS-GS-soap_small-single_scale-structure_ablation", "gpu": "1", "phase": "appearance", "pid": 709219}
+{"event": "phasefinish", "job": "PORT-Synthetic_SSS-GS-soap_small-single_scale-structure_ablation", "gpu": "1", "phase": "eval", "pid": 709573}
+{"event": "jobfinish", "job": "PORT-Synthetic_SSS-GS-soap_small-single_scale-structure_ablation", "gpu": "1"}
+{"event": "startup_confirmed", "job": "PORT-Synthetic_GS3-AnisoMetal-moment_visibility-structure_ablation", "gpu": "1", "pid": 709673, "phase": "train", "step": 100}
+{"event": "phasefinish", "job": "PORT-Synthetic_GS3-Drums-moment_visibility-structure_ablation", "gpu": "2", "phase": "train", "pid": 709470}
+{"event": "startup_confirmed", "job": "PORT-Synthetic_GS3-Drums-moment_visibility-structure_ablation", "gpu": "2", "pid": 710762, "phase": "appearance", "step": 100}
+{"event": "hourly_check", "checked_utc": "2026-10-05T10:06:22.364162+00:00", "checked_jst": "2026-10-05T19:06:22.364176+09:00", "scheduler_pid": 701029, "workers": {"1": {"state": "running", "job": "PORT-Synthetic_GS3-AnisoMetal-moment_visibility-structure_ablation", "pid": 709673, "process_alive": true, "progress": [{"step": 27900, "stage": "relighting", "frame_index": 959, "loss": 0.01607963815331459, "l1": 0.012333445250988007, "loss_terms": {"l1": 0.00986675638705492, "ssim": 0.005883741658180952, "mask": 0.000323516724165529, "feature_reg": 5.622520347969839e-06, "camera_reg": 0.0}, "points": 268527, "seconds": 1059.12, "memory_GiB": 11.872674942016602, "transport_stats": {"specular": 0.003350786631926894, "local": 0.15026946365833282, "rho": 0.23912706971168518, "visibility": 0.6240591406822205, "transport": 0.03292207047343254}}, null]}, "2": {"state": "running", "job": "PORT-Synthetic_GS3-Drums-moment_visibility-structure_ablation", "pid": 710762, "process_alive": true, "progress": [{"step": 30000, "stage": "relighting", "frame_index": 553, "loss": 0.008412343449890614, "l1": 0.004748511128127575, "loss_terms": {"l1": 0.00379880890250206, "ssim": 0.003399336477741599, "mask": 0.0012118886224925518, "feature_reg": 2.3090951799531467e-06, "camera_reg": 0.0}, "points": 229480, "seconds": 1070.71, "memory_GiB": 11.280077457427979, "transport_stats": {"specular": 0.000756046618334949, "local": 0.021821651607751846, "rho": 0.025339003652334213, "visibility": 0.6062189936637878, "transport": 0.03852652385830879}}, {"step": 900, "stage": "relighting", "frame_index": 730, "loss": 0.013540934771299362, "l1": 0.00618494488298893, "loss_terms": {"l1": 0.004947956185787916, "ssim": 0.007589936256408691, "mask": 0.0010005466174334288, "feature_reg": 2.4948037662397837e-06, "camera_reg": 0.0}, "points": 229480, "seconds": 40.67, "memory_GiB": 9.506950378417969, "transport_stats": {"specular": 0.0024776202626526356, "local": 0.04469158127903938, "rho": 0.0520033985376358, "visibility": 0.6328879594802856, "transport": 0.0041234237141907215}}]}}, "gpu_observation": ["0, 4093, 0", "1, 13067, 95", "2, 10471, 69", "3, 17, 0"]}
+{"event": "phasefinish", "job": "PORT-Synthetic_GS3-AnisoMetal-moment_visibility-structure_ablation", "gpu": "1", "phase": "train", "pid": 709673}
+{"event": "startup_confirmed", "job": "PORT-Synthetic_GS3-AnisoMetal-moment_visibility-structure_ablation", "gpu": "1", "pid": 711076, "phase": "appearance", "step": 100}
+{"event": "phasefinish", "job": "PORT-Synthetic_GS3-Drums-moment_visibility-structure_ablation", "gpu": "2", "phase": "appearance", "pid": 710762}
+{"event": "phasefinish", "job": "PORT-Synthetic_GS3-Drums-moment_visibility-structure_ablation", "gpu": "2", "phase": "eval", "pid": 711329}
+{"event": "jobfinish", "job": "PORT-Synthetic_GS3-Drums-moment_visibility-structure_ablation", "gpu": "2"}
+{"event": "startup_confirmed", "job": "PORT-Synthetic_GS3-Translucent-moment_visibility-structure_ablation", "gpu": "2", "pid": 711396, "phase": "train", "step": 100}
+{"event": "phasefinish", "job": "PORT-Synthetic_GS3-AnisoMetal-moment_visibility-structure_ablation", "gpu": "1", "phase": "appearance", "pid": 711076}
+{"event": "phasefinish", "job": "PORT-Synthetic_GS3-AnisoMetal-moment_visibility-structure_ablation", "gpu": "1", "phase": "eval", "pid": 711624}
+{"event": "jobfinish", "job": "PORT-Synthetic_GS3-AnisoMetal-moment_visibility-structure_ablation", "gpu": "1"}
+{"event": "startup_confirmed", "job": "PORT-Real_NRHints-FurScene-moment_visibility-structure_ablation", "gpu": "1", "pid": 711740, "phase": "train", "step": 100}
+{"event": "phasefinish", "job": "PORT-Synthetic_GS3-Translucent-moment_visibility-structure_ablation", "gpu": "2", "phase": "train", "pid": 711396}
+{"event": "startup_confirmed", "job": "PORT-Synthetic_GS3-Translucent-moment_visibility-structure_ablation", "gpu": "2", "pid": 712605, "phase": "appearance", "step": 100}
+{"event": "phasefinish", "job": "PORT-Real_NRHints-FurScene-moment_visibility-structure_ablation", "gpu": "1", "phase": "train", "pid": 711740}
+{"event": "startup_confirmed", "job": "PORT-Real_NRHints-FurScene-moment_visibility-structure_ablation", "gpu": "1", "pid": 712711, "phase": "appearance", "step": 100}
+{"event": "phasefinish", "job": "PORT-Real_NRHints-FurScene-moment_visibility-structure_ablation", "gpu": "1", "phase": "appearance", "pid": 712711}
+{"event": "phasefinish", "job": "PORT-Real_NRHints-FurScene-moment_visibility-structure_ablation", "gpu": "1", "phase": "eval", "pid": 713070}
+{"event": "jobfinish", "job": "PORT-Real_NRHints-FurScene-moment_visibility-structure_ablation", "gpu": "1"}
+{"event": "phasefinish", "job": "PORT-Synthetic_GS3-Translucent-moment_visibility-structure_ablation", "gpu": "2", "phase": "appearance", "pid": 712605}
+{"event": "startup_confirmed", "job": "PORT-Synthetic_SSS-GS-soap_small-moment_visibility-structure_ablation", "gpu": "1", "pid": 713130, "phase": "train", "step": 100}
+{"event": "phasefinish", "job": "PORT-Synthetic_GS3-Translucent-moment_visibility-structure_ablation", "gpu": "2", "phase": "eval", "pid": 713172}
+{"event": "jobfinish", "job": "PORT-Synthetic_GS3-Translucent-moment_visibility-structure_ablation", "gpu": "2"}
+{"event": "startup_confirmed", "job": "PORT-Synthetic_GS3-Drums-local_residual-structure_ablation", "gpu": "2", "pid": 713240, "phase": "train", "step": 100}
+{"event": "phasefinish", "job": "PORT-Synthetic_SSS-GS-soap_small-moment_visibility-structure_ablation", "gpu": "1", "phase": "train", "pid": 713130}
+{"event": "startup_confirmed", "job": "PORT-Synthetic_SSS-GS-soap_small-moment_visibility-structure_ablation", "gpu": "1", "pid": 714037, "phase": "appearance", "step": 100}
+{"event": "phasefinish", "job": "PORT-Synthetic_SSS-GS-soap_small-moment_visibility-structure_ablation", "gpu": "1", "phase": "appearance", "pid": 714037}
+{"event": "phasefinish", "job": "PORT-Synthetic_SSS-GS-soap_small-moment_visibility-structure_ablation", "gpu": "1", "phase": "eval", "pid": 714336}
+{"event": "jobfinish", "job": "PORT-Synthetic_SSS-GS-soap_small-moment_visibility-structure_ablation", "gpu": "1"}
+{"event": "startup_confirmed", "job": "PORT-Synthetic_GS3-AnisoMetal-local_residual-structure_ablation", "gpu": "1", "pid": 714394, "phase": "train", "step": 100}
+{"event": "phasefinish", "job": "PORT-Synthetic_GS3-Drums-local_residual-structure_ablation", "gpu": "2", "phase": "train", "pid": 713240}
+{"event": "startup_confirmed", "job": "PORT-Synthetic_GS3-Drums-local_residual-structure_ablation", "gpu": "2", "pid": 714571, "phase": "appearance", "step": 100}
+{"event": "phasefinish", "job": "PORT-Synthetic_GS3-Drums-local_residual-structure_ablation", "gpu": "2", "phase": "appearance", "pid": 714571}
+{"event": "phasefinish", "job": "PORT-Synthetic_GS3-Drums-local_residual-structure_ablation", "gpu": "2", "phase": "eval", "pid": 715029}
+{"event": "jobfinish", "job": "PORT-Synthetic_GS3-Drums-local_residual-structure_ablation", "gpu": "2"}
+{"event": "startup_confirmed", "job": "PORT-Synthetic_GS3-Translucent-local_residual-structure_ablation", "gpu": "2", "pid": 715102, "phase": "train", "step": 100}
+{"event": "hourly_check", "checked_utc": "2026-10-05T11:06:22.991900+00:00", "checked_jst": "2026-10-05T20:06:22.991924+09:00", "scheduler_pid": 701029, "workers": {"1": {"state": "running", "job": "PORT-Synthetic_GS3-AnisoMetal-local_residual-structure_ablation", "pid": 714394, "process_alive": true, "progress": [{"step": 23900, "stage": "relighting", "frame_index": 434, "loss": 0.018693314865231514, "l1": 0.015076550655066967, "loss_terms": {"l1": 0.012061241082847118, "ssim": 0.006289351265877485, "mask": 0.00033746613189578056, "feature_reg": 5.2566460908565205e-06, "camera_reg": 0.0}, "points": 255927, "seconds": 821.61, "memory_GiB": 11.710949420928955, "transport_stats": {"specular": 0.004205777309834957, "visibility_residual": 6.477993488311768, "local": 0.1800731122493744, "rho": 0.20651385188102722, "visibility": 0.6719229817390442, "transport": 0.014864940196275711}}, null]}, "2": {"state": "running", "job": "PORT-Synthetic_GS3-Translucent-local_residual-structure_ablation", "pid": 715102, "process_alive": true, "progress": [{"step": 13100, "stage": "relighting", "frame_index": 1520, "loss": 0.014083625748753548, "l1": 0.010401049628853798, "loss_terms": {"l1": 0.008320840075612068, "ssim": 0.005385994911193848, "mask": 0.0003751881013158709, "feature_reg": 1.6032087160056108e-06, "camera_reg": 0.0}, "points": 178392, "seconds": 272.49, "memory_GiB": 10.549375534057617, "transport_stats": {"specular": 0.0031622485257685184, "visibility_residual": 5.083680152893066, "local": 0.28751951456069946, "rho": 0.41088593006134033, "visibility": 0.8302401900291443, "transport": 0.01211102120578289}}, null]}}, "gpu_observation": ["0, 4093, 0", "1, 12943, 92", "2, 11651, 85", "3, 17, 0"]}
+{"event": "phasefinish", "job": "PORT-Synthetic_GS3-AnisoMetal-local_residual-structure_ablation", "gpu": "1", "phase": "train", "pid": 714394}
+{"event": "startup_confirmed", "job": "PORT-Synthetic_GS3-AnisoMetal-local_residual-structure_ablation", "gpu": "1", "pid": 715845, "phase": "appearance", "step": 100}
+{"event": "phasefinish", "job": "PORT-Synthetic_GS3-Translucent-local_residual-structure_ablation", "gpu": "2", "phase": "train", "pid": 715102}
+{"event": "phasefinish", "job": "PORT-Synthetic_GS3-AnisoMetal-local_residual-structure_ablation", "gpu": "1", "phase": "appearance", "pid": 715845}
+{"event": "startup_confirmed", "job": "PORT-Synthetic_GS3-Translucent-local_residual-structure_ablation", "gpu": "2", "pid": 716296, "phase": "appearance", "step": 100}
+{"event": "phasefinish", "job": "PORT-Synthetic_GS3-AnisoMetal-local_residual-structure_ablation", "gpu": "1", "phase": "eval", "pid": 716361}
+{"event": "jobfinish", "job": "PORT-Synthetic_GS3-AnisoMetal-local_residual-structure_ablation", "gpu": "1"}
+{"event": "startup_confirmed", "job": "PORT-Real_NRHints-FurScene-local_residual-structure_ablation", "gpu": "1", "pid": 716436, "phase": "train", "step": 100}
+{"event": "phasefinish", "job": "PORT-Synthetic_GS3-Translucent-local_residual-structure_ablation", "gpu": "2", "phase": "appearance", "pid": 716296}
+{"event": "phasefinish", "job": "PORT-Synthetic_GS3-Translucent-local_residual-structure_ablation", "gpu": "2", "phase": "eval", "pid": 716838}
+{"event": "jobfinish", "job": "PORT-Synthetic_GS3-Translucent-local_residual-structure_ablation", "gpu": "2"}
+{"event": "startup_confirmed", "job": "PORT-Synthetic_SSS-GS-soap_small-local_residual-structure_ablation", "gpu": "2", "pid": 716943, "phase": "train", "step": 100}
+{"event": "phasefinish", "job": "PORT-Real_NRHints-FurScene-local_residual-structure_ablation", "gpu": "1", "phase": "train", "pid": 716436}
+{"event": "startup_confirmed", "job": "PORT-Real_NRHints-FurScene-local_residual-structure_ablation", "gpu": "1", "pid": 717485, "phase": "appearance", "step": 100}
+{"event": "phasefinish", "job": "PORT-Synthetic_SSS-GS-soap_small-local_residual-structure_ablation", "gpu": "2", "phase": "train", "pid": 716943}
+{"event": "startup_confirmed", "job": "PORT-Synthetic_SSS-GS-soap_small-local_residual-structure_ablation", "gpu": "2", "pid": 717800, "phase": "appearance", "step": 100}
+{"event": "phasefinish", "job": "PORT-Real_NRHints-FurScene-local_residual-structure_ablation", "gpu": "1", "phase": "appearance", "pid": 717485}
+{"event": "phasefinish", "job": "PORT-Real_NRHints-FurScene-local_residual-structure_ablation", "gpu": "1", "phase": "eval", "pid": 717891}
+{"event": "jobfinish", "job": "PORT-Real_NRHints-FurScene-local_residual-structure_ablation", "gpu": "1"}
+{"event": "startup_confirmed", "job": "PORT-Synthetic_GS3-Drums-full_seed1-repeatability", "gpu": "1", "pid": 717942, "phase": "train", "step": 100}
+{"event": "phasefinish", "job": "PORT-Synthetic_SSS-GS-soap_small-local_residual-structure_ablation", "gpu": "2", "phase": "appearance", "pid": 717800}
+{"event": "phasefinish", "job": "PORT-Synthetic_SSS-GS-soap_small-local_residual-structure_ablation", "gpu": "2", "phase": "eval", "pid": 718198}
+{"event": "jobfinish", "job": "PORT-Synthetic_SSS-GS-soap_small-local_residual-structure_ablation", "gpu": "2"}
+{"event": "startup_confirmed", "job": "PORT-Synthetic_GS3-AnisoMetal-full_seed1-repeatability", "gpu": "2", "pid": 718250, "phase": "train", "step": 100}
+{"event": "phasefinish", "job": "PORT-Synthetic_GS3-Drums-full_seed1-repeatability", "gpu": "1", "phase": "train", "pid": 717942}
+{"event": "startup_confirmed", "job": "PORT-Synthetic_GS3-Drums-full_seed1-repeatability", "gpu": "1", "pid": 719528, "phase": "appearance", "step": 100}
+{"event": "phasefinish", "job": "PORT-Synthetic_GS3-AnisoMetal-full_seed1-repeatability", "gpu": "2", "phase": "train", "pid": 718250}
+{"event": "startup_confirmed", "job": "PORT-Synthetic_GS3-AnisoMetal-full_seed1-repeatability", "gpu": "2", "pid": 720202, "phase": "appearance", "step": 100}
+{"event": "phasefinish", "job": "PORT-Synthetic_GS3-Drums-full_seed1-repeatability", "gpu": "1", "phase": "appearance", "pid": 719528}
+{"event": "phasefinish", "job": "PORT-Synthetic_GS3-Drums-full_seed1-repeatability", "gpu": "1", "phase": "eval", "pid": 720368}
+{"event": "jobfinish", "job": "PORT-Synthetic_GS3-Drums-full_seed1-repeatability", "gpu": "1"}
+{"event": "startup_confirmed", "job": "PORT-Synthetic_GS3-Translucent-full_seed1-repeatability", "gpu": "1", "pid": 720446, "phase": "train", "step": 100}
+{"event": "hourly_check", "checked_utc": "2026-10-05T12:06:23.654603+00:00", "checked_jst": "2026-10-05T21:06:23.654627+09:00", "scheduler_pid": 701029, "workers": {"1": {"state": "running", "job": "PORT-Synthetic_GS3-Translucent-full_seed1-repeatability", "pid": 720446, "process_alive": true, "progress": [{"step": 4900, "stage": "geometry", "frame_index": 938, "loss": 0.06081761047244072, "l1": 0.04998108744621277, "loss_terms": {"l1": 0.039984870702028275, "ssim": 0.02013683319091797, "mask": 0.0006959049496799707, "feature_reg": 0.0, "camera_reg": 0.0}, "points": 114389, "seconds": 42.48, "memory_GiB": 8.00724458694458}, null]}, "2": {"state": "running", "job": "PORT-Synthetic_GS3-AnisoMetal-full_seed1-repeatability", "pid": 720202, "process_alive": true, "progress": [{"step": 30000, "stage": "relighting", "frame_index": 903, "loss": 0.011349876411259174, "l1": 0.007192074786871672, "loss_terms": {"l1": 0.00575366010889411, "ssim": 0.005185318179428577, "mask": 0.000404160819016397, "feature_reg": 6.738516731275013e-06, "camera_reg": 0.0}, "points": 256906, "seconds": 1201.43, "memory_GiB": 12.005053997039795, "transport_stats": {"specular": 0.015472852624952793, "visibility_residual": 8.902249336242676, "local": 0.1063072606921196, "rho": 0.14735910296440125, "visibility": 0.6799798011779785, "transport": 0.013983599841594696}}, {"step": 3400, "stage": "relighting", "frame_index": 509, "loss": 0.016691945493221283, "l1": 0.010229229927062988, "loss_terms": {"l1": 0.00818338431417942, "ssim": 0.008135342970490456, "mask": 0.00036633003037422895, "feature_reg": 6.888316875119926e-06, "camera_reg": 0.0}, "points": 256906, "seconds": 163.33, "memory_GiB": 11.061001777648926, "transport_stats": {"specular": 0.008606133982539177, "visibility_residual": 2.504939079284668, "local": 0.11875654757022858, "rho": 0.20846252143383026, "visibility": 0.5816031694412231, "transport": 0.01771557703614235}}]}}, "gpu_observation": ["0, 4093, 0", "1, 8855, 35", "2, 12109, 82", "3, 17, 0"]}
+{"event": "phasefinish", "job": "PORT-Synthetic_GS3-AnisoMetal-full_seed1-repeatability", "gpu": "2", "phase": "appearance", "pid": 720202}
+{"event": "phasefinish", "job": "PORT-Synthetic_GS3-AnisoMetal-full_seed1-repeatability", "gpu": "2", "phase": "eval", "pid": 721003}
+{"event": "jobfinish", "job": "PORT-Synthetic_GS3-AnisoMetal-full_seed1-repeatability", "gpu": "2"}
+{"event": "startup_confirmed", "job": "PORT-Real_NRHints-FurScene-full_seed1-repeatability", "gpu": "2", "pid": 721104, "phase": "train", "step": 100}
+{"event": "phasefinish", "job": "PORT-Synthetic_GS3-Translucent-full_seed1-repeatability", "gpu": "1", "phase": "train", "pid": 720446}
+{"event": "startup_confirmed", "job": "PORT-Synthetic_GS3-Translucent-full_seed1-repeatability", "gpu": "1", "pid": 722396, "phase": "appearance", "step": 100}
+{"event": "phasefinish", "job": "PORT-Real_NRHints-FurScene-full_seed1-repeatability", "gpu": "2", "phase": "train", "pid": 721104}
+{"event": "startup_confirmed", "job": "PORT-Real_NRHints-FurScene-full_seed1-repeatability", "gpu": "2", "pid": 722618, "phase": "appearance", "step": 100}
+{"event": "phasefinish", "job": "PORT-Synthetic_GS3-Translucent-full_seed1-repeatability", "gpu": "1", "phase": "appearance", "pid": 722396}
+{"event": "phasefinish", "job": "PORT-Synthetic_GS3-Translucent-full_seed1-repeatability", "gpu": "1", "phase": "eval", "pid": 722938}
+{"event": "jobfinish", "job": "PORT-Synthetic_GS3-Translucent-full_seed1-repeatability", "gpu": "1"}
+{"event": "startup_confirmed", "job": "PORT-Synthetic_SSS-GS-soap_small-full_seed1-repeatability", "gpu": "1", "pid": 723050, "phase": "train", "step": 100}
+{"event": "phasefinish", "job": "PORT-Real_NRHints-FurScene-full_seed1-repeatability", "gpu": "2", "phase": "appearance", "pid": 722618}
+{"event": "phasefinish", "job": "PORT-Real_NRHints-FurScene-full_seed1-repeatability", "gpu": "2", "phase": "eval", "pid": 723102}
+{"event": "jobfinish", "job": "PORT-Real_NRHints-FurScene-full_seed1-repeatability", "gpu": "2"}
+{"event": "startup_confirmed", "job": "PORT-Synthetic_GS3-Drums-full_seed2-repeatability", "gpu": "2", "pid": 723161, "phase": "train", "step": 100}
+{"event": "phasefinish", "job": "PORT-Synthetic_SSS-GS-soap_small-full_seed1-repeatability", "gpu": "1", "phase": "train", "pid": 723050}
+{"event": "startup_confirmed", "job": "PORT-Synthetic_SSS-GS-soap_small-full_seed1-repeatability", "gpu": "1", "pid": 724026, "phase": "appearance", "step": 100}
+{"event": "phasefinish", "job": "PORT-Synthetic_SSS-GS-soap_small-full_seed1-repeatability", "gpu": "1", "phase": "appearance", "pid": 724026}
+{"event": "phasefinish", "job": "PORT-Synthetic_SSS-GS-soap_small-full_seed1-repeatability", "gpu": "1", "phase": "eval", "pid": 724348}
+{"event": "jobfinish", "job": "PORT-Synthetic_SSS-GS-soap_small-full_seed1-repeatability", "gpu": "1"}
+{"event": "startup_confirmed", "job": "PORT-Synthetic_GS3-AnisoMetal-full_seed2-repeatability", "gpu": "1", "pid": 724445, "phase": "train", "step": 100}
+{"event": "phasefinish", "job": "PORT-Synthetic_GS3-Drums-full_seed2-repeatability", "gpu": "2", "phase": "train", "pid": 723161}
+{"event": "startup_confirmed", "job": "PORT-Synthetic_GS3-Drums-full_seed2-repeatability", "gpu": "2", "pid": 724622, "phase": "appearance", "step": 100}
+{"event": "phasefinish", "job": "PORT-Synthetic_GS3-Drums-full_seed2-repeatability", "gpu": "2", "phase": "appearance", "pid": 724622}
+{"event": "phasefinish", "job": "PORT-Synthetic_GS3-Drums-full_seed2-repeatability", "gpu": "2", "phase": "eval", "pid": 725138}
+{"event": "jobfinish", "job": "PORT-Synthetic_GS3-Drums-full_seed2-repeatability", "gpu": "2"}
+{"event": "startup_confirmed", "job": "PORT-Synthetic_GS3-Translucent-full_seed2-repeatability", "gpu": "2", "pid": 725216, "phase": "train", "step": 100}
+{"event": "hourly_check", "checked_utc": "2026-10-05T13:06:24.347169+00:00", "checked_jst": "2026-10-05T22:06:24.347193+09:00", "scheduler_pid": 701029, "workers": {"1": {"state": "running", "job": "PORT-Synthetic_GS3-AnisoMetal-full_seed2-repeatability", "pid": 724445, "process_alive": true, "progress": [{"step": 28100, "stage": "relighting", "frame_index": 324, "loss": 0.016546929255127907, "l1": 0.014576747082173824, "loss_terms": {"l1": 0.011661398224532604, "ssim": 0.004269504453986883, "mask": 0.0006109619280323386, "feature_reg": 5.065416644356446e-06, "camera_reg": 0.0}, "points": 260982, "seconds": 1096.75, "memory_GiB": 12.06505823135376, "transport_stats": {"specular": 0.013063786551356316, "visibility_residual": 11.033172607421875, "local": 0.1788874715566635, "rho": 0.2355113923549652, "visibility": 0.7763380408287048, "transport": 0.013925842009484768}}, null]}, "2": {"state": "running", "job": "PORT-Synthetic_GS3-Translucent-full_seed2-repeatability", "pid": 725216, "process_alive": true, "progress": [{"step": 19100, "stage": "relighting", "frame_index": 331, "loss": 0.008560971356928349, "l1": 0.006249230355024338, "loss_terms": {"l1": 0.00499938428401947, "ssim": 0.0027601481415331364, "mask": 0.0007989210425876081, "feature_reg": 2.518490191505407e-06, "camera_reg": 0.0}, "points": 193139, "seconds": 542.88, "memory_GiB": 10.976323127746582, "transport_stats": {"specular": 0.0009616713505238295, "visibility_residual": 7.2901105880737305, "local": 0.31640520691871643, "rho": 0.3845119774341583, "visibility": 0.8568025231361389, "transport": 0.02749221958220005}}, null]}}, "gpu_observation": ["0, 4093, 0", "1, 13167, 95", "2, 12017, 88", "3, 17, 0"]}
+{"event": "phasefinish", "job": "PORT-Synthetic_GS3-AnisoMetal-full_seed2-repeatability", "gpu": "1", "phase": "train", "pid": 724445}
+{"event": "startup_confirmed", "job": "PORT-Synthetic_GS3-AnisoMetal-full_seed2-repeatability", "gpu": "1", "pid": 726073, "phase": "appearance", "step": 100}
+{"event": "phasefinish", "job": "PORT-Synthetic_GS3-Translucent-full_seed2-repeatability", "gpu": "2", "phase": "train", "pid": 725216}
+{"event": "phasefinish", "job": "PORT-Synthetic_GS3-AnisoMetal-full_seed2-repeatability", "gpu": "1", "phase": "appearance", "pid": 726073}
+{"event": "startup_confirmed", "job": "PORT-Synthetic_GS3-Translucent-full_seed2-repeatability", "gpu": "2", "pid": 726536, "phase": "appearance", "step": 100}
+{"event": "phasefinish", "job": "PORT-Synthetic_GS3-AnisoMetal-full_seed2-repeatability", "gpu": "1", "phase": "eval", "pid": 726627}
+{"event": "jobfinish", "job": "PORT-Synthetic_GS3-AnisoMetal-full_seed2-repeatability", "gpu": "1"}
+{"event": "startup_confirmed", "job": "PORT-Real_NRHints-FurScene-full_seed2-repeatability", "gpu": "1", "pid": 726694, "phase": "train", "step": 100}
+{"event": "phasefinish", "job": "PORT-Synthetic_GS3-Translucent-full_seed2-repeatability", "gpu": "2", "phase": "appearance", "pid": 726536}
+{"event": "phasefinish", "job": "PORT-Synthetic_GS3-Translucent-full_seed2-repeatability", "gpu": "2", "phase": "eval", "pid": 727187}
+{"event": "jobfinish", "job": "PORT-Synthetic_GS3-Translucent-full_seed2-repeatability", "gpu": "2"}
+{"event": "startup_confirmed", "job": "PORT-Synthetic_SSS-GS-soap_small-full_seed2-repeatability", "gpu": "2", "pid": 727274, "phase": "train", "step": 100}
+{"event": "resource_policy_drain_requested", "utc": "2026-10-05T13:27:28.238967+00:00", "note": "User authorized GPU0 and two tasks below 65% VRAM; GPU3 available 01:00\u201308:00 JST. Original scheduler lacks a live drain control; withhold manifest at handoff, finish existing jobs, then restore and resume. No training child is terminated."}
+{"event": "phasefinish", "job": "PORT-Real_NRHints-FurScene-full_seed2-repeatability", "gpu": "1", "phase": "train", "pid": 726694}
+{"event": "startup_confirmed", "job": "PORT-Real_NRHints-FurScene-full_seed2-repeatability", "gpu": "1", "pid": 728124, "phase": "appearance", "step": 100}
+{"event": "phasefinish", "job": "PORT-Synthetic_SSS-GS-soap_small-full_seed2-repeatability", "gpu": "2", "phase": "train", "pid": 727274}
+{"event": "startup_confirmed", "job": "PORT-Synthetic_SSS-GS-soap_small-full_seed2-repeatability", "gpu": "2", "pid": 728545, "phase": "appearance", "step": 100}
+{"event": "phasefinish", "job": "PORT-Real_NRHints-FurScene-full_seed2-repeatability", "gpu": "1", "phase": "appearance", "pid": 728124}
+{"event": "phasefinish", "job": "PORT-Real_NRHints-FurScene-full_seed2-repeatability", "gpu": "1", "phase": "eval", "pid": 728714}
+{"event": "jobfinish", "job": "PORT-Real_NRHints-FurScene-full_seed2-repeatability", "gpu": "1"}
+{"event": "phasefinish", "job": "PORT-Synthetic_SSS-GS-soap_small-full_seed2-repeatability", "gpu": "2", "phase": "appearance", "pid": 728545}
+{"event": "phasefinish", "job": "PORT-Synthetic_SSS-GS-soap_small-full_seed2-repeatability", "gpu": "2", "phase": "eval", "pid": 729007}
+{"event": "jobfinish", "job": "PORT-Synthetic_SSS-GS-soap_small-full_seed2-repeatability", "gpu": "2"}
+{"event": "resource_policy_resume", "utc": "2026-10-05T13:38:59.836859+00:00", "note": "Both in-flight jobs finished completely; no experiment failures. Restore manifest and resume with three GPUs/two slots below 65% memory; fourth GPU activates 01:00 JST."}
+{"event": "hourly_check", "checked_utc": "2026-10-05T13:39:00.190537+00:00", "checked_jst": "2026-10-05T22:39:00.190559+09:00", "scheduler_pid": 729144, "workers": {"0.0": {"state": "running", "job": "PORT-Synthetic_GS3-Drums-no_transfer_seed1-repeatability", "pid": 729160, "process_alive": true, "progress": [null, null]}, "0.1": {"state": "running", "job": "PORT-Synthetic_GS3-AnisoMetal-no_transfer_seed1-repeatability", "pid": null, "process_alive": false, "progress": [null, null]}, "1.0": {"state": "idle", "job": null, "pid": null, "process_alive": false}, "1.1": {"state": "running", "job": "PORT-Real_NRHints-FurScene-no_transfer_seed1-repeatability", "pid": null, "process_alive": false, "progress": [null, null]}, "2.0": {"state": "idle", "job": null, "pid": null, "process_alive": false}, "2.1": {"state": "idle", "job": null, "pid": null, "process_alive": false}, "3.0": {"state": "idle", "job": null, "pid": null, "process_alive": false}, "3.1": {"state": "idle", "job": null, "pid": null, "process_alive": false}}, "gpu_observation": ["0, 4093, 0", "1, 17, 0", "2, 17, 0", "3, 17, 0"]}
+{"event": "startup_confirmed", "job": "PORT-Synthetic_SSS-GS-soap_small-no_transfer_seed1-repeatability", "gpu": "2.0", "pid": 729172, "phase": "train", "step": 100}
+{"event": "startup_confirmed", "job": "PORT-Real_NRHints-FurScene-no_transfer_seed1-repeatability", "gpu": "1.1", "pid": 729164, "phase": "train", "step": 100}
+{"event": "startup_confirmed", "job": "PORT-Synthetic_GS3-AnisoMetal-no_transfer_seed1-repeatability", "gpu": "0.1", "pid": 729163, "phase": "train", "step": 100}
+{"event": "startup_confirmed", "job": "PORT-Synthetic_GS3-Translucent-no_transfer_seed1-repeatability", "gpu": "1.0", "pid": 729169, "phase": "train", "step": 100}
+{"event": "startup_confirmed", "job": "PORT-Synthetic_GS3-Drums-no_transfer_seed1-repeatability", "gpu": "0.0", "pid": 729160, "phase": "train", "step": 100}
+{"event": "startup_confirmed", "job": "PORT-Synthetic_GS3-Drums-no_transfer_seed2-repeatability", "gpu": "2.1", "pid": 729171, "phase": "train", "step": 100}
+{"event": "phasefinish", "job": "PORT-Synthetic_SSS-GS-soap_small-no_transfer_seed1-repeatability", "gpu": "2.0", "phase": "train", "pid": 729172}
+{"event": "startup_confirmed", "job": "PORT-Synthetic_SSS-GS-soap_small-no_transfer_seed1-repeatability", "gpu": "2.0", "pid": 730802, "phase": "appearance", "step": 100}
+{"event": "phasefinish", "job": "PORT-Synthetic_GS3-Drums-no_transfer_seed2-repeatability", "gpu": "2.1", "phase": "train", "pid": 729171}
+{"event": "phasefinish", "job": "PORT-Synthetic_GS3-Translucent-no_transfer_seed1-repeatability", "gpu": "1.0", "phase": "train", "pid": 729169}
+{"event": "startup_confirmed", "job": "PORT-Synthetic_GS3-Drums-no_transfer_seed2-repeatability", "gpu": "2.1", "pid": 730983, "phase": "appearance", "step": 100}
+{"event": "startup_confirmed", "job": "PORT-Synthetic_GS3-Translucent-no_transfer_seed1-repeatability", "gpu": "1.0", "pid": 731066, "phase": "appearance", "step": 100}
+{"event": "phasefinish", "job": "PORT-Synthetic_SSS-GS-soap_small-no_transfer_seed1-repeatability", "gpu": "2.0", "phase": "appearance", "pid": 730802}
+{"event": "phasefinish", "job": "PORT-Synthetic_SSS-GS-soap_small-no_transfer_seed1-repeatability", "gpu": "2.0", "phase": "eval", "pid": 731382}
+{"event": "jobfinish", "job": "PORT-Synthetic_SSS-GS-soap_small-no_transfer_seed1-repeatability", "gpu": "2.0"}
+{"event": "phasefinish", "job": "PORT-Real_NRHints-FurScene-no_transfer_seed1-repeatability", "gpu": "1.1", "phase": "train", "pid": 729164}
+{"event": "startup_confirmed", "job": "PORT-Synthetic_GS3-AnisoMetal-no_transfer_seed2-repeatability", "gpu": "2.0", "pid": 731464, "phase": "train", "step": 100}
+{"event": "startup_confirmed", "job": "PORT-Real_NRHints-FurScene-no_transfer_seed1-repeatability", "gpu": "1.1", "pid": 731542, "phase": "appearance", "step": 100}
+{"event": "phasefinish", "job": "PORT-Synthetic_GS3-Drums-no_transfer_seed2-repeatability", "gpu": "2.1", "phase": "appearance", "pid": 730983}
+{"event": "phasefinish", "job": "PORT-Synthetic_GS3-Drums-no_transfer_seed2-repeatability", "gpu": "2.1", "phase": "eval", "pid": 731782}
+{"event": "jobfinish", "job": "PORT-Synthetic_GS3-Drums-no_transfer_seed2-repeatability", "gpu": "2.1"}
+{"event": "phasefinish", "job": "PORT-Synthetic_GS3-Translucent-no_transfer_seed1-repeatability", "gpu": "1.0", "phase": "appearance", "pid": 731066}
+{"event": "startup_confirmed", "job": "PORT-Synthetic_GS3-Translucent-no_transfer_seed2-repeatability", "gpu": "2.1", "pid": 731866, "phase": "train", "step": 100}
+{"event": "phasefinish", "job": "PORT-Synthetic_GS3-Translucent-no_transfer_seed1-repeatability", "gpu": "1.0", "phase": "eval", "pid": 731950}
+{"event": "jobfinish", "job": "PORT-Synthetic_GS3-Translucent-no_transfer_seed1-repeatability", "gpu": "1.0"}
+{"event": "startup_confirmed", "job": "PORT-Real_NRHints-FurScene-no_transfer_seed2-repeatability", "gpu": "1.0", "pid": 732036, "phase": "train", "step": 100}
+{"event": "phasefinish", "job": "PORT-Synthetic_GS3-AnisoMetal-no_transfer_seed1-repeatability", "gpu": "0.1", "phase": "train", "pid": 729163}
+{"event": "phasefinish", "job": "PORT-Synthetic_GS3-Drums-no_transfer_seed1-repeatability", "gpu": "0.0", "phase": "train", "pid": 729160}
+{"event": "startup_confirmed", "job": "PORT-Synthetic_GS3-AnisoMetal-no_transfer_seed1-repeatability", "gpu": "0.1", "pid": 732097, "phase": "appearance", "step": 100}
+{"event": "startup_confirmed", "job": "PORT-Synthetic_GS3-Drums-no_transfer_seed1-repeatability", "gpu": "0.0", "pid": 732156, "phase": "appearance", "step": 100}
+{"event": "phasefinish", "job": "PORT-Real_NRHints-FurScene-no_transfer_seed1-repeatability", "gpu": "1.1", "phase": "appearance", "pid": 731542}
+{"event": "phasefinish", "job": "PORT-Real_NRHints-FurScene-no_transfer_seed1-repeatability", "gpu": "1.1", "phase": "eval", "pid": 732360}
+{"event": "jobfinish", "job": "PORT-Real_NRHints-FurScene-no_transfer_seed1-repeatability", "gpu": "1.1"}
+{"event": "startup_confirmed", "job": "PORT-Synthetic_SSS-GS-soap_small-no_transfer_seed2-repeatability", "gpu": "1.1", "pid": 732419, "phase": "train", "step": 100}
+{"event": "phasefinish", "job": "PORT-Synthetic_GS3-AnisoMetal-no_transfer_seed1-repeatability", "gpu": "0.1", "phase": "appearance", "pid": 732097}
+{"event": "phasefinish", "job": "PORT-Synthetic_GS3-Drums-no_transfer_seed1-repeatability", "gpu": "0.0", "phase": "appearance", "pid": 732156}
+{"event": "phasefinish", "job": "PORT-Synthetic_GS3-AnisoMetal-no_transfer_seed1-repeatability", "gpu": "0.1", "phase": "eval", "pid": 732999}
+{"event": "jobfinish", "job": "PORT-Synthetic_GS3-AnisoMetal-no_transfer_seed1-repeatability", "gpu": "0.1"}
+{"event": "phasefinish", "job": "PORT-Synthetic_GS3-Drums-no_transfer_seed1-repeatability", "gpu": "0.0", "phase": "eval", "pid": 733082}
+{"event": "jobfinish", "job": "PORT-Synthetic_GS3-Drums-no_transfer_seed1-repeatability", "gpu": "0.0"}
+{"event": "startup_confirmed", "job": "PORT-Synthetic_GS3-Lego-gaussian_linear-refinement", "gpu": "0.1", "pid": 733125, "phase": "train", "step": 100}
+{"event": "startup_confirmed", "job": "PORT-Synthetic_GS3-Drums-gaussian_linear-refinement", "gpu": "0.0", "pid": 733198, "phase": "train", "step": 100}
+{"event": "phasefinish", "job": "PORT-Real_NRHints-FurScene-no_transfer_seed2-repeatability", "gpu": "1.0", "phase": "train", "pid": 732036}
+{"event": "startup_confirmed", "job": "PORT-Real_NRHints-FurScene-no_transfer_seed2-repeatability", "gpu": "1.0", "pid": 733622, "phase": "appearance", "step": 100}
+{"event": "phasefinish", "job": "PORT-Synthetic_SSS-GS-soap_small-no_transfer_seed2-repeatability", "gpu": "1.1", "phase": "train", "pid": 732419}
+{"event": "startup_confirmed", "job": "PORT-Synthetic_SSS-GS-soap_small-no_transfer_seed2-repeatability", "gpu": "1.1", "pid": 733715, "phase": "appearance", "step": 100}
+{"event": "phasefinish", "job": "PORT-Real_NRHints-FurScene-no_transfer_seed2-repeatability", "gpu": "1.0", "phase": "appearance", "pid": 733622}
+{"event": "phasefinish", "job": "PORT-Synthetic_GS3-AnisoMetal-no_transfer_seed2-repeatability", "gpu": "2.0", "phase": "train", "pid": 731464}
+{"event": "phasefinish", "job": "PORT-Real_NRHints-FurScene-no_transfer_seed2-repeatability", "gpu": "1.0", "phase": "eval", "pid": 734118}
+{"event": "jobfinish", "job": "PORT-Real_NRHints-FurScene-no_transfer_seed2-repeatability", "gpu": "1.0"}
+{"event": "startup_confirmed", "job": "PORT-Synthetic_SSS-GS-soap_small-gaussian_linear-refinement", "gpu": "1.0", "pid": 734227, "phase": "train", "step": 100}
+{"event": "phasefinish", "job": "PORT-Synthetic_SSS-GS-soap_small-no_transfer_seed2-repeatability", "gpu": "1.1", "phase": "appearance", "pid": 733715}
+{"event": "phasefinish", "job": "PORT-Synthetic_SSS-GS-soap_small-no_transfer_seed2-repeatability", "gpu": "1.1", "phase": "eval", "pid": 734289}
+{"event": "jobfinish", "job": "PORT-Synthetic_SSS-GS-soap_small-no_transfer_seed2-repeatability", "gpu": "1.1"}
+{"event": "startup_confirmed", "job": "PORT-Synthetic_GS3-AnisoMetal-no_transfer_seed2-repeatability", "gpu": "2.0", "pid": 734174, "phase": "appearance", "step": 100}
+{"event": "startup_confirmed", "job": "PORT-Synthetic_GS3-Lego-gaussian_observation-refinement", "gpu": "1.1", "pid": 734355, "phase": "train", "step": 100}
+{"event": "phasefinish", "job": "PORT-Synthetic_GS3-Lego-gaussian_linear-refinement", "gpu": "0.1", "phase": "train", "pid": 733125}
+{"event": "phasefinish", "job": "PORT-Synthetic_GS3-Drums-gaussian_linear-refinement", "gpu": "0.0", "phase": "train", "pid": 733198}
+{"event": "phasefinish", "job": "PORT-Synthetic_GS3-Lego-gaussian_linear-refinement", "gpu": "0.1", "phase": "eval", "pid": 734515}
+{"event": "jobfinish", "job": "PORT-Synthetic_GS3-Lego-gaussian_linear-refinement", "gpu": "0.1"}
+{"event": "phasefinish", "job": "PORT-Synthetic_GS3-Drums-gaussian_linear-refinement", "gpu": "0.0", "phase": "eval", "pid": 734599}
+{"event": "jobfinish", "job": "PORT-Synthetic_GS3-Drums-gaussian_linear-refinement", "gpu": "0.0"}
+{"event": "startup_confirmed", "job": "PORT-Synthetic_SSS-GS-soap_small-gaussian_observation-refinement", "gpu": "0.0", "pid": 734724, "phase": "train", "step": 100}
+{"event": "startup_confirmed", "job": "PORT-Synthetic_GS3-Drums-gaussian_observation-refinement", "gpu": "0.1", "pid": 734649, "phase": "train", "step": 100}
+{"event": "phasefinish", "job": "PORT-Synthetic_GS3-Translucent-no_transfer_seed2-repeatability", "gpu": "2.1", "phase": "train", "pid": 731866}
+{"event": "hourly_check", "checked_utc": "2026-10-05T14:39:00.976041+00:00", "checked_jst": "2026-10-05T23:39:00.976064+09:00", "scheduler_pid": 729144, "workers": {"0.0": {"state": "running", "job": "PORT-Synthetic_SSS-GS-soap_small-gaussian_observation-refinement", "pid": 734724, "process_alive": true, "progress": [{"step": 2200, "stage": "relighting", "frame_index": 416, "loss": 0.005182252265512943, "l1": 0.0029213856905698776, "loss_terms": {"l1": 0.002337108599022031, "ssim": 0.0026068927254527807, "mask": 0.00023477802460547537, "feature_reg": 3.472857088127057e-06, "camera_reg": 0.0}, "points": 24269, "seconds": 94.95, "memory_GiB": 0.9346699714660645, "transport_stats": {"specular": 0.0005471110343933105, "visibility_residual": -2.9046683311462402, "local": 0.04116186127066612, "rho": 0.03648167476058006, "visibility": 0.3830900490283966, "transport": 0.009194744750857353}}]}, "0.1": {"state": "running", "job": "PORT-Synthetic_GS3-Drums-gaussian_observation-refinement", "pid": 734649, "process_alive": true, "progress": [{"step": 1100, "stage": "relighting", "frame_index": 964, "loss": 0.012011008337140083, "l1": 0.004943791311234236, "loss_terms": {"l1": 0.003955033142119646, "ssim": 0.006576347630470991, "mask": 0.0014773354632779956, "feature_reg": 2.292159024364082e-06, "camera_reg": 0.0}, "points": 228132, "seconds": 75.27, "memory_GiB": 11.378947734832764, "transport_stats": {"specular": 0.00010574249608907849, "visibility_residual": 0.5339659452438354, "local": 0.0214851014316082, "rho": 0.017147168517112732, "visibility": 0.4860760569572449, "transport": 0.019966650754213333}}]}, "1.0": {"state": "running", "job": "PORT-Synthetic_SSS-GS-soap_small-gaussian_linear-refinement", "pid": 734227, "process_alive": true, "progress": [{"step": 6800, "stage": "relighting", "frame_index": 415, "loss": 0.0012442213483154774, "l1": 0.0007373315165750682, "loss_terms": {"l1": 0.0005898652016185224, "ssim": 0.00046322346315719187, "mask": 0.00018737427308224142, "feature_reg": 3.7583204175462015e-06, "camera_reg": 0.0}, "points": 24269, "seconds": 287.17, "memory_GiB": 0.9346699714660645, "transport_stats": {"specular": 0.0022067055106163025, "visibility_residual": 16.282358169555664, "local": 0.06168293207883835, "rho": 0.056682124733924866, "visibility": 0.6563475131988525, "transport": 0.014838604256510735}}]}, "1.1": {"state": "running", "job": "PORT-Synthetic_GS3-Lego-gaussian_observation-refinement", "pid": 734355, "process_alive": true, "progress": [{"step": 3200, "stage": "relighting", "frame_index": 1066, "loss": 0.014516090042889118, "l1": 0.0074909343384206295, "loss_terms": {"l1": 0.005992747377604246, "ssim": 0.007938670925796032, "mask": 0.0005809693248011172, "feature_reg": 3.7031400097475853e-06, "camera_reg": 0.0}, "points": 237667, "seconds": 216.67, "memory_GiB": 11.526573657989502, "transport_stats": {"specular": 5.215966302785091e-05, "visibility_residual": -6.271612167358398, "local": 0.06462159752845764, "rho": 0.08603548258543015, "visibility": 0.384247362613678, "transport": 0.01355193741619587}}]}, "2.0": {"state": "running", "job": "PORT-Synthetic_GS3-AnisoMetal-no_transfer_seed2-repeatability", "pid": 734174, "process_alive": true, "progress": [{"step": 30000, "stage": "relighting", "frame_index": 368, "loss": 0.021227320656180382, "l1": 0.01577097550034523, "loss_terms": {"l1": 0.012616780586540699, "ssim": 0.008319878950715065, "mask": 0.0002845945709850639, "feature_reg": 6.065602519811364e-06, "camera_reg": 0.0}, "points": 237608, "seconds": 1681.22, "memory_GiB": 10.68148136138916, "transport_stats": {"specular": 0.02951700985431671, "visibility_residual": 13.221224784851074, "local": 0.22071313858032227, "rho": 0.29072707891464233, "visibility": 0.8166578412055969}}, {"step": 2800, "stage": "relighting", "frame_index": 1556, "loss": 0.020471613854169846, "l1": 0.012921126559376717, "loss_terms": {"l1": 0.010336901061236858, "ssim": 0.00946031790226698, "mask": 0.000668241991661489, "feature_reg": 6.151768957352033e-06, "camera_reg": 0.0}, "points": 237608, "seconds": 247.48, "memory_GiB": 10.294294357299805, "transport_stats": {"specular": 0.0002921879931818694, "visibility_residual": 6.214355945587158, "local": 0.32780277729034424, "rho": 0.3628179728984833, "visibility": 0.9164023995399475}}]}, "2.1": {"state": "running", "job": "PORT-Synthetic_GS3-Translucent-no_transfer_seed2-repeatability", "pid": 734870, "process_alive": true, "progress": [{"step": 30000, "stage": "relighting", "frame_index": 368, "loss": 0.006910758558660746, "l1": 0.005148936994373798, "loss_terms": {"l1": 0.004119149874895811, "ssim": 0.002513933228328824, "mask": 0.00027395260985940695, "feature_reg": 3.7223942399577936e-06, "camera_reg": 0.0}, "points": 197222, "seconds": 1730.8, "memory_GiB": 10.233657360076904, "transport_stats": {"specular": 0.003231752198189497, "visibility_residual": 3.822538375854492, "local": 0.29486310482025146, "rho": 0.4086761474609375, "visibility": 0.8050718307495117}}, null]}, "3.0": {"state": "idle", "job": null, "pid": null, "process_alive": false}, "3.1": {"state": "idle", "job": null, "pid": null, "process_alive": false}}, "gpu_observation": ["0, 18218, 100", "1, 14304, 100", "2, 12502, 80", "3, 17, 0"]}
+{"event": "startup_confirmed", "job": "PORT-Synthetic_GS3-Translucent-no_transfer_seed2-repeatability", "gpu": "2.1", "pid": 734870, "phase": "appearance", "step": 100}
+{"event": "phasefinish", "job": "PORT-Synthetic_SSS-GS-soap_small-gaussian_linear-refinement", "gpu": "1.0", "phase": "train", "pid": 734227}
+{"event": "phasefinish", "job": "PORT-Synthetic_SSS-GS-soap_small-gaussian_linear-refinement", "gpu": "1.0", "phase": "eval", "pid": 734991}
+{"event": "jobfinish", "job": "PORT-Synthetic_SSS-GS-soap_small-gaussian_linear-refinement", "gpu": "1.0"}
+{"event": "startup_confirmed", "job": "PORT-Synthetic_GS3-Lego-pixel_linear-refinement", "gpu": "1.0", "pid": 735119, "phase": "train", "step": 100}
+{"event": "phasefinish", "job": "PORT-Synthetic_SSS-GS-soap_small-gaussian_observation-refinement", "gpu": "0.0", "phase": "train", "pid": 734724}
+{"event": "phasefinish", "job": "PORT-Synthetic_SSS-GS-soap_small-gaussian_observation-refinement", "gpu": "0.0", "phase": "eval", "pid": 735412}
+{"event": "jobfinish", "job": "PORT-Synthetic_SSS-GS-soap_small-gaussian_observation-refinement", "gpu": "0.0"}
+{"event": "phasefinish", "job": "PORT-Synthetic_GS3-Lego-gaussian_observation-refinement", "gpu": "1.1", "phase": "train", "pid": 734355}
+{"event": "startup_confirmed", "job": "PORT-Synthetic_GS3-Drums-pixel_linear-refinement", "gpu": "0.0", "pid": 735489, "phase": "train", "step": 100}
+{"event": "phasefinish", "job": "PORT-Synthetic_GS3-AnisoMetal-no_transfer_seed2-repeatability", "gpu": "2.0", "phase": "appearance", "pid": 734174}
+{"event": "phasefinish", "job": "PORT-Synthetic_GS3-Lego-gaussian_observation-refinement", "gpu": "1.1", "phase": "eval", "pid": 735573}
+{"event": "jobfinish", "job": "PORT-Synthetic_GS3-Lego-gaussian_observation-refinement", "gpu": "1.1"}
+{"event": "startup_confirmed", "job": "PORT-Synthetic_SSS-GS-soap_small-pixel_linear-refinement", "gpu": "1.1", "pid": 735701, "phase": "train", "step": 100}
+{"event": "phasefinish", "job": "PORT-Synthetic_GS3-AnisoMetal-no_transfer_seed2-repeatability", "gpu": "2.0", "phase": "eval", "pid": 735657}
+{"event": "jobfinish", "job": "PORT-Synthetic_GS3-AnisoMetal-no_transfer_seed2-repeatability", "gpu": "2.0"}
+{"event": "phasefinish", "job": "PORT-Synthetic_GS3-Drums-gaussian_observation-refinement", "gpu": "0.1", "phase": "train", "pid": 734649}
+{"event": "phasefinish", "job": "PORT-Synthetic_GS3-Drums-gaussian_observation-refinement", "gpu": "0.1", "phase": "eval", "pid": 735895}
+{"event": "jobfinish", "job": "PORT-Synthetic_GS3-Drums-gaussian_observation-refinement", "gpu": "0.1"}
+{"event": "phasefinish", "job": "PORT-Synthetic_GS3-Translucent-no_transfer_seed2-repeatability", "gpu": "2.1", "phase": "appearance", "pid": 734870}
+{"event": "phasefinish", "job": "PORT-Synthetic_GS3-Translucent-no_transfer_seed2-repeatability", "gpu": "2.1", "phase": "eval", "pid": 736122}
+{"event": "jobfinish", "job": "PORT-Synthetic_GS3-Translucent-no_transfer_seed2-repeatability", "gpu": "2.1"}
+{"event": "phasefinish", "job": "PORT-Synthetic_GS3-Lego-pixel_linear-refinement", "gpu": "1.0", "phase": "train", "pid": 735119}
+{"event": "phasefinish", "job": "PORT-Synthetic_GS3-Lego-pixel_linear-refinement", "gpu": "1.0", "phase": "eval", "pid": 736283}
+{"event": "jobfinish", "job": "PORT-Synthetic_GS3-Lego-pixel_linear-refinement", "gpu": "1.0"}
+{"event": "phasefinish", "job": "PORT-Synthetic_SSS-GS-soap_small-pixel_linear-refinement", "gpu": "1.1", "phase": "train", "pid": 735701}
+{"event": "phasefinish", "job": "PORT-Synthetic_SSS-GS-soap_small-pixel_linear-refinement", "gpu": "1.1", "phase": "eval", "pid": 736484}
+{"event": "jobfinish", "job": "PORT-Synthetic_SSS-GS-soap_small-pixel_linear-refinement", "gpu": "1.1"}
+{"event": "phasefinish", "job": "PORT-Synthetic_GS3-Drums-pixel_linear-refinement", "gpu": "0.0", "phase": "train", "pid": 735489}
+{"event": "phasefinish", "job": "PORT-Synthetic_GS3-Drums-pixel_linear-refinement", "gpu": "0.0", "phase": "eval", "pid": 736703}
+{"event": "jobfinish", "job": "PORT-Synthetic_GS3-Drums-pixel_linear-refinement", "gpu": "0.0"}
+{"event": "hourly_check", "checked_utc": "2026-10-05T15:39:01.797296+00:00", "checked_jst": "2026-10-06T00:39:01.797320+09:00", "scheduler_pid": 729144, "workers": {"0.1": {"state": "idle", "job": null, "pid": null, "process_alive": false}, "2.0": {"state": "running", "job": "GS3-training_efficiency-Synthetic_SSS-GS-soap_small", "pid": 739556, "process_alive": true, "progress": [{"step": 20000, "loss": 0.006287071148763127, "points": 64419, "seconds": 406.28598467772827}]}, "2.1": {"state": "idle", "job": null, "pid": null, "process_alive": false}, "3.0": {"state": "idle", "job": null, "pid": null, "process_alive": false}, "3.1": {"state": "idle", "job": null, "pid": null, "process_alive": false}}, "gpu_observation": ["0, 5514, 35", "1, 14252, 99", "2, 1511, 37", "3, 17, 0"]}
+{"event": "startup_confirmed", "job": "GS3-training_efficiency-Synthetic_SSS-GS-soap_small", "gpu": "2.0", "pid": 739556, "phase": "train", "step": 100000}
+{"event": "phasefinish", "job": "GS3-training_efficiency-Synthetic_SSS-GS-soap_small", "gpu": "2.0", "phase": "train", "pid": 739556}
+{"event": "phasefinish", "job": "GS3-training_efficiency-Synthetic_SSS-GS-soap_small", "gpu": "2.0", "phase": "render", "pid": 742472}
+{"event": "phasefinish", "job": "GS3-training_efficiency-Synthetic_SSS-GS-soap_small", "gpu": "2.0", "phase": "evaluate", "pid": 742507}
+{"event": "jobfinish", "job": "GS3-training_efficiency-Synthetic_SSS-GS-soap_small", "gpu": "2.0"}
+{"event": "hourly_check", "checked_utc": "2026-10-05T16:39:02.675242+00:00", "checked_jst": "2026-10-06T01:39:02.675260+09:00", "scheduler_pid": 729144, "workers": {"0.0": {"state": "idle", "job": null, "pid": null, "process_alive": false}, "0.1": {"state": "running", "job": "GS3-training_efficiency-Synthetic_GS3-Drums", "pid": 740307, "process_alive": true, "progress": [{"step": 79000, "loss": 0.00536551544306407, "points": 549852, "seconds": 3479.9472433179617}]}, "1.0": {"state": "idle", "job": null, "pid": null, "process_alive": false}, "1.1": {"state": "running", "job": "SSD-GS-training_efficiency-Synthetic_SSS-GS-soap_small", "pid": 744429, "process_alive": true, "progress": [{"step": 8000, "loss": 0.01362286531146406, "points": 42076, "seconds": 161.6402981779538, "sample_split": "train", "train_only": true, "sample_image": "r_27_l_37"}]}, "2.0": {"state": "running", "job": "SSD-GS-training_efficiency-Real_NRHints-FurScene", "pid": 742565, "process_alive": true, "progress": [{"step": 42000, "loss": 0.01859492442015296, "points": 226776, "seconds": 1600.322133907117, "sample_split": "train", "train_only": true, "sample_image": "r_432"}]}, "2.1": {"state": "idle", "job": null, "pid": null, "process_alive": false}, "3.1": {"state": "idle", "job": null, "pid": null, "process_alive": false}}, "gpu_observation": ["0, 14670, 87", "1, 1079, 38", "2, 2905, 76", "3, 2525, 65"]}
+{"event": "job_failed", "job": "LiSA-staged-render_efficiency-Real_NRHints-FurScene", "gpu": "3.0", "phase": "profile", "error": "CalledProcessError(1, ['/workspace/ubuntu2004_cuda12_1/utils/conda-envs/ssd-gs/bin/python', '-B', '-m', 'experiments.measure', '/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_staged_full_dataset_20261004/Real_NRHints/FurScene/appearance/last.pt', '--output', '/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_supplementary_experiments/render_efficiency/Real_NRHints/FurScene'])"}
+{"event": "job_failed", "job": "LiSA-staged-render_efficiency-Synthetic_SSS-GS-soap_small", "gpu": "3.0", "phase": "profile", "error": "CalledProcessError(1, ['/workspace/ubuntu2004_cuda12_1/utils/conda-envs/ssd-gs/bin/python', '-B', '-m', 'experiments.measure', '/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_staged_full_dataset_20261004/Synthetic_SSS-GS/soap_small/appearance/last.pt', '--output', '/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_supplementary_experiments/render_efficiency/Synthetic_SSS-GS/soap_small'])"}
+{"event": "startup_confirmed", "job": "GS3-training_efficiency-Synthetic_GS3-Drums", "gpu": "0.1", "pid": 740307, "phase": "train", "step": 100000}
+{"event": "phasefinish", "job": "GS3-training_efficiency-Synthetic_GS3-Drums", "gpu": "0.1", "phase": "train", "pid": 740307}
+{"event": "phasefinish", "job": "GS3-training_efficiency-Synthetic_GS3-Drums", "gpu": "0.1", "phase": "render", "pid": 746119}
+{"event": "phasefinish", "job": "GS3-training_efficiency-Synthetic_GS3-Drums", "gpu": "0.1", "phase": "evaluate", "pid": 746282}
+{"event": "jobfinish", "job": "GS3-training_efficiency-Synthetic_GS3-Drums", "gpu": "0.1"}
+{"event": "phasefinish", "job": "GS3-render_efficiency-Real_NRHints-FurScene", "gpu": "0.1", "phase": "profile", "pid": 746348}
+{"event": "jobfinish", "job": "GS3-render_efficiency-Real_NRHints-FurScene", "gpu": "0.1"}
+{"event": "phasefinish", "job": "GS3-render_efficiency-Synthetic_SSS-GS-soap_small", "gpu": "0.1", "phase": "profile", "pid": 746388}
+{"event": "jobfinish", "job": "GS3-render_efficiency-Synthetic_SSS-GS-soap_small", "gpu": "0.1"}
+{"event": "phasefinish", "job": "SSD-GS-render_efficiency-Synthetic_GS3-Drums", "gpu": "0.1", "phase": "profile", "pid": 746429}
+{"event": "jobfinish", "job": "SSD-GS-render_efficiency-Synthetic_GS3-Drums", "gpu": "0.1"}
+{"event": "phasefinish", "job": "SSD-GS-render_efficiency-Real_NRHints-FurScene", "gpu": "0.1", "phase": "profile", "pid": 746588}
+{"event": "jobfinish", "job": "SSD-GS-render_efficiency-Real_NRHints-FurScene", "gpu": "0.1"}
+{"event": "phasefinish", "job": "SSD-GS-render_efficiency-Synthetic_SSS-GS-soap_small", "gpu": "0.1", "phase": "profile", "pid": 746631}
+{"event": "jobfinish", "job": "SSD-GS-render_efficiency-Synthetic_SSS-GS-soap_small", "gpu": "0.1"}
+{"event": "phasefinish", "job": "common_ground_truth-Synthetic_GS3-Lego", "gpu": "0.1", "phase": "evaluate", "pid": 746733}
+{"event": "jobfinish", "job": "common_ground_truth-Synthetic_GS3-Lego", "gpu": "0.1"}
+{"event": "phasefinish", "job": "common_ground_truth-Synthetic_GS3-Drums", "gpu": "0.1", "phase": "evaluate", "pid": 746826}
+{"event": "jobfinish", "job": "common_ground_truth-Synthetic_GS3-Drums", "gpu": "0.1"}
+{"event": "phasefinish", "job": "common_ground_truth-Synthetic_GS3-Hotdog", "gpu": "0.0", "phase": "evaluate", "pid": 746926}
+{"event": "jobfinish", "job": "common_ground_truth-Synthetic_GS3-Hotdog", "gpu": "0.0"}
+{"event": "phasefinish", "job": "common_ground_truth-Synthetic_GS3-AnisoMetal", "gpu": "0.1", "phase": "evaluate", "pid": 746966}
+{"event": "jobfinish", "job": "common_ground_truth-Synthetic_GS3-AnisoMetal", "gpu": "0.1"}
+{"event": "phasefinish", "job": "common_ground_truth-Synthetic_GS3-FurBall", "gpu": "0.0", "phase": "evaluate", "pid": 747065}
+{"event": "jobfinish", "job": "common_ground_truth-Synthetic_GS3-FurBall", "gpu": "0.0"}
+{"event": "phasefinish", "job": "common_ground_truth-Synthetic_GS3-Translucent", "gpu": "0.1", "phase": "evaluate", "pid": 747112}
+{"event": "jobfinish", "job": "common_ground_truth-Synthetic_GS3-Translucent", "gpu": "0.1"}
+{"event": "phasefinish", "job": "common_ground_truth-Real_NRHints-Cat", "gpu": "0.0", "phase": "evaluate", "pid": 747217}
+{"event": "jobfinish", "job": "common_ground_truth-Real_NRHints-Cat", "gpu": "0.0"}
+{"event": "phasefinish", "job": "common_ground_truth-Real_NRHints-CatSmall", "gpu": "0.1", "phase": "evaluate", "pid": 747264}
+{"event": "jobfinish", "job": "common_ground_truth-Real_NRHints-CatSmall", "gpu": "0.1"}
+{"event": "phasefinish", "job": "common_ground_truth-Real_NRHints-CupFabric", "gpu": "0.0", "phase": "evaluate", "pid": 747332}
+{"event": "jobfinish", "job": "common_ground_truth-Real_NRHints-CupFabric", "gpu": "0.0"}
+{"event": "phasefinish", "job": "common_ground_truth-Real_NRHints-Fish", "gpu": "0.1", "phase": "evaluate", "pid": 747384}
+{"event": "jobfinish", "job": "common_ground_truth-Real_NRHints-Fish", "gpu": "0.1"}
+{"event": "phasefinish", "job": "common_ground_truth-Real_NRHints-FurScene", "gpu": "0.0", "phase": "evaluate", "pid": 747444}
+{"event": "jobfinish", "job": "common_ground_truth-Real_NRHints-FurScene", "gpu": "0.0"}
+{"event": "phasefinish", "job": "common_ground_truth-Real_NRHints-Pixiu", "gpu": "0.0", "phase": "evaluate", "pid": 747561}
+{"event": "jobfinish", "job": "common_ground_truth-Real_NRHints-Pixiu", "gpu": "0.0"}
+{"event": "phasefinish", "job": "common_ground_truth-Real_NRHints-Pikachu", "gpu": "0.1", "phase": "evaluate", "pid": 747499}
+{"event": "jobfinish", "job": "common_ground_truth-Real_NRHints-Pikachu", "gpu": "0.1"}
+{"event": "phasefinish", "job": "common_ground_truth-Synthetic_SSS-GS-bunny_small", "gpu": "0.0", "phase": "evaluate", "pid": 747620}
+{"event": "jobfinish", "job": "common_ground_truth-Synthetic_SSS-GS-bunny_small", "gpu": "0.0"}
+{"event": "phasefinish", "job": "common_ground_truth-Synthetic_SSS-GS-candle_small", "gpu": "0.1", "phase": "evaluate", "pid": 747661}
+{"event": "jobfinish", "job": "common_ground_truth-Synthetic_SSS-GS-candle_small", "gpu": "0.1"}
+{"event": "startup_confirmed", "job": "SSD-GS-training_efficiency-Synthetic_SSS-GS-soap_small", "gpu": "1.1", "pid": 744429, "phase": "train", "step": 60000}
+{"event": "phasefinish", "job": "SSD-GS-training_efficiency-Synthetic_SSS-GS-soap_small", "gpu": "1.1", "phase": "train", "pid": 744429}
+{"event": "phasefinish", "job": "common_ground_truth-Synthetic_SSS-GS-dragon_small", "gpu": "0.0", "phase": "evaluate", "pid": 747746}
+{"event": "jobfinish", "job": "common_ground_truth-Synthetic_SSS-GS-dragon_small", "gpu": "0.0"}
+{"event": "phasefinish", "job": "common_ground_truth-Synthetic_SSS-GS-soap_small", "gpu": "0.1", "phase": "evaluate", "pid": 747787}
+{"event": "jobfinish", "job": "common_ground_truth-Synthetic_SSS-GS-soap_small", "gpu": "0.1"}
+{"event": "phasefinish", "job": "SSD-GS-training_efficiency-Synthetic_SSS-GS-soap_small", "gpu": "1.1", "phase": "render", "pid": 747854}
+{"event": "phasefinish", "job": "SSD-GS-training_efficiency-Synthetic_SSS-GS-soap_small", "gpu": "1.1", "phase": "evaluate", "pid": 747982}
+{"event": "jobfinish", "job": "SSD-GS-training_efficiency-Synthetic_SSS-GS-soap_small", "gpu": "1.1"}
+{"event": "phasefinish", "job": "common_ground_truth-Synthetic_SSS-GS-statue_small", "gpu": "0.0", "phase": "evaluate", "pid": 747876}
+{"event": "jobfinish", "job": "common_ground_truth-Synthetic_SSS-GS-statue_small", "gpu": "0.0"}
+{"event": "startup_confirmed", "job": "PORT-Synthetic_GS3-AnisoMetal-local_residual_seed1-repeatability", "gpu": "1.1", "pid": 748040, "phase": "train", "step": 100}
+{"event": "startup_confirmed", "job": "PORT-Synthetic_GS3-Drums-local_residual_seed1-repeatability", "gpu": "0.1", "pid": 747930, "phase": "train", "step": 100}
+{"event": "startup_confirmed", "job": "PORT-Synthetic_GS3-Translucent-local_residual_seed1-repeatability", "gpu": "0.0", "pid": 748093, "phase": "train", "step": 100}
+{"event": "startup_confirmed", "job": "SSD-GS-training_efficiency-Real_NRHints-FurScene", "gpu": "2.0", "pid": 742565, "phase": "train", "step": 100000}
+{"event": "phasefinish", "job": "SSD-GS-training_efficiency-Real_NRHints-FurScene", "gpu": "2.0", "phase": "train", "pid": 742565}
+{"event": "phasefinish", "job": "SSD-GS-training_efficiency-Real_NRHints-FurScene", "gpu": "2.0", "phase": "render", "pid": 748821}
+{"event": "phasefinish", "job": "SSD-GS-training_efficiency-Real_NRHints-FurScene", "gpu": "2.0", "phase": "evaluate", "pid": 748869}
+{"event": "jobfinish", "job": "SSD-GS-training_efficiency-Real_NRHints-FurScene", "gpu": "2.0"}
+{"event": "startup_confirmed", "job": "PORT-Real_NRHints-FurScene-local_residual_seed1-repeatability", "gpu": "2.0", "pid": 748928, "phase": "train", "step": 100}
+{"event": "phasefinish", "job": "PORT-Synthetic_GS3-AnisoMetal-local_residual_seed1-repeatability", "gpu": "1.1", "phase": "train", "pid": 748040}
+{"event": "startup_confirmed", "job": "PORT-Synthetic_GS3-AnisoMetal-local_residual_seed1-repeatability", "gpu": "1.1", "pid": 749670, "phase": "appearance", "step": 100}
+{"event": "phasefinish", "job": "PORT-Real_NRHints-FurScene-local_residual_seed1-repeatability", "gpu": "2.0", "phase": "train", "pid": 748928}
+{"event": "startup_confirmed", "job": "PORT-Real_NRHints-FurScene-local_residual_seed1-repeatability", "gpu": "2.0", "pid": 750088, "phase": "appearance", "step": 100}
+{"event": "phasefinish", "job": "PORT-Synthetic_GS3-AnisoMetal-local_residual_seed1-repeatability", "gpu": "1.1", "phase": "appearance", "pid": 749670}
+{"event": "phasefinish", "job": "PORT-Synthetic_GS3-AnisoMetal-local_residual_seed1-repeatability", "gpu": "1.1", "phase": "eval", "pid": 750348}
+{"event": "jobfinish", "job": "PORT-Synthetic_GS3-AnisoMetal-local_residual_seed1-repeatability", "gpu": "1.1"}
+{"event": "startup_confirmed", "job": "PORT-Synthetic_SSS-GS-soap_small-local_residual_seed1-repeatability", "gpu": "1.1", "pid": 750431, "phase": "train", "step": 100}
+{"event": "phasefinish", "job": "PORT-Real_NRHints-FurScene-local_residual_seed1-repeatability", "gpu": "2.0", "phase": "appearance", "pid": 750088}
+{"event": "phasefinish", "job": "PORT-Real_NRHints-FurScene-local_residual_seed1-repeatability", "gpu": "2.0", "phase": "eval", "pid": 751152}
+{"event": "jobfinish", "job": "PORT-Real_NRHints-FurScene-local_residual_seed1-repeatability", "gpu": "2.0"}
+{"event": "startup_confirmed", "job": "PORT-Synthetic_GS3-Drums-local_residual_seed2-repeatability", "gpu": "2.0", "pid": 751210, "phase": "train", "step": 100}
+{"event": "phasefinish", "job": "PORT-Synthetic_GS3-Drums-local_residual_seed1-repeatability", "gpu": "0.1", "phase": "train", "pid": 747930}
+{"event": "phasefinish", "job": "PORT-Synthetic_GS3-Translucent-local_residual_seed1-repeatability", "gpu": "0.0", "phase": "train", "pid": 748093}
+{"event": "startup_confirmed", "job": "PORT-Synthetic_GS3-Translucent-local_residual_seed1-repeatability", "gpu": "0.0", "pid": 751629, "phase": "appearance", "step": 100}
+{"event": "startup_confirmed", "job": "PORT-Synthetic_GS3-Drums-local_residual_seed1-repeatability", "gpu": "0.1", "pid": 751586, "phase": "appearance", "step": 100}
+{"event": "hourly_check", "checked_utc": "2026-10-05T17:39:03.574916+00:00", "checked_jst": "2026-10-06T02:39:03.574931+09:00", "scheduler_pid": 729144, "workers": {"0.0": {"state": "running", "job": "PORT-Synthetic_GS3-Translucent-local_residual_seed1-repeatability", "pid": 751629, "process_alive": true, "progress": [{"step": 30000, "stage": "relighting", "frame_index": 903, "loss": 0.006510572042316198, "l1": 0.0045623197220265865, "loss_terms": {"l1": 0.0036498557310551405, "ssim": 0.0024313211906701326, "mask": 0.0004255093517713249, "feature_reg": 3.8857333493069746e-06, "camera_reg": 0.0}, "points": 193463, "seconds": 2003.74, "memory_GiB": 10.806573867797852, "transport_stats": {"specular": 0.0007887741085141897, "visibility_residual": 2.607529401779175, "local": 0.1836802065372467, "rho": 0.2618488669395447, "visibility": 0.7668445706367493, "transport": 0.023176494985818863}}, {"step": 900, "stage": "relighting", "frame_index": 1093, "loss": 0.01425469946116209, "l1": 0.008176157251000404, "loss_terms": {"l1": 0.006540925707668066, "ssim": 0.007297062780708075, "mask": 0.00041266632615588605, "feature_reg": 4.044890374643728e-06, "camera_reg": 0.0}, "points": 193463, "seconds": 63.03, "memory_GiB": 10.70811653137207, "transport_stats": {"specular": 0.0006851446232758462, "visibility_residual": 0.9441313147544861, "local": 0.17595186829566956, "rho": 0.31275704503059387, "visibility": 0.6456213593482971, "transport": 0.02929839678108692}}]}, "0.1": {"state": "running", "job": "PORT-Synthetic_GS3-Drums-local_residual_seed1-repeatability", "pid": 751586, "process_alive": true, "progress": [{"step": 30000, "stage": "relighting", "frame_index": 903, "loss": 0.0047575803473591805, "l1": 0.0026886407285928726, "loss_terms": {"l1": 0.0021509125363081694, "ssim": 0.0016326428158208728, "mask": 0.0009717530920170248, "feature_reg": 2.271762468808447e-06, "camera_reg": 0.0}, "points": 224513, "seconds": 2005.74, "memory_GiB": 11.246155738830566, "transport_stats": {"specular": 0.0002840809465851635, "visibility_residual": -2.4860243797302246, "local": 0.015855787321925163, "rho": 0.020817209035158157, "visibility": 0.42850354313850403, "transport": 0.014288235455751419}}, {"step": 700, "stage": "relighting", "frame_index": 364, "loss": 0.013834808021783829, "l1": 0.005494787357747555, "loss_terms": {"l1": 0.004395829979330301, "ssim": 0.008509648032486439, "mask": 0.0009269812726415694, "feature_reg": 2.348189354961505e-06, "camera_reg": 0.0}, "points": 224513, "seconds": 55.07, "memory_GiB": 9.53492021560669, "transport_stats": {"specular": 0.0011850096052512527, "visibility_residual": -1.6038388013839722, "local": 0.038532666862010956, "rho": 0.045257966965436935, "visibility": 0.5087201595306396, "transport": 0.006013026461005211}}]}, "1.0": {"state": "idle", "job": null, "pid": null, "process_alive": false}, "1.1": {"state": "running", "job": "PORT-Synthetic_SSS-GS-soap_small-local_residual_seed1-repeatability", "pid": 750431, "process_alive": true, "progress": [{"step": 21200, "stage": "relighting", "frame_index": 251, "loss": 0.0018793810158967972, "l1": 0.0011552695650607347, "loss_terms": {"l1": 0.0009242156520485878, "ssim": 0.0007011533016338944, "mask": 0.0002516381209716201, "feature_reg": 2.3738871277600992e-06, "camera_reg": 0.0}, "points": 24135, "seconds": 489.58, "memory_GiB": 0.954226016998291, "transport_stats": {"specular": 0.0007816915167495608, "visibility_residual": 4.969155311584473, "local": 0.042129531502723694, "rho": 0.03934074565768242, "visibility": 0.4843985438346863, "transport": 0.005704218056052923}}, null]}, "2.0": {"state": "running", "job": "PORT-Synthetic_GS3-Drums-local_residual_seed2-repeatability", "pid": 751210, "process_alive": true, "progress": [{"step": 13200, "stage": "relighting", "frame_index": 482, "loss": 0.009194140322506428, "l1": 0.005945953540503979, "loss_terms": {"l1": 0.004756763111799955, "ssim": 0.0034078240860253572, "mask": 0.0010279974667355418, "feature_reg": 1.555527660457301e-06, "camera_reg": 0.0}, "points": 172631, "seconds": 268.6, "memory_GiB": 10.458640098571777, "transport_stats": {"specular": 0.0023824432864785194, "visibility_residual": -2.0275981426239014, "local": 0.03459956496953964, "rho": 0.03989537060260773, "visibility": 0.4451306164264679, "transport": 0.020567841827869415}}, null]}, "2.1": {"state": "idle", "job": null, "pid": null, "process_alive": false}, "3.0": {"state": "idle", "job": null, "pid": null, "process_alive": false}, "3.1": {"state": "running", "job": "SSD-GS-training_efficiency-Synthetic_GS3-Drums", "pid": 745385, "process_alive": true, "progress": [{"step": 45000, "loss": 0.006781991115699096, "points": 549816, "seconds": 3162.274541203864, "sample_split": "train", "train_only": true, "sample_image": "r_1353"}]}}, "gpu_observation": ["0, 26374, 100", "1, 1615, 34", "2, 11567, 82", "3, 6531, 94"]}
+{"event": "phasefinish", "job": "PORT-Synthetic_SSS-GS-soap_small-local_residual_seed1-repeatability", "gpu": "1.1", "phase": "train", "pid": 750431}
+{"event": "startup_confirmed", "job": "PORT-Synthetic_SSS-GS-soap_small-local_residual_seed1-repeatability", "gpu": "1.1", "pid": 752242, "phase": "appearance", "step": 100}
+{"event": "phasefinish", "job": "PORT-Synthetic_SSS-GS-soap_small-local_residual_seed1-repeatability", "gpu": "1.1", "phase": "appearance", "pid": 752242}
+{"event": "phasefinish", "job": "PORT-Synthetic_SSS-GS-soap_small-local_residual_seed1-repeatability", "gpu": "1.1", "phase": "eval", "pid": 752687}
+{"event": "jobfinish", "job": "PORT-Synthetic_SSS-GS-soap_small-local_residual_seed1-repeatability", "gpu": "1.1"}
+{"event": "phasefinish", "job": "PORT-Synthetic_GS3-Translucent-local_residual_seed1-repeatability", "gpu": "0.0", "phase": "appearance", "pid": 751629}
+{"event": "phasefinish", "job": "PORT-Synthetic_GS3-Drums-local_residual_seed1-repeatability", "gpu": "0.1", "phase": "appearance", "pid": 751586}
+{"event": "phasefinish", "job": "PORT-Synthetic_GS3-Translucent-local_residual_seed1-repeatability", "gpu": "0.0", "phase": "eval", "pid": 752826}
+{"event": "jobfinish", "job": "PORT-Synthetic_GS3-Translucent-local_residual_seed1-repeatability", "gpu": "0.0"}
+{"event": "phasefinish", "job": "PORT-Synthetic_GS3-Drums-local_residual_seed1-repeatability", "gpu": "0.1", "phase": "eval", "pid": 752938}
+{"event": "jobfinish", "job": "PORT-Synthetic_GS3-Drums-local_residual_seed1-repeatability", "gpu": "0.1"}
+{"event": "phasefinish", "job": "PORT-Synthetic_GS3-Drums-local_residual_seed2-repeatability", "gpu": "2.0", "phase": "train", "pid": 751210}
+{"event": "startup_confirmed", "job": "PORT-Synthetic_GS3-Drums-local_residual_seed2-repeatability", "gpu": "2.0", "pid": 753349, "phase": "appearance", "step": 100}
+{"event": "phasefinish", "job": "PORT-Synthetic_GS3-Drums-local_residual_seed2-repeatability", "gpu": "2.0", "phase": "appearance", "pid": 753349}
+{"event": "phasefinish", "job": "PORT-Synthetic_GS3-Drums-local_residual_seed2-repeatability", "gpu": "2.0", "phase": "eval", "pid": 754052}
+{"event": "jobfinish", "job": "PORT-Synthetic_GS3-Drums-local_residual_seed2-repeatability", "gpu": "2.0"}
+{"event": "startup_confirmed", "job": "SSD-GS-training_efficiency-Synthetic_GS3-Drums", "gpu": "3.1", "pid": 745385, "phase": "train", "step": 100000}
+{"event": "phasefinish", "job": "SSD-GS-training_efficiency-Synthetic_GS3-Drums", "gpu": "3.1", "phase": "train", "pid": 745385}
+{"event": "phasefinish", "job": "SSD-GS-training_efficiency-Synthetic_GS3-Drums", "gpu": "3.1", "phase": "render", "pid": 760110}
+{"event": "phasefinish", "job": "SSD-GS-training_efficiency-Synthetic_GS3-Drums", "gpu": "3.1", "phase": "evaluate", "pid": 760276}
+{"event": "jobfinish", "job": "SSD-GS-training_efficiency-Synthetic_GS3-Drums", "gpu": "3.1"}
+{"event": "import_disjoint_continuation_events", "scheduler_pid": 753261, "started_utc": "2026-10-05T17:52:10.415163+00:00", "finished_utc": "2026-10-05T18:43:59.883828+00:00"}
+{"event": "hourly_check", "checked_utc": "2026-10-05T17:52:10.522620+00:00", "checked_jst": "2026-10-06T02:52:10.522629+09:00", "scheduler_pid": 753261, "workers": {"0.0": {"state": "running", "job": "GS3-training_efficiency-Real_NRHints-FurScene", "pid": null, "process_alive": false, "progress": [null]}, "0.1": {"state": "idle", "job": null, "pid": null, "process_alive": false}, "1.0": {"state": "running", "job": "GS3-render_efficiency-Synthetic_GS3-Drums", "pid": null, "process_alive": false, "progress": []}, "1.1": {"state": "idle", "job": null, "pid": null, "process_alive": false}, "2.0": {"state": "idle", "job": null, "pid": null, "process_alive": false}, "2.1": {"state": "idle", "job": null, "pid": null, "process_alive": false}}, "gpu_observation": ["0, 4093, 0", "1, 17, 0", "2, 12429, 93", "3, 6551, 96"]}
+{"event": "phasefinish", "job": "GS3-render_efficiency-Synthetic_GS3-Drums", "gpu": "1.0", "phase": "profile", "pid": 753276}
+{"event": "jobfinish", "job": "GS3-render_efficiency-Synthetic_GS3-Drums", "gpu": "1.0"}
+{"event": "startup_confirmed", "job": "PORT-Synthetic_SSS-GS-soap_small-local_residual_seed2-repeatability", "gpu": "1.0", "pid": 753488, "phase": "train", "step": 100}
+{"event": "startup_confirmed", "job": "PORT-Synthetic_GS3-AnisoMetal-local_residual_seed2-repeatability", "gpu": "1.1", "pid": 753543, "phase": "train", "step": 100}
+{"event": "startup_confirmed", "job": "PORT-Real_NRHints-FurScene-local_residual_seed2-repeatability", "gpu": "2.1", "pid": 754174, "phase": "train", "step": 100}
+{"event": "startup_confirmed", "job": "PORT-Synthetic_GS3-Translucent-local_residual_seed2-repeatability", "gpu": "2.0", "pid": 754176, "phase": "train", "step": 100}
+{"event": "phasefinish", "job": "PORT-Synthetic_SSS-GS-soap_small-local_residual_seed2-repeatability", "gpu": "1.0", "phase": "train", "pid": 753488}
+{"event": "startup_confirmed", "job": "PORT-Synthetic_SSS-GS-soap_small-local_residual_seed2-repeatability", "gpu": "1.0", "pid": 755202, "phase": "appearance", "step": 100}
+{"event": "phasefinish", "job": "PORT-Synthetic_GS3-AnisoMetal-local_residual_seed2-repeatability", "gpu": "1.1", "phase": "train", "pid": 753543}
+{"event": "startup_confirmed", "job": "PORT-Synthetic_GS3-AnisoMetal-local_residual_seed2-repeatability", "gpu": "1.1", "pid": 755646, "phase": "appearance", "step": 100}
+{"event": "phasefinish", "job": "PORT-Synthetic_SSS-GS-soap_small-local_residual_seed2-repeatability", "gpu": "1.0", "phase": "appearance", "pid": 755202}
+{"event": "phasefinish", "job": "PORT-Synthetic_SSS-GS-soap_small-local_residual_seed2-repeatability", "gpu": "1.0", "phase": "eval", "pid": 755844}
+{"event": "jobfinish", "job": "PORT-Synthetic_SSS-GS-soap_small-local_residual_seed2-repeatability", "gpu": "1.0"}
+{"event": "phasefinish", "job": "PORT-Synthetic_GS3-Translucent-local_residual_seed2-repeatability", "gpu": "2.0", "phase": "train", "pid": 754176}
+{"event": "startup_confirmed", "job": "PORT-Synthetic_GS3-Translucent-local_residual_seed2-repeatability", "gpu": "2.0", "pid": 756072, "phase": "appearance", "step": 100}
+{"event": "phasefinish", "job": "PORT-Synthetic_GS3-AnisoMetal-local_residual_seed2-repeatability", "gpu": "1.1", "phase": "appearance", "pid": 755646}
+{"event": "phasefinish", "job": "PORT-Synthetic_GS3-AnisoMetal-local_residual_seed2-repeatability", "gpu": "1.1", "phase": "eval", "pid": 756281}
+{"event": "jobfinish", "job": "PORT-Synthetic_GS3-AnisoMetal-local_residual_seed2-repeatability", "gpu": "1.1"}
+{"event": "phasefinish", "job": "LiSA-staged-render_efficiency-Real_NRHints-FurScene", "gpu": "1.0", "phase": "profile", "pid": 756384}
+{"event": "phasefinish", "job": "LiSA-staged-render_efficiency-Real_NRHints-FurScene", "gpu": "1.0", "phase": "atlas_preview", "pid": 756607}
+{"event": "jobfinish", "job": "LiSA-staged-render_efficiency-Real_NRHints-FurScene", "gpu": "1.0"}
+{"event": "phasefinish", "job": "LiSA-staged-render_efficiency-Synthetic_SSS-GS-soap_small", "gpu": "1.1", "phase": "profile", "pid": 756681}
+{"event": "phasefinish", "job": "LiSA-staged-render_efficiency-Synthetic_SSS-GS-soap_small", "gpu": "1.1", "phase": "atlas_preview", "pid": 756866}
+{"event": "jobfinish", "job": "LiSA-staged-render_efficiency-Synthetic_SSS-GS-soap_small", "gpu": "1.1"}
+{"event": "phasefinish", "job": "PORT-Real_NRHints-FurScene-local_residual_seed2-repeatability", "gpu": "2.1", "phase": "train", "pid": 754174}
+{"event": "startup_confirmed", "job": "PORT-Real_NRHints-FurScene-local_residual_seed2-repeatability", "gpu": "2.1", "pid": 756960, "phase": "appearance", "step": 100}
+{"event": "phasefinish", "job": "PORT-Synthetic_GS3-Translucent-local_residual_seed2-repeatability", "gpu": "2.0", "phase": "appearance", "pid": 756072}
+{"event": "phasefinish", "job": "PORT-Synthetic_GS3-Translucent-local_residual_seed2-repeatability", "gpu": "2.0", "phase": "eval", "pid": 757317}
+{"event": "jobfinish", "job": "PORT-Synthetic_GS3-Translucent-local_residual_seed2-repeatability", "gpu": "2.0"}
+{"event": "phasefinish", "job": "PORT-Real_NRHints-FurScene-local_residual_seed2-repeatability", "gpu": "2.1", "phase": "appearance", "pid": 756960}
+{"event": "phasefinish", "job": "PORT-Real_NRHints-FurScene-local_residual_seed2-repeatability", "gpu": "2.1", "phase": "eval", "pid": 757530}
+{"event": "jobfinish", "job": "PORT-Real_NRHints-FurScene-local_residual_seed2-repeatability", "gpu": "2.1"}
+{"event": "startup_confirmed", "job": "GS3-training_efficiency-Real_NRHints-FurScene", "gpu": "0.0", "pid": 753279, "phase": "train", "step": 100000}
+{"event": "phasefinish", "job": "GS3-training_efficiency-Real_NRHints-FurScene", "gpu": "0.0", "phase": "train", "pid": 753279}
+{"event": "phasefinish", "job": "GS3-training_efficiency-Real_NRHints-FurScene", "gpu": "0.0", "phase": "render", "pid": 757921}
+{"event": "phasefinish", "job": "GS3-training_efficiency-Real_NRHints-FurScene", "gpu": "0.0", "phase": "evaluate", "pid": 757962}
+{"event": "jobfinish", "job": "GS3-training_efficiency-Real_NRHints-FurScene", "gpu": "0.0"}
+{"event": "phasefinish", "job": "LiSA-staged-render_efficiency-Synthetic_GS3-Drums", "gpu": "0.1", "phase": "profile", "pid": 758035}
+{"event": "phasefinish", "job": "LiSA-staged-render_efficiency-Synthetic_GS3-Drums", "gpu": "0.1", "phase": "atlas_preview", "pid": 758249}
+{"event": "jobfinish", "job": "LiSA-staged-render_efficiency-Synthetic_GS3-Drums", "gpu": "0.1"}
+{"event": "queue_complete", "status": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_supplementary_experiments/continuation_status.json"}
+{"event": "execution_records_merged", "utc": "2026-10-05T19:11:04.041019+00:00", "retained_jobs": 92, "note": "All retained phases completed. Controlled drain tracebacks and user-cancelled records removed; retained failure events and per-phase logs preserved."}
+{"event": "hourly_check", "checked_utc": "2026-10-05T19:11:04.208854+00:00", "checked_jst": "2026-10-06T04:11:04.208862+09:00", "scheduler_pid": 760564, "workers": {"0.0": {"state": "idle", "job": null, "pid": null, "process_alive": false}, "0.1": {"state": "idle", "job": null, "pid": null, "process_alive": false}, "1.0": {"state": "idle", "job": null, "pid": null, "process_alive": false}, "1.1": {"state": "idle", "job": null, "pid": null, "process_alive": false}, "2.0": {"state": "idle", "job": null, "pid": null, "process_alive": false}, "2.1": {"state": "idle", "job": null, "pid": null, "process_alive": false}, "3.0": {"state": "idle", "job": null, "pid": null, "process_alive": false}, "3.1": {"state": "idle", "job": null, "pid": null, "process_alive": false}}, "completed": 92, "failed": 0, "pending": 0, "gpu_observation": ["0, 4093, 0", "1, 17, 0", "2, 2309, 28", "3, 17, 0"]}
+{"updated_utc": "2026-10-05T19:11:05.526016+00:00", "planned_jobs": 65, "completed": 65, "running": 0, "pending": 0, "failed": 0, "measurement_jobs": 9, "measurements_completed": 9, "comparison_jobs": 18, "comparisons_completed": 18, "manifest": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_supplementary_experiments/manifest.json", "status": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_supplementary_experiments/status.json", "note": "Completion counts require successful phases and audited full-frame metrics. Training time includes initialization/save and excludes separate evaluation."}
+{"updated_utc": "2026-10-05T19:11:06.798948+00:00", "planned_jobs": 65, "completed": 65, "running": 0, "pending": 0, "failed": 0, "measurement_jobs": 9, "measurements_completed": 9, "comparison_jobs": 18, "comparisons_completed": 18, "manifest": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_supplementary_experiments/manifest.json", "status": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_supplementary_experiments/status.json", "note": "Completion counts require successful phases and audited full-frame metrics. Training time includes initialization/save and excludes separate evaluation."}
+{"event": "queue_complete", "status": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_supplementary_experiments/status.json"}

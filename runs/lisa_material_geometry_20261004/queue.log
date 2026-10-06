@@ -1,0 +1,40 @@
+{"event": "startup_confirmed", "job": "PORT-Synthetic_GS3-Drums-neural_diffuse", "gpu": "0.1", "pid": 542560, "phase": "train", "step": 100}
+{"event": "startup_confirmed", "job": "PORT-Synthetic_GS3-Lego-neural_diffuse", "gpu": "0.0", "pid": 542559, "phase": "train", "step": 100}
+{"event": "phasefinish", "job": "PORT-Synthetic_GS3-Lego-neural_diffuse", "gpu": "0.0", "phase": "train", "pid": 542559}
+{"event": "phasefinish", "job": "PORT-Synthetic_GS3-Lego-neural_diffuse", "gpu": "0.0", "phase": "eval_008000", "pid": 548081}
+{"event": "phasefinish", "job": "PORT-Synthetic_GS3-Lego-neural_diffuse", "gpu": "0.0", "phase": "eval_016000", "pid": 548156}
+{"event": "phasefinish", "job": "PORT-Synthetic_GS3-Lego-neural_diffuse", "gpu": "0.0", "phase": "eval", "pid": 548240}
+{"event": "jobfinish", "job": "PORT-Synthetic_GS3-Lego-neural_diffuse", "gpu": "0.0"}
+{"event": "job_failed", "job": "PORT-Synthetic_GS3-FurBall-neural_diffuse", "gpu": "0.0", "phase": "train", "error": "CalledProcessError(1, ['/workspace/ubuntu2004_cuda12_1/utils/conda-envs/ssd-gs/bin/python', '-u', '/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/train.py', '--steps', '30000', '--seed', '0', '--resolution', '512', '--background', '1.0', '--display-gamma', '2.2', '--shadow-start', '2000', '--port-start', '2000', '--lr-decay-steps', '30000', '--holdout-every', '10', '--representation', 'light_atlas', '--material-head', 'svbrdf', '--mask-weight', '0.5', '--foreground-appearance-until', '2000', '--specular', 'lobes', '--shading', 'gaussian', '--split-scale2d-stop', '0', '--refinement-metric', 'gradient', '--material-activation', 'softplus', '--init-geometry', '/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_shading_analysis_20261004/initial_support_inputs/hull/FurBall/geometry.pt', '--geometry-warmup-steps', '8000', '--normal-model', 'learned', '--save-steps', '8000', '16000', '--scene', '/workspace/datasets/SSD-GS/data/Synthetic_GS3/FurBall', '--output', '/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_material_geometry_20261004/neural_diffuse/Synthetic_GS3/FurBall'])"}
+{"event": "phasefinish", "job": "PORT-Synthetic_GS3-Drums-neural_diffuse", "gpu": "0.1", "phase": "train", "pid": 542560}
+{"event": "startup_confirmed", "job": "PORT-Synthetic_GS3-Lego-analytic_diffuse", "gpu": "0.0", "pid": 548354, "phase": "train", "step": 100}
+{"event": "phasefinish", "job": "PORT-Synthetic_GS3-Drums-neural_diffuse", "gpu": "0.1", "phase": "eval_008000", "pid": 548488}
+{"event": "phasefinish", "job": "PORT-Synthetic_GS3-Drums-neural_diffuse", "gpu": "0.1", "phase": "eval_016000", "pid": 548554}
+{"event": "phasefinish", "job": "PORT-Synthetic_GS3-Drums-neural_diffuse", "gpu": "0.1", "phase": "eval", "pid": 548628}
+{"event": "jobfinish", "job": "PORT-Synthetic_GS3-Drums-neural_diffuse", "gpu": "0.1"}
+{"event": "startup_confirmed", "job": "PORT-Synthetic_GS3-Drums-analytic_diffuse", "gpu": "0.1", "pid": 548702, "phase": "train", "step": 100}
+{"event": "phasefinish", "job": "PORT-Synthetic_GS3-Lego-analytic_diffuse", "gpu": "0.0", "phase": "train", "pid": 548354}
+{"event": "phasefinish", "job": "PORT-Synthetic_GS3-Lego-analytic_diffuse", "gpu": "0.0", "phase": "eval_008000", "pid": 551507}
+{"event": "phasefinish", "job": "PORT-Synthetic_GS3-Lego-analytic_diffuse", "gpu": "0.0", "phase": "eval_016000", "pid": 551580}
+{"event": "phasefinish", "job": "PORT-Synthetic_GS3-Lego-analytic_diffuse", "gpu": "0.0", "phase": "eval", "pid": 551645}
+{"event": "jobfinish", "job": "PORT-Synthetic_GS3-Lego-analytic_diffuse", "gpu": "0.0"}
+{"event": "startup_confirmed", "job": "PORT-Synthetic_GS3-FurBall-analytic_diffuse", "gpu": "0.0", "pid": 551763, "phase": "train", "step": 100}
+{"event": "phasefinish", "job": "PORT-Synthetic_GS3-Drums-analytic_diffuse", "gpu": "0.1", "phase": "train", "pid": 548702}
+{"event": "phasefinish", "job": "PORT-Synthetic_GS3-Drums-analytic_diffuse", "gpu": "0.1", "phase": "eval_008000", "pid": 552150}
+{"event": "phasefinish", "job": "PORT-Synthetic_GS3-Drums-analytic_diffuse", "gpu": "0.1", "phase": "eval_016000", "pid": 552216}
+{"event": "phasefinish", "job": "PORT-Synthetic_GS3-Drums-analytic_diffuse", "gpu": "0.1", "phase": "eval", "pid": 552275}
+{"event": "jobfinish", "job": "PORT-Synthetic_GS3-Drums-analytic_diffuse", "gpu": "0.1"}
+{"event": "phasefinish", "job": "PORT-Synthetic_GS3-FurBall-analytic_diffuse", "gpu": "0.0", "phase": "train", "pid": 551763}
+{"event": "phasefinish", "job": "PORT-Synthetic_GS3-FurBall-analytic_diffuse", "gpu": "0.0", "phase": "eval_008000", "pid": 553608}
+{"event": "phasefinish", "job": "PORT-Synthetic_GS3-FurBall-analytic_diffuse", "gpu": "0.0", "phase": "eval_016000", "pid": 553657}
+{"event": "phasefinish", "job": "PORT-Synthetic_GS3-FurBall-analytic_diffuse", "gpu": "0.0", "phase": "eval", "pid": 553732}
+{"event": "jobfinish", "job": "PORT-Synthetic_GS3-FurBall-analytic_diffuse", "gpu": "0.0"}
+{"event": "queue_failed", "jobs": [{"job": "PORT-Synthetic_GS3-FurBall-neural_diffuse", "error": "CalledProcessError(1, ['/workspace/ubuntu2004_cuda12_1/utils/conda-envs/ssd-gs/bin/python', '-u', '/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/train.py', '--steps', '30000', '--seed', '0', '--resolution', '512', '--background', '1.0', '--display-gamma', '2.2', '--shadow-start', '2000', '--port-start', '2000', '--lr-decay-steps', '30000', '--holdout-every', '10', '--representation', 'light_atlas', '--material-head', 'svbrdf', '--mask-weight', '0.5', '--foreground-appearance-until', '2000', '--specular', 'lobes', '--shading', 'gaussian', '--split-scale2d-stop', '0', '--refinement-metric', 'gradient', '--material-activation', 'softplus', '--init-geometry', '/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_shading_analysis_20261004/initial_support_inputs/hull/FurBall/geometry.pt', '--geometry-warmup-steps', '8000', '--normal-model', 'learned', '--save-steps', '8000', '16000', '--scene', '/workspace/datasets/SSD-GS/data/Synthetic_GS3/FurBall', '--output', '/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_material_geometry_20261004/neural_diffuse/Synthetic_GS3/FurBall'])"}]}
+Traceback (most recent call last):
+  File "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/run_benchmark.py", line 525, in <module>
+    main()
+  File "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/run_benchmark.py", line 521, in main
+    run(manifest_path, resume=args.resume)
+  File "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/run_benchmark.py", line 471, in run
+    raise RuntimeError(f"benchmark jobs failed: {json.dumps(failed_jobs)}")
+RuntimeError: benchmark jobs failed: [{"job": "PORT-Synthetic_GS3-FurBall-neural_diffuse", "error": "CalledProcessError(1, ['/workspace/ubuntu2004_cuda12_1/utils/conda-envs/ssd-gs/bin/python', '-u', '/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/train.py', '--steps', '30000', '--seed', '0', '--resolution', '512', '--background', '1.0', '--display-gamma', '2.2', '--shadow-start', '2000', '--port-start', '2000', '--lr-decay-steps', '30000', '--holdout-every', '10', '--representation', 'light_atlas', '--material-head', 'svbrdf', '--mask-weight', '0.5', '--foreground-appearance-until', '2000', '--specular', 'lobes', '--shading', 'gaussian', '--split-scale2d-stop', '0', '--refinement-metric', 'gradient', '--material-activation', 'softplus', '--init-geometry', '/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_shading_analysis_20261004/initial_support_inputs/hull/FurBall/geometry.pt', '--geometry-warmup-steps', '8000', '--normal-model', 'learned', '--save-steps', '8000', '16000', '--scene', '/workspace/datasets/SSD-GS/data/Synthetic_GS3/FurBall', '--output', '/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_material_geometry_20261004/neural_diffuse/Synthetic_GS3/FurBall'])"}]

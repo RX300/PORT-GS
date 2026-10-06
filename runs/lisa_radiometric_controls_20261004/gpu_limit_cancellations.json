@@ -1,0 +1,22 @@
+{
+  "utc": "2026-10-04T09:57:13.208458+00:00",
+  "reason": "User limits this work to at most two idle GPUs. Keep only main validation FurBall/GPU2 and Cat/GPU3; stop other training and block pending work until rescheduled on two GPUs.",
+  "jobs": [
+    {
+      "job": "PORT-Real_NRHints-Cat-v2_reference",
+      "previous_state": "running",
+      "gpu": "3.0",
+      "pid": 567698,
+      "last_logged_step": 1900,
+      "output": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_radiometric_controls_20261004/v2_reference/Real_NRHints/Cat"
+    },
+    {
+      "job": "PORT-Synthetic_SSS-GS-soap_small-v2_reference",
+      "previous_state": "running",
+      "gpu": "3.1",
+      "pid": 567699,
+      "last_logged_step": 2100,
+      "output": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_radiometric_controls_20261004/v2_reference/Synthetic_SSS-GS/soap_small"
+    }
+  ]
+}

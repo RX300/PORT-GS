@@ -1,0 +1,18 @@
+{
+  "archive": "source_after_material_normals.tar",
+  "note": "New inactive normal_model option defaults to covariance. Default arithmetic is unchanged. This is the source for jobs with normal_model present in saved config. Earlier source archives identify previously started jobs. Verify pending assignments on completion.",
+  "before": [
+    "PORT-Synthetic_GS3-Lego-full_low_gradient",
+    "PORT-Synthetic_GS3-Drums-full_low_gradient",
+    "PORT-Synthetic_GS3-FurBall-full_low_gradient",
+    "PORT-Synthetic_GS3-Lego-raster",
+    "PORT-Synthetic_GS3-Drums-raster"
+  ],
+  "after": [],
+  "pending": [
+    "PORT-Synthetic_GS3-FurBall-raster",
+    "PORT-Synthetic_GS3-Lego-raster_low_gradient",
+    "PORT-Synthetic_GS3-Drums-raster_low_gradient",
+    "PORT-Synthetic_GS3-FurBall-raster_low_gradient"
+  ]
+}

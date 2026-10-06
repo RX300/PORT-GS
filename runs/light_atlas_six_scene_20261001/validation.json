@@ -1,0 +1,79 @@
+{
+  "name": "light_atlas_six_scene_20261001",
+  "note": "LiSA light-space atlas transport (representation light_atlas), native 3DGS, 30k steps seed 0; same six scenes, resolutions, backgrounds, real-scene training-camera calibration and original held-out calibration as refactored_six_scene_20261001 and surface_attention_six_scene_20261001. Light pass (shadows and transport) starts at step 2000.",
+  "python": "/workspace/ubuntu2004_cuda12_1/utils/conda-envs/ssd-gs/bin/python",
+  "data_root": "/workspace/datasets/SSD-GS/data",
+  "worker_gpus": [
+    2,
+    3
+  ],
+  "launch_environment": {
+    "PATH_prefix": "/workspace/ubuntu2004_cuda12_1/utils/conda-envs/ssd-gs/bin:/usr/local/cuda-12.1/bin",
+    "CUDA_HOME": "/usr/local/cuda-12.1",
+    "TORCH_CUDA_ARCH_LIST": "8.9",
+    "MAX_JOBS": "8",
+    "OMP_NUM_THREADS": "8",
+    "HF_HOME": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/third_party/hf_cache",
+    "TORCH_HOME": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/third_party/torch_cache",
+    "MPLCONFIGDIR": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/third_party/mpl_cache",
+    "PYTHONDONTWRITEBYTECODE": "1",
+    "OPENBLAS_NUM_THREADS": "1",
+    "PYTORCH_CUDA_ALLOC_CONF": "expandable_segments:True"
+  },
+  "train": {
+    "steps": 30000,
+    "seed": 0,
+    "fit-all": true,
+    "resolution": 512,
+    "background": 0.0,
+    "display-gamma": 2.2,
+    "shadow-start": 2000,
+    "port-start": 2000
+  },
+  "families": {
+    "Real_NRHints": {
+      "scenes": [
+        "Cat",
+        "Pixiu"
+      ],
+      "train": {
+        "optimize-cameras": true,
+        "camera-mode": "rotation",
+        "camera-gauge": "translation",
+        "camera-start": 2000,
+        "camera-lr": 0.001,
+        "camera-lr-final": 1e-05
+      }
+    },
+    "Synthetic_GS3": {
+      "scenes": [
+        "AnisoMetal",
+        "Translucent"
+      ],
+      "train": {
+        "background": 1.0
+      }
+    },
+    "Synthetic_SSS-GS": {
+      "scenes": [
+        "bunny_small",
+        "dragon_small"
+      ],
+      "train": {
+        "resolution": 256,
+        "unit-light-intensity": 1.0
+      }
+    }
+  },
+  "variants": {
+    "light_atlas": {
+      "representation": "light_atlas"
+    }
+  },
+  "eval_split": "test",
+  "eval_limit": 0,
+  "eval_save_all": true,
+  "eval_highlights": true,
+  "eval_shift_align": 0,
+  "eval_calibrate_test": 0
+}

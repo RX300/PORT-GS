@@ -658,6 +658,12 @@ def preview_light_atlas(checkpoint, output, split, frames):
                     if t.specular != 'none' else torch.zeros_like(rho))
         transfer = (t.transfer(stats, fluxes, receivers['features'], cosines)
                     if port_active and t.light_transport == 'atlas' else torch.zeros_like(rho))
+        if port_active and t.light_transport == 'local':
+            from methods.base import direction_encoding
+            transfer = F.softplus(t.local_residual(torch.cat((
+                t.appearance_features(receivers['features']),
+                direction_encoding((points - g.center) / g.radius, 8),
+                direction_encoding(wi, 4), direction_encoding(wo, 4), cosines), -1)))
         incident = sample['light_intensity'][None] / t.light_scale / (
             sample['light_pos'] - points).square().sum(-1, keepdim=True)
         covered = alpha[..., 0] > 0

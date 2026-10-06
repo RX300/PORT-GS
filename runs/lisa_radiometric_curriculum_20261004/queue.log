@@ -1,0 +1,16 @@
+{"event": "startup_confirmed", "job": "PORT-Synthetic_GS3-FurBall-curriculum", "gpu": "1", "pid": 562881, "phase": "train", "step": 100}
+{"event": "startup_confirmed", "job": "PORT-Synthetic_GS3-Lego-curriculum", "gpu": "0", "pid": 562879, "phase": "train", "step": 100}
+{"event": "startup_confirmed", "job": "PORT-Synthetic_GS3-Drums-curriculum", "gpu": "3", "pid": 562880, "phase": "train", "step": 100}
+{"event": "phasefinish", "job": "PORT-Synthetic_GS3-FurBall-curriculum", "gpu": "1", "phase": "train", "pid": 562881}
+{"event": "phasefinish", "job": "PORT-Synthetic_GS3-FurBall-curriculum", "gpu": "1", "phase": "eval_008000", "pid": 564020}
+{"event": "phasefinish", "job": "PORT-Synthetic_GS3-FurBall-curriculum", "gpu": "1", "phase": "eval", "pid": 564075}
+{"event": "jobfinish", "job": "PORT-Synthetic_GS3-FurBall-curriculum", "gpu": "1"}
+{"event": "phasefinish", "job": "PORT-Synthetic_GS3-Drums-curriculum", "gpu": "3", "phase": "train", "pid": 562880}
+{"event": "phasefinish", "job": "PORT-Synthetic_GS3-Drums-curriculum", "gpu": "3", "phase": "eval_008000", "pid": 564213}
+{"event": "phasefinish", "job": "PORT-Synthetic_GS3-Drums-curriculum", "gpu": "3", "phase": "eval", "pid": 564501}
+{"event": "jobfinish", "job": "PORT-Synthetic_GS3-Drums-curriculum", "gpu": "3"}
+{"event": "phasefinish", "job": "PORT-Synthetic_GS3-Lego-curriculum", "gpu": "0", "phase": "train", "pid": 562879}
+{"event": "phasefinish", "job": "PORT-Synthetic_GS3-Lego-curriculum", "gpu": "0", "phase": "eval_008000", "pid": 564617}
+{"event": "phasefinish", "job": "PORT-Synthetic_GS3-Lego-curriculum", "gpu": "0", "phase": "eval", "pid": 564676}
+{"event": "jobfinish", "job": "PORT-Synthetic_GS3-Lego-curriculum", "gpu": "0"}
+{"event": "queue_complete", "status": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_radiometric_curriculum_20261004/status.json"}

@@ -1,0 +1,25 @@
+{"event": "startup_confirmed", "job": "PORT-Real_NRHints-Pixiu-surface_attention", "gpu": 1, "pid": 203909, "phase": "train", "step": 100}
+{"event": "startup_confirmed", "job": "PORT-Real_NRHints-Cat-surface_attention", "gpu": 0, "pid": 203911, "phase": "train", "step": 100}
+{"event": "startup_confirmed", "job": "PORT-Synthetic_GS3-AnisoMetal-surface_attention", "gpu": 2, "pid": 203910, "phase": "train", "step": 100}
+{"event": "phasefinish", "job": "PORT-Real_NRHints-Pixiu-surface_attention", "gpu": 1, "phase": "train", "pid": 203909}
+{"event": "phasefinish", "job": "PORT-Real_NRHints-Pixiu-surface_attention", "gpu": 1, "phase": "eval", "pid": 205235}
+{"event": "jobfinish", "job": "PORT-Real_NRHints-Pixiu-surface_attention", "gpu": 1}
+{"event": "startup_confirmed", "job": "PORT-Synthetic_GS3-Translucent-surface_attention", "gpu": 1, "pid": 205331, "phase": "train", "step": 100}
+{"event": "phasefinish", "job": "PORT-Synthetic_GS3-AnisoMetal-surface_attention", "gpu": 2, "phase": "train", "pid": 203910}
+{"event": "phasefinish", "job": "PORT-Synthetic_GS3-AnisoMetal-surface_attention", "gpu": 2, "phase": "eval", "pid": 205654}
+{"event": "jobfinish", "job": "PORT-Synthetic_GS3-AnisoMetal-surface_attention", "gpu": 2}
+{"event": "startup_confirmed", "job": "PORT-Synthetic_SSS-GS-bunny_small-surface_attention", "gpu": 2, "pid": 205783, "phase": "train", "step": 100}
+{"event": "phasefinish", "job": "PORT-Real_NRHints-Cat-surface_attention", "gpu": 0, "phase": "train", "pid": 203911}
+{"event": "phasefinish", "job": "PORT-Real_NRHints-Cat-surface_attention", "gpu": 0, "phase": "eval", "pid": 205929}
+{"event": "jobfinish", "job": "PORT-Real_NRHints-Cat-surface_attention", "gpu": 0}
+{"event": "startup_confirmed", "job": "PORT-Synthetic_SSS-GS-dragon_small-surface_attention", "gpu": 0, "pid": 206026, "phase": "train", "step": 100}
+{"event": "phasefinish", "job": "PORT-Synthetic_GS3-Translucent-surface_attention", "gpu": 1, "phase": "train", "pid": 205331}
+{"event": "phasefinish", "job": "PORT-Synthetic_GS3-Translucent-surface_attention", "gpu": 1, "phase": "eval", "pid": 207070}
+{"event": "jobfinish", "job": "PORT-Synthetic_GS3-Translucent-surface_attention", "gpu": 1}
+{"event": "phasefinish", "job": "PORT-Synthetic_SSS-GS-bunny_small-surface_attention", "gpu": 2, "phase": "train", "pid": 205783}
+{"event": "phasefinish", "job": "PORT-Synthetic_SSS-GS-bunny_small-surface_attention", "gpu": 2, "phase": "eval", "pid": 207951}
+{"event": "jobfinish", "job": "PORT-Synthetic_SSS-GS-bunny_small-surface_attention", "gpu": 2}
+{"event": "phasefinish", "job": "PORT-Synthetic_SSS-GS-dragon_small-surface_attention", "gpu": 0, "phase": "train", "pid": 206026}
+{"event": "phasefinish", "job": "PORT-Synthetic_SSS-GS-dragon_small-surface_attention", "gpu": 0, "phase": "eval", "pid": 208443}
+{"event": "jobfinish", "job": "PORT-Synthetic_SSS-GS-dragon_small-surface_attention", "gpu": 0}
+{"event": "queue_complete", "status": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/surface_attention_six_scene_20261001/status.json"}

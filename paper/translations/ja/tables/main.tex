@@ -1,0 +1,20 @@
+\begin{table*}[t]
+\caption{\textbf{三つの OLAT ベンチマークの全 18 シーンでの比較。}テスト画像は 5,691 枚、目標画像は共通とし、元のテスト校正を使用してテスト時の当てはめは行わない。最良値は\textbf{太字}、次点は\underline{下線}で示す。反復数は RNG 30k+70k、OLAT-GS 30k+30k、GS$^3$ 100k、SSD-GS 100k（SSS は 60k）、LiSA 38k。}
+\label{tab:main}
+\centering\small
+\setlength{\tabcolsep}{3.5pt}
+\begin{tabular}{@{}l ccc ccc ccc ccc@{}}
+\toprule
+ & \multicolumn{3}{c}{NRHints、実撮影 (7)} & \multicolumn{3}{c}{GS$^3$、合成 (6)} & \multicolumn{3}{c}{SSS-GS、合成 (5)} & \multicolumn{3}{c}{全シーン (18)} \\
+\cmidrule(lr){2-4}\cmidrule(lr){5-7}\cmidrule(lr){8-10}\cmidrule(l){11-13}
+手法 & PSNR$\uparrow$ & SSIM$\uparrow$ & LPIPS$\downarrow$ & PSNR$\uparrow$ & SSIM$\uparrow$ & LPIPS$\downarrow$ & PSNR$\uparrow$ & SSIM$\uparrow$ & LPIPS$\downarrow$ & PSNR$\uparrow$ & SSIM$\uparrow$ & LPIPS$\downarrow$ \\
+\midrule
+RNG~\cite{fan2025rng} & 20.94 & .828 & .203 & 22.14 & .895 & .132 & 37.10 & .983 & .028 & 25.83 & .893 & .131 \\
+OLAT-GS~\cite{kuang2024olat} & 27.26 & \underline{.886} & \underline{.114} & 27.11 & .940 & .079 & \textbf{40.74} & \textbf{.990} & \textbf{.016} & 30.95 & .933 & .075 \\
+GS$^3$~\cite{bi2024gs3} & \underline{27.28} & .884 & .116 & \underline{31.97} & \underline{.967} & \underline{.049} & 36.81 & .983 & .028 & 31.49 & \underline{.939} & .069 \\
+SSD-GS~\cite{zheng2026ssdgs} & 27.20 & .882 & .117 & 31.53 & .965 & .050 & 37.79 & \underline{.986} & \underline{.023} & \underline{31.59} & \underline{.939} & \underline{.068} \\
+\midrule
+\textbf{LiSA（本手法）} & \textbf{29.28} & \textbf{.909} & \textbf{.100} & \textbf{32.40} & \textbf{.970} & \textbf{.038} & \underline{40.63} & \textbf{.990} & \textbf{.016} & \textbf{33.47} & \textbf{.952} & \textbf{.056} \\
+\bottomrule
+\end{tabular}
+\end{table*}

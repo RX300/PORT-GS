@@ -13,6 +13,7 @@ import os
 import queue
 import subprocess
 import threading
+from zoneinfo import ZoneInfo
 from pathlib import Path
 
 
@@ -152,6 +153,90 @@ class Scheduler:
         self.lock = threading.Lock()
         self.stop = threading.Event()
         self.scheduler_error = None
+        self.monitor_stop = threading.Event()
+
+    def wait_for_idle_gpu(self, gpu):
+        """Do not assign a new job to a GPU occupied outside this queue."""
+        while not self.stop.is_set():
+            row = subprocess.check_output([
+                'nvidia-smi', '-i', str(gpu),
+                '--query-gpu=memory.used,utilization.gpu', '--format=csv,noheader,nounits',
+            ], text=True).strip()
+            memory, utilization = map(int, row.split(','))
+            processes = subprocess.check_output([
+                'nvidia-smi', '-i', str(gpu), '--query-compute-apps=pid',
+                '--format=csv,noheader'], text=True).strip()
+            if not processes and memory < 512 and utilization == 0:
+                return
+            self.stop.wait(30)
+
+    def gpu_allowed(self, slot):
+        policy = self.manifest['gpu_policy']
+        gpu = int(str(slot).split('.')[0])
+        hour = datetime.datetime.now(ZoneInfo('Asia/Tokyo')).hour
+        allowed = (policy['night_gpus'] if policy['night_start_hour'] <= hour < policy['night_end_hour']
+                   else policy['day_gpus'])
+        return gpu in allowed
+
+    def wait_for_gpu_capacity(self, slot, job):
+        """Reserve one of at most two slots; timing experiments require exclusivity."""
+        gpu = str(slot).split('.')[0]
+        policy = self.manifest['gpu_policy']
+        while not self.stop.is_set() and self.gpu_allowed(slot):
+            with self.lock:
+                active = [row for name, row in self.status['workers'].items()
+                          if name.split('.')[0] == gpu and row['state'] in ('reserved', 'running')]
+                exclusive = job.get('exclusive_gpu', False) or any(
+                    item.get('exclusive_gpu', False) for item in self.manifest['jobs']
+                    if item['id'] in {row['job'] for row in active})
+                row = subprocess.check_output([
+                    'nvidia-smi', '-i', gpu, '--query-gpu=memory.used,memory.total,utilization.gpu',
+                    '--format=csv,noheader,nounits'], text=True).strip()
+                used, total, utilization = map(int, row.split(','))
+                ready = (used < policy['permitted_idle_memory_MiB'].get(gpu, 0) + 512 and utilization == 0
+                         if not active else len(active) < 2 and not exclusive
+                         and used / total < policy['second_job_memory_fraction'])
+                if ready:
+                    self.status['workers'][slot].update(state='reserved', job=job['id'], pid=None)
+                    self._save_locked()
+                    return True
+            self.stop.wait(30)
+        return False
+
+    def monitor(self):
+        """Persist an hourly observation of live processes, GPU use and progress."""
+        interval = self.manifest['monitor_interval_seconds']
+        while not self.monitor_stop.is_set():
+            try:
+                with self.lock:
+                    workers = {slot: dict(row) for slot, row in self.status['workers'].items()}
+                    states = [row['state'] for row in self.status['jobs'].values()]
+                for row in workers.values():
+                    row['process_alive'] = bool(row['pid'] and scheduler_pid_exists(row['pid']))
+                    if row['job']:
+                        job = next(job for job in self.manifest['jobs'] if job['id'] == row['job'])
+                        progress = [phase['progress_path'] for phase in job['steps'] if 'progress_path' in phase]
+                        row['progress'] = [last_json_line(path) for path in progress]
+                record = dict(
+                    checked_utc=utc_now(),
+                    checked_jst=datetime.datetime.now(ZoneInfo('Asia/Tokyo')).isoformat(),
+                    scheduler_pid=os.getpid(), workers=workers,
+                    completed=states.count('completed'), failed=states.count('failed'),
+                    pending=states.count('pending'),
+                    gpu_observation=subprocess.check_output([
+                        'nvidia-smi', '--query-gpu=index,memory.used,utilization.gpu',
+                        '--format=csv,noheader,nounits'], text=True).strip().splitlines())
+                with self.status_path.with_name('hourly_checks.jsonl').open('a') as stream:
+                    stream.write(json.dumps(record) + '\n')
+                print(json.dumps(dict(event='hourly_check', **record)), flush=True)
+                if 'collect_command' in self.manifest:
+                    subprocess.run(self.manifest['collect_command'], cwd=ROOT, check=True)
+            except Exception as error:
+                self.record_failure(None, None, error)
+                self.stop.set()
+                return
+            if self.monitor_stop.wait(interval):
+                return
 
     def _save_locked(self):
         self.status["updated_utc"] = utc_now()
@@ -228,7 +313,11 @@ class Scheduler:
             status = self.job_status(job)
             phase_status = self.phase_status(job, phase)
             status["phase"] = phase["name"]
-            phase_status.update(state="running", started_utc=utc_now(), pid=None)
+            phase_status.update(state="running", started_utc=utc_now(), pid=None,
+                                argv=list(phase['argv']), cwd=phase['cwd'],
+                                env=dict(phase.get('env', {})),
+                                gpu_sharing_allowed=('gpu_policy' in self.manifest
+                                                     and not job.get('exclusive_gpu', False)))
             self._save_locked()
 
     def set_pid(self, gpu, job, phase, pid):
@@ -400,6 +489,11 @@ class Scheduler:
 def worker(scheduler, gpu, jobs):
     failed = False
     while not scheduler.stop.is_set():
+        if 'gpu_policy' in scheduler.manifest and not scheduler.gpu_allowed(gpu):
+            if jobs.empty():
+                break
+            scheduler.stop.wait(30)
+            continue
         try:
             scheduler.refresh_jobs(jobs)
             job = jobs.get_nowait()
@@ -414,6 +508,14 @@ def worker(scheduler, gpu, jobs):
         try:
             if scheduler.stop.is_set():
                 break
+            if 'gpu_policy' in scheduler.manifest:
+                if not scheduler.wait_for_gpu_capacity(gpu, job):
+                    jobs.put(job)
+                    continue
+            elif scheduler.manifest.get('require_idle_gpu', False):
+                scheduler.wait_for_idle_gpu(gpu)
+                if scheduler.stop.is_set():
+                    break
             scheduler.run_job(gpu, job)
         except Exception as error:
             failed = True
@@ -447,8 +549,17 @@ def run(manifest_path, resume=False):
     ]
     for thread in threads:
         thread.start()
+    monitor = None
+    if 'monitor_interval_seconds' in manifest:
+        monitor = threading.Thread(target=scheduler.monitor, name='hourly-monitor')
+        monitor.start()
     for thread in threads:
         thread.join()
+    scheduler.monitor_stop.set()
+    if monitor is not None:
+        monitor.join()
+    if 'collect_command' in manifest:
+        subprocess.run(manifest['collect_command'], cwd=ROOT, check=True)
     if scheduler.scheduler_error is not None:
         scheduler.status.update(
             state="failed",

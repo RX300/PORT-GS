@@ -1,0 +1,19 @@
+\section{関連研究}
+\label{sec:related}
+
+\paragraph{点光源下の撮影画像からの再照明。}
+Neural reflectance field は OLAT 照明から再照明可能なボリュームを復元する~\cite{bi2020neural,bi2020deep}。NRHints~\cite{zeng2023nrhints} は、レイトレーシングで得た影とハイライトの手掛かりを条件として放射輝度場を推定する。環境光下の逆レンダリングでは、シーンを幾何形状と BRDF に分解する~\cite{srinivasan2021nerv,zhang2021nerfactor,jin2023tensoir,gao2024relightable,liang2024gsir,jiang2024gaussianshader,chen2025gigs,gu2025irgs}。
+点光源に対して、\gsthree~\cite{bi2024gs3} は空間・角度ガウシアン、スプラットによる影、残差ネットワークを組み合わせる。RNG~\cite{fan2025rng} は、ネットワークで補正した深度シャドウマップの手掛かりを用いてニューラルガウシアン特徴をシェーディングし、学習中に順方向から遅延シェーディングへ切り替える。OLAT Gaussians~\cite{kuang2024olat} はニューラル表面再構成~\cite{wang2021neus} による代理メッシュをガイドとして用い、BiGS~\cite{liu2025bigs} は双方向球面調和関数を用いる。SSS-GS~\cite{dihlmann2024sss} はニューラル表面下散乱の残差を追加し、SSD-GS~\cite{zheng2026ssdgs} は散乱、影、反射を分離する。
+RadiosityGS~\cite{jiang2025radiosity} と確率的レイトレーシング~\cite{xu2026stochastic} は、ガウシアン上で光輸送を明示的に解く。ニューラル透過率場と放射輝度輸送場は、放射輝度場の可視性と光輸送を学習する~\cite{shafiei2021learning,lyu2022neural}。PRTGS~\cite{guo2024prtgs} は遠方光源下のガウシアンの放射輝度輸送を事前計算し、再照明可能なアバターは人体モデル上で影と光輸送を学習する~\cite{bolanos2024gaussian,saito2024rgca,wang2025fullbody}。
+これらはいずれもプリミティブごと、またはレイごとに可視性や散乱を評価するが、\ours はその両方を光源の画像平面へ移す。
+
+\paragraph{ガウシアンの可視性。}
+ガウシアンごとの可視性は、光源へのスプラッティング~\cite{bi2024gs3,zheng2026ssdgs}、ガウシアンを通るレイの追跡~\cite{gao2024relightable,moenne2024gaussian,gu2025irgs,xu2026stochastic}、あるいは深度シャドウマップ~\cite{fan2025rng} から求められる。Deep Gaussian shadow map~\cite{mir2026animated} は固定されたガウシアンの透過率を表に記録する。本研究のアトラスはフィルタリング可能で、任意の受光点で評価され、表現対象の幾何形状とともに学習される。
+
+\paragraph{ライト空間でのレンダリング。}
+シャドウマップ~\cite{williams1978casting} とそのフィルタリング版~\cite{reeves1987rendering,fernando2005percentage,donnelly2006variance,annen2007convolution,annen2008exponential,peters2015moment}、半透明遮蔽物のためのシャドウマップ~\cite{lokovic2000deep,kim2001opacity,yuksel2008deep,jansen2010fourier,salvi2010adaptive,peters2016beyond}、拡散モデル~\cite{jensen2001practical,deon2007efficient} に基づく translucent shadow map~\cite{dachsbacher2003translucent,jimenez2010real}、reflective shadow map~\cite{dachsbacher2005reflective,dachsbacher2006splatting}、および多重スケールの光表現~\cite{kaplanyan2010cascaded,crassin2011interactive} は、光源ごとの量を保存し、シェーディング時に集約する。また、事前計算放射輝度輸送は、出射光を入射光の線形関数として表現する~\cite{sloan2002precomputed}。
+本研究のシャドウ判定は、不透明度で重み付けした沈着に対する二つのモーメントを用いた判定であり、variance shadow map や opacity shadow map に近い。光輸送項は、送光点の位置を明示的に用いず、事前にフィルタリングした各階層上で計算する translucent shadow map に類似する。
+学習を用いた関連手法には、既知の幾何形状に対してシャドウマップのバッファをフィルタリングするもの~\cite{datta2022neural} や、ラスタライズ済みバッファを復号するもの~\cite{nalbach2017deep,thies2019deferred,gao2020deferred,zhang2021neural,ye2024deferred} がある。\ours は幾何形状を再構成しながら、保存する量とカーネルを学習する。
+
+\paragraph{損失を計算する領域。}
+RawNeRF~\cite{mildenhall2022nerf} は、トーンマッピング後の誤差を近似するように線形領域の損失を再重み付けし、\gsthree~\cite{bi2024gs3} は HDR 目標画像のガンマを線形放射輝度へ向けて徐々に変化させる。本研究のモデルでは、表示領域の損失が細い幾何形状の形成を妨げた（\cref{sec:optimization}）。

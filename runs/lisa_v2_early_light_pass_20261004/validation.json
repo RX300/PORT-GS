@@ -1,0 +1,70 @@
+{
+  "name": "lisa_v2_early_light_pass_20261004",
+  "note": "8k prefixes (LR schedule pinned to 30k) on Lego/Drums, train-internal light split, held-out lights only. Variant D removes the shell but a dark dome of large opaque Gaussians already exists at 8k and grows to 30k. Hypothesis: the dome forms during the first 2000 shadow-free (local-only) steps, where persistently dark crevices are cheapest to explain by an occluding dark surface. Compares D with the light pass from step 200 (shadow and transport) against D with the default start 2000.",
+  "python": "/workspace/ubuntu2004_cuda12_1/utils/conda-envs/ssd-gs/bin/python",
+  "data_root": "/workspace/datasets/SSD-GS/data",
+  "worker_gpus": [
+    0,
+    1,
+    2,
+    3
+  ],
+  "launch_environment": {
+    "PATH_prefix": "/workspace/ubuntu2004_cuda12_1/utils/conda-envs/ssd-gs/bin:/usr/local/cuda-12.1/bin",
+    "CUDA_HOME": "/usr/local/cuda-12.1",
+    "TORCH_CUDA_ARCH_LIST": "8.9",
+    "MAX_JOBS": "8",
+    "OMP_NUM_THREADS": "8",
+    "HF_HOME": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/third_party/hf_cache",
+    "TORCH_HOME": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/third_party/torch_cache",
+    "MPLCONFIGDIR": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/third_party/mpl_cache",
+    "PYTHONDONTWRITEBYTECODE": "1",
+    "OPENBLAS_NUM_THREADS": "1",
+    "PYTORCH_CUDA_ALLOC_CONF": "expandable_segments:True"
+  },
+  "train": {
+    "steps": 8000,
+    "seed": 0,
+    "resolution": 512,
+    "background": 0.0,
+    "display-gamma": 2.2,
+    "shadow-start": 2000,
+    "port-start": 2000,
+    "lr-decay-steps": 30000
+  },
+  "families": {
+    "Synthetic_GS3": {
+      "scenes": [
+        "Drums",
+        "Lego"
+      ],
+      "train": {
+        "background": 1.0
+      }
+    }
+  },
+  "variants": {
+    "D_light200": {
+      "representation": "light_atlas",
+      "material-head": "svbrdf",
+      "split-scale2d-stop": 0,
+      "foreground-appearance": true,
+      "specular": "lobes",
+      "shadow-start": 200,
+      "port-start": 200
+    },
+    "D_light2000": {
+      "representation": "light_atlas",
+      "material-head": "svbrdf",
+      "split-scale2d-stop": 0,
+      "foreground-appearance": true,
+      "specular": "lobes"
+    }
+  },
+  "eval_split": "validation",
+  "eval_limit": 0,
+  "eval_save_all": false,
+  "eval_highlights": true,
+  "eval_shift_align": 0,
+  "eval_calibrate_test": 0
+}

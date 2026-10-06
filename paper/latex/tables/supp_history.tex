@@ -1,0 +1,15 @@
+\begin{table}[t]
+\caption{\textbf{Development history} of \ours on the same 18-scene protocol (PSNR / LPIPS). Initial: display-domain loss and pixel receivers throughout. Revised: adds a stronger mask loss, the highlight lobes and gated background supervision. Final: the staged schedule of Sec.~4, which also changes initialization, normals and receivers.}
+\label{tab:supp_history}
+\centering\scriptsize
+\setlength{\tabcolsep}{2.5pt}
+\begin{tabular}{@{}lcccc@{}}
+\toprule
+Version & Real (7) & GS$^3$ (6) & SSS (5) & All (18) \\
+\midrule
+Initial (30k) & 28.47 / 0.099 & 28.35 / 0.062 & 39.07 / 0.020 & 31.38 / 0.065 \\
+Revised (30k) & 29.49 / 0.096 & 28.64 / 0.059 & 41.03 / 0.015 & 32.41 / 0.062 \\
+Final (38k) & 29.28 / 0.100 & 32.40 / 0.038 & 40.63 / 0.016 & 33.47 / 0.056 \\
+\bottomrule
+\end{tabular}
+\end{table}

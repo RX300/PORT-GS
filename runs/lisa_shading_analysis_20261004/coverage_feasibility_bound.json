@@ -1,0 +1,239 @@
+[
+  {
+    "scene": "Lego",
+    "scope": "Own16k ASG model;12 fit views. Analytic optimistic per-pixel foreground radiance bound for fixed alpha, nonnegative radiance, white background and exact observation/uint8 convention. No learned material restriction.",
+    "mean_frame_PSNR_ceiling": 44.16396858308712,
+    "views": [
+      {
+        "frame": 0,
+        "minimum_MSE_from_coverage": 3.084429044974968e-05,
+        "PSNR_ceiling": 45.108252159307085,
+        "impossible_pixel_fraction": 0.07440567016601562
+      },
+      {
+        "frame": 167,
+        "minimum_MSE_from_coverage": 7.931370055302978e-05,
+        "PSNR_ceiling": 41.006517866969496,
+        "impossible_pixel_fraction": 0.05857086181640625
+      },
+      {
+        "frame": 333,
+        "minimum_MSE_from_coverage": 3.652391342257033e-06,
+        "PSNR_ceiling": 54.37422695355367,
+        "impossible_pixel_fraction": 0.013690948486328125
+      },
+      {
+        "frame": 500,
+        "minimum_MSE_from_coverage": 2.2563768652617e-05,
+        "PSNR_ceiling": 46.46588361765599,
+        "impossible_pixel_fraction": 0.0578765869140625
+      },
+      {
+        "frame": 667,
+        "minimum_MSE_from_coverage": 5.352142034098506e-05,
+        "PSNR_ceiling": 42.71472369865285,
+        "impossible_pixel_fraction": 0.01494598388671875
+      },
+      {
+        "frame": 833,
+        "minimum_MSE_from_coverage": 2.683185084606521e-05,
+        "PSNR_ceiling": 45.71349368904316,
+        "impossible_pixel_fraction": 0.016475677490234375
+      },
+      {
+        "frame": 1000,
+        "minimum_MSE_from_coverage": 2.215239146607928e-05,
+        "PSNR_ceiling": 46.545793825579,
+        "impossible_pixel_fraction": 0.026393890380859375
+      },
+      {
+        "frame": 1167,
+        "minimum_MSE_from_coverage": 0.00019487898680381477,
+        "PSNR_ceiling": 37.10234986983673,
+        "impossible_pixel_fraction": 0.13068771362304688
+      },
+      {
+        "frame": 1333,
+        "minimum_MSE_from_coverage": 4.492940934142098e-05,
+        "PSNR_ceiling": 43.474692907648134,
+        "impossible_pixel_fraction": 0.05550384521484375
+      },
+      {
+        "frame": 1500,
+        "minimum_MSE_from_coverage": 2.164947727578692e-05,
+        "PSNR_ceiling": 46.64552585175831,
+        "impossible_pixel_fraction": 0.0218658447265625
+      },
+      {
+        "frame": 1667,
+        "minimum_MSE_from_coverage": 7.185571303125471e-05,
+        "PSNR_ceiling": 41.435386967112116,
+        "impossible_pixel_fraction": 0.13566970825195312
+      },
+      {
+        "frame": 1833,
+        "minimum_MSE_from_coverage": 0.00011532472854014486,
+        "PSNR_ceiling": 39.38077558992888,
+        "impossible_pixel_fraction": 0.062435150146484375
+      }
+    ]
+  },
+  {
+    "scene": "Drums",
+    "scope": "Own16k ASG model;12 fit views. Analytic optimistic per-pixel foreground radiance bound for fixed alpha, nonnegative radiance, white background and exact observation/uint8 convention. No learned material restriction.",
+    "mean_frame_PSNR_ceiling": 37.83367467617317,
+    "views": [
+      {
+        "frame": 0,
+        "minimum_MSE_from_coverage": 9.3892274890095e-05,
+        "PSNR_ceiling": 40.27370138411391,
+        "impossible_pixel_fraction": 0.098114013671875
+      },
+      {
+        "frame": 167,
+        "minimum_MSE_from_coverage": 0.0003070820530410856,
+        "PSNR_ceiling": 35.12745564517469,
+        "impossible_pixel_fraction": 0.14099884033203125
+      },
+      {
+        "frame": 333,
+        "minimum_MSE_from_coverage": 6.162805220810696e-05,
+        "PSNR_ceiling": 42.102215581923936,
+        "impossible_pixel_fraction": 0.037174224853515625
+      },
+      {
+        "frame": 500,
+        "minimum_MSE_from_coverage": 7.443339563906193e-05,
+        "PSNR_ceiling": 41.28232168114555,
+        "impossible_pixel_fraction": 0.08329010009765625
+      },
+      {
+        "frame": 667,
+        "minimum_MSE_from_coverage": 0.0002495188673492521,
+        "PSNR_ceiling": 36.02896609656356,
+        "impossible_pixel_fraction": 0.03865814208984375
+      },
+      {
+        "frame": 833,
+        "minimum_MSE_from_coverage": 0.00016430793039035052,
+        "PSNR_ceiling": 37.84341474655923,
+        "impossible_pixel_fraction": 0.058162689208984375
+      },
+      {
+        "frame": 1000,
+        "minimum_MSE_from_coverage": 0.00015024517779238522,
+        "PSNR_ceiling": 38.231994580391365,
+        "impossible_pixel_fraction": 0.045574188232421875
+      },
+      {
+        "frame": 1167,
+        "minimum_MSE_from_coverage": 0.00039424042915925384,
+        "PSNR_ceiling": 34.042388410904394,
+        "impossible_pixel_fraction": 0.10122299194335938
+      },
+      {
+        "frame": 1333,
+        "minimum_MSE_from_coverage": 0.00016765709733590484,
+        "PSNR_ceiling": 37.75578057096018,
+        "impossible_pixel_fraction": 0.0955352783203125
+      },
+      {
+        "frame": 1500,
+        "minimum_MSE_from_coverage": 0.00011606779298745096,
+        "PSNR_ceiling": 39.35288273528286,
+        "impossible_pixel_fraction": 0.04604339599609375
+      },
+      {
+        "frame": 1667,
+        "minimum_MSE_from_coverage": 0.000398538657464087,
+        "PSNR_ceiling": 33.995295465161135,
+        "impossible_pixel_fraction": 0.10490036010742188
+      },
+      {
+        "frame": 1833,
+        "minimum_MSE_from_coverage": 0.00015967321814969182,
+        "PSNR_ceiling": 37.96767921589732,
+        "impossible_pixel_fraction": 0.051273345947265625
+      }
+    ]
+  },
+  {
+    "scene": "FurBall",
+    "scope": "Own16k ASG model;12 fit views. Analytic optimistic per-pixel foreground radiance bound for fixed alpha, nonnegative radiance, white background and exact observation/uint8 convention. No learned material restriction.",
+    "mean_frame_PSNR_ceiling": 50.395832775092025,
+    "views": [
+      {
+        "frame": 0,
+        "minimum_MSE_from_coverage": 2.9926708521088585e-05,
+        "PSNR_ceiling": 45.239410462649076,
+        "impossible_pixel_fraction": 0.014225006103515625
+      },
+      {
+        "frame": 167,
+        "minimum_MSE_from_coverage": 5.18657143402379e-05,
+        "PSNR_ceiling": 42.85119636241635,
+        "impossible_pixel_fraction": 0.02301788330078125
+      },
+      {
+        "frame": 333,
+        "minimum_MSE_from_coverage": 1.3735256061409018e-06,
+        "PSNR_ceiling": 58.62163239773061,
+        "impossible_pixel_fraction": 0.003536224365234375
+      },
+      {
+        "frame": 500,
+        "minimum_MSE_from_coverage": 1.0193001799052581e-05,
+        "PSNR_ceiling": 49.91697899135537,
+        "impossible_pixel_fraction": 0.007823944091796875
+      },
+      {
+        "frame": 667,
+        "minimum_MSE_from_coverage": 3.845966148219304e-06,
+        "PSNR_ceiling": 54.149945426940704,
+        "impossible_pixel_fraction": 0.0051422119140625
+      },
+      {
+        "frame": 833,
+        "minimum_MSE_from_coverage": 1.2826536476495676e-05,
+        "PSNR_ceiling": 48.91890599448466,
+        "impossible_pixel_fraction": 0.00989532470703125
+      },
+      {
+        "frame": 1000,
+        "minimum_MSE_from_coverage": 9.285726264351979e-06,
+        "PSNR_ceiling": 50.32184123128782,
+        "impossible_pixel_fraction": 0.007709503173828125
+      },
+      {
+        "frame": 1167,
+        "minimum_MSE_from_coverage": 9.033035894390196e-06,
+        "PSNR_ceiling": 50.44166264017039,
+        "impossible_pixel_fraction": 0.010677337646484375
+      },
+      {
+        "frame": 1333,
+        "minimum_MSE_from_coverage": 3.379600457265042e-05,
+        "PSNR_ceiling": 44.71134639799729,
+        "impossible_pixel_fraction": 0.0152587890625
+      },
+      {
+        "frame": 1500,
+        "minimum_MSE_from_coverage": 2.71724979938881e-06,
+        "PSNR_ceiling": 55.65870434637186,
+        "impossible_pixel_fraction": 0.005352020263671875
+      },
+      {
+        "frame": 1667,
+        "minimum_MSE_from_coverage": 2.4125805794028565e-05,
+        "PSNR_ceiling": 46.17518172448172,
+        "impossible_pixel_fraction": 0.01753997802734375
+      },
+      {
+        "frame": 1833,
+        "minimum_MSE_from_coverage": 1.6814395848996355e-06,
+        "PSNR_ceiling": 57.74318732521857,
+        "impossible_pixel_fraction": 0.0038299560546875
+      }
+    ]
+  }
+]

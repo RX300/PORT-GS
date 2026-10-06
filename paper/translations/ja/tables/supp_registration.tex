@@ -1,0 +1,17 @@
+\begin{table}[t]
+\caption{\textbf{実撮影データの位置合わせ診断}（E2(b)）。外周 24\,px を除いた七つのシーンの平均 PSNR を、各テストレンダリングに $\pm$24\,px 内の最適な整数 2D 並進を施す前後で示し、平均並進距離も報告する。参考として、\cref{tab:main} の固定校正下の画像全体 PSNR も示す。}
+\label{tab:supp_registration}
+\centering\small
+\setlength{\tabcolsep}{3pt}
+\begin{tabular}{@{}lcccc@{}}
+\toprule
+手法 & 画像全体 & 周辺除外 & 位置合わせ後 & 移動量 (px) \\
+\midrule
+\ours & 29.28 & 28.52 & 31.47 & 1.7 \\
+SSD-GS & 27.20 & 26.45 & 30.76 & 4.0 \\
+GS$^3$ & 27.28 & 26.52 & 30.78 & 4.3 \\
+OLAT-GS & 27.26 & 26.52 & 30.28 & 4.6 \\
+RNG & 20.94 & 20.18 & 21.95 & 12.9 \\
+\bottomrule
+\end{tabular}
+\end{table}

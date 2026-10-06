@@ -1,0 +1,15 @@
+\begin{table}[t]
+\caption{\textbf{外観の微調整。}同じ 30k 時点の幾何形状を固定し、段階 III を 8k 回反復する（シード 0）。Lego、Drums、Soap の平均を示す。既定設定では画素受光点を表示領域で微調整する。}
+\label{tab:refine}
+\centering\small
+\begin{tabular}{@{}llccc@{}}
+\toprule
+受光点 & 損失領域 & PSNR$\uparrow$ & SSIM$\uparrow$ & LPIPS$\downarrow$ \\
+\midrule
+ガウシアン & 線形 & 34.04 & .971 & .036 \\
+ガウシアン & 表示 & \textbf{34.24} & \underline{.974} & .033 \\
+画素 & 線形 & 33.77 & .973 & \underline{.032} \\
+画素 & 表示 & \underline{34.05} & \textbf{.976} & \textbf{.029} \\
+\bottomrule
+\end{tabular}
+\end{table}

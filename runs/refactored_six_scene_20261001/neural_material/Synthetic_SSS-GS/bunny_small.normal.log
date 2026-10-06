@@ -1,0 +1,3030 @@
+/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/third_party/stablenormal_env/lib/python3.10/site-packages/transformers/utils/generic.py:441: FutureWarning: `torch.utils._pytree._register_pytree_node` is deprecated. Please use `torch.utils._pytree.register_pytree_node` instead.
+  _torch_pytree._register_pytree_node(
+/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/third_party/stablenormal_env/lib/python3.10/site-packages/transformers/utils/generic.py:309: FutureWarning: `torch.utils._pytree._register_pytree_node` is deprecated. Please use `torch.utils._pytree.register_pytree_node` instead.
+  _torch_pytree._register_pytree_node(
+/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/third_party/stablenormal_env/lib/python3.10/site-packages/transformers/utils/generic.py:309: FutureWarning: `torch.utils._pytree._register_pytree_node` is deprecated. Please use `torch.utils._pytree.register_pytree_node` instead.
+  _torch_pytree._register_pytree_node(
+Keyword arguments {'trust_remote_code': True} are not expected by YOSONormalsPipeline and will be ignored.
+
+Loading pipeline components...:   0%|          | 0/6 [00:00<?, ?it/s]
+Loading pipeline components...:  50%|█████     | 3/6 [00:00<00:00, 23.89it/s]The config attributes {'shift_factor': None, 'use_post_quant_conv': True, 'use_quant_conv': True} were passed to AutoencoderKL, but are not expected and will be ignored. Please verify your config.json configuration file.
+
+Loading pipeline components...: 100%|██████████| 6/6 [00:00<00:00, 14.26it/s]
+Loading pipeline components...: 100%|██████████| 6/6 [00:00<00:00, 15.17it/s]
+You have disabled the safety checker for <class 'stablenormal.pipeline_yoso_normal.YOSONormalsPipeline'> by passing `safety_checker=None`. Ensure that you abide to the conditions of the Stable Diffusion license and do not expose unfiltered results in services or applications open to the public. Both the diffusers team and Hugging Face strongly recommend to keep the safety filter enabled in all public facing circumstances, disabling it only for use-cases that involve analyzing network behavior or auditing its results. For more information, please have a look at https://github.com/huggingface/diffusers/pull/254 .
+Keyword arguments {'trust_remote_code': True} are not expected by StableNormalPipeline and will be ignored.
+
+Loading pipeline components...:   0%|          | 0/6 [00:00<?, ?it/s]
+Loading pipeline components...:  50%|█████     | 3/6 [00:00<00:00, 24.39it/s]
+Loading pipeline components...: 100%|██████████| 6/6 [00:00<00:00, 13.34it/s]
+Loading pipeline components...: 100%|██████████| 6/6 [00:00<00:00, 14.30it/s]
+You have disabled the safety checker for <class 'stablenormal.pipeline_stablenormal.StableNormalPipeline'> by passing `safety_checker=None`. Ensure that you abide to the conditions of the Stable Diffusion license and do not expose unfiltered results in services or applications open to the public. Both the diffusers team and Hugging Face strongly recommend to keep the safety filter enabled in all public facing circumstances, disabling it only for use-cases that involve analyzing network behavior or auditing its results. For more information, please have a look at https://github.com/huggingface/diffusers/pull/254 .
+Using cache found in /workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/third_party/torch_cache/hub/facebookresearch_dinov2_main
+/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/third_party/torch_cache/hub/facebookresearch_dinov2_main/dinov2/layers/swiglu_ffn.py:51: UserWarning: xFormers is not available (SwiGLU)
+  warnings.warn("xFormers is not available (SwiGLU)")
+/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/third_party/torch_cache/hub/facebookresearch_dinov2_main/dinov2/layers/attention.py:33: UserWarning: xFormers is not available (Attention)
+  warnings.warn("xFormers is not available (Attention)")
+/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/third_party/torch_cache/hub/facebookresearch_dinov2_main/dinov2/layers/block.py:40: UserWarning: xFormers is not available (Block)
+  warnings.warn("xFormers is not available (Block)")
+
+Diffusion steps...: 0it [00:00, ?it/s]
+Diffusion steps...: 3it [00:00, 26.79it/s]
+Diffusion steps...: 6it [00:00, 28.30it/s]
+Diffusion steps...: 10it [00:00, 29.83it/s]
+                                           
+normal: 1/500 frame=0
+
+Diffusion steps...: 0it [00:00, ?it/s]
+Diffusion steps...: 4it [00:00, 31.15it/s]
+Diffusion steps...: 8it [00:00, 31.27it/s]
+                                          
+normal: 2/500 frame=1
+
+Diffusion steps...: 0it [00:00, ?it/s]
+Diffusion steps...: 4it [00:00, 30.99it/s]
+Diffusion steps...: 8it [00:00, 31.28it/s]
+                                          
+normal: 3/500 frame=2
+
+Diffusion steps...: 0it [00:00, ?it/s]
+Diffusion steps...: 4it [00:00, 30.88it/s]
+Diffusion steps...: 8it [00:00, 31.30it/s]
+                                          
+normal: 4/500 frame=3
+
+Diffusion steps...: 0it [00:00, ?it/s]
+Diffusion steps...: 4it [00:00, 30.83it/s]
+Diffusion steps...: 8it [00:00, 31.27it/s]
+                                          
+normal: 5/500 frame=4
+
+Diffusion steps...: 0it [00:00, ?it/s]
+Diffusion steps...: 4it [00:00, 30.78it/s]
+Diffusion steps...: 8it [00:00, 31.21it/s]
+                                          
+normal: 6/500 frame=5
+
+Diffusion steps...: 0it [00:00, ?it/s]
+Diffusion steps...: 4it [00:00, 30.60it/s]
+Diffusion steps...: 8it [00:00, 31.03it/s]
+                                          
+normal: 7/500 frame=6
+
+Diffusion steps...: 0it [00:00, ?it/s]
+Diffusion steps...: 4it [00:00, 31.16it/s]
+Diffusion steps...: 8it [00:00, 31.37it/s]
+                                          
+normal: 8/500 frame=7
+
+Diffusion steps...: 0it [00:00, ?it/s]
+Diffusion steps...: 4it [00:00, 31.14it/s]
+Diffusion steps...: 8it [00:00, 31.23it/s]
+                                          
+normal: 9/500 frame=8
+
+Diffusion steps...: 0it [00:00, ?it/s]
+Diffusion steps...: 4it [00:00, 31.15it/s]
+Diffusion steps...: 8it [00:00, 31.26it/s]
+                                          
+normal: 10/500 frame=9
+
+Diffusion steps...: 0it [00:00, ?it/s]
+Diffusion steps...: 4it [00:00, 31.21it/s]
+Diffusion steps...: 8it [00:00, 31.34it/s]
+                                          
+normal: 11/500 frame=10
+
+Diffusion steps...: 0it [00:00, ?it/s]
+Diffusion steps...: 4it [00:00, 31.28it/s]
+Diffusion steps...: 8it [00:00, 31.44it/s]
+                                          
+normal: 12/500 frame=11
+
+Diffusion steps...: 0it [00:00, ?it/s]
+Diffusion steps...: 4it [00:00, 30.96it/s]
+Diffusion steps...: 8it [00:00, 31.29it/s]
+                                          
+normal: 13/500 frame=12
+
+Diffusion steps...: 0it [00:00, ?it/s]
+Diffusion steps...: 4it [00:00, 30.73it/s]
+Diffusion steps...: 8it [00:00, 31.20it/s]
+                                          
+normal: 14/500 frame=13
+
+Diffusion steps...: 0it [00:00, ?it/s]
+Diffusion steps...: 4it [00:00, 30.88it/s]
+Diffusion steps...: 8it [00:00, 31.14it/s]
+                                          
+normal: 15/500 frame=14
+
+Diffusion steps...: 0it [00:00, ?it/s]
+Diffusion steps...: 4it [00:00, 30.79it/s]
+Diffusion steps...: 8it [00:00, 31.24it/s]
+                                          
+normal: 16/500 frame=15
+
+Diffusion steps...: 0it [00:00, ?it/s]
+Diffusion steps...: 4it [00:00, 30.85it/s]
+Diffusion steps...: 8it [00:00, 31.14it/s]
+                                          
+normal: 17/500 frame=16
+
+Diffusion steps...: 0it [00:00, ?it/s]
+Diffusion steps...: 4it [00:00, 31.26it/s]
+Diffusion steps...: 8it [00:00, 31.36it/s]
+                                          
+normal: 18/500 frame=17
+
+Diffusion steps...: 0it [00:00, ?it/s]
+Diffusion steps...: 4it [00:00, 31.22it/s]
+Diffusion steps...: 8it [00:00, 31.34it/s]
+                                          
+normal: 19/500 frame=18
+
+Diffusion steps...: 0it [00:00, ?it/s]
+Diffusion steps...: 4it [00:00, 31.05it/s]
+Diffusion steps...: 8it [00:00, 31.20it/s]
+                                          
+normal: 20/500 frame=19
+
+Diffusion steps...: 0it [00:00, ?it/s]
+Diffusion steps...: 4it [00:00, 31.20it/s]
+Diffusion steps...: 8it [00:00, 31.27it/s]
+                                          
+normal: 21/500 frame=20
+
+Diffusion steps...: 0it [00:00, ?it/s]
+Diffusion steps...: 4it [00:00, 31.02it/s]
+Diffusion steps...: 8it [00:00, 31.32it/s]
+                                          
+normal: 22/500 frame=21
+
+Diffusion steps...: 0it [00:00, ?it/s]
+Diffusion steps...: 4it [00:00, 30.70it/s]
+Diffusion steps...: 8it [00:00, 31.11it/s]
+                                          
+normal: 23/500 frame=22
+
+Diffusion steps...: 0it [00:00, ?it/s]
+Diffusion steps...: 4it [00:00, 30.93it/s]
+Diffusion steps...: 8it [00:00, 31.24it/s]
+                                          
+normal: 24/500 frame=23
+
+Diffusion steps...: 0it [00:00, ?it/s]
+Diffusion steps...: 4it [00:00, 31.05it/s]
+Diffusion steps...: 8it [00:00, 31.35it/s]
+                                          
+normal: 25/500 frame=24
+
+Diffusion steps...: 0it [00:00, ?it/s]
+Diffusion steps...: 4it [00:00, 30.91it/s]
+Diffusion steps...: 8it [00:00, 31.33it/s]
+                                          
+normal: 26/500 frame=25
+
+Diffusion steps...: 0it [00:00, ?it/s]
+Diffusion steps...: 4it [00:00, 31.02it/s]
+Diffusion steps...: 8it [00:00, 31.29it/s]
+                                          
+normal: 27/500 frame=26
+
+Diffusion steps...: 0it [00:00, ?it/s]
+Diffusion steps...: 4it [00:00, 31.25it/s]
+Diffusion steps...: 8it [00:00, 31.29it/s]
+                                          
+normal: 28/500 frame=27
+
+Diffusion steps...: 0it [00:00, ?it/s]
+Diffusion steps...: 4it [00:00, 31.17it/s]
+Diffusion steps...: 8it [00:00, 31.28it/s]
+                                          
+normal: 29/500 frame=28
+
+Diffusion steps...: 0it [00:00, ?it/s]
+Diffusion steps...: 4it [00:00, 31.23it/s]
+Diffusion steps...: 8it [00:00, 31.36it/s]
+                                          
+normal: 30/500 frame=29
+
+Diffusion steps...: 0it [00:00, ?it/s]
+Diffusion steps...: 4it [00:00, 31.27it/s]
+Diffusion steps...: 8it [00:00, 31.33it/s]
+                                          
+normal: 31/500 frame=30
+
+Diffusion steps...: 0it [00:00, ?it/s]
+Diffusion steps...: 4it [00:00, 31.18it/s]
+Diffusion steps...: 8it [00:00, 31.26it/s]
+                                          
+normal: 32/500 frame=31
+
+Diffusion steps...: 0it [00:00, ?it/s]
+Diffusion steps...: 4it [00:00, 30.80it/s]
+Diffusion steps...: 8it [00:00, 31.14it/s]
+                                          
+normal: 33/500 frame=32
+
+Diffusion steps...: 0it [00:00, ?it/s]
+Diffusion steps...: 4it [00:00, 30.95it/s]
+Diffusion steps...: 8it [00:00, 31.23it/s]
+                                          
+normal: 34/500 frame=33
+
+Diffusion steps...: 0it [00:00, ?it/s]
+Diffusion steps...: 4it [00:00, 30.96it/s]
+Diffusion steps...: 8it [00:00, 31.23it/s]
+                                          
+normal: 35/500 frame=34
+
+Diffusion steps...: 0it [00:00, ?it/s]
+Diffusion steps...: 4it [00:00, 30.87it/s]
+Diffusion steps...: 8it [00:00, 31.26it/s]
+                                          
+normal: 36/500 frame=35
+
+Diffusion steps...: 0it [00:00, ?it/s]
+Diffusion steps...: 4it [00:00, 30.77it/s]
+Diffusion steps...: 8it [00:00, 31.04it/s]
+                                          
+normal: 37/500 frame=36
+
+Diffusion steps...: 0it [00:00, ?it/s]
+Diffusion steps...: 4it [00:00, 31.03it/s]
+Diffusion steps...: 8it [00:00, 31.27it/s]
+                                          
+normal: 38/500 frame=37
+
+Diffusion steps...: 0it [00:00, ?it/s]
+Diffusion steps...: 4it [00:00, 31.17it/s]
+Diffusion steps...: 8it [00:00, 31.24it/s]
+                                          
+normal: 39/500 frame=38
+
+Diffusion steps...: 0it [00:00, ?it/s]
+Diffusion steps...: 4it [00:00, 31.10it/s]
+Diffusion steps...: 8it [00:00, 31.22it/s]
+                                          
+normal: 40/500 frame=39
+
+Diffusion steps...: 0it [00:00, ?it/s]
+Diffusion steps...: 4it [00:00, 31.28it/s]
+Diffusion steps...: 8it [00:00, 31.40it/s]
+                                          
+normal: 41/500 frame=40
+
+Diffusion steps...: 0it [00:00, ?it/s]
+Diffusion steps...: 4it [00:00, 31.16it/s]
+Diffusion steps...: 8it [00:00, 31.40it/s]
+                                          
+normal: 42/500 frame=41
+
+Diffusion steps...: 0it [00:00, ?it/s]
+Diffusion steps...: 4it [00:00, 31.01it/s]
+Diffusion steps...: 8it [00:00, 31.37it/s]
+                                          
+normal: 43/500 frame=42
+
+Diffusion steps...: 0it [00:00, ?it/s]
+Diffusion steps...: 4it [00:00, 30.99it/s]
+Diffusion steps...: 8it [00:00, 31.33it/s]
+                                          
+normal: 44/500 frame=43
+
+Diffusion steps...: 0it [00:00, ?it/s]
+Diffusion steps...: 4it [00:00, 31.00it/s]
+Diffusion steps...: 8it [00:00, 31.29it/s]
+                                          
+normal: 45/500 frame=44
+
+Diffusion steps...: 0it [00:00, ?it/s]
+Diffusion steps...: 4it [00:00, 31.01it/s]
+Diffusion steps...: 8it [00:00, 31.40it/s]
+                                          
+normal: 46/500 frame=45
+
+Diffusion steps...: 0it [00:00, ?it/s]
+Diffusion steps...: 4it [00:00, 31.01it/s]
+Diffusion steps...: 8it [00:00, 31.20it/s]
+                                          
+normal: 47/500 frame=46
+
+Diffusion steps...: 0it [00:00, ?it/s]
+Diffusion steps...: 4it [00:00, 31.20it/s]
+Diffusion steps...: 8it [00:00, 31.41it/s]
+                                          
+normal: 48/500 frame=47
+
+Diffusion steps...: 0it [00:00, ?it/s]
+Diffusion steps...: 4it [00:00, 31.23it/s]
+Diffusion steps...: 8it [00:00, 31.32it/s]
+                                          
+normal: 49/500 frame=48
+
+Diffusion steps...: 0it [00:00, ?it/s]
+Diffusion steps...: 4it [00:00, 31.21it/s]
+Diffusion steps...: 8it [00:00, 31.35it/s]
+                                          
+normal: 50/500 frame=49
+
+Diffusion steps...: 0it [00:00, ?it/s]
+Diffusion steps...: 4it [00:00, 31.28it/s]
+Diffusion steps...: 8it [00:00, 31.43it/s]
+                                          
+normal: 51/500 frame=50
+
+Diffusion steps...: 0it [00:00, ?it/s]
+Diffusion steps...: 4it [00:00, 31.19it/s]
+Diffusion steps...: 8it [00:00, 31.35it/s]
+                                          
+normal: 52/500 frame=51
+
+Diffusion steps...: 0it [00:00, ?it/s]
+Diffusion steps...: 4it [00:00, 30.82it/s]
+Diffusion steps...: 8it [00:00, 31.18it/s]
+                                          
+normal: 53/500 frame=52
+
+Diffusion steps...: 0it [00:00, ?it/s]
+Diffusion steps...: 4it [00:00, 30.92it/s]
+Diffusion steps...: 8it [00:00, 31.24it/s]
+                                          
+normal: 54/500 frame=53
+
+Diffusion steps...: 0it [00:00, ?it/s]
+Diffusion steps...: 4it [00:00, 30.79it/s]
+Diffusion steps...: 8it [00:00, 31.21it/s]
+                                          
+normal: 55/500 frame=54
+
+Diffusion steps...: 0it [00:00, ?it/s]
+Diffusion steps...: 4it [00:00, 30.99it/s]
+Diffusion steps...: 8it [00:00, 31.26it/s]
+                                          
+normal: 56/500 frame=55
+
+Diffusion steps...: 0it [00:00, ?it/s]
+Diffusion steps...: 4it [00:00, 30.85it/s]
+Diffusion steps...: 8it [00:00, 31.15it/s]
+                                          
+normal: 57/500 frame=56
+
+Diffusion steps...: 0it [00:00, ?it/s]
+Diffusion steps...: 4it [00:00, 31.09it/s]
+Diffusion steps...: 8it [00:00, 31.30it/s]
+                                          
+normal: 58/500 frame=57
+
+Diffusion steps...: 0it [00:00, ?it/s]
+Diffusion steps...: 4it [00:00, 31.14it/s]
+Diffusion steps...: 8it [00:00, 31.21it/s]
+                                          
+normal: 59/500 frame=58
+
+Diffusion steps...: 0it [00:00, ?it/s]
+Diffusion steps...: 4it [00:00, 31.28it/s]
+Diffusion steps...: 8it [00:00, 31.35it/s]
+                                          
+normal: 60/500 frame=59
+
+Diffusion steps...: 0it [00:00, ?it/s]
+Diffusion steps...: 4it [00:00, 31.17it/s]
+Diffusion steps...: 8it [00:00, 31.33it/s]
+                                          
+normal: 61/500 frame=60
+
+Diffusion steps...: 0it [00:00, ?it/s]
+Diffusion steps...: 4it [00:00, 31.12it/s]
+Diffusion steps...: 8it [00:00, 31.12it/s]
+                                          
+normal: 62/500 frame=61
+
+Diffusion steps...: 0it [00:00, ?it/s]
+Diffusion steps...: 4it [00:00, 31.03it/s]
+Diffusion steps...: 8it [00:00, 31.29it/s]
+                                          
+normal: 63/500 frame=62
+
+Diffusion steps...: 0it [00:00, ?it/s]
+Diffusion steps...: 4it [00:00, 30.86it/s]
+Diffusion steps...: 8it [00:00, 31.21it/s]
+                                          
+normal: 64/500 frame=63
+
+Diffusion steps...: 0it [00:00, ?it/s]
+Diffusion steps...: 4it [00:00, 30.89it/s]
+Diffusion steps...: 8it [00:00, 31.21it/s]
+                                          
+normal: 65/500 frame=64
+
+Diffusion steps...: 0it [00:00, ?it/s]
+Diffusion steps...: 4it [00:00, 30.97it/s]
+Diffusion steps...: 8it [00:00, 31.24it/s]
+                                          
+normal: 66/500 frame=65
+
+Diffusion steps...: 0it [00:00, ?it/s]
+Diffusion steps...: 4it [00:00, 30.84it/s]
+Diffusion steps...: 8it [00:00, 31.19it/s]
+                                          
+normal: 67/500 frame=66
+
+Diffusion steps...: 0it [00:00, ?it/s]
+Diffusion steps...: 4it [00:00, 30.89it/s]
+Diffusion steps...: 8it [00:00, 31.23it/s]
+                                          
+normal: 68/500 frame=67
+
+Diffusion steps...: 0it [00:00, ?it/s]
+Diffusion steps...: 4it [00:00, 31.03it/s]
+Diffusion steps...: 8it [00:00, 31.23it/s]
+                                          
+normal: 69/500 frame=68
+
+Diffusion steps...: 0it [00:00, ?it/s]
+Diffusion steps...: 4it [00:00, 31.16it/s]
+Diffusion steps...: 8it [00:00, 31.22it/s]
+                                          
+normal: 70/500 frame=69
+
+Diffusion steps...: 0it [00:00, ?it/s]
+Diffusion steps...: 4it [00:00, 31.20it/s]
+Diffusion steps...: 8it [00:00, 31.38it/s]
+                                          
+normal: 71/500 frame=70
+
+Diffusion steps...: 0it [00:00, ?it/s]
+Diffusion steps...: 4it [00:00, 31.10it/s]
+Diffusion steps...: 8it [00:00, 31.29it/s]
+                                          
+normal: 72/500 frame=71
+
+Diffusion steps...: 0it [00:00, ?it/s]
+Diffusion steps...: 4it [00:00, 31.15it/s]
+Diffusion steps...: 8it [00:00, 31.24it/s]
+                                          
+normal: 73/500 frame=72
+
+Diffusion steps...: 0it [00:00, ?it/s]
+Diffusion steps...: 4it [00:00, 30.41it/s]
+Diffusion steps...: 8it [00:00, 30.93it/s]
+                                          
+normal: 74/500 frame=73
+
+Diffusion steps...: 0it [00:00, ?it/s]
+Diffusion steps...: 4it [00:00, 30.97it/s]
+Diffusion steps...: 8it [00:00, 31.32it/s]
+                                          
+normal: 75/500 frame=74
+
+Diffusion steps...: 0it [00:00, ?it/s]
+Diffusion steps...: 4it [00:00, 30.68it/s]
+Diffusion steps...: 8it [00:00, 31.16it/s]
+                                          
+normal: 76/500 frame=75
+
+Diffusion steps...: 0it [00:00, ?it/s]
+Diffusion steps...: 4it [00:00, 30.95it/s]
+Diffusion steps...: 8it [00:00, 31.19it/s]
+                                          
+normal: 77/500 frame=76
+
+Diffusion steps...: 0it [00:00, ?it/s]
+Diffusion steps...: 4it [00:00, 30.67it/s]
+Diffusion steps...: 8it [00:00, 31.15it/s]
+                                          
+normal: 78/500 frame=77
+
+Diffusion steps...: 0it [00:00, ?it/s]
+Diffusion steps...: 4it [00:00, 30.70it/s]
+Diffusion steps...: 8it [00:00, 31.12it/s]
+                                          
+normal: 79/500 frame=78
+
+Diffusion steps...: 0it [00:00, ?it/s]
+Diffusion steps...: 4it [00:00, 31.16it/s]
+Diffusion steps...: 8it [00:00, 31.25it/s]
+                                          
+normal: 80/500 frame=79
+
+Diffusion steps...: 0it [00:00, ?it/s]
+Diffusion steps...: 3it [00:00, 29.16it/s]
+Diffusion steps...: 7it [00:00, 30.19it/s]
+                                          
+normal: 81/500 frame=80
+
+Diffusion steps...: 0it [00:00, ?it/s]
+Diffusion steps...: 4it [00:00, 31.27it/s]
+Diffusion steps...: 8it [00:00, 31.31it/s]
+                                          
+normal: 82/500 frame=81
+
+Diffusion steps...: 0it [00:00, ?it/s]
+Diffusion steps...: 4it [00:00, 31.12it/s]
+Diffusion steps...: 8it [00:00, 31.15it/s]
+                                          
+normal: 83/500 frame=82
+
+Diffusion steps...: 0it [00:00, ?it/s]
+Diffusion steps...: 4it [00:00, 31.01it/s]
+Diffusion steps...: 8it [00:00, 31.29it/s]
+                                          
+normal: 84/500 frame=83
+
+Diffusion steps...: 0it [00:00, ?it/s]
+Diffusion steps...: 4it [00:00, 31.02it/s]
+Diffusion steps...: 8it [00:00, 31.30it/s]
+                                          
+normal: 85/500 frame=84
+
+Diffusion steps...: 0it [00:00, ?it/s]
+Diffusion steps...: 4it [00:00, 30.89it/s]
+Diffusion steps...: 8it [00:00, 31.27it/s]
+                                          
+normal: 86/500 frame=85
+
+Diffusion steps...: 0it [00:00, ?it/s]
+Diffusion steps...: 4it [00:00, 30.83it/s]
+Diffusion steps...: 8it [00:00, 31.23it/s]
+                                          
+normal: 87/500 frame=86
+
+Diffusion steps...: 0it [00:00, ?it/s]
+Diffusion steps...: 4it [00:00, 30.87it/s]
+Diffusion steps...: 8it [00:00, 31.29it/s]
+                                          
+normal: 88/500 frame=87
+
+Diffusion steps...: 0it [00:00, ?it/s]
+Diffusion steps...: 4it [00:00, 31.01it/s]
+Diffusion steps...: 8it [00:00, 31.26it/s]
+                                          
+normal: 89/500 frame=88
+
+Diffusion steps...: 0it [00:00, ?it/s]
+Diffusion steps...: 4it [00:00, 30.86it/s]
+Diffusion steps...: 8it [00:00, 31.19it/s]
+                                          
+normal: 90/500 frame=89
+
+Diffusion steps...: 0it [00:00, ?it/s]
+Diffusion steps...: 4it [00:00, 31.11it/s]
+Diffusion steps...: 8it [00:00, 31.24it/s]
+                                          
+normal: 91/500 frame=90
+
+Diffusion steps...: 0it [00:00, ?it/s]
+Diffusion steps...: 4it [00:00, 31.24it/s]
+Diffusion steps...: 8it [00:00, 31.33it/s]
+                                          
+normal: 92/500 frame=91
+
+Diffusion steps...: 0it [00:00, ?it/s]
+Diffusion steps...: 4it [00:00, 31.16it/s]
+Diffusion steps...: 8it [00:00, 31.32it/s]
+                                          
+normal: 93/500 frame=92
+
+Diffusion steps...: 0it [00:00, ?it/s]
+Diffusion steps...: 4it [00:00, 31.29it/s]
+Diffusion steps...: 8it [00:00, 31.37it/s]
+                                          
+normal: 94/500 frame=93
+
+Diffusion steps...: 0it [00:00, ?it/s]
+Diffusion steps...: 4it [00:00, 31.14it/s]
+Diffusion steps...: 8it [00:00, 31.28it/s]
+                                          
+normal: 95/500 frame=94
+
+Diffusion steps...: 0it [00:00, ?it/s]
+Diffusion steps...: 4it [00:00, 30.90it/s]
+Diffusion steps...: 8it [00:00, 31.29it/s]
+                                          
+normal: 96/500 frame=95
+
+Diffusion steps...: 0it [00:00, ?it/s]
+Diffusion steps...: 4it [00:00, 30.85it/s]
+Diffusion steps...: 8it [00:00, 31.29it/s]
+                                          
+normal: 97/500 frame=96
+
+Diffusion steps...: 0it [00:00, ?it/s]
+Diffusion steps...: 4it [00:00, 31.02it/s]
+Diffusion steps...: 8it [00:00, 31.25it/s]
+                                          
+normal: 98/500 frame=97
+
+Diffusion steps...: 0it [00:00, ?it/s]
+Diffusion steps...: 4it [00:00, 30.92it/s]
+Diffusion steps...: 8it [00:00, 31.18it/s]
+                                          
+normal: 99/500 frame=98
+
+Diffusion steps...: 0it [00:00, ?it/s]
+Diffusion steps...: 4it [00:00, 30.58it/s]
+Diffusion steps...: 8it [00:00, 31.13it/s]
+                                          
+normal: 100/500 frame=99
+
+Diffusion steps...: 0it [00:00, ?it/s]
+Diffusion steps...: 4it [00:00, 31.11it/s]
+Diffusion steps...: 8it [00:00, 31.30it/s]
+                                          
+normal: 101/500 frame=100
+
+Diffusion steps...: 0it [00:00, ?it/s]
+Diffusion steps...: 4it [00:00, 31.21it/s]
+Diffusion steps...: 8it [00:00, 31.27it/s]
+                                          
+normal: 102/500 frame=101
+
+Diffusion steps...: 0it [00:00, ?it/s]
+Diffusion steps...: 4it [00:00, 31.11it/s]
+Diffusion steps...: 8it [00:00, 31.23it/s]
+                                          
+normal: 103/500 frame=102
+
+Diffusion steps...: 0it [00:00, ?it/s]
+Diffusion steps...: 4it [00:00, 31.09it/s]
+Diffusion steps...: 8it [00:00, 31.25it/s]
+                                          
+normal: 104/500 frame=103
+
+Diffusion steps...: 0it [00:00, ?it/s]
+Diffusion steps...: 4it [00:00, 30.70it/s]
+Diffusion steps...: 8it [00:00, 31.06it/s]
+                                          
+normal: 105/500 frame=104
+
+Diffusion steps...: 0it [00:00, ?it/s]
+Diffusion steps...: 4it [00:00, 30.53it/s]
+Diffusion steps...: 8it [00:00, 30.85it/s]
+                                          
+normal: 106/500 frame=105
+
+Diffusion steps...: 0it [00:00, ?it/s]
+Diffusion steps...: 4it [00:00, 30.32it/s]
+Diffusion steps...: 8it [00:00, 29.38it/s]
+                                          
+normal: 107/500 frame=106
+
+Diffusion steps...: 0it [00:00, ?it/s]
+Diffusion steps...: 4it [00:00, 30.56it/s]
+Diffusion steps...: 8it [00:00, 31.07it/s]
+                                          
+normal: 108/500 frame=107
+
+Diffusion steps...: 0it [00:00, ?it/s]
+Diffusion steps...: 4it [00:00, 30.81it/s]
+Diffusion steps...: 8it [00:00, 31.19it/s]
+                                          
+normal: 109/500 frame=108
+
+Diffusion steps...: 0it [00:00, ?it/s]
+Diffusion steps...: 4it [00:00, 30.78it/s]
+Diffusion steps...: 8it [00:00, 31.00it/s]
+                                          
+normal: 110/500 frame=109
+
+Diffusion steps...: 0it [00:00, ?it/s]
+Diffusion steps...: 4it [00:00, 30.82it/s]
+Diffusion steps...: 8it [00:00, 31.15it/s]
+                                          
+normal: 111/500 frame=110
+
+Diffusion steps...: 0it [00:00, ?it/s]
+Diffusion steps...: 4it [00:00, 30.92it/s]
+Diffusion steps...: 8it [00:00, 31.23it/s]
+                                          
+normal: 112/500 frame=111
+
+Diffusion steps...: 0it [00:00, ?it/s]
+Diffusion steps...: 4it [00:00, 31.00it/s]
+Diffusion steps...: 8it [00:00, 31.21it/s]
+                                          
+normal: 113/500 frame=112
+
+Diffusion steps...: 0it [00:00, ?it/s]
+Diffusion steps...: 4it [00:00, 31.09it/s]
+Diffusion steps...: 8it [00:00, 31.26it/s]
+                                          
+normal: 114/500 frame=113
+
+Diffusion steps...: 0it [00:00, ?it/s]
+Diffusion steps...: 4it [00:00, 31.18it/s]
+Diffusion steps...: 8it [00:00, 31.27it/s]
+                                          
+normal: 115/500 frame=114
+
+Diffusion steps...: 0it [00:00, ?it/s]
+Diffusion steps...: 3it [00:00, 28.49it/s]
+Diffusion steps...: 7it [00:00, 29.91it/s]
+                                          
+normal: 116/500 frame=115
+
+Diffusion steps...: 0it [00:00, ?it/s]
+Diffusion steps...: 4it [00:00, 31.36it/s]
+Diffusion steps...: 8it [00:00, 31.37it/s]
+                                          
+normal: 117/500 frame=116
+
+Diffusion steps...: 0it [00:00, ?it/s]
+Diffusion steps...: 4it [00:00, 31.08it/s]
+Diffusion steps...: 8it [00:00, 31.33it/s]
+                                          
+normal: 118/500 frame=117
+
+Diffusion steps...: 0it [00:00, ?it/s]
+Diffusion steps...: 4it [00:00, 31.14it/s]
+Diffusion steps...: 8it [00:00, 31.33it/s]
+                                          
+normal: 119/500 frame=118
+
+Diffusion steps...: 0it [00:00, ?it/s]
+Diffusion steps...: 4it [00:00, 31.05it/s]
+Diffusion steps...: 8it [00:00, 31.33it/s]
+                                          
+normal: 120/500 frame=119
+
+Diffusion steps...: 0it [00:00, ?it/s]
+Diffusion steps...: 4it [00:00, 31.07it/s]
+Diffusion steps...: 8it [00:00, 31.34it/s]
+                                          
+normal: 121/500 frame=120
+
+Diffusion steps...: 0it [00:00, ?it/s]
+Diffusion steps...: 4it [00:00, 30.88it/s]
+Diffusion steps...: 8it [00:00, 31.27it/s]
+                                          
+normal: 122/500 frame=121
+
+Diffusion steps...: 0it [00:00, ?it/s]
+Diffusion steps...: 4it [00:00, 30.79it/s]
+Diffusion steps...: 8it [00:00, 31.10it/s]
+                                          
+normal: 123/500 frame=122
+
+Diffusion steps...: 0it [00:00, ?it/s]
+Diffusion steps...: 4it [00:00, 30.92it/s]
+Diffusion steps...: 8it [00:00, 31.29it/s]
+                                          
+normal: 124/500 frame=123
+
+Diffusion steps...: 0it [00:00, ?it/s]
+Diffusion steps...: 4it [00:00, 31.21it/s]
+Diffusion steps...: 8it [00:00, 31.37it/s]
+                                          
+normal: 125/500 frame=124
+
+Diffusion steps...: 0it [00:00, ?it/s]
+Diffusion steps...: 4it [00:00, 31.26it/s]
+Diffusion steps...: 8it [00:00, 31.33it/s]
+                                          
+normal: 126/500 frame=125
+
+Diffusion steps...: 0it [00:00, ?it/s]
+Diffusion steps...: 4it [00:00, 31.23it/s]
+Diffusion steps...: 8it [00:00, 31.32it/s]
+                                          
+normal: 127/500 frame=126
+
+Diffusion steps...: 0it [00:00, ?it/s]
+Diffusion steps...: 4it [00:00, 31.30it/s]
+Diffusion steps...: 8it [00:00, 31.42it/s]
+                                          
+normal: 128/500 frame=127
+
+Diffusion steps...: 0it [00:00, ?it/s]
+Diffusion steps...: 4it [00:00, 31.09it/s]
+Diffusion steps...: 8it [00:00, 31.33it/s]
+                                          
+normal: 129/500 frame=128
+
+Diffusion steps...: 0it [00:00, ?it/s]
+Diffusion steps...: 4it [00:00, 31.15it/s]
+Diffusion steps...: 8it [00:00, 31.42it/s]
+                                          
+normal: 130/500 frame=129
+
+Diffusion steps...: 0it [00:00, ?it/s]
+Diffusion steps...: 4it [00:00, 30.81it/s]
+Diffusion steps...: 8it [00:00, 31.23it/s]
+                                          
+normal: 131/500 frame=130
+
+Diffusion steps...: 0it [00:00, ?it/s]
+Diffusion steps...: 4it [00:00, 31.00it/s]
+Diffusion steps...: 8it [00:00, 31.35it/s]
+                                          
+normal: 132/500 frame=131
+
+Diffusion steps...: 0it [00:00, ?it/s]
+Diffusion steps...: 4it [00:00, 30.88it/s]
+Diffusion steps...: 8it [00:00, 31.24it/s]
+                                          
+normal: 133/500 frame=132
+
+Diffusion steps...: 0it [00:00, ?it/s]
+Diffusion steps...: 4it [00:00, 30.96it/s]
+Diffusion steps...: 8it [00:00, 31.21it/s]
+                                          
+normal: 134/500 frame=133
+
+Diffusion steps...: 0it [00:00, ?it/s]
+Diffusion steps...: 4it [00:00, 30.74it/s]
+Diffusion steps...: 8it [00:00, 30.97it/s]
+                                          
+normal: 135/500 frame=134
+
+Diffusion steps...: 0it [00:00, ?it/s]
+Diffusion steps...: 4it [00:00, 31.02it/s]
+Diffusion steps...: 8it [00:00, 31.23it/s]
+                                          
+normal: 136/500 frame=135
+
+Diffusion steps...: 0it [00:00, ?it/s]
+Diffusion steps...: 4it [00:00, 31.14it/s]
+Diffusion steps...: 8it [00:00, 31.24it/s]
+                                          
+normal: 137/500 frame=136
+
+Diffusion steps...: 0it [00:00, ?it/s]
+Diffusion steps...: 4it [00:00, 30.92it/s]
+Diffusion steps...: 8it [00:00, 31.23it/s]
+                                          
+normal: 138/500 frame=137
+
+Diffusion steps...: 0it [00:00, ?it/s]
+Diffusion steps...: 4it [00:00, 31.40it/s]
+Diffusion steps...: 8it [00:00, 31.44it/s]
+                                          
+normal: 139/500 frame=138
+
+Diffusion steps...: 0it [00:00, ?it/s]
+Diffusion steps...: 4it [00:00, 31.03it/s]
+Diffusion steps...: 8it [00:00, 31.36it/s]
+                                          
+normal: 140/500 frame=139
+
+Diffusion steps...: 0it [00:00, ?it/s]
+Diffusion steps...: 4it [00:00, 30.80it/s]
+Diffusion steps...: 8it [00:00, 31.21it/s]
+                                          
+normal: 141/500 frame=140
+
+Diffusion steps...: 0it [00:00, ?it/s]
+Diffusion steps...: 4it [00:00, 30.98it/s]
+Diffusion steps...: 8it [00:00, 31.28it/s]
+                                          
+normal: 142/500 frame=141
+
+Diffusion steps...: 0it [00:00, ?it/s]
+Diffusion steps...: 4it [00:00, 30.72it/s]
+Diffusion steps...: 8it [00:00, 31.14it/s]
+                                          
+normal: 143/500 frame=142
+
+Diffusion steps...: 0it [00:00, ?it/s]
+Diffusion steps...: 4it [00:00, 30.84it/s]
+Diffusion steps...: 8it [00:00, 31.29it/s]
+                                          
+normal: 144/500 frame=143
+
+Diffusion steps...: 0it [00:00, ?it/s]
+Diffusion steps...: 4it [00:00, 31.03it/s]
+Diffusion steps...: 8it [00:00, 31.29it/s]
+                                          
+normal: 145/500 frame=144
+
+Diffusion steps...: 0it [00:00, ?it/s]
+Diffusion steps...: 4it [00:00, 31.25it/s]
+Diffusion steps...: 8it [00:00, 31.35it/s]
+                                          
+normal: 146/500 frame=145
+
+Diffusion steps...: 0it [00:00, ?it/s]
+Diffusion steps...: 4it [00:00, 31.15it/s]
+Diffusion steps...: 8it [00:00, 31.24it/s]
+                                          
+normal: 147/500 frame=146
+
+Diffusion steps...: 0it [00:00, ?it/s]
+Diffusion steps...: 4it [00:00, 31.21it/s]
+Diffusion steps...: 8it [00:00, 31.36it/s]
+                                          
+normal: 148/500 frame=147
+
+Diffusion steps...: 0it [00:00, ?it/s]
+Diffusion steps...: 4it [00:00, 31.10it/s]
+Diffusion steps...: 8it [00:00, 31.28it/s]
+                                          
+normal: 149/500 frame=148
+
+Diffusion steps...: 0it [00:00, ?it/s]
+Diffusion steps...: 4it [00:00, 31.20it/s]
+Diffusion steps...: 8it [00:00, 31.36it/s]
+                                          
+normal: 150/500 frame=149
+
+Diffusion steps...: 0it [00:00, ?it/s]
+Diffusion steps...: 4it [00:00, 30.95it/s]
+Diffusion steps...: 8it [00:00, 31.13it/s]
+                                          
+normal: 151/500 frame=150
+
+Diffusion steps...: 0it [00:00, ?it/s]
+Diffusion steps...: 4it [00:00, 31.10it/s]
+Diffusion steps...: 8it [00:00, 31.34it/s]
+                                          
+normal: 152/500 frame=151
+
+Diffusion steps...: 0it [00:00, ?it/s]
+Diffusion steps...: 4it [00:00, 30.81it/s]
+Diffusion steps...: 8it [00:00, 31.25it/s]
+                                          
+normal: 153/500 frame=152
+
+Diffusion steps...: 0it [00:00, ?it/s]
+Diffusion steps...: 4it [00:00, 31.02it/s]
+Diffusion steps...: 8it [00:00, 31.29it/s]
+                                          
+normal: 154/500 frame=153
+
+Diffusion steps...: 0it [00:00, ?it/s]
+Diffusion steps...: 4it [00:00, 30.82it/s]
+Diffusion steps...: 8it [00:00, 31.14it/s]
+                                          
+normal: 155/500 frame=154
+
+Diffusion steps...: 0it [00:00, ?it/s]
+Diffusion steps...: 4it [00:00, 31.10it/s]
+Diffusion steps...: 8it [00:00, 31.34it/s]
+                                          
+normal: 156/500 frame=155
+
+Diffusion steps...: 0it [00:00, ?it/s]
+Diffusion steps...: 4it [00:00, 31.13it/s]
+Diffusion steps...: 8it [00:00, 31.22it/s]
+                                          
+normal: 157/500 frame=156
+
+Diffusion steps...: 0it [00:00, ?it/s]
+Diffusion steps...: 4it [00:00, 31.00it/s]
+Diffusion steps...: 8it [00:00, 31.27it/s]
+                                          
+normal: 158/500 frame=157
+
+Diffusion steps...: 0it [00:00, ?it/s]
+Diffusion steps...: 4it [00:00, 31.21it/s]
+Diffusion steps...: 8it [00:00, 31.25it/s]
+                                          
+normal: 159/500 frame=158
+
+Diffusion steps...: 0it [00:00, ?it/s]
+Diffusion steps...: 4it [00:00, 30.73it/s]
+Diffusion steps...: 8it [00:00, 31.08it/s]
+                                          
+normal: 160/500 frame=159
+
+Diffusion steps...: 0it [00:00, ?it/s]
+Diffusion steps...: 4it [00:00, 31.01it/s]
+Diffusion steps...: 8it [00:00, 31.30it/s]
+                                          
+normal: 161/500 frame=160
+
+Diffusion steps...: 0it [00:00, ?it/s]
+Diffusion steps...: 4it [00:00, 31.03it/s]
+Diffusion steps...: 8it [00:00, 31.30it/s]
+                                          
+normal: 162/500 frame=161
+
+Diffusion steps...: 0it [00:00, ?it/s]
+Diffusion steps...: 4it [00:00, 30.86it/s]
+Diffusion steps...: 8it [00:00, 31.13it/s]
+                                          
+normal: 163/500 frame=162
+
+Diffusion steps...: 0it [00:00, ?it/s]
+Diffusion steps...: 4it [00:00, 30.97it/s]
+Diffusion steps...: 8it [00:00, 31.23it/s]
+                                          
+normal: 164/500 frame=163
+
+Diffusion steps...: 0it [00:00, ?it/s]
+Diffusion steps...: 4it [00:00, 30.81it/s]
+Diffusion steps...: 8it [00:00, 31.25it/s]
+                                          
+normal: 165/500 frame=164
+
+Diffusion steps...: 0it [00:00, ?it/s]
+Diffusion steps...: 4it [00:00, 30.92it/s]
+Diffusion steps...: 8it [00:00, 31.20it/s]
+                                          
+normal: 166/500 frame=165
+
+Diffusion steps...: 0it [00:00, ?it/s]
+Diffusion steps...: 4it [00:00, 30.97it/s]
+Diffusion steps...: 8it [00:00, 31.17it/s]
+                                          
+normal: 167/500 frame=166
+
+Diffusion steps...: 0it [00:00, ?it/s]
+Diffusion steps...: 4it [00:00, 31.02it/s]
+Diffusion steps...: 8it [00:00, 31.15it/s]
+                                          
+normal: 168/500 frame=167
+
+Diffusion steps...: 0it [00:00, ?it/s]
+Diffusion steps...: 4it [00:00, 31.15it/s]
+Diffusion steps...: 8it [00:00, 31.31it/s]
+                                          
+normal: 169/500 frame=168
+
+Diffusion steps...: 0it [00:00, ?it/s]
+Diffusion steps...: 4it [00:00, 31.14it/s]
+Diffusion steps...: 8it [00:00, 31.22it/s]
+                                          
+normal: 170/500 frame=169
+
+Diffusion steps...: 0it [00:00, ?it/s]
+Diffusion steps...: 4it [00:00, 31.26it/s]
+Diffusion steps...: 8it [00:00, 31.32it/s]
+                                          
+normal: 171/500 frame=170
+
+Diffusion steps...: 0it [00:00, ?it/s]
+Diffusion steps...: 4it [00:00, 30.84it/s]
+Diffusion steps...: 8it [00:00, 31.18it/s]
+                                          
+normal: 172/500 frame=171
+
+Diffusion steps...: 0it [00:00, ?it/s]
+Diffusion steps...: 4it [00:00, 30.80it/s]
+Diffusion steps...: 8it [00:00, 31.19it/s]
+                                          
+normal: 173/500 frame=172
+
+Diffusion steps...: 0it [00:00, ?it/s]
+Diffusion steps...: 4it [00:00, 30.73it/s]
+Diffusion steps...: 8it [00:00, 31.17it/s]
+                                          
+normal: 174/500 frame=173
+
+Diffusion steps...: 0it [00:00, ?it/s]
+Diffusion steps...: 4it [00:00, 30.82it/s]
+Diffusion steps...: 8it [00:00, 31.11it/s]
+                                          
+normal: 175/500 frame=174
+
+Diffusion steps...: 0it [00:00, ?it/s]
+Diffusion steps...: 4it [00:00, 30.62it/s]
+Diffusion steps...: 8it [00:00, 31.07it/s]
+                                          
+normal: 176/500 frame=175
+
+Diffusion steps...: 0it [00:00, ?it/s]
+Diffusion steps...: 4it [00:00, 31.16it/s]
+Diffusion steps...: 8it [00:00, 31.25it/s]
+                                          
+normal: 177/500 frame=176
+
+Diffusion steps...: 0it [00:00, ?it/s]
+Diffusion steps...: 4it [00:00, 31.11it/s]
+Diffusion steps...: 8it [00:00, 31.31it/s]
+                                          
+normal: 178/500 frame=177
+
+Diffusion steps...: 0it [00:00, ?it/s]
+Diffusion steps...: 4it [00:00, 31.18it/s]
+Diffusion steps...: 8it [00:00, 31.26it/s]
+                                          
+normal: 179/500 frame=178
+
+Diffusion steps...: 0it [00:00, ?it/s]
+Diffusion steps...: 4it [00:00, 31.20it/s]
+Diffusion steps...: 8it [00:00, 31.30it/s]
+                                          
+normal: 180/500 frame=179
+
+Diffusion steps...: 0it [00:00, ?it/s]
+Diffusion steps...: 4it [00:00, 31.21it/s]
+Diffusion steps...: 8it [00:00, 31.39it/s]
+                                          
+normal: 181/500 frame=180
+
+Diffusion steps...: 0it [00:00, ?it/s]
+Diffusion steps...: 4it [00:00, 31.04it/s]
+Diffusion steps...: 8it [00:00, 31.36it/s]
+                                          
+normal: 182/500 frame=181
+
+Diffusion steps...: 0it [00:00, ?it/s]
+Diffusion steps...: 4it [00:00, 30.84it/s]
+Diffusion steps...: 8it [00:00, 31.05it/s]
+                                          
+normal: 183/500 frame=182
+
+Diffusion steps...: 0it [00:00, ?it/s]
+Diffusion steps...: 4it [00:00, 30.50it/s]
+Diffusion steps...: 8it [00:00, 31.13it/s]
+                                          
+normal: 184/500 frame=183
+
+Diffusion steps...: 0it [00:00, ?it/s]
+Diffusion steps...: 4it [00:00, 30.94it/s]
+Diffusion steps...: 8it [00:00, 31.25it/s]
+                                          
+normal: 185/500 frame=184
+
+Diffusion steps...: 0it [00:00, ?it/s]
+Diffusion steps...: 4it [00:00, 30.85it/s]
+Diffusion steps...: 8it [00:00, 31.21it/s]
+                                          
+normal: 186/500 frame=185
+
+Diffusion steps...: 0it [00:00, ?it/s]
+Diffusion steps...: 4it [00:00, 30.97it/s]
+Diffusion steps...: 8it [00:00, 31.16it/s]
+                                          
+normal: 187/500 frame=186
+
+Diffusion steps...: 0it [00:00, ?it/s]
+Diffusion steps...: 4it [00:00, 31.15it/s]
+Diffusion steps...: 8it [00:00, 31.26it/s]
+                                          
+normal: 188/500 frame=187
+
+Diffusion steps...: 0it [00:00, ?it/s]
+Diffusion steps...: 4it [00:00, 31.13it/s]
+Diffusion steps...: 8it [00:00, 31.32it/s]
+                                          
+normal: 189/500 frame=188
+
+Diffusion steps...: 0it [00:00, ?it/s]
+Diffusion steps...: 4it [00:00, 31.32it/s]
+Diffusion steps...: 8it [00:00, 31.44it/s]
+                                          
+normal: 190/500 frame=189
+
+Diffusion steps...: 0it [00:00, ?it/s]
+Diffusion steps...: 4it [00:00, 31.15it/s]
+Diffusion steps...: 8it [00:00, 31.31it/s]
+                                          
+normal: 191/500 frame=190
+
+Diffusion steps...: 0it [00:00, ?it/s]
+Diffusion steps...: 4it [00:00, 31.21it/s]
+Diffusion steps...: 8it [00:00, 31.33it/s]
+                                          
+normal: 192/500 frame=191
+
+Diffusion steps...: 0it [00:00, ?it/s]
+Diffusion steps...: 4it [00:00, 30.95it/s]
+Diffusion steps...: 8it [00:00, 31.20it/s]
+                                          
+normal: 193/500 frame=192
+
+Diffusion steps...: 0it [00:00, ?it/s]
+Diffusion steps...: 4it [00:00, 30.99it/s]
+Diffusion steps...: 8it [00:00, 31.30it/s]
+                                          
+normal: 194/500 frame=193
+
+Diffusion steps...: 0it [00:00, ?it/s]
+Diffusion steps...: 4it [00:00, 30.95it/s]
+Diffusion steps...: 8it [00:00, 31.24it/s]
+                                          
+normal: 195/500 frame=194
+
+Diffusion steps...: 0it [00:00, ?it/s]
+Diffusion steps...: 4it [00:00, 30.84it/s]
+Diffusion steps...: 8it [00:00, 31.19it/s]
+                                          
+normal: 196/500 frame=195
+
+Diffusion steps...: 0it [00:00, ?it/s]
+Diffusion steps...: 4it [00:00, 30.75it/s]
+Diffusion steps...: 8it [00:00, 31.19it/s]
+                                          
+normal: 197/500 frame=196
+
+Diffusion steps...: 0it [00:00, ?it/s]
+Diffusion steps...: 4it [00:00, 31.17it/s]
+Diffusion steps...: 8it [00:00, 31.36it/s]
+                                          
+normal: 198/500 frame=197
+
+Diffusion steps...: 0it [00:00, ?it/s]
+Diffusion steps...: 4it [00:00, 31.02it/s]
+Diffusion steps...: 8it [00:00, 31.19it/s]
+                                          
+normal: 199/500 frame=198
+
+Diffusion steps...: 0it [00:00, ?it/s]
+Diffusion steps...: 4it [00:00, 31.12it/s]
+Diffusion steps...: 8it [00:00, 31.16it/s]
+                                          
+normal: 200/500 frame=199
+
+Diffusion steps...: 0it [00:00, ?it/s]
+Diffusion steps...: 4it [00:00, 31.27it/s]
+Diffusion steps...: 8it [00:00, 31.34it/s]
+                                          
+normal: 201/500 frame=200
+
+Diffusion steps...: 0it [00:00, ?it/s]
+Diffusion steps...: 4it [00:00, 31.20it/s]
+Diffusion steps...: 8it [00:00, 31.34it/s]
+                                          
+normal: 202/500 frame=201
+
+Diffusion steps...: 0it [00:00, ?it/s]
+Diffusion steps...: 4it [00:00, 30.86it/s]
+Diffusion steps...: 8it [00:00, 31.19it/s]
+                                          
+normal: 203/500 frame=202
+
+Diffusion steps...: 0it [00:00, ?it/s]
+Diffusion steps...: 4it [00:00, 30.98it/s]
+Diffusion steps...: 8it [00:00, 31.33it/s]
+                                          
+normal: 204/500 frame=203
+
+Diffusion steps...: 0it [00:00, ?it/s]
+Diffusion steps...: 4it [00:00, 30.71it/s]
+Diffusion steps...: 8it [00:00, 31.10it/s]
+                                          
+normal: 205/500 frame=204
+
+Diffusion steps...: 0it [00:00, ?it/s]
+Diffusion steps...: 4it [00:00, 30.88it/s]
+Diffusion steps...: 8it [00:00, 31.18it/s]
+                                          
+normal: 206/500 frame=205
+
+Diffusion steps...: 0it [00:00, ?it/s]
+Diffusion steps...: 4it [00:00, 30.66it/s]
+Diffusion steps...: 8it [00:00, 31.08it/s]
+                                          
+normal: 207/500 frame=206
+
+Diffusion steps...: 0it [00:00, ?it/s]
+Diffusion steps...: 4it [00:00, 30.98it/s]
+Diffusion steps...: 8it [00:00, 31.06it/s]
+                                          
+normal: 208/500 frame=207
+
+Diffusion steps...: 0it [00:00, ?it/s]
+Diffusion steps...: 4it [00:00, 30.90it/s]
+Diffusion steps...: 8it [00:00, 31.10it/s]
+                                          
+normal: 209/500 frame=208
+
+Diffusion steps...: 0it [00:00, ?it/s]
+Diffusion steps...: 4it [00:00, 31.19it/s]
+Diffusion steps...: 8it [00:00, 31.33it/s]
+                                          
+normal: 210/500 frame=209
+
+Diffusion steps...: 0it [00:00, ?it/s]
+Diffusion steps...: 4it [00:00, 31.09it/s]
+Diffusion steps...: 8it [00:00, 31.18it/s]
+                                          
+normal: 211/500 frame=210
+
+Diffusion steps...: 0it [00:00, ?it/s]
+Diffusion steps...: 4it [00:00, 31.17it/s]
+Diffusion steps...: 8it [00:00, 31.29it/s]
+                                          
+normal: 212/500 frame=211
+
+Diffusion steps...: 0it [00:00, ?it/s]
+Diffusion steps...: 4it [00:00, 30.79it/s]
+Diffusion steps...: 8it [00:00, 31.10it/s]
+                                          
+normal: 213/500 frame=212
+
+Diffusion steps...: 0it [00:00, ?it/s]
+Diffusion steps...: 4it [00:00, 30.98it/s]
+Diffusion steps...: 8it [00:00, 31.28it/s]
+                                          
+normal: 214/500 frame=213
+
+Diffusion steps...: 0it [00:00, ?it/s]
+Diffusion steps...: 4it [00:00, 30.87it/s]
+Diffusion steps...: 8it [00:00, 31.21it/s]
+                                          
+normal: 215/500 frame=214
+
+Diffusion steps...: 0it [00:00, ?it/s]
+Diffusion steps...: 4it [00:00, 30.90it/s]
+Diffusion steps...: 8it [00:00, 31.23it/s]
+                                          
+normal: 216/500 frame=215
+
+Diffusion steps...: 0it [00:00, ?it/s]
+Diffusion steps...: 4it [00:00, 30.74it/s]
+Diffusion steps...: 8it [00:00, 31.05it/s]
+                                          
+normal: 217/500 frame=216
+
+Diffusion steps...: 0it [00:00, ?it/s]
+Diffusion steps...: 4it [00:00, 31.07it/s]
+Diffusion steps...: 8it [00:00, 31.21it/s]
+                                          
+normal: 218/500 frame=217
+
+Diffusion steps...: 0it [00:00, ?it/s]
+Diffusion steps...: 4it [00:00, 30.99it/s]
+Diffusion steps...: 8it [00:00, 31.13it/s]
+                                          
+normal: 219/500 frame=218
+
+Diffusion steps...: 0it [00:00, ?it/s]
+Diffusion steps...: 4it [00:00, 31.05it/s]
+Diffusion steps...: 8it [00:00, 31.17it/s]
+                                          
+normal: 220/500 frame=219
+
+Diffusion steps...: 0it [00:00, ?it/s]
+Diffusion steps...: 4it [00:00, 31.11it/s]
+Diffusion steps...: 8it [00:00, 31.30it/s]
+                                          
+normal: 221/500 frame=220
+
+Diffusion steps...: 0it [00:00, ?it/s]
+Diffusion steps...: 4it [00:00, 31.10it/s]
+Diffusion steps...: 8it [00:00, 31.30it/s]
+                                          
+normal: 222/500 frame=221
+
+Diffusion steps...: 0it [00:00, ?it/s]
+Diffusion steps...: 4it [00:00, 31.03it/s]
+Diffusion steps...: 8it [00:00, 31.28it/s]
+                                          
+normal: 223/500 frame=222
+
+Diffusion steps...: 0it [00:00, ?it/s]
+Diffusion steps...: 4it [00:00, 31.01it/s]
+Diffusion steps...: 8it [00:00, 31.29it/s]
+                                          
+normal: 224/500 frame=223
+
+Diffusion steps...: 0it [00:00, ?it/s]
+Diffusion steps...: 4it [00:00, 30.71it/s]
+Diffusion steps...: 8it [00:00, 31.10it/s]
+                                          
+normal: 225/500 frame=224
+
+Diffusion steps...: 0it [00:00, ?it/s]
+Diffusion steps...: 4it [00:00, 30.78it/s]
+Diffusion steps...: 8it [00:00, 31.16it/s]
+                                          
+normal: 226/500 frame=225
+
+Diffusion steps...: 0it [00:00, ?it/s]
+Diffusion steps...: 4it [00:00, 30.85it/s]
+Diffusion steps...: 8it [00:00, 31.18it/s]
+                                          
+normal: 227/500 frame=226
+
+Diffusion steps...: 0it [00:00, ?it/s]
+Diffusion steps...: 4it [00:00, 30.68it/s]
+Diffusion steps...: 8it [00:00, 30.98it/s]
+                                          
+normal: 228/500 frame=227
+
+Diffusion steps...: 0it [00:00, ?it/s]
+Diffusion steps...: 4it [00:00, 30.84it/s]
+Diffusion steps...: 8it [00:00, 31.04it/s]
+                                          
+normal: 229/500 frame=228
+
+Diffusion steps...: 0it [00:00, ?it/s]
+Diffusion steps...: 4it [00:00, 31.03it/s]
+Diffusion steps...: 8it [00:00, 31.23it/s]
+                                          
+normal: 230/500 frame=229
+
+Diffusion steps...: 0it [00:00, ?it/s]
+Diffusion steps...: 4it [00:00, 31.15it/s]
+Diffusion steps...: 8it [00:00, 31.25it/s]
+                                          
+normal: 231/500 frame=230
+
+Diffusion steps...: 0it [00:00, ?it/s]
+Diffusion steps...: 4it [00:00, 31.11it/s]
+Diffusion steps...: 8it [00:00, 31.26it/s]
+                                          
+normal: 232/500 frame=231
+
+Diffusion steps...: 0it [00:00, ?it/s]
+Diffusion steps...: 4it [00:00, 31.06it/s]
+Diffusion steps...: 8it [00:00, 31.23it/s]
+                                          
+normal: 233/500 frame=232
+
+Diffusion steps...: 0it [00:00, ?it/s]
+Diffusion steps...: 4it [00:00, 30.82it/s]
+Diffusion steps...: 8it [00:00, 31.26it/s]
+                                          
+normal: 234/500 frame=233
+
+Diffusion steps...: 0it [00:00, ?it/s]
+Diffusion steps...: 4it [00:00, 30.77it/s]
+Diffusion steps...: 8it [00:00, 31.19it/s]
+                                          
+normal: 235/500 frame=234
+
+Diffusion steps...: 0it [00:00, ?it/s]
+Diffusion steps...: 4it [00:00, 30.69it/s]
+Diffusion steps...: 8it [00:00, 31.16it/s]
+                                          
+normal: 236/500 frame=235
+
+Diffusion steps...: 0it [00:00, ?it/s]
+Diffusion steps...: 4it [00:00, 30.91it/s]
+Diffusion steps...: 8it [00:00, 31.22it/s]
+                                          
+normal: 237/500 frame=236
+
+Diffusion steps...: 0it [00:00, ?it/s]
+Diffusion steps...: 4it [00:00, 30.77it/s]
+Diffusion steps...: 8it [00:00, 31.17it/s]
+                                          
+normal: 238/500 frame=237
+
+Diffusion steps...: 0it [00:00, ?it/s]
+Diffusion steps...: 4it [00:00, 31.03it/s]
+Diffusion steps...: 8it [00:00, 31.32it/s]
+                                          
+normal: 239/500 frame=238
+
+Diffusion steps...: 0it [00:00, ?it/s]
+Diffusion steps...: 4it [00:00, 31.15it/s]
+Diffusion steps...: 8it [00:00, 31.35it/s]
+                                          
+normal: 240/500 frame=239
+
+Diffusion steps...: 0it [00:00, ?it/s]
+Diffusion steps...: 4it [00:00, 30.90it/s]
+Diffusion steps...: 8it [00:00, 31.15it/s]
+                                          
+normal: 241/500 frame=240
+
+Diffusion steps...: 0it [00:00, ?it/s]
+Diffusion steps...: 4it [00:00, 31.10it/s]
+Diffusion steps...: 8it [00:00, 31.31it/s]
+                                          
+normal: 242/500 frame=241
+
+Diffusion steps...: 0it [00:00, ?it/s]
+Diffusion steps...: 4it [00:00, 31.24it/s]
+Diffusion steps...: 8it [00:00, 31.42it/s]
+                                          
+normal: 243/500 frame=242
+
+Diffusion steps...: 0it [00:00, ?it/s]
+Diffusion steps...: 4it [00:00, 30.91it/s]
+Diffusion steps...: 8it [00:00, 31.20it/s]
+                                          
+normal: 244/500 frame=243
+
+Diffusion steps...: 0it [00:00, ?it/s]
+Diffusion steps...: 4it [00:00, 30.86it/s]
+Diffusion steps...: 8it [00:00, 31.15it/s]
+                                          
+normal: 245/500 frame=244
+
+Diffusion steps...: 0it [00:00, ?it/s]
+Diffusion steps...: 4it [00:00, 30.96it/s]
+Diffusion steps...: 8it [00:00, 31.31it/s]
+                                          
+normal: 246/500 frame=245
+
+Diffusion steps...: 0it [00:00, ?it/s]
+Diffusion steps...: 4it [00:00, 30.98it/s]
+Diffusion steps...: 8it [00:00, 31.29it/s]
+                                          
+normal: 247/500 frame=246
+
+Diffusion steps...: 0it [00:00, ?it/s]
+Diffusion steps...: 4it [00:00, 30.74it/s]
+Diffusion steps...: 8it [00:00, 31.14it/s]
+                                          
+normal: 248/500 frame=247
+
+Diffusion steps...: 0it [00:00, ?it/s]
+Diffusion steps...: 4it [00:00, 30.92it/s]
+Diffusion steps...: 8it [00:00, 31.16it/s]
+                                          
+normal: 249/500 frame=248
+
+Diffusion steps...: 0it [00:00, ?it/s]
+Diffusion steps...: 4it [00:00, 31.13it/s]
+Diffusion steps...: 8it [00:00, 31.34it/s]
+                                          
+normal: 250/500 frame=249
+
+Diffusion steps...: 0it [00:00, ?it/s]
+Diffusion steps...: 4it [00:00, 31.12it/s]
+Diffusion steps...: 8it [00:00, 31.22it/s]
+                                          
+normal: 251/500 frame=250
+
+Diffusion steps...: 0it [00:00, ?it/s]
+Diffusion steps...: 4it [00:00, 31.20it/s]
+Diffusion steps...: 8it [00:00, 31.26it/s]
+                                          
+normal: 252/500 frame=251
+
+Diffusion steps...: 0it [00:00, ?it/s]
+Diffusion steps...: 4it [00:00, 31.10it/s]
+Diffusion steps...: 8it [00:00, 31.27it/s]
+                                          
+normal: 253/500 frame=252
+
+Diffusion steps...: 0it [00:00, ?it/s]
+Diffusion steps...: 4it [00:00, 31.14it/s]
+Diffusion steps...: 8it [00:00, 31.34it/s]
+                                          
+normal: 254/500 frame=253
+
+Diffusion steps...: 0it [00:00, ?it/s]
+Diffusion steps...: 4it [00:00, 30.82it/s]
+Diffusion steps...: 8it [00:00, 31.17it/s]
+                                          
+normal: 255/500 frame=254
+
+Diffusion steps...: 0it [00:00, ?it/s]
+Diffusion steps...: 4it [00:00, 30.93it/s]
+Diffusion steps...: 8it [00:00, 31.31it/s]
+                                          
+normal: 256/500 frame=255
+
+Diffusion steps...: 0it [00:00, ?it/s]
+Diffusion steps...: 4it [00:00, 30.81it/s]
+Diffusion steps...: 8it [00:00, 31.19it/s]
+                                          
+normal: 257/500 frame=256
+
+Diffusion steps...: 0it [00:00, ?it/s]
+Diffusion steps...: 4it [00:00, 30.94it/s]
+Diffusion steps...: 8it [00:00, 31.19it/s]
+                                          
+normal: 258/500 frame=257
+
+Diffusion steps...: 0it [00:00, ?it/s]
+Diffusion steps...: 4it [00:00, 30.84it/s]
+Diffusion steps...: 8it [00:00, 31.14it/s]
+                                          
+normal: 259/500 frame=258
+
+Diffusion steps...: 0it [00:00, ?it/s]
+Diffusion steps...: 4it [00:00, 31.07it/s]
+Diffusion steps...: 8it [00:00, 31.29it/s]
+                                          
+normal: 260/500 frame=259
+
+Diffusion steps...: 0it [00:00, ?it/s]
+Diffusion steps...: 4it [00:00, 31.09it/s]
+Diffusion steps...: 8it [00:00, 31.23it/s]
+                                          
+normal: 261/500 frame=260
+
+Diffusion steps...: 0it [00:00, ?it/s]
+Diffusion steps...: 4it [00:00, 31.15it/s]
+Diffusion steps...: 8it [00:00, 31.23it/s]
+                                          
+normal: 262/500 frame=261
+
+Diffusion steps...: 0it [00:00, ?it/s]
+Diffusion steps...: 4it [00:00, 31.19it/s]
+Diffusion steps...: 8it [00:00, 31.29it/s]
+                                          
+normal: 263/500 frame=262
+
+Diffusion steps...: 0it [00:00, ?it/s]
+Diffusion steps...: 4it [00:00, 31.26it/s]
+Diffusion steps...: 8it [00:00, 31.38it/s]
+                                          
+normal: 264/500 frame=263
+
+Diffusion steps...: 0it [00:00, ?it/s]
+Diffusion steps...: 4it [00:00, 30.77it/s]
+Diffusion steps...: 8it [00:00, 31.15it/s]
+                                          
+normal: 265/500 frame=264
+
+Diffusion steps...: 0it [00:00, ?it/s]
+Diffusion steps...: 4it [00:00, 30.95it/s]
+Diffusion steps...: 8it [00:00, 31.29it/s]
+                                          
+normal: 266/500 frame=265
+
+Diffusion steps...: 0it [00:00, ?it/s]
+Diffusion steps...: 4it [00:00, 30.68it/s]
+Diffusion steps...: 8it [00:00, 31.15it/s]
+                                          
+normal: 267/500 frame=266
+
+Diffusion steps...: 0it [00:00, ?it/s]
+Diffusion steps...: 4it [00:00, 30.83it/s]
+Diffusion steps...: 8it [00:00, 31.16it/s]
+                                          
+normal: 268/500 frame=267
+
+Diffusion steps...: 0it [00:00, ?it/s]
+Diffusion steps...: 4it [00:00, 30.64it/s]
+Diffusion steps...: 8it [00:00, 30.98it/s]
+                                          
+normal: 269/500 frame=268
+
+Diffusion steps...: 0it [00:00, ?it/s]
+Diffusion steps...: 4it [00:00, 31.19it/s]
+Diffusion steps...: 8it [00:00, 31.38it/s]
+                                          
+normal: 270/500 frame=269
+
+Diffusion steps...: 0it [00:00, ?it/s]
+Diffusion steps...: 4it [00:00, 31.11it/s]
+Diffusion steps...: 8it [00:00, 31.25it/s]
+                                          
+normal: 271/500 frame=270
+
+Diffusion steps...: 0it [00:00, ?it/s]
+Diffusion steps...: 4it [00:00, 31.36it/s]
+Diffusion steps...: 8it [00:00, 31.37it/s]
+                                          
+normal: 272/500 frame=271
+
+Diffusion steps...: 0it [00:00, ?it/s]
+Diffusion steps...: 4it [00:00, 31.05it/s]
+Diffusion steps...: 8it [00:00, 31.21it/s]
+                                          
+normal: 273/500 frame=272
+
+Diffusion steps...: 0it [00:00, ?it/s]
+Diffusion steps...: 4it [00:00, 31.12it/s]
+Diffusion steps...: 8it [00:00, 31.35it/s]
+                                          
+normal: 274/500 frame=273
+
+Diffusion steps...: 0it [00:00, ?it/s]
+Diffusion steps...: 4it [00:00, 30.85it/s]
+Diffusion steps...: 8it [00:00, 31.16it/s]
+                                          
+normal: 275/500 frame=274
+
+Diffusion steps...: 0it [00:00, ?it/s]
+Diffusion steps...: 4it [00:00, 30.89it/s]
+Diffusion steps...: 8it [00:00, 31.24it/s]
+                                          
+normal: 276/500 frame=275
+
+Diffusion steps...: 0it [00:00, ?it/s]
+Diffusion steps...: 4it [00:00, 30.55it/s]
+Diffusion steps...: 8it [00:00, 31.07it/s]
+                                          
+normal: 277/500 frame=276
+
+Diffusion steps...: 0it [00:00, ?it/s]
+Diffusion steps...: 4it [00:00, 30.95it/s]
+Diffusion steps...: 8it [00:00, 31.30it/s]
+                                          
+normal: 278/500 frame=277
+
+Diffusion steps...: 0it [00:00, ?it/s]
+Diffusion steps...: 4it [00:00, 30.87it/s]
+Diffusion steps...: 8it [00:00, 31.20it/s]
+                                          
+normal: 279/500 frame=278
+
+Diffusion steps...: 0it [00:00, ?it/s]
+Diffusion steps...: 4it [00:00, 31.06it/s]
+Diffusion steps...: 8it [00:00, 31.30it/s]
+                                          
+normal: 280/500 frame=279
+
+Diffusion steps...: 0it [00:00, ?it/s]
+Diffusion steps...: 4it [00:00, 31.04it/s]
+Diffusion steps...: 8it [00:00, 31.23it/s]
+                                          
+normal: 281/500 frame=280
+
+Diffusion steps...: 0it [00:00, ?it/s]
+Diffusion steps...: 4it [00:00, 31.19it/s]
+Diffusion steps...: 8it [00:00, 31.27it/s]
+                                          
+normal: 282/500 frame=281
+
+Diffusion steps...: 0it [00:00, ?it/s]
+Diffusion steps...: 4it [00:00, 31.15it/s]
+Diffusion steps...: 8it [00:00, 31.28it/s]
+                                          
+normal: 283/500 frame=282
+
+Diffusion steps...: 0it [00:00, ?it/s]
+Diffusion steps...: 4it [00:00, 31.12it/s]
+Diffusion steps...: 8it [00:00, 31.25it/s]
+                                          
+normal: 284/500 frame=283
+
+Diffusion steps...: 0it [00:00, ?it/s]
+Diffusion steps...: 4it [00:00, 31.04it/s]
+Diffusion steps...: 8it [00:00, 31.32it/s]
+                                          
+normal: 285/500 frame=284
+
+Diffusion steps...: 0it [00:00, ?it/s]
+Diffusion steps...: 4it [00:00, 30.86it/s]
+Diffusion steps...: 8it [00:00, 31.19it/s]
+                                          
+normal: 286/500 frame=285
+
+Diffusion steps...: 0it [00:00, ?it/s]
+Diffusion steps...: 4it [00:00, 30.90it/s]
+Diffusion steps...: 8it [00:00, 31.16it/s]
+                                          
+normal: 287/500 frame=286
+
+Diffusion steps...: 0it [00:00, ?it/s]
+Diffusion steps...: 4it [00:00, 30.88it/s]
+Diffusion steps...: 8it [00:00, 31.23it/s]
+                                          
+normal: 288/500 frame=287
+
+Diffusion steps...: 0it [00:00, ?it/s]
+Diffusion steps...: 4it [00:00, 30.71it/s]
+Diffusion steps...: 8it [00:00, 31.08it/s]
+                                          
+normal: 289/500 frame=288
+
+Diffusion steps...: 0it [00:00, ?it/s]
+Diffusion steps...: 4it [00:00, 31.06it/s]
+Diffusion steps...: 8it [00:00, 31.28it/s]
+                                          
+normal: 290/500 frame=289
+
+Diffusion steps...: 0it [00:00, ?it/s]
+Diffusion steps...: 4it [00:00, 31.18it/s]
+Diffusion steps...: 8it [00:00, 31.22it/s]
+                                          
+normal: 291/500 frame=290
+
+Diffusion steps...: 0it [00:00, ?it/s]
+Diffusion steps...: 4it [00:00, 31.16it/s]
+Diffusion steps...: 8it [00:00, 31.27it/s]
+                                          
+normal: 292/500 frame=291
+
+Diffusion steps...: 0it [00:00, ?it/s]
+Diffusion steps...: 4it [00:00, 31.22it/s]
+Diffusion steps...: 8it [00:00, 31.33it/s]
+                                          
+normal: 293/500 frame=292
+
+Diffusion steps...: 0it [00:00, ?it/s]
+Diffusion steps...: 4it [00:00, 31.29it/s]
+Diffusion steps...: 8it [00:00, 31.43it/s]
+                                          
+normal: 294/500 frame=293
+
+Diffusion steps...: 0it [00:00, ?it/s]
+Diffusion steps...: 4it [00:00, 30.99it/s]
+Diffusion steps...: 8it [00:00, 31.14it/s]
+                                          
+normal: 295/500 frame=294
+
+Diffusion steps...: 0it [00:00, ?it/s]
+Diffusion steps...: 4it [00:00, 30.89it/s]
+Diffusion steps...: 8it [00:00, 31.19it/s]
+                                          
+normal: 296/500 frame=295
+
+Diffusion steps...: 0it [00:00, ?it/s]
+Diffusion steps...: 4it [00:00, 30.69it/s]
+Diffusion steps...: 8it [00:00, 31.06it/s]
+                                          
+normal: 297/500 frame=296
+
+Diffusion steps...: 0it [00:00, ?it/s]
+Diffusion steps...: 4it [00:00, 30.83it/s]
+Diffusion steps...: 8it [00:00, 31.17it/s]
+                                          
+normal: 298/500 frame=297
+
+Diffusion steps...: 0it [00:00, ?it/s]
+Diffusion steps...: 4it [00:00, 30.79it/s]
+Diffusion steps...: 8it [00:00, 31.12it/s]
+                                          
+normal: 299/500 frame=298
+
+Diffusion steps...: 0it [00:00, ?it/s]
+Diffusion steps...: 4it [00:00, 30.80it/s]
+Diffusion steps...: 8it [00:00, 31.16it/s]
+                                          
+normal: 300/500 frame=299
+
+Diffusion steps...: 0it [00:00, ?it/s]
+Diffusion steps...: 4it [00:00, 31.10it/s]
+Diffusion steps...: 8it [00:00, 31.21it/s]
+                                          
+normal: 301/500 frame=300
+
+Diffusion steps...: 0it [00:00, ?it/s]
+Diffusion steps...: 4it [00:00, 31.09it/s]
+Diffusion steps...: 8it [00:00, 31.21it/s]
+                                          
+normal: 302/500 frame=301
+
+Diffusion steps...: 0it [00:00, ?it/s]
+Diffusion steps...: 4it [00:00, 31.04it/s]
+Diffusion steps...: 8it [00:00, 31.11it/s]
+                                          
+normal: 303/500 frame=302
+
+Diffusion steps...: 0it [00:00, ?it/s]
+Diffusion steps...: 4it [00:00, 31.12it/s]
+Diffusion steps...: 8it [00:00, 31.01it/s]
+                                          
+normal: 304/500 frame=303
+
+Diffusion steps...: 0it [00:00, ?it/s]
+Diffusion steps...: 4it [00:00, 31.01it/s]
+Diffusion steps...: 8it [00:00, 31.26it/s]
+                                          
+normal: 305/500 frame=304
+
+Diffusion steps...: 0it [00:00, ?it/s]
+Diffusion steps...: 4it [00:00, 30.94it/s]
+Diffusion steps...: 8it [00:00, 31.28it/s]
+                                          
+normal: 306/500 frame=305
+
+Diffusion steps...: 0it [00:00, ?it/s]
+Diffusion steps...: 4it [00:00, 30.79it/s]
+Diffusion steps...: 8it [00:00, 31.06it/s]
+                                          
+normal: 307/500 frame=306
+
+Diffusion steps...: 0it [00:00, ?it/s]
+Diffusion steps...: 4it [00:00, 30.98it/s]
+Diffusion steps...: 8it [00:00, 31.22it/s]
+                                          
+normal: 308/500 frame=307
+
+Diffusion steps...: 0it [00:00, ?it/s]
+Diffusion steps...: 4it [00:00, 30.80it/s]
+Diffusion steps...: 8it [00:00, 31.11it/s]
+                                          
+normal: 309/500 frame=308
+
+Diffusion steps...: 0it [00:00, ?it/s]
+Diffusion steps...: 4it [00:00, 30.79it/s]
+Diffusion steps...: 8it [00:00, 31.15it/s]
+                                          
+normal: 310/500 frame=309
+
+Diffusion steps...: 0it [00:00, ?it/s]
+Diffusion steps...: 4it [00:00, 30.92it/s]
+Diffusion steps...: 8it [00:00, 31.15it/s]
+                                          
+normal: 311/500 frame=310
+
+Diffusion steps...: 0it [00:00, ?it/s]
+Diffusion steps...: 4it [00:00, 31.10it/s]
+Diffusion steps...: 8it [00:00, 31.18it/s]
+                                          
+normal: 312/500 frame=311
+
+Diffusion steps...: 0it [00:00, ?it/s]
+Diffusion steps...: 4it [00:00, 31.15it/s]
+Diffusion steps...: 8it [00:00, 31.29it/s]
+                                          
+normal: 313/500 frame=312
+
+Diffusion steps...: 0it [00:00, ?it/s]
+Diffusion steps...: 4it [00:00, 31.09it/s]
+Diffusion steps...: 8it [00:00, 31.27it/s]
+                                          
+normal: 314/500 frame=313
+
+Diffusion steps...: 0it [00:00, ?it/s]
+Diffusion steps...: 4it [00:00, 31.25it/s]
+Diffusion steps...: 8it [00:00, 31.30it/s]
+                                          
+normal: 315/500 frame=314
+
+Diffusion steps...: 0it [00:00, ?it/s]
+Diffusion steps...: 4it [00:00, 30.81it/s]
+Diffusion steps...: 8it [00:00, 31.12it/s]
+                                          
+normal: 316/500 frame=315
+
+Diffusion steps...: 0it [00:00, ?it/s]
+Diffusion steps...: 4it [00:00, 30.77it/s]
+Diffusion steps...: 8it [00:00, 31.12it/s]
+                                          
+normal: 317/500 frame=316
+
+Diffusion steps...: 0it [00:00, ?it/s]
+Diffusion steps...: 4it [00:00, 30.86it/s]
+Diffusion steps...: 8it [00:00, 31.23it/s]
+                                          
+normal: 318/500 frame=317
+
+Diffusion steps...: 0it [00:00, ?it/s]
+Diffusion steps...: 4it [00:00, 30.87it/s]
+Diffusion steps...: 8it [00:00, 31.19it/s]
+                                          
+normal: 319/500 frame=318
+
+Diffusion steps...: 0it [00:00, ?it/s]
+Diffusion steps...: 4it [00:00, 30.75it/s]
+Diffusion steps...: 8it [00:00, 31.07it/s]
+                                          
+normal: 320/500 frame=319
+
+Diffusion steps...: 0it [00:00, ?it/s]
+Diffusion steps...: 4it [00:00, 30.91it/s]
+Diffusion steps...: 8it [00:00, 31.14it/s]
+                                          
+normal: 321/500 frame=320
+
+Diffusion steps...: 0it [00:00, ?it/s]
+Diffusion steps...: 4it [00:00, 31.14it/s]
+Diffusion steps...: 8it [00:00, 31.25it/s]
+                                          
+normal: 322/500 frame=321
+
+Diffusion steps...: 0it [00:00, ?it/s]
+Diffusion steps...: 4it [00:00, 31.08it/s]
+Diffusion steps...: 8it [00:00, 31.18it/s]
+                                          
+normal: 323/500 frame=322
+
+Diffusion steps...: 0it [00:00, ?it/s]
+Diffusion steps...: 4it [00:00, 31.19it/s]
+Diffusion steps...: 8it [00:00, 31.24it/s]
+                                          
+normal: 324/500 frame=323
+
+Diffusion steps...: 0it [00:00, ?it/s]
+Diffusion steps...: 4it [00:00, 31.02it/s]
+Diffusion steps...: 8it [00:00, 31.23it/s]
+                                          
+normal: 325/500 frame=324
+
+Diffusion steps...: 0it [00:00, ?it/s]
+Diffusion steps...: 4it [00:00, 31.01it/s]
+Diffusion steps...: 8it [00:00, 31.23it/s]
+                                          
+normal: 326/500 frame=325
+
+Diffusion steps...: 0it [00:00, ?it/s]
+Diffusion steps...: 4it [00:00, 30.82it/s]
+Diffusion steps...: 8it [00:00, 31.21it/s]
+                                          
+normal: 327/500 frame=326
+
+Diffusion steps...: 0it [00:00, ?it/s]
+Diffusion steps...: 4it [00:00, 30.80it/s]
+Diffusion steps...: 8it [00:00, 31.19it/s]
+                                          
+normal: 328/500 frame=327
+
+Diffusion steps...: 0it [00:00, ?it/s]
+Diffusion steps...: 4it [00:00, 30.73it/s]
+Diffusion steps...: 8it [00:00, 31.19it/s]
+                                          
+normal: 329/500 frame=328
+
+Diffusion steps...: 0it [00:00, ?it/s]
+Diffusion steps...: 4it [00:00, 30.73it/s]
+Diffusion steps...: 8it [00:00, 31.05it/s]
+                                          
+normal: 330/500 frame=329
+
+Diffusion steps...: 0it [00:00, ?it/s]
+Diffusion steps...: 4it [00:00, 30.90it/s]
+Diffusion steps...: 8it [00:00, 31.18it/s]
+                                          
+normal: 331/500 frame=330
+
+Diffusion steps...: 0it [00:00, ?it/s]
+Diffusion steps...: 4it [00:00, 31.08it/s]
+Diffusion steps...: 8it [00:00, 31.14it/s]
+                                          
+normal: 332/500 frame=331
+
+Diffusion steps...: 0it [00:00, ?it/s]
+Diffusion steps...: 4it [00:00, 31.20it/s]
+Diffusion steps...: 8it [00:00, 31.29it/s]
+                                          
+normal: 333/500 frame=332
+
+Diffusion steps...: 0it [00:00, ?it/s]
+Diffusion steps...: 4it [00:00, 30.77it/s]
+Diffusion steps...: 8it [00:00, 31.15it/s]
+                                          
+normal: 334/500 frame=333
+
+Diffusion steps...: 0it [00:00, ?it/s]
+Diffusion steps...: 4it [00:00, 31.13it/s]
+Diffusion steps...: 8it [00:00, 31.35it/s]
+                                          
+normal: 335/500 frame=334
+
+Diffusion steps...: 0it [00:00, ?it/s]
+Diffusion steps...: 4it [00:00, 31.22it/s]
+Diffusion steps...: 8it [00:00, 31.39it/s]
+                                          
+normal: 336/500 frame=335
+
+Diffusion steps...: 0it [00:00, ?it/s]
+Diffusion steps...: 4it [00:00, 30.76it/s]
+Diffusion steps...: 8it [00:00, 31.15it/s]
+                                          
+normal: 337/500 frame=336
+
+Diffusion steps...: 0it [00:00, ?it/s]
+Diffusion steps...: 4it [00:00, 30.93it/s]
+Diffusion steps...: 8it [00:00, 31.30it/s]
+                                          
+normal: 338/500 frame=337
+
+Diffusion steps...: 0it [00:00, ?it/s]
+Diffusion steps...: 4it [00:00, 30.80it/s]
+Diffusion steps...: 8it [00:00, 31.10it/s]
+                                          
+normal: 339/500 frame=338
+
+Diffusion steps...: 0it [00:00, ?it/s]
+Diffusion steps...: 4it [00:00, 30.54it/s]
+Diffusion steps...: 8it [00:00, 31.10it/s]
+                                          
+normal: 340/500 frame=339
+
+Diffusion steps...: 0it [00:00, ?it/s]
+Diffusion steps...: 4it [00:00, 30.84it/s]
+Diffusion steps...: 8it [00:00, 31.17it/s]
+                                          
+normal: 341/500 frame=340
+
+Diffusion steps...: 0it [00:00, ?it/s]
+Diffusion steps...: 4it [00:00, 31.13it/s]
+Diffusion steps...: 8it [00:00, 31.32it/s]
+                                          
+normal: 342/500 frame=341
+
+Diffusion steps...: 0it [00:00, ?it/s]
+Diffusion steps...: 4it [00:00, 31.17it/s]
+Diffusion steps...: 8it [00:00, 31.27it/s]
+                                          
+normal: 343/500 frame=342
+
+Diffusion steps...: 0it [00:00, ?it/s]
+Diffusion steps...: 4it [00:00, 30.97it/s]
+Diffusion steps...: 8it [00:00, 31.14it/s]
+                                          
+normal: 344/500 frame=343
+
+Diffusion steps...: 0it [00:00, ?it/s]
+Diffusion steps...: 4it [00:00, 31.02it/s]
+Diffusion steps...: 8it [00:00, 31.22it/s]
+                                          
+normal: 345/500 frame=344
+
+Diffusion steps...: 0it [00:00, ?it/s]
+Diffusion steps...: 4it [00:00, 31.12it/s]
+Diffusion steps...: 8it [00:00, 31.35it/s]
+                                          
+normal: 346/500 frame=345
+
+Diffusion steps...: 0it [00:00, ?it/s]
+Diffusion steps...: 4it [00:00, 30.96it/s]
+Diffusion steps...: 8it [00:00, 31.23it/s]
+                                          
+normal: 347/500 frame=346
+
+Diffusion steps...: 0it [00:00, ?it/s]
+Diffusion steps...: 4it [00:00, 30.93it/s]
+Diffusion steps...: 8it [00:00, 31.26it/s]
+                                          
+normal: 348/500 frame=347
+
+Diffusion steps...: 0it [00:00, ?it/s]
+Diffusion steps...: 4it [00:00, 30.73it/s]
+Diffusion steps...: 8it [00:00, 31.10it/s]
+                                          
+normal: 349/500 frame=348
+
+Diffusion steps...: 0it [00:00, ?it/s]
+Diffusion steps...: 4it [00:00, 30.65it/s]
+Diffusion steps...: 8it [00:00, 31.19it/s]
+                                          
+normal: 350/500 frame=349
+
+Diffusion steps...: 0it [00:00, ?it/s]
+Diffusion steps...: 4it [00:00, 30.91it/s]
+Diffusion steps...: 8it [00:00, 31.24it/s]
+                                          
+normal: 351/500 frame=350
+
+Diffusion steps...: 0it [00:00, ?it/s]
+Diffusion steps...: 4it [00:00, 31.06it/s]
+Diffusion steps...: 8it [00:00, 31.32it/s]
+                                          
+normal: 352/500 frame=351
+
+Diffusion steps...: 0it [00:00, ?it/s]
+Diffusion steps...: 4it [00:00, 31.10it/s]
+Diffusion steps...: 8it [00:00, 31.16it/s]
+                                          
+normal: 353/500 frame=352
+
+Diffusion steps...: 0it [00:00, ?it/s]
+Diffusion steps...: 4it [00:00, 31.22it/s]
+Diffusion steps...: 8it [00:00, 31.38it/s]
+                                          
+normal: 354/500 frame=353
+
+Diffusion steps...: 0it [00:00, ?it/s]
+Diffusion steps...: 4it [00:00, 31.20it/s]
+Diffusion steps...: 8it [00:00, 31.32it/s]
+                                          
+normal: 355/500 frame=354
+
+Diffusion steps...: 0it [00:00, ?it/s]
+Diffusion steps...: 4it [00:00, 28.78it/s]
+Diffusion steps...: 8it [00:00, 30.15it/s]
+                                          
+normal: 356/500 frame=355
+
+Diffusion steps...: 0it [00:00, ?it/s]
+Diffusion steps...: 4it [00:00, 30.76it/s]
+Diffusion steps...: 8it [00:00, 31.12it/s]
+                                          
+normal: 357/500 frame=356
+
+Diffusion steps...: 0it [00:00, ?it/s]
+Diffusion steps...: 4it [00:00, 30.83it/s]
+Diffusion steps...: 8it [00:00, 31.26it/s]
+                                          
+normal: 358/500 frame=357
+
+Diffusion steps...: 0it [00:00, ?it/s]
+Diffusion steps...: 4it [00:00, 30.66it/s]
+Diffusion steps...: 8it [00:00, 31.12it/s]
+                                          
+normal: 359/500 frame=358
+
+Diffusion steps...: 0it [00:00, ?it/s]
+Diffusion steps...: 4it [00:00, 30.98it/s]
+Diffusion steps...: 8it [00:00, 31.38it/s]
+                                          
+normal: 360/500 frame=359
+
+Diffusion steps...: 0it [00:00, ?it/s]
+Diffusion steps...: 4it [00:00, 30.89it/s]
+Diffusion steps...: 8it [00:00, 31.17it/s]
+                                          
+normal: 361/500 frame=360
+
+Diffusion steps...: 0it [00:00, ?it/s]
+Diffusion steps...: 4it [00:00, 31.01it/s]
+Diffusion steps...: 8it [00:00, 31.32it/s]
+                                          
+normal: 362/500 frame=361
+
+Diffusion steps...: 0it [00:00, ?it/s]
+Diffusion steps...: 4it [00:00, 31.16it/s]
+Diffusion steps...: 8it [00:00, 31.25it/s]
+                                          
+normal: 363/500 frame=362
+
+Diffusion steps...: 0it [00:00, ?it/s]
+Diffusion steps...: 4it [00:00, 31.23it/s]
+Diffusion steps...: 8it [00:00, 31.43it/s]
+                                          
+normal: 364/500 frame=363
+
+Diffusion steps...: 0it [00:00, ?it/s]
+Diffusion steps...: 4it [00:00, 31.28it/s]
+Diffusion steps...: 8it [00:00, 31.34it/s]
+                                          
+normal: 365/500 frame=364
+
+Diffusion steps...: 0it [00:00, ?it/s]
+Diffusion steps...: 4it [00:00, 31.30it/s]
+Diffusion steps...: 8it [00:00, 31.46it/s]
+                                          
+normal: 366/500 frame=365
+
+Diffusion steps...: 0it [00:00, ?it/s]
+Diffusion steps...: 4it [00:00, 30.98it/s]
+Diffusion steps...: 8it [00:00, 31.32it/s]
+                                          
+normal: 367/500 frame=366
+
+Diffusion steps...: 0it [00:00, ?it/s]
+Diffusion steps...: 4it [00:00, 31.17it/s]
+Diffusion steps...: 8it [00:00, 31.48it/s]
+                                          
+normal: 368/500 frame=367
+
+Diffusion steps...: 0it [00:00, ?it/s]
+Diffusion steps...: 4it [00:00, 30.88it/s]
+Diffusion steps...: 8it [00:00, 31.21it/s]
+                                          
+normal: 369/500 frame=368
+
+Diffusion steps...: 0it [00:00, ?it/s]
+Diffusion steps...: 4it [00:00, 30.87it/s]
+Diffusion steps...: 8it [00:00, 31.22it/s]
+                                          
+normal: 370/500 frame=369
+
+Diffusion steps...: 0it [00:00, ?it/s]
+Diffusion steps...: 4it [00:00, 30.89it/s]
+Diffusion steps...: 8it [00:00, 31.23it/s]
+                                          
+normal: 371/500 frame=370
+
+Diffusion steps...: 0it [00:00, ?it/s]
+Diffusion steps...: 4it [00:00, 31.21it/s]
+Diffusion steps...: 8it [00:00, 31.44it/s]
+                                          
+normal: 372/500 frame=371
+
+Diffusion steps...: 0it [00:00, ?it/s]
+Diffusion steps...: 4it [00:00, 31.28it/s]
+Diffusion steps...: 8it [00:00, 31.33it/s]
+                                          
+normal: 373/500 frame=372
+
+Diffusion steps...: 0it [00:00, ?it/s]
+Diffusion steps...: 4it [00:00, 31.25it/s]
+Diffusion steps...: 8it [00:00, 31.32it/s]
+                                          
+normal: 374/500 frame=373
+
+Diffusion steps...: 0it [00:00, ?it/s]
+Diffusion steps...: 4it [00:00, 31.34it/s]
+Diffusion steps...: 8it [00:00, 31.39it/s]
+                                          
+normal: 375/500 frame=374
+
+Diffusion steps...: 0it [00:00, ?it/s]
+Diffusion steps...: 4it [00:00, 31.26it/s]
+Diffusion steps...: 8it [00:00, 31.43it/s]
+                                          
+normal: 376/500 frame=375
+
+Diffusion steps...: 0it [00:00, ?it/s]
+Diffusion steps...: 4it [00:00, 30.97it/s]
+Diffusion steps...: 8it [00:00, 31.27it/s]
+                                          
+normal: 377/500 frame=376
+
+Diffusion steps...: 0it [00:00, ?it/s]
+Diffusion steps...: 4it [00:00, 30.90it/s]
+Diffusion steps...: 8it [00:00, 31.26it/s]
+                                          
+normal: 378/500 frame=377
+
+Diffusion steps...: 0it [00:00, ?it/s]
+Diffusion steps...: 4it [00:00, 30.70it/s]
+Diffusion steps...: 8it [00:00, 31.14it/s]
+                                          
+normal: 379/500 frame=378
+
+Diffusion steps...: 0it [00:00, ?it/s]
+Diffusion steps...: 4it [00:00, 30.91it/s]
+Diffusion steps...: 8it [00:00, 31.29it/s]
+                                          
+normal: 380/500 frame=379
+
+Diffusion steps...: 0it [00:00, ?it/s]
+Diffusion steps...: 4it [00:00, 30.75it/s]
+Diffusion steps...: 8it [00:00, 31.13it/s]
+                                          
+normal: 381/500 frame=380
+
+Diffusion steps...: 0it [00:00, ?it/s]
+Diffusion steps...: 4it [00:00, 31.12it/s]
+Diffusion steps...: 8it [00:00, 31.36it/s]
+                                          
+normal: 382/500 frame=381
+
+Diffusion steps...: 0it [00:00, ?it/s]
+Diffusion steps...: 4it [00:00, 31.22it/s]
+Diffusion steps...: 8it [00:00, 31.36it/s]
+                                          
+normal: 383/500 frame=382
+
+Diffusion steps...: 0it [00:00, ?it/s]
+Diffusion steps...: 4it [00:00, 31.28it/s]
+Diffusion steps...: 8it [00:00, 31.37it/s]
+                                          
+normal: 384/500 frame=383
+
+Diffusion steps...: 0it [00:00, ?it/s]
+Diffusion steps...: 4it [00:00, 31.25it/s]
+Diffusion steps...: 8it [00:00, 31.41it/s]
+                                          
+normal: 385/500 frame=384
+
+Diffusion steps...: 0it [00:00, ?it/s]
+Diffusion steps...: 4it [00:00, 30.95it/s]
+Diffusion steps...: 8it [00:00, 31.18it/s]
+                                          
+normal: 386/500 frame=385
+
+Diffusion steps...: 0it [00:00, ?it/s]
+Diffusion steps...: 4it [00:00, 31.08it/s]
+Diffusion steps...: 8it [00:00, 31.32it/s]
+                                          
+normal: 387/500 frame=386
+
+Diffusion steps...: 0it [00:00, ?it/s]
+Diffusion steps...: 4it [00:00, 31.07it/s]
+Diffusion steps...: 8it [00:00, 31.33it/s]
+                                          
+normal: 388/500 frame=387
+
+Diffusion steps...: 0it [00:00, ?it/s]
+Diffusion steps...: 4it [00:00, 30.57it/s]
+Diffusion steps...: 8it [00:00, 31.09it/s]
+                                          
+normal: 389/500 frame=388
+
+Diffusion steps...: 0it [00:00, ?it/s]
+Diffusion steps...: 4it [00:00, 30.95it/s]
+Diffusion steps...: 8it [00:00, 31.26it/s]
+                                          
+normal: 390/500 frame=389
+
+Diffusion steps...: 0it [00:00, ?it/s]
+Diffusion steps...: 4it [00:00, 30.88it/s]
+Diffusion steps...: 8it [00:00, 31.22it/s]
+                                          
+normal: 391/500 frame=390
+
+Diffusion steps...: 0it [00:00, ?it/s]
+Diffusion steps...: 4it [00:00, 30.86it/s]
+Diffusion steps...: 8it [00:00, 31.11it/s]
+                                          
+normal: 392/500 frame=391
+
+Diffusion steps...: 0it [00:00, ?it/s]
+Diffusion steps...: 4it [00:00, 31.09it/s]
+Diffusion steps...: 8it [00:00, 31.20it/s]
+                                          
+normal: 393/500 frame=392
+
+Diffusion steps...: 0it [00:00, ?it/s]
+Diffusion steps...: 4it [00:00, 31.16it/s]
+Diffusion steps...: 8it [00:00, 31.19it/s]
+                                          
+normal: 394/500 frame=393
+
+Diffusion steps...: 0it [00:00, ?it/s]
+Diffusion steps...: 4it [00:00, 31.19it/s]
+Diffusion steps...: 8it [00:00, 31.29it/s]
+                                          
+normal: 395/500 frame=394
+
+Diffusion steps...: 0it [00:00, ?it/s]
+Diffusion steps...: 4it [00:00, 31.27it/s]
+Diffusion steps...: 8it [00:00, 31.32it/s]
+                                          
+normal: 396/500 frame=395
+
+Diffusion steps...: 0it [00:00, ?it/s]
+Diffusion steps...: 4it [00:00, 31.22it/s]
+Diffusion steps...: 8it [00:00, 31.35it/s]
+                                          
+normal: 397/500 frame=396
+
+Diffusion steps...: 0it [00:00, ?it/s]
+Diffusion steps...: 4it [00:00, 31.15it/s]
+Diffusion steps...: 8it [00:00, 31.36it/s]
+                                          
+normal: 398/500 frame=397
+
+Diffusion steps...: 0it [00:00, ?it/s]
+Diffusion steps...: 4it [00:00, 30.88it/s]
+Diffusion steps...: 8it [00:00, 31.24it/s]
+                                          
+normal: 399/500 frame=398
+
+Diffusion steps...: 0it [00:00, ?it/s]
+Diffusion steps...: 4it [00:00, 31.03it/s]
+Diffusion steps...: 8it [00:00, 31.34it/s]
+                                          
+normal: 400/500 frame=399
+
+Diffusion steps...: 0it [00:00, ?it/s]
+Diffusion steps...: 4it [00:00, 30.85it/s]
+Diffusion steps...: 8it [00:00, 31.13it/s]
+                                          
+normal: 401/500 frame=400
+
+Diffusion steps...: 0it [00:00, ?it/s]
+Diffusion steps...: 4it [00:00, 30.85it/s]
+Diffusion steps...: 8it [00:00, 31.25it/s]
+                                          
+normal: 402/500 frame=401
+
+Diffusion steps...: 0it [00:00, ?it/s]
+Diffusion steps...: 4it [00:00, 31.12it/s]
+Diffusion steps...: 8it [00:00, 31.27it/s]
+                                          
+normal: 403/500 frame=402
+
+Diffusion steps...: 0it [00:00, ?it/s]
+Diffusion steps...: 4it [00:00, 31.15it/s]
+Diffusion steps...: 8it [00:00, 31.28it/s]
+                                          
+normal: 404/500 frame=403
+
+Diffusion steps...: 0it [00:00, ?it/s]
+Diffusion steps...: 4it [00:00, 31.15it/s]
+Diffusion steps...: 8it [00:00, 31.25it/s]
+                                          
+normal: 405/500 frame=404
+
+Diffusion steps...: 0it [00:00, ?it/s]
+Diffusion steps...: 4it [00:00, 31.27it/s]
+Diffusion steps...: 8it [00:00, 31.35it/s]
+                                          
+normal: 406/500 frame=405
+
+Diffusion steps...: 0it [00:00, ?it/s]
+Diffusion steps...: 4it [00:00, 31.16it/s]
+Diffusion steps...: 8it [00:00, 31.33it/s]
+                                          
+normal: 407/500 frame=406
+
+Diffusion steps...: 0it [00:00, ?it/s]
+Diffusion steps...: 4it [00:00, 30.92it/s]
+Diffusion steps...: 8it [00:00, 31.23it/s]
+                                          
+normal: 408/500 frame=407
+
+Diffusion steps...: 0it [00:00, ?it/s]
+Diffusion steps...: 4it [00:00, 30.93it/s]
+Diffusion steps...: 8it [00:00, 31.25it/s]
+                                          
+normal: 409/500 frame=408
+
+Diffusion steps...: 0it [00:00, ?it/s]
+Diffusion steps...: 4it [00:00, 30.80it/s]
+Diffusion steps...: 8it [00:00, 31.24it/s]
+                                          
+normal: 410/500 frame=409
+
+Diffusion steps...: 0it [00:00, ?it/s]
+Diffusion steps...: 4it [00:00, 31.02it/s]
+Diffusion steps...: 8it [00:00, 31.27it/s]
+                                          
+normal: 411/500 frame=410
+
+Diffusion steps...: 0it [00:00, ?it/s]
+Diffusion steps...: 4it [00:00, 30.79it/s]
+Diffusion steps...: 8it [00:00, 31.20it/s]
+                                          
+normal: 412/500 frame=411
+
+Diffusion steps...: 0it [00:00, ?it/s]
+Diffusion steps...: 4it [00:00, 30.96it/s]
+Diffusion steps...: 8it [00:00, 31.25it/s]
+                                          
+normal: 413/500 frame=412
+
+Diffusion steps...: 0it [00:00, ?it/s]
+Diffusion steps...: 4it [00:00, 31.07it/s]
+Diffusion steps...: 8it [00:00, 31.19it/s]
+                                          
+normal: 414/500 frame=413
+
+Diffusion steps...: 0it [00:00, ?it/s]
+Diffusion steps...: 4it [00:00, 31.18it/s]
+Diffusion steps...: 8it [00:00, 31.26it/s]
+                                          
+normal: 415/500 frame=414
+
+Diffusion steps...: 0it [00:00, ?it/s]
+Diffusion steps...: 4it [00:00, 31.15it/s]
+Diffusion steps...: 8it [00:00, 31.30it/s]
+                                          
+normal: 416/500 frame=415
+
+Diffusion steps...: 0it [00:00, ?it/s]
+Diffusion steps...: 4it [00:00, 31.08it/s]
+Diffusion steps...: 8it [00:00, 31.25it/s]
+                                          
+normal: 417/500 frame=416
+
+Diffusion steps...: 0it [00:00, ?it/s]
+Diffusion steps...: 4it [00:00, 31.22it/s]
+Diffusion steps...: 8it [00:00, 31.42it/s]
+                                          
+normal: 418/500 frame=417
+
+Diffusion steps...: 0it [00:00, ?it/s]
+Diffusion steps...: 4it [00:00, 30.76it/s]
+Diffusion steps...: 8it [00:00, 31.14it/s]
+                                          
+normal: 419/500 frame=418
+
+Diffusion steps...: 0it [00:00, ?it/s]
+Diffusion steps...: 4it [00:00, 31.01it/s]
+Diffusion steps...: 8it [00:00, 31.32it/s]
+                                          
+normal: 420/500 frame=419
+
+Diffusion steps...: 0it [00:00, ?it/s]
+Diffusion steps...: 4it [00:00, 30.73it/s]
+Diffusion steps...: 8it [00:00, 31.10it/s]
+                                          
+normal: 421/500 frame=420
+
+Diffusion steps...: 0it [00:00, ?it/s]
+Diffusion steps...: 4it [00:00, 30.66it/s]
+Diffusion steps...: 8it [00:00, 31.12it/s]
+                                          
+normal: 422/500 frame=421
+
+Diffusion steps...: 0it [00:00, ?it/s]
+Diffusion steps...: 4it [00:00, 30.77it/s]
+Diffusion steps...: 8it [00:00, 31.14it/s]
+                                          
+normal: 423/500 frame=422
+
+Diffusion steps...: 0it [00:00, ?it/s]
+Diffusion steps...: 4it [00:00, 31.16it/s]
+Diffusion steps...: 8it [00:00, 31.20it/s]
+                                          
+normal: 424/500 frame=423
+
+Diffusion steps...: 0it [00:00, ?it/s]
+Diffusion steps...: 4it [00:00, 31.09it/s]
+Diffusion steps...: 8it [00:00, 31.23it/s]
+                                          
+normal: 425/500 frame=424
+
+Diffusion steps...: 0it [00:00, ?it/s]
+Diffusion steps...: 4it [00:00, 30.74it/s]
+Diffusion steps...: 8it [00:00, 31.04it/s]
+                                          
+normal: 426/500 frame=425
+
+Diffusion steps...: 0it [00:00, ?it/s]
+Diffusion steps...: 4it [00:00, 30.96it/s]
+Diffusion steps...: 8it [00:00, 31.20it/s]
+                                          
+normal: 427/500 frame=426
+
+Diffusion steps...: 0it [00:00, ?it/s]
+Diffusion steps...: 4it [00:00, 31.17it/s]
+Diffusion steps...: 8it [00:00, 31.39it/s]
+                                          
+normal: 428/500 frame=427
+
+Diffusion steps...: 0it [00:00, ?it/s]
+Diffusion steps...: 4it [00:00, 30.95it/s]
+Diffusion steps...: 8it [00:00, 31.29it/s]
+                                          
+normal: 429/500 frame=428
+
+Diffusion steps...: 0it [00:00, ?it/s]
+Diffusion steps...: 4it [00:00, 30.96it/s]
+Diffusion steps...: 8it [00:00, 31.29it/s]
+                                          
+normal: 430/500 frame=429
+
+Diffusion steps...: 0it [00:00, ?it/s]
+Diffusion steps...: 4it [00:00, 30.91it/s]
+Diffusion steps...: 8it [00:00, 31.21it/s]
+                                          
+normal: 431/500 frame=430
+
+Diffusion steps...: 0it [00:00, ?it/s]
+Diffusion steps...: 4it [00:00, 30.85it/s]
+Diffusion steps...: 8it [00:00, 31.17it/s]
+                                          
+normal: 432/500 frame=431
+
+Diffusion steps...: 0it [00:00, ?it/s]
+Diffusion steps...: 4it [00:00, 30.85it/s]
+Diffusion steps...: 8it [00:00, 31.17it/s]
+                                          
+normal: 433/500 frame=432
+
+Diffusion steps...: 0it [00:00, ?it/s]
+Diffusion steps...: 4it [00:00, 31.26it/s]
+Diffusion steps...: 8it [00:00, 31.34it/s]
+                                          
+normal: 434/500 frame=433
+
+Diffusion steps...: 0it [00:00, ?it/s]
+Diffusion steps...: 4it [00:00, 31.21it/s]
+Diffusion steps...: 8it [00:00, 31.31it/s]
+                                          
+normal: 435/500 frame=434
+
+Diffusion steps...: 0it [00:00, ?it/s]
+Diffusion steps...: 4it [00:00, 31.24it/s]
+Diffusion steps...: 8it [00:00, 31.35it/s]
+                                          
+normal: 436/500 frame=435
+
+Diffusion steps...: 0it [00:00, ?it/s]
+Diffusion steps...: 4it [00:00, 31.13it/s]
+Diffusion steps...: 8it [00:00, 31.28it/s]
+                                          
+normal: 437/500 frame=436
+
+Diffusion steps...: 0it [00:00, ?it/s]
+Diffusion steps...: 4it [00:00, 31.13it/s]
+Diffusion steps...: 8it [00:00, 31.35it/s]
+                                          
+normal: 438/500 frame=437
+
+Diffusion steps...: 0it [00:00, ?it/s]
+Diffusion steps...: 4it [00:00, 30.90it/s]
+Diffusion steps...: 8it [00:00, 31.29it/s]
+                                          
+normal: 439/500 frame=438
+
+Diffusion steps...: 0it [00:00, ?it/s]
+Diffusion steps...: 4it [00:00, 31.06it/s]
+Diffusion steps...: 8it [00:00, 31.36it/s]
+                                          
+normal: 440/500 frame=439
+
+Diffusion steps...: 0it [00:00, ?it/s]
+Diffusion steps...: 4it [00:00, 30.82it/s]
+Diffusion steps...: 8it [00:00, 31.18it/s]
+                                          
+normal: 441/500 frame=440
+
+Diffusion steps...: 0it [00:00, ?it/s]
+Diffusion steps...: 4it [00:00, 30.86it/s]
+Diffusion steps...: 8it [00:00, 31.18it/s]
+                                          
+normal: 442/500 frame=441
+
+Diffusion steps...: 0it [00:00, ?it/s]
+Diffusion steps...: 4it [00:00, 30.88it/s]
+Diffusion steps...: 8it [00:00, 31.21it/s]
+                                          
+normal: 443/500 frame=442
+
+Diffusion steps...: 0it [00:00, ?it/s]
+Diffusion steps...: 4it [00:00, 30.98it/s]
+Diffusion steps...: 8it [00:00, 31.25it/s]
+                                          
+normal: 444/500 frame=443
+
+Diffusion steps...: 0it [00:00, ?it/s]
+Diffusion steps...: 4it [00:00, 30.94it/s]
+Diffusion steps...: 8it [00:00, 31.04it/s]
+                                          
+normal: 445/500 frame=444
+
+Diffusion steps...: 0it [00:00, ?it/s]
+Diffusion steps...: 4it [00:00, 31.16it/s]
+Diffusion steps...: 8it [00:00, 31.27it/s]
+                                          
+normal: 446/500 frame=445
+
+Diffusion steps...: 0it [00:00, ?it/s]
+Diffusion steps...: 4it [00:00, 31.14it/s]
+Diffusion steps...: 8it [00:00, 31.36it/s]
+                                          
+normal: 447/500 frame=446
+
+Diffusion steps...: 0it [00:00, ?it/s]
+Diffusion steps...: 4it [00:00, 31.27it/s]
+Diffusion steps...: 8it [00:00, 31.41it/s]
+                                          
+normal: 448/500 frame=447
+
+Diffusion steps...: 0it [00:00, ?it/s]
+Diffusion steps...: 4it [00:00, 31.10it/s]
+Diffusion steps...: 8it [00:00, 31.35it/s]
+                                          
+normal: 449/500 frame=448
+
+Diffusion steps...: 0it [00:00, ?it/s]
+Diffusion steps...: 4it [00:00, 30.97it/s]
+Diffusion steps...: 8it [00:00, 31.38it/s]
+                                          
+normal: 450/500 frame=449
+
+Diffusion steps...: 0it [00:00, ?it/s]
+Diffusion steps...: 4it [00:00, 30.71it/s]
+Diffusion steps...: 8it [00:00, 31.17it/s]
+                                          
+normal: 451/500 frame=450
+
+Diffusion steps...: 0it [00:00, ?it/s]
+Diffusion steps...: 4it [00:00, 30.94it/s]
+Diffusion steps...: 8it [00:00, 31.30it/s]
+                                          
+normal: 452/500 frame=451
+
+Diffusion steps...: 0it [00:00, ?it/s]
+Diffusion steps...: 4it [00:00, 30.84it/s]
+Diffusion steps...: 8it [00:00, 31.21it/s]
+                                          
+normal: 453/500 frame=452
+
+Diffusion steps...: 0it [00:00, ?it/s]
+Diffusion steps...: 4it [00:00, 31.09it/s]
+Diffusion steps...: 8it [00:00, 31.38it/s]
+                                          
+normal: 454/500 frame=453
+
+Diffusion steps...: 0it [00:00, ?it/s]
+Diffusion steps...: 4it [00:00, 31.19it/s]
+Diffusion steps...: 8it [00:00, 31.39it/s]
+                                          
+normal: 455/500 frame=454
+
+Diffusion steps...: 0it [00:00, ?it/s]
+Diffusion steps...: 4it [00:00, 31.28it/s]
+Diffusion steps...: 8it [00:00, 30.65it/s]
+                                          
+normal: 456/500 frame=455
+
+Diffusion steps...: 0it [00:00, ?it/s]
+Diffusion steps...: 4it [00:00, 31.10it/s]
+Diffusion steps...: 8it [00:00, 31.23it/s]
+                                          
+normal: 457/500 frame=456
+
+Diffusion steps...: 0it [00:00, ?it/s]
+Diffusion steps...: 4it [00:00, 31.21it/s]
+Diffusion steps...: 8it [00:00, 31.36it/s]
+                                          
+normal: 458/500 frame=457
+
+Diffusion steps...: 0it [00:00, ?it/s]
+Diffusion steps...: 4it [00:00, 31.14it/s]
+Diffusion steps...: 8it [00:00, 31.34it/s]
+                                          
+normal: 459/500 frame=458
+
+Diffusion steps...: 0it [00:00, ?it/s]
+Diffusion steps...: 4it [00:00, 30.73it/s]
+Diffusion steps...: 8it [00:00, 31.13it/s]
+                                          
+normal: 460/500 frame=459
+
+Diffusion steps...: 0it [00:00, ?it/s]
+Diffusion steps...: 4it [00:00, 30.88it/s]
+Diffusion steps...: 8it [00:00, 31.22it/s]
+                                          
+normal: 461/500 frame=460
+
+Diffusion steps...: 0it [00:00, ?it/s]
+Diffusion steps...: 4it [00:00, 30.99it/s]
+Diffusion steps...: 8it [00:00, 31.24it/s]
+                                          
+normal: 462/500 frame=461
+
+Diffusion steps...: 0it [00:00, ?it/s]
+Diffusion steps...: 4it [00:00, 30.87it/s]
+Diffusion steps...: 8it [00:00, 30.73it/s]
+                                          
+normal: 463/500 frame=462
+
+Diffusion steps...: 0it [00:00, ?it/s]
+Diffusion steps...: 4it [00:00, 30.61it/s]
+Diffusion steps...: 8it [00:00, 31.14it/s]
+                                          
+normal: 464/500 frame=463
+
+Diffusion steps...: 0it [00:00, ?it/s]
+Diffusion steps...: 4it [00:00, 28.85it/s]
+Diffusion steps...: 8it [00:00, 30.15it/s]
+                                          
+normal: 465/500 frame=464
+
+Diffusion steps...: 0it [00:00, ?it/s]
+Diffusion steps...: 4it [00:00, 31.01it/s]
+Diffusion steps...: 8it [00:00, 31.20it/s]
+                                          
+normal: 466/500 frame=465
+
+Diffusion steps...: 0it [00:00, ?it/s]
+Diffusion steps...: 4it [00:00, 31.07it/s]
+Diffusion steps...: 8it [00:00, 31.22it/s]
+                                          
+normal: 467/500 frame=466
+
+Diffusion steps...: 0it [00:00, ?it/s]
+Diffusion steps...: 4it [00:00, 31.27it/s]
+Diffusion steps...: 8it [00:00, 31.39it/s]
+                                          
+normal: 468/500 frame=467
+
+Diffusion steps...: 0it [00:00, ?it/s]
+Diffusion steps...: 4it [00:00, 31.10it/s]
+Diffusion steps...: 8it [00:00, 31.19it/s]
+                                          
+normal: 469/500 frame=468
+
+Diffusion steps...: 0it [00:00, ?it/s]
+Diffusion steps...: 4it [00:00, 31.15it/s]
+Diffusion steps...: 8it [00:00, 31.31it/s]
+                                          
+normal: 470/500 frame=469
+
+Diffusion steps...: 0it [00:00, ?it/s]
+Diffusion steps...: 4it [00:00, 30.78it/s]
+Diffusion steps...: 8it [00:00, 31.14it/s]
+                                          
+normal: 471/500 frame=470
+
+Diffusion steps...: 0it [00:00, ?it/s]
+Diffusion steps...: 4it [00:00, 30.98it/s]
+Diffusion steps...: 8it [00:00, 31.28it/s]
+                                          
+normal: 472/500 frame=471
+
+Diffusion steps...: 0it [00:00, ?it/s]
+Diffusion steps...: 4it [00:00, 30.89it/s]
+Diffusion steps...: 8it [00:00, 31.26it/s]
+                                          
+normal: 473/500 frame=472
+
+Diffusion steps...: 0it [00:00, ?it/s]
+Diffusion steps...: 4it [00:00, 30.93it/s]
+Diffusion steps...: 8it [00:00, 31.33it/s]
+                                          
+normal: 474/500 frame=473
+
+Diffusion steps...: 0it [00:00, ?it/s]
+Diffusion steps...: 4it [00:00, 30.92it/s]
+Diffusion steps...: 8it [00:00, 31.26it/s]
+                                          
+normal: 475/500 frame=474
+
+Diffusion steps...: 0it [00:00, ?it/s]
+Diffusion steps...: 4it [00:00, 31.07it/s]
+Diffusion steps...: 8it [00:00, 31.27it/s]
+                                          
+normal: 476/500 frame=475
+
+Diffusion steps...: 0it [00:00, ?it/s]
+Diffusion steps...: 4it [00:00, 31.22it/s]
+Diffusion steps...: 8it [00:00, 31.29it/s]
+                                          
+normal: 477/500 frame=476
+
+Diffusion steps...: 0it [00:00, ?it/s]
+Diffusion steps...: 4it [00:00, 31.30it/s]
+Diffusion steps...: 8it [00:00, 31.32it/s]
+                                          
+normal: 478/500 frame=477
+
+Diffusion steps...: 0it [00:00, ?it/s]
+Diffusion steps...: 4it [00:00, 31.22it/s]
+Diffusion steps...: 8it [00:00, 31.35it/s]
+                                          
+normal: 479/500 frame=478
+
+Diffusion steps...: 0it [00:00, ?it/s]
+Diffusion steps...: 4it [00:00, 31.27it/s]
+Diffusion steps...: 8it [00:00, 31.38it/s]
+                                          
+normal: 480/500 frame=479
+
+Diffusion steps...: 0it [00:00, ?it/s]
+Diffusion steps...: 4it [00:00, 31.07it/s]
+Diffusion steps...: 8it [00:00, 31.28it/s]
+                                          
+normal: 481/500 frame=480
+
+Diffusion steps...: 0it [00:00, ?it/s]
+Diffusion steps...: 4it [00:00, 30.98it/s]
+Diffusion steps...: 8it [00:00, 31.30it/s]
+                                          
+normal: 482/500 frame=481
+
+Diffusion steps...: 0it [00:00, ?it/s]
+Diffusion steps...: 4it [00:00, 30.88it/s]
+Diffusion steps...: 8it [00:00, 31.23it/s]
+                                          
+normal: 483/500 frame=482
+
+Diffusion steps...: 0it [00:00, ?it/s]
+Diffusion steps...: 4it [00:00, 31.04it/s]
+Diffusion steps...: 8it [00:00, 31.38it/s]
+                                          
+normal: 484/500 frame=483
+
+Diffusion steps...: 0it [00:00, ?it/s]
+Diffusion steps...: 4it [00:00, 30.80it/s]
+Diffusion steps...: 8it [00:00, 31.06it/s]
+                                          
+normal: 485/500 frame=484
+
+Diffusion steps...: 0it [00:00, ?it/s]
+Diffusion steps...: 4it [00:00, 31.12it/s]
+Diffusion steps...: 8it [00:00, 31.36it/s]
+                                          
+normal: 486/500 frame=485
+
+Diffusion steps...: 0it [00:00, ?it/s]
+Diffusion steps...: 4it [00:00, 31.18it/s]
+Diffusion steps...: 8it [00:00, 31.22it/s]
+                                          
+normal: 487/500 frame=486
+
+Diffusion steps...: 0it [00:00, ?it/s]
+Diffusion steps...: 4it [00:00, 31.15it/s]
+Diffusion steps...: 8it [00:00, 31.40it/s]
+                                          
+normal: 488/500 frame=487
+
+Diffusion steps...: 0it [00:00, ?it/s]
+Diffusion steps...: 4it [00:00, 31.29it/s]
+Diffusion steps...: 8it [00:00, 31.37it/s]
+                                          
+normal: 489/500 frame=488
+
+Diffusion steps...: 0it [00:00, ?it/s]
+Diffusion steps...: 4it [00:00, 31.15it/s]
+Diffusion steps...: 8it [00:00, 31.36it/s]
+                                          
+normal: 490/500 frame=489
+
+Diffusion steps...: 0it [00:00, ?it/s]
+Diffusion steps...: 4it [00:00, 31.05it/s]
+Diffusion steps...: 8it [00:00, 31.30it/s]
+                                          
+normal: 491/500 frame=490
+
+Diffusion steps...: 0it [00:00, ?it/s]
+Diffusion steps...: 4it [00:00, 30.86it/s]
+Diffusion steps...: 8it [00:00, 31.21it/s]
+                                          
+normal: 492/500 frame=491
+
+Diffusion steps...: 0it [00:00, ?it/s]
+Diffusion steps...: 4it [00:00, 30.84it/s]
+Diffusion steps...: 8it [00:00, 31.27it/s]
+                                          
+normal: 493/500 frame=492
+
+Diffusion steps...: 0it [00:00, ?it/s]
+Diffusion steps...: 4it [00:00, 31.01it/s]
+Diffusion steps...: 8it [00:00, 31.34it/s]
+                                          
+normal: 494/500 frame=493
+
+Diffusion steps...: 0it [00:00, ?it/s]
+Diffusion steps...: 4it [00:00, 30.71it/s]
+Diffusion steps...: 8it [00:00, 31.11it/s]
+                                          
+normal: 495/500 frame=494
+
+Diffusion steps...: 0it [00:00, ?it/s]
+Diffusion steps...: 4it [00:00, 31.12it/s]
+Diffusion steps...: 8it [00:00, 31.33it/s]
+                                          
+normal: 496/500 frame=495
+
+Diffusion steps...: 0it [00:00, ?it/s]
+Diffusion steps...: 4it [00:00, 31.17it/s]
+Diffusion steps...: 8it [00:00, 31.26it/s]
+                                          
+normal: 497/500 frame=496
+
+Diffusion steps...: 0it [00:00, ?it/s]
+Diffusion steps...: 4it [00:00, 31.24it/s]
+Diffusion steps...: 8it [00:00, 31.31it/s]
+                                          
+normal: 498/500 frame=497
+
+Diffusion steps...: 0it [00:00, ?it/s]
+Diffusion steps...: 4it [00:00, 31.27it/s]
+Diffusion steps...: 8it [00:00, 31.31it/s]
+                                          
+normal: 499/500 frame=498
+
+Diffusion steps...: 0it [00:00, ?it/s]
+Diffusion steps...: 4it [00:00, 31.25it/s]
+Diffusion steps...: 8it [00:00, 31.36it/s]
+                                          
+normal: 500/500 frame=499
+/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/refactored_six_scene_20261001/dependencies/surface_priors/Synthetic_SSS-GS/bunny_small/normal.pt

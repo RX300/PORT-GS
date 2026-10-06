@@ -1,0 +1,18 @@
+{
+  "source_ply": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/GS3/runs/full_benchmark_20260913/Synthetic_GS3/Drums/point_cloud/iteration_100000/point_cloud.ply",
+  "reference_checkpoint": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_v2_full_dataset_20261004/lisa_v2/Synthetic_GS3/Drums/last.pt",
+  "scene": "/workspace/datasets/SSD-GS/data/Synthetic_GS3/Drums",
+  "points": 549863,
+  "radius": 1.4360734462738036,
+  "scope": "Fixed-geometry, all-training-data capacity diagnosis only; not an independent validation model",
+  "imported": [
+    "position",
+    "covariance",
+    "opacity"
+  ],
+  "excluded": [
+    "material",
+    "shading normal",
+    "neural phase function"
+  ]
+}

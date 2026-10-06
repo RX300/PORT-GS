@@ -1,0 +1,61 @@
+{
+  "coarse_supported_points": 9771,
+  "proposal_bounds": [
+    [
+      -0.6746387481689453,
+      -1.1031029224395752,
+      -0.5968126654624939
+    ],
+    [
+      0.6797377467155457,
+      1.1047778129577637,
+      0.5652614235877991
+    ]
+  ],
+  "proposal_points": 160000,
+  "accepted_points": 72538,
+  "mask_dilation_pixels": 2,
+  "minimum_view_fraction": 0.9,
+  "alpha_threshold": 0.05,
+  "scale_rule": "RMS distance to the three nearest neighbors",
+  "mode": "hull",
+  "scene": "/workspace/datasets/SSD-GS/data/Synthetic_SSS-GS/soap_small",
+  "fit_frames": [
+    0,
+    16,
+    31,
+    47,
+    62,
+    78,
+    93,
+    109,
+    124,
+    140,
+    156,
+    171,
+    187,
+    202,
+    218,
+    233,
+    249,
+    264,
+    280,
+    296,
+    311,
+    327,
+    342,
+    358,
+    373,
+    389,
+    404,
+    420,
+    436,
+    451,
+    467,
+    482
+  ],
+  "points": 20000,
+  "seed": 0,
+  "radius": 1.7414477348327637,
+  "scope": "Fresh seeds from training cameras and masks only"
+}

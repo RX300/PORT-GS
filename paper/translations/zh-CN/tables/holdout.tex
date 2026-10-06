@@ -1,0 +1,16 @@
+\begin{table}[t]
+\caption{\textbf{留出的光照方向}（\torun{E1}）。在官方测试视图和训练集中光照方向落入留出 30$^\circ$ 角度组的视图上，报告五个消融场景的平均 PSNR；各方法均去除这些视图后重新训练。$^\dagger$三个种子。}
+\label{tab:holdout}
+\centering\small
+\begin{tabular}{@{}lccc@{}}
+\toprule
+方法 & 官方测试 & 留出光源 & 下降 \\
+\midrule
+\gsthree & 31.25 & \TBD & \TBD \\
+SSD-GS & 31.01 & \TBD & \TBD \\
+OLAT-GS & 28.67 & \TBD & \TBD \\
+\ours，局部残差$^\dagger$ & 31.54 & \TBD & \TBD \\
+\ours$^\dagger$ & 31.51 & \TBD & \TBD \\
+\bottomrule
+\end{tabular}
+\end{table}

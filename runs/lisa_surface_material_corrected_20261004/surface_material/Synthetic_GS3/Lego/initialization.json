@@ -1,0 +1,61 @@
+{
+  "coarse_supported_points": 11530,
+  "proposal_bounds": [
+    [
+      -0.5966266393661499,
+      -1.0082924365997314,
+      -0.5237137079238892
+    ],
+    [
+      0.5896052122116089,
+      1.0195486545562744,
+      0.8829062581062317
+    ]
+  ],
+  "proposal_points": 160000,
+  "accepted_points": 51902,
+  "mask_dilation_pixels": 2,
+  "minimum_view_fraction": 0.9,
+  "alpha_threshold": 0.05,
+  "scale_rule": "RMS distance to the three nearest neighbors",
+  "mode": "hull",
+  "scene": "/workspace/datasets/SSD-GS/data/Synthetic_GS3/Lego",
+  "fit_frames": [
+    0,
+    62,
+    124,
+    187,
+    249,
+    311,
+    373,
+    436,
+    498,
+    560,
+    622,
+    684,
+    747,
+    809,
+    871,
+    933,
+    996,
+    1058,
+    1120,
+    1182,
+    1244,
+    1307,
+    1369,
+    1431,
+    1493,
+    1556,
+    1618,
+    1680,
+    1742,
+    1804,
+    1867,
+    1929
+  ],
+  "points": 20000,
+  "seed": 0,
+  "radius": 1.4669903755187987,
+  "scope": "Fresh seeds from training cameras and masks only"
+}

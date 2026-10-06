@@ -1,0 +1,17 @@
+\begin{table}[t]
+\caption{\textbf{Cost} on three profiled scenes, each run alone on one RTX 6000 Ada: training time in minutes (whole process, both \ours stages) and rendering frame rate with a new light in every frame, including the light pass of \ours.}
+\label{tab:cost}
+\centering\small
+\setlength{\tabcolsep}{4pt}
+\begin{tabular}{@{}lrrrrrr@{}}
+\toprule
+ & \multicolumn{2}{c}{Drums} & \multicolumn{2}{c}{FurScene} & \multicolumn{2}{c}{Soap} \\
+\cmidrule(lr){2-3}\cmidrule(lr){4-5}\cmidrule(l){6-7}
+Method & min & FPS & min & FPS & min & FPS \\
+\midrule
+\gsthree & 73.5 & 61 & 51.0 & 191 & 39.4 & 228 \\
+SSD-GS & 141.1 & 29 & 61.2 & 136 & 26.8 & 198 \\
+\ours & 25.7 & 63 & 19.9 & 74 & 16.7 & 104 \\
+\bottomrule
+\end{tabular}
+\end{table}

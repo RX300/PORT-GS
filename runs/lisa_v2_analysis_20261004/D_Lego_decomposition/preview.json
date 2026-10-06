@@ -1,0 +1,208 @@
+{
+  "checkpoint": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_v2_selection_20261004/nosplit_fg_spec/Synthetic_GS3/Lego/last.pt",
+  "scene": "/workspace/datasets/SSD-GS/data/Synthetic_GS3/Lego",
+  "split": "train",
+  "material_head": "svbrdf",
+  "step": 30000,
+  "command": [
+    "diagnose_image_errors.py",
+    "runs/lisa_v2_selection_20261004/nosplit_fg_spec/Synthetic_GS3/Lego/last.pt",
+    "--light-atlas-preview",
+    "--split",
+    "train",
+    "--atlas-frames",
+    "49",
+    "1050",
+    "--output",
+    "runs/lisa_v2_analysis_20261004/D_Lego_decomposition"
+  ],
+  "torch_version": "2.4.1",
+  "cuda_version": "12.1",
+  "gpu": "NVIDIA RTX 6000 Ada Generation",
+  "seed": 0,
+  "shadow": true,
+  "port_active": true,
+  "flux_note": "Learned channels, not RGB or calibrated irradiance; no PCA used.",
+  "depth_note": "Normalized light-camera depth; uncovered texels masked.",
+  "display_note": "Radiance components gamma-encoded separately; only linear components add.",
+  "frames": [
+    {
+      "frame_index": 49,
+      "name": "r_49",
+      "light_position": [
+        1.625654935836792,
+        -0.1761961281299591,
+        3.848647356033325
+      ],
+      "intensity": [
+        1041.6666259765625,
+        1041.6666259765625,
+        1041.6666259765625
+      ],
+      "channel_display_ranges": [
+        [
+          0,
+          2.103968334197998
+        ],
+        [
+          0,
+          1.6460285568237298
+        ],
+        [
+          0,
+          1.0215594863891602
+        ],
+        [
+          0,
+          2.895123720169067
+        ],
+        [
+          0,
+          1.5431237363815307
+        ],
+        [
+          0,
+          0.5444224452972409
+        ],
+        [
+          0,
+          1.6361939430236805
+        ],
+        [
+          0,
+          8.232202758789061
+        ]
+      ],
+      "atlas_shapes": [
+        [
+          11,
+          512,
+          512
+        ],
+        [
+          11,
+          256,
+          256
+        ],
+        [
+          11,
+          128,
+          128
+        ],
+        [
+          11,
+          64,
+          64
+        ],
+        [
+          11,
+          32,
+          32
+        ],
+        [
+          11,
+          16,
+          16
+        ],
+        [
+          11,
+          8,
+          8
+        ]
+      ],
+      "decomposition_max_abs_error": 1.1920928955078125e-07,
+      "visibility_mean": 0.6033856272697449,
+      "transport_share_linear": 0.25442424416542053,
+      "specular_share_linear": 0.013331250287592411
+    },
+    {
+      "frame_index": 1050,
+      "name": "r_1050",
+      "light_position": [
+        -1.5882937908172607,
+        1.3270947933197021,
+        4.237508296966553
+      ],
+      "intensity": [
+        1041.6666259765625,
+        1041.6666259765625,
+        1041.6666259765625
+      ],
+      "channel_display_ranges": [
+        [
+          0,
+          2.195007481575015
+        ],
+        [
+          0,
+          1.887686827182775
+        ],
+        [
+          0,
+          1.05761059999466
+        ],
+        [
+          0,
+          3.1071278905868547
+        ],
+        [
+          0,
+          1.7444803500175476
+        ],
+        [
+          0,
+          0.5796905171871192
+        ],
+        [
+          0,
+          1.874090023040777
+        ],
+        [
+          0,
+          7.821863431930547
+        ]
+      ],
+      "atlas_shapes": [
+        [
+          11,
+          512,
+          512
+        ],
+        [
+          11,
+          256,
+          256
+        ],
+        [
+          11,
+          128,
+          128
+        ],
+        [
+          11,
+          64,
+          64
+        ],
+        [
+          11,
+          32,
+          32
+        ],
+        [
+          11,
+          16,
+          16
+        ],
+        [
+          11,
+          8,
+          8
+        ]
+      ],
+      "decomposition_max_abs_error": 1.1920928955078125e-07,
+      "visibility_mean": 0.7604758143424988,
+      "transport_share_linear": 0.08975760638713837,
+      "specular_share_linear": 0.0182436965405941
+    }
+  ]
+}

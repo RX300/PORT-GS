@@ -1,0 +1,20 @@
+\begin{table}[t]
+\caption{\textbf{图集消融}：在五个场景（Drums、AnisoMetal、Translucent、FurScene、Soap）上按场景求平均。三个种子的行报告种子均值和 PSNR 标准差；单种子行与种子 0 的完整模型（31.53\,dB）比较。$^\dagger$容量匹配的 MLP（49.1k 对 49.6k 参数），读取接收点编码、位置和光照/视线方向，但不读取图集；阴影仍来自图集。}
+\label{tab:ablation}
+\centering\small
+\setlength{\tabcolsep}{3.5pt}
+\begin{tabular}{@{}lcccc@{}}
+\toprule
+变体 & 种子数 & PSNR$\uparrow$ & SSIM$\uparrow$ & LPIPS$\downarrow$ \\
+\midrule
+完整模型 & 3 & 31.51{\tiny$\pm$0.11} & .954 & .047 \\
+无光传输项 & 3 & 30.15{\tiny$\pm$0.11} & .948 & .055 \\
+光传输 $\rightarrow$ 局部残差$^\dagger$ & 3 & 31.54{\tiny$\pm$0.03} & .954 & .047 \\
+单层图集（$K{=}1$） & 1 & 31.09 & .952 & .049 \\
+仅矩检验（$g\equiv 0$） & 1 & 31.29 & .952 & .048 \\
+逐高斯可见性$^\ddagger$ & 3 & \TBD & \TBD & \TBD \\
+硬阴影图$^\ddagger$ & 3 & \TBD & \TBD & \TBD \\
+\bottomrule
+\end{tabular}
+\\[2pt]{\footnotesize$^\ddagger$\torun{E3（相同接收点；光传输保留图集）；单种子行也需三个种子。}}
+\end{table}

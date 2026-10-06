@@ -1,0 +1,290 @@
+{
+  "checkpoint": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_surface_material_corrected_20261004/surface_material/Synthetic_GS3/Lego/step_016000.pt",
+  "scope": "Per-fit-view independent nonnegative colors; fixed geometry, no shared BRDF/lighting. These images are fitting-capacity diagnostics, not novel-view or relighting results. Finite iterations do not prove a global display-PSNR ceiling.",
+  "optimization": "First half diagonal-majorized FISTA NNLS in linear radiance; second half projected Adam in observed RGB.",
+  "steps": 1000,
+  "results": [
+    {
+      "frame": 0,
+      "native": {
+        "PSNR": 22.508346557617188,
+        "SSIM": 0.9338135719299316
+      },
+      "best_sampled_free_color": {
+        "PSNR": 29.928009033203125,
+        "SSIM": 0.9608722925186157
+      },
+      "trace": [
+        {
+          "step": 1,
+          "stage": "linear_nnls",
+          "linear_MSE": 0.0024247681722044945,
+          "PSNR": 24.402616500854492,
+          "SSIM": 0.9192401766777039
+        },
+        {
+          "step": 100,
+          "stage": "linear_nnls",
+          "linear_MSE": 0.0009307832224294543,
+          "PSNR": 27.72303009033203,
+          "SSIM": 0.9486511945724487
+        },
+        {
+          "step": 200,
+          "stage": "linear_nnls",
+          "linear_MSE": 0.0008815700421109796,
+          "PSNR": 27.947568893432617,
+          "SSIM": 0.949072539806366
+        },
+        {
+          "step": 300,
+          "stage": "linear_nnls",
+          "linear_MSE": 0.0008643417386338115,
+          "PSNR": 28.09014129638672,
+          "SSIM": 0.9498153924942017
+        },
+        {
+          "step": 400,
+          "stage": "linear_nnls",
+          "linear_MSE": 0.0008544308948330581,
+          "PSNR": 28.13416290283203,
+          "SSIM": 0.9500714540481567
+        },
+        {
+          "step": 500,
+          "stage": "linear_nnls",
+          "linear_MSE": 0.0008469039457850158,
+          "PSNR": 28.165740966796875,
+          "SSIM": 0.9502195119857788
+        },
+        {
+          "step": 600,
+          "stage": "observation_adam",
+          "linear_MSE": 0.0009692851454019547,
+          "PSNR": 29.454431533813477,
+          "SSIM": 0.9586189985275269
+        },
+        {
+          "step": 700,
+          "stage": "observation_adam",
+          "linear_MSE": 0.0010150623274967074,
+          "PSNR": 29.682462692260742,
+          "SSIM": 0.9593816995620728
+        },
+        {
+          "step": 800,
+          "stage": "observation_adam",
+          "linear_MSE": 0.0010411364492028952,
+          "PSNR": 29.798490524291992,
+          "SSIM": 0.9601235389709473
+        },
+        {
+          "step": 900,
+          "stage": "observation_adam",
+          "linear_MSE": 0.0010585457785055041,
+          "PSNR": 29.866207122802734,
+          "SSIM": 0.9602793455123901
+        },
+        {
+          "step": 1000,
+          "stage": "observation_adam",
+          "linear_MSE": 0.001071723410859704,
+          "PSNR": 29.928009033203125,
+          "SSIM": 0.9608722925186157
+        }
+      ],
+      "seconds": 4.752971117850393,
+      "projection_matches_native": true,
+      "geometry_frozen": true,
+      "gaussians": 224555
+    },
+    {
+      "frame": 600,
+      "native": {
+        "PSNR": 25.088787078857422,
+        "SSIM": 0.9169960021972656
+      },
+      "best_sampled_free_color": {
+        "PSNR": 31.386585235595703,
+        "SSIM": 0.9461013078689575
+      },
+      "trace": [
+        {
+          "step": 1,
+          "stage": "linear_nnls",
+          "linear_MSE": 0.0018279472133144736,
+          "PSNR": 25.447559356689453,
+          "SSIM": 0.8864919543266296
+        },
+        {
+          "step": 100,
+          "stage": "linear_nnls",
+          "linear_MSE": 0.0006900071166455746,
+          "PSNR": 29.12635612487793,
+          "SSIM": 0.9239318370819092
+        },
+        {
+          "step": 200,
+          "stage": "linear_nnls",
+          "linear_MSE": 0.0006378669058904052,
+          "PSNR": 29.414138793945312,
+          "SSIM": 0.9259740114212036
+        },
+        {
+          "step": 300,
+          "stage": "linear_nnls",
+          "linear_MSE": 0.0006155711598694324,
+          "PSNR": 29.535717010498047,
+          "SSIM": 0.9264215230941772
+        },
+        {
+          "step": 400,
+          "stage": "linear_nnls",
+          "linear_MSE": 0.000602228450588882,
+          "PSNR": 29.602069854736328,
+          "SSIM": 0.9266297221183777
+        },
+        {
+          "step": 500,
+          "stage": "linear_nnls",
+          "linear_MSE": 0.000593069416936487,
+          "PSNR": 29.65203285217285,
+          "SSIM": 0.9270004034042358
+        },
+        {
+          "step": 600,
+          "stage": "observation_adam",
+          "linear_MSE": 0.0006608238909393549,
+          "PSNR": 30.783464431762695,
+          "SSIM": 0.9416936635971069
+        },
+        {
+          "step": 700,
+          "stage": "observation_adam",
+          "linear_MSE": 0.000678413431160152,
+          "PSNR": 31.00869369506836,
+          "SSIM": 0.943331241607666
+        },
+        {
+          "step": 800,
+          "stage": "observation_adam",
+          "linear_MSE": 0.0006939235026948154,
+          "PSNR": 31.182527542114258,
+          "SSIM": 0.9447559118270874
+        },
+        {
+          "step": 900,
+          "stage": "observation_adam",
+          "linear_MSE": 0.0007086661644279957,
+          "PSNR": 31.31100082397461,
+          "SSIM": 0.9459273219108582
+        },
+        {
+          "step": 1000,
+          "stage": "observation_adam",
+          "linear_MSE": 0.0007218141108751297,
+          "PSNR": 31.386585235595703,
+          "SSIM": 0.9461013078689575
+        }
+      ],
+      "seconds": 3.4230729578994215,
+      "projection_matches_native": true,
+      "geometry_frozen": true,
+      "gaussians": 224555
+    },
+    {
+      "frame": 1200,
+      "native": {
+        "PSNR": 21.39512825012207,
+        "SSIM": 0.9019874334335327
+      },
+      "best_sampled_free_color": {
+        "PSNR": 26.917224884033203,
+        "SSIM": 0.9430968165397644
+      },
+      "trace": [
+        {
+          "step": 1,
+          "stage": "linear_nnls",
+          "linear_MSE": 0.028147634118795395,
+          "PSNR": 21.100475311279297,
+          "SSIM": 0.8724398612976074
+        },
+        {
+          "step": 100,
+          "stage": "linear_nnls",
+          "linear_MSE": 0.014103149995207787,
+          "PSNR": 24.80172348022461,
+          "SSIM": 0.9296497106552124
+        },
+        {
+          "step": 200,
+          "stage": "linear_nnls",
+          "linear_MSE": 0.013534299097955227,
+          "PSNR": 24.85784912109375,
+          "SSIM": 0.932015597820282
+        },
+        {
+          "step": 300,
+          "stage": "linear_nnls",
+          "linear_MSE": 0.013345867395401001,
+          "PSNR": 24.946758270263672,
+          "SSIM": 0.9324315786361694
+        },
+        {
+          "step": 400,
+          "stage": "linear_nnls",
+          "linear_MSE": 0.01325979083776474,
+          "PSNR": 24.98410415649414,
+          "SSIM": 0.933043360710144
+        },
+        {
+          "step": 500,
+          "stage": "linear_nnls",
+          "linear_MSE": 0.013202933594584465,
+          "PSNR": 24.98835563659668,
+          "SSIM": 0.9329103231430054
+        },
+        {
+          "step": 600,
+          "stage": "observation_adam",
+          "linear_MSE": 0.017257999628782272,
+          "PSNR": 25.717269897460938,
+          "SSIM": 0.9395105242729187
+        },
+        {
+          "step": 700,
+          "stage": "observation_adam",
+          "linear_MSE": 0.01886429637670517,
+          "PSNR": 26.112747192382812,
+          "SSIM": 0.9409281611442566
+        },
+        {
+          "step": 800,
+          "stage": "observation_adam",
+          "linear_MSE": 0.020707448944449425,
+          "PSNR": 26.44184112548828,
+          "SSIM": 0.9414956569671631
+        },
+        {
+          "step": 900,
+          "stage": "observation_adam",
+          "linear_MSE": 0.022083736956119537,
+          "PSNR": 26.704914093017578,
+          "SSIM": 0.9426488876342773
+        },
+        {
+          "step": 1000,
+          "stage": "observation_adam",
+          "linear_MSE": 0.023017603904008865,
+          "PSNR": 26.917224884033203,
+          "SSIM": 0.9430968165397644
+        }
+      ],
+      "seconds": 4.984076246153563,
+      "projection_matches_native": true,
+      "geometry_frozen": true,
+      "gaussians": 224555
+    }
+  ]
+}

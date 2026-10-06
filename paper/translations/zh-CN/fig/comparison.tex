@@ -1,0 +1,19 @@
+\begin{figure*}[t]
+\centering
+\setlength{\tabcolsep}{0.8pt}
+\renewcommand{\arraystretch}{0.5}
+\newcommand{\cw}{0.131\textwidth}
+\begin{tabular}{@{}ccccccc@{}}
+\small 测试视图 & \small 真值 & \small \ours（本文） & \small SSD-GS & \small \gsthree & \small OLAT-GS & \small RNG \\[2pt]
+\includegraphics[width=\cw]{figures/comparison/translucent/full.png} & \includegraphics[width=\cw]{figures/comparison/translucent/GT.png} & \includegraphics[width=\cw]{figures/comparison/translucent/LiSA-staged.png} & \includegraphics[width=\cw]{figures/comparison/translucent/SSD-GS.png} & \includegraphics[width=\cw]{figures/comparison/translucent/GS3.png} & \includegraphics[width=\cw]{figures/comparison/translucent/OLAT-Gaussians.png} & \includegraphics[width=\cw]{figures/comparison/translucent/RNG.png} \\
+\footnotesize Translucent & \footnotesize PSNR & \footnotesize \textbf{34.36} & \footnotesize 32.28 & \footnotesize 32.58 & \footnotesize 29.93 & \footnotesize 27.92 \\[3pt]
+\includegraphics[width=\cw]{figures/comparison/hotdog/full.png} & \includegraphics[width=\cw]{figures/comparison/hotdog/GT.png} & \includegraphics[width=\cw]{figures/comparison/hotdog/LiSA-staged.png} & \includegraphics[width=\cw]{figures/comparison/hotdog/SSD-GS.png} & \includegraphics[width=\cw]{figures/comparison/hotdog/GS3.png} & \includegraphics[width=\cw]{figures/comparison/hotdog/OLAT-Gaussians.png} & \includegraphics[width=\cw]{figures/comparison/hotdog/RNG.png} \\
+\footnotesize Hotdog & \footnotesize PSNR & \footnotesize \textbf{33.97} & \footnotesize 31.93 & \footnotesize 32.08 & \footnotesize 26.85 & \footnotesize 28.49 \\[3pt]
+\includegraphics[width=\cw]{figures/comparison/pikachu/full.png} & \includegraphics[width=\cw]{figures/comparison/pikachu/GT.png} & \includegraphics[width=\cw]{figures/comparison/pikachu/LiSA-staged.png} & \includegraphics[width=\cw]{figures/comparison/pikachu/SSD-GS.png} & \includegraphics[width=\cw]{figures/comparison/pikachu/GS3.png} & \includegraphics[width=\cw]{figures/comparison/pikachu/OLAT-Gaussians.png} & \includegraphics[width=\cw]{figures/comparison/pikachu/RNG.png} \\
+\footnotesize Pikachu（真实） & \footnotesize PSNR & \footnotesize 30.44 & \footnotesize 29.58 & \footnotesize \textbf{30.71} & \footnotesize 29.46 & \footnotesize 16.31 \\[3pt]
+\includegraphics[width=\cw]{figures/comparison/fail_drums/full.png} & \includegraphics[width=\cw]{figures/comparison/fail_drums/GT.png} & \includegraphics[width=\cw]{figures/comparison/fail_drums/LiSA-staged.png} & \includegraphics[width=\cw]{figures/comparison/fail_drums/SSD-GS.png} & \includegraphics[width=\cw]{figures/comparison/fail_drums/GS3.png} & \includegraphics[width=\cw]{figures/comparison/fail_drums/OLAT-Gaussians.png} & \includegraphics[width=\cw]{figures/comparison/fail_drums/RNG.png} \\
+\footnotesize Drums & \footnotesize PSNR & \footnotesize 30.90 & \footnotesize 31.32 & \footnotesize \textbf{31.93} & \footnotesize 22.23 & \footnotesize 16.23 \\[3pt]
+\end{tabular}
+\caption{\textbf{测试视图上的定性比较}（框选区域的局部裁剪；PSNR 对完整视图计算）。各视图均取自对应场景中，\ours 相对最强基线的逐视图优势中位数。各行依次为：两个以投射阴影为主的 \gsthree 场景、一个各方法表现接近的真实拍摄场景，以及我们落后最多的合成场景。SSD-GS 和 \gsthree 的逐图元阴影使花瓶把手及热狗的移动阴影变得破碎；读取图集的像素接收点能够重现它们。\ours 未能重现 Drums 镲片上的细窄光带。更多场景（包括 Fish）见补充材料。}
+\label{fig:comparison}
+\end{figure*}

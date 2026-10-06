@@ -1,0 +1,23 @@
+Number of points at initialisation :  2000
+{"event": "initialized_gggs", "fit": 470, "validation": 52, "points": 2000, "radius": 0.49651376008987425, "scale": 6.065331935882568, "gpu": "NVIDIA RTX 6000 Ada Generation"}
+{"step": 1, "frame_index": 479, "loss": 0.28508615493774414, "photo": 0.2448732554912567, "normal": 0.0, "silhouette": 0.040212906897068024, "points": 2000, "topology_event": null, "seconds": 0.5000527198426425, "memory_GiB": 0.13109636306762695}
+{"step": 100, "frame_index": 428, "loss": 0.2531282305717468, "photo": 0.23451897501945496, "normal": 0.00523135531693697, "silhouette": 0.013377899304032326, "points": 2000, "topology_event": null, "seconds": 1.1999424928799272, "memory_GiB": 0.1375751495361328}
+{"step": 200, "frame_index": 349, "loss": 0.1641116887331009, "photo": 0.15532736480236053, "normal": 0.003804371925070882, "silhouette": 0.0049799601547420025, "points": 2000, "topology_event": null, "seconds": 2.314000970683992, "memory_GiB": 0.14077520370483398}
+{"step": 300, "frame_index": 498, "loss": 0.18632487952709198, "photo": 0.1790497899055481, "normal": 0.002272658748552203, "silhouette": 0.005002420861274004, "points": 2000, "topology_event": null, "seconds": 3.4385199160315096, "memory_GiB": 0.14079856872558594}
+{"step": 400, "frame_index": 465, "loss": 0.19158367812633514, "photo": 0.18491874635219574, "normal": 0.0018833475187420845, "silhouette": 0.004781582858413458, "points": 2000, "topology_event": null, "seconds": 4.552619365975261, "memory_GiB": 0.1408233642578125}
+{"step": 500, "frame_index": 492, "loss": 0.2071298360824585, "photo": 0.19236820936203003, "normal": 0.0007219730759970844, "silhouette": 0.014039657078683376, "points": 2000, "topology_event": null, "seconds": 5.669503512792289, "memory_GiB": 0.14082765579223633}
+{"step": 600, "frame_index": 348, "loss": 0.12927685678005219, "photo": 0.12445522844791412, "normal": 0.0007942885276861489, "silhouette": 0.004027342889457941, "points": 3515, "topology_event": [0, 1711, 196], "seconds": 6.840978000778705, "memory_GiB": 0.14082765579223633}
+{"step": 700, "frame_index": 71, "loss": 0.12623094022274017, "photo": 0.11958463490009308, "normal": 0.0010319886496290565, "silhouette": 0.005614311899989843, "points": 3515, "topology_event": null, "seconds": 7.933362090028822, "memory_GiB": 0.14266300201416016}
+{"step": 800, "frame_index": 171, "loss": 0.18551182746887207, "photo": 0.17910966277122498, "normal": 0.0009909544605761766, "silhouette": 0.005411204881966114, "points": 3515, "topology_event": null, "seconds": 8.99694611178711, "memory_GiB": 0.14266300201416016}
+Traceback (most recent call last):
+  File "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/train.py", line 1139, in <module>
+    main()
+  File "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/train.py", line 303, in main
+    return train_geometry(args)
+  File "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/gggs_reconstruction.py", line 183, in train_geometry
+    plot_loss(out/'history.jsonl')
+  File "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/plot_loss.py", line 29, in plot_loss
+    names = dict.fromkeys(name for row in records for name in row['loss_terms'])
+  File "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/plot_loss.py", line 29, in <genexpr>
+    names = dict.fromkeys(name for row in records for name in row['loss_terms'])
+KeyError: 'loss_terms'

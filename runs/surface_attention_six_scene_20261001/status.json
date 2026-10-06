@@ -1,0 +1,801 @@
+{
+  "manifest": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/surface_attention_six_scene_20261001/manifest.json",
+  "state": "completed",
+  "started_utc": "2026-10-01T08:33:34.465934+00:00",
+  "finished_utc": "2026-10-01T10:15:48.098183+00:00",
+  "scheduler_pid": 203902,
+  "updated_utc": "2026-10-01T10:15:48.098219+00:00",
+  "workers": {
+    "0": {
+      "state": "idle",
+      "job": null,
+      "pid": null
+    },
+    "1": {
+      "state": "idle",
+      "job": null,
+      "pid": null
+    },
+    "2": {
+      "state": "idle",
+      "job": null,
+      "pid": null
+    }
+  },
+  "jobs": {
+    "PORT-Real_NRHints-Cat-surface_attention": {
+      "method": "PORT-GS",
+      "family": "Real_NRHints",
+      "scene": "Cat",
+      "state": "completed",
+      "gpu": 0,
+      "phase": null,
+      "pid": null,
+      "output": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/surface_attention_six_scene_20261001/surface_attention/Real_NRHints/Cat",
+      "resultpath": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/surface_attention_six_scene_20261001/surface_attention/Real_NRHints/Cat/test/metrics.json",
+      "source_archive": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/surface_attention_six_scene_20261001/source.tar",
+      "reused_from": null,
+      "steps": {
+        "train": {
+          "state": "completed",
+          "cwd": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS",
+          "argv": [
+            "/workspace/ubuntu2004_cuda12_1/utils/conda-envs/ssd-gs/bin/python",
+            "-u",
+            "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/train.py",
+            "--steps",
+            "30000",
+            "--seed",
+            "0",
+            "--fit-all",
+            "--resolution",
+            "512",
+            "--background",
+            "0.0",
+            "--display-gamma",
+            "2.2",
+            "--surface-priors",
+            "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/refactored_six_scene_20261001/dependencies/surface_priors/Real_NRHints/Cat",
+            "--representation",
+            "surface_attention",
+            "--optimize-cameras",
+            "--camera-mode",
+            "rotation",
+            "--camera-gauge",
+            "translation",
+            "--camera-start",
+            "2000",
+            "--camera-lr",
+            "0.001",
+            "--camera-lr-final",
+            "1e-05",
+            "--scene",
+            "/workspace/datasets/SSD-GS/data/Real_NRHints/Cat",
+            "--output",
+            "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/surface_attention_six_scene_20261001/surface_attention/Real_NRHints/Cat"
+          ],
+          "logpath": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/surface_attention_six_scene_20261001/surface_attention/Real_NRHints/Cat.train.log",
+          "output": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/surface_attention_six_scene_20261001/surface_attention/Real_NRHints/Cat",
+          "resultpath": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/surface_attention_six_scene_20261001/surface_attention/Real_NRHints/Cat/last.pt",
+          "started_utc": "2026-10-01T08:33:34.474561+00:00",
+          "pid": null,
+          "startup_confirmed": {
+            "pid": 203911,
+            "gpu": 0,
+            "step": 100,
+            "row": {
+              "step": 100,
+              "stage": "relighting",
+              "frame_index": 63,
+              "loss": 0.13110393285751343,
+              "l1": 0.07817982137203217,
+              "loss_terms": {
+                "l1": 0.06254386156797409,
+                "ssim": 0.054076340049505234,
+                "mask": 0.014483669772744179,
+                "feature_reg": 5.987428153275687e-08,
+                "camera_reg": 0.0
+              },
+              "points": 20000,
+              "seconds": 3.7,
+              "memory_GiB": 3.6452322006225586,
+              "camera_rotation_rms": 0.0,
+              "camera_lr": 0.001,
+              "scene_gauge_shift": [
+                0.0,
+                0.0,
+                0.0
+              ]
+            }
+          },
+          "finished_utc": "2026-10-01T09:14:57.451043+00:00",
+          "last_pid": 203911
+        },
+        "eval": {
+          "state": "completed",
+          "cwd": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS",
+          "argv": [
+            "/workspace/ubuntu2004_cuda12_1/utils/conda-envs/ssd-gs/bin/python",
+            "-u",
+            "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/evaluate.py",
+            "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/surface_attention_six_scene_20261001/surface_attention/Real_NRHints/Cat/last.pt",
+            "--split",
+            "test",
+            "--output",
+            "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/surface_attention_six_scene_20261001/surface_attention/Real_NRHints/Cat/test",
+            "--lpips",
+            "--highlights",
+            "--save-all"
+          ],
+          "logpath": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/surface_attention_six_scene_20261001/surface_attention/Real_NRHints/Cat.test.log",
+          "output": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/surface_attention_six_scene_20261001/surface_attention/Real_NRHints/Cat/test",
+          "resultpath": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/surface_attention_six_scene_20261001/surface_attention/Real_NRHints/Cat/test/metrics.json",
+          "started_utc": "2026-10-01T09:14:57.453020+00:00",
+          "pid": null,
+          "finished_utc": "2026-10-01T09:15:11.329353+00:00",
+          "last_pid": 205929
+        }
+      },
+      "started_utc": "2026-10-01T08:33:34.468055+00:00",
+      "startup_confirmed": {
+        "pid": 203911,
+        "gpu": 0,
+        "step": 100,
+        "row": {
+          "step": 100,
+          "stage": "relighting",
+          "frame_index": 63,
+          "loss": 0.13110393285751343,
+          "l1": 0.07817982137203217,
+          "loss_terms": {
+            "l1": 0.06254386156797409,
+            "ssim": 0.054076340049505234,
+            "mask": 0.014483669772744179,
+            "feature_reg": 5.987428153275687e-08,
+            "camera_reg": 0.0
+          },
+          "points": 20000,
+          "seconds": 3.7,
+          "memory_GiB": 3.6452322006225586,
+          "camera_rotation_rms": 0.0,
+          "camera_lr": 0.001,
+          "scene_gauge_shift": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        }
+      },
+      "finished_utc": "2026-10-01T09:15:11.331376+00:00"
+    },
+    "PORT-Real_NRHints-Pixiu-surface_attention": {
+      "method": "PORT-GS",
+      "family": "Real_NRHints",
+      "scene": "Pixiu",
+      "state": "completed",
+      "gpu": 1,
+      "phase": null,
+      "pid": null,
+      "output": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/surface_attention_six_scene_20261001/surface_attention/Real_NRHints/Pixiu",
+      "resultpath": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/surface_attention_six_scene_20261001/surface_attention/Real_NRHints/Pixiu/test/metrics.json",
+      "source_archive": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/surface_attention_six_scene_20261001/source.tar",
+      "reused_from": null,
+      "steps": {
+        "train": {
+          "state": "completed",
+          "cwd": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS",
+          "argv": [
+            "/workspace/ubuntu2004_cuda12_1/utils/conda-envs/ssd-gs/bin/python",
+            "-u",
+            "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/train.py",
+            "--steps",
+            "30000",
+            "--seed",
+            "0",
+            "--fit-all",
+            "--resolution",
+            "512",
+            "--background",
+            "0.0",
+            "--display-gamma",
+            "2.2",
+            "--surface-priors",
+            "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/refactored_six_scene_20261001/dependencies/surface_priors/Real_NRHints/Pixiu",
+            "--representation",
+            "surface_attention",
+            "--optimize-cameras",
+            "--camera-mode",
+            "rotation",
+            "--camera-gauge",
+            "translation",
+            "--camera-start",
+            "2000",
+            "--camera-lr",
+            "0.001",
+            "--camera-lr-final",
+            "1e-05",
+            "--scene",
+            "/workspace/datasets/SSD-GS/data/Real_NRHints/Pixiu",
+            "--output",
+            "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/surface_attention_six_scene_20261001/surface_attention/Real_NRHints/Pixiu"
+          ],
+          "logpath": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/surface_attention_six_scene_20261001/surface_attention/Real_NRHints/Pixiu.train.log",
+          "output": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/surface_attention_six_scene_20261001/surface_attention/Real_NRHints/Pixiu",
+          "resultpath": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/surface_attention_six_scene_20261001/surface_attention/Real_NRHints/Pixiu/last.pt",
+          "started_utc": "2026-10-01T08:33:34.470855+00:00",
+          "pid": null,
+          "startup_confirmed": {
+            "pid": 203909,
+            "gpu": 1,
+            "step": 100,
+            "row": {
+              "step": 100,
+              "stage": "relighting",
+              "frame_index": 343,
+              "loss": 0.13599887490272522,
+              "l1": 0.09397866576910019,
+              "loss_terms": {
+                "l1": 0.07518293708562851,
+                "ssim": 0.04765802621841431,
+                "mask": 0.013157859444618225,
+                "feature_reg": 5.2661960125988116e-08,
+                "camera_reg": 0.0
+              },
+              "points": 20000,
+              "seconds": 3.67,
+              "memory_GiB": 3.8019819259643555,
+              "camera_rotation_rms": 0.0,
+              "camera_lr": 0.001,
+              "scene_gauge_shift": [
+                0.0,
+                0.0,
+                0.0
+              ]
+            }
+          },
+          "finished_utc": "2026-10-01T09:02:51.474891+00:00",
+          "last_pid": 203909
+        },
+        "eval": {
+          "state": "completed",
+          "cwd": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS",
+          "argv": [
+            "/workspace/ubuntu2004_cuda12_1/utils/conda-envs/ssd-gs/bin/python",
+            "-u",
+            "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/evaluate.py",
+            "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/surface_attention_six_scene_20261001/surface_attention/Real_NRHints/Pixiu/last.pt",
+            "--split",
+            "test",
+            "--output",
+            "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/surface_attention_six_scene_20261001/surface_attention/Real_NRHints/Pixiu/test",
+            "--lpips",
+            "--highlights",
+            "--save-all"
+          ],
+          "logpath": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/surface_attention_six_scene_20261001/surface_attention/Real_NRHints/Pixiu.test.log",
+          "output": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/surface_attention_six_scene_20261001/surface_attention/Real_NRHints/Pixiu/test",
+          "resultpath": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/surface_attention_six_scene_20261001/surface_attention/Real_NRHints/Pixiu/test/metrics.json",
+          "started_utc": "2026-10-01T09:02:51.476751+00:00",
+          "pid": null,
+          "finished_utc": "2026-10-01T09:03:03.016220+00:00",
+          "last_pid": 205235
+        }
+      },
+      "started_utc": "2026-10-01T08:33:34.469720+00:00",
+      "startup_confirmed": {
+        "pid": 203909,
+        "gpu": 1,
+        "step": 100,
+        "row": {
+          "step": 100,
+          "stage": "relighting",
+          "frame_index": 343,
+          "loss": 0.13599887490272522,
+          "l1": 0.09397866576910019,
+          "loss_terms": {
+            "l1": 0.07518293708562851,
+            "ssim": 0.04765802621841431,
+            "mask": 0.013157859444618225,
+            "feature_reg": 5.2661960125988116e-08,
+            "camera_reg": 0.0
+          },
+          "points": 20000,
+          "seconds": 3.67,
+          "memory_GiB": 3.8019819259643555,
+          "camera_rotation_rms": 0.0,
+          "camera_lr": 0.001,
+          "scene_gauge_shift": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        }
+      },
+      "finished_utc": "2026-10-01T09:03:03.017869+00:00"
+    },
+    "PORT-Synthetic_GS3-AnisoMetal-surface_attention": {
+      "method": "PORT-GS",
+      "family": "Synthetic_GS3",
+      "scene": "AnisoMetal",
+      "state": "completed",
+      "gpu": 2,
+      "phase": null,
+      "pid": null,
+      "output": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/surface_attention_six_scene_20261001/surface_attention/Synthetic_GS3/AnisoMetal",
+      "resultpath": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/surface_attention_six_scene_20261001/surface_attention/Synthetic_GS3/AnisoMetal/test/metrics.json",
+      "source_archive": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/surface_attention_six_scene_20261001/source.tar",
+      "reused_from": null,
+      "steps": {
+        "train": {
+          "state": "completed",
+          "cwd": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS",
+          "argv": [
+            "/workspace/ubuntu2004_cuda12_1/utils/conda-envs/ssd-gs/bin/python",
+            "-u",
+            "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/train.py",
+            "--steps",
+            "30000",
+            "--seed",
+            "0",
+            "--fit-all",
+            "--resolution",
+            "512",
+            "--background",
+            "1.0",
+            "--display-gamma",
+            "2.2",
+            "--surface-priors",
+            "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/refactored_six_scene_20261001/dependencies/surface_priors/Synthetic_GS3/AnisoMetal",
+            "--representation",
+            "surface_attention",
+            "--scene",
+            "/workspace/datasets/SSD-GS/data/Synthetic_GS3/AnisoMetal",
+            "--output",
+            "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/surface_attention_six_scene_20261001/surface_attention/Synthetic_GS3/AnisoMetal"
+          ],
+          "logpath": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/surface_attention_six_scene_20261001/surface_attention/Synthetic_GS3/AnisoMetal.train.log",
+          "output": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/surface_attention_six_scene_20261001/surface_attention/Synthetic_GS3/AnisoMetal",
+          "resultpath": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/surface_attention_six_scene_20261001/surface_attention/Synthetic_GS3/AnisoMetal/last.pt",
+          "started_utc": "2026-10-01T08:33:34.473531+00:00",
+          "pid": null,
+          "startup_confirmed": {
+            "pid": 203910,
+            "gpu": 2,
+            "step": 100,
+            "row": {
+              "step": 100,
+              "stage": "relighting",
+              "frame_index": 917,
+              "loss": 0.17825491726398468,
+              "l1": 0.12534676492214203,
+              "loss_terms": {
+                "l1": 0.10027741640806198,
+                "ssim": 0.06763491779565811,
+                "mask": 0.010342505760490894,
+                "feature_reg": 6.786848416595603e-08,
+                "camera_reg": 0.0
+              },
+              "points": 20000,
+              "seconds": 3.79,
+              "memory_GiB": 9.422820568084717
+            }
+          },
+          "finished_utc": "2026-10-01T09:10:56.955818+00:00",
+          "last_pid": 203910
+        },
+        "eval": {
+          "state": "completed",
+          "cwd": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS",
+          "argv": [
+            "/workspace/ubuntu2004_cuda12_1/utils/conda-envs/ssd-gs/bin/python",
+            "-u",
+            "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/evaluate.py",
+            "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/surface_attention_six_scene_20261001/surface_attention/Synthetic_GS3/AnisoMetal/last.pt",
+            "--split",
+            "test",
+            "--output",
+            "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/surface_attention_six_scene_20261001/surface_attention/Synthetic_GS3/AnisoMetal/test",
+            "--lpips",
+            "--highlights",
+            "--save-all"
+          ],
+          "logpath": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/surface_attention_six_scene_20261001/surface_attention/Synthetic_GS3/AnisoMetal.test.log",
+          "output": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/surface_attention_six_scene_20261001/surface_attention/Synthetic_GS3/AnisoMetal/test",
+          "resultpath": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/surface_attention_six_scene_20261001/surface_attention/Synthetic_GS3/AnisoMetal/test/metrics.json",
+          "started_utc": "2026-10-01T09:10:56.958398+00:00",
+          "pid": null,
+          "finished_utc": "2026-10-01T09:12:01.710083+00:00",
+          "last_pid": 205654
+        }
+      },
+      "started_utc": "2026-10-01T08:33:34.471825+00:00",
+      "startup_confirmed": {
+        "pid": 203910,
+        "gpu": 2,
+        "step": 100,
+        "row": {
+          "step": 100,
+          "stage": "relighting",
+          "frame_index": 917,
+          "loss": 0.17825491726398468,
+          "l1": 0.12534676492214203,
+          "loss_terms": {
+            "l1": 0.10027741640806198,
+            "ssim": 0.06763491779565811,
+            "mask": 0.010342505760490894,
+            "feature_reg": 6.786848416595603e-08,
+            "camera_reg": 0.0
+          },
+          "points": 20000,
+          "seconds": 3.79,
+          "memory_GiB": 9.422820568084717
+        }
+      },
+      "finished_utc": "2026-10-01T09:12:01.711971+00:00"
+    },
+    "PORT-Synthetic_GS3-Translucent-surface_attention": {
+      "method": "PORT-GS",
+      "family": "Synthetic_GS3",
+      "scene": "Translucent",
+      "state": "completed",
+      "gpu": 1,
+      "phase": null,
+      "pid": null,
+      "output": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/surface_attention_six_scene_20261001/surface_attention/Synthetic_GS3/Translucent",
+      "resultpath": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/surface_attention_six_scene_20261001/surface_attention/Synthetic_GS3/Translucent/test/metrics.json",
+      "source_archive": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/surface_attention_six_scene_20261001/source.tar",
+      "reused_from": null,
+      "steps": {
+        "train": {
+          "state": "completed",
+          "cwd": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS",
+          "argv": [
+            "/workspace/ubuntu2004_cuda12_1/utils/conda-envs/ssd-gs/bin/python",
+            "-u",
+            "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/train.py",
+            "--steps",
+            "30000",
+            "--seed",
+            "0",
+            "--fit-all",
+            "--resolution",
+            "512",
+            "--background",
+            "1.0",
+            "--display-gamma",
+            "2.2",
+            "--surface-priors",
+            "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/refactored_six_scene_20261001/dependencies/surface_priors/Synthetic_GS3/Translucent",
+            "--representation",
+            "surface_attention",
+            "--scene",
+            "/workspace/datasets/SSD-GS/data/Synthetic_GS3/Translucent",
+            "--output",
+            "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/surface_attention_six_scene_20261001/surface_attention/Synthetic_GS3/Translucent"
+          ],
+          "logpath": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/surface_attention_six_scene_20261001/surface_attention/Synthetic_GS3/Translucent.train.log",
+          "output": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/surface_attention_six_scene_20261001/surface_attention/Synthetic_GS3/Translucent",
+          "resultpath": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/surface_attention_six_scene_20261001/surface_attention/Synthetic_GS3/Translucent/last.pt",
+          "started_utc": "2026-10-01T09:03:03.037694+00:00",
+          "pid": null,
+          "startup_confirmed": {
+            "pid": 205331,
+            "gpu": 1,
+            "step": 100,
+            "row": {
+              "step": 100,
+              "stage": "relighting",
+              "frame_index": 917,
+              "loss": 0.183576762676239,
+              "l1": 0.13384892046451569,
+              "loss_terms": {
+                "l1": 0.10707914084196091,
+                "ssim": 0.06583628803491592,
+                "mask": 0.010661276057362556,
+                "feature_reg": 6.452960121805518e-08,
+                "camera_reg": 0.0
+              },
+              "points": 20000,
+              "seconds": 3.75,
+              "memory_GiB": 9.4227876663208
+            }
+          },
+          "finished_utc": "2026-10-01T09:41:39.143234+00:00",
+          "last_pid": 205331
+        },
+        "eval": {
+          "state": "completed",
+          "cwd": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS",
+          "argv": [
+            "/workspace/ubuntu2004_cuda12_1/utils/conda-envs/ssd-gs/bin/python",
+            "-u",
+            "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/evaluate.py",
+            "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/surface_attention_six_scene_20261001/surface_attention/Synthetic_GS3/Translucent/last.pt",
+            "--split",
+            "test",
+            "--output",
+            "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/surface_attention_six_scene_20261001/surface_attention/Synthetic_GS3/Translucent/test",
+            "--lpips",
+            "--highlights",
+            "--save-all"
+          ],
+          "logpath": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/surface_attention_six_scene_20261001/surface_attention/Synthetic_GS3/Translucent.test.log",
+          "output": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/surface_attention_six_scene_20261001/surface_attention/Synthetic_GS3/Translucent/test",
+          "resultpath": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/surface_attention_six_scene_20261001/surface_attention/Synthetic_GS3/Translucent/test/metrics.json",
+          "started_utc": "2026-10-01T09:41:39.145311+00:00",
+          "pid": null,
+          "finished_utc": "2026-10-01T09:42:46.064994+00:00",
+          "last_pid": 207070
+        }
+      },
+      "started_utc": "2026-10-01T09:03:03.019665+00:00",
+      "startup_confirmed": {
+        "pid": 205331,
+        "gpu": 1,
+        "step": 100,
+        "row": {
+          "step": 100,
+          "stage": "relighting",
+          "frame_index": 917,
+          "loss": 0.183576762676239,
+          "l1": 0.13384892046451569,
+          "loss_terms": {
+            "l1": 0.10707914084196091,
+            "ssim": 0.06583628803491592,
+            "mask": 0.010661276057362556,
+            "feature_reg": 6.452960121805518e-08,
+            "camera_reg": 0.0
+          },
+          "points": 20000,
+          "seconds": 3.75,
+          "memory_GiB": 9.4227876663208
+        }
+      },
+      "finished_utc": "2026-10-01T09:42:46.067028+00:00"
+    },
+    "PORT-Synthetic_SSS-GS-bunny_small-surface_attention": {
+      "method": "PORT-GS",
+      "family": "Synthetic_SSS-GS",
+      "scene": "bunny_small",
+      "state": "completed",
+      "gpu": 2,
+      "phase": null,
+      "pid": null,
+      "output": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/surface_attention_six_scene_20261001/surface_attention/Synthetic_SSS-GS/bunny_small",
+      "resultpath": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/surface_attention_six_scene_20261001/surface_attention/Synthetic_SSS-GS/bunny_small/test/metrics.json",
+      "source_archive": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/surface_attention_six_scene_20261001/source.tar",
+      "reused_from": null,
+      "steps": {
+        "train": {
+          "state": "completed",
+          "cwd": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS",
+          "argv": [
+            "/workspace/ubuntu2004_cuda12_1/utils/conda-envs/ssd-gs/bin/python",
+            "-u",
+            "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/train.py",
+            "--steps",
+            "30000",
+            "--seed",
+            "0",
+            "--fit-all",
+            "--resolution",
+            "256",
+            "--background",
+            "0.0",
+            "--display-gamma",
+            "2.2",
+            "--surface-priors",
+            "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/refactored_six_scene_20261001/dependencies/surface_priors/Synthetic_SSS-GS/bunny_small",
+            "--representation",
+            "surface_attention",
+            "--unit-light-intensity",
+            "1.0",
+            "--scene",
+            "/workspace/datasets/SSD-GS/data/Synthetic_SSS-GS/bunny_small",
+            "--output",
+            "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/surface_attention_six_scene_20261001/surface_attention/Synthetic_SSS-GS/bunny_small"
+          ],
+          "logpath": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/surface_attention_six_scene_20261001/surface_attention/Synthetic_SSS-GS/bunny_small.train.log",
+          "output": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/surface_attention_six_scene_20261001/surface_attention/Synthetic_SSS-GS/bunny_small",
+          "resultpath": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/surface_attention_six_scene_20261001/surface_attention/Synthetic_SSS-GS/bunny_small/last.pt",
+          "started_utc": "2026-10-01T09:12:01.715376+00:00",
+          "pid": null,
+          "startup_confirmed": {
+            "pid": 205783,
+            "gpu": 2,
+            "step": 100,
+            "row": {
+              "step": 100,
+              "stage": "relighting",
+              "frame_index": 229,
+              "loss": 0.15406325459480286,
+              "l1": 0.1150095984339714,
+              "loss_terms": {
+                "l1": 0.09200768172740936,
+                "ssim": 0.04294363409280777,
+                "mask": 0.0191118735820055,
+                "feature_reg": 5.9423207687814283e-08,
+                "camera_reg": 0.0
+              },
+              "points": 20000,
+              "seconds": 2.72,
+              "memory_GiB": 0.94976806640625
+            }
+          },
+          "finished_utc": "2026-10-01T10:03:40.070818+00:00",
+          "last_pid": 205783
+        },
+        "eval": {
+          "state": "completed",
+          "cwd": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS",
+          "argv": [
+            "/workspace/ubuntu2004_cuda12_1/utils/conda-envs/ssd-gs/bin/python",
+            "-u",
+            "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/evaluate.py",
+            "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/surface_attention_six_scene_20261001/surface_attention/Synthetic_SSS-GS/bunny_small/last.pt",
+            "--split",
+            "test",
+            "--output",
+            "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/surface_attention_six_scene_20261001/surface_attention/Synthetic_SSS-GS/bunny_small/test",
+            "--lpips",
+            "--highlights",
+            "--save-all"
+          ],
+          "logpath": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/surface_attention_six_scene_20261001/surface_attention/Synthetic_SSS-GS/bunny_small.test.log",
+          "output": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/surface_attention_six_scene_20261001/surface_attention/Synthetic_SSS-GS/bunny_small/test",
+          "resultpath": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/surface_attention_six_scene_20261001/surface_attention/Synthetic_SSS-GS/bunny_small/test/metrics.json",
+          "started_utc": "2026-10-01T10:03:40.072996+00:00",
+          "pid": null,
+          "finished_utc": "2026-10-01T10:04:17.230814+00:00",
+          "last_pid": 207951
+        }
+      },
+      "started_utc": "2026-10-01T09:12:01.713919+00:00",
+      "startup_confirmed": {
+        "pid": 205783,
+        "gpu": 2,
+        "step": 100,
+        "row": {
+          "step": 100,
+          "stage": "relighting",
+          "frame_index": 229,
+          "loss": 0.15406325459480286,
+          "l1": 0.1150095984339714,
+          "loss_terms": {
+            "l1": 0.09200768172740936,
+            "ssim": 0.04294363409280777,
+            "mask": 0.0191118735820055,
+            "feature_reg": 5.9423207687814283e-08,
+            "camera_reg": 0.0
+          },
+          "points": 20000,
+          "seconds": 2.72,
+          "memory_GiB": 0.94976806640625
+        }
+      },
+      "finished_utc": "2026-10-01T10:04:17.232951+00:00"
+    },
+    "PORT-Synthetic_SSS-GS-dragon_small-surface_attention": {
+      "method": "PORT-GS",
+      "family": "Synthetic_SSS-GS",
+      "scene": "dragon_small",
+      "state": "completed",
+      "gpu": 0,
+      "phase": null,
+      "pid": null,
+      "output": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/surface_attention_six_scene_20261001/surface_attention/Synthetic_SSS-GS/dragon_small",
+      "resultpath": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/surface_attention_six_scene_20261001/surface_attention/Synthetic_SSS-GS/dragon_small/test/metrics.json",
+      "source_archive": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/surface_attention_six_scene_20261001/source.tar",
+      "reused_from": null,
+      "steps": {
+        "train": {
+          "state": "completed",
+          "cwd": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS",
+          "argv": [
+            "/workspace/ubuntu2004_cuda12_1/utils/conda-envs/ssd-gs/bin/python",
+            "-u",
+            "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/train.py",
+            "--steps",
+            "30000",
+            "--seed",
+            "0",
+            "--fit-all",
+            "--resolution",
+            "256",
+            "--background",
+            "0.0",
+            "--display-gamma",
+            "2.2",
+            "--surface-priors",
+            "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/refactored_six_scene_20261001/dependencies/surface_priors/Synthetic_SSS-GS/dragon_small",
+            "--representation",
+            "surface_attention",
+            "--unit-light-intensity",
+            "1.0",
+            "--scene",
+            "/workspace/datasets/SSD-GS/data/Synthetic_SSS-GS/dragon_small",
+            "--output",
+            "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/surface_attention_six_scene_20261001/surface_attention/Synthetic_SSS-GS/dragon_small"
+          ],
+          "logpath": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/surface_attention_six_scene_20261001/surface_attention/Synthetic_SSS-GS/dragon_small.train.log",
+          "output": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/surface_attention_six_scene_20261001/surface_attention/Synthetic_SSS-GS/dragon_small",
+          "resultpath": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/surface_attention_six_scene_20261001/surface_attention/Synthetic_SSS-GS/dragon_small/last.pt",
+          "started_utc": "2026-10-01T09:15:11.347322+00:00",
+          "pid": null,
+          "startup_confirmed": {
+            "pid": 206026,
+            "gpu": 0,
+            "step": 100,
+            "row": {
+              "step": 100,
+              "stage": "relighting",
+              "frame_index": 229,
+              "loss": 0.09707813709974289,
+              "l1": 0.044993530958890915,
+              "loss_terms": {
+                "l1": 0.03599482402205467,
+                "ssim": 0.03983117267489433,
+                "mask": 0.02125207707285881,
+                "feature_reg": 6.908491201329525e-08,
+                "camera_reg": 0.0
+              },
+              "points": 20000,
+              "seconds": 2.67,
+              "memory_GiB": 0.949744701385498
+            }
+          },
+          "finished_utc": "2026-10-01T10:15:06.489310+00:00",
+          "last_pid": 206026
+        },
+        "eval": {
+          "state": "completed",
+          "cwd": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS",
+          "argv": [
+            "/workspace/ubuntu2004_cuda12_1/utils/conda-envs/ssd-gs/bin/python",
+            "-u",
+            "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/evaluate.py",
+            "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/surface_attention_six_scene_20261001/surface_attention/Synthetic_SSS-GS/dragon_small/last.pt",
+            "--split",
+            "test",
+            "--output",
+            "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/surface_attention_six_scene_20261001/surface_attention/Synthetic_SSS-GS/dragon_small/test",
+            "--lpips",
+            "--highlights",
+            "--save-all"
+          ],
+          "logpath": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/surface_attention_six_scene_20261001/surface_attention/Synthetic_SSS-GS/dragon_small.test.log",
+          "output": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/surface_attention_six_scene_20261001/surface_attention/Synthetic_SSS-GS/dragon_small/test",
+          "resultpath": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/surface_attention_six_scene_20261001/surface_attention/Synthetic_SSS-GS/dragon_small/test/metrics.json",
+          "started_utc": "2026-10-01T10:15:06.491516+00:00",
+          "pid": null,
+          "finished_utc": "2026-10-01T10:15:48.091649+00:00",
+          "last_pid": 208443
+        }
+      },
+      "started_utc": "2026-10-01T09:15:11.333419+00:00",
+      "startup_confirmed": {
+        "pid": 206026,
+        "gpu": 0,
+        "step": 100,
+        "row": {
+          "step": 100,
+          "stage": "relighting",
+          "frame_index": 229,
+          "loss": 0.09707813709974289,
+          "l1": 0.044993530958890915,
+          "loss_terms": {
+            "l1": 0.03599482402205467,
+            "ssim": 0.03983117267489433,
+            "mask": 0.02125207707285881,
+            "feature_reg": 6.908491201329525e-08,
+            "camera_reg": 0.0
+          },
+          "points": 20000,
+          "seconds": 2.67,
+          "memory_GiB": 0.949744701385498
+        }
+      },
+      "finished_utc": "2026-10-01T10:15:48.093857+00:00"
+    }
+  }
+}

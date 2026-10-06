@@ -1,0 +1,71 @@
+{
+  "name": "light_atlas_head_selection_20261001",
+  "note": "Material-head selection for light_atlas on held-out TRAINING lights (validation split: whole 30-degree light-angle groups, ~10% of train frames); no official test frames are rendered or scored. AnisoMetal (glossy metal, where the compact head regressed) and bunny_small (SSS, where it excelled); 30k steps, seed 0, otherwise the six-scene protocol.",
+  "python": "/workspace/ubuntu2004_cuda12_1/utils/conda-envs/ssd-gs/bin/python",
+  "data_root": "/workspace/datasets/SSD-GS/data",
+  "worker_gpus": [
+    2,
+    3
+  ],
+  "launch_environment": {
+    "PATH_prefix": "/workspace/ubuntu2004_cuda12_1/utils/conda-envs/ssd-gs/bin:/usr/local/cuda-12.1/bin",
+    "CUDA_HOME": "/usr/local/cuda-12.1",
+    "TORCH_CUDA_ARCH_LIST": "8.9",
+    "MAX_JOBS": "8",
+    "OMP_NUM_THREADS": "8",
+    "HF_HOME": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/third_party/hf_cache",
+    "TORCH_HOME": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/third_party/torch_cache",
+    "MPLCONFIGDIR": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/third_party/mpl_cache",
+    "PYTHONDONTWRITEBYTECODE": "1",
+    "OPENBLAS_NUM_THREADS": "1",
+    "PYTORCH_CUDA_ALLOC_CONF": "expandable_segments:True"
+  },
+  "train": {
+    "steps": 30000,
+    "seed": 0,
+    "resolution": 512,
+    "background": 0.0,
+    "display-gamma": 2.2,
+    "shadow-start": 2000,
+    "port-start": 2000
+  },
+  "families": {
+    "Synthetic_GS3": {
+      "scenes": [
+        "AnisoMetal"
+      ],
+      "train": {
+        "background": 1.0
+      }
+    },
+    "Synthetic_SSS-GS": {
+      "scenes": [
+        "bunny_small"
+      ],
+      "train": {
+        "resolution": 256,
+        "unit-light-intensity": 1.0
+      }
+    }
+  },
+  "variants": {
+    "compact": {
+      "representation": "light_atlas",
+      "material-head": "compact"
+    },
+    "reflect": {
+      "representation": "light_atlas",
+      "material-head": "reflect"
+    },
+    "spatial": {
+      "representation": "light_atlas",
+      "material-head": "spatial"
+    }
+  },
+  "eval_split": "validation",
+  "eval_limit": 0,
+  "eval_save_all": false,
+  "eval_highlights": false,
+  "eval_shift_align": 0,
+  "eval_calibrate_test": 0
+}

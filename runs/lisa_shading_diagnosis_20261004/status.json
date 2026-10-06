@@ -1,0 +1,1706 @@
+{
+  "manifest": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_shading_diagnosis_20261004/manifest.json",
+  "state": "completed",
+  "started_utc": "2026-10-04T05:10:52.687538+00:00",
+  "finished_utc": "2026-10-04T05:35:45.415790+00:00",
+  "scheduler_pid": 526075,
+  "updated_utc": "2026-10-04T05:35:45.415822+00:00",
+  "workers": {
+    "0": {
+      "state": "idle",
+      "job": null,
+      "pid": null
+    },
+    "1": {
+      "state": "idle",
+      "job": null,
+      "pid": null
+    },
+    "2": {
+      "state": "idle",
+      "job": null,
+      "pid": null
+    },
+    "3": {
+      "state": "idle",
+      "job": null,
+      "pid": null
+    }
+  },
+  "jobs": {
+    "PORT-Synthetic_GS3-Lego-v2_reference": {
+      "method": "PORT-GS",
+      "family": "Synthetic_GS3",
+      "scene": "Lego",
+      "state": "completed",
+      "gpu": "0",
+      "phase": null,
+      "pid": null,
+      "output": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_shading_diagnosis_20261004/v2_reference/Synthetic_GS3/Lego",
+      "resultpath": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_shading_diagnosis_20261004/v2_reference/Synthetic_GS3/Lego/validation/metrics.json",
+      "source_archive": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_shading_diagnosis_20261004/source.tar",
+      "reused_from": null,
+      "steps": {
+        "train": {
+          "state": "completed",
+          "cwd": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS",
+          "argv": [
+            "/workspace/ubuntu2004_cuda12_1/utils/conda-envs/ssd-gs/bin/python",
+            "-u",
+            "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/train.py",
+            "--steps",
+            "8000",
+            "--seed",
+            "0",
+            "--resolution",
+            "512",
+            "--background",
+            "1.0",
+            "--display-gamma",
+            "2.2",
+            "--shadow-start",
+            "2000",
+            "--port-start",
+            "2000",
+            "--lr-decay-steps",
+            "30000",
+            "--holdout-every",
+            "10",
+            "--representation",
+            "light_atlas",
+            "--material-head",
+            "svbrdf",
+            "--mask-weight",
+            "0.5",
+            "--foreground-appearance-until",
+            "2000",
+            "--specular",
+            "lobes",
+            "--scene",
+            "/workspace/datasets/SSD-GS/data/Synthetic_GS3/Lego",
+            "--output",
+            "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_shading_diagnosis_20261004/v2_reference/Synthetic_GS3/Lego"
+          ],
+          "logpath": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_shading_diagnosis_20261004/v2_reference/Synthetic_GS3/Lego.train.log",
+          "output": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_shading_diagnosis_20261004/v2_reference/Synthetic_GS3/Lego",
+          "resultpath": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_shading_diagnosis_20261004/v2_reference/Synthetic_GS3/Lego/last.pt",
+          "started_utc": "2026-10-04T05:10:52.692430+00:00",
+          "pid": null,
+          "startup_confirmed": {
+            "pid": 526084,
+            "gpu": "0",
+            "step": 100,
+            "row": {
+              "step": 100,
+              "stage": "relighting",
+              "frame_index": 1853,
+              "loss": 0.232979878783226,
+              "l1": 0.12535296380519867,
+              "loss_terms": {
+                "l1": 0.10028237104415894,
+                "ssim": 0.06522279232740402,
+                "mask": 0.06747469305992126,
+                "feature_reg": 9.043780835327198e-09,
+                "camera_reg": 0.0
+              },
+              "points": 20000,
+              "seconds": 4.37,
+              "memory_GiB": 10.155845165252686,
+              "transport_stats": {
+                "specular": 0.0010704156011343002
+              }
+            }
+          },
+          "finished_utc": "2026-10-04T05:17:48.034269+00:00",
+          "last_pid": 526084
+        },
+        "eval": {
+          "state": "completed",
+          "cwd": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS",
+          "argv": [
+            "/workspace/ubuntu2004_cuda12_1/utils/conda-envs/ssd-gs/bin/python",
+            "-u",
+            "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/evaluate.py",
+            "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_shading_diagnosis_20261004/v2_reference/Synthetic_GS3/Lego/last.pt",
+            "--split",
+            "validation",
+            "--output",
+            "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_shading_diagnosis_20261004/v2_reference/Synthetic_GS3/Lego/validation",
+            "--lpips"
+          ],
+          "logpath": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_shading_diagnosis_20261004/v2_reference/Synthetic_GS3/Lego.validation.log",
+          "output": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_shading_diagnosis_20261004/v2_reference/Synthetic_GS3/Lego/validation",
+          "resultpath": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_shading_diagnosis_20261004/v2_reference/Synthetic_GS3/Lego/validation/metrics.json",
+          "started_utc": "2026-10-04T05:17:48.035697+00:00",
+          "pid": null,
+          "finished_utc": "2026-10-04T05:18:01.411904+00:00",
+          "last_pid": 527205
+        }
+      },
+      "started_utc": "2026-10-04T05:10:52.690447+00:00",
+      "startup_confirmed": {
+        "pid": 526084,
+        "gpu": "0",
+        "step": 100,
+        "row": {
+          "step": 100,
+          "stage": "relighting",
+          "frame_index": 1853,
+          "loss": 0.232979878783226,
+          "l1": 0.12535296380519867,
+          "loss_terms": {
+            "l1": 0.10028237104415894,
+            "ssim": 0.06522279232740402,
+            "mask": 0.06747469305992126,
+            "feature_reg": 9.043780835327198e-09,
+            "camera_reg": 0.0
+          },
+          "points": 20000,
+          "seconds": 4.37,
+          "memory_GiB": 10.155845165252686,
+          "transport_stats": {
+            "specular": 0.0010704156011343002
+          }
+        }
+      },
+      "finished_utc": "2026-10-04T05:18:01.414331+00:00"
+    },
+    "PORT-Synthetic_GS3-Drums-v2_reference": {
+      "method": "PORT-GS",
+      "family": "Synthetic_GS3",
+      "scene": "Drums",
+      "state": "completed",
+      "gpu": "1",
+      "phase": null,
+      "pid": null,
+      "output": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_shading_diagnosis_20261004/v2_reference/Synthetic_GS3/Drums",
+      "resultpath": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_shading_diagnosis_20261004/v2_reference/Synthetic_GS3/Drums/validation/metrics.json",
+      "source_archive": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_shading_diagnosis_20261004/source.tar",
+      "reused_from": null,
+      "steps": {
+        "train": {
+          "state": "completed",
+          "cwd": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS",
+          "argv": [
+            "/workspace/ubuntu2004_cuda12_1/utils/conda-envs/ssd-gs/bin/python",
+            "-u",
+            "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/train.py",
+            "--steps",
+            "8000",
+            "--seed",
+            "0",
+            "--resolution",
+            "512",
+            "--background",
+            "1.0",
+            "--display-gamma",
+            "2.2",
+            "--shadow-start",
+            "2000",
+            "--port-start",
+            "2000",
+            "--lr-decay-steps",
+            "30000",
+            "--holdout-every",
+            "10",
+            "--representation",
+            "light_atlas",
+            "--material-head",
+            "svbrdf",
+            "--mask-weight",
+            "0.5",
+            "--foreground-appearance-until",
+            "2000",
+            "--specular",
+            "lobes",
+            "--scene",
+            "/workspace/datasets/SSD-GS/data/Synthetic_GS3/Drums",
+            "--output",
+            "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_shading_diagnosis_20261004/v2_reference/Synthetic_GS3/Drums"
+          ],
+          "logpath": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_shading_diagnosis_20261004/v2_reference/Synthetic_GS3/Drums.train.log",
+          "output": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_shading_diagnosis_20261004/v2_reference/Synthetic_GS3/Drums",
+          "resultpath": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_shading_diagnosis_20261004/v2_reference/Synthetic_GS3/Drums/last.pt",
+          "started_utc": "2026-10-04T05:10:52.697610+00:00",
+          "pid": null,
+          "startup_confirmed": {
+            "pid": 526085,
+            "gpu": "1",
+            "step": 100,
+            "row": {
+              "step": 100,
+              "stage": "relighting",
+              "frame_index": 1853,
+              "loss": 0.2018650472164154,
+              "l1": 0.10488387197256088,
+              "loss_terms": {
+                "l1": 0.0839070975780487,
+                "ssim": 0.044026780873537064,
+                "mask": 0.07393115758895874,
+                "feature_reg": 1.3101812967875048e-08,
+                "camera_reg": 0.0
+              },
+              "points": 20000,
+              "seconds": 4.28,
+              "memory_GiB": 10.155817985534668,
+              "transport_stats": {
+                "specular": 0.0008683071937412024
+              }
+            }
+          },
+          "finished_utc": "2026-10-04T05:18:01.794174+00:00",
+          "last_pid": 526085
+        },
+        "eval": {
+          "state": "completed",
+          "cwd": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS",
+          "argv": [
+            "/workspace/ubuntu2004_cuda12_1/utils/conda-envs/ssd-gs/bin/python",
+            "-u",
+            "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/evaluate.py",
+            "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_shading_diagnosis_20261004/v2_reference/Synthetic_GS3/Drums/last.pt",
+            "--split",
+            "validation",
+            "--output",
+            "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_shading_diagnosis_20261004/v2_reference/Synthetic_GS3/Drums/validation",
+            "--lpips"
+          ],
+          "logpath": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_shading_diagnosis_20261004/v2_reference/Synthetic_GS3/Drums.validation.log",
+          "output": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_shading_diagnosis_20261004/v2_reference/Synthetic_GS3/Drums/validation",
+          "resultpath": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_shading_diagnosis_20261004/v2_reference/Synthetic_GS3/Drums/validation/metrics.json",
+          "started_utc": "2026-10-04T05:18:01.795753+00:00",
+          "pid": null,
+          "finished_utc": "2026-10-04T05:18:15.495968+00:00",
+          "last_pid": 527261
+        }
+      },
+      "started_utc": "2026-10-04T05:10:52.695183+00:00",
+      "startup_confirmed": {
+        "pid": 526085,
+        "gpu": "1",
+        "step": 100,
+        "row": {
+          "step": 100,
+          "stage": "relighting",
+          "frame_index": 1853,
+          "loss": 0.2018650472164154,
+          "l1": 0.10488387197256088,
+          "loss_terms": {
+            "l1": 0.0839070975780487,
+            "ssim": 0.044026780873537064,
+            "mask": 0.07393115758895874,
+            "feature_reg": 1.3101812967875048e-08,
+            "camera_reg": 0.0
+          },
+          "points": 20000,
+          "seconds": 4.28,
+          "memory_GiB": 10.155817985534668,
+          "transport_stats": {
+            "specular": 0.0008683071937412024
+          }
+        }
+      },
+      "finished_utc": "2026-10-04T05:18:15.499365+00:00"
+    },
+    "PORT-Synthetic_GS3-FurBall-v2_reference": {
+      "method": "PORT-GS",
+      "family": "Synthetic_GS3",
+      "scene": "FurBall",
+      "state": "completed",
+      "gpu": "3",
+      "phase": null,
+      "pid": null,
+      "output": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_shading_diagnosis_20261004/v2_reference/Synthetic_GS3/FurBall",
+      "resultpath": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_shading_diagnosis_20261004/v2_reference/Synthetic_GS3/FurBall/validation/metrics.json",
+      "source_archive": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_shading_diagnosis_20261004/source.tar",
+      "reused_from": null,
+      "steps": {
+        "train": {
+          "state": "completed",
+          "cwd": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS",
+          "argv": [
+            "/workspace/ubuntu2004_cuda12_1/utils/conda-envs/ssd-gs/bin/python",
+            "-u",
+            "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/train.py",
+            "--steps",
+            "8000",
+            "--seed",
+            "0",
+            "--resolution",
+            "512",
+            "--background",
+            "1.0",
+            "--display-gamma",
+            "2.2",
+            "--shadow-start",
+            "2000",
+            "--port-start",
+            "2000",
+            "--lr-decay-steps",
+            "30000",
+            "--holdout-every",
+            "10",
+            "--representation",
+            "light_atlas",
+            "--material-head",
+            "svbrdf",
+            "--mask-weight",
+            "0.5",
+            "--foreground-appearance-until",
+            "2000",
+            "--specular",
+            "lobes",
+            "--scene",
+            "/workspace/datasets/SSD-GS/data/Synthetic_GS3/FurBall",
+            "--output",
+            "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_shading_diagnosis_20261004/v2_reference/Synthetic_GS3/FurBall"
+          ],
+          "logpath": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_shading_diagnosis_20261004/v2_reference/Synthetic_GS3/FurBall.train.log",
+          "output": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_shading_diagnosis_20261004/v2_reference/Synthetic_GS3/FurBall",
+          "resultpath": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_shading_diagnosis_20261004/v2_reference/Synthetic_GS3/FurBall/last.pt",
+          "started_utc": "2026-10-04T05:10:52.705192+00:00",
+          "pid": null,
+          "startup_confirmed": {
+            "pid": 526086,
+            "gpu": "3",
+            "step": 100,
+            "row": {
+              "step": 100,
+              "stage": "relighting",
+              "frame_index": 1853,
+              "loss": 0.18401074409484863,
+              "l1": 0.1095791682600975,
+              "loss_terms": {
+                "l1": 0.08766333758831024,
+                "ssim": 0.03974368795752525,
+                "mask": 0.056603699922561646,
+                "feature_reg": 2.121029218926651e-08,
+                "camera_reg": 0.0
+              },
+              "points": 20000,
+              "seconds": 4.61,
+              "memory_GiB": 10.155767440795898,
+              "transport_stats": {
+                "specular": 0.0016950229182839394
+              }
+            }
+          },
+          "finished_utc": "2026-10-04T05:18:24.706457+00:00",
+          "last_pid": 526086
+        },
+        "eval": {
+          "state": "completed",
+          "cwd": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS",
+          "argv": [
+            "/workspace/ubuntu2004_cuda12_1/utils/conda-envs/ssd-gs/bin/python",
+            "-u",
+            "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/evaluate.py",
+            "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_shading_diagnosis_20261004/v2_reference/Synthetic_GS3/FurBall/last.pt",
+            "--split",
+            "validation",
+            "--output",
+            "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_shading_diagnosis_20261004/v2_reference/Synthetic_GS3/FurBall/validation",
+            "--lpips"
+          ],
+          "logpath": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_shading_diagnosis_20261004/v2_reference/Synthetic_GS3/FurBall.validation.log",
+          "output": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_shading_diagnosis_20261004/v2_reference/Synthetic_GS3/FurBall/validation",
+          "resultpath": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_shading_diagnosis_20261004/v2_reference/Synthetic_GS3/FurBall/validation/metrics.json",
+          "started_utc": "2026-10-04T05:18:24.708108+00:00",
+          "pid": null,
+          "finished_utc": "2026-10-04T05:18:38.540541+00:00",
+          "last_pid": 527437
+        }
+      },
+      "started_utc": "2026-10-04T05:10:52.699560+00:00",
+      "startup_confirmed": {
+        "pid": 526086,
+        "gpu": "3",
+        "step": 100,
+        "row": {
+          "step": 100,
+          "stage": "relighting",
+          "frame_index": 1853,
+          "loss": 0.18401074409484863,
+          "l1": 0.1095791682600975,
+          "loss_terms": {
+            "l1": 0.08766333758831024,
+            "ssim": 0.03974368795752525,
+            "mask": 0.056603699922561646,
+            "feature_reg": 2.121029218926651e-08,
+            "camera_reg": 0.0
+          },
+          "points": 20000,
+          "seconds": 4.61,
+          "memory_GiB": 10.155767440795898,
+          "transport_stats": {
+            "specular": 0.0016950229182839394
+          }
+        }
+      },
+      "finished_utc": "2026-10-04T05:18:38.542003+00:00"
+    },
+    "PORT-Synthetic_GS3-Lego-pixel_gradient": {
+      "method": "PORT-GS",
+      "family": "Synthetic_GS3",
+      "scene": "Lego",
+      "state": "completed",
+      "gpu": "2",
+      "phase": null,
+      "pid": null,
+      "output": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_shading_diagnosis_20261004/pixel_gradient/Synthetic_GS3/Lego",
+      "resultpath": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_shading_diagnosis_20261004/pixel_gradient/Synthetic_GS3/Lego/validation/metrics.json",
+      "source_archive": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_shading_diagnosis_20261004/source.tar",
+      "reused_from": null,
+      "steps": {
+        "train": {
+          "state": "completed",
+          "cwd": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS",
+          "argv": [
+            "/workspace/ubuntu2004_cuda12_1/utils/conda-envs/ssd-gs/bin/python",
+            "-u",
+            "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/train.py",
+            "--steps",
+            "8000",
+            "--seed",
+            "0",
+            "--resolution",
+            "512",
+            "--background",
+            "1.0",
+            "--display-gamma",
+            "2.2",
+            "--shadow-start",
+            "2000",
+            "--port-start",
+            "2000",
+            "--lr-decay-steps",
+            "30000",
+            "--holdout-every",
+            "10",
+            "--representation",
+            "light_atlas",
+            "--material-head",
+            "svbrdf",
+            "--mask-weight",
+            "0.5",
+            "--foreground-appearance-until",
+            "2000",
+            "--specular",
+            "lobes",
+            "--split-scale2d-stop",
+            "0",
+            "--grow-grad2d",
+            "8e-05",
+            "--scene",
+            "/workspace/datasets/SSD-GS/data/Synthetic_GS3/Lego",
+            "--output",
+            "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_shading_diagnosis_20261004/pixel_gradient/Synthetic_GS3/Lego"
+          ],
+          "logpath": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_shading_diagnosis_20261004/pixel_gradient/Synthetic_GS3/Lego.train.log",
+          "output": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_shading_diagnosis_20261004/pixel_gradient/Synthetic_GS3/Lego",
+          "resultpath": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_shading_diagnosis_20261004/pixel_gradient/Synthetic_GS3/Lego/last.pt",
+          "started_utc": "2026-10-04T05:10:52.710752+00:00",
+          "pid": null,
+          "startup_confirmed": {
+            "pid": 526087,
+            "gpu": "2",
+            "step": 100,
+            "row": {
+              "step": 100,
+              "stage": "relighting",
+              "frame_index": 1853,
+              "loss": 0.23305736482143402,
+              "l1": 0.12539207935333252,
+              "loss_terms": {
+                "l1": 0.10031366348266602,
+                "ssim": 0.06522994488477707,
+                "mask": 0.06751372665166855,
+                "feature_reg": 9.05852548527264e-09,
+                "camera_reg": 0.0
+              },
+              "points": 20000,
+              "seconds": 4.36,
+              "memory_GiB": 10.155770301818848,
+              "transport_stats": {
+                "specular": 0.001071794657036662
+              }
+            }
+          },
+          "finished_utc": "2026-10-04T05:18:26.080117+00:00",
+          "last_pid": 526087
+        },
+        "eval": {
+          "state": "completed",
+          "cwd": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS",
+          "argv": [
+            "/workspace/ubuntu2004_cuda12_1/utils/conda-envs/ssd-gs/bin/python",
+            "-u",
+            "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/evaluate.py",
+            "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_shading_diagnosis_20261004/pixel_gradient/Synthetic_GS3/Lego/last.pt",
+            "--split",
+            "validation",
+            "--output",
+            "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_shading_diagnosis_20261004/pixel_gradient/Synthetic_GS3/Lego/validation",
+            "--lpips"
+          ],
+          "logpath": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_shading_diagnosis_20261004/pixel_gradient/Synthetic_GS3/Lego.validation.log",
+          "output": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_shading_diagnosis_20261004/pixel_gradient/Synthetic_GS3/Lego/validation",
+          "resultpath": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_shading_diagnosis_20261004/pixel_gradient/Synthetic_GS3/Lego/validation/metrics.json",
+          "started_utc": "2026-10-04T05:18:26.082466+00:00",
+          "pid": null,
+          "finished_utc": "2026-10-04T05:18:39.621785+00:00",
+          "last_pid": 527477
+        }
+      },
+      "started_utc": "2026-10-04T05:10:52.706762+00:00",
+      "startup_confirmed": {
+        "pid": 526087,
+        "gpu": "2",
+        "step": 100,
+        "row": {
+          "step": 100,
+          "stage": "relighting",
+          "frame_index": 1853,
+          "loss": 0.23305736482143402,
+          "l1": 0.12539207935333252,
+          "loss_terms": {
+            "l1": 0.10031366348266602,
+            "ssim": 0.06522994488477707,
+            "mask": 0.06751372665166855,
+            "feature_reg": 9.05852548527264e-09,
+            "camera_reg": 0.0
+          },
+          "points": 20000,
+          "seconds": 4.36,
+          "memory_GiB": 10.155770301818848,
+          "transport_stats": {
+            "specular": 0.001071794657036662
+          }
+        }
+      },
+      "finished_utc": "2026-10-04T05:18:39.624980+00:00"
+    },
+    "PORT-Synthetic_GS3-Drums-pixel_gradient": {
+      "method": "PORT-GS",
+      "family": "Synthetic_GS3",
+      "scene": "Drums",
+      "state": "completed",
+      "gpu": "0",
+      "phase": null,
+      "pid": null,
+      "output": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_shading_diagnosis_20261004/pixel_gradient/Synthetic_GS3/Drums",
+      "resultpath": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_shading_diagnosis_20261004/pixel_gradient/Synthetic_GS3/Drums/validation/metrics.json",
+      "source_archive": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_shading_diagnosis_20261004/source.tar",
+      "reused_from": null,
+      "steps": {
+        "train": {
+          "state": "completed",
+          "cwd": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS",
+          "argv": [
+            "/workspace/ubuntu2004_cuda12_1/utils/conda-envs/ssd-gs/bin/python",
+            "-u",
+            "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/train.py",
+            "--steps",
+            "8000",
+            "--seed",
+            "0",
+            "--resolution",
+            "512",
+            "--background",
+            "1.0",
+            "--display-gamma",
+            "2.2",
+            "--shadow-start",
+            "2000",
+            "--port-start",
+            "2000",
+            "--lr-decay-steps",
+            "30000",
+            "--holdout-every",
+            "10",
+            "--representation",
+            "light_atlas",
+            "--material-head",
+            "svbrdf",
+            "--mask-weight",
+            "0.5",
+            "--foreground-appearance-until",
+            "2000",
+            "--specular",
+            "lobes",
+            "--split-scale2d-stop",
+            "0",
+            "--grow-grad2d",
+            "8e-05",
+            "--scene",
+            "/workspace/datasets/SSD-GS/data/Synthetic_GS3/Drums",
+            "--output",
+            "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_shading_diagnosis_20261004/pixel_gradient/Synthetic_GS3/Drums"
+          ],
+          "logpath": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_shading_diagnosis_20261004/pixel_gradient/Synthetic_GS3/Drums.train.log",
+          "output": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_shading_diagnosis_20261004/pixel_gradient/Synthetic_GS3/Drums",
+          "resultpath": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_shading_diagnosis_20261004/pixel_gradient/Synthetic_GS3/Drums/last.pt",
+          "started_utc": "2026-10-04T05:18:01.419048+00:00",
+          "pid": null,
+          "startup_confirmed": {
+            "pid": 527260,
+            "gpu": "0",
+            "step": 100,
+            "row": {
+              "step": 100,
+              "stage": "relighting",
+              "frame_index": 1853,
+              "loss": 0.20185144245624542,
+              "l1": 0.10487174987792969,
+              "loss_terms": {
+                "l1": 0.08389740437269211,
+                "ssim": 0.04401794821023941,
+                "mask": 0.0739360824227333,
+                "feature_reg": 1.3237714036051784e-08,
+                "camera_reg": 0.0
+              },
+              "points": 20000,
+              "seconds": 4.28,
+              "memory_GiB": 10.15574312210083,
+              "transport_stats": {
+                "specular": 0.0008777663460932672
+              }
+            }
+          },
+          "finished_utc": "2026-10-04T05:25:38.070206+00:00",
+          "last_pid": 527260
+        },
+        "eval": {
+          "state": "completed",
+          "cwd": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS",
+          "argv": [
+            "/workspace/ubuntu2004_cuda12_1/utils/conda-envs/ssd-gs/bin/python",
+            "-u",
+            "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/evaluate.py",
+            "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_shading_diagnosis_20261004/pixel_gradient/Synthetic_GS3/Drums/last.pt",
+            "--split",
+            "validation",
+            "--output",
+            "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_shading_diagnosis_20261004/pixel_gradient/Synthetic_GS3/Drums/validation",
+            "--lpips"
+          ],
+          "logpath": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_shading_diagnosis_20261004/pixel_gradient/Synthetic_GS3/Drums.validation.log",
+          "output": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_shading_diagnosis_20261004/pixel_gradient/Synthetic_GS3/Drums/validation",
+          "resultpath": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_shading_diagnosis_20261004/pixel_gradient/Synthetic_GS3/Drums/validation/metrics.json",
+          "started_utc": "2026-10-04T05:25:38.073153+00:00",
+          "pid": null,
+          "finished_utc": "2026-10-04T05:25:51.535836+00:00",
+          "last_pid": 528599
+        }
+      },
+      "started_utc": "2026-10-04T05:18:01.417023+00:00",
+      "startup_confirmed": {
+        "pid": 527260,
+        "gpu": "0",
+        "step": 100,
+        "row": {
+          "step": 100,
+          "stage": "relighting",
+          "frame_index": 1853,
+          "loss": 0.20185144245624542,
+          "l1": 0.10487174987792969,
+          "loss_terms": {
+            "l1": 0.08389740437269211,
+            "ssim": 0.04401794821023941,
+            "mask": 0.0739360824227333,
+            "feature_reg": 1.3237714036051784e-08,
+            "camera_reg": 0.0
+          },
+          "points": 20000,
+          "seconds": 4.28,
+          "memory_GiB": 10.15574312210083,
+          "transport_stats": {
+            "specular": 0.0008777663460932672
+          }
+        }
+      },
+      "finished_utc": "2026-10-04T05:25:51.538879+00:00"
+    },
+    "PORT-Synthetic_GS3-FurBall-pixel_gradient": {
+      "method": "PORT-GS",
+      "family": "Synthetic_GS3",
+      "scene": "FurBall",
+      "state": "completed",
+      "gpu": "1",
+      "phase": null,
+      "pid": null,
+      "output": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_shading_diagnosis_20261004/pixel_gradient/Synthetic_GS3/FurBall",
+      "resultpath": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_shading_diagnosis_20261004/pixel_gradient/Synthetic_GS3/FurBall/validation/metrics.json",
+      "source_archive": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_shading_diagnosis_20261004/source.tar",
+      "reused_from": null,
+      "steps": {
+        "train": {
+          "state": "completed",
+          "cwd": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS",
+          "argv": [
+            "/workspace/ubuntu2004_cuda12_1/utils/conda-envs/ssd-gs/bin/python",
+            "-u",
+            "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/train.py",
+            "--steps",
+            "8000",
+            "--seed",
+            "0",
+            "--resolution",
+            "512",
+            "--background",
+            "1.0",
+            "--display-gamma",
+            "2.2",
+            "--shadow-start",
+            "2000",
+            "--port-start",
+            "2000",
+            "--lr-decay-steps",
+            "30000",
+            "--holdout-every",
+            "10",
+            "--representation",
+            "light_atlas",
+            "--material-head",
+            "svbrdf",
+            "--mask-weight",
+            "0.5",
+            "--foreground-appearance-until",
+            "2000",
+            "--specular",
+            "lobes",
+            "--split-scale2d-stop",
+            "0",
+            "--grow-grad2d",
+            "8e-05",
+            "--scene",
+            "/workspace/datasets/SSD-GS/data/Synthetic_GS3/FurBall",
+            "--output",
+            "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_shading_diagnosis_20261004/pixel_gradient/Synthetic_GS3/FurBall"
+          ],
+          "logpath": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_shading_diagnosis_20261004/pixel_gradient/Synthetic_GS3/FurBall.train.log",
+          "output": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_shading_diagnosis_20261004/pixel_gradient/Synthetic_GS3/FurBall",
+          "resultpath": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_shading_diagnosis_20261004/pixel_gradient/Synthetic_GS3/FurBall/last.pt",
+          "started_utc": "2026-10-04T05:18:15.517027+00:00",
+          "pid": null,
+          "startup_confirmed": {
+            "pid": 527388,
+            "gpu": "1",
+            "step": 100,
+            "row": {
+              "step": 100,
+              "stage": "relighting",
+              "frame_index": 1853,
+              "loss": 0.18369321525096893,
+              "l1": 0.10915553569793701,
+              "loss_terms": {
+                "l1": 0.08732443302869797,
+                "ssim": 0.03964808210730553,
+                "mask": 0.05672069638967514,
+                "feature_reg": 2.1180659004471636e-08,
+                "camera_reg": 0.0
+              },
+              "points": 20000,
+              "seconds": 4.63,
+              "memory_GiB": 10.15569257736206,
+              "transport_stats": {
+                "specular": 0.0016591313760727644
+              }
+            }
+          },
+          "finished_utc": "2026-10-04T05:26:07.686087+00:00",
+          "last_pid": 527388
+        },
+        "eval": {
+          "state": "completed",
+          "cwd": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS",
+          "argv": [
+            "/workspace/ubuntu2004_cuda12_1/utils/conda-envs/ssd-gs/bin/python",
+            "-u",
+            "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/evaluate.py",
+            "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_shading_diagnosis_20261004/pixel_gradient/Synthetic_GS3/FurBall/last.pt",
+            "--split",
+            "validation",
+            "--output",
+            "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_shading_diagnosis_20261004/pixel_gradient/Synthetic_GS3/FurBall/validation",
+            "--lpips"
+          ],
+          "logpath": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_shading_diagnosis_20261004/pixel_gradient/Synthetic_GS3/FurBall.validation.log",
+          "output": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_shading_diagnosis_20261004/pixel_gradient/Synthetic_GS3/FurBall/validation",
+          "resultpath": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_shading_diagnosis_20261004/pixel_gradient/Synthetic_GS3/FurBall/validation/metrics.json",
+          "started_utc": "2026-10-04T05:26:07.689190+00:00",
+          "pid": null,
+          "finished_utc": "2026-10-04T05:26:21.758288+00:00",
+          "last_pid": 528731
+        }
+      },
+      "started_utc": "2026-10-04T05:18:15.514889+00:00",
+      "startup_confirmed": {
+        "pid": 527388,
+        "gpu": "1",
+        "step": 100,
+        "row": {
+          "step": 100,
+          "stage": "relighting",
+          "frame_index": 1853,
+          "loss": 0.18369321525096893,
+          "l1": 0.10915553569793701,
+          "loss_terms": {
+            "l1": 0.08732443302869797,
+            "ssim": 0.03964808210730553,
+            "mask": 0.05672069638967514,
+            "feature_reg": 2.1180659004471636e-08,
+            "camera_reg": 0.0
+          },
+          "points": 20000,
+          "seconds": 4.63,
+          "memory_GiB": 10.15569257736206,
+          "transport_stats": {
+            "specular": 0.0016591313760727644
+          }
+        }
+      },
+      "finished_utc": "2026-10-04T05:26:21.761243+00:00"
+    },
+    "PORT-Synthetic_GS3-Lego-gaussian_footprint": {
+      "method": "PORT-GS",
+      "family": "Synthetic_GS3",
+      "scene": "Lego",
+      "state": "completed",
+      "gpu": "3",
+      "phase": null,
+      "pid": null,
+      "output": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_shading_diagnosis_20261004/gaussian_footprint/Synthetic_GS3/Lego",
+      "resultpath": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_shading_diagnosis_20261004/gaussian_footprint/Synthetic_GS3/Lego/validation/metrics.json",
+      "source_archive": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_shading_diagnosis_20261004/source.tar",
+      "reused_from": null,
+      "steps": {
+        "train": {
+          "state": "completed",
+          "cwd": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS",
+          "argv": [
+            "/workspace/ubuntu2004_cuda12_1/utils/conda-envs/ssd-gs/bin/python",
+            "-u",
+            "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/train.py",
+            "--steps",
+            "8000",
+            "--seed",
+            "0",
+            "--resolution",
+            "512",
+            "--background",
+            "1.0",
+            "--display-gamma",
+            "2.2",
+            "--shadow-start",
+            "2000",
+            "--port-start",
+            "2000",
+            "--lr-decay-steps",
+            "30000",
+            "--holdout-every",
+            "10",
+            "--representation",
+            "light_atlas",
+            "--material-head",
+            "svbrdf",
+            "--mask-weight",
+            "0.5",
+            "--foreground-appearance-until",
+            "2000",
+            "--specular",
+            "lobes",
+            "--shading",
+            "gaussian",
+            "--scene",
+            "/workspace/datasets/SSD-GS/data/Synthetic_GS3/Lego",
+            "--output",
+            "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_shading_diagnosis_20261004/gaussian_footprint/Synthetic_GS3/Lego"
+          ],
+          "logpath": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_shading_diagnosis_20261004/gaussian_footprint/Synthetic_GS3/Lego.train.log",
+          "output": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_shading_diagnosis_20261004/gaussian_footprint/Synthetic_GS3/Lego",
+          "resultpath": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_shading_diagnosis_20261004/gaussian_footprint/Synthetic_GS3/Lego/last.pt",
+          "started_utc": "2026-10-04T05:18:38.558635+00:00",
+          "pid": null,
+          "startup_confirmed": {
+            "pid": 527572,
+            "gpu": "3",
+            "step": 100,
+            "row": {
+              "step": 100,
+              "stage": "relighting",
+              "frame_index": 1853,
+              "loss": 0.36430343985557556,
+              "l1": 0.19954834878444672,
+              "loss_terms": {
+                "l1": 0.1596386879682541,
+                "ssim": 0.06971394270658493,
+                "mask": 0.13495081663131714,
+                "feature_reg": 1.092095480714761e-08,
+                "camera_reg": 0.0
+              },
+              "points": 20000,
+              "seconds": 3.08,
+              "memory_GiB": 8.089479923248291,
+              "transport_stats": {
+                "specular": 0.0004361721803434193
+              }
+            }
+          },
+          "finished_utc": "2026-10-04T05:28:39.431744+00:00",
+          "last_pid": 527572
+        },
+        "eval": {
+          "state": "completed",
+          "cwd": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS",
+          "argv": [
+            "/workspace/ubuntu2004_cuda12_1/utils/conda-envs/ssd-gs/bin/python",
+            "-u",
+            "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/evaluate.py",
+            "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_shading_diagnosis_20261004/gaussian_footprint/Synthetic_GS3/Lego/last.pt",
+            "--split",
+            "validation",
+            "--output",
+            "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_shading_diagnosis_20261004/gaussian_footprint/Synthetic_GS3/Lego/validation",
+            "--lpips"
+          ],
+          "logpath": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_shading_diagnosis_20261004/gaussian_footprint/Synthetic_GS3/Lego.validation.log",
+          "output": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_shading_diagnosis_20261004/gaussian_footprint/Synthetic_GS3/Lego/validation",
+          "resultpath": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_shading_diagnosis_20261004/gaussian_footprint/Synthetic_GS3/Lego/validation/metrics.json",
+          "started_utc": "2026-10-04T05:28:39.433882+00:00",
+          "pid": null,
+          "finished_utc": "2026-10-04T05:28:55.961906+00:00",
+          "last_pid": 529136
+        }
+      },
+      "started_utc": "2026-10-04T05:18:38.543625+00:00",
+      "startup_confirmed": {
+        "pid": 527572,
+        "gpu": "3",
+        "step": 100,
+        "row": {
+          "step": 100,
+          "stage": "relighting",
+          "frame_index": 1853,
+          "loss": 0.36430343985557556,
+          "l1": 0.19954834878444672,
+          "loss_terms": {
+            "l1": 0.1596386879682541,
+            "ssim": 0.06971394270658493,
+            "mask": 0.13495081663131714,
+            "feature_reg": 1.092095480714761e-08,
+            "camera_reg": 0.0
+          },
+          "points": 20000,
+          "seconds": 3.08,
+          "memory_GiB": 8.089479923248291,
+          "transport_stats": {
+            "specular": 0.0004361721803434193
+          }
+        }
+      },
+      "finished_utc": "2026-10-04T05:28:55.965338+00:00"
+    },
+    "PORT-Synthetic_GS3-Drums-gaussian_footprint": {
+      "method": "PORT-GS",
+      "family": "Synthetic_GS3",
+      "scene": "Drums",
+      "state": "completed",
+      "gpu": "2",
+      "phase": null,
+      "pid": null,
+      "output": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_shading_diagnosis_20261004/gaussian_footprint/Synthetic_GS3/Drums",
+      "resultpath": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_shading_diagnosis_20261004/gaussian_footprint/Synthetic_GS3/Drums/validation/metrics.json",
+      "source_archive": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_shading_diagnosis_20261004/source.tar",
+      "reused_from": null,
+      "steps": {
+        "train": {
+          "state": "completed",
+          "cwd": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS",
+          "argv": [
+            "/workspace/ubuntu2004_cuda12_1/utils/conda-envs/ssd-gs/bin/python",
+            "-u",
+            "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/train.py",
+            "--steps",
+            "8000",
+            "--seed",
+            "0",
+            "--resolution",
+            "512",
+            "--background",
+            "1.0",
+            "--display-gamma",
+            "2.2",
+            "--shadow-start",
+            "2000",
+            "--port-start",
+            "2000",
+            "--lr-decay-steps",
+            "30000",
+            "--holdout-every",
+            "10",
+            "--representation",
+            "light_atlas",
+            "--material-head",
+            "svbrdf",
+            "--mask-weight",
+            "0.5",
+            "--foreground-appearance-until",
+            "2000",
+            "--specular",
+            "lobes",
+            "--shading",
+            "gaussian",
+            "--scene",
+            "/workspace/datasets/SSD-GS/data/Synthetic_GS3/Drums",
+            "--output",
+            "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_shading_diagnosis_20261004/gaussian_footprint/Synthetic_GS3/Drums"
+          ],
+          "logpath": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_shading_diagnosis_20261004/gaussian_footprint/Synthetic_GS3/Drums.train.log",
+          "output": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_shading_diagnosis_20261004/gaussian_footprint/Synthetic_GS3/Drums",
+          "resultpath": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_shading_diagnosis_20261004/gaussian_footprint/Synthetic_GS3/Drums/last.pt",
+          "started_utc": "2026-10-04T05:18:39.636395+00:00",
+          "pid": null,
+          "startup_confirmed": {
+            "pid": 527573,
+            "gpu": "2",
+            "step": 100,
+            "row": {
+              "step": 100,
+              "stage": "relighting",
+              "frame_index": 1853,
+              "loss": 0.33821338415145874,
+              "l1": 0.18189911544322968,
+              "loss_terms": {
+                "l1": 0.14551930129528046,
+                "ssim": 0.046698953956365585,
+                "mask": 0.1459951251745224,
+                "feature_reg": 8.979099241912536e-09,
+                "camera_reg": 0.0
+              },
+              "points": 20000,
+              "seconds": 3.34,
+              "memory_GiB": 8.089183330535889,
+              "transport_stats": {
+                "specular": 0.00041036808397620916
+              }
+            }
+          },
+          "finished_utc": "2026-10-04T05:28:28.372820+00:00",
+          "last_pid": 527573
+        },
+        "eval": {
+          "state": "completed",
+          "cwd": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS",
+          "argv": [
+            "/workspace/ubuntu2004_cuda12_1/utils/conda-envs/ssd-gs/bin/python",
+            "-u",
+            "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/evaluate.py",
+            "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_shading_diagnosis_20261004/gaussian_footprint/Synthetic_GS3/Drums/last.pt",
+            "--split",
+            "validation",
+            "--output",
+            "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_shading_diagnosis_20261004/gaussian_footprint/Synthetic_GS3/Drums/validation",
+            "--lpips"
+          ],
+          "logpath": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_shading_diagnosis_20261004/gaussian_footprint/Synthetic_GS3/Drums.validation.log",
+          "output": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_shading_diagnosis_20261004/gaussian_footprint/Synthetic_GS3/Drums/validation",
+          "resultpath": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_shading_diagnosis_20261004/gaussian_footprint/Synthetic_GS3/Drums/validation/metrics.json",
+          "started_utc": "2026-10-04T05:28:28.376218+00:00",
+          "pid": null,
+          "finished_utc": "2026-10-04T05:28:44.916519+00:00",
+          "last_pid": 529061
+        }
+      },
+      "started_utc": "2026-10-04T05:18:39.634818+00:00",
+      "startup_confirmed": {
+        "pid": 527573,
+        "gpu": "2",
+        "step": 100,
+        "row": {
+          "step": 100,
+          "stage": "relighting",
+          "frame_index": 1853,
+          "loss": 0.33821338415145874,
+          "l1": 0.18189911544322968,
+          "loss_terms": {
+            "l1": 0.14551930129528046,
+            "ssim": 0.046698953956365585,
+            "mask": 0.1459951251745224,
+            "feature_reg": 8.979099241912536e-09,
+            "camera_reg": 0.0
+          },
+          "points": 20000,
+          "seconds": 3.34,
+          "memory_GiB": 8.089183330535889,
+          "transport_stats": {
+            "specular": 0.00041036808397620916
+          }
+        }
+      },
+      "finished_utc": "2026-10-04T05:28:44.920498+00:00"
+    },
+    "PORT-Synthetic_GS3-FurBall-gaussian_footprint": {
+      "method": "PORT-GS",
+      "family": "Synthetic_GS3",
+      "scene": "FurBall",
+      "state": "completed",
+      "gpu": "0",
+      "phase": null,
+      "pid": null,
+      "output": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_shading_diagnosis_20261004/gaussian_footprint/Synthetic_GS3/FurBall",
+      "resultpath": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_shading_diagnosis_20261004/gaussian_footprint/Synthetic_GS3/FurBall/validation/metrics.json",
+      "source_archive": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_shading_diagnosis_20261004/source.tar",
+      "reused_from": null,
+      "steps": {
+        "train": {
+          "state": "completed",
+          "cwd": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS",
+          "argv": [
+            "/workspace/ubuntu2004_cuda12_1/utils/conda-envs/ssd-gs/bin/python",
+            "-u",
+            "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/train.py",
+            "--steps",
+            "8000",
+            "--seed",
+            "0",
+            "--resolution",
+            "512",
+            "--background",
+            "1.0",
+            "--display-gamma",
+            "2.2",
+            "--shadow-start",
+            "2000",
+            "--port-start",
+            "2000",
+            "--lr-decay-steps",
+            "30000",
+            "--holdout-every",
+            "10",
+            "--representation",
+            "light_atlas",
+            "--material-head",
+            "svbrdf",
+            "--mask-weight",
+            "0.5",
+            "--foreground-appearance-until",
+            "2000",
+            "--specular",
+            "lobes",
+            "--shading",
+            "gaussian",
+            "--scene",
+            "/workspace/datasets/SSD-GS/data/Synthetic_GS3/FurBall",
+            "--output",
+            "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_shading_diagnosis_20261004/gaussian_footprint/Synthetic_GS3/FurBall"
+          ],
+          "logpath": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_shading_diagnosis_20261004/gaussian_footprint/Synthetic_GS3/FurBall.train.log",
+          "output": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_shading_diagnosis_20261004/gaussian_footprint/Synthetic_GS3/FurBall",
+          "resultpath": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_shading_diagnosis_20261004/gaussian_footprint/Synthetic_GS3/FurBall/last.pt",
+          "started_utc": "2026-10-04T05:25:51.553202+00:00",
+          "pid": null,
+          "startup_confirmed": {
+            "pid": 528664,
+            "gpu": "0",
+            "step": 100,
+            "row": {
+              "step": 100,
+              "stage": "relighting",
+              "frame_index": 1853,
+              "loss": 0.22804485261440277,
+              "l1": 0.13480046391487122,
+              "loss_terms": {
+                "l1": 0.10784037411212921,
+                "ssim": 0.039361000061035156,
+                "mask": 0.08084345608949661,
+                "feature_reg": 1.7274430774705252e-08,
+                "camera_reg": 0.0
+              },
+              "points": 20000,
+              "seconds": 2.76,
+              "memory_GiB": 8.089271068572998,
+              "transport_stats": {
+                "specular": 0.0005883824778720737
+              }
+            }
+          },
+          "finished_utc": "2026-10-04T05:35:30.149420+00:00",
+          "last_pid": 528664
+        },
+        "eval": {
+          "state": "completed",
+          "cwd": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS",
+          "argv": [
+            "/workspace/ubuntu2004_cuda12_1/utils/conda-envs/ssd-gs/bin/python",
+            "-u",
+            "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/evaluate.py",
+            "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_shading_diagnosis_20261004/gaussian_footprint/Synthetic_GS3/FurBall/last.pt",
+            "--split",
+            "validation",
+            "--output",
+            "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_shading_diagnosis_20261004/gaussian_footprint/Synthetic_GS3/FurBall/validation",
+            "--lpips"
+          ],
+          "logpath": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_shading_diagnosis_20261004/gaussian_footprint/Synthetic_GS3/FurBall.validation.log",
+          "output": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_shading_diagnosis_20261004/gaussian_footprint/Synthetic_GS3/FurBall/validation",
+          "resultpath": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_shading_diagnosis_20261004/gaussian_footprint/Synthetic_GS3/FurBall/validation/metrics.json",
+          "started_utc": "2026-10-04T05:35:30.152060+00:00",
+          "pid": null,
+          "finished_utc": "2026-10-04T05:35:45.403685+00:00",
+          "last_pid": 530257
+        }
+      },
+      "started_utc": "2026-10-04T05:25:51.542131+00:00",
+      "startup_confirmed": {
+        "pid": 528664,
+        "gpu": "0",
+        "step": 100,
+        "row": {
+          "step": 100,
+          "stage": "relighting",
+          "frame_index": 1853,
+          "loss": 0.22804485261440277,
+          "l1": 0.13480046391487122,
+          "loss_terms": {
+            "l1": 0.10784037411212921,
+            "ssim": 0.039361000061035156,
+            "mask": 0.08084345608949661,
+            "feature_reg": 1.7274430774705252e-08,
+            "camera_reg": 0.0
+          },
+          "points": 20000,
+          "seconds": 2.76,
+          "memory_GiB": 8.089271068572998,
+          "transport_stats": {
+            "specular": 0.0005883824778720737
+          }
+        }
+      },
+      "finished_utc": "2026-10-04T05:35:45.407602+00:00"
+    },
+    "PORT-Synthetic_GS3-Lego-gaussian_gradient": {
+      "method": "PORT-GS",
+      "family": "Synthetic_GS3",
+      "scene": "Lego",
+      "state": "completed",
+      "gpu": "1",
+      "phase": null,
+      "pid": null,
+      "output": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_shading_diagnosis_20261004/gaussian_gradient/Synthetic_GS3/Lego",
+      "resultpath": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_shading_diagnosis_20261004/gaussian_gradient/Synthetic_GS3/Lego/validation/metrics.json",
+      "source_archive": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_shading_diagnosis_20261004/source.tar",
+      "reused_from": null,
+      "steps": {
+        "train": {
+          "state": "completed",
+          "cwd": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS",
+          "argv": [
+            "/workspace/ubuntu2004_cuda12_1/utils/conda-envs/ssd-gs/bin/python",
+            "-u",
+            "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/train.py",
+            "--steps",
+            "8000",
+            "--seed",
+            "0",
+            "--resolution",
+            "512",
+            "--background",
+            "1.0",
+            "--display-gamma",
+            "2.2",
+            "--shadow-start",
+            "2000",
+            "--port-start",
+            "2000",
+            "--lr-decay-steps",
+            "30000",
+            "--holdout-every",
+            "10",
+            "--representation",
+            "light_atlas",
+            "--material-head",
+            "svbrdf",
+            "--mask-weight",
+            "0.5",
+            "--foreground-appearance-until",
+            "2000",
+            "--specular",
+            "lobes",
+            "--shading",
+            "gaussian",
+            "--split-scale2d-stop",
+            "0",
+            "--scene",
+            "/workspace/datasets/SSD-GS/data/Synthetic_GS3/Lego",
+            "--output",
+            "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_shading_diagnosis_20261004/gaussian_gradient/Synthetic_GS3/Lego"
+          ],
+          "logpath": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_shading_diagnosis_20261004/gaussian_gradient/Synthetic_GS3/Lego.train.log",
+          "output": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_shading_diagnosis_20261004/gaussian_gradient/Synthetic_GS3/Lego",
+          "resultpath": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_shading_diagnosis_20261004/gaussian_gradient/Synthetic_GS3/Lego/last.pt",
+          "started_utc": "2026-10-04T05:26:21.782133+00:00",
+          "pid": null,
+          "startup_confirmed": {
+            "pid": 528804,
+            "gpu": "1",
+            "step": 100,
+            "row": {
+              "step": 100,
+              "stage": "relighting",
+              "frame_index": 1853,
+              "loss": 0.3643544316291809,
+              "l1": 0.1995813101530075,
+              "loss_terms": {
+                "l1": 0.159665048122406,
+                "ssim": 0.06972231715917587,
+                "mask": 0.13496705889701843,
+                "feature_reg": 1.0922955873127194e-08,
+                "camera_reg": 0.0
+              },
+              "points": 20000,
+              "seconds": 3.03,
+              "memory_GiB": 8.089405059814453,
+              "transport_stats": {
+                "specular": 0.00043672361061908305
+              }
+            }
+          },
+          "finished_utc": "2026-10-04T05:31:17.217634+00:00",
+          "last_pid": 528804
+        },
+        "eval": {
+          "state": "completed",
+          "cwd": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS",
+          "argv": [
+            "/workspace/ubuntu2004_cuda12_1/utils/conda-envs/ssd-gs/bin/python",
+            "-u",
+            "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/evaluate.py",
+            "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_shading_diagnosis_20261004/gaussian_gradient/Synthetic_GS3/Lego/last.pt",
+            "--split",
+            "validation",
+            "--output",
+            "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_shading_diagnosis_20261004/gaussian_gradient/Synthetic_GS3/Lego/validation",
+            "--lpips"
+          ],
+          "logpath": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_shading_diagnosis_20261004/gaussian_gradient/Synthetic_GS3/Lego.validation.log",
+          "output": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_shading_diagnosis_20261004/gaussian_gradient/Synthetic_GS3/Lego/validation",
+          "resultpath": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_shading_diagnosis_20261004/gaussian_gradient/Synthetic_GS3/Lego/validation/metrics.json",
+          "started_utc": "2026-10-04T05:31:17.219858+00:00",
+          "pid": null,
+          "finished_utc": "2026-10-04T05:31:30.049343+00:00",
+          "last_pid": 529687
+        }
+      },
+      "started_utc": "2026-10-04T05:26:21.764468+00:00",
+      "startup_confirmed": {
+        "pid": 528804,
+        "gpu": "1",
+        "step": 100,
+        "row": {
+          "step": 100,
+          "stage": "relighting",
+          "frame_index": 1853,
+          "loss": 0.3643544316291809,
+          "l1": 0.1995813101530075,
+          "loss_terms": {
+            "l1": 0.159665048122406,
+            "ssim": 0.06972231715917587,
+            "mask": 0.13496705889701843,
+            "feature_reg": 1.0922955873127194e-08,
+            "camera_reg": 0.0
+          },
+          "points": 20000,
+          "seconds": 3.03,
+          "memory_GiB": 8.089405059814453,
+          "transport_stats": {
+            "specular": 0.00043672361061908305
+          }
+        }
+      },
+      "finished_utc": "2026-10-04T05:31:30.052938+00:00"
+    },
+    "PORT-Synthetic_GS3-Drums-gaussian_gradient": {
+      "method": "PORT-GS",
+      "family": "Synthetic_GS3",
+      "scene": "Drums",
+      "state": "completed",
+      "gpu": "2",
+      "phase": null,
+      "pid": null,
+      "output": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_shading_diagnosis_20261004/gaussian_gradient/Synthetic_GS3/Drums",
+      "resultpath": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_shading_diagnosis_20261004/gaussian_gradient/Synthetic_GS3/Drums/validation/metrics.json",
+      "source_archive": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_shading_diagnosis_20261004/source.tar",
+      "reused_from": null,
+      "steps": {
+        "train": {
+          "state": "completed",
+          "cwd": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS",
+          "argv": [
+            "/workspace/ubuntu2004_cuda12_1/utils/conda-envs/ssd-gs/bin/python",
+            "-u",
+            "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/train.py",
+            "--steps",
+            "8000",
+            "--seed",
+            "0",
+            "--resolution",
+            "512",
+            "--background",
+            "1.0",
+            "--display-gamma",
+            "2.2",
+            "--shadow-start",
+            "2000",
+            "--port-start",
+            "2000",
+            "--lr-decay-steps",
+            "30000",
+            "--holdout-every",
+            "10",
+            "--representation",
+            "light_atlas",
+            "--material-head",
+            "svbrdf",
+            "--mask-weight",
+            "0.5",
+            "--foreground-appearance-until",
+            "2000",
+            "--specular",
+            "lobes",
+            "--shading",
+            "gaussian",
+            "--split-scale2d-stop",
+            "0",
+            "--scene",
+            "/workspace/datasets/SSD-GS/data/Synthetic_GS3/Drums",
+            "--output",
+            "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_shading_diagnosis_20261004/gaussian_gradient/Synthetic_GS3/Drums"
+          ],
+          "logpath": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_shading_diagnosis_20261004/gaussian_gradient/Synthetic_GS3/Drums.train.log",
+          "output": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_shading_diagnosis_20261004/gaussian_gradient/Synthetic_GS3/Drums",
+          "resultpath": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_shading_diagnosis_20261004/gaussian_gradient/Synthetic_GS3/Drums/last.pt",
+          "started_utc": "2026-10-04T05:28:44.942917+00:00",
+          "pid": null,
+          "startup_confirmed": {
+            "pid": 529194,
+            "gpu": "2",
+            "step": 100,
+            "row": {
+              "step": 100,
+              "stage": "relighting",
+              "frame_index": 1853,
+              "loss": 0.33822840452194214,
+              "l1": 0.18190768361091614,
+              "loss_terms": {
+                "l1": 0.14552615582942963,
+                "ssim": 0.046699728816747665,
+                "mask": 0.14600253105163574,
+                "feature_reg": 8.978518373226052e-09,
+                "camera_reg": 0.0
+              },
+              "points": 20000,
+              "seconds": 2.99,
+              "memory_GiB": 8.08910846710205,
+              "transport_stats": {
+                "specular": 0.0004102755046915263
+              }
+            }
+          },
+          "finished_utc": "2026-10-04T05:33:36.102416+00:00",
+          "last_pid": 529194
+        },
+        "eval": {
+          "state": "completed",
+          "cwd": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS",
+          "argv": [
+            "/workspace/ubuntu2004_cuda12_1/utils/conda-envs/ssd-gs/bin/python",
+            "-u",
+            "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/evaluate.py",
+            "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_shading_diagnosis_20261004/gaussian_gradient/Synthetic_GS3/Drums/last.pt",
+            "--split",
+            "validation",
+            "--output",
+            "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_shading_diagnosis_20261004/gaussian_gradient/Synthetic_GS3/Drums/validation",
+            "--lpips"
+          ],
+          "logpath": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_shading_diagnosis_20261004/gaussian_gradient/Synthetic_GS3/Drums.validation.log",
+          "output": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_shading_diagnosis_20261004/gaussian_gradient/Synthetic_GS3/Drums/validation",
+          "resultpath": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_shading_diagnosis_20261004/gaussian_gradient/Synthetic_GS3/Drums/validation/metrics.json",
+          "started_utc": "2026-10-04T05:33:36.106259+00:00",
+          "pid": null,
+          "finished_utc": "2026-10-04T05:33:48.928011+00:00",
+          "last_pid": 529985
+        }
+      },
+      "started_utc": "2026-10-04T05:28:44.940017+00:00",
+      "startup_confirmed": {
+        "pid": 529194,
+        "gpu": "2",
+        "step": 100,
+        "row": {
+          "step": 100,
+          "stage": "relighting",
+          "frame_index": 1853,
+          "loss": 0.33822840452194214,
+          "l1": 0.18190768361091614,
+          "loss_terms": {
+            "l1": 0.14552615582942963,
+            "ssim": 0.046699728816747665,
+            "mask": 0.14600253105163574,
+            "feature_reg": 8.978518373226052e-09,
+            "camera_reg": 0.0
+          },
+          "points": 20000,
+          "seconds": 2.99,
+          "memory_GiB": 8.08910846710205,
+          "transport_stats": {
+            "specular": 0.0004102755046915263
+          }
+        }
+      },
+      "finished_utc": "2026-10-04T05:33:48.931762+00:00"
+    },
+    "PORT-Synthetic_GS3-FurBall-gaussian_gradient": {
+      "method": "PORT-GS",
+      "family": "Synthetic_GS3",
+      "scene": "FurBall",
+      "state": "completed",
+      "gpu": "3",
+      "phase": null,
+      "pid": null,
+      "output": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_shading_diagnosis_20261004/gaussian_gradient/Synthetic_GS3/FurBall",
+      "resultpath": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_shading_diagnosis_20261004/gaussian_gradient/Synthetic_GS3/FurBall/validation/metrics.json",
+      "source_archive": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_shading_diagnosis_20261004/source.tar",
+      "reused_from": null,
+      "steps": {
+        "train": {
+          "state": "completed",
+          "cwd": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS",
+          "argv": [
+            "/workspace/ubuntu2004_cuda12_1/utils/conda-envs/ssd-gs/bin/python",
+            "-u",
+            "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/train.py",
+            "--steps",
+            "8000",
+            "--seed",
+            "0",
+            "--resolution",
+            "512",
+            "--background",
+            "1.0",
+            "--display-gamma",
+            "2.2",
+            "--shadow-start",
+            "2000",
+            "--port-start",
+            "2000",
+            "--lr-decay-steps",
+            "30000",
+            "--holdout-every",
+            "10",
+            "--representation",
+            "light_atlas",
+            "--material-head",
+            "svbrdf",
+            "--mask-weight",
+            "0.5",
+            "--foreground-appearance-until",
+            "2000",
+            "--specular",
+            "lobes",
+            "--shading",
+            "gaussian",
+            "--split-scale2d-stop",
+            "0",
+            "--scene",
+            "/workspace/datasets/SSD-GS/data/Synthetic_GS3/FurBall",
+            "--output",
+            "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_shading_diagnosis_20261004/gaussian_gradient/Synthetic_GS3/FurBall"
+          ],
+          "logpath": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_shading_diagnosis_20261004/gaussian_gradient/Synthetic_GS3/FurBall.train.log",
+          "output": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_shading_diagnosis_20261004/gaussian_gradient/Synthetic_GS3/FurBall",
+          "resultpath": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_shading_diagnosis_20261004/gaussian_gradient/Synthetic_GS3/FurBall/last.pt",
+          "started_utc": "2026-10-04T05:28:55.982594+00:00",
+          "pid": null,
+          "startup_confirmed": {
+            "pid": 529244,
+            "gpu": "3",
+            "step": 100,
+            "row": {
+              "step": 100,
+              "stage": "relighting",
+              "frame_index": 1853,
+              "loss": 0.2280588448047638,
+              "l1": 0.13481709361076355,
+              "loss_terms": {
+                "l1": 0.10785367339849472,
+                "ssim": 0.03935977444052696,
+                "mask": 0.08084538578987122,
+                "feature_reg": 1.7269831786848044e-08,
+                "camera_reg": 0.0
+              },
+              "points": 20000,
+              "seconds": 3.15,
+              "memory_GiB": 8.08919620513916,
+              "transport_stats": {
+                "specular": 0.0005884087877348065
+              }
+            }
+          },
+          "finished_utc": "2026-10-04T05:33:23.761574+00:00",
+          "last_pid": 529244
+        },
+        "eval": {
+          "state": "completed",
+          "cwd": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS",
+          "argv": [
+            "/workspace/ubuntu2004_cuda12_1/utils/conda-envs/ssd-gs/bin/python",
+            "-u",
+            "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/evaluate.py",
+            "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_shading_diagnosis_20261004/gaussian_gradient/Synthetic_GS3/FurBall/last.pt",
+            "--split",
+            "validation",
+            "--output",
+            "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_shading_diagnosis_20261004/gaussian_gradient/Synthetic_GS3/FurBall/validation",
+            "--lpips"
+          ],
+          "logpath": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_shading_diagnosis_20261004/gaussian_gradient/Synthetic_GS3/FurBall.validation.log",
+          "output": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_shading_diagnosis_20261004/gaussian_gradient/Synthetic_GS3/FurBall/validation",
+          "resultpath": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_shading_diagnosis_20261004/gaussian_gradient/Synthetic_GS3/FurBall/validation/metrics.json",
+          "started_utc": "2026-10-04T05:33:23.764145+00:00",
+          "pid": null,
+          "finished_utc": "2026-10-04T05:33:34.742015+00:00",
+          "last_pid": 529919
+        }
+      },
+      "started_utc": "2026-10-04T05:28:55.968940+00:00",
+      "startup_confirmed": {
+        "pid": 529244,
+        "gpu": "3",
+        "step": 100,
+        "row": {
+          "step": 100,
+          "stage": "relighting",
+          "frame_index": 1853,
+          "loss": 0.2280588448047638,
+          "l1": 0.13481709361076355,
+          "loss_terms": {
+            "l1": 0.10785367339849472,
+            "ssim": 0.03935977444052696,
+            "mask": 0.08084538578987122,
+            "feature_reg": 1.7269831786848044e-08,
+            "camera_reg": 0.0
+          },
+          "points": 20000,
+          "seconds": 3.15,
+          "memory_GiB": 8.08919620513916,
+          "transport_stats": {
+            "specular": 0.0005884087877348065
+          }
+        }
+      },
+      "finished_utc": "2026-10-04T05:33:34.745659+00:00"
+    }
+  }
+}

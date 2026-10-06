@@ -1,0 +1,57 @@
+{
+  "split": "validation",
+  "checkpoint": "runs/lisa_material_geometry_20261004/neural_diffuse/Synthetic_GS3/Drums/step_016000.pt",
+  "render_branch": "gaussian",
+  "metrics": {
+    "PSNR": 24.393003463745117,
+    "SSIM": 0.9405306875705719,
+    "raw_MSE": 0.0038652148214168847,
+    "alpha_L1": 0.007605860708281398
+  },
+  "views": [
+    {
+      "frame_index": 5,
+      "name": "r_5",
+      "PSNR": 23.876422882080078,
+      "SSIM": 0.9393360018730164,
+      "raw_MSE": 0.004361472558230162,
+      "alpha_L1": 0.007442052010446787
+    },
+    {
+      "frame_index": 505,
+      "name": "r_505",
+      "PSNR": 23.33158302307129,
+      "SSIM": 0.9077118635177612,
+      "raw_MSE": 0.004659747239202261,
+      "alpha_L1": 0.00958900898694992
+    },
+    {
+      "frame_index": 1005,
+      "name": "r_1005",
+      "PSNR": 24.747800827026367,
+      "SSIM": 0.9553229212760925,
+      "raw_MSE": 0.0035329959355294704,
+      "alpha_L1": 0.007540649268776178
+    },
+    {
+      "frame_index": 1505,
+      "name": "r_1505",
+      "PSNR": 25.616207122802734,
+      "SSIM": 0.9597519636154175,
+      "raw_MSE": 0.0029066435527056456,
+      "alpha_L1": 0.005851732566952705
+    }
+  ],
+  "protocol": "uint8-quantized observation RGB, unit PSNR, zero-padded 11x11 SSIM sigma1.5; LPIPS standard [-1,1]; raw_MSE is unclipped observation MSE; original held-out camera calibration",
+  "training_resolution": 512,
+  "resolution": 512,
+  "background": 1.0,
+  "evaluated_frames": 4,
+  "limit": 4,
+  "save_all": false,
+  "display_gamma": 2.2,
+  "camera_protocol": "saved training offsets on fit frames; original calibration on held-out frames",
+  "light_protocol": "original calibration",
+  "corrected_fit_frames": 0,
+  "observation_protocol": "PNG foreground gamma then alpha composition; HDR full-image gamma"
+}

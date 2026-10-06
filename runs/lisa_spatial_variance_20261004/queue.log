@@ -1,0 +1,25 @@
+{"event": "startup_confirmed", "job": "PORT-Synthetic_GS3-FurBall-continue_gradient", "gpu": "1.1", "pid": 552470, "phase": "train", "step": 100}
+{"event": "startup_confirmed", "job": "PORT-Synthetic_GS3-Lego-continue_variance", "gpu": "3.1", "pid": 552471, "phase": "train", "step": 100}
+{"event": "startup_confirmed", "job": "PORT-Synthetic_GS3-Drums-continue_gradient", "gpu": "3.0", "pid": 552469, "phase": "train", "step": 100}
+{"event": "startup_confirmed", "job": "PORT-Synthetic_GS3-Lego-continue_gradient", "gpu": "1.0", "pid": 552468, "phase": "train", "step": 100}
+{"event": "phasefinish", "job": "PORT-Synthetic_GS3-FurBall-continue_gradient", "gpu": "1.1", "phase": "train", "pid": 552470}
+{"event": "phasefinish", "job": "PORT-Synthetic_GS3-FurBall-continue_gradient", "gpu": "1.1", "phase": "eval", "pid": 553477}
+{"event": "jobfinish", "job": "PORT-Synthetic_GS3-FurBall-continue_gradient", "gpu": "1.1"}
+{"event": "phasefinish", "job": "PORT-Synthetic_GS3-Lego-continue_gradient", "gpu": "1.0", "phase": "train", "pid": 552468}
+{"event": "startup_confirmed", "job": "PORT-Synthetic_GS3-Drums-continue_variance", "gpu": "1.1", "pid": 553558, "phase": "train", "step": 100}
+{"event": "phasefinish", "job": "PORT-Synthetic_GS3-Lego-continue_gradient", "gpu": "1.0", "phase": "eval", "pid": 553841}
+{"event": "jobfinish", "job": "PORT-Synthetic_GS3-Lego-continue_gradient", "gpu": "1.0"}
+{"event": "startup_confirmed", "job": "PORT-Synthetic_GS3-FurBall-continue_variance", "gpu": "1.0", "pid": 553914, "phase": "train", "step": 100}
+{"event": "phasefinish", "job": "PORT-Synthetic_GS3-Drums-continue_gradient", "gpu": "3.0", "phase": "train", "pid": 552469}
+{"event": "phasefinish", "job": "PORT-Synthetic_GS3-Drums-continue_gradient", "gpu": "3.0", "phase": "eval", "pid": 554244}
+{"event": "jobfinish", "job": "PORT-Synthetic_GS3-Drums-continue_gradient", "gpu": "3.0"}
+{"event": "phasefinish", "job": "PORT-Synthetic_GS3-Lego-continue_variance", "gpu": "3.1", "phase": "train", "pid": 552471}
+{"event": "phasefinish", "job": "PORT-Synthetic_GS3-Lego-continue_variance", "gpu": "3.1", "phase": "eval", "pid": 554402}
+{"event": "jobfinish", "job": "PORT-Synthetic_GS3-Lego-continue_variance", "gpu": "3.1"}
+{"event": "phasefinish", "job": "PORT-Synthetic_GS3-FurBall-continue_variance", "gpu": "1.0", "phase": "train", "pid": 553914}
+{"event": "phasefinish", "job": "PORT-Synthetic_GS3-FurBall-continue_variance", "gpu": "1.0", "phase": "eval", "pid": 555557}
+{"event": "jobfinish", "job": "PORT-Synthetic_GS3-FurBall-continue_variance", "gpu": "1.0"}
+{"event": "phasefinish", "job": "PORT-Synthetic_GS3-Drums-continue_variance", "gpu": "1.1", "phase": "train", "pid": 553558}
+{"event": "phasefinish", "job": "PORT-Synthetic_GS3-Drums-continue_variance", "gpu": "1.1", "phase": "eval", "pid": 555647}
+{"event": "jobfinish", "job": "PORT-Synthetic_GS3-Drums-continue_variance", "gpu": "1.1"}
+{"event": "queue_complete", "status": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_spatial_variance_20261004/status.json"}

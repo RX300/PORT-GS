@@ -1,0 +1,44 @@
+{
+  "split": "test",
+  "checkpoint": "PORT-GS/runs/refactored_six_scene_20261001_preflight/directional_port_v1/Real_NRHints/Cat/last.pt",
+  "render_branch": "gaussian",
+  "metrics": {
+    "PSNR": 7.965505123138428,
+    "SSIM": 0.13357003033161163,
+    "raw_MSE": 0.1651739589869976,
+    "alpha_L1": 0.45210424065589905,
+    "LPIPS": 0.7010422050952911
+  },
+  "views": [
+    {
+      "frame_index": 0,
+      "name": "r_0",
+      "PSNR": 9.094305992126465,
+      "SSIM": 0.17253980040550232,
+      "raw_MSE": 0.12319465726613998,
+      "alpha_L1": 0.4532325267791748,
+      "LPIPS": 0.6861573457717896
+    },
+    {
+      "frame_index": 33,
+      "name": "r_33",
+      "PSNR": 6.836704254150391,
+      "SSIM": 0.09460026025772095,
+      "raw_MSE": 0.20715326070785522,
+      "alpha_L1": 0.4509759545326233,
+      "LPIPS": 0.7159270644187927
+    }
+  ],
+  "protocol": "uint8-quantized observation RGB, unit PSNR, zero-padded 11x11 SSIM sigma1.5; LPIPS standard [-1,1]; raw_MSE is unclipped observation MSE; original held-out camera calibration",
+  "training_resolution": 64,
+  "resolution": 64,
+  "background": 0.0,
+  "evaluated_frames": 2,
+  "limit": 2,
+  "save_all": true,
+  "display_gamma": 2.2,
+  "camera_protocol": "saved training offsets on fit frames; original calibration on held-out frames",
+  "light_protocol": "original calibration",
+  "corrected_fit_frames": 0,
+  "observation_protocol": "PNG foreground gamma then alpha composition; HDR full-image gamma"
+}

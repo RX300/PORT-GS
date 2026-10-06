@@ -1,0 +1,61 @@
+{
+  "coarse_supported_points": 9818,
+  "proposal_bounds": [
+    [
+      -0.4917091131210327,
+      -0.9133528470993042,
+      -0.7936664819717407
+    ],
+    [
+      0.48625656962394714,
+      0.6222679615020752,
+      0.825952410697937
+    ]
+  ],
+  "proposal_points": 160000,
+  "accepted_points": 54180,
+  "mask_dilation_pixels": 2,
+  "minimum_view_fraction": 0.9,
+  "alpha_threshold": 0.05,
+  "scale_rule": "RMS distance to the three nearest neighbors",
+  "mode": "hull",
+  "scene": "/workspace/datasets/SSD-GS/data/Real_NRHints/Pixiu",
+  "fit_frames": [
+    0,
+    17,
+    34,
+    51,
+    68,
+    85,
+    102,
+    119,
+    136,
+    153,
+    170,
+    187,
+    204,
+    221,
+    238,
+    255,
+    272,
+    289,
+    306,
+    323,
+    340,
+    357,
+    374,
+    391,
+    408,
+    425,
+    442,
+    459,
+    476,
+    493,
+    510,
+    527
+  ],
+  "points": 20000,
+  "seed": 0,
+  "radius": 1.402038288116455,
+  "scope": "Fresh seeds from training cameras and masks only"
+}

@@ -1,0 +1,44 @@
+{
+  "family": "Real_NRHints",
+  "scene": "CatSmall",
+  "frames": 158,
+  "methods": [
+    "LiSA-staged",
+    "GS3",
+    "SSD-GS",
+    "RNG",
+    "OLAT-Gaussians"
+  ],
+  "ground_truth_differences": {
+    "LiSA-staged": {
+      "differing_channels": 0,
+      "total_channels": 124256256,
+      "maximum_byte_difference": 0,
+      "absolute_byte_difference": 0
+    },
+    "GS3": {
+      "differing_channels": 8477887,
+      "total_channels": 124256256,
+      "maximum_byte_difference": 42,
+      "absolute_byte_difference": 9084391
+    },
+    "SSD-GS": {
+      "differing_channels": 8477887,
+      "total_channels": 124256256,
+      "maximum_byte_difference": 42,
+      "absolute_byte_difference": 9084391
+    },
+    "RNG": {
+      "differing_channels": 8477887,
+      "total_channels": 124256256,
+      "maximum_byte_difference": 42,
+      "absolute_byte_difference": 9084391
+    },
+    "OLAT-Gaussians": {
+      "differing_channels": 170213,
+      "total_channels": 124256256,
+      "maximum_byte_difference": 1,
+      "absolute_byte_difference": 170213
+    }
+  }
+}

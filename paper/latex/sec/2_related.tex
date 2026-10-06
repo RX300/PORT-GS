@@ -1,0 +1,19 @@
+\section{Related Work}
+\label{sec:related}
+
+\paragraph{Relighting from point-light captures.}
+Neural reflectance fields recover relightable volumes from OLAT illumination~\cite{bi2020neural,bi2020deep}, NRHints~\cite{zeng2023nrhints} conditions a radiance field on ray-traced shadow and highlight hints, and inverse rendering under environment light factors scenes into geometry and BRDFs~\cite{srinivasan2021nerv,zhang2021nerfactor,jin2023tensoir,gao2024relightable,liang2024gsir,jiang2024gaussianshader,chen2025gigs,gu2025irgs}.
+For point lights, \gsthree~\cite{bi2024gs3} combines spatial and angular Gaussians with splatted shadows and a residual network, RNG~\cite{fan2025rng} shades neural Gaussian features with a network-refined depth shadow-map cue and switches from forward to deferred shading during training, OLAT Gaussians~\cite{kuang2024olat} are guided by a proxy mesh from neural surface reconstruction~\cite{wang2021neus}, BiGS~\cite{liu2025bigs} uses bidirectional spherical harmonics, SSS-GS~\cite{dihlmann2024sss} adds a neural subsurface residual, and SSD-GS~\cite{zheng2026ssdgs} separates scattering, shadows and reflection.
+RadiosityGS~\cite{jiang2025radiosity} and stochastic ray tracing~\cite{xu2026stochastic} solve light transport explicitly on Gaussians, neural transmittance and radiance transfer fields learn visibility and transfer for radiance fields~\cite{shafiei2021learning,lyu2022neural}, PRTGS~\cite{guo2024prtgs} precomputes radiance transfer for Gaussians under distant light, and relightable avatars learn shadows and transfer on a body model~\cite{bolanos2024gaussian,saito2024rgca,wang2025fullbody}.
+All of these evaluate visibility or scattering per primitive or per ray; \ours moves both into the light's image plane.
+
+\paragraph{Visibility for Gaussians.}
+Per-Gaussian visibility comes from splatting toward the light~\cite{bi2024gs3,zheng2026ssdgs}, from tracing rays through Gaussians~\cite{gao2024relightable,moenne2024gaussian,gu2025irgs,xu2026stochastic}, or from depth shadow maps~\cite{fan2025rng}, and deep Gaussian shadow maps~\cite{mir2026animated} tabulate the transmittance of fixed Gaussians; our atlas is filtered, evaluated at arbitrary receivers, and learned with the geometry it describes.
+
+\paragraph{Light-space rendering.}
+Shadow maps~\cite{williams1978casting} and their filtered variants~\cite{reeves1987rendering,fernando2005percentage,donnelly2006variance,annen2007convolution,annen2008exponential,peters2015moment}, shadow maps for semi-transparent occluders~\cite{lokovic2000deep,kim2001opacity,yuksel2008deep,jansen2010fourier,salvi2010adaptive,peters2016beyond}, translucent shadow maps~\cite{dachsbacher2003translucent,jimenez2010real} built on diffusion models~\cite{jensen2001practical,deon2007efficient}, reflective shadow maps~\cite{dachsbacher2005reflective,dachsbacher2006splatting} and multi-scale light representations~\cite{kaplanyan2010cascaded,crassin2011interactive} store per-light quantities and gather them at shading time, and precomputed radiance transfer makes outgoing light linear in the incident light~\cite{sloan2002precomputed}.
+Our shadow test is a two-moment test on an opacity-weighted deposit, close to variance and opacity shadow maps, and our transfer term resembles a translucent shadow map on pre-filtered levels without explicit sender positions.
+Learned counterparts filter shadow-map buffers for known geometry~\cite{datta2022neural} or decode rasterized buffers~\cite{nalbach2017deep,thies2019deferred,gao2020deferred,zhang2021neural,ye2024deferred}; \ours learns the stored quantity and the kernels while reconstructing the geometry.
+
+\paragraph{The domain of the loss.}
+RawNeRF~\cite{mildenhall2022nerf} reweights a linear loss toward a tone-mapped error, and \gsthree~\cite{bi2024gs3} anneals the gamma of its HDR targets toward linear radiance; in our model, the display domain prevented thin geometry from forming (\cref{sec:optimization}).

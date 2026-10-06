@@ -1,0 +1,13 @@
+method,family,scene,test_frames,PSNR,SSIM,LPIPS,metrics_path
+directional_port_v1,Real_NRHints,Cat,66,25.258174000364363,0.8207287914825209,0.16727712976210046,directional_port_v1/Real_NRHints/Cat/test/metrics.json
+directional_port_v1,Real_NRHints,Pixiu,71,26.319529412497936,0.881218004394585,0.1056432962207727,directional_port_v1/Real_NRHints/Pixiu/test/metrics.json
+directional_port_v1,Synthetic_GS3,AnisoMetal,400,28.263915700912477,0.9581275452673436,0.04529532977379858,directional_port_v1/Synthetic_GS3/AnisoMetal/test/metrics.json
+directional_port_v1,Synthetic_GS3,Translucent,400,29.320385785102843,0.965119709521532,0.05126861363649368,directional_port_v1/Synthetic_GS3/Translucent/test/metrics.json
+directional_port_v1,Synthetic_SSS-GS,bunny_small,500,38.169649591445925,0.9879234608411789,0.0186116753667593,directional_port_v1/Synthetic_SSS-GS/bunny_small/test/metrics.json
+directional_port_v1,Synthetic_SSS-GS,dragon_small,500,36.137885276794435,0.9766142104864121,0.03417975530400872,directional_port_v1/Synthetic_SSS-GS/dragon_small/test/metrics.json
+neural_material,Real_NRHints,Cat,66,24.21687308224765,0.8081922422755848,0.19437711843938538,neural_material/Real_NRHints/Cat/test/metrics.json
+neural_material,Real_NRHints,Pixiu,71,26.137777516539668,0.8805576529301388,0.10952348057442987,neural_material/Real_NRHints/Pixiu/test/metrics.json
+neural_material,Synthetic_GS3,AnisoMetal,400,23.3651007270813,0.9301938226819039,0.057281246958300475,neural_material/Synthetic_GS3/AnisoMetal/test/metrics.json
+neural_material,Synthetic_GS3,Translucent,400,22.87793475151062,0.9313403695821763,0.07197196720167995,neural_material/Synthetic_GS3/Translucent/test/metrics.json
+neural_material,Synthetic_SSS-GS,bunny_small,500,26.638925329208373,0.9493493864536285,0.06894823750853539,neural_material/Synthetic_SSS-GS/bunny_small/test/metrics.json
+neural_material,Synthetic_SSS-GS,dragon_small,500,32.40116817474365,0.9572449541091919,0.053152956385165456,neural_material/Synthetic_SSS-GS/dragon_small/test/metrics.json

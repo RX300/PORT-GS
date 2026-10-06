@@ -1,0 +1,83 @@
+{
+  "name": "lisa_v2_selection_split_fg_20261004",
+  "note": "Follow-up of lisa_v2_selection_20261004 (same 8 scenes, split, 30k recipe, evaluation, decision rule). Measured late-training densification statistics of variant D are ~1e-4, 10x below the 0.0008 absgrad threshold for every size class, so without the gradient-free footprint split densification stalls and a dark blob of large Gaussians forms on Lego/Drums. The footprint split was the de facto densifier; its early shell relied on painting split children background-white, which --foreground-appearance removes. Variant F: original densification (footprint split on) + foreground appearance + specular lobes.",
+  "python": "/workspace/ubuntu2004_cuda12_1/utils/conda-envs/ssd-gs/bin/python",
+  "data_root": "/workspace/datasets/SSD-GS/data",
+  "worker_gpus": [
+    0,
+    1
+  ],
+  "launch_environment": {
+    "PATH_prefix": "/workspace/ubuntu2004_cuda12_1/utils/conda-envs/ssd-gs/bin:/usr/local/cuda-12.1/bin",
+    "CUDA_HOME": "/usr/local/cuda-12.1",
+    "TORCH_CUDA_ARCH_LIST": "8.9",
+    "MAX_JOBS": "8",
+    "OMP_NUM_THREADS": "8",
+    "HF_HOME": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/third_party/hf_cache",
+    "TORCH_HOME": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/third_party/torch_cache",
+    "MPLCONFIGDIR": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/third_party/mpl_cache",
+    "PYTHONDONTWRITEBYTECODE": "1",
+    "OPENBLAS_NUM_THREADS": "1",
+    "PYTORCH_CUDA_ALLOC_CONF": "expandable_segments:True"
+  },
+  "train": {
+    "steps": 30000,
+    "seed": 0,
+    "resolution": 512,
+    "background": 0.0,
+    "display-gamma": 2.2,
+    "shadow-start": 2000,
+    "port-start": 2000
+  },
+  "families": {
+    "Synthetic_GS3": {
+      "scenes": [
+        "Lego",
+        "Drums",
+        "Hotdog"
+      ],
+      "train": {
+        "background": 1.0
+      }
+    },
+    "Real_NRHints": {
+      "scenes": [
+        "CupFabric",
+        "FurScene",
+        "Cat"
+      ],
+      "train": {
+        "optimize-cameras": true,
+        "camera-mode": "rotation",
+        "camera-gauge": "translation",
+        "camera-start": 2000,
+        "camera-lr": 0.001,
+        "camera-lr-final": 1e-05
+      }
+    },
+    "Synthetic_SSS-GS": {
+      "scenes": [
+        "soap_small",
+        "bunny_small"
+      ],
+      "train": {
+        "resolution": 256,
+        "unit-light-intensity": 1.0
+      }
+    }
+  },
+  "variants": {
+    "split_fg_spec": {
+      "representation": "light_atlas",
+      "material-head": "svbrdf",
+      "foreground-appearance": true,
+      "specular": "lobes"
+    }
+  },
+  "eval_split": "validation",
+  "eval_limit": 0,
+  "eval_save_all": false,
+  "eval_highlights": true,
+  "eval_shift_align": 0,
+  "eval_calibrate_test": 0
+}

@@ -1,0 +1,17 @@
+\begin{table}[t]
+\caption{\textbf{Where the transfer term matters.} Per-scene PSNR differences (mean$\pm$std of paired differences over three seeds) of the full model against removing the transfer term and against the capacity-matched local residual, and the share of linear radiance the full model routes through the transfer term (mean over 8 test views).}
+\label{tab:paired}
+\centering\small
+\setlength{\tabcolsep}{4pt}
+\begin{tabular}{@{}lccc@{}}
+\toprule
+Scene & vs.\ w/o transfer & vs.\ local residual & Transfer share \\
+\midrule
+Drums & $+0.10${\tiny$\pm$0.02} & $-0.09${\tiny$\pm$0.02} & 6\% \\
+FurScene & $+0.02${\tiny$\pm$0.03} & $+0.02${\tiny$\pm$0.02} & 7\% \\
+AnisoMetal & $+1.42${\tiny$\pm$0.69} & $-0.18${\tiny$\pm$0.75} & 7\% \\
+Translucent & $+2.29${\tiny$\pm$0.23} & $+0.41${\tiny$\pm$0.26} & 17\% \\
+Soap & $+2.99${\tiny$\pm$0.30} & $-0.29${\tiny$\pm$0.11} & 58\% \\
+\bottomrule
+\end{tabular}
+\end{table}

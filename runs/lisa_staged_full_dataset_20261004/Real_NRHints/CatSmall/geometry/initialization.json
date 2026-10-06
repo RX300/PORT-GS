@@ -1,0 +1,61 @@
+{
+  "coarse_supported_points": 12214,
+  "proposal_bounds": [
+    [
+      -0.3738108277320862,
+      -0.48042547702789307,
+      -0.3251741826534271
+    ],
+    [
+      0.38165825605392456,
+      0.33244574069976807,
+      0.343546062707901
+    ]
+  ],
+  "proposal_points": 160000,
+  "accepted_points": 41400,
+  "mask_dilation_pixels": 2,
+  "minimum_view_fraction": 0.9,
+  "alpha_threshold": 0.05,
+  "scale_rule": "RMS distance to the three nearest neighbors",
+  "mode": "hull",
+  "scene": "/workspace/datasets/SSD-GS/data/Real_NRHints/CatSmall",
+  "fit_frames": [
+    0,
+    39,
+    78,
+    117,
+    156,
+    195,
+    234,
+    273,
+    312,
+    351,
+    390,
+    429,
+    468,
+    507,
+    546,
+    585,
+    624,
+    663,
+    702,
+    741,
+    780,
+    819,
+    858,
+    897,
+    936,
+    975,
+    1014,
+    1053,
+    1092,
+    1131,
+    1170,
+    1209
+  ],
+  "points": 20000,
+  "seed": 0,
+  "radius": 0.6580464363098144,
+  "scope": "Fresh seeds from training cameras and masks only"
+}

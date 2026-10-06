@@ -1,0 +1,6 @@
+\begin{figure*}[t]
+  \centering
+  \resizebox{0.94\textwidth}{!}{\input{fig/pipeline_tikz}}
+  \caption{\textbf{方法概览。}对每个光源，从光源视角光栅化高斯一次；每个高斯按其截获光比例对应的合成权重，沉积可学习通量特征 $\boldsymbol\phi_i$ 与深度矩（\cref{eq:atlas}）。接收点投影到光源视图，从金字塔汇集多尺度统计量与通量，并结合矩阴影检验上的残差、线性作用于汇集通量特征的光传输核，以及局部材质进行着色。缩略图：Hotdog 模型在测试视图上的实际缓冲区。底部：\cref{sec:optimization} 的训练流程。}
+  \label{fig:pipeline}
+\end{figure*}

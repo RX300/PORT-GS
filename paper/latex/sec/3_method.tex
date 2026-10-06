@@ -1,0 +1,92 @@
+\section{Light-Space Atlases}
+\label{sec:method}
+
+\input{fig/pipeline}
+
+We reconstruct an object from images $\{Y_m\}$, each taken by a calibrated camera under a point light at $\vect p_m$ with RGB intensity $\vect I_m$ (\cref{fig:pipeline}).
+
+\subsection{Preliminaries}
+\label{sec:prelim}
+The scene is a set of 3D Gaussians with means $\mu_i$, covariances $\Sigma_i$ and opacities $o_i$~\cite{kerbl20233d}, each carrying a base color $\vect b_i\in\mathbb R^3$ and a latent material code $\vect f_i\in\mathbb R^{32}$ whose first three channels define a learned unit normal $\vect n_i$.
+Splatting composites per-Gaussian attributes $\vect c_i$ front to back,
+\begin{equation}
+  \bar{\vect c}(u)=\sum_i w_i(u)\,\vect c_i,\qquad w_i(u)=\alpha_i(u)\prod_{j<i}\big(1-\alpha_j(u)\big),
+  \label{eq:composite}
+\end{equation}
+where $\alpha_i(u)$ is the opacity of Gaussian $i$ at pixel $u$.
+For a point $\vect x$ we write $\vect l,\vect v,\vect h$ for the unit light, view and half vectors and $\bar E(\vect x)=\vect I/\|\vect p-\vect x\|^2$ for the irradiance at normal incidence.
+
+\subsection{Splatting from the light records the deposit}
+\label{sec:deposit}
+Place a perspective camera at the light, aimed at the scene center, with a field of view that covers the splatted extent of 99.9\% of the Gaussians.
+Its pixel $u$ subtends a solid angle $d\omega_u$ and receives the flux $\vect I\,d\omega_u$.
+Splatting treats each Gaussian as absorbing the fraction $\alpha_i(u)$ of the light still travelling along the ray, so the flux it intercepts is
+\begin{equation}
+  P_i(u)=\vect I\,d\omega_u\,w_i(u),
+  \label{eq:flux}
+\end{equation}
+with the weights of \cref{eq:composite}.
+This holds within the rasterized splatting model, whose per-tile sorting by center depth, low-pass filter and clamped opacities approximate volumetric transmittance~\cite{radl2024stopthepop,huang2024error,talegaonkar2025volumetrically,yu2024mip}.
+No normal or distance enters \cref{eq:flux}: since an element $dA$ at distance $r$ and incidence $\theta$ receives $\vect I\cos\theta\,dA/r^2=\vect I\,d\omega$, foreshortening and falloff are accounted for by how many light pixels a surface covers.
+
+\paragraph{Atlas.}
+Every Gaussian emits $\vect c_i=[\boldsymbol\phi_i,\,z_i,\,z_i^2,\,1]$, where $z_i$ is the depth of its center along the light's axis relative to the scene center, normalized by the scene radius, and $\boldsymbol\phi_i=\softplus(\mathrm{MLP}_\phi(\vect f_i,\vect b_i,\vect n_i\cdot\vect l_i))\in\mathbb R_+^{C}$ are $C=8$ learned flux features.
+One rasterization at $512^2$ yields the atlas
+\begin{equation}
+  \vect A(u)=\sum_i w_i(u)\,\vect c_i=\big[\boldsymbol\Phi(u),\,M_1(u),\,M_2(u),\,M_0(u)\big],
+  \label{eq:atlas}
+\end{equation}
+the deposit per unit of the pixel's incident flux: $M_0$ is the fraction of that flux absorbed by the scene, $M_1/M_0$ and $M_2/M_0$ are the first two moments of the depth at which it is absorbed, and $\boldsymbol\Phi$ describes what it hit.
+The absolute deposit $\vect I\,d\omega_u\vect A(u)$ also involves $d\omega_u\propto\cos^3$ of the off-axis angle, which varies by less than 30\% across a typical atlas in our data (up to $2.1\times$ at the corners of the widest one); the shadow statistics below are ratios that do not depend on it, and the transfer term ignores it.
+A pyramid $\vect A_0,\dots,\vect A_{K-1}$ with $K=7$ follows from repeated binomial blurring and $2\times$ decimation.
+Because every channel is linear in the weights $w_i$, each level still holds moments and feature sums of the deposit, over footprints growing from one texel to about a third of the object, which is what makes such shadow maps filterable~\cite{donnelly2006variance,peters2015moment}.
+
+\subsection{Shading from the atlas}
+\label{sec:shading}
+A receiver $\vect x$ projects into the light view at $u(\vect x)$ with normalized depth $z(\vect x)$ and samples every level bilinearly.
+At level $k$ we form the mean deposit depth $\bar z_k=M_{1,k}/M_{0,k}$, a spread $\eta_k=(M_{2,k}/M_{0,k}-\bar z_k^2+\tau_k^2)^{1/2}$ that includes the texel size $\tau_k$, the offset $\delta_k=z-\bar z_k$ of the receiver behind the deposit, and $t_k=\delta_k/\eta_k$.
+If the depth of the deposit within a footprint were normally distributed, the fraction of light absorbed in front of the receiver would be $M_{0,k}\,G(t_k)$ with the standard normal CDF $G$, which gives the moment test
+\begin{equation}
+  V_k=1-M_{0,k}\,G(t_k-\beta),
+  \label{eq:moment}
+\end{equation}
+where the bias $\beta=3$, in units of the local spread, prevents self-shadowing.
+The descriptors $\vect q_k=[M_{0,k},t_k,\delta_k,\log\eta_k,V_k]$ of all levels form $\vect Q(\vect x)\in\mathbb R^{5K}$.
+The test is a weak prior where an occluder and the receiver share a footprint (for a half-transparent occluder in front of an opaque receiver, $t_0=1$ and \cref{eq:moment} returns $0.98$ instead of $0.5$, which the Chebyshev bound of variance shadow maps gets right~\cite{donnelly2006variance}), and each Gaussian deposits the depth of its center, so a large, obliquely lit Gaussian appears at a single depth.
+
+\paragraph{Visibility.}
+A residual network $\mathcal G$, initialized to zero, corrects the finest test,
+\begin{equation}
+  V(\vect x)=\sigma\big(\logit V_0(\vect x)+\mathcal G(\vect Q,\vect f,\vect n\cdot\vect l)\big),
+  \label{eq:visibility}
+\end{equation}
+so training starts from a classical filtered shadow map, and $\mathcal G$ learns from the multi-scale statistics to repair the cases above, the partial transmittance of fur and the soft shadow boundaries of real, finite lights.
+
+\paragraph{Transfer.}
+By \cref{eq:flux}, light that enters a translucent object and leaves it at $\vect x$ contributes $\vect I\!\int\!\sum_i R(\vect x,\mu_i)\,w_i(\omega)\,d\omega$: a receiver-dependent kernel $R$ integrated against the deposit over the light's solid angle.
+Translucent shadow maps evaluate such integrals with stored irradiance and fixed diffusion kernels~\cite{dachsbacher2003translucent,deon2007efficient,jimenez2010real}.
+We learn both the deposited features and the kernels, using the pyramid levels as kernels of increasing width:
+\begin{align}
+  L_{\mathrm{tr}}(\vect x)&=\textstyle\sum_{k}\vect W_k\,\boldsymbol\Phi_k(\vect x),\label{eq:transfer}\\
+  \{\vect W_k\}_k&=\softplus\big(\mathcal K(\vect Q,\vect f,\vect n\cdot\vect l,\vect n\cdot\vect v)\big),\quad \vect W_k\in\mathbb R_+^{3\times C}.\nonumber
+\end{align}
+The kernels depend only on the receiver and the geometric statistics $\vect Q$, so for a given geometry and light $L_{\mathrm{tr}}$ is linear in the deposited features; since the receiver's own deposit lies in its footprint, nothing prevents $L_{\mathrm{tr}}$ from also absorbing part of the direct reflection, and the split between the terms is learned.
+
+\paragraph{Local material and radiance.}
+The local reflectance $\rho(\vect x)$ is a latent-code neural BRDF: an MLP of $\vect f$, $\vect n$, Fourier encodings of $\vect l,\vect v,\vect h$ and the reflected view direction $\vect r$, their cosines and highlight hints $e^{\kappa(\vect n\cdot\vect h-1)}$~\cite{zeng2023nrhints}, times a smoothed cosine $\psi(\vect n\cdot\vect l)=\softplus(20\,\vect n\cdot\vect l)/20$.
+Position enters only through eight light-independent coefficients that mix eight light-dependent responses, which limits how much cast shadow can be baked into the material (the free per-Gaussian codes still allow some), and isotropic lobes $s(\vect x)$ with fixed sharpness $\kappa\in\{8,\dots,2048\}$ and light-independent weights carry sharp highlights.
+The outgoing radiance is
+\begin{equation}
+  L(\vect x)=\bar E(\vect x)\big[V(\vect x)\,\rho(\vect x)+V_0(\vect x)\,s(\vect x)+L_{\mathrm{tr}}(\vect x)\big].
+  \label{eq:radiance}
+\end{equation}
+The lobes use the geometric test $V_0$, so highlights keep a gradient path where the learned $V$ is still wrong.
+Factoring $\bar E(\vect x)$ out lets the networks predict reflectance-like quantities; for $L_{\mathrm{tr}}$ it replaces the falloff at the entry points by that at the receiver, which is off by the squared ratio of their light distances, $(r_{\mathrm{out}}/r_{\mathrm{in}})^2$, for back-lit transmission; the kernels can absorb this only on average, which suffices when light distances vary little within a capture (constant in the synthetic scenes, within $1.8\times$ in the real ones; supplement).
+All inputs of $\mathcal G$ and $\mathcal K$ are relative to the light, so the operator is defined in the light's frame rather than indexed by its position; whether this helps extrapolation is the subject of experiment E1 (\cref{sec:exp_atlas}).
+
+\subsection{Receivers: Gaussians or pixels}
+\label{sec:receivers}
+\emph{Gaussian receivers} shade every Gaussian center $\mu_i$ and composite the colors with \cref{eq:composite}; \emph{pixel receivers} composite $\vect b,\vect f$ and the expected depth first, lift each pixel to a world point and shade it once.
+Gaussian receivers give the geometry the ordinary rasterization gradients that densification relies on and keep overlapping surfaces from mixing materials, but they inherit the per-primitive shadow limitation of \cref{sec:intro}.
+Pixel receivers evaluate the shadow test at each pixel's own surface point, so a shadow boundary can cross a large Gaussian.
+Like RNG's switch from forward to deferred shading~\cite{fan2025rng}, \ours uses Gaussian receivers while the geometry is optimized and pixel receivers once it is fixed (\cref{sec:optimization}), with the same atlas.

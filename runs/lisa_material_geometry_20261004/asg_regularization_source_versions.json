@@ -1,0 +1,11 @@
+{
+  "recorded_utc": "2026-10-04T07:13:05.334827+00:00",
+  "later_source_archive": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_surface_material_corrected_20261004/source.tar",
+  "note": "Trainer now calls transport.feature_regularization. Only specular=asg excludes material-frame coordinates; every isotropic/covariance/learned-normal configuration in this run retains exactly the previous features.square().mean(). Later pending jobs use this source, previous imported processes use their recorded earlier archive.",
+  "later_jobs": [
+    "PORT-Synthetic_GS3-FurBall-neural_diffuse",
+    "PORT-Synthetic_GS3-Lego-analytic_diffuse",
+    "PORT-Synthetic_GS3-Drums-analytic_diffuse",
+    "PORT-Synthetic_GS3-FurBall-analytic_diffuse"
+  ]
+}

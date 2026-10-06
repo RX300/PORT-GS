@@ -1,0 +1,17 @@
+\begin{table}[t]
+\caption{\textbf{Registration diagnostic on the real captures} (E2(b)). Mean PSNR over the seven scenes with a 24\,px border removed, before and after translating each test rendering by the best integer 2D shift within $\pm$24\,px, and the mean shift length. Fixed-calibration full-image PSNR from \cref{tab:main} for reference.}
+\label{tab:supp_registration}
+\centering\small
+\setlength{\tabcolsep}{4pt}
+\begin{tabular}{@{}lcccc@{}}
+\toprule
+Method & Full image & Cropped & Aligned & Shift (px) \\
+\midrule
+\ours & 29.28 & 28.52 & 31.47 & 1.7 \\
+SSD-GS & 27.20 & 26.45 & 30.76 & 4.0 \\
+GS$^3$ & 27.28 & 26.52 & 30.78 & 4.3 \\
+OLAT-GS & 27.26 & 26.52 & 30.28 & 4.6 \\
+RNG & 20.94 & 20.18 & 21.95 & 12.9 \\
+\bottomrule
+\end{tabular}
+\end{table}

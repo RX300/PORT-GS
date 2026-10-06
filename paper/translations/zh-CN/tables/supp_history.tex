@@ -1,0 +1,15 @@
+\begin{table}[t]
+\caption{\ours 在相同 18 场景协议下的\textbf{开发历程}（PSNR / LPIPS）。初始版：始终使用显示域损失和像素接收点。修订版：增加更强的掩码损失、高光瓣函数和门控背景监督。最终版：采用第~4 节的分阶段流程，同时改变初始化、法线和接收点。}
+\label{tab:supp_history}
+\centering\scriptsize
+\setlength{\tabcolsep}{2.5pt}
+\begin{tabular}{@{}lcccc@{}}
+\toprule
+版本 & 真实 (7) & GS$^3$ (6) & SSS (5) & 全部 (18) \\
+\midrule
+初始版 (30k) & 28.47 / 0.099 & 28.35 / 0.062 & 39.07 / 0.020 & 31.38 / 0.065 \\
+修订版 (30k) & 29.49 / 0.096 & 28.64 / 0.059 & 41.03 / 0.015 & 32.41 / 0.062 \\
+最终版 (38k) & 29.28 / 0.100 & 32.40 / 0.038 & 40.63 / 0.016 & 33.47 / 0.056 \\
+\bottomrule
+\end{tabular}
+\end{table}

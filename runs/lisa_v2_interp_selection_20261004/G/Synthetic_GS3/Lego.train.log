@@ -1,0 +1,8 @@
+Traceback (most recent call last):
+  File "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/train.py", line 380, in <module>
+    main()
+  File "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/train.py", line 40, in main
+    output.mkdir(parents=True, exist_ok=False)
+  File "/workspace/ubuntu2004_cuda12_1/utils/conda-envs/ssd-gs/lib/python3.10/pathlib.py", line 1175, in mkdir
+    self._accessor.mkdir(self, mode)
+FileExistsError: [Errno 17] File exists: '/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_v2_interp_selection_20261004/G/Synthetic_GS3/Lego'

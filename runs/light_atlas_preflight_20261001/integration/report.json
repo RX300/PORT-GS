@@ -1,0 +1,65 @@
+{
+  "light_atlas": {
+    "step": 3,
+    "final_loss": 0.37567344307899475,
+    "reload_pixel_max_abs": 0.0,
+    "metrics": {
+      "split": "fit",
+      "checkpoint": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/light_atlas_preflight_20261001/integration/light_atlas/last.pt",
+      "render_branch": "gaussian",
+      "metrics": {
+        "PSNR": 8.470574259757996,
+        "SSIM": 0.09810208342969418,
+        "raw_MSE": 0.1598847396671772,
+        "alpha_L1": 0.41622211784124374
+      },
+      "views": [
+        {
+          "frame_index": 0,
+          "name": "r_0",
+          "PSNR": 9.447014808654785,
+          "SSIM": 0.12682603299617767,
+          "raw_MSE": 0.11359937489032745,
+          "alpha_L1": 0.3873065114021301
+        },
+        {
+          "frame_index": 1,
+          "name": "r_173",
+          "PSNR": 11.454628944396973,
+          "SSIM": 0.07623817771673203,
+          "raw_MSE": 0.07154950499534607,
+          "alpha_L1": 0.3977140188217163
+        },
+        {
+          "frame_index": 2,
+          "name": "r_347",
+          "PSNR": 5.796695232391357,
+          "SSIM": 0.07786797732114792,
+          "raw_MSE": 0.26315969228744507,
+          "alpha_L1": 0.45277461409568787
+        },
+        {
+          "frame_index": 3,
+          "name": "r_521",
+          "PSNR": 7.183958053588867,
+          "SSIM": 0.11147614568471909,
+          "raw_MSE": 0.1912303864955902,
+          "alpha_L1": 0.4270933270454407
+        }
+      ],
+      "protocol": "uint8-quantized observation RGB, unit PSNR, zero-padded 11x11 SSIM sigma1.5; LPIPS standard [-1,1]; raw_MSE is unclipped observation MSE; original held-out camera calibration",
+      "training_resolution": 32,
+      "resolution": 32,
+      "background": 0.0,
+      "evaluated_frames": 4,
+      "limit": 4,
+      "save_all": false,
+      "display_gamma": 2.2,
+      "camera_protocol": "saved training offsets on fit frames; original calibration on held-out frames",
+      "light_protocol": "original calibration",
+      "corrected_fit_frames": 4,
+      "observation_protocol": "PNG foreground gamma then alpha composition; HDR full-image gamma"
+    },
+    "parameters": 105524
+  }
+}

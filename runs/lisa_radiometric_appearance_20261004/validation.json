@@ -1,0 +1,73 @@
+{
+  "name": "lisa_radiometric_appearance_20261004",
+  "note": "Unified staged candidate: source own16k radiometric-curriculum geometry and appearance, then8k observation-domain appearance only. All geometry frozen and projected constraints disabled; original source split and training intensity restored, no reset of material/transport. All3 difficult scenes. Total24k steps, not matched to16k joint cost. Tests whether fine appearance can improve without destroying the newly recovered geometry; no official test.",
+  "python": "/workspace/ubuntu2004_cuda12_1/utils/conda-envs/ssd-gs/bin/python",
+  "data_root": "/workspace/datasets/SSD-GS/data",
+  "worker_gpus": [
+    0,
+    1,
+    2
+  ],
+  "launch_environment": {
+    "PATH_prefix": "/workspace/ubuntu2004_cuda12_1/utils/conda-envs/ssd-gs/bin:/usr/local/cuda-12.1/bin",
+    "CUDA_HOME": "/usr/local/cuda-12.1",
+    "TORCH_CUDA_ARCH_LIST": "8.9",
+    "MAX_JOBS": "8",
+    "OMP_NUM_THREADS": "8",
+    "HF_HOME": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/third_party/hf_cache",
+    "TORCH_HOME": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/third_party/torch_cache",
+    "MPLCONFIGDIR": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/third_party/mpl_cache",
+    "PYTHONDONTWRITEBYTECODE": "1",
+    "OPENBLAS_NUM_THREADS": "1",
+    "PYTORCH_CUDA_ALLOC_CONF": "expandable_segments:True"
+  },
+  "train": {
+    "steps": 8000,
+    "seed": 0,
+    "fit-all": false,
+    "resolution": 512,
+    "background": 0.0,
+    "display-gamma": 2.2,
+    "shadow-start": 1,
+    "port-start": 1,
+    "lr-decay-steps": 30000,
+    "representation": "light_atlas",
+    "material-head": "svbrdf",
+    "mask-weight": 0.5,
+    "foreground-appearance-until": 0,
+    "specular": "lobes",
+    "shading": "gaussian",
+    "split-scale2d-stop": 0,
+    "refinement-metric": "gradient",
+    "material-activation": "softplus",
+    "geometry-warmup-steps": 0,
+    "normal-model": "learned",
+    "save-steps": [],
+    "init-checkpoint": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_radiometric_curriculum_20261004/curriculum/Synthetic_GS3/{scene}/last.pt",
+    "freeze-geometry": true,
+    "opacity-cap": 1.0,
+    "min-scale": 0.0,
+    "max-scale": 0.0
+  },
+  "families": {
+    "Synthetic_GS3": {
+      "scenes": [
+        "Lego",
+        "Drums",
+        "FurBall"
+      ],
+      "train": {
+        "background": 1.0
+      }
+    }
+  },
+  "variants": {
+    "appearance": {}
+  },
+  "eval_split": "validation",
+  "eval_limit": 0,
+  "eval_save_all": false,
+  "eval_highlights": false,
+  "eval_shift_align": 0,
+  "eval_calibrate_test": 0
+}

@@ -1,0 +1,754 @@
+{
+  "manifest": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/light_atlas_head_selection_20261001/manifest.json",
+  "state": "completed",
+  "started_utc": "2026-10-01T14:19:57.815400+00:00",
+  "finished_utc": "2026-10-01T15:26:48.995956+00:00",
+  "scheduler_pid": 224715,
+  "updated_utc": "2026-10-01T15:26:48.995990+00:00",
+  "workers": {
+    "2": {
+      "state": "idle",
+      "job": null,
+      "pid": null
+    },
+    "3": {
+      "state": "idle",
+      "job": null,
+      "pid": null
+    }
+  },
+  "jobs": {
+    "PORT-Synthetic_GS3-AnisoMetal-compact": {
+      "method": "PORT-GS",
+      "family": "Synthetic_GS3",
+      "scene": "AnisoMetal",
+      "state": "completed",
+      "gpu": 2,
+      "phase": null,
+      "pid": null,
+      "output": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/light_atlas_head_selection_20261001/compact/Synthetic_GS3/AnisoMetal",
+      "resultpath": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/light_atlas_head_selection_20261001/compact/Synthetic_GS3/AnisoMetal/validation/metrics.json",
+      "source_archive": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/light_atlas_head_selection_20261001/source.tar",
+      "reused_from": null,
+      "steps": {
+        "train": {
+          "state": "completed",
+          "cwd": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS",
+          "argv": [
+            "/workspace/ubuntu2004_cuda12_1/utils/conda-envs/ssd-gs/bin/python",
+            "-u",
+            "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/train.py",
+            "--steps",
+            "30000",
+            "--seed",
+            "0",
+            "--resolution",
+            "512",
+            "--background",
+            "1.0",
+            "--display-gamma",
+            "2.2",
+            "--shadow-start",
+            "2000",
+            "--port-start",
+            "2000",
+            "--representation",
+            "light_atlas",
+            "--material-head",
+            "compact",
+            "--scene",
+            "/workspace/datasets/SSD-GS/data/Synthetic_GS3/AnisoMetal",
+            "--output",
+            "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/light_atlas_head_selection_20261001/compact/Synthetic_GS3/AnisoMetal"
+          ],
+          "logpath": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/light_atlas_head_selection_20261001/compact/Synthetic_GS3/AnisoMetal.train.log",
+          "output": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/light_atlas_head_selection_20261001/compact/Synthetic_GS3/AnisoMetal",
+          "resultpath": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/light_atlas_head_selection_20261001/compact/Synthetic_GS3/AnisoMetal/last.pt",
+          "started_utc": "2026-10-01T14:19:57.818480+00:00",
+          "pid": null,
+          "startup_confirmed": {
+            "pid": 224725,
+            "gpu": 2,
+            "step": 100,
+            "row": {
+              "step": 100,
+              "stage": "relighting",
+              "frame_index": 1842,
+              "loss": 0.280104398727417,
+              "l1": 0.2302437275648117,
+              "loss_terms": {
+                "l1": 0.18419498205184937,
+                "ssim": 0.07504569739103317,
+                "mask": 0.020863661542534828,
+                "feature_reg": 6.327367430003505e-08,
+                "camera_reg": 0.0
+              },
+              "points": 20000,
+              "seconds": 3.66,
+              "memory_GiB": 9.104103565216064
+            }
+          },
+          "finished_utc": "2026-10-01T14:42:59.502935+00:00",
+          "last_pid": 224725
+        },
+        "eval": {
+          "state": "completed",
+          "cwd": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS",
+          "argv": [
+            "/workspace/ubuntu2004_cuda12_1/utils/conda-envs/ssd-gs/bin/python",
+            "-u",
+            "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/evaluate.py",
+            "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/light_atlas_head_selection_20261001/compact/Synthetic_GS3/AnisoMetal/last.pt",
+            "--split",
+            "validation",
+            "--output",
+            "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/light_atlas_head_selection_20261001/compact/Synthetic_GS3/AnisoMetal/validation",
+            "--lpips"
+          ],
+          "logpath": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/light_atlas_head_selection_20261001/compact/Synthetic_GS3/AnisoMetal.validation.log",
+          "output": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/light_atlas_head_selection_20261001/compact/Synthetic_GS3/AnisoMetal/validation",
+          "resultpath": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/light_atlas_head_selection_20261001/compact/Synthetic_GS3/AnisoMetal/validation/metrics.json",
+          "started_utc": "2026-10-01T14:42:59.504456+00:00",
+          "pid": null,
+          "finished_utc": "2026-10-01T14:43:12.500946+00:00",
+          "last_pid": 226991
+        }
+      },
+      "started_utc": "2026-10-01T14:19:57.817325+00:00",
+      "startup_confirmed": {
+        "pid": 224725,
+        "gpu": 2,
+        "step": 100,
+        "row": {
+          "step": 100,
+          "stage": "relighting",
+          "frame_index": 1842,
+          "loss": 0.280104398727417,
+          "l1": 0.2302437275648117,
+          "loss_terms": {
+            "l1": 0.18419498205184937,
+            "ssim": 0.07504569739103317,
+            "mask": 0.020863661542534828,
+            "feature_reg": 6.327367430003505e-08,
+            "camera_reg": 0.0
+          },
+          "points": 20000,
+          "seconds": 3.66,
+          "memory_GiB": 9.104103565216064
+        }
+      },
+      "finished_utc": "2026-10-01T14:43:12.502569+00:00"
+    },
+    "PORT-Synthetic_SSS-GS-bunny_small-compact": {
+      "method": "PORT-GS",
+      "family": "Synthetic_SSS-GS",
+      "scene": "bunny_small",
+      "state": "completed",
+      "gpu": 3,
+      "phase": null,
+      "pid": null,
+      "output": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/light_atlas_head_selection_20261001/compact/Synthetic_SSS-GS/bunny_small",
+      "resultpath": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/light_atlas_head_selection_20261001/compact/Synthetic_SSS-GS/bunny_small/validation/metrics.json",
+      "source_archive": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/light_atlas_head_selection_20261001/source.tar",
+      "reused_from": null,
+      "steps": {
+        "train": {
+          "state": "completed",
+          "cwd": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS",
+          "argv": [
+            "/workspace/ubuntu2004_cuda12_1/utils/conda-envs/ssd-gs/bin/python",
+            "-u",
+            "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/train.py",
+            "--steps",
+            "30000",
+            "--seed",
+            "0",
+            "--resolution",
+            "256",
+            "--background",
+            "0.0",
+            "--display-gamma",
+            "2.2",
+            "--shadow-start",
+            "2000",
+            "--port-start",
+            "2000",
+            "--representation",
+            "light_atlas",
+            "--material-head",
+            "compact",
+            "--unit-light-intensity",
+            "1.0",
+            "--scene",
+            "/workspace/datasets/SSD-GS/data/Synthetic_SSS-GS/bunny_small",
+            "--output",
+            "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/light_atlas_head_selection_20261001/compact/Synthetic_SSS-GS/bunny_small"
+          ],
+          "logpath": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/light_atlas_head_selection_20261001/compact/Synthetic_SSS-GS/bunny_small.train.log",
+          "output": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/light_atlas_head_selection_20261001/compact/Synthetic_SSS-GS/bunny_small",
+          "resultpath": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/light_atlas_head_selection_20261001/compact/Synthetic_SSS-GS/bunny_small/last.pt",
+          "started_utc": "2026-10-01T14:19:57.821613+00:00",
+          "pid": null,
+          "startup_confirmed": {
+            "pid": 224727,
+            "gpu": 3,
+            "step": 100,
+            "row": {
+              "step": 100,
+              "stage": "relighting",
+              "frame_index": 460,
+              "loss": 0.1351052075624466,
+              "l1": 0.08323592692613602,
+              "loss_terms": {
+                "l1": 0.06658874452114105,
+                "ssim": 0.03534618765115738,
+                "mask": 0.033170219510793686,
+                "feature_reg": 6.162994736769178e-08,
+                "camera_reg": 0.0
+              },
+              "points": 20000,
+              "seconds": 2.98,
+              "memory_GiB": 0.8687658309936523
+            }
+          },
+          "finished_utc": "2026-10-01T14:40:38.355042+00:00",
+          "last_pid": 224727
+        },
+        "eval": {
+          "state": "completed",
+          "cwd": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS",
+          "argv": [
+            "/workspace/ubuntu2004_cuda12_1/utils/conda-envs/ssd-gs/bin/python",
+            "-u",
+            "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/evaluate.py",
+            "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/light_atlas_head_selection_20261001/compact/Synthetic_SSS-GS/bunny_small/last.pt",
+            "--split",
+            "validation",
+            "--output",
+            "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/light_atlas_head_selection_20261001/compact/Synthetic_SSS-GS/bunny_small/validation",
+            "--lpips"
+          ],
+          "logpath": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/light_atlas_head_selection_20261001/compact/Synthetic_SSS-GS/bunny_small.validation.log",
+          "output": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/light_atlas_head_selection_20261001/compact/Synthetic_SSS-GS/bunny_small/validation",
+          "resultpath": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/light_atlas_head_selection_20261001/compact/Synthetic_SSS-GS/bunny_small/validation/metrics.json",
+          "started_utc": "2026-10-01T14:40:38.356091+00:00",
+          "pid": null,
+          "finished_utc": "2026-10-01T14:40:43.475097+00:00",
+          "last_pid": 226735
+        }
+      },
+      "started_utc": "2026-10-01T14:19:57.819501+00:00",
+      "startup_confirmed": {
+        "pid": 224727,
+        "gpu": 3,
+        "step": 100,
+        "row": {
+          "step": 100,
+          "stage": "relighting",
+          "frame_index": 460,
+          "loss": 0.1351052075624466,
+          "l1": 0.08323592692613602,
+          "loss_terms": {
+            "l1": 0.06658874452114105,
+            "ssim": 0.03534618765115738,
+            "mask": 0.033170219510793686,
+            "feature_reg": 6.162994736769178e-08,
+            "camera_reg": 0.0
+          },
+          "points": 20000,
+          "seconds": 2.98,
+          "memory_GiB": 0.8687658309936523
+        }
+      },
+      "finished_utc": "2026-10-01T14:40:43.476592+00:00"
+    },
+    "PORT-Synthetic_GS3-AnisoMetal-reflect": {
+      "method": "PORT-GS",
+      "family": "Synthetic_GS3",
+      "scene": "AnisoMetal",
+      "state": "completed",
+      "gpu": 3,
+      "phase": null,
+      "pid": null,
+      "output": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/light_atlas_head_selection_20261001/reflect/Synthetic_GS3/AnisoMetal",
+      "resultpath": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/light_atlas_head_selection_20261001/reflect/Synthetic_GS3/AnisoMetal/validation/metrics.json",
+      "source_archive": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/light_atlas_head_selection_20261001/source.tar",
+      "reused_from": null,
+      "steps": {
+        "train": {
+          "state": "completed",
+          "cwd": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS",
+          "argv": [
+            "/workspace/ubuntu2004_cuda12_1/utils/conda-envs/ssd-gs/bin/python",
+            "-u",
+            "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/train.py",
+            "--steps",
+            "30000",
+            "--seed",
+            "0",
+            "--resolution",
+            "512",
+            "--background",
+            "1.0",
+            "--display-gamma",
+            "2.2",
+            "--shadow-start",
+            "2000",
+            "--port-start",
+            "2000",
+            "--representation",
+            "light_atlas",
+            "--material-head",
+            "reflect",
+            "--scene",
+            "/workspace/datasets/SSD-GS/data/Synthetic_GS3/AnisoMetal",
+            "--output",
+            "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/light_atlas_head_selection_20261001/reflect/Synthetic_GS3/AnisoMetal"
+          ],
+          "logpath": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/light_atlas_head_selection_20261001/reflect/Synthetic_GS3/AnisoMetal.train.log",
+          "output": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/light_atlas_head_selection_20261001/reflect/Synthetic_GS3/AnisoMetal",
+          "resultpath": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/light_atlas_head_selection_20261001/reflect/Synthetic_GS3/AnisoMetal/last.pt",
+          "started_utc": "2026-10-01T14:40:43.499715+00:00",
+          "pid": null,
+          "startup_confirmed": {
+            "pid": 226793,
+            "gpu": 3,
+            "step": 100,
+            "row": {
+              "step": 100,
+              "stage": "relighting",
+              "frame_index": 1842,
+              "loss": 0.305332750082016,
+              "l1": 0.25704461336135864,
+              "loss_terms": {
+                "l1": 0.2056356966495514,
+                "ssim": 0.0760338306427002,
+                "mask": 0.02366315945982933,
+                "feature_reg": 5.534901958981209e-08,
+                "camera_reg": 0.0
+              },
+              "points": 20000,
+              "seconds": 4.02,
+              "memory_GiB": 9.46861219406128
+            }
+          },
+          "finished_utc": "2026-10-01T15:04:30.643370+00:00",
+          "last_pid": 226793
+        },
+        "eval": {
+          "state": "completed",
+          "cwd": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS",
+          "argv": [
+            "/workspace/ubuntu2004_cuda12_1/utils/conda-envs/ssd-gs/bin/python",
+            "-u",
+            "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/evaluate.py",
+            "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/light_atlas_head_selection_20261001/reflect/Synthetic_GS3/AnisoMetal/last.pt",
+            "--split",
+            "validation",
+            "--output",
+            "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/light_atlas_head_selection_20261001/reflect/Synthetic_GS3/AnisoMetal/validation",
+            "--lpips"
+          ],
+          "logpath": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/light_atlas_head_selection_20261001/reflect/Synthetic_GS3/AnisoMetal.validation.log",
+          "output": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/light_atlas_head_selection_20261001/reflect/Synthetic_GS3/AnisoMetal/validation",
+          "resultpath": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/light_atlas_head_selection_20261001/reflect/Synthetic_GS3/AnisoMetal/validation/metrics.json",
+          "started_utc": "2026-10-01T15:04:30.645014+00:00",
+          "pid": null,
+          "finished_utc": "2026-10-01T15:04:43.646257+00:00",
+          "last_pid": 228532
+        }
+      },
+      "started_utc": "2026-10-01T14:40:43.478296+00:00",
+      "startup_confirmed": {
+        "pid": 226793,
+        "gpu": 3,
+        "step": 100,
+        "row": {
+          "step": 100,
+          "stage": "relighting",
+          "frame_index": 1842,
+          "loss": 0.305332750082016,
+          "l1": 0.25704461336135864,
+          "loss_terms": {
+            "l1": 0.2056356966495514,
+            "ssim": 0.0760338306427002,
+            "mask": 0.02366315945982933,
+            "feature_reg": 5.534901958981209e-08,
+            "camera_reg": 0.0
+          },
+          "points": 20000,
+          "seconds": 4.02,
+          "memory_GiB": 9.46861219406128
+        }
+      },
+      "finished_utc": "2026-10-01T15:04:43.648229+00:00"
+    },
+    "PORT-Synthetic_SSS-GS-bunny_small-reflect": {
+      "method": "PORT-GS",
+      "family": "Synthetic_SSS-GS",
+      "scene": "bunny_small",
+      "state": "completed",
+      "gpu": 2,
+      "phase": null,
+      "pid": null,
+      "output": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/light_atlas_head_selection_20261001/reflect/Synthetic_SSS-GS/bunny_small",
+      "resultpath": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/light_atlas_head_selection_20261001/reflect/Synthetic_SSS-GS/bunny_small/validation/metrics.json",
+      "source_archive": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/light_atlas_head_selection_20261001/source.tar",
+      "reused_from": null,
+      "steps": {
+        "train": {
+          "state": "completed",
+          "cwd": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS",
+          "argv": [
+            "/workspace/ubuntu2004_cuda12_1/utils/conda-envs/ssd-gs/bin/python",
+            "-u",
+            "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/train.py",
+            "--steps",
+            "30000",
+            "--seed",
+            "0",
+            "--resolution",
+            "256",
+            "--background",
+            "0.0",
+            "--display-gamma",
+            "2.2",
+            "--shadow-start",
+            "2000",
+            "--port-start",
+            "2000",
+            "--representation",
+            "light_atlas",
+            "--material-head",
+            "reflect",
+            "--unit-light-intensity",
+            "1.0",
+            "--scene",
+            "/workspace/datasets/SSD-GS/data/Synthetic_SSS-GS/bunny_small",
+            "--output",
+            "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/light_atlas_head_selection_20261001/reflect/Synthetic_SSS-GS/bunny_small"
+          ],
+          "logpath": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/light_atlas_head_selection_20261001/reflect/Synthetic_SSS-GS/bunny_small.train.log",
+          "output": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/light_atlas_head_selection_20261001/reflect/Synthetic_SSS-GS/bunny_small",
+          "resultpath": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/light_atlas_head_selection_20261001/reflect/Synthetic_SSS-GS/bunny_small/last.pt",
+          "started_utc": "2026-10-01T14:43:12.531195+00:00",
+          "pid": null,
+          "startup_confirmed": {
+            "pid": 227069,
+            "gpu": 2,
+            "step": 100,
+            "row": {
+              "step": 100,
+              "stage": "relighting",
+              "frame_index": 460,
+              "loss": 0.13923799991607666,
+              "l1": 0.08324944227933884,
+              "loss_terms": {
+                "l1": 0.06659955531358719,
+                "ssim": 0.035355400294065475,
+                "mask": 0.037282999604940414,
+                "feature_reg": 4.5798838499422345e-08,
+                "camera_reg": 0.0
+              },
+              "points": 20000,
+              "seconds": 3.05,
+              "memory_GiB": 0.9483623504638672
+            }
+          },
+          "finished_utc": "2026-10-01T15:02:47.839699+00:00",
+          "last_pid": 227069
+        },
+        "eval": {
+          "state": "completed",
+          "cwd": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS",
+          "argv": [
+            "/workspace/ubuntu2004_cuda12_1/utils/conda-envs/ssd-gs/bin/python",
+            "-u",
+            "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/evaluate.py",
+            "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/light_atlas_head_selection_20261001/reflect/Synthetic_SSS-GS/bunny_small/last.pt",
+            "--split",
+            "validation",
+            "--output",
+            "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/light_atlas_head_selection_20261001/reflect/Synthetic_SSS-GS/bunny_small/validation",
+            "--lpips"
+          ],
+          "logpath": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/light_atlas_head_selection_20261001/reflect/Synthetic_SSS-GS/bunny_small.validation.log",
+          "output": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/light_atlas_head_selection_20261001/reflect/Synthetic_SSS-GS/bunny_small/validation",
+          "resultpath": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/light_atlas_head_selection_20261001/reflect/Synthetic_SSS-GS/bunny_small/validation/metrics.json",
+          "started_utc": "2026-10-01T15:02:47.840690+00:00",
+          "pid": null,
+          "finished_utc": "2026-10-01T15:02:52.897657+00:00",
+          "last_pid": 228319
+        }
+      },
+      "started_utc": "2026-10-01T14:43:12.504185+00:00",
+      "startup_confirmed": {
+        "pid": 227069,
+        "gpu": 2,
+        "step": 100,
+        "row": {
+          "step": 100,
+          "stage": "relighting",
+          "frame_index": 460,
+          "loss": 0.13923799991607666,
+          "l1": 0.08324944227933884,
+          "loss_terms": {
+            "l1": 0.06659955531358719,
+            "ssim": 0.035355400294065475,
+            "mask": 0.037282999604940414,
+            "feature_reg": 4.5798838499422345e-08,
+            "camera_reg": 0.0
+          },
+          "points": 20000,
+          "seconds": 3.05,
+          "memory_GiB": 0.9483623504638672
+        }
+      },
+      "finished_utc": "2026-10-01T15:02:52.899416+00:00"
+    },
+    "PORT-Synthetic_GS3-AnisoMetal-spatial": {
+      "method": "PORT-GS",
+      "family": "Synthetic_GS3",
+      "scene": "AnisoMetal",
+      "state": "completed",
+      "gpu": 2,
+      "phase": null,
+      "pid": null,
+      "output": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/light_atlas_head_selection_20261001/spatial/Synthetic_GS3/AnisoMetal",
+      "resultpath": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/light_atlas_head_selection_20261001/spatial/Synthetic_GS3/AnisoMetal/validation/metrics.json",
+      "source_archive": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/light_atlas_head_selection_20261001/source.tar",
+      "reused_from": null,
+      "steps": {
+        "train": {
+          "state": "completed",
+          "cwd": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS",
+          "argv": [
+            "/workspace/ubuntu2004_cuda12_1/utils/conda-envs/ssd-gs/bin/python",
+            "-u",
+            "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/train.py",
+            "--steps",
+            "30000",
+            "--seed",
+            "0",
+            "--resolution",
+            "512",
+            "--background",
+            "1.0",
+            "--display-gamma",
+            "2.2",
+            "--shadow-start",
+            "2000",
+            "--port-start",
+            "2000",
+            "--representation",
+            "light_atlas",
+            "--material-head",
+            "spatial",
+            "--scene",
+            "/workspace/datasets/SSD-GS/data/Synthetic_GS3/AnisoMetal",
+            "--output",
+            "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/light_atlas_head_selection_20261001/spatial/Synthetic_GS3/AnisoMetal"
+          ],
+          "logpath": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/light_atlas_head_selection_20261001/spatial/Synthetic_GS3/AnisoMetal.train.log",
+          "output": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/light_atlas_head_selection_20261001/spatial/Synthetic_GS3/AnisoMetal",
+          "resultpath": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/light_atlas_head_selection_20261001/spatial/Synthetic_GS3/AnisoMetal/last.pt",
+          "started_utc": "2026-10-01T15:02:52.930107+00:00",
+          "pid": null,
+          "startup_confirmed": {
+            "pid": 228369,
+            "gpu": 2,
+            "step": 100,
+            "row": {
+              "step": 100,
+              "stage": "relighting",
+              "frame_index": 1842,
+              "loss": 0.2732074558734894,
+              "l1": 0.2155764102935791,
+              "loss_terms": {
+                "l1": 0.17246113717556,
+                "ssim": 0.07573746889829636,
+                "mask": 0.0250087883323431,
+                "feature_reg": 5.348644194214103e-08,
+                "camera_reg": 0.0
+              },
+              "points": 20000,
+              "seconds": 4.13,
+              "memory_GiB": 9.591732501983643
+            }
+          },
+          "finished_utc": "2026-10-01T15:26:36.068803+00:00",
+          "last_pid": 228369
+        },
+        "eval": {
+          "state": "completed",
+          "cwd": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS",
+          "argv": [
+            "/workspace/ubuntu2004_cuda12_1/utils/conda-envs/ssd-gs/bin/python",
+            "-u",
+            "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/evaluate.py",
+            "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/light_atlas_head_selection_20261001/spatial/Synthetic_GS3/AnisoMetal/last.pt",
+            "--split",
+            "validation",
+            "--output",
+            "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/light_atlas_head_selection_20261001/spatial/Synthetic_GS3/AnisoMetal/validation",
+            "--lpips"
+          ],
+          "logpath": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/light_atlas_head_selection_20261001/spatial/Synthetic_GS3/AnisoMetal.validation.log",
+          "output": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/light_atlas_head_selection_20261001/spatial/Synthetic_GS3/AnisoMetal/validation",
+          "resultpath": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/light_atlas_head_selection_20261001/spatial/Synthetic_GS3/AnisoMetal/validation/metrics.json",
+          "started_utc": "2026-10-01T15:26:36.069955+00:00",
+          "pid": null,
+          "finished_utc": "2026-10-01T15:26:48.980215+00:00",
+          "last_pid": 230178
+        }
+      },
+      "started_utc": "2026-10-01T15:02:52.901230+00:00",
+      "startup_confirmed": {
+        "pid": 228369,
+        "gpu": 2,
+        "step": 100,
+        "row": {
+          "step": 100,
+          "stage": "relighting",
+          "frame_index": 1842,
+          "loss": 0.2732074558734894,
+          "l1": 0.2155764102935791,
+          "loss_terms": {
+            "l1": 0.17246113717556,
+            "ssim": 0.07573746889829636,
+            "mask": 0.0250087883323431,
+            "feature_reg": 5.348644194214103e-08,
+            "camera_reg": 0.0
+          },
+          "points": 20000,
+          "seconds": 4.13,
+          "memory_GiB": 9.591732501983643
+        }
+      },
+      "finished_utc": "2026-10-01T15:26:48.982358+00:00"
+    },
+    "PORT-Synthetic_SSS-GS-bunny_small-spatial": {
+      "method": "PORT-GS",
+      "family": "Synthetic_SSS-GS",
+      "scene": "bunny_small",
+      "state": "completed",
+      "gpu": 3,
+      "phase": null,
+      "pid": null,
+      "output": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/light_atlas_head_selection_20261001/spatial/Synthetic_SSS-GS/bunny_small",
+      "resultpath": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/light_atlas_head_selection_20261001/spatial/Synthetic_SSS-GS/bunny_small/validation/metrics.json",
+      "source_archive": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/light_atlas_head_selection_20261001/source.tar",
+      "reused_from": null,
+      "steps": {
+        "train": {
+          "state": "completed",
+          "cwd": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS",
+          "argv": [
+            "/workspace/ubuntu2004_cuda12_1/utils/conda-envs/ssd-gs/bin/python",
+            "-u",
+            "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/train.py",
+            "--steps",
+            "30000",
+            "--seed",
+            "0",
+            "--resolution",
+            "256",
+            "--background",
+            "0.0",
+            "--display-gamma",
+            "2.2",
+            "--shadow-start",
+            "2000",
+            "--port-start",
+            "2000",
+            "--representation",
+            "light_atlas",
+            "--material-head",
+            "spatial",
+            "--unit-light-intensity",
+            "1.0",
+            "--scene",
+            "/workspace/datasets/SSD-GS/data/Synthetic_SSS-GS/bunny_small",
+            "--output",
+            "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/light_atlas_head_selection_20261001/spatial/Synthetic_SSS-GS/bunny_small"
+          ],
+          "logpath": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/light_atlas_head_selection_20261001/spatial/Synthetic_SSS-GS/bunny_small.train.log",
+          "output": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/light_atlas_head_selection_20261001/spatial/Synthetic_SSS-GS/bunny_small",
+          "resultpath": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/light_atlas_head_selection_20261001/spatial/Synthetic_SSS-GS/bunny_small/last.pt",
+          "started_utc": "2026-10-01T15:04:43.651743+00:00",
+          "pid": null,
+          "startup_confirmed": {
+            "pid": 228593,
+            "gpu": 3,
+            "step": 100,
+            "row": {
+              "step": 100,
+              "stage": "relighting",
+              "frame_index": 460,
+              "loss": 0.14088381826877594,
+              "l1": 0.08326206356287003,
+              "loss_terms": {
+                "l1": 0.06660965085029602,
+                "ssim": 0.03536177799105644,
+                "mask": 0.038912344723939896,
+                "feature_reg": 4.5466460818488486e-08,
+                "camera_reg": 0.0
+              },
+              "points": 20000,
+              "seconds": 2.69,
+              "memory_GiB": 0.9667463302612305
+            }
+          },
+          "finished_utc": "2026-10-01T15:24:01.230926+00:00",
+          "last_pid": 228593
+        },
+        "eval": {
+          "state": "completed",
+          "cwd": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS",
+          "argv": [
+            "/workspace/ubuntu2004_cuda12_1/utils/conda-envs/ssd-gs/bin/python",
+            "-u",
+            "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/evaluate.py",
+            "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/light_atlas_head_selection_20261001/spatial/Synthetic_SSS-GS/bunny_small/last.pt",
+            "--split",
+            "validation",
+            "--output",
+            "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/light_atlas_head_selection_20261001/spatial/Synthetic_SSS-GS/bunny_small/validation",
+            "--lpips"
+          ],
+          "logpath": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/light_atlas_head_selection_20261001/spatial/Synthetic_SSS-GS/bunny_small.validation.log",
+          "output": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/light_atlas_head_selection_20261001/spatial/Synthetic_SSS-GS/bunny_small/validation",
+          "resultpath": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/light_atlas_head_selection_20261001/spatial/Synthetic_SSS-GS/bunny_small/validation/metrics.json",
+          "started_utc": "2026-10-01T15:24:01.233732+00:00",
+          "pid": null,
+          "finished_utc": "2026-10-01T15:24:06.488907+00:00",
+          "last_pid": 229917
+        }
+      },
+      "started_utc": "2026-10-01T15:04:43.650253+00:00",
+      "startup_confirmed": {
+        "pid": 228593,
+        "gpu": 3,
+        "step": 100,
+        "row": {
+          "step": 100,
+          "stage": "relighting",
+          "frame_index": 460,
+          "loss": 0.14088381826877594,
+          "l1": 0.08326206356287003,
+          "loss_terms": {
+            "l1": 0.06660965085029602,
+            "ssim": 0.03536177799105644,
+            "mask": 0.038912344723939896,
+            "feature_reg": 4.5466460818488486e-08,
+            "camera_reg": 0.0
+          },
+          "points": 20000,
+          "seconds": 2.69,
+          "memory_GiB": 0.9667463302612305
+        }
+      },
+      "finished_utc": "2026-10-01T15:24:06.492172+00:00"
+    }
+  }
+}

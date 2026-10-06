@@ -1,0 +1,25 @@
+{"event": "startup_confirmed", "job": "PORT-Real_NRHints-Pixiu-light_atlas", "gpu": 3, "pid": 218444, "phase": "train", "step": 100}
+{"event": "startup_confirmed", "job": "PORT-Real_NRHints-Cat-light_atlas", "gpu": 2, "pid": 218443, "phase": "train", "step": 100}
+{"event": "phasefinish", "job": "PORT-Real_NRHints-Pixiu-light_atlas", "gpu": 3, "phase": "train", "pid": 218444}
+{"event": "phasefinish", "job": "PORT-Real_NRHints-Pixiu-light_atlas", "gpu": 3, "phase": "eval", "pid": 220038}
+{"event": "jobfinish", "job": "PORT-Real_NRHints-Pixiu-light_atlas", "gpu": 3}
+{"event": "startup_confirmed", "job": "PORT-Synthetic_GS3-AnisoMetal-light_atlas", "gpu": 3, "pid": 220137, "phase": "train", "step": 100}
+{"event": "phasefinish", "job": "PORT-Real_NRHints-Cat-light_atlas", "gpu": 2, "phase": "train", "pid": 218443}
+{"event": "phasefinish", "job": "PORT-Real_NRHints-Cat-light_atlas", "gpu": 2, "phase": "eval", "pid": 220435}
+{"event": "jobfinish", "job": "PORT-Real_NRHints-Cat-light_atlas", "gpu": 2}
+{"event": "startup_confirmed", "job": "PORT-Synthetic_GS3-Translucent-light_atlas", "gpu": 2, "pid": 220534, "phase": "train", "step": 100}
+{"event": "phasefinish", "job": "PORT-Synthetic_GS3-AnisoMetal-light_atlas", "gpu": 3, "phase": "train", "pid": 220137}
+{"event": "phasefinish", "job": "PORT-Synthetic_GS3-AnisoMetal-light_atlas", "gpu": 3, "phase": "eval", "pid": 221918}
+{"event": "jobfinish", "job": "PORT-Synthetic_GS3-AnisoMetal-light_atlas", "gpu": 3}
+{"event": "startup_confirmed", "job": "PORT-Synthetic_SSS-GS-bunny_small-light_atlas", "gpu": 3, "pid": 222074, "phase": "train", "step": 100}
+{"event": "phasefinish", "job": "PORT-Synthetic_GS3-Translucent-light_atlas", "gpu": 2, "phase": "train", "pid": 220534}
+{"event": "phasefinish", "job": "PORT-Synthetic_GS3-Translucent-light_atlas", "gpu": 2, "phase": "eval", "pid": 222448}
+{"event": "jobfinish", "job": "PORT-Synthetic_GS3-Translucent-light_atlas", "gpu": 2}
+{"event": "startup_confirmed", "job": "PORT-Synthetic_SSS-GS-dragon_small-light_atlas", "gpu": 2, "pid": 222598, "phase": "train", "step": 100}
+{"event": "phasefinish", "job": "PORT-Synthetic_SSS-GS-bunny_small-light_atlas", "gpu": 3, "phase": "train", "pid": 222074}
+{"event": "phasefinish", "job": "PORT-Synthetic_SSS-GS-bunny_small-light_atlas", "gpu": 3, "phase": "eval", "pid": 223767}
+{"event": "jobfinish", "job": "PORT-Synthetic_SSS-GS-bunny_small-light_atlas", "gpu": 3}
+{"event": "phasefinish", "job": "PORT-Synthetic_SSS-GS-dragon_small-light_atlas", "gpu": 2, "phase": "train", "pid": 222598}
+{"event": "phasefinish", "job": "PORT-Synthetic_SSS-GS-dragon_small-light_atlas", "gpu": 2, "phase": "eval", "pid": 224066}
+{"event": "jobfinish", "job": "PORT-Synthetic_SSS-GS-dragon_small-light_atlas", "gpu": 2}
+{"event": "queue_complete", "status": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/light_atlas_six_scene_20261001/status.json"}

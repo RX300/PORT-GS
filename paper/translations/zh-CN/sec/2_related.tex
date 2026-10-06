@@ -1,0 +1,21 @@
+\section{相关工作}
+\label{sec:related}
+
+\paragraph{从点光源拍摄数据进行重光照。}
+神经反射场从 OLAT 照明数据恢复可重光照体积~\cite{bi2020neural,bi2020deep}，NRHints~\cite{zeng2023nrhints} 以光线追踪产生的阴影和高光提示作为辐射场的条件输入，环境光下的逆向渲染则将场景分解为几何与 BRDF~\cite{srinivasan2021nerv,zhang2021nerfactor,jin2023tensoir,gao2024relightable,liang2024gsir,jiang2024gaussianshader,chen2025gigs,gu2025irgs}。
+对于点光源，\gsthree~\cite{bi2024gs3} 将空间高斯和角向高斯与泼溅阴影及残差网络结合；RNG~\cite{fan2025rng} 利用经网络修正的深度阴影图提示对神经高斯特征进行着色，并在训练中从前向着色切换为延迟着色；OLAT Gaussians~\cite{kuang2024olat} 由神经表面重建~\cite{wang2021neus} 得到的代理网格引导；BiGS~\cite{liu2025bigs} 使用双向球谐；SSS-GS~\cite{dihlmann2024sss} 增加神经次表面残差；SSD-GS~\cite{zheng2026ssdgs} 则分离散射、阴影和反射。
+RadiosityGS~\cite{jiang2025radiosity} 和随机光线追踪~\cite{xu2026stochastic} 在高斯上显式求解光传输；神经透射率场和辐射传输场为辐射场学习可见性与传输~\cite{shafiei2021learning,lyu2022neural}；PRTGS~\cite{guo2024prtgs} 预计算远距离光照下高斯的辐射传输；可重光照化身则在人体模型上学习阴影和传输~\cite{bolanos2024gaussian,saito2024rgca,wang2025fullbody}。
+这些方法均逐图元或逐射线计算可见性或散射；\ours 将两者都移到光源的成像平面上。
+
+\paragraph{高斯的可见性。}
+逐高斯可见性可通过向光源泼溅~\cite{bi2024gs3,zheng2026ssdgs}、在高斯中追踪射线~\cite{gao2024relightable,moenne2024gaussian,gu2025irgs,xu2026stochastic} 或深度阴影图~\cite{fan2025rng} 获得；深度高斯阴影图~\cite{mir2026animated} 则为固定高斯记录透射率。
+我们的图集经过滤波，可在任意接收点求值，并与其描述的几何共同学习。
+
+\paragraph{光源空间渲染。}
+阴影图~\cite{williams1978casting} 及其滤波变体~\cite{reeves1987rendering,fernando2005percentage,donnelly2006variance,annen2007convolution,annen2008exponential,peters2015moment}、面向半透明遮挡物的阴影图~\cite{lokovic2000deep,kim2001opacity,yuksel2008deep,jansen2010fourier,salvi2010adaptive,peters2016beyond}、基于扩散模型~\cite{jensen2001practical,deon2007efficient} 的半透明阴影图~\cite{dachsbacher2003translucent,jimenez2010real}、反射阴影图~\cite{dachsbacher2005reflective,dachsbacher2006splatting} 以及多尺度光照表示~\cite{kaplanyan2010cascaded,crassin2011interactive}，都为每个光源存储相关量，并在着色时汇集这些量；预计算辐射传输则使出射光对入射光呈线性~\cite{sloan2002precomputed}。
+我们的阴影检验基于不透明度加权沉积量的两个矩，与方差阴影图和不透明度阴影图相近；光传输项则类似于在预滤波层级上求值、但不显式记录发送点位置的半透明阴影图。
+相应的可学习方法会对已知几何的阴影图缓冲区进行滤波~\cite{datta2022neural}，或解码光栅化缓冲区~\cite{nalbach2017deep,thies2019deferred,gao2020deferred,zhang2021neural,ye2024deferred}；\ours 则在重建几何的同时，学习存储量和核函数。
+
+\paragraph{损失计算域。}
+RawNeRF~\cite{mildenhall2022nerf} 通过重加权线性域损失，使其更接近色调映射后的误差；\gsthree~\cite{bi2024gs3} 将 HDR 目标的伽马逐步退火至线性辐亮度。
+在我们的模型中，显示域损失会阻碍细小几何结构的形成（\cref{sec:optimization}）。

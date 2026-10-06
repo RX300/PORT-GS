@@ -1,0 +1,15 @@
+\begin{table}[t]
+\caption{\textbf{外观精修}（阶段 III，在同一冻结 30k 几何上迭代 8k 次，种子 0），对 Lego、Drums 和 Soap 求平均。默认设置在显示域精修像素接收点。}
+\label{tab:refine}
+\centering\small
+\begin{tabular}{@{}llccc@{}}
+\toprule
+接收点 & 损失域 & PSNR$\uparrow$ & SSIM$\uparrow$ & LPIPS$\downarrow$ \\
+\midrule
+高斯 & 线性域 & 34.04 & .971 & .036 \\
+高斯 & 显示域 & \textbf{34.24} & \underline{.974} & .033 \\
+像素 & 线性域 & 33.77 & .973 & \underline{.032} \\
+像素 & 显示域 & \underline{34.05} & \textbf{.976} & \textbf{.029} \\
+\bottomrule
+\end{tabular}
+\end{table}

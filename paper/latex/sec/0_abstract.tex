@@ -1,0 +1,10 @@
+\begin{abstract}
+When a point light moves around an object, much of the change in its appearance comes from where the light lands.
+Relightable Gaussian splatting methods estimate this one primitive at a time; we instead reason in the light's image plane.
+When the Gaussians are rasterized from the light, the alpha-compositing weights are the fractions of each light pixel's flux that the primitives intercept.
+\ours stores this deposit in a light-space atlas of depth moments and learned flux features.
+Any receiver, a Gaussian during training or a pixel at render time, reads a pyramid of the atlas to obtain a filtered shadow test refined by a small network and a transfer term linear in the deposited features.
+Training also required computing the loss on linear rather than display-encoded radiance while the geometry forms, which raises held-out PSNR by 6--7\,dB in a controlled study on two scenes with thin, cluttered structures.
+On 18 scenes of three public benchmarks, \ours reaches 33.47\,dB average PSNR against 31.59\,dB for the strongest of four recent baselines, is the only method among the top two on every benchmark, and trains in about 20 minutes.
+Our ablations also delimit the transfer term: it matters most on translucent materials, whereas a local network of equal size matches it on most others.
+\end{abstract}

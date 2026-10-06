@@ -1,0 +1,9 @@
+\begin{figure*}[t]
+  \centering
+  \resizebox{0.94\textwidth}{!}{\input{fig/pipeline_tikz}}
+  \caption{\textbf{Overview.}
+For every light, the Gaussians are rasterized once from the light; each deposits learned flux features $\boldsymbol\phi_i$ and its depth moments with the compositing weight that equals the fraction of light it intercepts (\cref{eq:atlas}).
+A receiver projects into the light, gathers multi-scale statistics and flux from the pyramid, and is shaded by a residual on the moment shadow test, transfer kernels applied linearly to the gathered flux features, and a local material.
+Thumbnails: actual buffers of our Hotdog model on a test view. Bottom: the schedule of \cref{sec:optimization}.}
+  \label{fig:pipeline}
+\end{figure*}

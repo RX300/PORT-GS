@@ -1,0 +1,15 @@
+\begin{figure}[t]
+\centering
+\setlength{\tabcolsep}{0.8pt}
+\renewcommand{\arraystretch}{0.5}
+\newcommand{\lw}{0.322\linewidth}
+\begin{tabular}{@{}ccc@{}}
+\small 表示領域の損失 & \small 放射量による段階化 & \small 正解画像 \\[2pt]
+\includegraphics[width=\lw]{figures/loss_domain/lego/control_crop.png} & \includegraphics[width=\lw]{figures/loss_domain/lego/ours_crop.png} & \includegraphics[width=\lw]{figures/loss_domain/lego/gt_crop.png} \\
+\footnotesize 23.02\,dB & \footnotesize \textbf{30.25\,dB} & \footnotesize Lego \\[3pt]
+\includegraphics[width=\lw]{figures/loss_domain/drums/control_crop.png} & \includegraphics[width=\lw]{figures/loss_domain/drums/ours_crop.png} & \includegraphics[width=\lw]{figures/loss_domain/drums/gt_crop.png} \\
+\footnotesize 24.10\,dB & \footnotesize \textbf{30.10\,dB} & \footnotesize Drums \\[3pt]
+\end{tabular}
+\caption{\textbf{損失領域と幾何形状。}二つの実行で初期化、スケジュール、乱数状態、その他すべての設定を共有し、損失を表示用に符号化した放射輝度上で計算するか、目標値を徐々に移行するウォームアップの後に線形放射輝度上で計算するかだけを変える。16k 回の反復を行い、学習集合から評価用に取り分けた 200 ビューの PSNR を示す。両シーンですべての 200 ビューが改善する。}
+\label{fig:loss_domain}
+\end{figure}

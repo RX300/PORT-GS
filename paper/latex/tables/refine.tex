@@ -1,0 +1,15 @@
+\begin{table}[t]
+\caption{\textbf{Appearance refinement} (stage III, 8k iterations on the same frozen 30k geometry, seed 0), averaged over Lego, Drums and Soap. Our default refines pixels in the display domain.}
+\label{tab:refine}
+\centering\small
+\begin{tabular}{@{}llccc@{}}
+\toprule
+Receivers & Loss domain & PSNR$\uparrow$ & SSIM$\uparrow$ & LPIPS$\downarrow$ \\
+\midrule
+Gaussians & linear & 34.04 & .971 & .036 \\
+Gaussians & display & \textbf{34.24} & \underline{.974} & .033 \\
+pixels & linear & 33.77 & .973 & \underline{.032} \\
+pixels & display & \underline{34.05} & \textbf{.976} & \textbf{.029} \\
+\bottomrule
+\end{tabular}
+\end{table}

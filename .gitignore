@@ -29,3 +29,21 @@ dist/
 .env.*
 .vscode/
 .idea/
+
+# Preserve experiment records and source provenance; keep models/renders local.
+!/runs/
+/runs/**
+!/runs/**/
+!/runs/**/*.json
+!/runs/**/*.jsonl
+!/runs/**/*.csv
+!/runs/**/*.txt
+!/runs/**/*.md
+!/runs/**/*.log
+!/runs/**/source*.tar
+!/runs/**/measurement_source.tar
+!/logs/
+/logs/**
+!/logs/**/
+!/logs/**/*.log
+!/logs/**/*.log.gz

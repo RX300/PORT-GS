@@ -1,0 +1,278 @@
+% Supplementary material for the LiSA CVPR 2027 submission (compiled separately from main.tex).
+\documentclass[10pt,twocolumn,letterpaper]{article}
+\usepackage[review]{cvpr}
+\input{preamble}
+\definecolor{cvprblue}{rgb}{0.21,0.49,0.74}
+\usepackage{xr-hyper}
+\externaldocument{build/main} % main-paper labels (compile main.tex first)
+\usepackage[pagebackref,breaklinks,colorlinks,allcolors=cvprblue]{hyperref}
+\def\paperID{*****}
+\def\confName{CVPR}
+\def\confYear{2027}
+\title{LiSA：再照明可能な Gaussian Splatting のためのライト空間アトラス}
+
+\begin{document}
+\maketitlesupplementary
+\renewcommand{\thesection}{S\arabic{section}}
+\renewcommand{\thetable}{S\arabic{table}}
+\renewcommand{\thefigure}{S\arabic{figure}}
+\renewcommand{\theequation}{S\arabic{equation}}
+
+本補足資料では、実装の詳細（\cref{sec:s_impl}）、評価手順とシーン別結果（\cref{sec:s_eval}）、追加分析（\cref{sec:s_analysis}）、位置合わせと前景の診断（\cref{sec:s_registration}）、定性的結果（\cref{sec:s_qual}）、および今後実施する実験の手順（\cref{sec:s_torun}）を示す。
+接頭辞「S」のない節、表、式の番号は本文を参照する。
+
+\section{実装の詳細}
+\label{sec:s_impl}
+
+\paragraph{光源カメラ。}
+各光源について、光源位置 $\vect p$ からシーン中心 $\vect c$ を見る look-at カメラを構築する。
+半画角は、光源の前にある全ガウシアンの $3\sigma$ 投影範囲の角度に対する 99.9 パーセンタイルを 5\% 拡大した値とし、上限を $75^\circ$ とする。そのため、遠方の浮遊ガウシアンはアトラス外に出る場合がある。
+深度は光軸に沿って測定し、$\|\vect c-\vect p\|$ に対する相対値を、学習カメラから推定したシーン半径 $R$ で割る。
+テクセルサイズ $\tau_0$ は、シーン中心の深度でのアトラステクセル一個の幅を $R$ 単位で表した値であり、$\tau_k=2^k\tau_0$ とする。
+光源パスは gsplat の classic ラスタライズモードを使用する。これはタイルごとの中心深度によるソート、スクリーン空間での 0.3 画素の拡張、0.99 にクランプした不透明度、レイの早期打ち切りを用い、各ガウシアンはその中心の深度を記録する。
+シーンあたり 40 個の学習光源を調べたところ、アトラスの半画角は 8--30$^\circ$（シーン別の中央値は 8--23$^\circ$）で、上限には達しなかった。光源距離はシーン半径の 2.0--6.2 倍であり、合成シーン内ではほぼ一定（\gsthree で 2.8--3.5、SSS-GS で 2.3）で、実撮影データ内では最大 $1.8\times$ 変動する。
+
+\paragraph{ピラミッドと集約。}
+各階層では、ゼロパディングした分離可能フィルタ $[1,4,6,4,1]/16$ と $2\times2$ の平均プーリングを適用する。
+受光点はゼロパディングを用いて各階層を双線形補間でサンプリングするため、光源の視錐台外の点では被覆率がゼロとなり、照明されているものとして扱われる。
+記述子では、$t_k$ を四で割って $[-2,2]$ にクランプし、$\delta_k$ を四倍して $[-4,4]$ にクランプする。$M_{0,k}$ は $[0,1]$ にクランプし、平均深度の分母には $\max(M_{0,k},10^{-4})$ を用いる。
+\cref{eq:visibility} の logit は、$V_0$ を $[10^{-4},1-10^{-4}]$ にクランプして評価する。
+
+\paragraph{ネットワーク。}
+すべてのネットワークは SiLU 活性化関数を用いる MLP である。
+光束エンコーダ $\mathrm{MLP}_\phi$ は幅 32 の隠れ層を二つ持ち、出力バイアスは $\softplus^{-1}(1)$ に初期化する。
+可視性残差 $g$ は幅 64 の隠れ層を二つ持ち、出力層はゼロに初期化する。
+光輸送ネットワーク $h$ は幅 128 の隠れ層を二つ持ち、$K\cdot3\cdot C=168$ 個の値を出力する。出力バイアスは $-7$ であり、学習開始時に $L_{\mathrm{tr}}\approx0$ となる。
+材質ネットワークは幅 128 の隠れ層を四つ持ち、九つの RGB 応答（一つの基本応答と八つの基底応答）を出力する。入力はコード $\vect f$、法線、$\vect l,\vect v,\vect h$ と反射視線方向の四帯域フーリエ符号化、五つの余弦（$\vect n\cdot\vect l$、$\vect n\cdot\vect v$、$\vect n\cdot\vect h$、$\vect v\cdot\vect h$、$\vect l\cdot\vect v$）、および $\kappa\in\{8,32,128,512,2048\}$ の五つのハイライト手掛かりである。
+光源に依存しない八つの係数は、$\vect f$ と八帯域の位置符号化を入力する幅 64、二層の MLP から得られ、出力をゼロに初期化する。$s(\vect x)$ のローブ重みは、同じ構成で出力バイアスを $-6$ にしたネットワークから得る。
+$\vect f$ を潜在コードとしてネットワークへ入力するときは、常に $\vect f$ の法線チャネルを勾配計算から切り離す。したがって、学習する法線への勾配は、法線が現れる方向関連の項（余弦、反射視線方向、光束エンコーダの $\vect n\cdot\vect l$ 入力）を通してのみ伝播する。
+
+\paragraph{最適化。}
+高密度化には 3DGS のスクリーン空間勾配規則（閾値 $2\cdot10^{-4}$）を反復 500 から 25k まで用い、3k 回ごとに不透明度をリセットし、ガウシアン数の上限を 400k とする。
+最初の 2k 回の反復では、正解マスク外の画素は被覆率だけを監督する。
+すべてのベースラインと同様に、\ours は一回の反復で一枚の学習画像を処理する。
+LDR 画像（実撮影データ、SSS-GS）は $\gamma=2.2$ で線形化する。飽和したハイライトは飽和したままとし、HDR の \gsthree 画像は提供された値をそのまま用いる。
+光源パスはウォームアップ後、すなわち反復 8001 から初めて使用する。
+段階 III では、ネットワークは段階 II の重みから開始するが、最適化器の状態は新しく初期化する。幾何形状、カメラ、光源の正規化は固定する。
+
+\paragraph{実撮影データ。}
+各学習カメラについて、校正済み光学中心の周りの回転を反復 2k から最適化し、学習率を $10^{-3}$ から $10^{-5}$ へ減衰させる。
+中心を固定し回転を自由にすると、全カメラの向きを変えることでシーン全体の並進を吸収できる。
+各カメラ更新後に、この三次元のゲージ成分を回転補正から閉形式で除去し、対応するオフセットだけシーンを並進させる。これにより、すべての学習ビューで物体中心の画像上の位置を変えずに、再構成を校正済み座標系に保つ。
+テストカメラと光源は常に公式の校正を用いる。
+
+\section{評価手順とシーン別結果}
+\label{sec:s_eval}
+画像は最長辺 512\,px（SSS-GS は 256\,px）で評価する。
+\gsthree シーンは線形 HDR レンダリングであり、白背景上で $\gamma=2.2$ を用いて表示する。他のベンチマークは提供された画像をそのまま黒背景上で表示する。
+SSIM はゼロパディングした $11\times11$ のガウシアン窓（$\sigma=1.5$）を用い、LPIPS は入力範囲 $[-1,1]$ の VGG ネットワークを用いる。
+各手法のレンダリングを、共通の 8 ビット目標画像群、すなわち本研究の評価パイプラインで符号化したテスト画像と比較する。
+ベースライン自身のパイプラインが生成する目標画像との差は、通常は最大一階調である。ただし、三つの実撮影シーン（CatSmall、CupFabric、Pikachu）では、\gsthree、SSD-GS、RNG のチャネル値の 6--10\% に最大 42 階調の差がある。
+共通の目標画像で再評価したことによる変化は、シーン別 PSNR で最大 0.04\,dB、シーン平均 PSNR で最大 0.005\,dB であり、順位は一切変わらなかった。
+\Cref{tab:perscene} にすべてのシーン別結果を示す。
+シーン間の Wilcoxon 符号付き順位検定では、\ours はすべてのベースラインに対して有意に優れる（SSD-GS、\gsthree、OLAT-GS、RNG に対してそれぞれ $p=0.004$、0.007、0.016、$<10^{-4}$）。11 の合成シーンでは、SSD-GS（$p=0.014$）と \gsthree（$p=0.024$）に対して有意であるが、OLAT-GS（$p=0.12$）に対しては有意ではない。
+
+\paragraph{ベースラインの実行。}
+すべてのベースラインは、公式学習画像に対して公開コードと既定のスケジュールを使用し、提供された前景マスクで学習目標画像を合成し、公式の校正でテストビューをレンダリングする。
+四つの合成 SSD-GS モデル（AnisoMetal、Translucent、Bunny、Dragon）は、同一の手順で姿勢微調整を用いずに行った過去の実行から取得し、再評価した。
+複数の RNG 実行と、Drums および Lego の OLAT-GS 実行では低いスコアが得られた。これらが各手法の論文で報告された挙動を再現しているかは未検証であり、実験 E6 で確認する。
+
+\paragraph{開発中のベンチマーク利用。}
+本手法はこれらのベンチマークを用いて開発した。
+旧版（\cref{tab:supp_history}）は公式テストビューで評価した。初めは Cat、Pixiu、AnisoMetal、Translucent、Bunny、Dragon を対象とし、その後は全 18 シーンを対象とした。これらの結果から Lego と Drums の失敗を把握した。
+その後、最終版の設計は学習集合から評価用に取り分けたビューで決定した。材質ネットワークは評価用に取り分けた光源群、段階的スケジュールは Lego、Drums、FurBall、Cat、Soap の学習ビューから十枚ごとに評価用に取り分けたビューで選定した。
+最終設定は全 18 シーンで一度ずつ実行し、シーンごとの設定変更やテストビューによるチェックポイント選択は行わなかった。
+したがって、結果は、これらのベンチマーク上で開発した手法のベンチマーク結果として読むべきであり、ブラインドテストとして解釈すべきではない。
+
+\input{tables/per_scene}
+
+\section{追加分析}
+\label{sec:s_analysis}
+
+\paragraph{光輸送項の割合。}
+\Cref{tab:supp_shares} は、最終モデルが線形放射輝度を光輸送項へ配分する割合を、シーンごとに示す。
+この割合は不透明な合成物体で最も小さく（Drums の 5.6\% から Lego の 9.3\%）、毛や Translucent シーンでは大きくなり（約 17\%）、表面下散乱シーンで最も大きい（20.5--58.0\%）。
+実撮影シーンでは 7.2\%（FurScene）から 42.1\%（半透明樹脂のフィギュアである Pixiu）まで変化する。これらでは、光輸送項は局所モデルで説明できない効果も担う。
+これらの割合は学習モデルによる放射輝度の配分を示すものであり、物理的な分解を示すものではない。
+
+\input{tables/supp_shares}
+
+\paragraph{ベンチマークのテスト光源の新規性。}
+\Cref{tab:supp_shares} の最終列は、公式テストビューごとに、シーン原点から見たテスト光源方向と最近傍の学習光源方向との角度を測定したものである。
+中央値は \gsthree シーンで $1.1^\circ$、実撮影シーンで 0.9--$2.3^\circ$、SSS-GS で $0^\circ$ である。SSS-GS ではテスト光源の多くが学習光源と一致し、カメラと光源の組み合わせだけが新しい。
+したがって、これらのベンチマークは外挿よりも、密にサンプリングされた光源下の再照明を評価しており、この点が実験 E1 の動機となる。
+
+\paragraph{開発履歴。}
+\Cref{tab:supp_history} に、同じ手順で評価した \ours の旧版を示す。
+初期版は全期間で表示領域の損失と画素受光点を用いた。改訂版は、より強いマスク損失、ハイライトローブ、ゲート付きの背景監督を追加した。
+最終の段階的版は \gsthree シーンで大幅に優れるが、実撮影シーンと SSS シーンでは改訂版をわずかに下回る。ただし、両者は初期化、法線、受光点も異なるため、この差を損失領域だけに帰することはできない。
+
+\input{tables/supp_history}
+
+\paragraph{学習時間。}
+\Cref{tab:supp_times} はベンチマーク内の各実行の実時間を示す。
+\ours では初期化と保存を含む二つの学習プロセス全体、\gsthree と SSD-GS では最後の進捗記録までの学習関数、RNG では両段階、OLAT-GS ではメッシュ書き出しを含む両段階を計測した。OLAT-GS には最大 15\,s のポーリング遅延が含まれる。
+これらの実行では GPU 負荷と同時実行数が一様に管理されていないため、おおよその規模を示す値にとどまる。条件を制御した計測は \cref{tab:cost} に示す。
+
+\input{tables/supp_times}
+\input{tables/cost}
+\input{tables/refine}
+
+\section{位置合わせと前景の診断}
+\label{sec:s_registration}
+これらの診断では、全五手法の保存済みテストレンダリングを再評価する。モデルの再学習や当てはめは行わない。
+
+\paragraph{位置合わせ（E2(b)）。}
+実撮影データの各テストビューについて、共通の目標画像に対する PSNR を最大化する、$\pm$24\,px 内の整数 2D 並進を探索する。すべての並進量と手法で同一の画素を用いるため、画像外周の 24\,px を除いて評価する。
+最適な位置合わせに要する並進量は、ベースラインで平均 4.0--4.6\,px、\ours で 1.7\,px である（\cref{tab:supp_registration}）。
+位置合わせ後、実撮影データでの最良のベースラインに対する \ours の平均優位性は 2.0 から 0.7\,dB に縮小する。Cat（$+2.7$\,dB）、Pixiu（$+1.5$\,dB）、FurScene（$+0.6$\,dB）では上回るが、CupFabric（$-2.0$\,dB）、CatSmall（$-0.4$\,dB）、Fish（$-0.3$\,dB）、Pikachu（$-0.1$\,dB）では下回る。
+したがって、位置合わせは固定校正下の優位性の約三分の二を説明する。ただし、並進は姿勢誤差の代理にすぎないため、回転のみのテスト姿勢位置合わせと E2 の再学習は引き続き必要である。
+
+\input{tables/supp_registration}
+
+\paragraph{前景マスク内の PSNR。}
+\ours は前景マスクでレンダリング不透明度を監督するため、画像全体の指標では、背景がきれいであることによって有利になる可能性がある。
+そこで、\Cref{tab:supp_masked} に正解不透明度が 0.5 を超える画素での PSNR を示す。
+各ベンチマーク内の順位は変わらない。\ours は実撮影データで 1.7\,dB、\gsthree シーンで 0.4\,dB 上回り、SSS-GS では OLAT-GS が 0.25\,dB 上回る。したがって、\ours の改善は背景がきれいであることによるものではない。
+
+\input{tables/supp_masked}
+
+\section{追加の定性的結果}
+\label{sec:s_qual}
+
+\begin{figure*}[t]
+\centering
+\setlength{\tabcolsep}{1pt}
+\renewcommand{\arraystretch}{0.6}
+\newcommand{\sw}{0.137\textwidth}
+\begin{tabular}{@{}ccccccc@{}}
+\includegraphics[width=\sw]{figures/decomp_hotdog/atlas_depth.png} &
+\includegraphics[width=\sw]{figures/decomp_hotdog/atlas_flux.png} &
+\includegraphics[width=\sw]{figures/decomp_hotdog/visibility.png} &
+\includegraphics[width=\sw]{figures/decomp_hotdog/local.png} &
+\includegraphics[width=\sw]{figures/decomp_hotdog/transfer.png} &
+\includegraphics[width=\sw]{figures/decomp_hotdog/ours.png} &
+\includegraphics[width=\sw]{figures/decomp_hotdog/gt.png} \\
+\includegraphics[width=\sw]{figures/decomp_pixiu/atlas_depth.png} &
+\includegraphics[width=\sw]{figures/decomp_pixiu/atlas_flux.png} &
+\includegraphics[width=\sw]{figures/decomp_pixiu/visibility.png} &
+\includegraphics[width=\sw]{figures/decomp_pixiu/local.png} &
+\includegraphics[width=\sw]{figures/decomp_pixiu/transfer.png} &
+\includegraphics[width=\sw]{figures/decomp_pixiu/ours.png} &
+\includegraphics[width=\sw]{figures/decomp_pixiu/gt.png} \\[2pt]
+\small アトラス：深度 & \small アトラス：光束 & \small 可視性 $V$ & \small 局所項 & \small 光輸送項 & \small \ours & \small 正解画像
+\end{tabular}
+\caption{\textbf{アトラスと放射輝度の各成分。}最終モデルによる Hotdog のテストビュー（上段。光輸送項の放射輝度割合は平均 6.7\%）と、実撮影の Pixiu（下段。半透明樹脂のフィギュア、42.1\%）を示す。Pixiu では、光輸送項が樹脂を透過して広がる光を担い、箱に落ちる影は可視性によって説明される。}
+\label{fig:s_decomp}
+\end{figure*}
+
+\begin{figure}[t]
+\centering
+\setlength{\tabcolsep}{0.8pt}
+\renewcommand{\arraystretch}{0.5}
+\newcommand{\aw}{0.242\linewidth}
+\begin{tabular}{@{}cccc@{}}
+\small 光輸送項なし & \small 局所残差 & \small 完全モデル & \small 正解画像 \\[2pt]
+\includegraphics[width=\aw]{figures/ablation/translucent/no_transfer.png} &
+\includegraphics[width=\aw]{figures/ablation/translucent/local_residual.png} &
+\includegraphics[width=\aw]{figures/ablation/translucent/full.png} &
+\includegraphics[width=\aw]{figures/ablation/translucent/gt.png} \\
+\includegraphics[width=\aw]{figures/ablation/translucent/no_transfer_error.png} &
+\includegraphics[width=\aw]{figures/ablation/translucent/local_residual_error.png} &
+\includegraphics[width=\aw]{figures/ablation/translucent/full_error.png} & \\
+\footnotesize 31.98\,dB & \footnotesize 34.55\,dB & \footnotesize 34.38\,dB & \footnotesize Translucent \\[3pt]
+\includegraphics[width=\aw]{figures/ablation/soap/no_transfer.png} &
+\includegraphics[width=\aw]{figures/ablation/soap/local_residual.png} &
+\includegraphics[width=\aw]{figures/ablation/soap/full.png} &
+\includegraphics[width=\aw]{figures/ablation/soap/gt.png} \\
+\includegraphics[width=\aw]{figures/ablation/soap/no_transfer_error.png} &
+\includegraphics[width=\aw]{figures/ablation/soap/local_residual_error.png} &
+\includegraphics[width=\aw]{figures/ablation/soap/full_error.png} & \\
+\footnotesize 34.66\,dB & \footnotesize 37.52\,dB & \footnotesize 37.76\,dB & \footnotesize Soap
+\end{tabular}
+\caption{\textbf{光輸送のアブレーション。}Translucent と Soap の最初のテストビューを用いる（シード 0。PSNR はビュー全体で計算し、誤差マップは RGB 平均絶対誤差を示し、0.15 で飽和する）。全体の明るさは各条件でほぼ同一だが、光輸送項を除くと、青いサイコロ、花瓶の底部、石鹸の側面といった半透明物体に誤差が集中する。局所残差と完全モデルの誤差は類似しており、\cref{tab:paired} と整合する。}
+\label{fig:s_ablation}
+\end{figure}
+
+\begin{figure}[t]
+\centering
+\setlength{\tabcolsep}{0.8pt}
+\renewcommand{\arraystretch}{0.5}
+\newcommand{\fw}{0.242\linewidth}
+\begin{tabular}{@{}cccc@{}}
+\small 正解画像 & \small \ours & \small SSD-GS & \small \gsthree \\[2pt]
+\includegraphics[width=\fw]{figures/comparison/fail_drums/GT.png} &
+\includegraphics[width=\fw]{figures/comparison/fail_drums/LiSA-staged.png} &
+\includegraphics[width=\fw]{figures/comparison/fail_drums/SSD-GS.png} &
+\includegraphics[width=\fw]{figures/comparison/fail_drums/GS3.png} \\
+\footnotesize Drums & \footnotesize 30.90 & \footnotesize 31.32 & \footnotesize \textbf{31.93} \\[2pt]
+\includegraphics[width=\fw]{figures/comparison/fail_anisometal/GT.png} &
+\includegraphics[width=\fw]{figures/comparison/fail_anisometal/LiSA-staged.png} &
+\includegraphics[width=\fw]{figures/comparison/fail_anisometal/SSD-GS.png} &
+\includegraphics[width=\fw]{figures/comparison/fail_anisometal/GS3.png} \\
+\footnotesize AnisoMetal & \footnotesize 27.49 & \footnotesize \textbf{28.04} & \footnotesize 27.80 \\[2pt]
+\includegraphics[width=\fw]{figures/comparison/fail_furscene/GT.png} &
+\includegraphics[width=\fw]{figures/comparison/fail_furscene/LiSA-staged.png} &
+\includegraphics[width=\fw]{figures/comparison/fail_furscene/SSD-GS.png} &
+\includegraphics[width=\fw]{figures/comparison/fail_furscene/GS3.png} \\
+\footnotesize FurScene & \footnotesize 24.00 & \footnotesize 24.38 & \footnotesize \textbf{25.99}
+\end{tabular}
+\caption{\textbf{失敗例。}ビューごとの優位性が中央値となるビューを示す（PSNR はビュー全体）。\ours はシンバルの細い異方的な光の筋を捉えられず、ヘアライン加工された金属のサイコロを均一に描きすぎ、実撮影の毛の細部を失う。}
+\label{fig:s_failures}
+\end{figure}
+
+\begin{figure}[t]
+\centering
+\setlength{\tabcolsep}{0.8pt}
+\renewcommand{\arraystretch}{0.5}
+\newcommand{\qw}{0.193\linewidth}
+\begin{tabular}{@{}ccccc@{}}
+\small 正解画像 & \small \ours & \small SSD-GS & \small \gsthree & \small OLAT-GS \\[2pt]
+\includegraphics[width=\qw]{figures/comparison/statue/GT.png} & \includegraphics[width=\qw]{figures/comparison/statue/LiSA-staged.png} & \includegraphics[width=\qw]{figures/comparison/statue/SSD-GS.png} & \includegraphics[width=\qw]{figures/comparison/statue/GS3.png} & \includegraphics[width=\qw]{figures/comparison/statue/OLAT-Gaussians.png} \\
+\footnotesize Statue & \footnotesize \textbf{36.23} & \footnotesize 30.90 & \footnotesize 33.51 & \footnotesize 34.16 \\[2pt]
+\includegraphics[width=\qw]{figures/comparison/pixiu_median/GT.png} & \includegraphics[width=\qw]{figures/comparison/pixiu_median/LiSA-staged.png} & \includegraphics[width=\qw]{figures/comparison/pixiu_median/SSD-GS.png} & \includegraphics[width=\qw]{figures/comparison/pixiu_median/GS3.png} & \includegraphics[width=\qw]{figures/comparison/pixiu_median/OLAT-Gaussians.png} \\
+\footnotesize Pixiu & \footnotesize \textbf{26.10} & \footnotesize 23.33 & \footnotesize 23.54 & \footnotesize 21.46 \\[2pt]
+\includegraphics[width=\qw]{figures/comparison/fish/GT.png} & \includegraphics[width=\qw]{figures/comparison/fish/LiSA-staged.png} & \includegraphics[width=\qw]{figures/comparison/fish/SSD-GS.png} & \includegraphics[width=\qw]{figures/comparison/fish/GS3.png} & \includegraphics[width=\qw]{figures/comparison/fish/OLAT-Gaussians.png} \\
+\footnotesize Fish & \footnotesize \textbf{28.18} & \footnotesize 23.38 & \footnotesize 22.26 & \footnotesize 23.40
+\end{tabular}
+\caption{\textbf{追加の比較。}切り出し画像を示す（PSNR はビュー全体）。Statue はビューごとの優位性の 75 パーセンタイル、実撮影の Pixiu と Fish は中央値のビューである。Pixiu と Fish では、ベースラインの切り出しも同程度に鮮明だが、目標画像に対して位置がずれており、PSNR 差の大部分は位置合わせを反映する（E2）。}
+\label{fig:s_more}
+\end{figure}
+
+\Cref{fig:s_decomp} は、強い投影される影を持つ不透明シーンと実撮影の半透明物体におけるアトラスと放射輝度の各成分を示し、\cref{fig:s_more} は追加の比較を示す。
+\Cref{fig:s_ablation} は \cref{tab:ablation} の光輸送アブレーションを、\cref{fig:s_failures} は \cref{sec:limitations} で述べた失敗例を示す。
+
+\section{今後実施する実験}
+\label{sec:s_torun}
+以下の実験は、本文中に赤いプレースホルダで示している。
+最終設定を固定して用い、これらの結果に基づく調整は行わない。
+
+\paragraph{E1：学習から除外した光源方向。}
+各学習集合を光源方向の仰角・方位角により $30^\circ$ の区間に分割し、固定順序で区間全体を学習から除外して、学習画像の約 10\% が評価用に取り分けられるまで繰り返す（本研究のデータローダに実装した決定的な分割）。
+確認したシーンでは、この分割により、残る学習光源からの角度差が中央値で $4$--$11^\circ$、最大 $16^\circ$ の除外した光源が得られる。公式テスト分割では中央値は $0$--$2.3^\circ$ である。
+アブレーション用シーン群（Drums、AnisoMetal、Translucent、FurScene、Soap。必要に応じて全 18 シーン）の残りの画像を用いて、\ours と局所残差版（それぞれ三つのシード）、\gsthree、SSD-GS、OLAT-GS を学習し、本文の手順で評価用画像を評価する。
+\cref{tab:holdout}、シーン別結果、対応するシード間の差、および角度とカメラの新規性に対するビュー別誤差を報告する。光源距離別にも分け、$\mathcal G\equiv0$ の条件を含め、さらに全学習光源から少なくとも $20^\circ$ 離れた連続する光源方向の球面キャップを学習から除外する、より難しい分割を追加する。
+
+\paragraph{E2：校正の影響を切り分けた実撮影シーンの評価。}
+(a) 七つの実撮影シーンで、学習カメラの回転微調整を用いずに \ours を学習する。ベースラインも姿勢微調整なし、または本研究のゲージ制約を用いて学習し、推定された姿勢補正量を報告する。
+(b) 全五手法について、シーンを固定した回転のみのテスト姿勢位置合わせ（全手法で同じ条件）と、24\,px 内の最適な全体 2D 並進の後に、副次的な評価値を報告する。後者は \cref{sec:s_registration} に示す。
+主指標は引き続き固定校正下の値とする。
+
+\paragraph{E3：可視性。}
+受光点、スケジュール、アトラスの光輸送を固定し、アトラスのシャドウ判定を、(a) \gsthree と SSD-GS のように属性としてスプラットするガウシアンごとの可視性（本レンダラの選択肢）、および (b) 画素受光点で評価する percentage-closer filtering 付きのハード深度シャドウマップに置き換える。
+さらに、正規分布 CDF による判定をチェビシェフ判定（variance shadow map）に置き換えて $\beta$ を変化させ、\cref{tab:ablation} の単一シードの行も三つのシードで実行する。
+アブレーション用シーン群に Hotdog、Lego、一つの実撮影シーンを加え、三つのシードで、対応する差と信頼区間を報告する。(a) では段階 III でもガウシアンごとの可視性を合成し、(b) では RNG 型の画素ごとの深度判定も用いて、画素ごとの評価とモーメントフィルタリングの効果を分離する。
+
+\paragraph{E4：完全な評価手順での最適化アブレーション。}
+アブレーション用シーン群で三つのシードを用い、(a) 全段階で表示領域の損失、(b) ウォームアップなし、すなわち視体積交差法による初期化から 30k 回の同時学習、(c) 段階 II で画素受光点、(d) 段階 III を省略し、30k 時点のチェックポイントをガウシアン受光点で評価、(e) $\Gamma$ 内にオフセットを導入するか、RawNeRF 型の再重み付け~\cite{mildenhall2022nerf} を用いる表示領域損失、(f) LDR データの \gsthree または SSD-GS への段階的スケジュールの適用を検証する。
+
+\paragraph{E5：追加のベースライン。}
+本研究の手順で安定した再現が得られた時点で、SSS-GS シーン上の SSS-GS を追加する（収束した二つのシーンは現時点でも報告できる）。実撮影データ上の NRHints、および初期化に必要な全光源を点灯した画像を学習データから合成できる場合の BiGS も追加する。
+
+\paragraph{E6：ベースライン再現の確認。}
+各ベースラインについて、著者の手順（解像度、画像部分集合、背景）で論文に記載された設定を一つ再現し、掲載値と比較する。また、RNG と OLAT-GS の低スコアの実行を調べる。
+
+\paragraph{E7：主比較におけるシード間分散。}
+\ours は全 18 シーンで、最も強いベースラインは少なくともアブレーション用シーン群で三つのシードを用いる。\cref{tab:main} の単一実行の値を、平均と標準偏差に置き換える。
+
+\end{document}

@@ -1,0 +1,111 @@
+{
+  "checkpoint": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/light_atlas_svbrdf_six_scene_20261002/lisa_svbrdf/Real_NRHints/Pixiu/last.pt",
+  "scene": "/workspace/datasets/SSD-GS/data/Real_NRHints/Pixiu",
+  "split": "test",
+  "material_head": "svbrdf",
+  "step": 30000,
+  "command": [
+    "diagnose_image_errors.py",
+    "runs/light_atlas_svbrdf_six_scene_20261002/lisa_svbrdf/Real_NRHints/Pixiu/last.pt",
+    "--light-atlas-preview",
+    "--split",
+    "test",
+    "--atlas-frames",
+    "18",
+    "--output",
+    "runs/light_atlas_visualization_svbrdf/Pixiu"
+  ],
+  "flux_note": "Learned channels, not RGB or calibrated irradiance; no PCA used.",
+  "depth_note": "Normalized light-camera depth; uncovered texels masked.",
+  "display_note": "Radiance components gamma-encoded separately; only linear components add.",
+  "frames": [
+    {
+      "frame_index": 18,
+      "name": "r_18",
+      "light_position": [
+        3.594280958175659,
+        3.3312206268310547,
+        2.5316808223724365
+      ],
+      "intensity": [
+        6.64408016204834,
+        6.64408016204834,
+        6.64408016204834
+      ],
+      "channel_display_ranges": [
+        [
+          0,
+          10.444700012207033
+        ],
+        [
+          0,
+          1.162209906578064
+        ],
+        [
+          0,
+          1.0552295970916747
+        ],
+        [
+          0,
+          1.8909527301788331
+        ],
+        [
+          0,
+          1.464774341583252
+        ],
+        [
+          0,
+          1.0651643037796021
+        ],
+        [
+          0,
+          1.1080634212493898
+        ],
+        [
+          0,
+          1.2641898393630981
+        ]
+      ],
+      "atlas_shapes": [
+        [
+          11,
+          512,
+          512
+        ],
+        [
+          11,
+          256,
+          256
+        ],
+        [
+          11,
+          128,
+          128
+        ],
+        [
+          11,
+          64,
+          64
+        ],
+        [
+          11,
+          32,
+          32
+        ],
+        [
+          11,
+          16,
+          16
+        ],
+        [
+          11,
+          8,
+          8
+        ]
+      ],
+      "decomposition_max_abs_error": 1.1920928955078125e-07,
+      "visibility_mean": 0.9690877199172974,
+      "transport_share_linear": 0.327921062707901
+    }
+  ]
+}

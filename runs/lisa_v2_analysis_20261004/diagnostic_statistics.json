@@ -1,0 +1,805 @@
+{
+ "note": "Derived from history.jsonl/metrics.json of the listed runs; window means of logged training rows (one random fit frame every 100 steps). mask term = 0.05 * mean|alpha - GT alpha|.",
+ "original_18_alpha_windows_x1e4": {
+  "Cat": {
+   "history": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/light_atlas_svbrdf_six_scene_20261002/lisa_svbrdf/Real_NRHints/Cat/history.jsonl",
+   "windows": {
+    "500-1000": 22.64,
+    "1000-2000": 20.34,
+    "2000-3000": 11.66,
+    "3000-5000": 10.67,
+    "5000-10000": 7.06,
+    "10000-20000": 4.04,
+    "20000-30000": 3.6
+   },
+   "points_at": {
+    "1000": 49713,
+    "2000": 123636,
+    "3000": 180925,
+    "5000": 287924,
+    "30000": 399862
+   }
+  },
+  "CatSmall": {
+   "history": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/light_atlas_svbrdf_remaining_scenes/lisa_svbrdf/Real_NRHints/CatSmall/history.jsonl",
+   "windows": {
+    "500-1000": 7.66,
+    "1000-2000": 6.37,
+    "2000-3000": 4.79,
+    "3000-5000": 3.29,
+    "5000-10000": 3.02,
+    "10000-20000": 2.6,
+    "20000-30000": 2.27
+   },
+   "points_at": {
+    "1000": 24725,
+    "2000": 80590,
+    "3000": 102371,
+    "5000": 133408,
+    "30000": 372388
+   }
+  },
+  "CupFabric": {
+   "history": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/light_atlas_svbrdf_remaining_scenes/lisa_svbrdf/Real_NRHints/CupFabric/history.jsonl",
+   "windows": {
+    "500-1000": 3.84,
+    "1000-2000": 6.32,
+    "2000-3000": 7.03,
+    "3000-5000": 3.01,
+    "5000-10000": 2.42,
+    "10000-20000": 1.93,
+    "20000-30000": 1.68
+   },
+   "points_at": {
+    "1000": 22502,
+    "2000": 399997,
+    "3000": 399604,
+    "5000": 353380,
+    "30000": 399720
+   }
+  },
+  "Fish": {
+   "history": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/light_atlas_svbrdf_remaining_scenes/lisa_svbrdf/Real_NRHints/Fish/history.jsonl",
+   "windows": {
+    "500-1000": 10.84,
+    "1000-2000": 16.67,
+    "2000-3000": 13.45,
+    "3000-5000": 9.19,
+    "5000-10000": 5.73,
+    "10000-20000": 2.53,
+    "20000-30000": 2.4
+   },
+   "points_at": {
+    "1000": 36204,
+    "2000": 337753,
+    "3000": 399914,
+    "5000": 320669,
+    "30000": 253675
+   }
+  },
+  "FurScene": {
+   "history": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/light_atlas_svbrdf_hard_scenes/lisa_svbrdf/Real_NRHints/FurScene/history.jsonl",
+   "windows": {
+    "500-1000": 7.43,
+    "1000-2000": 10.91,
+    "2000-3000": 10.85,
+    "3000-5000": 10.42,
+    "5000-10000": 6.36,
+    "10000-20000": 3.15,
+    "20000-30000": 2.63
+   },
+   "points_at": {
+    "1000": 55913,
+    "2000": 399940,
+    "3000": 399905,
+    "5000": 381532,
+    "30000": 399869
+   }
+  },
+  "Pikachu": {
+   "history": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/light_atlas_svbrdf_remaining_scenes/lisa_svbrdf/Real_NRHints/Pikachu/history.jsonl",
+   "windows": {
+    "500-1000": 5.33,
+    "1000-2000": 4.76,
+    "2000-3000": 3.98,
+    "3000-5000": 3.6,
+    "5000-10000": 2.59,
+    "10000-20000": 2.13,
+    "20000-30000": 2.0
+   },
+   "points_at": {
+    "1000": 22249,
+    "2000": 172233,
+    "3000": 195916,
+    "5000": 180270,
+    "30000": 379207
+   }
+  },
+  "Pixiu": {
+   "history": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/light_atlas_svbrdf_six_scene_20261002/lisa_svbrdf/Real_NRHints/Pixiu/history.jsonl",
+   "windows": {
+    "500-1000": 13.72,
+    "1000-2000": 12.55,
+    "2000-3000": 15.82,
+    "3000-5000": 13.88,
+    "5000-10000": 6.99,
+    "10000-20000": 3.05,
+    "20000-30000": 2.27
+   },
+   "points_at": {
+    "1000": 24524,
+    "2000": 68134,
+    "3000": 101758,
+    "5000": 135051,
+    "30000": 338122
+   }
+  },
+  "AnisoMetal": {
+   "history": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/light_atlas_svbrdf_six_scene_20261002/lisa_svbrdf/Synthetic_GS3/AnisoMetal/history.jsonl",
+   "windows": {
+    "500-1000": 10.1,
+    "1000-2000": 2.98,
+    "2000-3000": 1.31,
+    "3000-5000": 1.4,
+    "5000-10000": 0.9,
+    "10000-20000": 0.89,
+    "20000-30000": 0.82
+   },
+   "points_at": {
+    "1000": 36879,
+    "2000": 109980,
+    "3000": 152632,
+    "5000": 231370,
+    "30000": 399799
+   }
+  },
+  "Drums": {
+   "history": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/light_atlas_svbrdf_hard_scenes/lisa_svbrdf/Synthetic_GS3/Drums/history.jsonl",
+   "windows": {
+    "500-1000": 14.99,
+    "1000-2000": 7.39,
+    "2000-3000": 8.12,
+    "3000-5000": 14.1,
+    "5000-10000": 14.5,
+    "10000-20000": 16.09,
+    "20000-30000": 21.91
+   },
+   "points_at": {
+    "1000": 13604,
+    "2000": 140177,
+    "3000": 307971,
+    "5000": 399331,
+    "30000": 399876
+   }
+  },
+  "FurBall": {
+   "history": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/light_atlas_svbrdf_remaining_scenes/lisa_svbrdf/Synthetic_GS3/FurBall/history.jsonl",
+   "windows": {
+    "500-1000": 7.91,
+    "1000-2000": 5.87,
+    "2000-3000": 2.24,
+    "3000-5000": 2.75,
+    "5000-10000": 1.36,
+    "10000-20000": 1.23,
+    "20000-30000": 1.21
+   },
+   "points_at": {
+    "1000": 65394,
+    "2000": 295607,
+    "3000": 399514,
+    "5000": 398471,
+    "30000": 399793
+   }
+  },
+  "Hotdog": {
+   "history": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/light_atlas_svbrdf_remaining_scenes/lisa_svbrdf/Synthetic_GS3/Hotdog/history.jsonl",
+   "windows": {
+    "500-1000": 5.75,
+    "1000-2000": 1.95,
+    "2000-3000": 1.34,
+    "3000-5000": 1.27,
+    "5000-10000": 0.8,
+    "10000-20000": 0.63,
+    "20000-30000": 0.67
+   },
+   "points_at": {
+    "1000": 20231,
+    "2000": 115310,
+    "3000": 190513,
+    "5000": 319880,
+    "30000": 399938
+   }
+  },
+  "Lego": {
+   "history": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/light_atlas_svbrdf_remaining_scenes/lisa_svbrdf/Synthetic_GS3/Lego/history.jsonl",
+   "windows": {
+    "500-1000": 12.26,
+    "1000-2000": 7.47,
+    "2000-3000": 18.8,
+    "3000-5000": 19.11,
+    "5000-10000": 25.42,
+    "10000-20000": 31.45,
+    "20000-30000": 38.55
+   },
+   "points_at": {
+    "1000": 25712,
+    "2000": 239001,
+    "3000": 399470,
+    "5000": 399660,
+    "30000": 399345
+   }
+  },
+  "Translucent": {
+   "history": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/light_atlas_svbrdf_six_scene_20261002/lisa_svbrdf/Synthetic_GS3/Translucent/history.jsonl",
+   "windows": {
+    "500-1000": 9.81,
+    "1000-2000": 2.87,
+    "2000-3000": 1.61,
+    "3000-5000": 1.69,
+    "5000-10000": 1.02,
+    "10000-20000": 1.07,
+    "20000-30000": 1.18
+   },
+   "points_at": {
+    "1000": 35176,
+    "2000": 104150,
+    "3000": 165545,
+    "5000": 272642,
+    "30000": 399916
+   }
+  },
+  "bunny_small": {
+   "history": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/light_atlas_svbrdf_six_scene_20261002/lisa_svbrdf/Synthetic_SSS-GS/bunny_small/history.jsonl",
+   "windows": {
+    "500-1000": 7.54,
+    "1000-2000": 1.69,
+    "2000-3000": 1.07,
+    "3000-5000": 0.92,
+    "5000-10000": 0.6,
+    "10000-20000": 0.44,
+    "20000-30000": 0.35
+   },
+   "points_at": {
+    "1000": 12562,
+    "2000": 40285,
+    "3000": 55880,
+    "5000": 97953,
+    "30000": 273253
+   }
+  },
+  "candle_small": {
+   "history": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/light_atlas_svbrdf_remaining_scenes/lisa_svbrdf/Synthetic_SSS-GS/candle_small/history.jsonl",
+   "windows": {
+    "500-1000": 3.87,
+    "1000-2000": 0.95,
+    "2000-3000": 0.39,
+    "3000-5000": 0.9,
+    "5000-10000": 0.22,
+    "10000-20000": 0.23,
+    "20000-30000": 0.28
+   },
+   "points_at": {
+    "1000": 5222,
+    "2000": 17681,
+    "3000": 25680,
+    "5000": 43541,
+    "30000": 140680
+   }
+  },
+  "dragon_small": {
+   "history": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/light_atlas_svbrdf_six_scene_20261002/lisa_svbrdf/Synthetic_SSS-GS/dragon_small/history.jsonl",
+   "windows": {
+    "500-1000": 6.95,
+    "1000-2000": 2.5,
+    "2000-3000": 1.5,
+    "3000-5000": 3.5,
+    "5000-10000": 0.85,
+    "10000-20000": 1.55,
+    "20000-30000": 0.99
+   },
+   "points_at": {
+    "1000": 9851,
+    "2000": 27628,
+    "3000": 37475,
+    "5000": 59042,
+    "30000": 190423
+   }
+  },
+  "soap_small": {
+   "history": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/light_atlas_svbrdf_remaining_scenes/lisa_svbrdf/Synthetic_SSS-GS/soap_small/history.jsonl",
+   "windows": {
+    "500-1000": 3.04,
+    "1000-2000": 3.53,
+    "2000-3000": 2.38,
+    "3000-5000": 0.68,
+    "5000-10000": 0.4,
+    "10000-20000": 1.11,
+    "20000-30000": 0.28
+   },
+   "points_at": {
+    "1000": 17617,
+    "2000": 399963,
+    "3000": 399269,
+    "5000": 399200,
+    "30000": 399840
+   }
+  },
+  "statue_small": {
+   "history": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/light_atlas_svbrdf_hard_scenes/lisa_svbrdf/Synthetic_SSS-GS/statue_small/history.jsonl",
+   "windows": {
+    "500-1000": 4.41,
+    "1000-2000": 1.02,
+    "2000-3000": 3.52,
+    "3000-5000": 2.4,
+    "5000-10000": 0.5,
+    "10000-20000": 0.67,
+    "20000-30000": 0.32
+   },
+   "points_at": {
+    "1000": 15406,
+    "2000": 338219,
+    "3000": 399792,
+    "5000": 347739,
+    "30000": 253554
+   }
+  }
+ },
+ "shell_diagnosis_8k": {
+  "Drums": {
+   "cap1m": {
+    "mask_x1e4": {
+     "1000-2000": 6.14,
+     "2000-4000": 13.24,
+     "4000-8000": 32.59
+    },
+    "points_at": {
+     "2000": 146558,
+     "4000": 496202,
+     "8000": 998709
+    },
+    "heldout": {
+     "PSNR": 17.4329,
+     "SSIM": 0.884,
+     "LPIPS": 0.1234,
+     "alpha_L1": 0.0861
+    }
+   },
+   "local_only": {
+    "mask_x1e4": {
+     "1000-2000": 6.27,
+     "2000-4000": 12.74,
+     "4000-8000": 14.95
+    },
+    "points_at": {
+     "2000": 147075,
+     "4000": 399629,
+     "8000": 399684
+    },
+    "heldout": {
+     "PSNR": 22.2771,
+     "SSIM": 0.9293,
+     "LPIPS": 0.0746,
+     "alpha_L1": 0.0329
+    }
+   },
+   "mask05": {
+    "mask_x1e4": {
+     "1000-2000": 53.98,
+     "2000-4000": 81.9,
+     "4000-8000": 74.65
+    },
+    "points_at": {
+     "2000": 153810,
+     "4000": 399651,
+     "8000": 399821
+    },
+    "heldout": {
+     "PSNR": 23.9026,
+     "SSIM": 0.9393,
+     "LPIPS": 0.0627,
+     "alpha_L1": 0.0159
+    }
+   },
+   "moment_shadow": {
+    "mask_x1e4": {
+     "1000-2000": 6.27,
+     "2000-4000": 10.23,
+     "4000-8000": 9.32
+    },
+    "points_at": {
+     "2000": 147201,
+     "4000": 399574,
+     "8000": 399702
+    },
+    "heldout": {
+     "PSNR": 21.2858,
+     "SSIM": 0.9292,
+     "LPIPS": 0.0726,
+     "alpha_L1": 0.0202
+    }
+   },
+   "no_shadow": {
+    "mask_x1e4": {
+     "1000-2000": 6.19,
+     "2000-4000": 13.42,
+     "4000-8000": 17.79
+    },
+    "points_at": {
+     "2000": 146073,
+     "4000": 399469,
+     "8000": 399550
+    },
+    "heldout": {
+     "PSNR": 21.5538,
+     "SSIM": 0.9264,
+     "LPIPS": 0.0777,
+     "alpha_L1": 0.0379
+    }
+   },
+   "no_split2d": {
+    "mask_x1e4": {
+     "1000-2000": 5.88,
+     "2000-4000": 4.8,
+     "4000-8000": 4.44
+    },
+    "points_at": {
+     "2000": 37343,
+     "4000": 68838,
+     "8000": 115240
+    },
+    "heldout": {
+     "PSNR": 23.0953,
+     "SSIM": 0.9354,
+     "LPIPS": 0.0647,
+     "alpha_L1": 0.0108
+    }
+   },
+   "no_transport": {
+    "mask_x1e4": {
+     "1000-2000": 6.3,
+     "2000-4000": 11.35,
+     "4000-8000": 14.06
+    },
+    "points_at": {
+     "2000": 146679,
+     "4000": 399479,
+     "8000": 399775
+    },
+    "heldout": {
+     "PSNR": 22.7728,
+     "SSIM": 0.9332,
+     "LPIPS": 0.0709,
+     "alpha_L1": 0.0306
+    }
+   },
+   "ref": {
+    "mask_x1e4": {
+     "1000-2000": 6.4,
+     "2000-4000": 12.81,
+     "4000-8000": 16.79
+    },
+    "points_at": {
+     "2000": 145950,
+     "4000": 399539,
+     "8000": 399618
+    },
+    "heldout": {
+     "PSNR": 22.0503,
+     "SSIM": 0.9286,
+     "LPIPS": 0.0766,
+     "alpha_L1": 0.0364
+    }
+   }
+  },
+  "Lego": {
+   "cap1m": {
+    "mask_x1e4": {
+     "1000-2000": 6.8,
+     "2000-4000": 24.98,
+     "4000-8000": 54.66
+    },
+    "points_at": {
+     "2000": 252240,
+     "4000": 640818,
+     "8000": 999613
+    },
+    "heldout": {
+     "PSNR": 17.8736,
+     "SSIM": 0.8275,
+     "LPIPS": 0.206,
+     "alpha_L1": 0.1243
+    }
+   },
+   "local_only": {
+    "mask_x1e4": {
+     "1000-2000": 6.84,
+     "2000-4000": 20.73,
+     "4000-8000": 26.0
+    },
+    "points_at": {
+     "2000": 252211,
+     "4000": 399594,
+     "8000": 399806
+    },
+    "heldout": {
+     "PSNR": 18.3942,
+     "SSIM": 0.8293,
+     "LPIPS": 0.182,
+     "alpha_L1": 0.0633
+    }
+   },
+   "mask05": {
+    "mask_x1e4": {
+     "1000-2000": 50.6,
+     "2000-4000": 98.37,
+     "4000-8000": 76.81
+    },
+    "points_at": {
+     "2000": 269606,
+     "4000": 399704,
+     "8000": 399839
+    },
+    "heldout": {
+     "PSNR": 21.425,
+     "SSIM": 0.8745,
+     "LPIPS": 0.1393,
+     "alpha_L1": 0.0163
+    }
+   },
+   "moment_shadow": {
+    "mask_x1e4": {
+     "1000-2000": 6.83,
+     "2000-4000": 16.25,
+     "4000-8000": 14.3
+    },
+    "points_at": {
+     "2000": 246240,
+     "4000": 399515,
+     "8000": 399842
+    },
+    "heldout": {
+     "PSNR": 19.9032,
+     "SSIM": 0.8556,
+     "LPIPS": 0.1621,
+     "alpha_L1": 0.0317
+    }
+   },
+   "no_shadow": {
+    "mask_x1e4": {
+     "1000-2000": 6.9,
+     "2000-4000": 21.57,
+     "4000-8000": 25.7
+    },
+    "points_at": {
+     "2000": 251044,
+     "4000": 399520,
+     "8000": 399856
+    },
+    "heldout": {
+     "PSNR": 19.949,
+     "SSIM": 0.855,
+     "LPIPS": 0.1696,
+     "alpha_L1": 0.0618
+    }
+   },
+   "no_split2d": {
+    "mask_x1e4": {
+     "1000-2000": 3.97,
+     "2000-4000": 3.6,
+     "4000-8000": 3.27
+    },
+    "points_at": {
+     "2000": 48552,
+     "4000": 95431,
+     "8000": 133134
+    },
+    "heldout": {
+     "PSNR": 21.6804,
+     "SSIM": 0.8796,
+     "LPIPS": 0.1328,
+     "alpha_L1": 0.0073
+    }
+   },
+   "no_transport": {
+    "mask_x1e4": {
+     "1000-2000": 6.89,
+     "2000-4000": 14.76,
+     "4000-8000": 17.37
+    },
+    "points_at": {
+     "2000": 248952,
+     "4000": 399347,
+     "8000": 399673
+    },
+    "heldout": {
+     "PSNR": 20.8346,
+     "SSIM": 0.8614,
+     "LPIPS": 0.1577,
+     "alpha_L1": 0.0408
+    }
+   },
+   "ref": {
+    "mask_x1e4": {
+     "1000-2000": 6.93,
+     "2000-4000": 21.06,
+     "4000-8000": 25.45
+    },
+    "points_at": {
+     "2000": 249939,
+     "4000": 399664,
+     "8000": 399867
+    },
+    "heldout": {
+     "PSNR": 19.8451,
+     "SSIM": 0.8544,
+     "LPIPS": 0.1695,
+     "alpha_L1": 0.0609
+    }
+   }
+  }
+ },
+ "collapse_diagnosis_6k_dynamics": {
+  "CupFabric": {
+   "no_split2d": {
+    "first_light_pass_row_2100": {
+     "visibility_residual": -0.010649148374795914,
+     "local": 1.8200204278881088e-19,
+     "rho": 1.2056303477037282e-19,
+     "visibility": 0.8459696769714355,
+     "transport": 0.0650411918759346
+    },
+    "mean_4000_6000": {
+     "rho": 0.015452321636064425,
+     "specular": null,
+     "visibility": 0.01964217135682702,
+     "local": 4.742125298604255e-13,
+     "transport": 0.048578218277543786
+    },
+    "heldout_metrics_invalid": "last.pt saved right after the step-6000 opacity reset (mean opacity ~0.01)"
+   },
+   "no_split2d_spec": {
+    "first_light_pass_row_2100": {
+     "specular": 0.04981733486056328,
+     "visibility_residual": 0.01081457082182169,
+     "local": 0.04739655181765556,
+     "rho": 3.174641339873506e-22,
+     "visibility": 0.8741557002067566,
+     "transport": 0.006959407590329647
+    },
+    "mean_4000_6000": {
+     "rho": 1.6216414965479786e-17,
+     "specular": 0.026909554097801446,
+     "visibility": 0.7228470370173454,
+     "local": 0.02455966048873961,
+     "transport": 0.02225384288467467
+    },
+    "heldout_metrics_invalid": "last.pt saved right after the step-6000 opacity reset (mean opacity ~0.01)"
+   },
+   "ref": {
+    "first_light_pass_row_2100": {
+     "visibility_residual": 0.0031072034034878016,
+     "local": 2.609866409091237e-22,
+     "rho": 9.239359288033553e-19,
+     "visibility": 0.8717899322509766,
+     "transport": 0.04850935563445091
+    },
+    "mean_4000_6000": {
+     "rho": 2.8237929655522404e-15,
+     "specular": null,
+     "visibility": 0.03285698374484127,
+     "local": 4.379491956258958e-17,
+     "transport": 0.046111184917390344
+    },
+    "heldout_metrics_invalid": "last.pt saved right after the step-6000 opacity reset (mean opacity ~0.01)"
+   }
+  },
+  "FurScene": {
+   "no_split2d": {
+    "first_light_pass_row_2100": {
+     "visibility_residual": -0.11183907091617584,
+     "local": 1.6419351525081613e-17,
+     "rho": 3.846570173745115e-17,
+     "visibility": 0.8808436393737793,
+     "transport": 0.08397679030895233
+    },
+    "mean_4000_6000": {
+     "rho": 1.4758740974347289e-05,
+     "specular": null,
+     "visibility": 0.032667481480166315,
+     "local": 4.540655170384665e-15,
+     "transport": 0.07753020678646863
+    },
+    "heldout_metrics_invalid": "last.pt saved right after the step-6000 opacity reset (mean opacity ~0.01)"
+   },
+   "no_split2d_spec": {
+    "first_light_pass_row_2100": {
+     "specular": 0.05554380640387535,
+     "visibility_residual": 0.020828628912568092,
+     "local": 0.05473342537879944,
+     "rho": 1.6332131946932796e-17,
+     "visibility": 0.9442186951637268,
+     "transport": 4.087327397428453e-05
+    },
+    "mean_4000_6000": {
+     "rho": 3.887787547248944e-15,
+     "specular": 0.027758772135712206,
+     "visibility": 0.6744136139750481,
+     "local": 0.025658128829672933,
+     "transport": 0.05071311499923468
+    },
+    "heldout_metrics_invalid": "last.pt saved right after the step-6000 opacity reset (mean opacity ~0.01)"
+   },
+   "ref": {
+    "first_light_pass_row_2100": {
+     "visibility_residual": -0.05711149424314499,
+     "local": 3.229999327768925e-36,
+     "rho": 3.5156794673016513e-36,
+     "visibility": 0.9254690408706665,
+     "transport": 0.05192475765943527
+    },
+    "mean_4000_6000": {
+     "rho": 5.543941241786817e-09,
+     "specular": null,
+     "visibility": 0.008017676835879683,
+     "local": 2.3178265071888734e-17,
+     "transport": 0.0752594908233732
+    },
+    "heldout_metrics_invalid": "last.pt saved right after the step-6000 opacity reset (mean opacity ~0.01)"
+   }
+  },
+  "soap_small": {
+   "no_split2d": {
+    "first_light_pass_row_2100": {
+     "visibility_residual": -2.5820720111369155e-05,
+     "local": 4.6133479504235915e-31,
+     "rho": 3.1994567624861795e-31,
+     "visibility": 0.47168970108032227,
+     "transport": 0.11433359980583191
+    },
+    "mean_4000_6000": {
+     "rho": 0.0005637179948962511,
+     "specular": null,
+     "visibility": 0.0005937730527278973,
+     "local": 1.472956463683561e-11,
+     "transport": 0.08138577044010162
+    },
+    "heldout_metrics_invalid": "last.pt saved right after the step-6000 opacity reset (mean opacity ~0.01)"
+   },
+   "no_split2d_spec": {
+    "first_light_pass_row_2100": {
+     "specular": 0.031208854168653488,
+     "visibility_residual": -0.2035025805234909,
+     "local": 0.03114476427435875,
+     "rho": 9.876283462790158e-16,
+     "visibility": 0.5400267243385315,
+     "transport": 0.021001584827899933
+    },
+    "mean_4000_6000": {
+     "rho": 5.682160014412836e-13,
+     "specular": 0.007113647566438885,
+     "visibility": 0.02911024705535965,
+     "local": 0.007057092638206086,
+     "transport": 0.07725654835812748
+    },
+    "heldout_metrics_invalid": "last.pt saved right after the step-6000 opacity reset (mean opacity ~0.01)"
+   },
+   "ref": {
+    "first_light_pass_row_2100": {
+     "visibility_residual": -0.0027721337974071503,
+     "local": 5.713195298384926e-27,
+     "rho": 1.3367436009732617e-26,
+     "visibility": 0.8264917731285095,
+     "transport": 0.09382934123277664
+    },
+    "mean_4000_6000": {
+     "rho": 5.852272717030893e-11,
+     "specular": null,
+     "visibility": 0.04545449796964931,
+     "local": 1.4222411353331456e-13,
+     "transport": 0.08244077519048006
+    },
+    "heldout_metrics_invalid": "last.pt saved right after the step-6000 opacity reset (mean opacity ~0.01)"
+   }
+  }
+ }
+}

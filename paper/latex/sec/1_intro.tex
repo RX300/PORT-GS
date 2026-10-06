@@ -1,0 +1,34 @@
+\section{Introduction}
+\label{sec:intro}
+
+Photographing an object one light at a time (OLAT) and relighting it from new viewpoints is one of the oldest routes to photorealistic digital assets~\cite{debevec2000acquiring}.
+Its modern form reconstructs a relightable representation from hundreds to thousands of images, each lit by a single calibrated point light~\cite{bi2020neural,zeng2023nrhints}, and Gaussian splatting~\cite{kerbl20233d} has made the result renderable in real time~\cite{bi2024gs3,kuang2024olat,fan2025rng,liu2025bigs,zheng2026ssdgs}.
+
+Under a point light, much of what makes an image look right is settled before any material is evaluated, namely where the light lands and where it does not.
+Current Gaussian methods settle this one primitive at a time.
+\gsthree~\cite{bi2024gs3} and SSD-GS~\cite{zheng2026ssdgs} splat the scene toward the light to give every Gaussian one visibility value, RNG~\cite{fan2025rng} reduces a depth shadow map to a scalar cue, and translucency is predicted by per-Gaussian networks from local inputs~\cite{dihlmann2024sss,zheng2026ssdgs}.
+A large Gaussian on a floor then holds a single shadow value, so every moving shadow boundary has to be carved out by densification.
+
+We instead reason in the image plane of the light.
+When the Gaussians are rasterized from a point light, the alpha-compositing weights split the flux of every light pixel among the primitives along its ray; within the splatting model, they are the fractions of that flux each Gaussian intercepts.
+One extra rasterization thus records how much light each primitive absorbs and at which depth, which we call the \emph{deposit}.
+Forward rendering has used the light's view this way for decades, in shadow maps~\cite{williams1978casting,donnelly2006variance,peters2015moment} and translucent~\cite{dachsbacher2003translucent} and reflective~\cite{dachsbacher2005reflective} shadow maps, with hand-designed quantities on known geometry; we bring it into inverse rendering, where the geometry and the stored quantity are both learned.
+
+Our method, \ours (Light-Space Atlas), splats for every light the first two depth moments of the deposit and a few learned flux features, and filters them into a pyramid (\cref{fig:teaser}).
+Any point at which shading is evaluated, a \emph{receiver}, projects into the light and reads the pyramid: a Gaussian center while the geometry is optimized, a pixel afterwards.
+The moments yield a filtered shadow test in the spirit of variance shadow maps~\cite{donnelly2006variance}, refined by a residual network, and the flux features feed a transfer term that is linear in the deposited features, a learned relative of translucent shadow maps.
+The atlas costs one $512^2$ rasterization per image, its inputs are relative to the light, and gradients flow through it into the Gaussians.
+
+Training this model with a loss on display-encoded radiance collapsed thin, cluttered structures such as the bucket of the Lego bulldozer into blobs (\cref{fig:loss_domain}).
+We therefore stage the optimization radiometrically: a network-free point-light model first fits the geometry while the target is annealed from display to linear radiance, as \gsthree and SSD-GS do for HDR data~\cite{bi2024gs3,zheng2026ssdgs}; the full model then trains in linear radiance on Gaussian receivers; and a final pass refines appearance on pixel receivers with the geometry frozen.
+In a controlled study on two scenes, changing only the loss domain raises held-out PSNR from 23.0 to 30.2\,dB on Lego and from 24.1 to 30.1\,dB on Drums.
+
+On all 18 scenes of three public OLAT benchmarks~\cite{zeng2023nrhints,bi2024gs3,dihlmann2024sss}, with \gsthree, SSD-GS, OLAT Gaussians~\cite{kuang2024olat} and RNG retrained under one protocol and scored against identical targets, \ours attains the best average PSNR, SSIM and LPIPS (33.47 vs.\ 31.59\,dB for the next best method) and trains in about 20 minutes per scene.
+Per benchmark, it leads the strongest baseline by 2.0\,dB on the real captures (0.7\,dB after per-view 2D alignment) and by 0.4\,dB on the \gsthree scenes, and trails OLAT Gaussians by 0.1\,dB on SSS-GS, making it the only method among the top two on every benchmark.
+Our ablations also show the limits of the transfer term: it matters most on translucent materials, but a local network of equal size matches it on most others.
+We contribute:
+\begin{itemize}
+\item a light-space formulation of point-light visibility and transport for Gaussian splats, in which one rasterization from the light records the deposit, from which receivers derive a filtered, learnable shadow test and a transfer term linear in the deposited features;
+\item a radiometrically staged optimization that makes this model trainable on thin, cluttered geometry, with a controlled study showing that the loss domain decides whether such geometry forms;
+\item an analysis on 18 scenes showing where light-space transfer helps and where a local network suffices, and that the test lights of current OLAT benchmarks lie a median of only $1.1^\circ$ from a training light, so these benchmarks barely test light extrapolation.
+\end{itemize}

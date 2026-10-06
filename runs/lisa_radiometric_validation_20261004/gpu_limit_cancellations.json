@@ -1,0 +1,37 @@
+{
+  "utc": "2026-10-04T09:57:13.207249+00:00",
+  "reason": "User limits this work to at most two idle GPUs. Keep only main validation FurBall/GPU2 and Cat/GPU3; stop other training and block pending work until rescheduled on two GPUs.",
+  "jobs": [
+    {
+      "job": "PORT-Synthetic_SSS-GS-soap_small-curriculum",
+      "previous_state": "pending",
+      "output": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_radiometric_validation_20261004/curriculum/Synthetic_SSS-GS/soap_small"
+    },
+    {
+      "job": "PORT-Real_NRHints-Cat-v2_reference",
+      "previous_state": "pending",
+      "output": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_radiometric_validation_20261004/v2_reference/Real_NRHints/Cat"
+    },
+    {
+      "job": "PORT-Synthetic_SSS-GS-soap_small-v2_reference",
+      "previous_state": "pending",
+      "output": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_radiometric_validation_20261004/v2_reference/Synthetic_SSS-GS/soap_small"
+    },
+    {
+      "job": "PORT-Synthetic_GS3-Lego-curriculum",
+      "previous_state": "running",
+      "gpu": "0",
+      "pid": 565284,
+      "last_logged_step": 21700,
+      "output": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_radiometric_validation_20261004/curriculum/Synthetic_GS3/Lego"
+    },
+    {
+      "job": "PORT-Synthetic_GS3-Drums-curriculum",
+      "previous_state": "running",
+      "gpu": "1",
+      "pid": 565282,
+      "last_logged_step": 22900,
+      "output": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_radiometric_validation_20261004/curriculum/Synthetic_GS3/Drums"
+    }
+  ]
+}

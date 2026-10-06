@@ -1,0 +1,21 @@
+test_method_selection_and_config_roundtrip (test_methods.MethodTests) ... ok
+test_zero_light_linearity_and_optimization (test_methods.MethodTests) ... ok
+test_attention_matches_explicit_cross_attention_and_source_permutation (test_methods.MethodTests) ... ok
+test_cosine_attention_ignores_query_key_norm_and_keeps_light_linearity (test_methods.MethodTests) ... ok
+test_explicit_checkpoints_are_evaluated_after_training (test_methods.MethodTests) ... ok
+test_full_validation_and_pair_exports_do_not_inherit_fit_limit (test_methods.MethodTests) ... ok
+test_decoder_frozen_across_stages_but_latent_and_normal_differentiate (test_methods.NeuralMaterialTests) ... ok
+test_procedural_fresnel_and_layer_energy (test_methods.NeuralMaterialTests) ... ok
+test_gggs_default_handoff_preserves_filtered_world_geometry (test_methods.GeometryImportTests) ... ok
+test_spike_and_shrink_are_not_both_called_improvements (test_methods.BoundaryGeometryTests) ... ok
+test_centered_canvas_preserves_off_center_pixel_rays (test_methods.GroundedGeometryTests) ... ok
+test_light_offsets_move_only_fit_light_rows (test_methods.CameraCalibrationTests) ... ok
+test_rotation_mode_preserves_camera_centers_and_starts_at_identity (test_methods.CameraCalibrationTests) ... ok
+test_rotation_mode_updates_only_the_sampled_camera (test_methods.CameraCalibrationTests) ... ok
+test_shift_alignment_recovers_subpixel_translation (test_methods.CameraCalibrationTests) ... ok
+test_translation_gauge_removal_preserves_center_images_and_is_idempotent (test_methods.CameraCalibrationTests) ... ok
+
+----------------------------------------------------------------------
+Ran 16 tests in 0.689s
+
+OK

@@ -1,0 +1,17 @@
+{
+  "archive": "source_after_asg.tar",
+  "recorded_utc": "2026-10-04T07:09:10.601978+00:00",
+  "note": "ASG is inactive in all these configurations; isotropic arithmetic, state tensors and RNG are unchanged. All pending jobs import this later source. Prior source archives identify training before this addition; evaluators can load the same parameter-compatible implementation.",
+  "prior_jobs": [
+    "PORT-Synthetic_GS3-Lego-full_low_gradient",
+    "PORT-Synthetic_GS3-Drums-full_low_gradient",
+    "PORT-Synthetic_GS3-FurBall-full_low_gradient",
+    "PORT-Synthetic_GS3-Lego-raster",
+    "PORT-Synthetic_GS3-Drums-raster",
+    "PORT-Synthetic_GS3-FurBall-raster",
+    "PORT-Synthetic_GS3-Lego-raster_low_gradient",
+    "PORT-Synthetic_GS3-Drums-raster_low_gradient",
+    "PORT-Synthetic_GS3-FurBall-raster_low_gradient"
+  ],
+  "later_jobs": []
+}

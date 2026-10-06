@@ -1,0 +1,17 @@
+{
+  "utc": "2026-10-04T09:26:57.950507+00:00",
+  "cancelled": [
+    {
+      "job": "PORT-Synthetic_GS3-Lego-surfel",
+      "pid": 562100,
+      "reason": "Research cancellation: FurBall failed with non-finite loss at step60; diagnose shared surfel implementation before continuing the unified candidate."
+    },
+    {
+      "job": "PORT-Synthetic_GS3-Drums-surfel",
+      "pid": 562101,
+      "reason": "Research cancellation: FurBall failed with non-finite loss at step60; diagnose shared surfel implementation before continuing the unified candidate."
+    }
+  ],
+  "failed_job": "PORT-Synthetic_GS3-FurBall-surfel",
+  "failure": "Non-finite loss at60"
+}

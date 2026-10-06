@@ -1,0 +1,22 @@
+test_screen_history_resets_after_not_before_pruning (test_methods.NativeReconstructionTests) ... FAIL
+
+======================================================================
+FAIL: test_screen_history_resets_after_not_before_pruning (test_methods.NativeReconstructionTests)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/test_methods.py", line 2255, in test_screen_history_resets_after_not_before_pruning
+    torch.testing.assert_close(m.max_radii2D,torch.zeros(4,device='cuda'))
+  File "/workspace/ubuntu2004_cuda12_1/utils/conda-envs/ssd-gs/lib/python3.10/site-packages/torch/testing/_comparison.py", line 1524, in assert_close
+    raise error_metas[0].to_error(msg)
+AssertionError: Tensor-likes are not close!
+
+Mismatched elements: 4 / 4 (100.0%)
+Greatest absolute difference: 64.0 at index (0,) (up to 1e-05 allowed)
+Greatest relative difference: inf at index (0,) (up to 1.3e-06 allowed)
+
+----------------------------------------------------------------------
+Ran 1 test in 1.007s
+
+FAILED (failures=1)
+Number of points at initialisation :  4
+Confirmed: archived first repair fails the new interval-reset regression.

@@ -1,0 +1,23 @@
+{
+  "problem": "variance center read uninitialized culled gsplat depth rows; empty view also read uninitialized transforms",
+  "before": "native 2-surfel case with one culled row has NaN variance and NaN RGB-only means gradients under poisoned allocations; real FurBall fails MulBackward0 at weights*values",
+  "fix": "variance center from only valid ray intersections; empty slice sum preserves zero gradient without reading undefined rows",
+  "tests": [
+    "partial and empty frustum under NaN memory filling",
+    "analytic tilted plane depth/gradient/normal",
+    "two-layer conditional depth variance",
+    "LiSA2D light-intensity linearity, backward, state reload"
+  ],
+  "real_data": {
+    "scene": "FurBall",
+    "steps": 300,
+    "anomaly_detection": true,
+    "uninitialized_memory_filled_with_nan": true,
+    "shadow_port_surface_start": 1,
+    "all_logged_losses_finite": true,
+    "seconds": 169.6946,
+    "peak_allocated_GiB": 19.7875680923,
+    "temporary_output_removed_at_user_request": true
+  },
+  "scope": "Implementation verification only, no quality claim"
+}

@@ -1,0 +1,19 @@
+{
+  "time_utc": "2026-10-04T07:10:29.676854+00:00",
+  "reason": "Implementation correction before long training: normalized material-frame coordinates must be excluded from the latent feature L2 penalty. Preserve this attempted run; restart the corrected method in a distinct output.",
+  "actions": [
+    {
+      "job": "PORT-Synthetic_GS3-Drums-surface_material",
+      "action": "prevented pending startup"
+    },
+    {
+      "job": "PORT-Synthetic_GS3-FurBall-surface_material",
+      "action": "prevented pending startup"
+    },
+    {
+      "job": "PORT-Synthetic_GS3-Lego-surface_material",
+      "action": "SIGTERM research cancellation",
+      "pid": 544960
+    }
+  ]
+}

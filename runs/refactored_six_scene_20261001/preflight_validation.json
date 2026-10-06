@@ -1,0 +1,13 @@
+{
+  "code_revision": "26de5bd",
+  "directional_smoke": "passed:3 steps with ports and shadows active; checkpoint reloaded and2 test views evaluated",
+  "neural_integration": "passed:4 train-frame subset, teacher priors,2DGS padding/shadows/densification,CLI train/checkpoint/reload/evaluation",
+  "material_decoder": "completed50000 steps; analytic validation32768 samples",
+  "manifest_jobs": 12,
+  "worker_gpus": [
+    0,
+    1,
+    2
+  ],
+  "formal_output": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/refactored_six_scene_20261001"
+}

@@ -1,0 +1,16 @@
+\begin{table}[t]
+\caption{\textbf{学習から除外した光源方向}（\torun{E1}）。五つのアブレーション用シーンにおける、公式テストビューと、光源方向が評価用に取り分けられた 30$^\circ$ 角度区間に入る学習集合内のビューの平均 PSNR。各手法をそれらのビューを除いて再学習する。$^\dagger$三つのシードを使用。}
+\label{tab:holdout}
+\centering\small
+\begin{tabular}{@{}lccc@{}}
+\toprule
+手法 & 公式テスト & 除外した光源 & 低下幅 \\
+\midrule
+\gsthree & 31.25 & \TBD & \TBD \\
+SSD-GS & 31.01 & \TBD & \TBD \\
+OLAT-GS & 28.67 & \TBD & \TBD \\
+\ours、局所残差$^\dagger$ & 31.54 & \TBD & \TBD \\
+\ours$^\dagger$ & 31.51 & \TBD & \TBD \\
+\bottomrule
+\end{tabular}
+\end{table}

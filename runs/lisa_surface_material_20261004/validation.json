@@ -1,0 +1,72 @@
+{
+  "name": "lisa_surface_material_20261004",
+  "note": "Structural material redesign: independent Gaussian material normal/tangent frame, analytic smooth diffuse and a positive trainable anisotropic spherical-Gaussian highlight bank. No unrestricted local angular MLP; LiSA light-space atlas transport remains. All three scenes share one fresh hull/400k recipe and 60k budget with refinement through50k. This costs 2x LiSA-v2 steps (GS3 uses100k); training-internal holdout only, no official test. Stage-free constrained local material is present from step1, atlas/shadows activate at2000.",
+  "python": "/workspace/ubuntu2004_cuda12_1/utils/conda-envs/ssd-gs/bin/python",
+  "data_root": "/workspace/datasets/SSD-GS/data",
+  "worker_gpus": [
+    2
+  ],
+  "launch_environment": {
+    "PATH_prefix": "/workspace/ubuntu2004_cuda12_1/utils/conda-envs/ssd-gs/bin:/usr/local/cuda-12.1/bin",
+    "CUDA_HOME": "/usr/local/cuda-12.1",
+    "TORCH_CUDA_ARCH_LIST": "8.9",
+    "MAX_JOBS": "8",
+    "OMP_NUM_THREADS": "8",
+    "HF_HOME": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/third_party/hf_cache",
+    "TORCH_HOME": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/third_party/torch_cache",
+    "MPLCONFIGDIR": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/third_party/mpl_cache",
+    "PYTHONDONTWRITEBYTECODE": "1",
+    "OPENBLAS_NUM_THREADS": "1",
+    "PYTORCH_CUDA_ALLOC_CONF": "expandable_segments:True"
+  },
+  "train": {
+    "steps": 60000,
+    "seed": 0,
+    "fit-all": false,
+    "resolution": 512,
+    "background": 0.0,
+    "display-gamma": 2.2,
+    "shadow-start": 2000,
+    "port-start": 2000,
+    "lr-decay-steps": 60000,
+    "holdout-every": 10,
+    "representation": "light_atlas",
+    "material-head": "diffuse",
+    "mask-weight": 0.5,
+    "foreground-appearance-until": 2000,
+    "specular": "asg",
+    "shading": "gaussian",
+    "split-scale2d-stop": 0,
+    "refinement-metric": "gradient",
+    "material-activation": "softplus",
+    "geometry-warmup-steps": 0,
+    "normal-model": "learned",
+    "save-steps": [
+      16000,
+      30000
+    ],
+    "refine-stop": 50000,
+    "initialization": "hull"
+  },
+  "families": {
+    "Synthetic_GS3": {
+      "scenes": [
+        "Lego",
+        "Drums",
+        "FurBall"
+      ],
+      "train": {
+        "background": 1.0
+      }
+    }
+  },
+  "variants": {
+    "surface_material": {}
+  },
+  "eval_split": "validation",
+  "eval_limit": 0,
+  "eval_save_all": false,
+  "eval_highlights": false,
+  "eval_shift_align": 0,
+  "eval_calibrate_test": 0
+}

@@ -1,0 +1,16 @@
+{
+  "initial_archive": "source.tar",
+  "later_archive": "source_after_geometry_gradients.tar",
+  "reason": "An inactive geometry_gradients option (default full) was added while the first four jobs were already running. The two later joint jobs import that later source. Active configurations retain exactly the same forward/backward operators; no new option is enabled in this experiment.",
+  "initial_jobs": [
+    "bootstrap/Synthetic_GS3/Lego",
+    "bootstrap/Synthetic_GS3/Drums",
+    "bootstrap/Synthetic_GS3/FurBall",
+    "joint/Synthetic_GS3/Lego"
+  ],
+  "later_jobs": [
+    "joint/Synthetic_GS3/Drums",
+    "joint/Synthetic_GS3/FurBall"
+  ],
+  "verification": "Use saved config presence of geometry_gradients and process start records to verify assignment at collection; full is the unchanged default."
+}

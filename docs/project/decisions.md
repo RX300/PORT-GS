@@ -1093,3 +1093,61 @@ Completed and reviewed both full datasets. Cat nearly doubles final points but s
 设计参照GS³的独立材质frame与解析材质思想，在PORT自己的renderer/method接口内实现，不改动GS³/SSD代码。
 60k统一实验明确单列额外训练成本（v2为30k，GS³为100k），不以步数翻倍声称等预算优势。
 原默认方法仍是v2，尚无新正式18场景结果。完整设计、验证、对照与取消记录见[shading_refinement.md](../experiments/shading_refinement.md)。
+
+
+## 2026-10-05：LiSA补充实验与运行约束
+
+当前保留65项训练/精修矩阵，外加9项性能/连续重光照测量和18场景共同GT复评；
+SSS-GS方法排除，Synthetic_SSS-GS数据仍用于LiSA和其它基线。详情统一见
+[补充实验入口](../experiments/supplementary/README.md)。
+
+在现有LightAtlasTransport中增加local传输对照，保持原材质与阴影，仅用不读通量图集的
+局部条件MLP替代transfer；有效残差参数49,123，对应atlas flux+kernel为49,648。
+新增loss-domain仅用于精修机制对照，默认观察域；原完整LiSA前向及辐射课程行为不改。
+不以同seed声称不同结构全部参数/RNG逐元素匹配。
+
+沿用规范JSON、manifest构建器和原队列，按实验组分目录；基线输出留在各自项目。
+队列使用两张空闲GPU、每卡一worker，满足用户东京时间白天2卡/夜间最多3卡限制；
+每小时实际检查进程、GPU和训练进展并审计指标，阶段/任务自动衔接。
+新增试验代码放experiments/，共用基线性能测量放benchmarks/；不创建每次运行的临时脚本。
+
+启动检查：13项现有CUDA/训练结构/点数预算测试通过；真实soap checkpoint与训练图验证
+local对照在Gaussian和pixel着色的有限前向、非零梯度、通量独立性和保存恢复。
+保留任务的训练阶段参数、精修来源和复用逐帧指标已验证。
+预审发现的基线phase.output缺失和分组manifest顶层data_root继承错误均已在正式启动前修复。
+本轮未保存临时测试文件；原主结果、模型及历史文档保留。
+
+## 2026-10-05 21:06 JST：局部残差的追加重复性检查
+
+20项结构消融完成，五场景seed0完整/局部残差PSNR为31.52953/31.51249，
+SSIM/LPIPS局部对照略好；不能据此声称图集传输优于等规模局部残差。
+追加同五场景局部残差seed1/2共10项，复用原完整模型多种子计划；当前保留任务中包含这些10项追加训练。
+方法、训练预算、场景与源码不变，不调参，也不删减不利结果。明确这是观察seed0后决定的
+重复性检查，不作为预先注册的独立确认；配对统计同时报告full-minus-no_transfer和
+full-minus-local_residual。精确追加命令与依据保存在原run的local_repeatability_manifest.json。
+
+## 2026-10-05 22:22 JST：用户授权扩容
+
+用户明确允许GPU0原约4GiB空闲占用共存，GPU0/1/2立即可用，01:00–08:00 JST加入GPU3；
+显存占用低于65%时每卡可并行两项。沿用现有worker slot支持，仅增加容量预约和时间窗口，
+不创建新的队列脚本。单卡独占的训练耗时/推理测速不会与其它任务重叠。
+旧调度器不支持热扩容，暂存manifest使其在任务边界停止取新任务，两个在途任务完整执行完后
+恢复manifest并resume；预期调度切换错误与实验失败分开记录，原训练进程不终止。
+真实NVML的临时状态检查通过：GPU0许可占用、双slot预约、双向独占互斥、显存阈值与当前夜间窗口。
+临时目录已自动删除；训练源码保持启动归档内容，调度/收集源码归入measurement_source.tar。
+
+## 2026-10-06：补充实验验收
+
+用户缩减范围后的65项训练/精修、9项测量、18场景共同GT复评均完成；216个阶段成功。
+三seed完整/无传输/局部残差PSNR均值为31.51213/30.14540/31.53948：
+支持残差分支相对无传输的收益，未显示图集相对等规模局部残差的稳定整体优势；保留此结果，不调参改结论。
+pixel/observation精修的SSIM/LPIPS最好，gaussian/observation的PSNR最高。
+同一GT复评保持主排序，LiSA平均PSNR33.47221，对SSD-GS高1.88648dB。
+全部指标、耗时和限制见补充实验results.md；视频与源码核验见verification.json。
+取消组已从输出、派生数据、活动记录与归档配置/结果中删除；两段调度记录已合并，临时接续文件移除。
+
+## 2026-10-06：论文叙事决策
+
+局部残差与图集传输三seed均值持平（31.54/31.51 dB），因此论文不将总体优势归因于传输项，
+而以“光源空间可见度+辐射域分阶段优化”为待E3/E4验证的假设；传输项仅在Translucent三seed均为正。
+真实场景优势部分来自配准（评价阶段2D对齐诊断见论文补充材料），主张以“各benchmark均列前二、LPIPS全部最佳”为主。

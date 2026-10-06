@@ -1,0 +1,44 @@
+{
+  "all": {
+    "count": 32768,
+    "relative_brdf_l2": 0.1367456167936325,
+    "log1p_brdf_rmse": 0.14372029900550842,
+    "transmission_mae": 0.028230860829353333,
+    "reflection_mae": 0.029935404658317566
+  },
+  "haze": {
+    "count": 6471,
+    "relative_brdf_l2": 0.07639066129922867,
+    "log1p_brdf_rmse": 0.13090790808200836,
+    "transmission_mae": 0.0035944320261478424,
+    "reflection_mae": 0.025461388751864433
+  },
+  "dust": {
+    "count": 6682,
+    "relative_brdf_l2": 0.23729991912841797,
+    "log1p_brdf_rmse": 0.14834067225456238,
+    "transmission_mae": 0.02039773017168045,
+    "reflection_mae": 0.02999884821474552
+  },
+  "clearcoat": {
+    "count": 6565,
+    "relative_brdf_l2": 0.08138582855463028,
+    "log1p_brdf_rmse": 0.1282997876405716,
+    "transmission_mae": 0.011019877158105373,
+    "reflection_mae": 0.025774657726287842
+  },
+  "scatter": {
+    "count": 6635,
+    "relative_brdf_l2": 0.0845336839556694,
+    "log1p_brdf_rmse": 0.12043596059083939,
+    "transmission_mae": 0.027767851948738098,
+    "reflection_mae": 0.020353583618998528
+  },
+  "infill": {
+    "count": 6415,
+    "relative_brdf_l2": 0.2035447210073471,
+    "log1p_brdf_rmse": 0.18290352821350098,
+    "transmission_mae": 0.0793338194489479,
+    "reflection_mae": 0.04855084791779518
+  }
+}

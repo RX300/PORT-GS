@@ -1,0 +1,73 @@
+{
+  "method": "LiSA-staged",
+  "checkpoint": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_staged_full_dataset_20261004/Synthetic_SSS-GS/soap_small/appearance/last.pt",
+  "frame_indices": [
+    0,
+    16,
+    32,
+    48,
+    64,
+    80,
+    96,
+    112,
+    128,
+    144,
+    160,
+    177,
+    193,
+    209,
+    225,
+    241,
+    257,
+    273,
+    289,
+    305,
+    321,
+    338,
+    354,
+    370,
+    386,
+    402,
+    418,
+    434,
+    450,
+    466,
+    482,
+    499
+  ],
+  "modes": [
+    {
+      "mode": "fixed_light",
+      "frames": 32,
+      "repeats": 3,
+      "milliseconds": 9.608375073488181,
+      "median_milliseconds": 9.560409467667341,
+      "p95_milliseconds": 9.989821817725897,
+      "fps": 104.0758705141768,
+      "peak_allocated_MiB": 95.4873046875,
+      "peak_reserved_MiB": 122.0
+    },
+    {
+      "mode": "changing_light",
+      "frames": 32,
+      "repeats": 3,
+      "milliseconds": 9.620147233363241,
+      "median_milliseconds": 9.562864899635315,
+      "p95_milliseconds": 10.027697659097612,
+      "fps": 103.9485130260731,
+      "peak_allocated_MiB": 95.4873046875,
+      "peak_reserved_MiB": 122.0
+    }
+  ],
+  "gpu": "NVIDIA RTX 6000 Ada Generation",
+  "torch_version": "2.4.1",
+  "cuda_version": "12.1",
+  "gaussians": 24269,
+  "image_size": [
+    256,
+    256
+  ],
+  "checkpoint_MiB": 4.855075836181641,
+  "checkpoint_contents": "Original loader-required checkpoint, including any training state; not a stripped deployment export.",
+  "protocol": "Original test cameras; renderer+observation transform; synchronized wall time; excludes loading/metrics/disk IO; no added atlas caching; fixed_light uses the first selected light."
+}

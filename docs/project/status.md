@@ -1,5 +1,10 @@
 # LiSA 当前状态
 
+2026-10-06：已完成并验收[补充实验](../experiments/supplementary/README.md)。范围为65项正式训练/精修，
+另有9项推理性能/连续重光照测量及18场景共同GT复评；不处理SSS-GS基线。补充结果见[结果概览](../experiments/supplementary/results.md)。
+新进度与指标以补充实验目录为准；当前实际队列PID及逐阶段状态见run/status.json；未完成项目不计入正式均值。
+22:22 JST用户扩容授权：GPU0/1/2、01:00–08:00加入GPU3；显存占用低于65%时每卡最多两项，测速独占。
+
 2026-10-04。本轮统一方法改进、18场景全量训练及分析已完成；残余质量问题保留如下。
 
 ## 完成结果
@@ -60,3 +65,22 @@ Drums剩余误差集中在稀疏亮峰；AnisoMetal新增误差主要位于物�
 
 [完整结果](../experiments/results.md) · [分析](../experiments/shading_refinement.md) ·
 [机器记录](../experiments/radiometric_curriculum_results.json) · [六方法总表](../../../benchmarks/full_dataset_comparison/RESULTS.md)
+
+## 2026-10-06：CVPR 2027论文初稿
+
+论文目录：[paper/](../../paper/README.md)（官方CVPR author-kit，8页正文+补充材料）。
+正文与表格只使用LiSA-staged最终版本及10-05/06补充实验数据；表格由`paper/scripts/make_tables.py`从结果文件生成，图像面板由`make_figures.py`从已保存预测与最终checkpoint诊断导出。
+完成自审与三位模拟审稿（均为3/Borderline Reject，置信度4），已按意见修订：降低图集传输的贡献表述、报告逐benchmark差距与显著性、补充前景掩码PSNR与真实场景2D配准诊断、修正光源像素立体角/矩检验偏置/距离衰减等技术表述。
+尚需运行的实验E1–E7（留出灯光、配准、可见度对照、优化消融、基线补充与复现、多seed）列于`paper/README.md`与补充材料S5。
+
+## 2026-10-06：代码与实验记录 Git 保存
+
+保存分支为 `feature_claude_neural_relighting`，远端为 `https://github.com/RX300/PORT-GS.git`。
+本次包含补充实验实现、配置、65项训练/精修与9项测量及18场景复评的汇总记录，
+研究审计，以及论文源文件、图表、分析数据、审稿记录和中日译稿。
+为保存原始实验依据，调整 `.gitignore`，纳入现有 `runs/` 下的 JSON/JSONL、CSV、
+文本说明、训练/评价日志和源码 TAR 归档，以及 `logs/` 下的运行日志，保持原目录结构。
+历史失败/预检记录原样保留，不因此认定为成功实验；完成状态以相应验收记录为准。
+模型权重、原始渲染与视频、数据集、本地依赖和论文编译缓存仍留在本机；
+Git 保存不等于这些大型资产的异地备份。跨项目文件不纳入此仓库。
+本次仅进行保存所需的静态检查，不重新训练或运行 GPU 实验。

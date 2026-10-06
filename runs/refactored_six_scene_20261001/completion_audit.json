@@ -1,0 +1,14 @@
+{
+  "state": "completed",
+  "jobs": 12,
+  "failed": 0,
+  "evaluated_frames": 3874,
+  "finished_utc": "2026-10-01T07:38:11.708660+00:00",
+  "checks": [
+    "30k history",
+    "checkpoint exists",
+    "full test counts equal views and pair PNG counts",
+    "finite PSNR SSIM LPIPS",
+    "test limit 0; held-out frames uncorrected"
+  ]
+}

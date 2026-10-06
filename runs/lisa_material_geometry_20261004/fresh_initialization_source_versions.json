@@ -1,0 +1,15 @@
+{
+  "archive": "source_after_fresh_initialization.tar",
+  "note": "New initialization option defaults to camera; existing imported-geometry runs retain their operations and RNG. LiSA camera-start fix is unused by these synthetic jobs. This archive identifies jobs with initialization present in config; previous archives identify prior jobs. Verify pending assignments on completion.",
+  "before": [
+    "PORT-Synthetic_GS3-Lego-neural_diffuse",
+    "PORT-Synthetic_GS3-Drums-neural_diffuse"
+  ],
+  "after": [],
+  "pending": [
+    "PORT-Synthetic_GS3-FurBall-neural_diffuse",
+    "PORT-Synthetic_GS3-Lego-analytic_diffuse",
+    "PORT-Synthetic_GS3-Drums-analytic_diffuse",
+    "PORT-Synthetic_GS3-FurBall-analytic_diffuse"
+  ]
+}

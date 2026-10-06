@@ -1,0 +1,17 @@
+{
+  "time_utc": "2026-10-04T07:14:50.665632+00:00",
+  "reason": "Queue redistribution only; Lego stays on GPU2 and Drums/FurBall use newly available slots. No training options changed. Original pending outputs carry cancellation notes.",
+  "destination_manifest": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_surface_material_parallel_20261004/manifest.json",
+  "jobs": [
+    {
+      "job": "PORT-Synthetic_GS3-Drums-surface_material",
+      "argv_equal_except_output": true,
+      "new_output": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_surface_material_parallel_20261004/surface_material/Synthetic_GS3/Drums"
+    },
+    {
+      "job": "PORT-Synthetic_GS3-FurBall-surface_material",
+      "argv_equal_except_output": true,
+      "new_output": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_surface_material_parallel_20261004/surface_material/Synthetic_GS3/FurBall"
+    }
+  ]
+}

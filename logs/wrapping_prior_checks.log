@@ -1,0 +1,12 @@
+test_render_mvs_shell_and_reload (test_methods.WrappingGeometryTests) ... /workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/third_party/GaussianWrapping/gaussian_wrapping/scene/gaussian_model.py:607: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  R = torch.tensor(camera.R, device=xyz.device, dtype=torch.float32)
+/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/third_party/GaussianWrapping/gaussian_wrapping/scene/gaussian_model.py:608: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  T = torch.tensor(camera.T, device=xyz.device, dtype=torch.float32)
+ok
+
+----------------------------------------------------------------------
+Ran 1 test in 1.408s
+
+OK
+[WARNING] SOF rasterizer not installed.
+Number of points at initialisation :  324

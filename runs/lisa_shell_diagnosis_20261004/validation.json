@@ -1,0 +1,96 @@
+{
+  "name": "lisa_shell_diagnosis_20261004",
+  "note": "Single-factor 8k-step prefixes of the 30k LiSA svbrdf recipe (LR schedule pinned to 30k) on Lego/Drums, trained on the train-internal light-group split and scored on its held-out lights only. Purpose: find what triggers the alpha over-coverage shell that grows after the light pass starts at step 2000.",
+  "python": "/workspace/ubuntu2004_cuda12_1/utils/conda-envs/ssd-gs/bin/python",
+  "data_root": "/workspace/datasets/SSD-GS/data",
+  "worker_gpus": [
+    0,
+    0,
+    1,
+    1,
+    2,
+    2,
+    3,
+    3
+  ],
+  "launch_environment": {
+    "PATH_prefix": "/workspace/ubuntu2004_cuda12_1/utils/conda-envs/ssd-gs/bin:/usr/local/cuda-12.1/bin",
+    "CUDA_HOME": "/usr/local/cuda-12.1",
+    "TORCH_CUDA_ARCH_LIST": "8.9",
+    "MAX_JOBS": "8",
+    "OMP_NUM_THREADS": "8",
+    "HF_HOME": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/third_party/hf_cache",
+    "TORCH_HOME": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/third_party/torch_cache",
+    "MPLCONFIGDIR": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/third_party/mpl_cache",
+    "PYTHONDONTWRITEBYTECODE": "1",
+    "OPENBLAS_NUM_THREADS": "1",
+    "PYTORCH_CUDA_ALLOC_CONF": "expandable_segments:True"
+  },
+  "train": {
+    "steps": 8000,
+    "lr-decay-steps": 30000,
+    "seed": 0,
+    "resolution": 512,
+    "background": 1.0,
+    "display-gamma": 2.2,
+    "shadow-start": 2000,
+    "port-start": 2000
+  },
+  "families": {
+    "Synthetic_GS3": {
+      "scenes": [
+        "Lego",
+        "Drums"
+      ],
+      "train": {}
+    }
+  },
+  "variants": {
+    "ref": {
+      "representation": "light_atlas",
+      "material-head": "svbrdf"
+    },
+    "no_transport": {
+      "representation": "light_atlas",
+      "material-head": "svbrdf",
+      "light-transport": "none"
+    },
+    "no_shadow": {
+      "representation": "light_atlas",
+      "material-head": "svbrdf",
+      "visibility-model": "none"
+    },
+    "moment_shadow": {
+      "representation": "light_atlas",
+      "material-head": "svbrdf",
+      "visibility-model": "moment"
+    },
+    "local_only": {
+      "representation": "light_atlas",
+      "material-head": "svbrdf",
+      "shadow-start": 9000,
+      "port-start": 9000
+    },
+    "mask05": {
+      "representation": "light_atlas",
+      "material-head": "svbrdf",
+      "mask-weight": 0.5
+    },
+    "cap1m": {
+      "representation": "light_atlas",
+      "material-head": "svbrdf",
+      "max-points": 1000000
+    },
+    "no_split2d": {
+      "representation": "light_atlas",
+      "material-head": "svbrdf",
+      "split-scale2d-stop": 0
+    }
+  },
+  "eval_split": "validation",
+  "eval_limit": 0,
+  "eval_save_all": false,
+  "eval_highlights": false,
+  "eval_shift_align": 0,
+  "eval_calibrate_test": 0
+}

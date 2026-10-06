@@ -1,0 +1,36 @@
+{
+  "scope": "Matched 16 train-internal held-out frames, 16k checkpoint diagnostic only; no official test or final model selection",
+  "scenes": {
+    "Lego": {
+      "neural_diffuse": {
+        "PSNR": 22.309895396232605,
+        "SSIM": 0.8870999328792095,
+        "raw_MSE": 0.006892532779602334,
+        "alpha_L1": 0.005702978218323551
+      },
+      "bootstrap": {
+        "PSNR": 22.269779086112976,
+        "SSIM": 0.886017594486475,
+        "alpha_L1": 0.005439567205030471
+      },
+      "joint": {
+        "PSNR": 22.663803458213806,
+        "SSIM": 0.8851044662296772,
+        "alpha_L1": 0.008320204593474045
+      }
+    },
+    "Drums": {
+      "neural_diffuse": {
+        "PSNR": 23.47424292564392,
+        "SSIM": 0.9377235881984234,
+        "raw_MSE": 0.005407179429312237,
+        "alpha_L1": 0.011347407475113869
+      },
+      "bootstrap": {
+        "PSNR": 23.69966161251068,
+        "SSIM": 0.9394549876451492,
+        "alpha_L1": 0.010087035683682188
+      }
+    }
+  }
+}

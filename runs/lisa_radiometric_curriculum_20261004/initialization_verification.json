@@ -1,0 +1,41 @@
+[
+  {
+    "scene": "Lego",
+    "import_source": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_shading_analysis_20261004/initial_support_inputs/hull/Lego/geometry.pt",
+    "same_initial_state": {
+      "gaussians": true,
+      "transport": true,
+      "cuda_rng": true
+    },
+    "fit_split_matches_seed_source": true,
+    "validation_split_matches_seed_source": true,
+    "actual_center_matches_seed_source": true,
+    "actual_radius_matches_seed_source": true
+  },
+  {
+    "scene": "Drums",
+    "import_source": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_shading_analysis_20261004/initial_support_inputs/hull/Drums/geometry.pt",
+    "same_initial_state": {
+      "gaussians": true,
+      "transport": true,
+      "cuda_rng": true
+    },
+    "fit_split_matches_seed_source": true,
+    "validation_split_matches_seed_source": true,
+    "actual_center_matches_seed_source": true,
+    "actual_radius_matches_seed_source": true
+  },
+  {
+    "scene": "FurBall",
+    "import_source": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_shading_analysis_20261004/initial_support_inputs/hull/FurBall/geometry.pt",
+    "same_initial_state": {
+      "gaussians": true,
+      "transport": true,
+      "cuda_rng": true
+    },
+    "fit_split_matches_seed_source": true,
+    "validation_split_matches_seed_source": true,
+    "actual_center_matches_seed_source": true,
+    "actual_radius_matches_seed_source": true
+  }
+]

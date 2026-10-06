@@ -1,0 +1,30 @@
+[
+  {
+    "job": "PORT-Synthetic_GS3-FurBall-residual_factorized",
+    "previous_state": "running",
+    "pid": 534671,
+    "action": "SIGTERM to verified experiment child",
+    "reason": "Research cancellation: residual-credit refinement worsened all three completed 8k scenes; prioritize the newly evidenced initialization-support bottleneck. Completed results and logs are retained. Not an implementation failure."
+  },
+  {
+    "job": "PORT-Synthetic_GS3-Lego-pixel_residual_factorized",
+    "previous_state": "running",
+    "pid": 534868,
+    "action": "SIGTERM to verified experiment child",
+    "reason": "Research cancellation: residual-credit refinement worsened all three completed 8k scenes; prioritize the newly evidenced initialization-support bottleneck. Completed results and logs are retained. Not an implementation failure."
+  },
+  {
+    "job": "PORT-Synthetic_GS3-Drums-pixel_residual_factorized",
+    "previous_state": "pending",
+    "pid": null,
+    "action": "precreated output prevents pending training from starting",
+    "reason": "Research cancellation: residual-credit refinement worsened all three completed 8k scenes; prioritize the newly evidenced initialization-support bottleneck. Completed results and logs are retained. Not an implementation failure."
+  },
+  {
+    "job": "PORT-Synthetic_GS3-FurBall-pixel_residual_factorized",
+    "previous_state": "pending",
+    "pid": null,
+    "action": "precreated output prevents pending training from starting",
+    "reason": "Research cancellation: residual-credit refinement worsened all three completed 8k scenes; prioritize the newly evidenced initialization-support bottleneck. Completed results and logs are retained. Not an implementation failure."
+  }
+]

@@ -1,0 +1,14 @@
+Traceback (most recent call last):
+  File "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/train.py", line 1136, in <module>
+    main()
+  File "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/train.py", line 303, in main
+    return train_native(args)
+  File "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/native_reconstruction.py", line 119, in train_native
+    Model, opt, Settings, Rasterizer = author_modules()
+  File "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/native_reconstruction.py", line 38, in author_modules
+    spec.loader.exec_module(module)
+  File "<frozen importlib._bootstrap_external>", line 883, in exec_module
+  File "<frozen importlib._bootstrap>", line 241, in _call_with_frames_removed
+  File "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/third_party/2d-gaussian-splatting/scene/gaussian_model.py", line 20, in <module>
+    from simple_knn._C import distCUDA2
+ImportError: /usr/lib/x86_64-linux-gnu/libc.so.6: version `GLIBC_2.34' not found (required by /workspace/ubuntu2004_cuda12_1/utils/conda-envs/ssd-gs/lib/python3.10/site-packages/simple_knn/_C.cpython-310-x86_64-linux-gnu.so)

@@ -1,0 +1,636 @@
+{
+  "manifest": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_geometry_capacity_20261004/manifest.json",
+  "state": "completed",
+  "started_utc": "2026-10-04T05:43:45.431659+00:00",
+  "finished_utc": "2026-10-04T06:10:55.737046+00:00",
+  "scheduler_pid": 531384,
+  "updated_utc": "2026-10-04T06:10:55.737061+00:00",
+  "workers": {
+    "0.0": {
+      "state": "idle",
+      "job": null,
+      "pid": null
+    },
+    "0.1": {
+      "state": "idle",
+      "job": null,
+      "pid": null
+    },
+    "1.0": {
+      "state": "idle",
+      "job": null,
+      "pid": null
+    },
+    "1.1": {
+      "state": "idle",
+      "job": null,
+      "pid": null
+    }
+  },
+  "jobs": {
+    "PORT-Synthetic_GS3-Lego-lisa_geometry": {
+      "method": "PORT-GS",
+      "family": "Synthetic_GS3",
+      "scene": "Lego",
+      "state": "completed",
+      "gpu": "0.0",
+      "phase": null,
+      "pid": null,
+      "output": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_geometry_capacity_20261004/lisa_geometry/Synthetic_GS3/Lego",
+      "resultpath": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_geometry_capacity_20261004/lisa_geometry/Synthetic_GS3/Lego/fit/metrics.json",
+      "source_archive": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_geometry_capacity_20261004/source.tar",
+      "reused_from": null,
+      "steps": {
+        "train": {
+          "state": "completed",
+          "cwd": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS",
+          "argv": [
+            "/workspace/ubuntu2004_cuda12_1/utils/conda-envs/ssd-gs/bin/python",
+            "-u",
+            "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/train.py",
+            "--steps",
+            "8000",
+            "--seed",
+            "0",
+            "--fit-all",
+            "--resolution",
+            "512",
+            "--background",
+            "1.0",
+            "--display-gamma",
+            "2.2",
+            "--shadow-start",
+            "2000",
+            "--port-start",
+            "2000",
+            "--lr-decay-steps",
+            "30000",
+            "--representation",
+            "light_atlas",
+            "--material-head",
+            "svbrdf",
+            "--mask-weight",
+            "0.5",
+            "--foreground-appearance-until",
+            "2000",
+            "--specular",
+            "lobes",
+            "--freeze-geometry",
+            "--max-points",
+            "600000",
+            "--shading",
+            "gaussian",
+            "--opacity-cap",
+            "1.0",
+            "--min-scale",
+            "0.0",
+            "--max-scale",
+            "0.0",
+            "--init-geometry",
+            "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_v2_full_dataset_20261004/lisa_v2/Synthetic_GS3/Lego/last.pt",
+            "--scene",
+            "/workspace/datasets/SSD-GS/data/Synthetic_GS3/Lego",
+            "--output",
+            "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_geometry_capacity_20261004/lisa_geometry/Synthetic_GS3/Lego"
+          ],
+          "logpath": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_geometry_capacity_20261004/lisa_geometry/Synthetic_GS3/Lego.train.log",
+          "output": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_geometry_capacity_20261004/lisa_geometry/Synthetic_GS3/Lego",
+          "resultpath": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_geometry_capacity_20261004/lisa_geometry/Synthetic_GS3/Lego/last.pt",
+          "started_utc": "2026-10-04T05:43:45.434914+00:00",
+          "pid": null,
+          "startup_confirmed": {
+            "pid": 531392,
+            "gpu": "0.0",
+            "step": 100,
+            "row": {
+              "step": 100,
+              "stage": "relighting",
+              "frame_index": 917,
+              "loss": 0.1166217029094696,
+              "l1": 0.07104509323835373,
+              "loss_terms": {
+                "l1": 0.0568360760807991,
+                "ssim": 0.046620823442935944,
+                "mask": 0.013164791278541088,
+                "feature_reg": 1.3960914202471031e-08,
+                "camera_reg": 0.0
+              },
+              "points": 399468,
+              "seconds": 8.73,
+              "memory_GiB": 11.24897575378418,
+              "transport_stats": {
+                "specular": 0.005153287667781115
+              }
+            }
+          },
+          "finished_utc": "2026-10-04T06:05:43.087888+00:00",
+          "last_pid": 531392
+        },
+        "eval": {
+          "state": "completed",
+          "cwd": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS",
+          "argv": [
+            "/workspace/ubuntu2004_cuda12_1/utils/conda-envs/ssd-gs/bin/python",
+            "-u",
+            "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/evaluate.py",
+            "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_geometry_capacity_20261004/lisa_geometry/Synthetic_GS3/Lego/last.pt",
+            "--split",
+            "fit",
+            "--output",
+            "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_geometry_capacity_20261004/lisa_geometry/Synthetic_GS3/Lego/fit",
+            "--lpips",
+            "--limit",
+            "64"
+          ],
+          "logpath": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_geometry_capacity_20261004/lisa_geometry/Synthetic_GS3/Lego.fit.log",
+          "output": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_geometry_capacity_20261004/lisa_geometry/Synthetic_GS3/Lego/fit",
+          "resultpath": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_geometry_capacity_20261004/lisa_geometry/Synthetic_GS3/Lego/fit/metrics.json",
+          "started_utc": "2026-10-04T06:05:43.088927+00:00",
+          "pid": null,
+          "finished_utc": "2026-10-04T06:05:52.147909+00:00",
+          "last_pid": 535921
+        }
+      },
+      "started_utc": "2026-10-04T05:43:45.433898+00:00",
+      "startup_confirmed": {
+        "pid": 531392,
+        "gpu": "0.0",
+        "step": 100,
+        "row": {
+          "step": 100,
+          "stage": "relighting",
+          "frame_index": 917,
+          "loss": 0.1166217029094696,
+          "l1": 0.07104509323835373,
+          "loss_terms": {
+            "l1": 0.0568360760807991,
+            "ssim": 0.046620823442935944,
+            "mask": 0.013164791278541088,
+            "feature_reg": 1.3960914202471031e-08,
+            "camera_reg": 0.0
+          },
+          "points": 399468,
+          "seconds": 8.73,
+          "memory_GiB": 11.24897575378418,
+          "transport_stats": {
+            "specular": 0.005153287667781115
+          }
+        }
+      },
+      "finished_utc": "2026-10-04T06:05:52.148961+00:00"
+    },
+    "PORT-Synthetic_GS3-Drums-lisa_geometry": {
+      "method": "PORT-GS",
+      "family": "Synthetic_GS3",
+      "scene": "Drums",
+      "state": "completed",
+      "gpu": "0.1",
+      "phase": null,
+      "pid": null,
+      "output": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_geometry_capacity_20261004/lisa_geometry/Synthetic_GS3/Drums",
+      "resultpath": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_geometry_capacity_20261004/lisa_geometry/Synthetic_GS3/Drums/fit/metrics.json",
+      "source_archive": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_geometry_capacity_20261004/source.tar",
+      "reused_from": null,
+      "steps": {
+        "train": {
+          "state": "completed",
+          "cwd": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS",
+          "argv": [
+            "/workspace/ubuntu2004_cuda12_1/utils/conda-envs/ssd-gs/bin/python",
+            "-u",
+            "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/train.py",
+            "--steps",
+            "8000",
+            "--seed",
+            "0",
+            "--fit-all",
+            "--resolution",
+            "512",
+            "--background",
+            "1.0",
+            "--display-gamma",
+            "2.2",
+            "--shadow-start",
+            "2000",
+            "--port-start",
+            "2000",
+            "--lr-decay-steps",
+            "30000",
+            "--representation",
+            "light_atlas",
+            "--material-head",
+            "svbrdf",
+            "--mask-weight",
+            "0.5",
+            "--foreground-appearance-until",
+            "2000",
+            "--specular",
+            "lobes",
+            "--freeze-geometry",
+            "--max-points",
+            "600000",
+            "--shading",
+            "gaussian",
+            "--opacity-cap",
+            "1.0",
+            "--min-scale",
+            "0.0",
+            "--max-scale",
+            "0.0",
+            "--init-geometry",
+            "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_v2_full_dataset_20261004/lisa_v2/Synthetic_GS3/Drums/last.pt",
+            "--scene",
+            "/workspace/datasets/SSD-GS/data/Synthetic_GS3/Drums",
+            "--output",
+            "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_geometry_capacity_20261004/lisa_geometry/Synthetic_GS3/Drums"
+          ],
+          "logpath": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_geometry_capacity_20261004/lisa_geometry/Synthetic_GS3/Drums.train.log",
+          "output": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_geometry_capacity_20261004/lisa_geometry/Synthetic_GS3/Drums",
+          "resultpath": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_geometry_capacity_20261004/lisa_geometry/Synthetic_GS3/Drums/last.pt",
+          "started_utc": "2026-10-04T05:43:45.437063+00:00",
+          "pid": null,
+          "startup_confirmed": {
+            "pid": 531393,
+            "gpu": "0.1",
+            "step": 100,
+            "row": {
+              "step": 100,
+              "stage": "relighting",
+              "frame_index": 917,
+              "loss": 0.035953160375356674,
+              "l1": 0.021442178636789322,
+              "loss_terms": {
+                "l1": 0.017153743654489517,
+                "ssim": 0.01504375971853733,
+                "mask": 0.0037556346505880356,
+                "feature_reg": 1.8335146734216323e-08,
+                "camera_reg": 0.0
+              },
+              "points": 399944,
+              "seconds": 9.63,
+              "memory_GiB": 11.210430145263672,
+              "transport_stats": {
+                "specular": 0.0007481850916519761
+              }
+            }
+          },
+          "finished_utc": "2026-10-04T06:05:46.243692+00:00",
+          "last_pid": 531393
+        },
+        "eval": {
+          "state": "completed",
+          "cwd": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS",
+          "argv": [
+            "/workspace/ubuntu2004_cuda12_1/utils/conda-envs/ssd-gs/bin/python",
+            "-u",
+            "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/evaluate.py",
+            "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_geometry_capacity_20261004/lisa_geometry/Synthetic_GS3/Drums/last.pt",
+            "--split",
+            "fit",
+            "--output",
+            "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_geometry_capacity_20261004/lisa_geometry/Synthetic_GS3/Drums/fit",
+            "--lpips",
+            "--limit",
+            "64"
+          ],
+          "logpath": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_geometry_capacity_20261004/lisa_geometry/Synthetic_GS3/Drums.fit.log",
+          "output": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_geometry_capacity_20261004/lisa_geometry/Synthetic_GS3/Drums/fit",
+          "resultpath": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_geometry_capacity_20261004/lisa_geometry/Synthetic_GS3/Drums/fit/metrics.json",
+          "started_utc": "2026-10-04T06:05:46.244674+00:00",
+          "pid": null,
+          "finished_utc": "2026-10-04T06:05:55.344364+00:00",
+          "last_pid": 535970
+        }
+      },
+      "started_utc": "2026-10-04T05:43:45.435826+00:00",
+      "startup_confirmed": {
+        "pid": 531393,
+        "gpu": "0.1",
+        "step": 100,
+        "row": {
+          "step": 100,
+          "stage": "relighting",
+          "frame_index": 917,
+          "loss": 0.035953160375356674,
+          "l1": 0.021442178636789322,
+          "loss_terms": {
+            "l1": 0.017153743654489517,
+            "ssim": 0.01504375971853733,
+            "mask": 0.0037556346505880356,
+            "feature_reg": 1.8335146734216323e-08,
+            "camera_reg": 0.0
+          },
+          "points": 399944,
+          "seconds": 9.63,
+          "memory_GiB": 11.210430145263672,
+          "transport_stats": {
+            "specular": 0.0007481850916519761
+          }
+        }
+      },
+      "finished_utc": "2026-10-04T06:05:55.345419+00:00"
+    },
+    "PORT-Synthetic_GS3-Lego-gs3_geometry": {
+      "method": "PORT-GS",
+      "family": "Synthetic_GS3",
+      "scene": "Lego",
+      "state": "completed",
+      "gpu": "1.0",
+      "phase": null,
+      "pid": null,
+      "output": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_geometry_capacity_20261004/gs3_geometry/Synthetic_GS3/Lego",
+      "resultpath": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_geometry_capacity_20261004/gs3_geometry/Synthetic_GS3/Lego/fit/metrics.json",
+      "source_archive": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_geometry_capacity_20261004/source.tar",
+      "reused_from": null,
+      "steps": {
+        "train": {
+          "state": "completed",
+          "cwd": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS",
+          "argv": [
+            "/workspace/ubuntu2004_cuda12_1/utils/conda-envs/ssd-gs/bin/python",
+            "-u",
+            "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/train.py",
+            "--steps",
+            "8000",
+            "--seed",
+            "0",
+            "--fit-all",
+            "--resolution",
+            "512",
+            "--background",
+            "1.0",
+            "--display-gamma",
+            "2.2",
+            "--shadow-start",
+            "2000",
+            "--port-start",
+            "2000",
+            "--lr-decay-steps",
+            "30000",
+            "--representation",
+            "light_atlas",
+            "--material-head",
+            "svbrdf",
+            "--mask-weight",
+            "0.5",
+            "--foreground-appearance-until",
+            "2000",
+            "--specular",
+            "lobes",
+            "--freeze-geometry",
+            "--max-points",
+            "600000",
+            "--shading",
+            "gaussian",
+            "--opacity-cap",
+            "1.0",
+            "--min-scale",
+            "0.0",
+            "--max-scale",
+            "0.0",
+            "--init-geometry",
+            "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_shading_analysis_20261004/geometry_inputs/Lego/geometry.pt",
+            "--scene",
+            "/workspace/datasets/SSD-GS/data/Synthetic_GS3/Lego",
+            "--output",
+            "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_geometry_capacity_20261004/gs3_geometry/Synthetic_GS3/Lego"
+          ],
+          "logpath": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_geometry_capacity_20261004/gs3_geometry/Synthetic_GS3/Lego.train.log",
+          "output": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_geometry_capacity_20261004/gs3_geometry/Synthetic_GS3/Lego",
+          "resultpath": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_geometry_capacity_20261004/gs3_geometry/Synthetic_GS3/Lego/last.pt",
+          "started_utc": "2026-10-04T05:43:45.444472+00:00",
+          "pid": null,
+          "startup_confirmed": {
+            "pid": 531394,
+            "gpu": "1.0",
+            "step": 100,
+            "row": {
+              "step": 100,
+              "stage": "relighting",
+              "frame_index": 917,
+              "loss": 0.07445675134658813,
+              "l1": 0.04745977371931076,
+              "loss_terms": {
+                "l1": 0.03796781972050667,
+                "ssim": 0.03595130518078804,
+                "mask": 0.0005376009503379464,
+                "feature_reg": 2.4875928872347686e-08,
+                "camera_reg": 0.0
+              },
+              "points": 489796,
+              "seconds": 9.74,
+              "memory_GiB": 11.895308494567871,
+              "transport_stats": {
+                "specular": 0.001258105388842523
+              }
+            }
+          },
+          "finished_utc": "2026-10-04T06:08:47.397935+00:00",
+          "last_pid": 531394
+        },
+        "eval": {
+          "state": "completed",
+          "cwd": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS",
+          "argv": [
+            "/workspace/ubuntu2004_cuda12_1/utils/conda-envs/ssd-gs/bin/python",
+            "-u",
+            "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/evaluate.py",
+            "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_geometry_capacity_20261004/gs3_geometry/Synthetic_GS3/Lego/last.pt",
+            "--split",
+            "fit",
+            "--output",
+            "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_geometry_capacity_20261004/gs3_geometry/Synthetic_GS3/Lego/fit",
+            "--lpips",
+            "--limit",
+            "64"
+          ],
+          "logpath": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_geometry_capacity_20261004/gs3_geometry/Synthetic_GS3/Lego.fit.log",
+          "output": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_geometry_capacity_20261004/gs3_geometry/Synthetic_GS3/Lego/fit",
+          "resultpath": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_geometry_capacity_20261004/gs3_geometry/Synthetic_GS3/Lego/fit/metrics.json",
+          "started_utc": "2026-10-04T06:08:47.399722+00:00",
+          "pid": null,
+          "finished_utc": "2026-10-04T06:09:01.883197+00:00",
+          "last_pid": 536283
+        }
+      },
+      "started_utc": "2026-10-04T05:43:45.441694+00:00",
+      "startup_confirmed": {
+        "pid": 531394,
+        "gpu": "1.0",
+        "step": 100,
+        "row": {
+          "step": 100,
+          "stage": "relighting",
+          "frame_index": 917,
+          "loss": 0.07445675134658813,
+          "l1": 0.04745977371931076,
+          "loss_terms": {
+            "l1": 0.03796781972050667,
+            "ssim": 0.03595130518078804,
+            "mask": 0.0005376009503379464,
+            "feature_reg": 2.4875928872347686e-08,
+            "camera_reg": 0.0
+          },
+          "points": 489796,
+          "seconds": 9.74,
+          "memory_GiB": 11.895308494567871,
+          "transport_stats": {
+            "specular": 0.001258105388842523
+          }
+        }
+      },
+      "finished_utc": "2026-10-04T06:09:01.884267+00:00"
+    },
+    "PORT-Synthetic_GS3-Drums-gs3_geometry": {
+      "method": "PORT-GS",
+      "family": "Synthetic_GS3",
+      "scene": "Drums",
+      "state": "completed",
+      "gpu": "1.1",
+      "phase": null,
+      "pid": null,
+      "output": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_geometry_capacity_20261004/gs3_geometry/Synthetic_GS3/Drums",
+      "resultpath": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_geometry_capacity_20261004/gs3_geometry/Synthetic_GS3/Drums/fit/metrics.json",
+      "source_archive": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_geometry_capacity_20261004/source.tar",
+      "reused_from": null,
+      "steps": {
+        "train": {
+          "state": "completed",
+          "cwd": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS",
+          "argv": [
+            "/workspace/ubuntu2004_cuda12_1/utils/conda-envs/ssd-gs/bin/python",
+            "-u",
+            "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/train.py",
+            "--steps",
+            "8000",
+            "--seed",
+            "0",
+            "--fit-all",
+            "--resolution",
+            "512",
+            "--background",
+            "1.0",
+            "--display-gamma",
+            "2.2",
+            "--shadow-start",
+            "2000",
+            "--port-start",
+            "2000",
+            "--lr-decay-steps",
+            "30000",
+            "--representation",
+            "light_atlas",
+            "--material-head",
+            "svbrdf",
+            "--mask-weight",
+            "0.5",
+            "--foreground-appearance-until",
+            "2000",
+            "--specular",
+            "lobes",
+            "--freeze-geometry",
+            "--max-points",
+            "600000",
+            "--shading",
+            "gaussian",
+            "--opacity-cap",
+            "1.0",
+            "--min-scale",
+            "0.0",
+            "--max-scale",
+            "0.0",
+            "--init-geometry",
+            "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_shading_analysis_20261004/geometry_inputs/Drums/geometry.pt",
+            "--scene",
+            "/workspace/datasets/SSD-GS/data/Synthetic_GS3/Drums",
+            "--output",
+            "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_geometry_capacity_20261004/gs3_geometry/Synthetic_GS3/Drums"
+          ],
+          "logpath": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_geometry_capacity_20261004/gs3_geometry/Synthetic_GS3/Drums.train.log",
+          "output": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_geometry_capacity_20261004/gs3_geometry/Synthetic_GS3/Drums",
+          "resultpath": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_geometry_capacity_20261004/gs3_geometry/Synthetic_GS3/Drums/last.pt",
+          "started_utc": "2026-10-04T05:43:45.445238+00:00",
+          "pid": null,
+          "startup_confirmed": {
+            "pid": 531395,
+            "gpu": "1.1",
+            "step": 100,
+            "row": {
+              "step": 100,
+              "stage": "relighting",
+              "frame_index": 917,
+              "loss": 0.024690726771950722,
+              "l1": 0.015315955504775047,
+              "loss_terms": {
+                "l1": 0.012252764776349068,
+                "ssim": 0.01153179444372654,
+                "mask": 0.0009061283781193197,
+                "feature_reg": 3.898519551626123e-08,
+                "camera_reg": 0.0
+              },
+              "points": 549863,
+              "seconds": 12.68,
+              "memory_GiB": 12.39209508895874,
+              "transport_stats": {
+                "specular": 0.00040690539753995836
+              }
+            }
+          },
+          "finished_utc": "2026-10-04T06:10:46.831308+00:00",
+          "last_pid": 531395
+        },
+        "eval": {
+          "state": "completed",
+          "cwd": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS",
+          "argv": [
+            "/workspace/ubuntu2004_cuda12_1/utils/conda-envs/ssd-gs/bin/python",
+            "-u",
+            "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/evaluate.py",
+            "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_geometry_capacity_20261004/gs3_geometry/Synthetic_GS3/Drums/last.pt",
+            "--split",
+            "fit",
+            "--output",
+            "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_geometry_capacity_20261004/gs3_geometry/Synthetic_GS3/Drums/fit",
+            "--lpips",
+            "--limit",
+            "64"
+          ],
+          "logpath": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_geometry_capacity_20261004/gs3_geometry/Synthetic_GS3/Drums.fit.log",
+          "output": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_geometry_capacity_20261004/gs3_geometry/Synthetic_GS3/Drums/fit",
+          "resultpath": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_geometry_capacity_20261004/gs3_geometry/Synthetic_GS3/Drums/fit/metrics.json",
+          "started_utc": "2026-10-04T06:10:46.832388+00:00",
+          "pid": null,
+          "finished_utc": "2026-10-04T06:10:55.716763+00:00",
+          "last_pid": 536765
+        }
+      },
+      "started_utc": "2026-10-04T05:43:45.443537+00:00",
+      "startup_confirmed": {
+        "pid": 531395,
+        "gpu": "1.1",
+        "step": 100,
+        "row": {
+          "step": 100,
+          "stage": "relighting",
+          "frame_index": 917,
+          "loss": 0.024690726771950722,
+          "l1": 0.015315955504775047,
+          "loss_terms": {
+            "l1": 0.012252764776349068,
+            "ssim": 0.01153179444372654,
+            "mask": 0.0009061283781193197,
+            "feature_reg": 3.898519551626123e-08,
+            "camera_reg": 0.0
+          },
+          "points": 549863,
+          "seconds": 12.68,
+          "memory_GiB": 12.39209508895874,
+          "transport_stats": {
+            "specular": 0.00040690539753995836
+          }
+        }
+      },
+      "finished_utc": "2026-10-04T06:10:55.718518+00:00"
+    }
+  }
+}

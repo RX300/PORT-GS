@@ -1,5 +1,8 @@
 # LiSA-GS: Light-Space Neural Transport Atlases for Relightable Gaussian Splatting
 
+> 2026-10-06：最终版的新颖性定位请结合[相关工作审计](lisa_prior_art_audit_20261006.md)。
+> 新核查的Gaussian Shadow Maps、NeuMIP、RNG及PG2026矩阴影工作限制了下文若干宽泛贡献表述；本提案保留为历史记录。
+
 Proposal written 2026-10-01 (JST) on branch `feature_claude_neural_relighting`, target venue CVPR 2027.
 Code name in PORT-GS: representation `light_atlas`. This is a fresh design: it does not reuse the
 ports, the attention exchange or the frozen neural BRDF prior of the three existing PORT methods

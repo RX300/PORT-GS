@@ -1,0 +1,32 @@
+\begin{table*}[t]
+\caption{\textbf{シーン別の光輸送項の割合とテスト光源の新規性。}最終モデルが $L_{\mathrm{tr}}$ へ配分する線形放射輝度の割合（等間隔の 8 テストビューでの平均と範囲）、被覆された画素での学習した可視性の平均、および各公式テスト光源と最近傍の学習光源との角度（中央値 / 最大値）を示す。}
+\label{tab:supp_shares}
+\centering\scriptsize
+\setlength{\tabcolsep}{2pt}
+\begin{tabular}{@{}llcccc@{}}
+\toprule
+ベンチマーク & シーン & 光輸送の割合 & 範囲 & 平均 $V$ & テスト光源の角度差 \\
+\midrule
+\multirow{7}{*}{NRHints（実撮影）} & Cat & 34.2\% & 28--44\% & 0.66 & 2.3$^\circ$ / 10.5$^\circ$ \\
+ & CatSmall & 26.8\% & 21--40\% & 0.55 & 1.2$^\circ$ / 3.5$^\circ$ \\
+ & CupFabric & 19.2\% & 12--25\% & 0.76 & 1.3$^\circ$ / 3.6$^\circ$ \\
+ & Fish & 28.2\% & 1--45\% & 0.88 & 2.2$^\circ$ / 8.8$^\circ$ \\
+ & FurScene & 7.2\% & 5--11\% & 0.59 & 2.1$^\circ$ / 6.6$^\circ$ \\
+ & Pikachu & 12.3\% & 9--20\% & 0.55 & 0.9$^\circ$ / 3.7$^\circ$ \\
+ & Pixiu & 42.1\% & 37--45\% & 0.83 & 2.1$^\circ$ / 5.1$^\circ$ \\
+\midrule
+\multirow{6}{*}{GS$^3$（合成）} & AnisoMetal & 7.4\% & 6--11\% & 0.89 & 1.1$^\circ$ / 3.9$^\circ$ \\
+ & Drums & 5.6\% & 4--7\% & 0.77 & 1.1$^\circ$ / 3.9$^\circ$ \\
+ & FurBall & 16.9\% & 16--19\% & 0.84 & 1.1$^\circ$ / 3.9$^\circ$ \\
+ & Hotdog & 6.7\% & 6--8\% & 0.92 & 1.1$^\circ$ / 3.9$^\circ$ \\
+ & Lego & 9.3\% & 7--14\% & 0.75 & 1.1$^\circ$ / 3.9$^\circ$ \\
+ & Translucent & 16.7\% & 14--21\% & 0.89 & 1.1$^\circ$ / 3.9$^\circ$ \\
+\midrule
+\multirow{5}{*}{SSS-GS（合成）} & Bunny & 28.1\% & 13--81\% & 0.67 & 0.0$^\circ$ / 11.3$^\circ$ \\
+ & Candle & 47.6\% & 28--88\% & 0.49 & 0.0$^\circ$ / 11.2$^\circ$ \\
+ & Dragon & 48.2\% & 34--79\% & 0.46 & 0.0$^\circ$ / 11.2$^\circ$ \\
+ & Soap & 58.0\% & 32--98\% & 0.63 & 0.0$^\circ$ / 11.3$^\circ$ \\
+ & Statue & 20.5\% & 10--57\% & 0.36 & 0.0$^\circ$ / 11.0$^\circ$ \\
+\bottomrule
+\end{tabular}
+\end{table*}

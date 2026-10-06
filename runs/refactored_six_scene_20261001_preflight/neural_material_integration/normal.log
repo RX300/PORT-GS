@@ -1,0 +1,25 @@
+/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/.venv/lib/python3.10/site-packages/transformers/utils/generic.py:441: FutureWarning: `torch.utils._pytree._register_pytree_node` is deprecated. Please use `torch.utils._pytree.register_pytree_node` instead.
+  _torch_pytree._register_pytree_node(
+/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/.venv/lib/python3.10/site-packages/transformers/utils/generic.py:309: FutureWarning: `torch.utils._pytree._register_pytree_node` is deprecated. Please use `torch.utils._pytree.register_pytree_node` instead.
+  _torch_pytree._register_pytree_node(
+/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/.venv/lib/python3.10/site-packages/transformers/utils/generic.py:309: FutureWarning: `torch.utils._pytree._register_pytree_node` is deprecated. Please use `torch.utils._pytree.register_pytree_node` instead.
+  _torch_pytree._register_pytree_node(
+Keyword arguments {'trust_remote_code': True} are not expected by YOSONormalsPipeline and will be ignored.
+Loading pipeline components...:   0%|          | 0/6 [00:00<?, ?it/s]Loading pipeline components...:  33%|███▎      | 2/6 [00:00<00:00, 17.02it/s]The config attributes {'shift_factor': None, 'use_post_quant_conv': True, 'use_quant_conv': True} were passed to AutoencoderKL, but are not expected and will be ignored. Please verify your config.json configuration file.
+Loading pipeline components...:  83%|████████▎ | 5/6 [00:00<00:00, 14.12it/s]Loading pipeline components...: 100%|██████████| 6/6 [00:00<00:00, 15.00it/s]
+You have disabled the safety checker for <class 'stablenormal.pipeline_yoso_normal.YOSONormalsPipeline'> by passing `safety_checker=None`. Ensure that you abide to the conditions of the Stable Diffusion license and do not expose unfiltered results in services or applications open to the public. Both the diffusers team and Hugging Face strongly recommend to keep the safety filter enabled in all public facing circumstances, disabling it only for use-cases that involve analyzing network behavior or auditing its results. For more information, please have a look at https://github.com/huggingface/diffusers/pull/254 .
+Keyword arguments {'trust_remote_code': True} are not expected by StableNormalPipeline and will be ignored.
+Loading pipeline components...:   0%|          | 0/6 [00:00<?, ?it/s]Loading pipeline components...:  33%|███▎      | 2/6 [00:00<00:00, 15.05it/s]Loading pipeline components...:  67%|██████▋   | 4/6 [00:00<00:00, 12.25it/s]Loading pipeline components...: 100%|██████████| 6/6 [00:00<00:00, 14.59it/s]Loading pipeline components...: 100%|██████████| 6/6 [00:00<00:00, 14.17it/s]
+You have disabled the safety checker for <class 'stablenormal.pipeline_stablenormal.StableNormalPipeline'> by passing `safety_checker=None`. Ensure that you abide to the conditions of the Stable Diffusion license and do not expose unfiltered results in services or applications open to the public. Both the diffusers team and Hugging Face strongly recommend to keep the safety filter enabled in all public facing circumstances, disabling it only for use-cases that involve analyzing network behavior or auditing its results. For more information, please have a look at https://github.com/huggingface/diffusers/pull/254 .
+Using cache found in /home/wenxiao-z/.cache/torch/hub/facebookresearch_dinov2_main
+/home/wenxiao-z/.cache/torch/hub/facebookresearch_dinov2_main/dinov2/layers/swiglu_ffn.py:51: UserWarning: xFormers is not available (SwiGLU)
+  warnings.warn("xFormers is not available (SwiGLU)")
+/home/wenxiao-z/.cache/torch/hub/facebookresearch_dinov2_main/dinov2/layers/attention.py:33: UserWarning: xFormers is not available (Attention)
+  warnings.warn("xFormers is not available (Attention)")
+/home/wenxiao-z/.cache/torch/hub/facebookresearch_dinov2_main/dinov2/layers/block.py:40: UserWarning: xFormers is not available (Block)
+  warnings.warn("xFormers is not available (Block)")
+Diffusion steps...: 0it [00:00, ?it/s]Diffusion steps...: 3it [00:00, 26.73it/s]Diffusion steps...: 6it [00:00, 28.16it/s]Diffusion steps...: 10it [00:00, 29.64it/s]                                           normal: 1/4 frame=0
+Diffusion steps...: 0it [00:00, ?it/s]Diffusion steps...: 4it [00:00, 30.88it/s]Diffusion steps...: 8it [00:00, 31.02it/s]                                          normal: 2/4 frame=1
+Diffusion steps...: 0it [00:00, ?it/s]Diffusion steps...: 4it [00:00, 31.02it/s]Diffusion steps...: 8it [00:00, 31.17it/s]                                          normal: 3/4 frame=2
+Diffusion steps...: 0it [00:00, ?it/s]Diffusion steps...: 4it [00:00, 30.92it/s]Diffusion steps...: 8it [00:00, 31.08it/s]                                          normal: 4/4 frame=3
+/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/refactored_six_scene_20261001_preflight/neural_material_integration/surface_priors/normal.pt

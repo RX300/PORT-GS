@@ -1,0 +1,153 @@
+{
+  "split": "validation",
+  "checkpoint": "runs/lisa_material_geometry_20261004/neural_diffuse/Synthetic_GS3/Drums/step_008000.pt",
+  "render_branch": "gaussian",
+  "metrics": {
+    "PSNR": 23.147014260292053,
+    "SSIM": 0.9329004921019077,
+    "raw_MSE": 0.005948350866674446,
+    "alpha_L1": 0.008191340719349682
+  },
+  "views": [
+    {
+      "frame_index": 5,
+      "name": "r_5",
+      "PSNR": 23.975494384765625,
+      "SSIM": 0.9328174591064453,
+      "raw_MSE": 0.004268360789865255,
+      "alpha_L1": 0.0072319284081459045
+    },
+    {
+      "frame_index": 125,
+      "name": "r_125",
+      "PSNR": 23.145305633544922,
+      "SSIM": 0.9448320269584656,
+      "raw_MSE": 0.00506175123155117,
+      "alpha_L1": 0.0076937247067689896
+    },
+    {
+      "frame_index": 245,
+      "name": "r_245",
+      "PSNR": 20.726665496826172,
+      "SSIM": 0.9302695989608765,
+      "raw_MSE": 0.00890379212796688,
+      "alpha_L1": 0.010920489206910133
+    },
+    {
+      "frame_index": 365,
+      "name": "r_365",
+      "PSNR": 21.49757194519043,
+      "SSIM": 0.9397725462913513,
+      "raw_MSE": 0.007587525062263012,
+      "alpha_L1": 0.010026955045759678
+    },
+    {
+      "frame_index": 485,
+      "name": "r_485",
+      "PSNR": 24.794950485229492,
+      "SSIM": 0.9525086283683777,
+      "raw_MSE": 0.004522358998656273,
+      "alpha_L1": 0.005656267050653696
+    },
+    {
+      "frame_index": 605,
+      "name": "r_605",
+      "PSNR": 21.850135803222656,
+      "SSIM": 0.934605062007904,
+      "raw_MSE": 0.009594602510333061,
+      "alpha_L1": 0.006388392765074968
+    },
+    {
+      "frame_index": 725,
+      "name": "r_725",
+      "PSNR": 23.24764633178711,
+      "SSIM": 0.937105655670166,
+      "raw_MSE": 0.006097015924751759,
+      "alpha_L1": 0.006982004269957542
+    },
+    {
+      "frame_index": 845,
+      "name": "r_845",
+      "PSNR": 23.630348205566406,
+      "SSIM": 0.9292063117027283,
+      "raw_MSE": 0.004835118539631367,
+      "alpha_L1": 0.00731629366055131
+    },
+    {
+      "frame_index": 965,
+      "name": "r_965",
+      "PSNR": 22.18463706970215,
+      "SSIM": 0.9285649061203003,
+      "raw_MSE": 0.006350500043481588,
+      "alpha_L1": 0.009698210284113884
+    },
+    {
+      "frame_index": 1085,
+      "name": "r_1085",
+      "PSNR": 26.37127113342285,
+      "SSIM": 0.947422206401825,
+      "raw_MSE": 0.0028316141106188297,
+      "alpha_L1": 0.005376802291721106
+    },
+    {
+      "frame_index": 1205,
+      "name": "r_1205",
+      "PSNR": 24.61444664001465,
+      "SSIM": 0.943821907043457,
+      "raw_MSE": 0.003464603563770652,
+      "alpha_L1": 0.0071967653930187225
+    },
+    {
+      "frame_index": 1325,
+      "name": "r_1325",
+      "PSNR": 24.006784439086914,
+      "SSIM": 0.9248874187469482,
+      "raw_MSE": 0.004014447797089815,
+      "alpha_L1": 0.00892927497625351
+    },
+    {
+      "frame_index": 1445,
+      "name": "r_1445",
+      "PSNR": 22.511486053466797,
+      "SSIM": 0.9152477979660034,
+      "raw_MSE": 0.006258250214159489,
+      "alpha_L1": 0.00831733737140894
+    },
+    {
+      "frame_index": 1565,
+      "name": "r_1565",
+      "PSNR": 21.104402542114258,
+      "SSIM": 0.9307736158370972,
+      "raw_MSE": 0.008347663097083569,
+      "alpha_L1": 0.012113402597606182
+    },
+    {
+      "frame_index": 1685,
+      "name": "r_1685",
+      "PSNR": 23.462745666503906,
+      "SSIM": 0.9303712248802185,
+      "raw_MSE": 0.004569671116769314,
+      "alpha_L1": 0.008092319592833519
+    },
+    {
+      "frame_index": 1805,
+      "name": "r_1805",
+      "PSNR": 23.228336334228516,
+      "SSIM": 0.9042015075683594,
+      "raw_MSE": 0.008466338738799095,
+      "alpha_L1": 0.009121283888816833
+    }
+  ],
+  "protocol": "uint8-quantized observation RGB, unit PSNR, zero-padded 11x11 SSIM sigma1.5; LPIPS standard [-1,1]; raw_MSE is unclipped observation MSE; original held-out camera calibration",
+  "training_resolution": 512,
+  "resolution": 512,
+  "background": 1.0,
+  "evaluated_frames": 16,
+  "limit": 16,
+  "save_all": false,
+  "display_gamma": 2.2,
+  "camera_protocol": "saved training offsets on fit frames; original calibration on held-out frames",
+  "light_protocol": "original calibration",
+  "corrected_fit_frames": 0,
+  "observation_protocol": "PNG foreground gamma then alpha composition; HDR full-image gamma"
+}

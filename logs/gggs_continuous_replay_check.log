@@ -1,0 +1,10 @@
+Traceback (most recent call last):
+  File "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/diagnose_image_errors.py", line 990, in <module>
+    main()
+  File "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/diagnose_image_errors.py", line 537, in main
+    return review_default_geometry(args.checkpoint,args.output)
+  File "/workspace/ubuntu2004_cuda12_1/utils/conda-envs/ssd-gs/lib/python3.10/site-packages/torch/utils/_contextlib.py", line 116, in decorate_context
+    return func(*args, **kwargs)
+  File "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/geometry_review.py", line 67, in review_default_geometry
+    raise ValueError(f'Continuous-depth geometry roundtrip failed: {handoff}')
+ValueError: Continuous-depth geometry roundtrip failed: {'alpha_max_abs': 0.0024511218070983887, 'depth_median_abs_over_radius': 0.0, 'depth_p99_abs_over_radius': 6.769872129552823e-07, 'compared_depth_pixels': 42243}

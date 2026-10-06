@@ -1,0 +1,13 @@
+{"event": "startup_confirmed", "job": "PORT-Synthetic_GS3-FurBall-unrestricted", "gpu": "3", "pid": 557285, "phase": "train", "step": 100}
+{"event": "startup_confirmed", "job": "PORT-Synthetic_GS3-Lego-unrestricted", "gpu": "1.0", "pid": 557283, "phase": "train", "step": 100}
+{"event": "startup_confirmed", "job": "PORT-Synthetic_GS3-Drums-unrestricted", "gpu": "1.1", "pid": 557284, "phase": "train", "step": 100}
+{"event": "phasefinish", "job": "PORT-Synthetic_GS3-FurBall-unrestricted", "gpu": "3", "phase": "train", "pid": 557285}
+{"event": "phasefinish", "job": "PORT-Synthetic_GS3-FurBall-unrestricted", "gpu": "3", "phase": "eval", "pid": 557786}
+{"event": "jobfinish", "job": "PORT-Synthetic_GS3-FurBall-unrestricted", "gpu": "3"}
+{"event": "phasefinish", "job": "PORT-Synthetic_GS3-Lego-unrestricted", "gpu": "1.0", "phase": "train", "pid": 557283}
+{"event": "phasefinish", "job": "PORT-Synthetic_GS3-Drums-unrestricted", "gpu": "1.1", "phase": "train", "pid": 557284}
+{"event": "phasefinish", "job": "PORT-Synthetic_GS3-Lego-unrestricted", "gpu": "1.0", "phase": "eval", "pid": 558570}
+{"event": "jobfinish", "job": "PORT-Synthetic_GS3-Lego-unrestricted", "gpu": "1.0"}
+{"event": "phasefinish", "job": "PORT-Synthetic_GS3-Drums-unrestricted", "gpu": "1.1", "phase": "eval", "pid": 558633}
+{"event": "jobfinish", "job": "PORT-Synthetic_GS3-Drums-unrestricted", "gpu": "1.1"}
+{"event": "queue_complete", "status": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_unrestricted_appearance_20261004/status.json"}

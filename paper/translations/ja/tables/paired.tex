@@ -1,0 +1,17 @@
+\begin{table}[t]
+\caption{\textbf{光輸送項が重要となるシーン。}完全モデルと、光輸送項を除いたモデルおよび同容量の局所残差モデルとのシーン別 PSNR 差（三つのシードの対応する差の平均$\pm$標準偏差）と、完全モデルが光輸送項へ配分する線形放射輝度の割合（8 テストビューの平均）。}
+\label{tab:paired}
+\centering\small
+\setlength{\tabcolsep}{2.5pt}
+\begin{tabular}{@{}lccc@{}}
+\toprule
+シーン & \shortstack{光輸送なし\\との差} & \shortstack{局所残差\\との差} & 光輸送の割合 \\
+\midrule
+Drums & $+0.10${\tiny$\pm$0.02} & $-0.09${\tiny$\pm$0.02} & 6\% \\
+FurScene & $+0.02${\tiny$\pm$0.03} & $+0.02${\tiny$\pm$0.02} & 7\% \\
+AnisoMetal & $+1.42${\tiny$\pm$0.69} & $-0.18${\tiny$\pm$0.75} & 7\% \\
+Translucent & $+2.29${\tiny$\pm$0.23} & $+0.41${\tiny$\pm$0.26} & 17\% \\
+Soap & $+2.99${\tiny$\pm$0.30} & $-0.29${\tiny$\pm$0.11} & 58\% \\
+\bottomrule
+\end{tabular}
+\end{table}

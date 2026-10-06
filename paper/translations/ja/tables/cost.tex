@@ -1,0 +1,17 @@
+\begin{table}[t]
+\caption{\textbf{計算コスト。}三つの計測対象シーンで、各実行が一枚の RTX 6000 Ada を専有する条件における、学習時間（分。全プロセス、\ours の両学習段階を含む）と、毎フレーム新しい光源を用いたレンダリング速度を示す。\ours の光源パスも含める。}
+\label{tab:cost}
+\centering\small
+\setlength{\tabcolsep}{4pt}
+\begin{tabular}{@{}lrrrrrr@{}}
+\toprule
+ & \multicolumn{2}{c}{Drums} & \multicolumn{2}{c}{FurScene} & \multicolumn{2}{c}{Soap} \\
+\cmidrule(lr){2-3}\cmidrule(lr){4-5}\cmidrule(l){6-7}
+手法 & 分 & FPS & 分 & FPS & 分 & FPS \\
+\midrule
+\gsthree & 73.5 & 61 & 51.0 & 191 & 39.4 & 228 \\
+SSD-GS & 141.1 & 29 & 61.2 & 136 & 26.8 & 198 \\
+\ours & 25.7 & 63 & 19.9 & 74 & 16.7 & 104 \\
+\bottomrule
+\end{tabular}
+\end{table}

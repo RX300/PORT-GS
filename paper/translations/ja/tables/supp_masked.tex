@@ -1,0 +1,17 @@
+\begin{table}[t]
+\caption{\textbf{前景マスク内の PSNR。}正解不透明度が 0.5 を超える画素を対象とし、共通の目標画像に対する結果を、各ベンチマークのシーン間で平均する。}
+\label{tab:supp_masked}
+\centering\small
+\setlength{\tabcolsep}{4pt}
+\begin{tabular}{@{}lcccc@{}}
+\toprule
+手法 & 実撮影 (7) & GS$^3$ (6) & SSS (5) & 全体 (18) \\
+\midrule
+\ours & 23.67 & 28.23 & 32.76 & 27.72 \\
+SSD-GS & 21.92 & 27.39 & 29.95 & 25.97 \\
+GS$^3$ & 21.98 & 27.83 & 28.91 & 25.86 \\
+OLAT-GS & 21.97 & 23.30 & 33.01 & 25.48 \\
+RNG & 15.58 & 18.25 & 29.42 & 20.31 \\
+\bottomrule
+\end{tabular}
+\end{table}

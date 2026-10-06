@@ -1,0 +1,22 @@
+{
+  "utc": "2026-10-04T09:57:13.207918+00:00",
+  "reason": "User limits this work to at most two idle GPUs. Keep only main validation FurBall/GPU2 and Cat/GPU3; stop other training and block pending work until rescheduled on two GPUs.",
+  "jobs": [
+    {
+      "job": "PORT-Synthetic_GS3-Lego-appearance",
+      "previous_state": "running",
+      "gpu": "0",
+      "pid": 566299,
+      "last_logged_step": 6000,
+      "output": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_radiometric_appearance_20261004/appearance/Synthetic_GS3/Lego"
+    },
+    {
+      "job": "PORT-Synthetic_GS3-Drums-appearance",
+      "previous_state": "running",
+      "gpu": "1",
+      "pid": 566300,
+      "last_logged_step": 6900,
+      "output": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_radiometric_appearance_20261004/appearance/Synthetic_GS3/Drums"
+    }
+  ]
+}

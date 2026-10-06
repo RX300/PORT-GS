@@ -1,0 +1,108 @@
+{
+  "name": "lisa_v2_interp_selection_20261004",
+  "note": "Interpolation-split selection (every 10th official train frame held out, offset 5; like the official test, whose lights lie 0-2 deg from training lights). The light-group split measures extrapolation and favoured the original recipe, whose transport-only appearance extrapolates gracefully while fitting worse; fit-view PSNR also favoured the original footprint-split densification (capacity). Candidate G keeps that densification, suppresses the white-background shell with mask weight 0.5 (best anti-shell setting of the 8k diagnosis) and guards the early black-background collapse with foreground-weighted appearance only for steps <= 2000. Decision rule fixed before results: adopt the candidate with the highest 8-scene mean held-out PSNR if it exceeds ref; G vs G_spec decides the specular lobes. Variant D (no footprint split, foreground appearance throughout, specular lobes) appended after the light-group selection chose it.",
+  "python": "/workspace/ubuntu2004_cuda12_1/utils/conda-envs/ssd-gs/bin/python",
+  "data_root": "/workspace/datasets/SSD-GS/data",
+  "worker_gpus": [
+    0,
+    0,
+    1,
+    1,
+    2,
+    2,
+    3,
+    3
+  ],
+  "launch_environment": {
+    "PATH_prefix": "/workspace/ubuntu2004_cuda12_1/utils/conda-envs/ssd-gs/bin:/usr/local/cuda-12.1/bin",
+    "CUDA_HOME": "/usr/local/cuda-12.1",
+    "TORCH_CUDA_ARCH_LIST": "8.9",
+    "MAX_JOBS": "8",
+    "OMP_NUM_THREADS": "8",
+    "HF_HOME": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/third_party/hf_cache",
+    "TORCH_HOME": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/third_party/torch_cache",
+    "MPLCONFIGDIR": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/third_party/mpl_cache",
+    "PYTHONDONTWRITEBYTECODE": "1",
+    "OPENBLAS_NUM_THREADS": "1",
+    "PYTORCH_CUDA_ALLOC_CONF": "expandable_segments:True"
+  },
+  "train": {
+    "steps": 30000,
+    "seed": 0,
+    "resolution": 512,
+    "background": 0.0,
+    "display-gamma": 2.2,
+    "shadow-start": 2000,
+    "port-start": 2000,
+    "holdout-every": 10
+  },
+  "families": {
+    "Real_NRHints": {
+      "scenes": [
+        "Cat",
+        "CupFabric",
+        "FurScene"
+      ],
+      "train": {
+        "optimize-cameras": true,
+        "camera-mode": "rotation",
+        "camera-gauge": "translation",
+        "camera-start": 2000,
+        "camera-lr": 0.001,
+        "camera-lr-final": 1e-05
+      }
+    },
+    "Synthetic_GS3": {
+      "scenes": [
+        "Drums",
+        "Hotdog",
+        "Lego"
+      ],
+      "train": {
+        "background": 1.0
+      }
+    },
+    "Synthetic_SSS-GS": {
+      "scenes": [
+        "bunny_small",
+        "soap_small"
+      ],
+      "train": {
+        "resolution": 256,
+        "unit-light-intensity": 1.0
+      }
+    }
+  },
+  "variants": {
+    "G_spec": {
+      "representation": "light_atlas",
+      "material-head": "svbrdf",
+      "mask-weight": 0.5,
+      "foreground-appearance-until": 2000,
+      "specular": "lobes"
+    },
+    "ref": {
+      "representation": "light_atlas",
+      "material-head": "svbrdf"
+    },
+    "G": {
+      "representation": "light_atlas",
+      "material-head": "svbrdf",
+      "mask-weight": 0.5,
+      "foreground-appearance-until": 2000
+    },
+    "D": {
+      "representation": "light_atlas",
+      "material-head": "svbrdf",
+      "split-scale2d-stop": 0,
+      "foreground-appearance": true,
+      "specular": "lobes"
+    }
+  },
+  "eval_split": "validation",
+  "eval_limit": 0,
+  "eval_save_all": false,
+  "eval_highlights": true,
+  "eval_shift_align": 0,
+  "eval_calibrate_test": 0
+}

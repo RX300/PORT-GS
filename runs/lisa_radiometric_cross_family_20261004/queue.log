@@ -1,0 +1,16 @@
+{"event": "startup_confirmed", "job": "PORT-Synthetic_SSS-GS-soap_small-v2_reference", "gpu": "3", "pid": 569838, "phase": "train", "step": 100}
+{"event": "startup_confirmed", "job": "PORT-Real_NRHints-Cat-v2_reference", "gpu": "2", "pid": 569837, "phase": "train", "step": 100}
+{"event": "phasefinish", "job": "PORT-Real_NRHints-Cat-v2_reference", "gpu": "2", "phase": "train", "pid": 569837}
+{"event": "phasefinish", "job": "PORT-Real_NRHints-Cat-v2_reference", "gpu": "2", "phase": "eval_016000", "pid": 575165}
+{"event": "phasefinish", "job": "PORT-Real_NRHints-Cat-v2_reference", "gpu": "2", "phase": "eval", "pid": 575215}
+{"event": "jobfinish", "job": "PORT-Real_NRHints-Cat-v2_reference", "gpu": "2"}
+{"event": "startup_confirmed", "job": "PORT-Synthetic_SSS-GS-soap_small-curriculum", "gpu": "2", "pid": 575280, "phase": "train", "step": 100}
+{"event": "phasefinish", "job": "PORT-Synthetic_SSS-GS-soap_small-v2_reference", "gpu": "3", "phase": "train", "pid": 569838}
+{"event": "phasefinish", "job": "PORT-Synthetic_SSS-GS-soap_small-v2_reference", "gpu": "3", "phase": "eval_016000", "pid": 575488}
+{"event": "phasefinish", "job": "PORT-Synthetic_SSS-GS-soap_small-v2_reference", "gpu": "3", "phase": "eval", "pid": 575537}
+{"event": "jobfinish", "job": "PORT-Synthetic_SSS-GS-soap_small-v2_reference", "gpu": "3"}
+{"event": "phasefinish", "job": "PORT-Synthetic_SSS-GS-soap_small-curriculum", "gpu": "2", "phase": "train", "pid": 575280}
+{"event": "phasefinish", "job": "PORT-Synthetic_SSS-GS-soap_small-curriculum", "gpu": "2", "phase": "eval_016000", "pid": 576677}
+{"event": "phasefinish", "job": "PORT-Synthetic_SSS-GS-soap_small-curriculum", "gpu": "2", "phase": "eval", "pid": 576733}
+{"event": "jobfinish", "job": "PORT-Synthetic_SSS-GS-soap_small-curriculum", "gpu": "2"}
+{"event": "queue_complete", "status": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_radiometric_cross_family_20261004/status.json"}

@@ -58,7 +58,7 @@ class LightAtlasTransport(TransportBase):
     # reflections (metals mirroring nearby lit surfaces).
     # svbrdf: reflect plus position-dependent but light-independent coefficients that scale
     # `basis` light-dependent responses computed without position (a rank-limited
-    # position-light interaction), so moving shadows and transport cannot be baked locally.
+    # position-light interaction). Spatial latent codes still permit local light dependence.
     HEADS = {
         "compact": dict(direction_bands=3, position_bands=0, reflection=False, hidden=3,
                         lobes=(8., 32., 128., 512.)),
@@ -90,8 +90,8 @@ class LightAtlasTransport(TransportBase):
                  material_head="compact", visibility_bound=0.0, specular="none", shading="pixel",
                  normal_model="covariance", material_activation="softplus", light_scale=1.0):
         super().__init__(light_scale)
-        if light_transport not in ("atlas", "none"):
-            raise ValueError("light_transport must be atlas or none")
+        if light_transport not in ("atlas", "none", "local"):
+            raise ValueError("light_transport must be atlas, none or local")
         if visibility_model not in ("neural", "moment", "gaussian", "none"):
             raise ValueError("visibility_model must be neural, moment, gaussian or none")
         if material_head not in self.HEADS:
@@ -163,6 +163,14 @@ class LightAtlasTransport(TransportBase):
             self.specular_weights = _mlp(feature_dim + position, 64, 3 * len(head["lobes"]), 2)
             nn.init.zeros_(self.specular_weights[-1].weight)
             nn.init.constant_(self.specular_weights[-1].bias, -6.0)
+        if light_transport == "local":
+            # Replace only the transfer operator. At width 128 this has 49,123
+            # active parameters versus 49,648 for the atlas flux+kernel pair.
+            # It reads position, material and directions, never atlas buffers.
+            del self.kernel
+            self.local_residual = _mlp(feature_dim + 51 + 54 + 5, width * 5 // 4, 3, 2)
+            nn.init.normal_(self.local_residual[-1].weight, std=0.001)
+            nn.init.constant_(self.local_residual[-1].bias, -7.0)
 
     @torch.no_grad()
     def initialize_material(self, gaussians):
@@ -334,7 +342,7 @@ class LightAtlasTransport(TransportBase):
             if specular is not None:
                 specular = specular * receivers["visibility"][:, None]
             use_shadow = False
-        use_transport = port_active and self.light_transport == "atlas"
+        use_transport = port_active and self.light_transport != "none"
         if not (use_shadow or use_transport):
             return incident * (rho if specular is None else rho + specular)
         atlas = self.light_atlas(gaussians, light_pos)
@@ -351,7 +359,12 @@ class LightAtlasTransport(TransportBase):
             if visibility is not None:
                 self.diagnostics["visibility"] = visibility.detach().mean()
         if use_transport:
-            transfer = self.transfer(stats, fluxes, features, cosines)
+            if self.light_transport == "local":
+                transfer = F.softplus(self.local_residual(torch.cat((
+                    self.appearance_features(features), direction_encoding(xyz, 8),
+                    direction_encoding(light_dir, 4), direction_encoding(view_dir, 4), cosines), -1)))
+            else:
+                transfer = self.transfer(stats, fluxes, features, cosines)
             if self.training:
                 self.diagnostics["transport"] = (incident * transfer).detach().mean()
             radiance = radiance + transfer

@@ -1,0 +1,26 @@
+\begin{strip}
+\centering
+\setlength{\tabcolsep}{1pt}
+\renewcommand{\arraystretch}{0.6}
+\newcommand{\tw}{0.137\textwidth}
+\begin{tabular}{@{}ccccccc@{}}
+\includegraphics[width=\tw]{figures/teaser/atlas_depth.png} &
+\includegraphics[width=\tw]{figures/teaser/atlas_flux.png} &
+\includegraphics[width=\tw]{figures/teaser/visibility.png} &
+\includegraphics[width=\tw]{figures/teaser/local.png} &
+\includegraphics[width=\tw]{figures/teaser/transfer.png} &
+\includegraphics[width=\tw]{figures/teaser/ours.png} &
+\includegraphics[width=\tw]{figures/teaser/gt.png} \\[2pt]
+\small (a) 图集：深度 & \small (b) 图集：通量 $\boldsymbol\Phi$ & \small (c) 可见性 $V$ & \small (d) 局部项 & \small (e) 光传输项 & \small (f) \ours & \small (g) 真值 \\
+\multicolumn{2}{@{}c}{\footnotesize\textcolor{orange!70!black}{\rule[2pt]{0.06\textwidth}{0.5pt}~光源视角~\rule[2pt]{0.06\textwidth}{0.5pt}}} &
+\multicolumn{5}{c@{}}{\footnotesize\textcolor{blue!60!black}{\rule[2pt]{0.2\textwidth}{0.5pt}~相机视角~\rule[2pt]{0.2\textwidth}{0.5pt}}}
+\end{tabular}
+\captionsetup{hypcap=false}
+\captionof{figure}{\textbf{从光源视角进行重光照。}
+从点光源视角光栅化高斯一次，即可记录光在何种深度被吸收 (a)，并通过可学习通量特征描述光落在何处 (b，八个通道之一)。
+相机像素读取该图集，判断是否处于阴影中 (c)，以及局部反射光量 (d)；光传输项 (e) 增加的辐亮度主要被模型分配给半透明花瓶和骰子，这是一种学习得到的分配，而非物理分解。
+两项之和 (f) 对测试视图 (g) 达到 34.4\,dB，四种近期基线的最佳结果为 32.6\,dB。
+分量 (d, e) 在线性辐亮度域相加，以黑色背景显示。}
+\captionsetup{hypcap=true}
+\label{fig:teaser}
+\end{strip}

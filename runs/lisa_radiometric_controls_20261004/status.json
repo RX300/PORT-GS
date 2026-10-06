@@ -1,0 +1,381 @@
+{
+  "manifest": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_radiometric_controls_20261004/manifest.json",
+  "state": "failed",
+  "started_utc": "2026-10-04T09:55:24.249201+00:00",
+  "finished_utc": "2026-10-04T09:57:13.636253+00:00",
+  "scheduler_pid": 567692,
+  "updated_utc": "2026-10-04T09:57:13.636278+00:00",
+  "workers": {
+    "3.0": {
+      "state": "idle",
+      "job": null,
+      "pid": null
+    },
+    "3.1": {
+      "state": "idle",
+      "job": null,
+      "pid": null
+    }
+  },
+  "jobs": {
+    "PORT-Real_NRHints-Cat-v2_reference": {
+      "method": "PORT-GS",
+      "family": "Real_NRHints",
+      "scene": "Cat",
+      "state": "failed",
+      "gpu": "3.0",
+      "phase": "train",
+      "pid": null,
+      "output": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_radiometric_controls_20261004/v2_reference/Real_NRHints/Cat",
+      "resultpath": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_radiometric_controls_20261004/v2_reference/Real_NRHints/Cat/validation/metrics.json",
+      "source_archive": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_radiometric_controls_20261004/source.tar",
+      "reused_from": null,
+      "steps": {
+        "train": {
+          "state": "failed",
+          "cwd": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS",
+          "argv": [
+            "/workspace/ubuntu2004_cuda12_1/utils/conda-envs/ssd-gs/bin/python",
+            "-u",
+            "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/train.py",
+            "--steps",
+            "30000",
+            "--seed",
+            "0",
+            "--resolution",
+            "512",
+            "--background",
+            "0.0",
+            "--display-gamma",
+            "2.2",
+            "--shadow-start",
+            "2000",
+            "--port-start",
+            "2000",
+            "--lr-decay-steps",
+            "30000",
+            "--holdout-every",
+            "10",
+            "--representation",
+            "light_atlas",
+            "--material-head",
+            "svbrdf",
+            "--mask-weight",
+            "0.5",
+            "--foreground-appearance-until",
+            "2000",
+            "--specular",
+            "lobes",
+            "--shading",
+            "pixel",
+            "--refinement-metric",
+            "gradient",
+            "--material-activation",
+            "softplus",
+            "--geometry-warmup-steps",
+            "0",
+            "--normal-model",
+            "covariance",
+            "--save-steps",
+            "16000",
+            "--initialization",
+            "camera",
+            "--optimize-cameras",
+            "--camera-mode",
+            "rotation",
+            "--camera-gauge",
+            "translation",
+            "--camera-start",
+            "2000",
+            "--camera-lr",
+            "0.001",
+            "--camera-lr-final",
+            "1e-05",
+            "--scene",
+            "/workspace/datasets/SSD-GS/data/Real_NRHints/Cat",
+            "--output",
+            "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_radiometric_controls_20261004/v2_reference/Real_NRHints/Cat"
+          ],
+          "logpath": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_radiometric_controls_20261004/v2_reference/Real_NRHints/Cat.train.log",
+          "output": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_radiometric_controls_20261004/v2_reference/Real_NRHints/Cat",
+          "resultpath": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_radiometric_controls_20261004/v2_reference/Real_NRHints/Cat/last.pt",
+          "started_utc": "2026-10-04T09:55:24.251542+00:00",
+          "pid": 567698,
+          "startup_confirmed": {
+            "pid": 567698,
+            "gpu": "3.0",
+            "step": 100,
+            "row": {
+              "step": 100,
+              "stage": "relighting",
+              "frame_index": 278,
+              "loss": 0.2845381200313568,
+              "l1": 0.14366599917411804,
+              "loss_terms": {
+                "l1": 0.11493279784917831,
+                "ssim": 0.13366562128067017,
+                "mask": 0.03593967854976654,
+                "feature_reg": 2.7525848267373476e-08,
+                "camera_reg": 0.0
+              },
+              "points": 20000,
+              "seconds": 8.02,
+              "memory_GiB": 4.377284049987793,
+              "transport_stats": {
+                "specular": 0.002596775535494089
+              },
+              "camera_rotation_rms": 0.0,
+              "camera_lr": 0.001,
+              "scene_gauge_shift": [
+                0.0,
+                0.0,
+                0.0
+              ]
+            }
+          },
+          "finished_utc": "2026-10-04T09:57:13.369066+00:00",
+          "error": "CalledProcessError(-15, ['/workspace/ubuntu2004_cuda12_1/utils/conda-envs/ssd-gs/bin/python', '-u', '/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/train.py', '--steps', '30000', '--seed', '0', '--resolution', '512', '--background', '0.0', '--display-gamma', '2.2', '--shadow-start', '2000', '--port-start', '2000', '--lr-decay-steps', '30000', '--holdout-every', '10', '--representation', 'light_atlas', '--material-head', 'svbrdf', '--mask-weight', '0.5', '--foreground-appearance-until', '2000', '--specular', 'lobes', '--shading', 'pixel', '--refinement-metric', 'gradient', '--material-activation', 'softplus', '--geometry-warmup-steps', '0', '--normal-model', 'covariance', '--save-steps', '16000', '--initialization', 'camera', '--optimize-cameras', '--camera-mode', 'rotation', '--camera-gauge', 'translation', '--camera-start', '2000', '--camera-lr', '0.001', '--camera-lr-final', '1e-05', '--scene', '/workspace/datasets/SSD-GS/data/Real_NRHints/Cat', '--output', '/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_radiometric_controls_20261004/v2_reference/Real_NRHints/Cat'])"
+        },
+        "eval_016000": {
+          "state": "pending",
+          "cwd": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS",
+          "argv": [
+            "/workspace/ubuntu2004_cuda12_1/utils/conda-envs/ssd-gs/bin/python",
+            "-u",
+            "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/evaluate.py",
+            "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_radiometric_controls_20261004/v2_reference/Real_NRHints/Cat/step_016000.pt",
+            "--split",
+            "validation",
+            "--output",
+            "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_radiometric_controls_20261004/v2_reference/Real_NRHints/Cat/validation_016000",
+            "--lpips"
+          ],
+          "logpath": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_radiometric_controls_20261004/v2_reference/Real_NRHints/Cat.validation_016000.log",
+          "output": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_radiometric_controls_20261004/v2_reference/Real_NRHints/Cat/validation_016000",
+          "resultpath": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_radiometric_controls_20261004/v2_reference/Real_NRHints/Cat/validation_016000/metrics.json"
+        },
+        "eval": {
+          "state": "pending",
+          "cwd": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS",
+          "argv": [
+            "/workspace/ubuntu2004_cuda12_1/utils/conda-envs/ssd-gs/bin/python",
+            "-u",
+            "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/evaluate.py",
+            "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_radiometric_controls_20261004/v2_reference/Real_NRHints/Cat/last.pt",
+            "--split",
+            "validation",
+            "--output",
+            "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_radiometric_controls_20261004/v2_reference/Real_NRHints/Cat/validation",
+            "--lpips"
+          ],
+          "logpath": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_radiometric_controls_20261004/v2_reference/Real_NRHints/Cat.validation.log",
+          "output": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_radiometric_controls_20261004/v2_reference/Real_NRHints/Cat/validation",
+          "resultpath": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_radiometric_controls_20261004/v2_reference/Real_NRHints/Cat/validation/metrics.json"
+        }
+      },
+      "started_utc": "2026-10-04T09:55:24.250689+00:00",
+      "startup_confirmed": {
+        "pid": 567698,
+        "gpu": "3.0",
+        "step": 100,
+        "row": {
+          "step": 100,
+          "stage": "relighting",
+          "frame_index": 278,
+          "loss": 0.2845381200313568,
+          "l1": 0.14366599917411804,
+          "loss_terms": {
+            "l1": 0.11493279784917831,
+            "ssim": 0.13366562128067017,
+            "mask": 0.03593967854976654,
+            "feature_reg": 2.7525848267373476e-08,
+            "camera_reg": 0.0
+          },
+          "points": 20000,
+          "seconds": 8.02,
+          "memory_GiB": 4.377284049987793,
+          "transport_stats": {
+            "specular": 0.002596775535494089
+          },
+          "camera_rotation_rms": 0.0,
+          "camera_lr": 0.001,
+          "scene_gauge_shift": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        }
+      },
+      "finished_utc": "2026-10-04T09:57:13.369132+00:00",
+      "error": "CalledProcessError(-15, ['/workspace/ubuntu2004_cuda12_1/utils/conda-envs/ssd-gs/bin/python', '-u', '/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/train.py', '--steps', '30000', '--seed', '0', '--resolution', '512', '--background', '0.0', '--display-gamma', '2.2', '--shadow-start', '2000', '--port-start', '2000', '--lr-decay-steps', '30000', '--holdout-every', '10', '--representation', 'light_atlas', '--material-head', 'svbrdf', '--mask-weight', '0.5', '--foreground-appearance-until', '2000', '--specular', 'lobes', '--shading', 'pixel', '--refinement-metric', 'gradient', '--material-activation', 'softplus', '--geometry-warmup-steps', '0', '--normal-model', 'covariance', '--save-steps', '16000', '--initialization', 'camera', '--optimize-cameras', '--camera-mode', 'rotation', '--camera-gauge', 'translation', '--camera-start', '2000', '--camera-lr', '0.001', '--camera-lr-final', '1e-05', '--scene', '/workspace/datasets/SSD-GS/data/Real_NRHints/Cat', '--output', '/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_radiometric_controls_20261004/v2_reference/Real_NRHints/Cat'])"
+    },
+    "PORT-Synthetic_SSS-GS-soap_small-v2_reference": {
+      "method": "PORT-GS",
+      "family": "Synthetic_SSS-GS",
+      "scene": "soap_small",
+      "state": "failed",
+      "gpu": "3.1",
+      "phase": "train",
+      "pid": null,
+      "output": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_radiometric_controls_20261004/v2_reference/Synthetic_SSS-GS/soap_small",
+      "resultpath": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_radiometric_controls_20261004/v2_reference/Synthetic_SSS-GS/soap_small/validation/metrics.json",
+      "source_archive": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_radiometric_controls_20261004/source.tar",
+      "reused_from": null,
+      "steps": {
+        "train": {
+          "state": "failed",
+          "cwd": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS",
+          "argv": [
+            "/workspace/ubuntu2004_cuda12_1/utils/conda-envs/ssd-gs/bin/python",
+            "-u",
+            "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/train.py",
+            "--steps",
+            "30000",
+            "--seed",
+            "0",
+            "--resolution",
+            "256",
+            "--background",
+            "0.0",
+            "--display-gamma",
+            "2.2",
+            "--shadow-start",
+            "2000",
+            "--port-start",
+            "2000",
+            "--lr-decay-steps",
+            "30000",
+            "--holdout-every",
+            "10",
+            "--representation",
+            "light_atlas",
+            "--material-head",
+            "svbrdf",
+            "--mask-weight",
+            "0.5",
+            "--foreground-appearance-until",
+            "2000",
+            "--specular",
+            "lobes",
+            "--shading",
+            "pixel",
+            "--refinement-metric",
+            "gradient",
+            "--material-activation",
+            "softplus",
+            "--geometry-warmup-steps",
+            "0",
+            "--normal-model",
+            "covariance",
+            "--save-steps",
+            "16000",
+            "--initialization",
+            "camera",
+            "--unit-light-intensity",
+            "1.0",
+            "--scene",
+            "/workspace/datasets/SSD-GS/data/Synthetic_SSS-GS/soap_small",
+            "--output",
+            "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_radiometric_controls_20261004/v2_reference/Synthetic_SSS-GS/soap_small"
+          ],
+          "logpath": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_radiometric_controls_20261004/v2_reference/Synthetic_SSS-GS/soap_small.train.log",
+          "output": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_radiometric_controls_20261004/v2_reference/Synthetic_SSS-GS/soap_small",
+          "resultpath": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_radiometric_controls_20261004/v2_reference/Synthetic_SSS-GS/soap_small/last.pt",
+          "started_utc": "2026-10-04T09:55:24.252926+00:00",
+          "pid": 567699,
+          "startup_confirmed": {
+            "pid": 567699,
+            "gpu": "3.1",
+            "step": 100,
+            "row": {
+              "step": 100,
+              "stage": "relighting",
+              "frame_index": 463,
+              "loss": 0.19310618937015533,
+              "l1": 0.05360698699951172,
+              "loss_terms": {
+                "l1": 0.042885590344667435,
+                "ssim": 0.09722109138965607,
+                "mask": 0.052999500185251236,
+                "feature_reg": 1.1291368728905127e-08,
+                "camera_reg": 0.0
+              },
+              "points": 20000,
+              "seconds": 4.23,
+              "memory_GiB": 1.1047749519348145,
+              "transport_stats": {
+                "specular": 0.0031749391928315163
+              }
+            }
+          },
+          "finished_utc": "2026-10-04T09:57:13.619414+00:00",
+          "error": "CalledProcessError(-15, ['/workspace/ubuntu2004_cuda12_1/utils/conda-envs/ssd-gs/bin/python', '-u', '/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/train.py', '--steps', '30000', '--seed', '0', '--resolution', '256', '--background', '0.0', '--display-gamma', '2.2', '--shadow-start', '2000', '--port-start', '2000', '--lr-decay-steps', '30000', '--holdout-every', '10', '--representation', 'light_atlas', '--material-head', 'svbrdf', '--mask-weight', '0.5', '--foreground-appearance-until', '2000', '--specular', 'lobes', '--shading', 'pixel', '--refinement-metric', 'gradient', '--material-activation', 'softplus', '--geometry-warmup-steps', '0', '--normal-model', 'covariance', '--save-steps', '16000', '--initialization', 'camera', '--unit-light-intensity', '1.0', '--scene', '/workspace/datasets/SSD-GS/data/Synthetic_SSS-GS/soap_small', '--output', '/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_radiometric_controls_20261004/v2_reference/Synthetic_SSS-GS/soap_small'])"
+        },
+        "eval_016000": {
+          "state": "pending",
+          "cwd": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS",
+          "argv": [
+            "/workspace/ubuntu2004_cuda12_1/utils/conda-envs/ssd-gs/bin/python",
+            "-u",
+            "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/evaluate.py",
+            "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_radiometric_controls_20261004/v2_reference/Synthetic_SSS-GS/soap_small/step_016000.pt",
+            "--split",
+            "validation",
+            "--output",
+            "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_radiometric_controls_20261004/v2_reference/Synthetic_SSS-GS/soap_small/validation_016000",
+            "--lpips"
+          ],
+          "logpath": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_radiometric_controls_20261004/v2_reference/Synthetic_SSS-GS/soap_small.validation_016000.log",
+          "output": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_radiometric_controls_20261004/v2_reference/Synthetic_SSS-GS/soap_small/validation_016000",
+          "resultpath": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_radiometric_controls_20261004/v2_reference/Synthetic_SSS-GS/soap_small/validation_016000/metrics.json"
+        },
+        "eval": {
+          "state": "pending",
+          "cwd": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS",
+          "argv": [
+            "/workspace/ubuntu2004_cuda12_1/utils/conda-envs/ssd-gs/bin/python",
+            "-u",
+            "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/evaluate.py",
+            "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_radiometric_controls_20261004/v2_reference/Synthetic_SSS-GS/soap_small/last.pt",
+            "--split",
+            "validation",
+            "--output",
+            "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_radiometric_controls_20261004/v2_reference/Synthetic_SSS-GS/soap_small/validation",
+            "--lpips"
+          ],
+          "logpath": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_radiometric_controls_20261004/v2_reference/Synthetic_SSS-GS/soap_small.validation.log",
+          "output": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_radiometric_controls_20261004/v2_reference/Synthetic_SSS-GS/soap_small/validation",
+          "resultpath": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_radiometric_controls_20261004/v2_reference/Synthetic_SSS-GS/soap_small/validation/metrics.json"
+        }
+      },
+      "started_utc": "2026-10-04T09:55:24.252271+00:00",
+      "startup_confirmed": {
+        "pid": 567699,
+        "gpu": "3.1",
+        "step": 100,
+        "row": {
+          "step": 100,
+          "stage": "relighting",
+          "frame_index": 463,
+          "loss": 0.19310618937015533,
+          "l1": 0.05360698699951172,
+          "loss_terms": {
+            "l1": 0.042885590344667435,
+            "ssim": 0.09722109138965607,
+            "mask": 0.052999500185251236,
+            "feature_reg": 1.1291368728905127e-08,
+            "camera_reg": 0.0
+          },
+          "points": 20000,
+          "seconds": 4.23,
+          "memory_GiB": 1.1047749519348145,
+          "transport_stats": {
+            "specular": 0.0031749391928315163
+          }
+        }
+      },
+      "finished_utc": "2026-10-04T09:57:13.619465+00:00",
+      "error": "CalledProcessError(-15, ['/workspace/ubuntu2004_cuda12_1/utils/conda-envs/ssd-gs/bin/python', '-u', '/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/train.py', '--steps', '30000', '--seed', '0', '--resolution', '256', '--background', '0.0', '--display-gamma', '2.2', '--shadow-start', '2000', '--port-start', '2000', '--lr-decay-steps', '30000', '--holdout-every', '10', '--representation', 'light_atlas', '--material-head', 'svbrdf', '--mask-weight', '0.5', '--foreground-appearance-until', '2000', '--specular', 'lobes', '--shading', 'pixel', '--refinement-metric', 'gradient', '--material-activation', 'softplus', '--geometry-warmup-steps', '0', '--normal-model', 'covariance', '--save-steps', '16000', '--initialization', 'camera', '--unit-light-intensity', '1.0', '--scene', '/workspace/datasets/SSD-GS/data/Synthetic_SSS-GS/soap_small', '--output', '/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_radiometric_controls_20261004/v2_reference/Synthetic_SSS-GS/soap_small'])"
+    }
+  }
+}

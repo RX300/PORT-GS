@@ -1,0 +1,79 @@
+Collecting huggingface-hub==0.35.3
+  Downloading huggingface_hub-0.35.3-py3-none-any.whl (564 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 564.3/564.3 kB 20.4 MB/s eta 0:00:00
+Collecting einops==0.8.1
+  Downloading einops-0.8.1-py3-none-any.whl (64 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 64.4/64.4 kB 44.5 MB/s eta 0:00:00
+Collecting omegaconf==2.3.0
+  Using cached omegaconf-2.3.0-py3-none-any.whl (79 kB)
+Collecting antlr4-python3-runtime==4.9.3
+  Using cached antlr4_python3_runtime-4.9.3-py3-none-any.whl
+Collecting evo==1.31.0
+  Downloading evo-1.31.0-py3-none-any.whl (146 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 146.3/146.3 kB 43.6 MB/s eta 0:00:00
+Collecting e3nn==0.5.8
+  Downloading e3nn-0.5.8-py3-none-any.whl (450 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 450.1/450.1 kB 40.9 MB/s eta 0:00:00
+Collecting plyfile==1.1
+  Downloading plyfile-1.1-py3-none-any.whl (23 kB)
+Collecting pillow_heif==0.22.0
+  Downloading pillow_heif-0.22.0-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (7.8 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 7.8/7.8 MB 4.9 MB/s eta 0:00:00
+Collecting moviepy==1.0.3
+  Using cached moviepy-1.0.3-py3-none-any.whl
+Collecting addict==2.4.0
+  Using cached addict-2.4.0-py3-none-any.whl (3.8 kB)
+Collecting pycolmap==3.12.6
+  Downloading pycolmap-3.12.6-cp310-cp310-manylinux_2_28_x86_64.whl (20.1 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 20.1/20.1 MB 3.1 MB/s eta 0:00:00
+Collecting trimesh==4.6.8
+  Downloading trimesh-4.6.8-py3-none-any.whl (709 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 709.3/709.3 kB 67.7 MB/s eta 0:00:00
+Collecting safetensors==0.6.2
+  Downloading safetensors-0.6.2-cp38-abi3-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (485 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 485.8/485.8 kB 56.7 MB/s eta 0:00:00
+Collecting opt_einsum==3.4.0
+  Using cached opt_einsum-3.4.0-py3-none-any.whl (71 kB)
+Collecting opt_einsum_fx==0.1.4
+  Using cached opt_einsum_fx-0.1.4-py3-none-any.whl (13 kB)
+Collecting natsort==8.4.0
+  Using cached natsort-8.4.0-py3-none-any.whl (38 kB)
+Collecting colorama==0.4.6
+  Using cached colorama-0.4.6-py2.py3-none-any.whl (25 kB)
+Collecting argcomplete==3.6.2
+  Downloading argcomplete-3.6.2-py3-none-any.whl (43 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 43.7/43.7 kB 33.6 MB/s eta 0:00:00
+Collecting ruamel.yaml==0.18.10
+  Downloading ruamel.yaml-0.18.10-py3-none-any.whl (117 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 117.7/117.7 kB 67.3 MB/s eta 0:00:00
+Installing collected packages: moviepy, antlr4-python3-runtime, addict, trimesh, safetensors, ruamel.yaml, pycolmap, plyfile, pillow_heif, opt_einsum_fx, opt_einsum, omegaconf, natsort, huggingface-hub, evo, einops, e3nn, colorama, argcomplete
+  Attempting uninstall: plyfile
+    Found existing installation: plyfile 0.8.1
+    Not uninstalling plyfile at /workspace/ubuntu2004_cuda12_1/utils/conda-envs/ssd-gs/lib/python3.10/site-packages, outside environment /workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/third_party/da3_env
+    Can't uninstall 'plyfile'. No files were found to uninstall.
+Successfully installed addict-2.4.0 antlr4-python3-runtime-4.9.3 argcomplete-3.6.2 colorama-0.4.6 e3nn-0.5.8 einops-0.8.1 evo-1.31.0 huggingface-hub-0.35.3 moviepy-1.0.3 natsort-8.4.0 omegaconf-2.3.0 opt_einsum-3.4.0 opt_einsum_fx-0.1.4 pillow_heif-0.22.0 plyfile-1.1 pycolmap-3.12.6 ruamel.yaml-0.18.10 safetensors-0.6.2 trimesh-4.6.8
+
+[notice] A new release of pip is available: 23.0.1 -> 26.2.1
+[notice] To update, run: /workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/third_party/da3_env/bin/python -m pip install --upgrade pip
+Obtaining file:///workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/third_party/Depth-Anything-3
+  Installing build dependencies: started
+  Installing build dependencies: finished with status 'done'
+  Checking if build backend supports build_editable: started
+  Checking if build backend supports build_editable: finished with status 'done'
+  Getting requirements to build editable: started
+  Getting requirements to build editable: finished with status 'done'
+  Installing backend dependencies: started
+  Installing backend dependencies: finished with status 'done'
+  Preparing editable metadata (pyproject.toml): started
+  Preparing editable metadata (pyproject.toml): finished with status 'done'
+Building wheels for collected packages: depth-anything-3
+  Building editable for depth-anything-3 (pyproject.toml): started
+  Building editable for depth-anything-3 (pyproject.toml): finished with status 'done'
+  Created wheel for depth-anything-3: filename=depth_anything_3-0.0.0-py3-none-any.whl size=12532 sha256=4f93ce837063778119412c86d9c75598858577588d73c21f62954d41c8ef4840
+  Stored in directory: /tmp/pip-ephem-wheel-cache-3pl9y06h/wheels/9f/20/f1/17727f3a9e40d5d24174259594a9d00529566832f1b76d8e66
+Successfully built depth-anything-3
+Installing collected packages: depth-anything-3
+Successfully installed depth-anything-3-0.0.0
+
+[notice] A new release of pip is available: 23.0.1 -> 26.2.1
+[notice] To update, run: /workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/third_party/da3_env/bin/python -m pip install --upgrade pip

@@ -1,0 +1,939 @@
+{
+  "manifest": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_v2_selection_ramp_20261004/manifest.json",
+  "state": "running",
+  "started_utc": "2026-10-03T18:56:24.952984+00:00",
+  "finished_utc": null,
+  "scheduler_pid": 456803,
+  "updated_utc": "2026-10-03T18:57:40.347813+00:00",
+  "workers": {
+    "0": {
+      "state": "running",
+      "job": "PORT-Real_NRHints-Cat-nosplit_fg_spec_ramp",
+      "pid": 456813
+    },
+    "1": {
+      "state": "running",
+      "job": "PORT-Real_NRHints-CupFabric-nosplit_fg_spec_ramp",
+      "pid": 456814
+    },
+    "2": {
+      "state": "running",
+      "job": "PORT-Synthetic_GS3-Drums-nosplit_fg_spec_ramp",
+      "pid": 456816
+    },
+    "3": {
+      "state": "running",
+      "job": "PORT-Real_NRHints-FurScene-nosplit_fg_spec_ramp",
+      "pid": 456815
+    }
+  },
+  "jobs": {
+    "PORT-Real_NRHints-Cat-nosplit_fg_spec_ramp": {
+      "method": "PORT-GS",
+      "family": "Real_NRHints",
+      "scene": "Cat",
+      "state": "running",
+      "gpu": "0",
+      "phase": "train",
+      "pid": 456813,
+      "output": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_v2_selection_ramp_20261004/nosplit_fg_spec_ramp/Real_NRHints/Cat",
+      "resultpath": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_v2_selection_ramp_20261004/nosplit_fg_spec_ramp/Real_NRHints/Cat/validation/metrics.json",
+      "source_archive": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_v2_selection_ramp_20261004/source.tar",
+      "reused_from": null,
+      "steps": {
+        "train": {
+          "state": "running",
+          "cwd": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS",
+          "argv": [
+            "/workspace/ubuntu2004_cuda12_1/utils/conda-envs/ssd-gs/bin/python",
+            "-u",
+            "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/train.py",
+            "--steps",
+            "30000",
+            "--seed",
+            "0",
+            "--resolution",
+            "512",
+            "--background",
+            "0.0",
+            "--display-gamma",
+            "2.2",
+            "--shadow-start",
+            "2000",
+            "--port-start",
+            "2000",
+            "--representation",
+            "light_atlas",
+            "--material-head",
+            "svbrdf",
+            "--split-scale2d-stop",
+            "0",
+            "--foreground-appearance",
+            "--specular",
+            "lobes",
+            "--grow-grad2d",
+            "1e-08",
+            "--budget-ramp",
+            "15000",
+            "--optimize-cameras",
+            "--camera-mode",
+            "rotation",
+            "--camera-gauge",
+            "translation",
+            "--camera-start",
+            "2000",
+            "--camera-lr",
+            "0.001",
+            "--camera-lr-final",
+            "1e-05",
+            "--scene",
+            "/workspace/datasets/SSD-GS/data/Real_NRHints/Cat",
+            "--output",
+            "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_v2_selection_ramp_20261004/nosplit_fg_spec_ramp/Real_NRHints/Cat"
+          ],
+          "logpath": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_v2_selection_ramp_20261004/nosplit_fg_spec_ramp/Real_NRHints/Cat.train.log",
+          "output": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_v2_selection_ramp_20261004/nosplit_fg_spec_ramp/Real_NRHints/Cat",
+          "resultpath": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_v2_selection_ramp_20261004/nosplit_fg_spec_ramp/Real_NRHints/Cat/last.pt",
+          "started_utc": "2026-10-03T18:56:24.955921+00:00",
+          "pid": 456813,
+          "startup_confirmed": {
+            "pid": 456813,
+            "gpu": "0",
+            "step": 100,
+            "row": {
+              "step": 100,
+              "stage": "relighting",
+              "frame_index": 273,
+              "loss": 0.29431721568107605,
+              "l1": 0.1925428956747055,
+              "loss_terms": {
+                "l1": 0.1540343165397644,
+                "ssim": 0.1322346180677414,
+                "mask": 0.008048276416957378,
+                "feature_reg": 1.2278348116012694e-08,
+                "camera_reg": 0.0
+              },
+              "points": 20000,
+              "seconds": 7.63,
+              "memory_GiB": 4.3768839836120605,
+              "transport_stats": {
+                "specular": 0.0009975242428481579
+              },
+              "camera_rotation_rms": 0.0,
+              "camera_lr": 0.001,
+              "scene_gauge_shift": [
+                0.0,
+                0.0,
+                0.0
+              ]
+            }
+          }
+        },
+        "eval": {
+          "state": "pending",
+          "cwd": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS",
+          "argv": [
+            "/workspace/ubuntu2004_cuda12_1/utils/conda-envs/ssd-gs/bin/python",
+            "-u",
+            "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/evaluate.py",
+            "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_v2_selection_ramp_20261004/nosplit_fg_spec_ramp/Real_NRHints/Cat/last.pt",
+            "--split",
+            "validation",
+            "--output",
+            "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_v2_selection_ramp_20261004/nosplit_fg_spec_ramp/Real_NRHints/Cat/validation",
+            "--lpips",
+            "--highlights"
+          ],
+          "logpath": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_v2_selection_ramp_20261004/nosplit_fg_spec_ramp/Real_NRHints/Cat.validation.log",
+          "output": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_v2_selection_ramp_20261004/nosplit_fg_spec_ramp/Real_NRHints/Cat/validation",
+          "resultpath": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_v2_selection_ramp_20261004/nosplit_fg_spec_ramp/Real_NRHints/Cat/validation/metrics.json"
+        }
+      },
+      "started_utc": "2026-10-03T18:56:24.955124+00:00",
+      "startup_confirmed": {
+        "pid": 456813,
+        "gpu": "0",
+        "step": 100,
+        "row": {
+          "step": 100,
+          "stage": "relighting",
+          "frame_index": 273,
+          "loss": 0.29431721568107605,
+          "l1": 0.1925428956747055,
+          "loss_terms": {
+            "l1": 0.1540343165397644,
+            "ssim": 0.1322346180677414,
+            "mask": 0.008048276416957378,
+            "feature_reg": 1.2278348116012694e-08,
+            "camera_reg": 0.0
+          },
+          "points": 20000,
+          "seconds": 7.63,
+          "memory_GiB": 4.3768839836120605,
+          "transport_stats": {
+            "specular": 0.0009975242428481579
+          },
+          "camera_rotation_rms": 0.0,
+          "camera_lr": 0.001,
+          "scene_gauge_shift": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        }
+      }
+    },
+    "PORT-Real_NRHints-CupFabric-nosplit_fg_spec_ramp": {
+      "method": "PORT-GS",
+      "family": "Real_NRHints",
+      "scene": "CupFabric",
+      "state": "running",
+      "gpu": "1",
+      "phase": "train",
+      "pid": 456814,
+      "output": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_v2_selection_ramp_20261004/nosplit_fg_spec_ramp/Real_NRHints/CupFabric",
+      "resultpath": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_v2_selection_ramp_20261004/nosplit_fg_spec_ramp/Real_NRHints/CupFabric/validation/metrics.json",
+      "source_archive": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_v2_selection_ramp_20261004/source.tar",
+      "reused_from": null,
+      "steps": {
+        "train": {
+          "state": "running",
+          "cwd": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS",
+          "argv": [
+            "/workspace/ubuntu2004_cuda12_1/utils/conda-envs/ssd-gs/bin/python",
+            "-u",
+            "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/train.py",
+            "--steps",
+            "30000",
+            "--seed",
+            "0",
+            "--resolution",
+            "512",
+            "--background",
+            "0.0",
+            "--display-gamma",
+            "2.2",
+            "--shadow-start",
+            "2000",
+            "--port-start",
+            "2000",
+            "--representation",
+            "light_atlas",
+            "--material-head",
+            "svbrdf",
+            "--split-scale2d-stop",
+            "0",
+            "--foreground-appearance",
+            "--specular",
+            "lobes",
+            "--grow-grad2d",
+            "1e-08",
+            "--budget-ramp",
+            "15000",
+            "--optimize-cameras",
+            "--camera-mode",
+            "rotation",
+            "--camera-gauge",
+            "translation",
+            "--camera-start",
+            "2000",
+            "--camera-lr",
+            "0.001",
+            "--camera-lr-final",
+            "1e-05",
+            "--scene",
+            "/workspace/datasets/SSD-GS/data/Real_NRHints/CupFabric",
+            "--output",
+            "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_v2_selection_ramp_20261004/nosplit_fg_spec_ramp/Real_NRHints/CupFabric"
+          ],
+          "logpath": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_v2_selection_ramp_20261004/nosplit_fg_spec_ramp/Real_NRHints/CupFabric.train.log",
+          "output": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_v2_selection_ramp_20261004/nosplit_fg_spec_ramp/Real_NRHints/CupFabric",
+          "resultpath": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_v2_selection_ramp_20261004/nosplit_fg_spec_ramp/Real_NRHints/CupFabric/last.pt",
+          "started_utc": "2026-10-03T18:56:24.958443+00:00",
+          "pid": 456814,
+          "startup_confirmed": {
+            "pid": 456814,
+            "gpu": "1",
+            "step": 100,
+            "row": {
+              "step": 100,
+              "stage": "relighting",
+              "frame_index": 230,
+              "loss": 0.14627547562122345,
+              "l1": 0.042344942688941956,
+              "loss_terms": {
+                "l1": 0.033875953406095505,
+                "ssim": 0.10626354068517685,
+                "mask": 0.006135971751064062,
+                "feature_reg": 1.1322106807654109e-08,
+                "camera_reg": 0.0
+              },
+              "points": 20000,
+              "seconds": 7.87,
+              "memory_GiB": 6.843817234039307,
+              "transport_stats": {
+                "specular": 0.0008897880907170475
+              },
+              "camera_rotation_rms": 0.0,
+              "camera_lr": 0.001,
+              "scene_gauge_shift": [
+                0.0,
+                0.0,
+                0.0
+              ]
+            }
+          }
+        },
+        "eval": {
+          "state": "pending",
+          "cwd": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS",
+          "argv": [
+            "/workspace/ubuntu2004_cuda12_1/utils/conda-envs/ssd-gs/bin/python",
+            "-u",
+            "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/evaluate.py",
+            "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_v2_selection_ramp_20261004/nosplit_fg_spec_ramp/Real_NRHints/CupFabric/last.pt",
+            "--split",
+            "validation",
+            "--output",
+            "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_v2_selection_ramp_20261004/nosplit_fg_spec_ramp/Real_NRHints/CupFabric/validation",
+            "--lpips",
+            "--highlights"
+          ],
+          "logpath": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_v2_selection_ramp_20261004/nosplit_fg_spec_ramp/Real_NRHints/CupFabric.validation.log",
+          "output": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_v2_selection_ramp_20261004/nosplit_fg_spec_ramp/Real_NRHints/CupFabric/validation",
+          "resultpath": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_v2_selection_ramp_20261004/nosplit_fg_spec_ramp/Real_NRHints/CupFabric/validation/metrics.json"
+        }
+      },
+      "started_utc": "2026-10-03T18:56:24.956603+00:00",
+      "startup_confirmed": {
+        "pid": 456814,
+        "gpu": "1",
+        "step": 100,
+        "row": {
+          "step": 100,
+          "stage": "relighting",
+          "frame_index": 230,
+          "loss": 0.14627547562122345,
+          "l1": 0.042344942688941956,
+          "loss_terms": {
+            "l1": 0.033875953406095505,
+            "ssim": 0.10626354068517685,
+            "mask": 0.006135971751064062,
+            "feature_reg": 1.1322106807654109e-08,
+            "camera_reg": 0.0
+          },
+          "points": 20000,
+          "seconds": 7.87,
+          "memory_GiB": 6.843817234039307,
+          "transport_stats": {
+            "specular": 0.0008897880907170475
+          },
+          "camera_rotation_rms": 0.0,
+          "camera_lr": 0.001,
+          "scene_gauge_shift": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        }
+      }
+    },
+    "PORT-Real_NRHints-FurScene-nosplit_fg_spec_ramp": {
+      "method": "PORT-GS",
+      "family": "Real_NRHints",
+      "scene": "FurScene",
+      "state": "running",
+      "gpu": "3",
+      "phase": "train",
+      "pid": 456815,
+      "output": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_v2_selection_ramp_20261004/nosplit_fg_spec_ramp/Real_NRHints/FurScene",
+      "resultpath": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_v2_selection_ramp_20261004/nosplit_fg_spec_ramp/Real_NRHints/FurScene/validation/metrics.json",
+      "source_archive": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_v2_selection_ramp_20261004/source.tar",
+      "reused_from": null,
+      "steps": {
+        "train": {
+          "state": "running",
+          "cwd": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS",
+          "argv": [
+            "/workspace/ubuntu2004_cuda12_1/utils/conda-envs/ssd-gs/bin/python",
+            "-u",
+            "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/train.py",
+            "--steps",
+            "30000",
+            "--seed",
+            "0",
+            "--resolution",
+            "512",
+            "--background",
+            "0.0",
+            "--display-gamma",
+            "2.2",
+            "--shadow-start",
+            "2000",
+            "--port-start",
+            "2000",
+            "--representation",
+            "light_atlas",
+            "--material-head",
+            "svbrdf",
+            "--split-scale2d-stop",
+            "0",
+            "--foreground-appearance",
+            "--specular",
+            "lobes",
+            "--grow-grad2d",
+            "1e-08",
+            "--budget-ramp",
+            "15000",
+            "--optimize-cameras",
+            "--camera-mode",
+            "rotation",
+            "--camera-gauge",
+            "translation",
+            "--camera-start",
+            "2000",
+            "--camera-lr",
+            "0.001",
+            "--camera-lr-final",
+            "1e-05",
+            "--scene",
+            "/workspace/datasets/SSD-GS/data/Real_NRHints/FurScene",
+            "--output",
+            "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_v2_selection_ramp_20261004/nosplit_fg_spec_ramp/Real_NRHints/FurScene"
+          ],
+          "logpath": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_v2_selection_ramp_20261004/nosplit_fg_spec_ramp/Real_NRHints/FurScene.train.log",
+          "output": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_v2_selection_ramp_20261004/nosplit_fg_spec_ramp/Real_NRHints/FurScene",
+          "resultpath": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_v2_selection_ramp_20261004/nosplit_fg_spec_ramp/Real_NRHints/FurScene/last.pt",
+          "started_utc": "2026-10-03T18:56:24.962936+00:00",
+          "pid": 456815,
+          "startup_confirmed": {
+            "pid": 456815,
+            "gpu": "3",
+            "step": 100,
+            "row": {
+              "step": 100,
+              "stage": "relighting",
+              "frame_index": 663,
+              "loss": 0.14078955352306366,
+              "l1": 0.06655789911746979,
+              "loss_terms": {
+                "l1": 0.05324631929397583,
+                "ssim": 0.08185567706823349,
+                "mask": 0.0056875329464674,
+                "feature_reg": 2.017531031128783e-08,
+                "camera_reg": 0.0
+              },
+              "points": 20000,
+              "seconds": 7.72,
+              "memory_GiB": 4.980067253112793,
+              "transport_stats": {
+                "specular": 0.0012423524167388678
+              },
+              "camera_rotation_rms": 0.0,
+              "camera_lr": 0.001,
+              "scene_gauge_shift": [
+                0.0,
+                0.0,
+                0.0
+              ]
+            }
+          }
+        },
+        "eval": {
+          "state": "pending",
+          "cwd": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS",
+          "argv": [
+            "/workspace/ubuntu2004_cuda12_1/utils/conda-envs/ssd-gs/bin/python",
+            "-u",
+            "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/evaluate.py",
+            "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_v2_selection_ramp_20261004/nosplit_fg_spec_ramp/Real_NRHints/FurScene/last.pt",
+            "--split",
+            "validation",
+            "--output",
+            "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_v2_selection_ramp_20261004/nosplit_fg_spec_ramp/Real_NRHints/FurScene/validation",
+            "--lpips",
+            "--highlights"
+          ],
+          "logpath": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_v2_selection_ramp_20261004/nosplit_fg_spec_ramp/Real_NRHints/FurScene.validation.log",
+          "output": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_v2_selection_ramp_20261004/nosplit_fg_spec_ramp/Real_NRHints/FurScene/validation",
+          "resultpath": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_v2_selection_ramp_20261004/nosplit_fg_spec_ramp/Real_NRHints/FurScene/validation/metrics.json"
+        }
+      },
+      "started_utc": "2026-10-03T18:56:24.960329+00:00",
+      "startup_confirmed": {
+        "pid": 456815,
+        "gpu": "3",
+        "step": 100,
+        "row": {
+          "step": 100,
+          "stage": "relighting",
+          "frame_index": 663,
+          "loss": 0.14078955352306366,
+          "l1": 0.06655789911746979,
+          "loss_terms": {
+            "l1": 0.05324631929397583,
+            "ssim": 0.08185567706823349,
+            "mask": 0.0056875329464674,
+            "feature_reg": 2.017531031128783e-08,
+            "camera_reg": 0.0
+          },
+          "points": 20000,
+          "seconds": 7.72,
+          "memory_GiB": 4.980067253112793,
+          "transport_stats": {
+            "specular": 0.0012423524167388678
+          },
+          "camera_rotation_rms": 0.0,
+          "camera_lr": 0.001,
+          "scene_gauge_shift": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        }
+      }
+    },
+    "PORT-Synthetic_GS3-Drums-nosplit_fg_spec_ramp": {
+      "method": "PORT-GS",
+      "family": "Synthetic_GS3",
+      "scene": "Drums",
+      "state": "running",
+      "gpu": "2",
+      "phase": "train",
+      "pid": 456816,
+      "output": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_v2_selection_ramp_20261004/nosplit_fg_spec_ramp/Synthetic_GS3/Drums",
+      "resultpath": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_v2_selection_ramp_20261004/nosplit_fg_spec_ramp/Synthetic_GS3/Drums/validation/metrics.json",
+      "source_archive": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_v2_selection_ramp_20261004/source.tar",
+      "reused_from": null,
+      "steps": {
+        "train": {
+          "state": "running",
+          "cwd": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS",
+          "argv": [
+            "/workspace/ubuntu2004_cuda12_1/utils/conda-envs/ssd-gs/bin/python",
+            "-u",
+            "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/train.py",
+            "--steps",
+            "30000",
+            "--seed",
+            "0",
+            "--resolution",
+            "512",
+            "--background",
+            "1.0",
+            "--display-gamma",
+            "2.2",
+            "--shadow-start",
+            "2000",
+            "--port-start",
+            "2000",
+            "--representation",
+            "light_atlas",
+            "--material-head",
+            "svbrdf",
+            "--split-scale2d-stop",
+            "0",
+            "--foreground-appearance",
+            "--specular",
+            "lobes",
+            "--grow-grad2d",
+            "1e-08",
+            "--budget-ramp",
+            "15000",
+            "--scene",
+            "/workspace/datasets/SSD-GS/data/Synthetic_GS3/Drums",
+            "--output",
+            "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_v2_selection_ramp_20261004/nosplit_fg_spec_ramp/Synthetic_GS3/Drums"
+          ],
+          "logpath": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_v2_selection_ramp_20261004/nosplit_fg_spec_ramp/Synthetic_GS3/Drums.train.log",
+          "output": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_v2_selection_ramp_20261004/nosplit_fg_spec_ramp/Synthetic_GS3/Drums",
+          "resultpath": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_v2_selection_ramp_20261004/nosplit_fg_spec_ramp/Synthetic_GS3/Drums/last.pt",
+          "started_utc": "2026-10-03T18:56:24.964187+00:00",
+          "pid": 456816,
+          "startup_confirmed": {
+            "pid": 456816,
+            "gpu": "2",
+            "step": 100,
+            "row": {
+              "step": 100,
+              "stage": "relighting",
+              "frame_index": 1399,
+              "loss": 0.11636847257614136,
+              "l1": 0.09123101830482483,
+              "loss_terms": {
+                "l1": 0.07298481464385986,
+                "ssim": 0.036601271480321884,
+                "mask": 0.006782368756830692,
+                "feature_reg": 1.2085670242356628e-08,
+                "camera_reg": 0.0
+              },
+              "points": 20000,
+              "seconds": 8.44,
+              "memory_GiB": 10.155017375946045,
+              "transport_stats": {
+                "specular": 0.0005506061133928597
+              }
+            }
+          }
+        },
+        "eval": {
+          "state": "pending",
+          "cwd": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS",
+          "argv": [
+            "/workspace/ubuntu2004_cuda12_1/utils/conda-envs/ssd-gs/bin/python",
+            "-u",
+            "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/evaluate.py",
+            "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_v2_selection_ramp_20261004/nosplit_fg_spec_ramp/Synthetic_GS3/Drums/last.pt",
+            "--split",
+            "validation",
+            "--output",
+            "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_v2_selection_ramp_20261004/nosplit_fg_spec_ramp/Synthetic_GS3/Drums/validation",
+            "--lpips",
+            "--highlights"
+          ],
+          "logpath": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_v2_selection_ramp_20261004/nosplit_fg_spec_ramp/Synthetic_GS3/Drums.validation.log",
+          "output": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_v2_selection_ramp_20261004/nosplit_fg_spec_ramp/Synthetic_GS3/Drums/validation",
+          "resultpath": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_v2_selection_ramp_20261004/nosplit_fg_spec_ramp/Synthetic_GS3/Drums/validation/metrics.json"
+        }
+      },
+      "started_utc": "2026-10-03T18:56:24.961609+00:00",
+      "startup_confirmed": {
+        "pid": 456816,
+        "gpu": "2",
+        "step": 100,
+        "row": {
+          "step": 100,
+          "stage": "relighting",
+          "frame_index": 1399,
+          "loss": 0.11636847257614136,
+          "l1": 0.09123101830482483,
+          "loss_terms": {
+            "l1": 0.07298481464385986,
+            "ssim": 0.036601271480321884,
+            "mask": 0.006782368756830692,
+            "feature_reg": 1.2085670242356628e-08,
+            "camera_reg": 0.0
+          },
+          "points": 20000,
+          "seconds": 8.44,
+          "memory_GiB": 10.155017375946045,
+          "transport_stats": {
+            "specular": 0.0005506061133928597
+          }
+        }
+      }
+    },
+    "PORT-Synthetic_GS3-Hotdog-nosplit_fg_spec_ramp": {
+      "method": "PORT-GS",
+      "family": "Synthetic_GS3",
+      "scene": "Hotdog",
+      "state": "pending",
+      "gpu": null,
+      "phase": null,
+      "pid": null,
+      "output": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_v2_selection_ramp_20261004/nosplit_fg_spec_ramp/Synthetic_GS3/Hotdog",
+      "resultpath": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_v2_selection_ramp_20261004/nosplit_fg_spec_ramp/Synthetic_GS3/Hotdog/validation/metrics.json",
+      "source_archive": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_v2_selection_ramp_20261004/source.tar",
+      "reused_from": null,
+      "steps": {
+        "train": {
+          "state": "pending",
+          "cwd": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS",
+          "argv": [
+            "/workspace/ubuntu2004_cuda12_1/utils/conda-envs/ssd-gs/bin/python",
+            "-u",
+            "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/train.py",
+            "--steps",
+            "30000",
+            "--seed",
+            "0",
+            "--resolution",
+            "512",
+            "--background",
+            "1.0",
+            "--display-gamma",
+            "2.2",
+            "--shadow-start",
+            "2000",
+            "--port-start",
+            "2000",
+            "--representation",
+            "light_atlas",
+            "--material-head",
+            "svbrdf",
+            "--split-scale2d-stop",
+            "0",
+            "--foreground-appearance",
+            "--specular",
+            "lobes",
+            "--grow-grad2d",
+            "1e-08",
+            "--budget-ramp",
+            "15000",
+            "--scene",
+            "/workspace/datasets/SSD-GS/data/Synthetic_GS3/Hotdog",
+            "--output",
+            "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_v2_selection_ramp_20261004/nosplit_fg_spec_ramp/Synthetic_GS3/Hotdog"
+          ],
+          "logpath": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_v2_selection_ramp_20261004/nosplit_fg_spec_ramp/Synthetic_GS3/Hotdog.train.log",
+          "output": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_v2_selection_ramp_20261004/nosplit_fg_spec_ramp/Synthetic_GS3/Hotdog",
+          "resultpath": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_v2_selection_ramp_20261004/nosplit_fg_spec_ramp/Synthetic_GS3/Hotdog/last.pt"
+        },
+        "eval": {
+          "state": "pending",
+          "cwd": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS",
+          "argv": [
+            "/workspace/ubuntu2004_cuda12_1/utils/conda-envs/ssd-gs/bin/python",
+            "-u",
+            "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/evaluate.py",
+            "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_v2_selection_ramp_20261004/nosplit_fg_spec_ramp/Synthetic_GS3/Hotdog/last.pt",
+            "--split",
+            "validation",
+            "--output",
+            "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_v2_selection_ramp_20261004/nosplit_fg_spec_ramp/Synthetic_GS3/Hotdog/validation",
+            "--lpips",
+            "--highlights"
+          ],
+          "logpath": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_v2_selection_ramp_20261004/nosplit_fg_spec_ramp/Synthetic_GS3/Hotdog.validation.log",
+          "output": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_v2_selection_ramp_20261004/nosplit_fg_spec_ramp/Synthetic_GS3/Hotdog/validation",
+          "resultpath": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_v2_selection_ramp_20261004/nosplit_fg_spec_ramp/Synthetic_GS3/Hotdog/validation/metrics.json"
+        }
+      }
+    },
+    "PORT-Synthetic_GS3-Lego-nosplit_fg_spec_ramp": {
+      "method": "PORT-GS",
+      "family": "Synthetic_GS3",
+      "scene": "Lego",
+      "state": "pending",
+      "gpu": null,
+      "phase": null,
+      "pid": null,
+      "output": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_v2_selection_ramp_20261004/nosplit_fg_spec_ramp/Synthetic_GS3/Lego",
+      "resultpath": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_v2_selection_ramp_20261004/nosplit_fg_spec_ramp/Synthetic_GS3/Lego/validation/metrics.json",
+      "source_archive": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_v2_selection_ramp_20261004/source.tar",
+      "reused_from": null,
+      "steps": {
+        "train": {
+          "state": "pending",
+          "cwd": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS",
+          "argv": [
+            "/workspace/ubuntu2004_cuda12_1/utils/conda-envs/ssd-gs/bin/python",
+            "-u",
+            "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/train.py",
+            "--steps",
+            "30000",
+            "--seed",
+            "0",
+            "--resolution",
+            "512",
+            "--background",
+            "1.0",
+            "--display-gamma",
+            "2.2",
+            "--shadow-start",
+            "2000",
+            "--port-start",
+            "2000",
+            "--representation",
+            "light_atlas",
+            "--material-head",
+            "svbrdf",
+            "--split-scale2d-stop",
+            "0",
+            "--foreground-appearance",
+            "--specular",
+            "lobes",
+            "--grow-grad2d",
+            "1e-08",
+            "--budget-ramp",
+            "15000",
+            "--scene",
+            "/workspace/datasets/SSD-GS/data/Synthetic_GS3/Lego",
+            "--output",
+            "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_v2_selection_ramp_20261004/nosplit_fg_spec_ramp/Synthetic_GS3/Lego"
+          ],
+          "logpath": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_v2_selection_ramp_20261004/nosplit_fg_spec_ramp/Synthetic_GS3/Lego.train.log",
+          "output": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_v2_selection_ramp_20261004/nosplit_fg_spec_ramp/Synthetic_GS3/Lego",
+          "resultpath": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_v2_selection_ramp_20261004/nosplit_fg_spec_ramp/Synthetic_GS3/Lego/last.pt"
+        },
+        "eval": {
+          "state": "pending",
+          "cwd": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS",
+          "argv": [
+            "/workspace/ubuntu2004_cuda12_1/utils/conda-envs/ssd-gs/bin/python",
+            "-u",
+            "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/evaluate.py",
+            "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_v2_selection_ramp_20261004/nosplit_fg_spec_ramp/Synthetic_GS3/Lego/last.pt",
+            "--split",
+            "validation",
+            "--output",
+            "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_v2_selection_ramp_20261004/nosplit_fg_spec_ramp/Synthetic_GS3/Lego/validation",
+            "--lpips",
+            "--highlights"
+          ],
+          "logpath": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_v2_selection_ramp_20261004/nosplit_fg_spec_ramp/Synthetic_GS3/Lego.validation.log",
+          "output": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_v2_selection_ramp_20261004/nosplit_fg_spec_ramp/Synthetic_GS3/Lego/validation",
+          "resultpath": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_v2_selection_ramp_20261004/nosplit_fg_spec_ramp/Synthetic_GS3/Lego/validation/metrics.json"
+        }
+      }
+    },
+    "PORT-Synthetic_SSS-GS-bunny_small-nosplit_fg_spec_ramp": {
+      "method": "PORT-GS",
+      "family": "Synthetic_SSS-GS",
+      "scene": "bunny_small",
+      "state": "pending",
+      "gpu": null,
+      "phase": null,
+      "pid": null,
+      "output": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_v2_selection_ramp_20261004/nosplit_fg_spec_ramp/Synthetic_SSS-GS/bunny_small",
+      "resultpath": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_v2_selection_ramp_20261004/nosplit_fg_spec_ramp/Synthetic_SSS-GS/bunny_small/validation/metrics.json",
+      "source_archive": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_v2_selection_ramp_20261004/source.tar",
+      "reused_from": null,
+      "steps": {
+        "train": {
+          "state": "pending",
+          "cwd": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS",
+          "argv": [
+            "/workspace/ubuntu2004_cuda12_1/utils/conda-envs/ssd-gs/bin/python",
+            "-u",
+            "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/train.py",
+            "--steps",
+            "30000",
+            "--seed",
+            "0",
+            "--resolution",
+            "256",
+            "--background",
+            "0.0",
+            "--display-gamma",
+            "2.2",
+            "--shadow-start",
+            "2000",
+            "--port-start",
+            "2000",
+            "--representation",
+            "light_atlas",
+            "--material-head",
+            "svbrdf",
+            "--split-scale2d-stop",
+            "0",
+            "--foreground-appearance",
+            "--specular",
+            "lobes",
+            "--grow-grad2d",
+            "1e-08",
+            "--budget-ramp",
+            "15000",
+            "--unit-light-intensity",
+            "1.0",
+            "--scene",
+            "/workspace/datasets/SSD-GS/data/Synthetic_SSS-GS/bunny_small",
+            "--output",
+            "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_v2_selection_ramp_20261004/nosplit_fg_spec_ramp/Synthetic_SSS-GS/bunny_small"
+          ],
+          "logpath": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_v2_selection_ramp_20261004/nosplit_fg_spec_ramp/Synthetic_SSS-GS/bunny_small.train.log",
+          "output": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_v2_selection_ramp_20261004/nosplit_fg_spec_ramp/Synthetic_SSS-GS/bunny_small",
+          "resultpath": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_v2_selection_ramp_20261004/nosplit_fg_spec_ramp/Synthetic_SSS-GS/bunny_small/last.pt"
+        },
+        "eval": {
+          "state": "pending",
+          "cwd": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS",
+          "argv": [
+            "/workspace/ubuntu2004_cuda12_1/utils/conda-envs/ssd-gs/bin/python",
+            "-u",
+            "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/evaluate.py",
+            "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_v2_selection_ramp_20261004/nosplit_fg_spec_ramp/Synthetic_SSS-GS/bunny_small/last.pt",
+            "--split",
+            "validation",
+            "--output",
+            "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_v2_selection_ramp_20261004/nosplit_fg_spec_ramp/Synthetic_SSS-GS/bunny_small/validation",
+            "--lpips",
+            "--highlights"
+          ],
+          "logpath": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_v2_selection_ramp_20261004/nosplit_fg_spec_ramp/Synthetic_SSS-GS/bunny_small.validation.log",
+          "output": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_v2_selection_ramp_20261004/nosplit_fg_spec_ramp/Synthetic_SSS-GS/bunny_small/validation",
+          "resultpath": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_v2_selection_ramp_20261004/nosplit_fg_spec_ramp/Synthetic_SSS-GS/bunny_small/validation/metrics.json"
+        }
+      }
+    },
+    "PORT-Synthetic_SSS-GS-soap_small-nosplit_fg_spec_ramp": {
+      "method": "PORT-GS",
+      "family": "Synthetic_SSS-GS",
+      "scene": "soap_small",
+      "state": "pending",
+      "gpu": null,
+      "phase": null,
+      "pid": null,
+      "output": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_v2_selection_ramp_20261004/nosplit_fg_spec_ramp/Synthetic_SSS-GS/soap_small",
+      "resultpath": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_v2_selection_ramp_20261004/nosplit_fg_spec_ramp/Synthetic_SSS-GS/soap_small/validation/metrics.json",
+      "source_archive": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_v2_selection_ramp_20261004/source.tar",
+      "reused_from": null,
+      "steps": {
+        "train": {
+          "state": "pending",
+          "cwd": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS",
+          "argv": [
+            "/workspace/ubuntu2004_cuda12_1/utils/conda-envs/ssd-gs/bin/python",
+            "-u",
+            "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/train.py",
+            "--steps",
+            "30000",
+            "--seed",
+            "0",
+            "--resolution",
+            "256",
+            "--background",
+            "0.0",
+            "--display-gamma",
+            "2.2",
+            "--shadow-start",
+            "2000",
+            "--port-start",
+            "2000",
+            "--representation",
+            "light_atlas",
+            "--material-head",
+            "svbrdf",
+            "--split-scale2d-stop",
+            "0",
+            "--foreground-appearance",
+            "--specular",
+            "lobes",
+            "--grow-grad2d",
+            "1e-08",
+            "--budget-ramp",
+            "15000",
+            "--unit-light-intensity",
+            "1.0",
+            "--scene",
+            "/workspace/datasets/SSD-GS/data/Synthetic_SSS-GS/soap_small",
+            "--output",
+            "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_v2_selection_ramp_20261004/nosplit_fg_spec_ramp/Synthetic_SSS-GS/soap_small"
+          ],
+          "logpath": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_v2_selection_ramp_20261004/nosplit_fg_spec_ramp/Synthetic_SSS-GS/soap_small.train.log",
+          "output": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_v2_selection_ramp_20261004/nosplit_fg_spec_ramp/Synthetic_SSS-GS/soap_small",
+          "resultpath": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_v2_selection_ramp_20261004/nosplit_fg_spec_ramp/Synthetic_SSS-GS/soap_small/last.pt"
+        },
+        "eval": {
+          "state": "pending",
+          "cwd": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS",
+          "argv": [
+            "/workspace/ubuntu2004_cuda12_1/utils/conda-envs/ssd-gs/bin/python",
+            "-u",
+            "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/evaluate.py",
+            "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_v2_selection_ramp_20261004/nosplit_fg_spec_ramp/Synthetic_SSS-GS/soap_small/last.pt",
+            "--split",
+            "validation",
+            "--output",
+            "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_v2_selection_ramp_20261004/nosplit_fg_spec_ramp/Synthetic_SSS-GS/soap_small/validation",
+            "--lpips",
+            "--highlights"
+          ],
+          "logpath": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_v2_selection_ramp_20261004/nosplit_fg_spec_ramp/Synthetic_SSS-GS/soap_small.validation.log",
+          "output": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_v2_selection_ramp_20261004/nosplit_fg_spec_ramp/Synthetic_SSS-GS/soap_small/validation",
+          "resultpath": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_v2_selection_ramp_20261004/nosplit_fg_spec_ramp/Synthetic_SSS-GS/soap_small/validation/metrics.json"
+        }
+      }
+    }
+  }
+}

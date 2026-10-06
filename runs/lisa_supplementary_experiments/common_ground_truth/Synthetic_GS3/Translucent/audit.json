@@ -1,0 +1,44 @@
+{
+  "family": "Synthetic_GS3",
+  "scene": "Translucent",
+  "frames": 400,
+  "methods": [
+    "LiSA-staged",
+    "GS3",
+    "SSD-GS",
+    "RNG",
+    "OLAT-Gaussians"
+  ],
+  "ground_truth_differences": {
+    "LiSA-staged": {
+      "differing_channels": 0,
+      "total_channels": 314572800,
+      "maximum_byte_difference": 0,
+      "absolute_byte_difference": 0
+    },
+    "GS3": {
+      "differing_channels": 968,
+      "total_channels": 314572800,
+      "maximum_byte_difference": 1,
+      "absolute_byte_difference": 968
+    },
+    "SSD-GS": {
+      "differing_channels": 968,
+      "total_channels": 314572800,
+      "maximum_byte_difference": 1,
+      "absolute_byte_difference": 968
+    },
+    "RNG": {
+      "differing_channels": 901,
+      "total_channels": 314572800,
+      "maximum_byte_difference": 1,
+      "absolute_byte_difference": 901
+    },
+    "OLAT-Gaussians": {
+      "differing_channels": 100,
+      "total_channels": 314572800,
+      "maximum_byte_difference": 1,
+      "absolute_byte_difference": 100
+    }
+  }
+}

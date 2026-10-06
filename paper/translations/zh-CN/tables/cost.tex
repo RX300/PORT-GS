@@ -1,0 +1,17 @@
+\begin{table}[t]
+\caption{\textbf{计算开销}：在三个性能测试场景上，每次训练独占一张 RTX 6000 Ada。训练时间以分钟计（完整进程，含 \ours 两个训练阶段），帧率包含每帧使用新光源时的开销，也包括 \ours 的光源渲染通道。}
+\label{tab:cost}
+\centering\small
+\setlength{\tabcolsep}{4pt}
+\begin{tabular}{@{}lrrrrrr@{}}
+\toprule
+ & \multicolumn{2}{c}{Drums} & \multicolumn{2}{c}{FurScene} & \multicolumn{2}{c}{Soap} \\
+\cmidrule(lr){2-3}\cmidrule(lr){4-5}\cmidrule(l){6-7}
+方法 & 分钟 & FPS & 分钟 & FPS & 分钟 & FPS \\
+\midrule
+\gsthree & 73.5 & 61 & 51.0 & 191 & 39.4 & 228 \\
+SSD-GS & 141.1 & 29 & 61.2 & 136 & 26.8 & 198 \\
+\ours & 25.7 & 63 & 19.9 & 74 & 16.7 & 104 \\
+\bottomrule
+\end{tabular}
+\end{table}

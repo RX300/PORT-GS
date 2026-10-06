@@ -2,6 +2,10 @@
 
 基于 Gaussian Splatting 的点光源重光照研究项目，代码、输出与 SSD-GS 基线隔离。
 
+**补充实验已完成：** [LiSA补充实验总入口](docs/experiments/supplementary/README.md)：
+65项结构消融、多种子、精修及耗时实验；SSS-GS基线不纳入。
+配置为`configs/validation.json`，模型按实验组保存在`runs/lisa_supplementary_experiments/`。
+
 ## 当前方法
 
 当前保留 `directional_port_v1`、`surface_attention`、`neural_material`、`light_atlas` 四种方法。
@@ -39,8 +43,8 @@ LiSA流程：训练轮廓种子 → 几何预热 → 线性域联合训练 → �
 # 查看LiSA参数；其他方法由representation选择
 python train.py --representation light_atlas --help
 
-# configs/validation.json为完整18场景分阶段配置；复跑前修改name，禁止覆盖旧结果
-# 单场景运行在同一配置中缩减families/scenes；确认worker_gpus中至多两张物理GPU空闲
+# configs/validation.json为当前补充实验矩阵；启动前确认worker_gpus为空闲物理GPU
+# 既有18场景配置保存在其run的validation.json；禁止覆盖旧结果
 bash launch_validation.sh
 
 # 渲染与评价已有模型，output必须是新目录

@@ -1,0 +1,1900 @@
+{
+  "manifest": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/light_holdout_generalization_20261002/manifest.json",
+  "state": "completed",
+  "started_utc": "2026-10-01T20:20:34.044041+00:00",
+  "finished_utc": "2026-10-02T01:09:05.100870+00:00",
+  "scheduler_pid": 251872,
+  "updated_utc": "2026-10-02T01:09:05.100903+00:00",
+  "workers": {
+    "2": {
+      "state": "idle",
+      "job": null,
+      "pid": null
+    },
+    "3": {
+      "state": "idle",
+      "job": null,
+      "pid": null
+    }
+  },
+  "jobs": {
+    "PORT-Real_NRHints-Pixiu-lisa_svbrdf": {
+      "method": "PORT-GS",
+      "family": "Real_NRHints",
+      "scene": "Pixiu",
+      "state": "completed",
+      "gpu": 2,
+      "phase": null,
+      "pid": null,
+      "output": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/light_holdout_generalization_20261002/lisa_svbrdf/Real_NRHints/Pixiu",
+      "resultpath": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/light_holdout_generalization_20261002/lisa_svbrdf/Real_NRHints/Pixiu/validation/metrics.json",
+      "source_archive": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/light_holdout_generalization_20261002/source.tar",
+      "reused_from": null,
+      "steps": {
+        "train": {
+          "state": "completed",
+          "cwd": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS",
+          "argv": [
+            "/workspace/ubuntu2004_cuda12_1/utils/conda-envs/ssd-gs/bin/python",
+            "-u",
+            "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/train.py",
+            "--steps",
+            "30000",
+            "--seed",
+            "0",
+            "--resolution",
+            "512",
+            "--background",
+            "0.0",
+            "--display-gamma",
+            "2.2",
+            "--representation",
+            "light_atlas",
+            "--shadow-start",
+            "2000",
+            "--port-start",
+            "2000",
+            "--material-head",
+            "svbrdf",
+            "--optimize-cameras",
+            "--camera-mode",
+            "rotation",
+            "--camera-gauge",
+            "translation",
+            "--camera-start",
+            "2000",
+            "--camera-lr",
+            "0.001",
+            "--camera-lr-final",
+            "1e-05",
+            "--scene",
+            "/workspace/datasets/SSD-GS/data/Real_NRHints/Pixiu",
+            "--output",
+            "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/light_holdout_generalization_20261002/lisa_svbrdf/Real_NRHints/Pixiu"
+          ],
+          "logpath": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/light_holdout_generalization_20261002/lisa_svbrdf/Real_NRHints/Pixiu.train.log",
+          "output": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/light_holdout_generalization_20261002/lisa_svbrdf/Real_NRHints/Pixiu",
+          "resultpath": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/light_holdout_generalization_20261002/lisa_svbrdf/Real_NRHints/Pixiu/last.pt",
+          "started_utc": "2026-10-01T20:20:34.048803+00:00",
+          "pid": null,
+          "startup_confirmed": {
+            "pid": 251879,
+            "gpu": 2,
+            "step": 100,
+            "row": {
+              "step": 100,
+              "stage": "relighting",
+              "frame_index": 455,
+              "loss": 0.12638193368911743,
+              "l1": 0.07692192494869232,
+              "loss_terms": {
+                "l1": 0.06153754144906998,
+                "ssim": 0.040715813636779785,
+                "mask": 0.02412855625152588,
+                "feature_reg": 3.5813947363294574e-08,
+                "camera_reg": 0.0
+              },
+              "points": 20000,
+              "seconds": 4.19,
+              "memory_GiB": 4.257043838500977,
+              "camera_rotation_rms": 0.0,
+              "camera_lr": 0.001,
+              "scene_gauge_shift": [
+                0.0,
+                0.0,
+                0.0
+              ]
+            }
+          },
+          "finished_utc": "2026-10-01T20:41:33.384475+00:00",
+          "last_pid": 251879
+        },
+        "eval": {
+          "state": "completed",
+          "cwd": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS",
+          "argv": [
+            "/workspace/ubuntu2004_cuda12_1/utils/conda-envs/ssd-gs/bin/python",
+            "-u",
+            "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/evaluate.py",
+            "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/light_holdout_generalization_20261002/lisa_svbrdf/Real_NRHints/Pixiu/last.pt",
+            "--split",
+            "validation",
+            "--output",
+            "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/light_holdout_generalization_20261002/lisa_svbrdf/Real_NRHints/Pixiu/validation",
+            "--lpips"
+          ],
+          "logpath": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/light_holdout_generalization_20261002/lisa_svbrdf/Real_NRHints/Pixiu.validation.log",
+          "output": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/light_holdout_generalization_20261002/lisa_svbrdf/Real_NRHints/Pixiu/validation",
+          "resultpath": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/light_holdout_generalization_20261002/lisa_svbrdf/Real_NRHints/Pixiu/validation/metrics.json",
+          "started_utc": "2026-10-01T20:41:33.385801+00:00",
+          "pid": null,
+          "finished_utc": "2026-10-01T20:41:38.855976+00:00",
+          "last_pid": 253043
+        }
+      },
+      "started_utc": "2026-10-01T20:20:34.046831+00:00",
+      "startup_confirmed": {
+        "pid": 251879,
+        "gpu": 2,
+        "step": 100,
+        "row": {
+          "step": 100,
+          "stage": "relighting",
+          "frame_index": 455,
+          "loss": 0.12638193368911743,
+          "l1": 0.07692192494869232,
+          "loss_terms": {
+            "l1": 0.06153754144906998,
+            "ssim": 0.040715813636779785,
+            "mask": 0.02412855625152588,
+            "feature_reg": 3.5813947363294574e-08,
+            "camera_reg": 0.0
+          },
+          "points": 20000,
+          "seconds": 4.19,
+          "memory_GiB": 4.257043838500977,
+          "camera_rotation_rms": 0.0,
+          "camera_lr": 0.001,
+          "scene_gauge_shift": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        }
+      },
+      "finished_utc": "2026-10-01T20:41:38.858243+00:00"
+    },
+    "PORT-Synthetic_GS3-AnisoMetal-lisa_svbrdf": {
+      "method": "PORT-GS",
+      "family": "Synthetic_GS3",
+      "scene": "AnisoMetal",
+      "state": "completed",
+      "gpu": 3,
+      "phase": null,
+      "pid": null,
+      "output": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/light_holdout_generalization_20261002/lisa_svbrdf/Synthetic_GS3/AnisoMetal",
+      "resultpath": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/light_holdout_generalization_20261002/lisa_svbrdf/Synthetic_GS3/AnisoMetal/validation/metrics.json",
+      "source_archive": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/light_holdout_generalization_20261002/source.tar",
+      "reused_from": null,
+      "steps": {
+        "train": {
+          "state": "completed",
+          "cwd": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS",
+          "argv": [
+            "/workspace/ubuntu2004_cuda12_1/utils/conda-envs/ssd-gs/bin/python",
+            "-u",
+            "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/train.py",
+            "--steps",
+            "30000",
+            "--seed",
+            "0",
+            "--resolution",
+            "512",
+            "--background",
+            "1.0",
+            "--display-gamma",
+            "2.2",
+            "--representation",
+            "light_atlas",
+            "--shadow-start",
+            "2000",
+            "--port-start",
+            "2000",
+            "--material-head",
+            "svbrdf",
+            "--scene",
+            "/workspace/datasets/SSD-GS/data/Synthetic_GS3/AnisoMetal",
+            "--output",
+            "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/light_holdout_generalization_20261002/lisa_svbrdf/Synthetic_GS3/AnisoMetal"
+          ],
+          "logpath": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/light_holdout_generalization_20261002/lisa_svbrdf/Synthetic_GS3/AnisoMetal.train.log",
+          "output": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/light_holdout_generalization_20261002/lisa_svbrdf/Synthetic_GS3/AnisoMetal",
+          "resultpath": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/light_holdout_generalization_20261002/lisa_svbrdf/Synthetic_GS3/AnisoMetal/last.pt",
+          "started_utc": "2026-10-01T20:20:34.053100+00:00",
+          "pid": null,
+          "startup_confirmed": {
+            "pid": 251880,
+            "gpu": 3,
+            "step": 100,
+            "row": {
+              "step": 100,
+              "stage": "relighting",
+              "frame_index": 1842,
+              "loss": 0.26591023802757263,
+              "l1": 0.20649611949920654,
+              "loss_terms": {
+                "l1": 0.16519689559936523,
+                "ssim": 0.07577550411224365,
+                "mask": 0.024937773123383522,
+                "feature_reg": 5.477667031072997e-08,
+                "camera_reg": 0.0
+              },
+              "points": 20000,
+              "seconds": 4.54,
+              "memory_GiB": 9.877942562103271
+            }
+          },
+          "finished_utc": "2026-10-01T20:45:09.571828+00:00",
+          "last_pid": 251880
+        },
+        "eval": {
+          "state": "completed",
+          "cwd": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS",
+          "argv": [
+            "/workspace/ubuntu2004_cuda12_1/utils/conda-envs/ssd-gs/bin/python",
+            "-u",
+            "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/evaluate.py",
+            "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/light_holdout_generalization_20261002/lisa_svbrdf/Synthetic_GS3/AnisoMetal/last.pt",
+            "--split",
+            "validation",
+            "--output",
+            "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/light_holdout_generalization_20261002/lisa_svbrdf/Synthetic_GS3/AnisoMetal/validation",
+            "--lpips"
+          ],
+          "logpath": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/light_holdout_generalization_20261002/lisa_svbrdf/Synthetic_GS3/AnisoMetal.validation.log",
+          "output": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/light_holdout_generalization_20261002/lisa_svbrdf/Synthetic_GS3/AnisoMetal/validation",
+          "resultpath": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/light_holdout_generalization_20261002/lisa_svbrdf/Synthetic_GS3/AnisoMetal/validation/metrics.json",
+          "started_utc": "2026-10-01T20:45:09.573502+00:00",
+          "pid": null,
+          "finished_utc": "2026-10-01T20:45:22.563247+00:00",
+          "last_pid": 253360
+        }
+      },
+      "started_utc": "2026-10-01T20:20:34.050508+00:00",
+      "startup_confirmed": {
+        "pid": 251880,
+        "gpu": 3,
+        "step": 100,
+        "row": {
+          "step": 100,
+          "stage": "relighting",
+          "frame_index": 1842,
+          "loss": 0.26591023802757263,
+          "l1": 0.20649611949920654,
+          "loss_terms": {
+            "l1": 0.16519689559936523,
+            "ssim": 0.07577550411224365,
+            "mask": 0.024937773123383522,
+            "feature_reg": 5.477667031072997e-08,
+            "camera_reg": 0.0
+          },
+          "points": 20000,
+          "seconds": 4.54,
+          "memory_GiB": 9.877942562103271
+        }
+      },
+      "finished_utc": "2026-10-01T20:45:22.565832+00:00"
+    },
+    "PORT-Synthetic_GS3-Translucent-lisa_svbrdf": {
+      "method": "PORT-GS",
+      "family": "Synthetic_GS3",
+      "scene": "Translucent",
+      "state": "completed",
+      "gpu": 2,
+      "phase": null,
+      "pid": null,
+      "output": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/light_holdout_generalization_20261002/lisa_svbrdf/Synthetic_GS3/Translucent",
+      "resultpath": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/light_holdout_generalization_20261002/lisa_svbrdf/Synthetic_GS3/Translucent/validation/metrics.json",
+      "source_archive": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/light_holdout_generalization_20261002/source.tar",
+      "reused_from": null,
+      "steps": {
+        "train": {
+          "state": "completed",
+          "cwd": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS",
+          "argv": [
+            "/workspace/ubuntu2004_cuda12_1/utils/conda-envs/ssd-gs/bin/python",
+            "-u",
+            "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/train.py",
+            "--steps",
+            "30000",
+            "--seed",
+            "0",
+            "--resolution",
+            "512",
+            "--background",
+            "1.0",
+            "--display-gamma",
+            "2.2",
+            "--representation",
+            "light_atlas",
+            "--shadow-start",
+            "2000",
+            "--port-start",
+            "2000",
+            "--material-head",
+            "svbrdf",
+            "--scene",
+            "/workspace/datasets/SSD-GS/data/Synthetic_GS3/Translucent",
+            "--output",
+            "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/light_holdout_generalization_20261002/lisa_svbrdf/Synthetic_GS3/Translucent"
+          ],
+          "logpath": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/light_holdout_generalization_20261002/lisa_svbrdf/Synthetic_GS3/Translucent.train.log",
+          "output": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/light_holdout_generalization_20261002/lisa_svbrdf/Synthetic_GS3/Translucent",
+          "resultpath": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/light_holdout_generalization_20261002/lisa_svbrdf/Synthetic_GS3/Translucent/last.pt",
+          "started_utc": "2026-10-01T20:41:38.879982+00:00",
+          "pid": null,
+          "startup_confirmed": {
+            "pid": 253095,
+            "gpu": 2,
+            "step": 100,
+            "row": {
+              "step": 100,
+              "stage": "relighting",
+              "frame_index": 1842,
+              "loss": 0.24213378131389618,
+              "l1": 0.18449680507183075,
+              "loss_terms": {
+                "l1": 0.14759744703769684,
+                "ssim": 0.06932832300662994,
+                "mask": 0.025207970291376114,
+                "feature_reg": 5.040049444460237e-08,
+                "camera_reg": 0.0
+              },
+              "points": 20000,
+              "seconds": 4.5,
+              "memory_GiB": 9.87792444229126
+            }
+          },
+          "finished_utc": "2026-10-01T21:07:17.236185+00:00",
+          "last_pid": 253095
+        },
+        "eval": {
+          "state": "completed",
+          "cwd": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS",
+          "argv": [
+            "/workspace/ubuntu2004_cuda12_1/utils/conda-envs/ssd-gs/bin/python",
+            "-u",
+            "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/evaluate.py",
+            "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/light_holdout_generalization_20261002/lisa_svbrdf/Synthetic_GS3/Translucent/last.pt",
+            "--split",
+            "validation",
+            "--output",
+            "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/light_holdout_generalization_20261002/lisa_svbrdf/Synthetic_GS3/Translucent/validation",
+            "--lpips"
+          ],
+          "logpath": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/light_holdout_generalization_20261002/lisa_svbrdf/Synthetic_GS3/Translucent.validation.log",
+          "output": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/light_holdout_generalization_20261002/lisa_svbrdf/Synthetic_GS3/Translucent/validation",
+          "resultpath": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/light_holdout_generalization_20261002/lisa_svbrdf/Synthetic_GS3/Translucent/validation/metrics.json",
+          "started_utc": "2026-10-01T21:07:17.240291+00:00",
+          "pid": null,
+          "finished_utc": "2026-10-01T21:07:30.580865+00:00",
+          "last_pid": 254645
+        }
+      },
+      "started_utc": "2026-10-01T20:41:38.860822+00:00",
+      "startup_confirmed": {
+        "pid": 253095,
+        "gpu": 2,
+        "step": 100,
+        "row": {
+          "step": 100,
+          "stage": "relighting",
+          "frame_index": 1842,
+          "loss": 0.24213378131389618,
+          "l1": 0.18449680507183075,
+          "loss_terms": {
+            "l1": 0.14759744703769684,
+            "ssim": 0.06932832300662994,
+            "mask": 0.025207970291376114,
+            "feature_reg": 5.040049444460237e-08,
+            "camera_reg": 0.0
+          },
+          "points": 20000,
+          "seconds": 4.5,
+          "memory_GiB": 9.87792444229126
+        }
+      },
+      "finished_utc": "2026-10-01T21:07:30.583651+00:00"
+    },
+    "PORT-Synthetic_SSS-GS-bunny_small-lisa_svbrdf": {
+      "method": "PORT-GS",
+      "family": "Synthetic_SSS-GS",
+      "scene": "bunny_small",
+      "state": "completed",
+      "gpu": 3,
+      "phase": null,
+      "pid": null,
+      "output": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/light_holdout_generalization_20261002/lisa_svbrdf/Synthetic_SSS-GS/bunny_small",
+      "resultpath": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/light_holdout_generalization_20261002/lisa_svbrdf/Synthetic_SSS-GS/bunny_small/validation/metrics.json",
+      "source_archive": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/light_holdout_generalization_20261002/source.tar",
+      "reused_from": null,
+      "steps": {
+        "train": {
+          "state": "completed",
+          "cwd": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS",
+          "argv": [
+            "/workspace/ubuntu2004_cuda12_1/utils/conda-envs/ssd-gs/bin/python",
+            "-u",
+            "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/train.py",
+            "--steps",
+            "30000",
+            "--seed",
+            "0",
+            "--resolution",
+            "256",
+            "--background",
+            "0.0",
+            "--display-gamma",
+            "2.2",
+            "--representation",
+            "light_atlas",
+            "--shadow-start",
+            "2000",
+            "--port-start",
+            "2000",
+            "--material-head",
+            "svbrdf",
+            "--unit-light-intensity",
+            "1.0",
+            "--scene",
+            "/workspace/datasets/SSD-GS/data/Synthetic_SSS-GS/bunny_small",
+            "--output",
+            "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/light_holdout_generalization_20261002/lisa_svbrdf/Synthetic_SSS-GS/bunny_small"
+          ],
+          "logpath": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/light_holdout_generalization_20261002/lisa_svbrdf/Synthetic_SSS-GS/bunny_small.train.log",
+          "output": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/light_holdout_generalization_20261002/lisa_svbrdf/Synthetic_SSS-GS/bunny_small",
+          "resultpath": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/light_holdout_generalization_20261002/lisa_svbrdf/Synthetic_SSS-GS/bunny_small/last.pt",
+          "started_utc": "2026-10-01T20:45:22.570717+00:00",
+          "pid": null,
+          "startup_confirmed": {
+            "pid": 253418,
+            "gpu": 3,
+            "step": 100,
+            "row": {
+              "step": 100,
+              "stage": "relighting",
+              "frame_index": 460,
+              "loss": 0.13925300538539886,
+              "l1": 0.08311715722084045,
+              "loss_terms": {
+                "l1": 0.06649372726678848,
+                "ssim": 0.03534982353448868,
+                "mask": 0.03740942105650902,
+                "feature_reg": 2.709334800954366e-08,
+                "camera_reg": 0.0
+              },
+              "points": 20000,
+              "seconds": 3.08,
+              "memory_GiB": 1.0348029136657715
+            }
+          },
+          "finished_utc": "2026-10-01T21:05:07.045503+00:00",
+          "last_pid": 253418
+        },
+        "eval": {
+          "state": "completed",
+          "cwd": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS",
+          "argv": [
+            "/workspace/ubuntu2004_cuda12_1/utils/conda-envs/ssd-gs/bin/python",
+            "-u",
+            "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/evaluate.py",
+            "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/light_holdout_generalization_20261002/lisa_svbrdf/Synthetic_SSS-GS/bunny_small/last.pt",
+            "--split",
+            "validation",
+            "--output",
+            "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/light_holdout_generalization_20261002/lisa_svbrdf/Synthetic_SSS-GS/bunny_small/validation",
+            "--lpips"
+          ],
+          "logpath": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/light_holdout_generalization_20261002/lisa_svbrdf/Synthetic_SSS-GS/bunny_small.validation.log",
+          "output": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/light_holdout_generalization_20261002/lisa_svbrdf/Synthetic_SSS-GS/bunny_small/validation",
+          "resultpath": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/light_holdout_generalization_20261002/lisa_svbrdf/Synthetic_SSS-GS/bunny_small/validation/metrics.json",
+          "started_utc": "2026-10-01T21:05:07.047328+00:00",
+          "pid": null,
+          "finished_utc": "2026-10-01T21:05:12.161065+00:00",
+          "last_pid": 254445
+        }
+      },
+      "started_utc": "2026-10-01T20:45:22.568668+00:00",
+      "startup_confirmed": {
+        "pid": 253418,
+        "gpu": 3,
+        "step": 100,
+        "row": {
+          "step": 100,
+          "stage": "relighting",
+          "frame_index": 460,
+          "loss": 0.13925300538539886,
+          "l1": 0.08311715722084045,
+          "loss_terms": {
+            "l1": 0.06649372726678848,
+            "ssim": 0.03534982353448868,
+            "mask": 0.03740942105650902,
+            "feature_reg": 2.709334800954366e-08,
+            "camera_reg": 0.0
+          },
+          "points": 20000,
+          "seconds": 3.08,
+          "memory_GiB": 1.0348029136657715
+        }
+      },
+      "finished_utc": "2026-10-01T21:05:12.163789+00:00"
+    },
+    "PORT-Synthetic_SSS-GS-dragon_small-lisa_svbrdf": {
+      "method": "PORT-GS",
+      "family": "Synthetic_SSS-GS",
+      "scene": "dragon_small",
+      "state": "completed",
+      "gpu": 3,
+      "phase": null,
+      "pid": null,
+      "output": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/light_holdout_generalization_20261002/lisa_svbrdf/Synthetic_SSS-GS/dragon_small",
+      "resultpath": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/light_holdout_generalization_20261002/lisa_svbrdf/Synthetic_SSS-GS/dragon_small/validation/metrics.json",
+      "source_archive": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/light_holdout_generalization_20261002/source.tar",
+      "reused_from": null,
+      "steps": {
+        "train": {
+          "state": "completed",
+          "cwd": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS",
+          "argv": [
+            "/workspace/ubuntu2004_cuda12_1/utils/conda-envs/ssd-gs/bin/python",
+            "-u",
+            "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/train.py",
+            "--steps",
+            "30000",
+            "--seed",
+            "0",
+            "--resolution",
+            "256",
+            "--background",
+            "0.0",
+            "--display-gamma",
+            "2.2",
+            "--representation",
+            "light_atlas",
+            "--shadow-start",
+            "2000",
+            "--port-start",
+            "2000",
+            "--material-head",
+            "svbrdf",
+            "--unit-light-intensity",
+            "1.0",
+            "--scene",
+            "/workspace/datasets/SSD-GS/data/Synthetic_SSS-GS/dragon_small",
+            "--output",
+            "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/light_holdout_generalization_20261002/lisa_svbrdf/Synthetic_SSS-GS/dragon_small"
+          ],
+          "logpath": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/light_holdout_generalization_20261002/lisa_svbrdf/Synthetic_SSS-GS/dragon_small.train.log",
+          "output": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/light_holdout_generalization_20261002/lisa_svbrdf/Synthetic_SSS-GS/dragon_small",
+          "resultpath": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/light_holdout_generalization_20261002/lisa_svbrdf/Synthetic_SSS-GS/dragon_small/last.pt",
+          "started_utc": "2026-10-01T21:05:12.168748+00:00",
+          "pid": null,
+          "startup_confirmed": {
+            "pid": 254495,
+            "gpu": 3,
+            "step": 100,
+            "row": {
+              "step": 100,
+              "stage": "relighting",
+              "frame_index": 462,
+              "loss": 0.08328378945589066,
+              "l1": 0.019537899643182755,
+              "loss_terms": {
+                "l1": 0.015630319714546204,
+                "ssim": 0.02632114849984646,
+                "mask": 0.04133228957653046,
+                "feature_reg": 3.204545251378477e-08,
+                "camera_reg": 0.0
+              },
+              "points": 20000,
+              "seconds": 2.97,
+              "memory_GiB": 1.0347685813903809
+            }
+          },
+          "finished_utc": "2026-10-01T21:23:02.621686+00:00",
+          "last_pid": 254495
+        },
+        "eval": {
+          "state": "completed",
+          "cwd": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS",
+          "argv": [
+            "/workspace/ubuntu2004_cuda12_1/utils/conda-envs/ssd-gs/bin/python",
+            "-u",
+            "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/evaluate.py",
+            "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/light_holdout_generalization_20261002/lisa_svbrdf/Synthetic_SSS-GS/dragon_small/last.pt",
+            "--split",
+            "validation",
+            "--output",
+            "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/light_holdout_generalization_20261002/lisa_svbrdf/Synthetic_SSS-GS/dragon_small/validation",
+            "--lpips"
+          ],
+          "logpath": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/light_holdout_generalization_20261002/lisa_svbrdf/Synthetic_SSS-GS/dragon_small.validation.log",
+          "output": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/light_holdout_generalization_20261002/lisa_svbrdf/Synthetic_SSS-GS/dragon_small/validation",
+          "resultpath": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/light_holdout_generalization_20261002/lisa_svbrdf/Synthetic_SSS-GS/dragon_small/validation/metrics.json",
+          "started_utc": "2026-10-01T21:23:02.623297+00:00",
+          "pid": null,
+          "finished_utc": "2026-10-01T21:23:07.278310+00:00",
+          "last_pid": 255546
+        }
+      },
+      "started_utc": "2026-10-01T21:05:12.166575+00:00",
+      "startup_confirmed": {
+        "pid": 254495,
+        "gpu": 3,
+        "step": 100,
+        "row": {
+          "step": 100,
+          "stage": "relighting",
+          "frame_index": 462,
+          "loss": 0.08328378945589066,
+          "l1": 0.019537899643182755,
+          "loss_terms": {
+            "l1": 0.015630319714546204,
+            "ssim": 0.02632114849984646,
+            "mask": 0.04133228957653046,
+            "feature_reg": 3.204545251378477e-08,
+            "camera_reg": 0.0
+          },
+          "points": 20000,
+          "seconds": 2.97,
+          "memory_GiB": 1.0347685813903809
+        }
+      },
+      "finished_utc": "2026-10-01T21:23:07.281112+00:00"
+    },
+    "PORT-Real_NRHints-Pixiu-lisa_spatial": {
+      "method": "PORT-GS",
+      "family": "Real_NRHints",
+      "scene": "Pixiu",
+      "state": "completed",
+      "gpu": 2,
+      "phase": null,
+      "pid": null,
+      "output": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/light_holdout_generalization_20261002/lisa_spatial/Real_NRHints/Pixiu",
+      "resultpath": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/light_holdout_generalization_20261002/lisa_spatial/Real_NRHints/Pixiu/validation/metrics.json",
+      "source_archive": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/light_holdout_generalization_20261002/source.tar",
+      "reused_from": null,
+      "steps": {
+        "train": {
+          "state": "completed",
+          "cwd": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS",
+          "argv": [
+            "/workspace/ubuntu2004_cuda12_1/utils/conda-envs/ssd-gs/bin/python",
+            "-u",
+            "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/train.py",
+            "--steps",
+            "30000",
+            "--seed",
+            "0",
+            "--resolution",
+            "512",
+            "--background",
+            "0.0",
+            "--display-gamma",
+            "2.2",
+            "--representation",
+            "light_atlas",
+            "--shadow-start",
+            "2000",
+            "--port-start",
+            "2000",
+            "--material-head",
+            "spatial",
+            "--optimize-cameras",
+            "--camera-mode",
+            "rotation",
+            "--camera-gauge",
+            "translation",
+            "--camera-start",
+            "2000",
+            "--camera-lr",
+            "0.001",
+            "--camera-lr-final",
+            "1e-05",
+            "--scene",
+            "/workspace/datasets/SSD-GS/data/Real_NRHints/Pixiu",
+            "--output",
+            "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/light_holdout_generalization_20261002/lisa_spatial/Real_NRHints/Pixiu"
+          ],
+          "logpath": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/light_holdout_generalization_20261002/lisa_spatial/Real_NRHints/Pixiu.train.log",
+          "output": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/light_holdout_generalization_20261002/lisa_spatial/Real_NRHints/Pixiu",
+          "resultpath": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/light_holdout_generalization_20261002/lisa_spatial/Real_NRHints/Pixiu/last.pt",
+          "started_utc": "2026-10-01T21:07:30.589050+00:00",
+          "pid": null,
+          "startup_confirmed": {
+            "pid": 254711,
+            "gpu": 2,
+            "step": 100,
+            "row": {
+              "step": 100,
+              "stage": "relighting",
+              "frame_index": 455,
+              "loss": 0.1261756271123886,
+              "l1": 0.07698658108711243,
+              "loss_terms": {
+                "l1": 0.06158926710486412,
+                "ssim": 0.04070618376135826,
+                "mask": 0.023880131542682648,
+                "feature_reg": 5.0677510188279484e-08,
+                "camera_reg": 0.0
+              },
+              "points": 20000,
+              "seconds": 3.86,
+              "memory_GiB": 3.9708337783813477,
+              "camera_rotation_rms": 0.0,
+              "camera_lr": 0.001,
+              "scene_gauge_shift": [
+                0.0,
+                0.0,
+                0.0
+              ]
+            }
+          },
+          "finished_utc": "2026-10-01T21:27:30.758485+00:00",
+          "last_pid": 254711
+        },
+        "eval": {
+          "state": "completed",
+          "cwd": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS",
+          "argv": [
+            "/workspace/ubuntu2004_cuda12_1/utils/conda-envs/ssd-gs/bin/python",
+            "-u",
+            "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/evaluate.py",
+            "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/light_holdout_generalization_20261002/lisa_spatial/Real_NRHints/Pixiu/last.pt",
+            "--split",
+            "validation",
+            "--output",
+            "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/light_holdout_generalization_20261002/lisa_spatial/Real_NRHints/Pixiu/validation",
+            "--lpips"
+          ],
+          "logpath": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/light_holdout_generalization_20261002/lisa_spatial/Real_NRHints/Pixiu.validation.log",
+          "output": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/light_holdout_generalization_20261002/lisa_spatial/Real_NRHints/Pixiu/validation",
+          "resultpath": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/light_holdout_generalization_20261002/lisa_spatial/Real_NRHints/Pixiu/validation/metrics.json",
+          "started_utc": "2026-10-01T21:27:30.760616+00:00",
+          "pid": null,
+          "finished_utc": "2026-10-01T21:27:36.285456+00:00",
+          "last_pid": 255854
+        }
+      },
+      "started_utc": "2026-10-01T21:07:30.586733+00:00",
+      "startup_confirmed": {
+        "pid": 254711,
+        "gpu": 2,
+        "step": 100,
+        "row": {
+          "step": 100,
+          "stage": "relighting",
+          "frame_index": 455,
+          "loss": 0.1261756271123886,
+          "l1": 0.07698658108711243,
+          "loss_terms": {
+            "l1": 0.06158926710486412,
+            "ssim": 0.04070618376135826,
+            "mask": 0.023880131542682648,
+            "feature_reg": 5.0677510188279484e-08,
+            "camera_reg": 0.0
+          },
+          "points": 20000,
+          "seconds": 3.86,
+          "memory_GiB": 3.9708337783813477,
+          "camera_rotation_rms": 0.0,
+          "camera_lr": 0.001,
+          "scene_gauge_shift": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        }
+      },
+      "finished_utc": "2026-10-01T21:27:36.288609+00:00"
+    },
+    "PORT-Synthetic_GS3-Translucent-lisa_spatial": {
+      "method": "PORT-GS",
+      "family": "Synthetic_GS3",
+      "scene": "Translucent",
+      "state": "completed",
+      "gpu": 3,
+      "phase": null,
+      "pid": null,
+      "output": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/light_holdout_generalization_20261002/lisa_spatial/Synthetic_GS3/Translucent",
+      "resultpath": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/light_holdout_generalization_20261002/lisa_spatial/Synthetic_GS3/Translucent/validation/metrics.json",
+      "source_archive": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/light_holdout_generalization_20261002/source.tar",
+      "reused_from": null,
+      "steps": {
+        "train": {
+          "state": "completed",
+          "cwd": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS",
+          "argv": [
+            "/workspace/ubuntu2004_cuda12_1/utils/conda-envs/ssd-gs/bin/python",
+            "-u",
+            "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/train.py",
+            "--steps",
+            "30000",
+            "--seed",
+            "0",
+            "--resolution",
+            "512",
+            "--background",
+            "1.0",
+            "--display-gamma",
+            "2.2",
+            "--representation",
+            "light_atlas",
+            "--shadow-start",
+            "2000",
+            "--port-start",
+            "2000",
+            "--material-head",
+            "spatial",
+            "--scene",
+            "/workspace/datasets/SSD-GS/data/Synthetic_GS3/Translucent",
+            "--output",
+            "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/light_holdout_generalization_20261002/lisa_spatial/Synthetic_GS3/Translucent"
+          ],
+          "logpath": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/light_holdout_generalization_20261002/lisa_spatial/Synthetic_GS3/Translucent.train.log",
+          "output": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/light_holdout_generalization_20261002/lisa_spatial/Synthetic_GS3/Translucent",
+          "resultpath": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/light_holdout_generalization_20261002/lisa_spatial/Synthetic_GS3/Translucent/last.pt",
+          "started_utc": "2026-10-01T21:23:07.288792+00:00",
+          "pid": null,
+          "startup_confirmed": {
+            "pid": 255597,
+            "gpu": 3,
+            "step": 100,
+            "row": {
+              "step": 100,
+              "stage": "relighting",
+              "frame_index": 1842,
+              "loss": 0.23869042098522186,
+              "l1": 0.18086765706539154,
+              "loss_terms": {
+                "l1": 0.14469413459300995,
+                "ssim": 0.06878798454999924,
+                "mask": 0.02520827017724514,
+                "feature_reg": 4.675347753391179e-08,
+                "camera_reg": 0.0
+              },
+              "points": 20000,
+              "seconds": 4.1,
+              "memory_GiB": 9.59171438217163
+            }
+          },
+          "finished_utc": "2026-10-01T21:48:09.866007+00:00",
+          "last_pid": 255597
+        },
+        "eval": {
+          "state": "completed",
+          "cwd": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS",
+          "argv": [
+            "/workspace/ubuntu2004_cuda12_1/utils/conda-envs/ssd-gs/bin/python",
+            "-u",
+            "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/evaluate.py",
+            "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/light_holdout_generalization_20261002/lisa_spatial/Synthetic_GS3/Translucent/last.pt",
+            "--split",
+            "validation",
+            "--output",
+            "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/light_holdout_generalization_20261002/lisa_spatial/Synthetic_GS3/Translucent/validation",
+            "--lpips"
+          ],
+          "logpath": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/light_holdout_generalization_20261002/lisa_spatial/Synthetic_GS3/Translucent.validation.log",
+          "output": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/light_holdout_generalization_20261002/lisa_spatial/Synthetic_GS3/Translucent/validation",
+          "resultpath": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/light_holdout_generalization_20261002/lisa_spatial/Synthetic_GS3/Translucent/validation/metrics.json",
+          "started_utc": "2026-10-01T21:48:09.868449+00:00",
+          "pid": null,
+          "finished_utc": "2026-10-01T21:48:23.079710+00:00",
+          "last_pid": 257096
+        }
+      },
+      "started_utc": "2026-10-01T21:23:07.284210+00:00",
+      "startup_confirmed": {
+        "pid": 255597,
+        "gpu": 3,
+        "step": 100,
+        "row": {
+          "step": 100,
+          "stage": "relighting",
+          "frame_index": 1842,
+          "loss": 0.23869042098522186,
+          "l1": 0.18086765706539154,
+          "loss_terms": {
+            "l1": 0.14469413459300995,
+            "ssim": 0.06878798454999924,
+            "mask": 0.02520827017724514,
+            "feature_reg": 4.675347753391179e-08,
+            "camera_reg": 0.0
+          },
+          "points": 20000,
+          "seconds": 4.1,
+          "memory_GiB": 9.59171438217163
+        }
+      },
+      "finished_utc": "2026-10-01T21:48:23.083193+00:00"
+    },
+    "PORT-Synthetic_SSS-GS-dragon_small-lisa_spatial": {
+      "method": "PORT-GS",
+      "family": "Synthetic_SSS-GS",
+      "scene": "dragon_small",
+      "state": "completed",
+      "gpu": 2,
+      "phase": null,
+      "pid": null,
+      "output": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/light_holdout_generalization_20261002/lisa_spatial/Synthetic_SSS-GS/dragon_small",
+      "resultpath": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/light_holdout_generalization_20261002/lisa_spatial/Synthetic_SSS-GS/dragon_small/validation/metrics.json",
+      "source_archive": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/light_holdout_generalization_20261002/source.tar",
+      "reused_from": null,
+      "steps": {
+        "train": {
+          "state": "completed",
+          "cwd": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS",
+          "argv": [
+            "/workspace/ubuntu2004_cuda12_1/utils/conda-envs/ssd-gs/bin/python",
+            "-u",
+            "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/train.py",
+            "--steps",
+            "30000",
+            "--seed",
+            "0",
+            "--resolution",
+            "256",
+            "--background",
+            "0.0",
+            "--display-gamma",
+            "2.2",
+            "--representation",
+            "light_atlas",
+            "--shadow-start",
+            "2000",
+            "--port-start",
+            "2000",
+            "--material-head",
+            "spatial",
+            "--unit-light-intensity",
+            "1.0",
+            "--scene",
+            "/workspace/datasets/SSD-GS/data/Synthetic_SSS-GS/dragon_small",
+            "--output",
+            "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/light_holdout_generalization_20261002/lisa_spatial/Synthetic_SSS-GS/dragon_small"
+          ],
+          "logpath": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/light_holdout_generalization_20261002/lisa_spatial/Synthetic_SSS-GS/dragon_small.train.log",
+          "output": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/light_holdout_generalization_20261002/lisa_spatial/Synthetic_SSS-GS/dragon_small",
+          "resultpath": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/light_holdout_generalization_20261002/lisa_spatial/Synthetic_SSS-GS/dragon_small/last.pt",
+          "started_utc": "2026-10-01T21:27:36.294547+00:00",
+          "pid": null,
+          "startup_confirmed": {
+            "pid": 255911,
+            "gpu": 2,
+            "step": 100,
+            "row": {
+              "step": 100,
+              "stage": "relighting",
+              "frame_index": 462,
+              "loss": 0.0837426483631134,
+              "l1": 0.0197073332965374,
+              "loss_terms": {
+                "l1": 0.01576586626470089,
+                "ssim": 0.02622079849243164,
+                "mask": 0.04175594076514244,
+                "feature_reg": 4.6986325941134055e-08,
+                "camera_reg": 0.0
+              },
+              "points": 20000,
+              "seconds": 2.9,
+              "memory_GiB": 0.9667148590087891
+            }
+          },
+          "finished_utc": "2026-10-01T21:45:32.647959+00:00",
+          "last_pid": 255911
+        },
+        "eval": {
+          "state": "completed",
+          "cwd": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS",
+          "argv": [
+            "/workspace/ubuntu2004_cuda12_1/utils/conda-envs/ssd-gs/bin/python",
+            "-u",
+            "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/evaluate.py",
+            "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/light_holdout_generalization_20261002/lisa_spatial/Synthetic_SSS-GS/dragon_small/last.pt",
+            "--split",
+            "validation",
+            "--output",
+            "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/light_holdout_generalization_20261002/lisa_spatial/Synthetic_SSS-GS/dragon_small/validation",
+            "--lpips"
+          ],
+          "logpath": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/light_holdout_generalization_20261002/lisa_spatial/Synthetic_SSS-GS/dragon_small.validation.log",
+          "output": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/light_holdout_generalization_20261002/lisa_spatial/Synthetic_SSS-GS/dragon_small/validation",
+          "resultpath": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/light_holdout_generalization_20261002/lisa_spatial/Synthetic_SSS-GS/dragon_small/validation/metrics.json",
+          "started_utc": "2026-10-01T21:45:32.650367+00:00",
+          "pid": null,
+          "finished_utc": "2026-10-01T21:45:39.155718+00:00",
+          "last_pid": 256874
+        }
+      },
+      "started_utc": "2026-10-01T21:27:36.291909+00:00",
+      "startup_confirmed": {
+        "pid": 255911,
+        "gpu": 2,
+        "step": 100,
+        "row": {
+          "step": 100,
+          "stage": "relighting",
+          "frame_index": 462,
+          "loss": 0.0837426483631134,
+          "l1": 0.0197073332965374,
+          "loss_terms": {
+            "l1": 0.01576586626470089,
+            "ssim": 0.02622079849243164,
+            "mask": 0.04175594076514244,
+            "feature_reg": 4.6986325941134055e-08,
+            "camera_reg": 0.0
+          },
+          "points": 20000,
+          "seconds": 2.9,
+          "memory_GiB": 0.9667148590087891
+        }
+      },
+      "finished_utc": "2026-10-01T21:45:39.158852+00:00"
+    },
+    "PORT-Real_NRHints-Pixiu-lisa_compact": {
+      "method": "PORT-GS",
+      "family": "Real_NRHints",
+      "scene": "Pixiu",
+      "state": "completed",
+      "gpu": 2,
+      "phase": null,
+      "pid": null,
+      "output": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/light_holdout_generalization_20261002/lisa_compact/Real_NRHints/Pixiu",
+      "resultpath": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/light_holdout_generalization_20261002/lisa_compact/Real_NRHints/Pixiu/validation/metrics.json",
+      "source_archive": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/light_holdout_generalization_20261002/source.tar",
+      "reused_from": null,
+      "steps": {
+        "train": {
+          "state": "completed",
+          "cwd": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS",
+          "argv": [
+            "/workspace/ubuntu2004_cuda12_1/utils/conda-envs/ssd-gs/bin/python",
+            "-u",
+            "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/train.py",
+            "--steps",
+            "30000",
+            "--seed",
+            "0",
+            "--resolution",
+            "512",
+            "--background",
+            "0.0",
+            "--display-gamma",
+            "2.2",
+            "--representation",
+            "light_atlas",
+            "--shadow-start",
+            "2000",
+            "--port-start",
+            "2000",
+            "--material-head",
+            "compact",
+            "--optimize-cameras",
+            "--camera-mode",
+            "rotation",
+            "--camera-gauge",
+            "translation",
+            "--camera-start",
+            "2000",
+            "--camera-lr",
+            "0.001",
+            "--camera-lr-final",
+            "1e-05",
+            "--scene",
+            "/workspace/datasets/SSD-GS/data/Real_NRHints/Pixiu",
+            "--output",
+            "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/light_holdout_generalization_20261002/lisa_compact/Real_NRHints/Pixiu"
+          ],
+          "logpath": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/light_holdout_generalization_20261002/lisa_compact/Real_NRHints/Pixiu.train.log",
+          "output": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/light_holdout_generalization_20261002/lisa_compact/Real_NRHints/Pixiu",
+          "resultpath": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/light_holdout_generalization_20261002/lisa_compact/Real_NRHints/Pixiu/last.pt",
+          "started_utc": "2026-10-01T21:45:39.164969+00:00",
+          "pid": null,
+          "startup_confirmed": {
+            "pid": 256926,
+            "gpu": 2,
+            "step": 100,
+            "row": {
+              "step": 100,
+              "stage": "relighting",
+              "frame_index": 455,
+              "loss": 0.11666830629110336,
+              "l1": 0.07694363594055176,
+              "loss_terms": {
+                "l1": 0.061554908752441406,
+                "ssim": 0.04068828746676445,
+                "mask": 0.014425021596252918,
+                "feature_reg": 7.845146399176883e-08,
+                "camera_reg": 0.0
+              },
+              "points": 20000,
+              "seconds": 3.38,
+              "memory_GiB": 3.4832048416137695,
+              "camera_rotation_rms": 0.0,
+              "camera_lr": 0.001,
+              "scene_gauge_shift": [
+                0.0,
+                0.0,
+                0.0
+              ]
+            }
+          },
+          "finished_utc": "2026-10-01T22:05:32.905327+00:00",
+          "last_pid": 256926
+        },
+        "eval": {
+          "state": "completed",
+          "cwd": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS",
+          "argv": [
+            "/workspace/ubuntu2004_cuda12_1/utils/conda-envs/ssd-gs/bin/python",
+            "-u",
+            "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/evaluate.py",
+            "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/light_holdout_generalization_20261002/lisa_compact/Real_NRHints/Pixiu/last.pt",
+            "--split",
+            "validation",
+            "--output",
+            "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/light_holdout_generalization_20261002/lisa_compact/Real_NRHints/Pixiu/validation",
+            "--lpips"
+          ],
+          "logpath": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/light_holdout_generalization_20261002/lisa_compact/Real_NRHints/Pixiu.validation.log",
+          "output": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/light_holdout_generalization_20261002/lisa_compact/Real_NRHints/Pixiu/validation",
+          "resultpath": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/light_holdout_generalization_20261002/lisa_compact/Real_NRHints/Pixiu/validation/metrics.json",
+          "started_utc": "2026-10-01T22:05:32.907701+00:00",
+          "pid": null,
+          "finished_utc": "2026-10-01T22:05:38.527932+00:00",
+          "last_pid": 258110
+        }
+      },
+      "started_utc": "2026-10-01T21:45:39.162247+00:00",
+      "startup_confirmed": {
+        "pid": 256926,
+        "gpu": 2,
+        "step": 100,
+        "row": {
+          "step": 100,
+          "stage": "relighting",
+          "frame_index": 455,
+          "loss": 0.11666830629110336,
+          "l1": 0.07694363594055176,
+          "loss_terms": {
+            "l1": 0.061554908752441406,
+            "ssim": 0.04068828746676445,
+            "mask": 0.014425021596252918,
+            "feature_reg": 7.845146399176883e-08,
+            "camera_reg": 0.0
+          },
+          "points": 20000,
+          "seconds": 3.38,
+          "memory_GiB": 3.4832048416137695,
+          "camera_rotation_rms": 0.0,
+          "camera_lr": 0.001,
+          "scene_gauge_shift": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        }
+      },
+      "finished_utc": "2026-10-01T22:05:38.531355+00:00"
+    },
+    "PORT-Synthetic_GS3-Translucent-lisa_compact": {
+      "method": "PORT-GS",
+      "family": "Synthetic_GS3",
+      "scene": "Translucent",
+      "state": "completed",
+      "gpu": 3,
+      "phase": null,
+      "pid": null,
+      "output": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/light_holdout_generalization_20261002/lisa_compact/Synthetic_GS3/Translucent",
+      "resultpath": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/light_holdout_generalization_20261002/lisa_compact/Synthetic_GS3/Translucent/validation/metrics.json",
+      "source_archive": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/light_holdout_generalization_20261002/source.tar",
+      "reused_from": null,
+      "steps": {
+        "train": {
+          "state": "completed",
+          "cwd": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS",
+          "argv": [
+            "/workspace/ubuntu2004_cuda12_1/utils/conda-envs/ssd-gs/bin/python",
+            "-u",
+            "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/train.py",
+            "--steps",
+            "30000",
+            "--seed",
+            "0",
+            "--resolution",
+            "512",
+            "--background",
+            "1.0",
+            "--display-gamma",
+            "2.2",
+            "--representation",
+            "light_atlas",
+            "--shadow-start",
+            "2000",
+            "--port-start",
+            "2000",
+            "--material-head",
+            "compact",
+            "--scene",
+            "/workspace/datasets/SSD-GS/data/Synthetic_GS3/Translucent",
+            "--output",
+            "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/light_holdout_generalization_20261002/lisa_compact/Synthetic_GS3/Translucent"
+          ],
+          "logpath": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/light_holdout_generalization_20261002/lisa_compact/Synthetic_GS3/Translucent.train.log",
+          "output": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/light_holdout_generalization_20261002/lisa_compact/Synthetic_GS3/Translucent",
+          "resultpath": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/light_holdout_generalization_20261002/lisa_compact/Synthetic_GS3/Translucent/last.pt",
+          "started_utc": "2026-10-01T21:48:23.113381+00:00",
+          "pid": null,
+          "startup_confirmed": {
+            "pid": 257154,
+            "gpu": 3,
+            "step": 100,
+            "row": {
+              "step": 100,
+              "stage": "relighting",
+              "frame_index": 1842,
+              "loss": 0.2465229034423828,
+              "l1": 0.1954091489315033,
+              "loss_terms": {
+                "l1": 0.15632732212543488,
+                "ssim": 0.06905373185873032,
+                "mask": 0.021141797304153442,
+                "feature_reg": 5.625799204267423e-08,
+                "camera_reg": 0.0
+              },
+              "points": 20000,
+              "seconds": 3.68,
+              "memory_GiB": 9.104085445404053
+            }
+          },
+          "finished_utc": "2026-10-01T22:13:00.321312+00:00",
+          "last_pid": 257154
+        },
+        "eval": {
+          "state": "completed",
+          "cwd": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS",
+          "argv": [
+            "/workspace/ubuntu2004_cuda12_1/utils/conda-envs/ssd-gs/bin/python",
+            "-u",
+            "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/evaluate.py",
+            "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/light_holdout_generalization_20261002/lisa_compact/Synthetic_GS3/Translucent/last.pt",
+            "--split",
+            "validation",
+            "--output",
+            "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/light_holdout_generalization_20261002/lisa_compact/Synthetic_GS3/Translucent/validation",
+            "--lpips"
+          ],
+          "logpath": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/light_holdout_generalization_20261002/lisa_compact/Synthetic_GS3/Translucent.validation.log",
+          "output": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/light_holdout_generalization_20261002/lisa_compact/Synthetic_GS3/Translucent/validation",
+          "resultpath": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/light_holdout_generalization_20261002/lisa_compact/Synthetic_GS3/Translucent/validation/metrics.json",
+          "started_utc": "2026-10-01T22:13:00.323744+00:00",
+          "pid": null,
+          "finished_utc": "2026-10-01T22:13:13.573806+00:00",
+          "last_pid": 258588
+        }
+      },
+      "started_utc": "2026-10-01T21:48:23.086721+00:00",
+      "startup_confirmed": {
+        "pid": 257154,
+        "gpu": 3,
+        "step": 100,
+        "row": {
+          "step": 100,
+          "stage": "relighting",
+          "frame_index": 1842,
+          "loss": 0.2465229034423828,
+          "l1": 0.1954091489315033,
+          "loss_terms": {
+            "l1": 0.15632732212543488,
+            "ssim": 0.06905373185873032,
+            "mask": 0.021141797304153442,
+            "feature_reg": 5.625799204267423e-08,
+            "camera_reg": 0.0
+          },
+          "points": 20000,
+          "seconds": 3.68,
+          "memory_GiB": 9.104085445404053
+        }
+      },
+      "finished_utc": "2026-10-01T22:13:13.577398+00:00"
+    },
+    "PORT-Synthetic_SSS-GS-dragon_small-lisa_compact": {
+      "method": "PORT-GS",
+      "family": "Synthetic_SSS-GS",
+      "scene": "dragon_small",
+      "state": "completed",
+      "gpu": 2,
+      "phase": null,
+      "pid": null,
+      "output": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/light_holdout_generalization_20261002/lisa_compact/Synthetic_SSS-GS/dragon_small",
+      "resultpath": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/light_holdout_generalization_20261002/lisa_compact/Synthetic_SSS-GS/dragon_small/validation/metrics.json",
+      "source_archive": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/light_holdout_generalization_20261002/source.tar",
+      "reused_from": null,
+      "steps": {
+        "train": {
+          "state": "completed",
+          "cwd": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS",
+          "argv": [
+            "/workspace/ubuntu2004_cuda12_1/utils/conda-envs/ssd-gs/bin/python",
+            "-u",
+            "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/train.py",
+            "--steps",
+            "30000",
+            "--seed",
+            "0",
+            "--resolution",
+            "256",
+            "--background",
+            "0.0",
+            "--display-gamma",
+            "2.2",
+            "--representation",
+            "light_atlas",
+            "--shadow-start",
+            "2000",
+            "--port-start",
+            "2000",
+            "--material-head",
+            "compact",
+            "--unit-light-intensity",
+            "1.0",
+            "--scene",
+            "/workspace/datasets/SSD-GS/data/Synthetic_SSS-GS/dragon_small",
+            "--output",
+            "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/light_holdout_generalization_20261002/lisa_compact/Synthetic_SSS-GS/dragon_small"
+          ],
+          "logpath": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/light_holdout_generalization_20261002/lisa_compact/Synthetic_SSS-GS/dragon_small.train.log",
+          "output": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/light_holdout_generalization_20261002/lisa_compact/Synthetic_SSS-GS/dragon_small",
+          "resultpath": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/light_holdout_generalization_20261002/lisa_compact/Synthetic_SSS-GS/dragon_small/last.pt",
+          "started_utc": "2026-10-01T22:05:38.538048+00:00",
+          "pid": null,
+          "startup_confirmed": {
+            "pid": 258161,
+            "gpu": 2,
+            "step": 100,
+            "row": {
+              "step": 100,
+              "stage": "relighting",
+              "frame_index": 462,
+              "loss": 0.07962948083877563,
+              "l1": 0.019688691943883896,
+              "loss_terms": {
+                "l1": 0.015750953927636147,
+                "ssim": 0.026207948103547096,
+                "mask": 0.03767050802707672,
+                "feature_reg": 7.758630005127998e-08,
+                "camera_reg": 0.0
+              },
+              "points": 20000,
+              "seconds": 2.78,
+              "memory_GiB": 0.8687343597412109
+            }
+          },
+          "finished_utc": "2026-10-01T22:23:44.131060+00:00",
+          "last_pid": 258161
+        },
+        "eval": {
+          "state": "completed",
+          "cwd": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS",
+          "argv": [
+            "/workspace/ubuntu2004_cuda12_1/utils/conda-envs/ssd-gs/bin/python",
+            "-u",
+            "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/evaluate.py",
+            "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/light_holdout_generalization_20261002/lisa_compact/Synthetic_SSS-GS/dragon_small/last.pt",
+            "--split",
+            "validation",
+            "--output",
+            "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/light_holdout_generalization_20261002/lisa_compact/Synthetic_SSS-GS/dragon_small/validation",
+            "--lpips"
+          ],
+          "logpath": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/light_holdout_generalization_20261002/lisa_compact/Synthetic_SSS-GS/dragon_small.validation.log",
+          "output": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/light_holdout_generalization_20261002/lisa_compact/Synthetic_SSS-GS/dragon_small/validation",
+          "resultpath": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/light_holdout_generalization_20261002/lisa_compact/Synthetic_SSS-GS/dragon_small/validation/metrics.json",
+          "started_utc": "2026-10-01T22:23:44.133485+00:00",
+          "pid": null,
+          "finished_utc": "2026-10-01T22:23:49.041297+00:00",
+          "last_pid": 259237
+        }
+      },
+      "started_utc": "2026-10-01T22:05:38.535032+00:00",
+      "startup_confirmed": {
+        "pid": 258161,
+        "gpu": 2,
+        "step": 100,
+        "row": {
+          "step": 100,
+          "stage": "relighting",
+          "frame_index": 462,
+          "loss": 0.07962948083877563,
+          "l1": 0.019688691943883896,
+          "loss_terms": {
+            "l1": 0.015750953927636147,
+            "ssim": 0.026207948103547096,
+            "mask": 0.03767050802707672,
+            "feature_reg": 7.758630005127998e-08,
+            "camera_reg": 0.0
+          },
+          "points": 20000,
+          "seconds": 2.78,
+          "memory_GiB": 0.8687343597412109
+        }
+      },
+      "finished_utc": "2026-10-01T22:23:49.045018+00:00"
+    },
+    "PORT-Synthetic_GS3-AnisoMetal-directional_port_v1": {
+      "method": "PORT-GS",
+      "family": "Synthetic_GS3",
+      "scene": "AnisoMetal",
+      "state": "completed",
+      "gpu": 3,
+      "phase": null,
+      "pid": null,
+      "output": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/light_holdout_generalization_20261002/directional_port_v1/Synthetic_GS3/AnisoMetal",
+      "resultpath": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/light_holdout_generalization_20261002/directional_port_v1/Synthetic_GS3/AnisoMetal/validation/metrics.json",
+      "source_archive": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/light_holdout_generalization_20261002/source.tar",
+      "reused_from": null,
+      "steps": {
+        "train": {
+          "state": "completed",
+          "cwd": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS",
+          "argv": [
+            "/workspace/ubuntu2004_cuda12_1/utils/conda-envs/ssd-gs/bin/python",
+            "-u",
+            "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/train.py",
+            "--steps",
+            "30000",
+            "--seed",
+            "0",
+            "--resolution",
+            "512",
+            "--background",
+            "1.0",
+            "--display-gamma",
+            "2.2",
+            "--representation",
+            "directional_port_v1",
+            "--scene",
+            "/workspace/datasets/SSD-GS/data/Synthetic_GS3/AnisoMetal",
+            "--output",
+            "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/light_holdout_generalization_20261002/directional_port_v1/Synthetic_GS3/AnisoMetal"
+          ],
+          "logpath": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/light_holdout_generalization_20261002/directional_port_v1/Synthetic_GS3/AnisoMetal.train.log",
+          "output": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/light_holdout_generalization_20261002/directional_port_v1/Synthetic_GS3/AnisoMetal",
+          "resultpath": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/light_holdout_generalization_20261002/directional_port_v1/Synthetic_GS3/AnisoMetal/last.pt",
+          "started_utc": "2026-10-01T22:13:13.583994+00:00",
+          "pid": null,
+          "startup_confirmed": {
+            "pid": 258645,
+            "gpu": 3,
+            "step": 100,
+            "row": {
+              "step": 100,
+              "stage": "relighting",
+              "frame_index": 1842,
+              "loss": 0.2858002781867981,
+              "l1": 0.23179790377616882,
+              "loss_terms": {
+                "l1": 0.18543832004070282,
+                "ssim": 0.07532995939254761,
+                "mask": 0.025031937286257744,
+                "feature_reg": 5.665669533527762e-08,
+                "camera_reg": 0.0
+              },
+              "points": 20000,
+              "seconds": 3.83,
+              "memory_GiB": 9.380890846252441
+            }
+          },
+          "finished_utc": "2026-10-01T23:37:22.801852+00:00",
+          "last_pid": 258645
+        },
+        "eval": {
+          "state": "completed",
+          "cwd": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS",
+          "argv": [
+            "/workspace/ubuntu2004_cuda12_1/utils/conda-envs/ssd-gs/bin/python",
+            "-u",
+            "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/evaluate.py",
+            "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/light_holdout_generalization_20261002/directional_port_v1/Synthetic_GS3/AnisoMetal/last.pt",
+            "--split",
+            "validation",
+            "--output",
+            "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/light_holdout_generalization_20261002/directional_port_v1/Synthetic_GS3/AnisoMetal/validation",
+            "--lpips"
+          ],
+          "logpath": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/light_holdout_generalization_20261002/directional_port_v1/Synthetic_GS3/AnisoMetal.validation.log",
+          "output": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/light_holdout_generalization_20261002/directional_port_v1/Synthetic_GS3/AnisoMetal/validation",
+          "resultpath": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/light_holdout_generalization_20261002/directional_port_v1/Synthetic_GS3/AnisoMetal/validation/metrics.json",
+          "started_utc": "2026-10-01T23:37:22.805671+00:00",
+          "pid": null,
+          "finished_utc": "2026-10-01T23:37:45.305038+00:00",
+          "last_pid": 263091
+        }
+      },
+      "started_utc": "2026-10-01T22:13:13.581198+00:00",
+      "startup_confirmed": {
+        "pid": 258645,
+        "gpu": 3,
+        "step": 100,
+        "row": {
+          "step": 100,
+          "stage": "relighting",
+          "frame_index": 1842,
+          "loss": 0.2858002781867981,
+          "l1": 0.23179790377616882,
+          "loss_terms": {
+            "l1": 0.18543832004070282,
+            "ssim": 0.07532995939254761,
+            "mask": 0.025031937286257744,
+            "feature_reg": 5.665669533527762e-08,
+            "camera_reg": 0.0
+          },
+          "points": 20000,
+          "seconds": 3.83,
+          "memory_GiB": 9.380890846252441
+        }
+      },
+      "finished_utc": "2026-10-01T23:37:45.308867+00:00"
+    },
+    "PORT-Synthetic_GS3-Translucent-directional_port_v1": {
+      "method": "PORT-GS",
+      "family": "Synthetic_GS3",
+      "scene": "Translucent",
+      "state": "completed",
+      "gpu": 2,
+      "phase": null,
+      "pid": null,
+      "output": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/light_holdout_generalization_20261002/directional_port_v1/Synthetic_GS3/Translucent",
+      "resultpath": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/light_holdout_generalization_20261002/directional_port_v1/Synthetic_GS3/Translucent/validation/metrics.json",
+      "source_archive": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/light_holdout_generalization_20261002/source.tar",
+      "reused_from": null,
+      "steps": {
+        "train": {
+          "state": "completed",
+          "cwd": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS",
+          "argv": [
+            "/workspace/ubuntu2004_cuda12_1/utils/conda-envs/ssd-gs/bin/python",
+            "-u",
+            "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/train.py",
+            "--steps",
+            "30000",
+            "--seed",
+            "0",
+            "--resolution",
+            "512",
+            "--background",
+            "1.0",
+            "--display-gamma",
+            "2.2",
+            "--representation",
+            "directional_port_v1",
+            "--scene",
+            "/workspace/datasets/SSD-GS/data/Synthetic_GS3/Translucent",
+            "--output",
+            "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/light_holdout_generalization_20261002/directional_port_v1/Synthetic_GS3/Translucent"
+          ],
+          "logpath": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/light_holdout_generalization_20261002/directional_port_v1/Synthetic_GS3/Translucent.train.log",
+          "output": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/light_holdout_generalization_20261002/directional_port_v1/Synthetic_GS3/Translucent",
+          "resultpath": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/light_holdout_generalization_20261002/directional_port_v1/Synthetic_GS3/Translucent/last.pt",
+          "started_utc": "2026-10-01T22:23:49.051988+00:00",
+          "pid": null,
+          "startup_confirmed": {
+            "pid": 259287,
+            "gpu": 2,
+            "step": 100,
+            "row": {
+              "step": 100,
+              "stage": "relighting",
+              "frame_index": 1842,
+              "loss": 0.2492804378271103,
+              "l1": 0.19412893056869507,
+              "loss_terms": {
+                "l1": 0.15530315041542053,
+                "ssim": 0.06865318864583969,
+                "mask": 0.02532404474914074,
+                "feature_reg": 4.9489251807699475e-08,
+                "camera_reg": 0.0
+              },
+              "points": 20000,
+              "seconds": 3.81,
+              "memory_GiB": 9.380816459655762
+            }
+          },
+          "finished_utc": "2026-10-01T23:47:16.665442+00:00",
+          "last_pid": 259287
+        },
+        "eval": {
+          "state": "completed",
+          "cwd": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS",
+          "argv": [
+            "/workspace/ubuntu2004_cuda12_1/utils/conda-envs/ssd-gs/bin/python",
+            "-u",
+            "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/evaluate.py",
+            "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/light_holdout_generalization_20261002/directional_port_v1/Synthetic_GS3/Translucent/last.pt",
+            "--split",
+            "validation",
+            "--output",
+            "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/light_holdout_generalization_20261002/directional_port_v1/Synthetic_GS3/Translucent/validation",
+            "--lpips"
+          ],
+          "logpath": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/light_holdout_generalization_20261002/directional_port_v1/Synthetic_GS3/Translucent.validation.log",
+          "output": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/light_holdout_generalization_20261002/directional_port_v1/Synthetic_GS3/Translucent/validation",
+          "resultpath": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/light_holdout_generalization_20261002/directional_port_v1/Synthetic_GS3/Translucent/validation/metrics.json",
+          "started_utc": "2026-10-01T23:47:16.669370+00:00",
+          "pid": null,
+          "finished_utc": "2026-10-01T23:47:39.497235+00:00",
+          "last_pid": 263696
+        }
+      },
+      "started_utc": "2026-10-01T22:23:49.048978+00:00",
+      "startup_confirmed": {
+        "pid": 259287,
+        "gpu": 2,
+        "step": 100,
+        "row": {
+          "step": 100,
+          "stage": "relighting",
+          "frame_index": 1842,
+          "loss": 0.2492804378271103,
+          "l1": 0.19412893056869507,
+          "loss_terms": {
+            "l1": 0.15530315041542053,
+            "ssim": 0.06865318864583969,
+            "mask": 0.02532404474914074,
+            "feature_reg": 4.9489251807699475e-08,
+            "camera_reg": 0.0
+          },
+          "points": 20000,
+          "seconds": 3.81,
+          "memory_GiB": 9.380816459655762
+        }
+      },
+      "finished_utc": "2026-10-01T23:47:39.502361+00:00"
+    },
+    "PORT-Synthetic_SSS-GS-bunny_small-directional_port_v1": {
+      "method": "PORT-GS",
+      "family": "Synthetic_SSS-GS",
+      "scene": "bunny_small",
+      "state": "completed",
+      "gpu": 3,
+      "phase": null,
+      "pid": null,
+      "output": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/light_holdout_generalization_20261002/directional_port_v1/Synthetic_SSS-GS/bunny_small",
+      "resultpath": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/light_holdout_generalization_20261002/directional_port_v1/Synthetic_SSS-GS/bunny_small/validation/metrics.json",
+      "source_archive": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/light_holdout_generalization_20261002/source.tar",
+      "reused_from": null,
+      "steps": {
+        "train": {
+          "state": "completed",
+          "cwd": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS",
+          "argv": [
+            "/workspace/ubuntu2004_cuda12_1/utils/conda-envs/ssd-gs/bin/python",
+            "-u",
+            "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/train.py",
+            "--steps",
+            "30000",
+            "--seed",
+            "0",
+            "--resolution",
+            "256",
+            "--background",
+            "0.0",
+            "--display-gamma",
+            "2.2",
+            "--representation",
+            "directional_port_v1",
+            "--unit-light-intensity",
+            "1.0",
+            "--scene",
+            "/workspace/datasets/SSD-GS/data/Synthetic_SSS-GS/bunny_small",
+            "--output",
+            "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/light_holdout_generalization_20261002/directional_port_v1/Synthetic_SSS-GS/bunny_small"
+          ],
+          "logpath": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/light_holdout_generalization_20261002/directional_port_v1/Synthetic_SSS-GS/bunny_small.train.log",
+          "output": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/light_holdout_generalization_20261002/directional_port_v1/Synthetic_SSS-GS/bunny_small",
+          "resultpath": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/light_holdout_generalization_20261002/directional_port_v1/Synthetic_SSS-GS/bunny_small/last.pt",
+          "started_utc": "2026-10-01T23:37:45.315996+00:00",
+          "pid": null,
+          "startup_confirmed": {
+            "pid": 263164,
+            "gpu": 3,
+            "step": 100,
+            "row": {
+              "step": 100,
+              "stage": "relighting",
+              "frame_index": 460,
+              "loss": 0.14081482589244843,
+              "l1": 0.08326201140880585,
+              "loss_terms": {
+                "l1": 0.06660961359739304,
+                "ssim": 0.0353618860244751,
+                "mask": 0.03884328529238701,
+                "feature_reg": 4.301624656477543e-08,
+                "camera_reg": 0.0
+              },
+              "points": 20000,
+              "seconds": 2.54,
+              "memory_GiB": 0.9388704299926758
+            }
+          },
+          "finished_utc": "2026-10-02T00:58:06.657699+00:00",
+          "last_pid": 263164
+        },
+        "eval": {
+          "state": "completed",
+          "cwd": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS",
+          "argv": [
+            "/workspace/ubuntu2004_cuda12_1/utils/conda-envs/ssd-gs/bin/python",
+            "-u",
+            "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/evaluate.py",
+            "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/light_holdout_generalization_20261002/directional_port_v1/Synthetic_SSS-GS/bunny_small/last.pt",
+            "--split",
+            "validation",
+            "--output",
+            "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/light_holdout_generalization_20261002/directional_port_v1/Synthetic_SSS-GS/bunny_small/validation",
+            "--lpips"
+          ],
+          "logpath": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/light_holdout_generalization_20261002/directional_port_v1/Synthetic_SSS-GS/bunny_small.validation.log",
+          "output": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/light_holdout_generalization_20261002/directional_port_v1/Synthetic_SSS-GS/bunny_small/validation",
+          "resultpath": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/light_holdout_generalization_20261002/directional_port_v1/Synthetic_SSS-GS/bunny_small/validation/metrics.json",
+          "started_utc": "2026-10-02T00:58:06.661771+00:00",
+          "pid": null,
+          "finished_utc": "2026-10-02T00:58:14.420487+00:00",
+          "last_pid": 267406
+        }
+      },
+      "started_utc": "2026-10-01T23:37:45.312967+00:00",
+      "startup_confirmed": {
+        "pid": 263164,
+        "gpu": 3,
+        "step": 100,
+        "row": {
+          "step": 100,
+          "stage": "relighting",
+          "frame_index": 460,
+          "loss": 0.14081482589244843,
+          "l1": 0.08326201140880585,
+          "loss_terms": {
+            "l1": 0.06660961359739304,
+            "ssim": 0.0353618860244751,
+            "mask": 0.03884328529238701,
+            "feature_reg": 4.301624656477543e-08,
+            "camera_reg": 0.0
+          },
+          "points": 20000,
+          "seconds": 2.54,
+          "memory_GiB": 0.9388704299926758
+        }
+      },
+      "finished_utc": "2026-10-02T00:58:14.424690+00:00"
+    },
+    "PORT-Synthetic_SSS-GS-dragon_small-directional_port_v1": {
+      "method": "PORT-GS",
+      "family": "Synthetic_SSS-GS",
+      "scene": "dragon_small",
+      "state": "completed",
+      "gpu": 2,
+      "phase": null,
+      "pid": null,
+      "output": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/light_holdout_generalization_20261002/directional_port_v1/Synthetic_SSS-GS/dragon_small",
+      "resultpath": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/light_holdout_generalization_20261002/directional_port_v1/Synthetic_SSS-GS/dragon_small/validation/metrics.json",
+      "source_archive": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/light_holdout_generalization_20261002/source.tar",
+      "reused_from": null,
+      "steps": {
+        "train": {
+          "state": "completed",
+          "cwd": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS",
+          "argv": [
+            "/workspace/ubuntu2004_cuda12_1/utils/conda-envs/ssd-gs/bin/python",
+            "-u",
+            "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/train.py",
+            "--steps",
+            "30000",
+            "--seed",
+            "0",
+            "--resolution",
+            "256",
+            "--background",
+            "0.0",
+            "--display-gamma",
+            "2.2",
+            "--representation",
+            "directional_port_v1",
+            "--unit-light-intensity",
+            "1.0",
+            "--scene",
+            "/workspace/datasets/SSD-GS/data/Synthetic_SSS-GS/dragon_small",
+            "--output",
+            "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/light_holdout_generalization_20261002/directional_port_v1/Synthetic_SSS-GS/dragon_small"
+          ],
+          "logpath": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/light_holdout_generalization_20261002/directional_port_v1/Synthetic_SSS-GS/dragon_small.train.log",
+          "output": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/light_holdout_generalization_20261002/directional_port_v1/Synthetic_SSS-GS/dragon_small",
+          "resultpath": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/light_holdout_generalization_20261002/directional_port_v1/Synthetic_SSS-GS/dragon_small/last.pt",
+          "started_utc": "2026-10-01T23:47:39.521656+00:00",
+          "pid": null,
+          "startup_confirmed": {
+            "pid": 263767,
+            "gpu": 2,
+            "step": 100,
+            "row": {
+              "step": 100,
+              "stage": "relighting",
+              "frame_index": 462,
+              "loss": 0.0837751254439354,
+              "l1": 0.019633347168564796,
+              "loss_terms": {
+                "l1": 0.015706678852438927,
+                "ssim": 0.026336729526519775,
+                "mask": 0.04173167049884796,
+                "feature_reg": 4.634733130615132e-08,
+                "camera_reg": 0.0
+              },
+              "points": 20000,
+              "seconds": 2.72,
+              "memory_GiB": 0.9388394355773926
+            }
+          },
+          "finished_utc": "2026-10-02T01:08:56.567672+00:00",
+          "last_pid": 263767
+        },
+        "eval": {
+          "state": "completed",
+          "cwd": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS",
+          "argv": [
+            "/workspace/ubuntu2004_cuda12_1/utils/conda-envs/ssd-gs/bin/python",
+            "-u",
+            "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/evaluate.py",
+            "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/light_holdout_generalization_20261002/directional_port_v1/Synthetic_SSS-GS/dragon_small/last.pt",
+            "--split",
+            "validation",
+            "--output",
+            "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/light_holdout_generalization_20261002/directional_port_v1/Synthetic_SSS-GS/dragon_small/validation",
+            "--lpips"
+          ],
+          "logpath": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/light_holdout_generalization_20261002/directional_port_v1/Synthetic_SSS-GS/dragon_small.validation.log",
+          "output": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/light_holdout_generalization_20261002/directional_port_v1/Synthetic_SSS-GS/dragon_small/validation",
+          "resultpath": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/light_holdout_generalization_20261002/directional_port_v1/Synthetic_SSS-GS/dragon_small/validation/metrics.json",
+          "started_utc": "2026-10-02T01:08:56.571856+00:00",
+          "pid": null,
+          "finished_utc": "2026-10-02T01:09:05.080130+00:00",
+          "last_pid": 268001
+        }
+      },
+      "started_utc": "2026-10-01T23:47:39.518085+00:00",
+      "startup_confirmed": {
+        "pid": 263767,
+        "gpu": 2,
+        "step": 100,
+        "row": {
+          "step": 100,
+          "stage": "relighting",
+          "frame_index": 462,
+          "loss": 0.0837751254439354,
+          "l1": 0.019633347168564796,
+          "loss_terms": {
+            "l1": 0.015706678852438927,
+            "ssim": 0.026336729526519775,
+            "mask": 0.04173167049884796,
+            "feature_reg": 4.634733130615132e-08,
+            "camera_reg": 0.0
+          },
+          "points": 20000,
+          "seconds": 2.72,
+          "memory_GiB": 0.9388394355773926
+        }
+      },
+      "finished_utc": "2026-10-02T01:09:05.084365+00:00"
+    }
+  }
+}

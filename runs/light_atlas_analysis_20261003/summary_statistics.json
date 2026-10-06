@@ -1,0 +1,1287 @@
+{
+  "scenes": [
+    {
+      "family": "Real_NRHints",
+      "scene": "CatSmall",
+      "metrics": {
+        "PSNR": 33.53019393244876,
+        "SSIM": 0.9641560025607483,
+        "LPIPS": 0.07214741578584985,
+        "alpha_L1": 0.005765943058554225
+      },
+      "peak_metrics": {
+        "pixels": 1299,
+        "predicted_pixels": 1772,
+        "matched_predicted_pixels_2px": 1194,
+        "matched_target_pixels_2px": 967,
+        "rgb_mae": 0.22851063382221792,
+        "target_contrast": 0.48257777211847813,
+        "predicted_contrast": 0.2815239450494953,
+        "contrast_ratio": 0.5833752843891411,
+        "precision_2px": 0.6738148984198645,
+        "recall_2px": 0.7444187836797537
+      },
+      "strongest_baseline_PSNR": "SSD-GS",
+      "delta_PSNR_vs_strongest": -0.25835801378081413,
+      "delta_PSNR_vs_SSD": -0.25835801378081413,
+      "delta_PSNR_vs_GS3": 0.27752989756910296,
+      "frame_wins_vs_strongest": 64,
+      "frames": 158,
+      "median_delta_frame_index": 94,
+      "worst_delta_frame_index": 28,
+      "frame_delta_quantiles": [
+        -3.282817840576172,
+        -0.9817304611206055,
+        -0.3708209991455078,
+        0.6446576118469238,
+        2.3918914794921875
+      ],
+      "training_windows": [
+        {
+          "steps": [
+            10000,
+            15000
+          ],
+          "record_count": 50,
+          "mean_loss": 0.012552046626806259,
+          "mean_l1": 0.006343800127506256
+        },
+        {
+          "steps": [
+            20000,
+            25000
+          ],
+          "record_count": 50,
+          "mean_loss": 0.008653006218373775,
+          "mean_l1": 0.004553975197486579
+        },
+        {
+          "steps": [
+            25000,
+            30000
+          ],
+          "record_count": 50,
+          "mean_loss": 0.007901375805959105,
+          "mean_l1": 0.004353280426003039
+        }
+      ],
+      "final_points": 372388,
+      "first_at_least_395k_step": null,
+      "logged_training_minutes": 21.427833333333336,
+      "output": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/light_atlas_svbrdf_remaining_scenes/lisa_svbrdf/Real_NRHints/CatSmall",
+      "metrics_file": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/light_atlas_svbrdf_remaining_scenes/lisa_svbrdf/Real_NRHints/CatSmall/test/metrics.json"
+    },
+    {
+      "family": "Real_NRHints",
+      "scene": "CupFabric",
+      "metrics": {
+        "PSNR": 30.601852351221545,
+        "SSIM": 0.967043567114863,
+        "LPIPS": 0.06496653716112005,
+        "alpha_L1": 0.0034871146243450972
+      },
+      "peak_metrics": {
+        "pixels": 3429,
+        "predicted_pixels": 1788,
+        "matched_predicted_pixels_2px": 1390,
+        "matched_target_pixels_2px": 1584,
+        "rgb_mae": 0.23247046801800733,
+        "target_contrast": 0.3037024949514056,
+        "predicted_contrast": 0.13680200784637728,
+        "contrast_ratio": 0.4504474283896367,
+        "precision_2px": 0.7774049217002237,
+        "recall_2px": 0.46194225721784776
+      },
+      "strongest_baseline_PSNR": "SSD-GS",
+      "delta_PSNR_vs_strongest": -5.392200127963363,
+      "delta_PSNR_vs_SSD": -5.392200127963363,
+      "delta_PSNR_vs_GS3": -4.569668842184136,
+      "frame_wins_vs_strongest": 0,
+      "frames": 145,
+      "median_delta_frame_index": 41,
+      "worst_delta_frame_index": 39,
+      "frame_delta_quantiles": [
+        -13.011306762695312,
+        -6.977806091308594,
+        -5.091615676879883,
+        -3.229717254638672,
+        -0.39446258544921875
+      ],
+      "training_windows": [
+        {
+          "steps": [
+            10000,
+            15000
+          ],
+          "record_count": 50,
+          "mean_loss": 0.016317500229924918,
+          "mean_l1": 0.009708314267918468
+        },
+        {
+          "steps": [
+            20000,
+            25000
+          ],
+          "record_count": 50,
+          "mean_loss": 0.011944531183689832,
+          "mean_l1": 0.0071212689578533175
+        },
+        {
+          "steps": [
+            25000,
+            30000
+          ],
+          "record_count": 50,
+          "mean_loss": 0.011983347786590458,
+          "mean_l1": 0.007377228094264865
+        }
+      ],
+      "final_points": 399720,
+      "first_at_least_395k_step": 1900,
+      "logged_training_minutes": 24.92,
+      "output": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/light_atlas_svbrdf_remaining_scenes/lisa_svbrdf/Real_NRHints/CupFabric",
+      "metrics_file": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/light_atlas_svbrdf_remaining_scenes/lisa_svbrdf/Real_NRHints/CupFabric/test/metrics.json"
+    },
+    {
+      "family": "Real_NRHints",
+      "scene": "Fish",
+      "metrics": {
+        "PSNR": 27.68217372894287,
+        "SSIM": 0.8893432066296086,
+        "LPIPS": 0.1090566378199693,
+        "alpha_L1": 0.00610022641591389
+      },
+      "peak_metrics": {
+        "pixels": 17812,
+        "predicted_pixels": 7870,
+        "matched_predicted_pixels_2px": 4848,
+        "matched_target_pixels_2px": 6875,
+        "rgb_mae": 0.43968349054301825,
+        "target_contrast": 0.41836823050209626,
+        "predicted_contrast": 0.08282230228893106,
+        "contrast_ratio": 0.19796508494331305,
+        "precision_2px": 0.616010165184244,
+        "recall_2px": 0.3859757466876263
+      },
+      "strongest_baseline_PSNR": "RNG",
+      "delta_PSNR_vs_strongest": 3.5667781829833984,
+      "delta_PSNR_vs_SSD": 4.41054664958607,
+      "delta_PSNR_vs_GS3": 5.26946650129376,
+      "frame_wins_vs_strongest": 63,
+      "frames": 66,
+      "median_delta_frame_index": 47,
+      "worst_delta_frame_index": 32,
+      "frame_delta_quantiles": [
+        -3.4347972869873047,
+        2.6222047805786133,
+        3.631866455078125,
+        4.8548903465271,
+        6.802204132080078
+      ],
+      "training_windows": [
+        {
+          "steps": [
+            10000,
+            15000
+          ],
+          "record_count": 50,
+          "mean_loss": 0.038016623221337795,
+          "mean_l1": 0.016727559734135866
+        },
+        {
+          "steps": [
+            20000,
+            25000
+          ],
+          "record_count": 50,
+          "mean_loss": 0.029518636781722306,
+          "mean_l1": 0.013251059018075466
+        },
+        {
+          "steps": [
+            25000,
+            30000
+          ],
+          "record_count": 50,
+          "mean_loss": 0.026696383953094482,
+          "mean_l1": 0.011945740776136518
+        }
+      ],
+      "final_points": 253675,
+      "first_at_least_395k_step": 2400,
+      "logged_training_minutes": 22.8085,
+      "output": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/light_atlas_svbrdf_remaining_scenes/lisa_svbrdf/Real_NRHints/Fish",
+      "metrics_file": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/light_atlas_svbrdf_remaining_scenes/lisa_svbrdf/Real_NRHints/Fish/test/metrics.json"
+    },
+    {
+      "family": "Real_NRHints",
+      "scene": "Pikachu",
+      "metrics": {
+        "PSNR": 32.17032156944275,
+        "SSIM": 0.9691121220588684,
+        "LPIPS": 0.05241620604880154,
+        "alpha_L1": 0.003907850928371772
+      },
+      "peak_metrics": {
+        "pixels": 87828,
+        "predicted_pixels": 83055,
+        "matched_predicted_pixels_2px": 76047,
+        "matched_target_pixels_2px": 78131,
+        "rgb_mae": 0.09197504646248514,
+        "target_contrast": 0.2892704102355635,
+        "predicted_contrast": 0.22464284057388645,
+        "contrast_ratio": 0.7765842361510518,
+        "precision_2px": 0.9156221780747698,
+        "recall_2px": 0.8895910188094913
+      },
+      "strongest_baseline_PSNR": "GS3",
+      "delta_PSNR_vs_strongest": 1.0237158775329576,
+      "delta_PSNR_vs_SSD": 1.4932069301605218,
+      "delta_PSNR_vs_GS3": 1.0237158775329576,
+      "frame_wins_vs_strongest": 144,
+      "frames": 200,
+      "median_delta_frame_index": 187,
+      "worst_delta_frame_index": 59,
+      "frame_delta_quantiles": [
+        -4.028118133544922,
+        -0.3086724281311035,
+        1.2627696990966797,
+        2.2720041275024414,
+        5.389598846435547
+      ],
+      "training_windows": [
+        {
+          "steps": [
+            10000,
+            15000
+          ],
+          "record_count": 50,
+          "mean_loss": 0.014792335070669651,
+          "mean_l1": 0.007943107951432467
+        },
+        {
+          "steps": [
+            20000,
+            25000
+          ],
+          "record_count": 50,
+          "mean_loss": 0.010033700997009874,
+          "mean_l1": 0.005722596128471195
+        },
+        {
+          "steps": [
+            25000,
+            30000
+          ],
+          "record_count": 50,
+          "mean_loss": 0.008940085964277387,
+          "mean_l1": 0.005138222700916231
+        }
+      ],
+      "final_points": 379207,
+      "first_at_least_395k_step": null,
+      "logged_training_minutes": 22.6345,
+      "output": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/light_atlas_svbrdf_remaining_scenes/lisa_svbrdf/Real_NRHints/Pikachu",
+      "metrics_file": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/light_atlas_svbrdf_remaining_scenes/lisa_svbrdf/Real_NRHints/Pikachu/test/metrics.json"
+    },
+    {
+      "family": "Synthetic_GS3",
+      "scene": "FurBall",
+      "metrics": {
+        "PSNR": 36.84968005180359,
+        "SSIM": 0.9736282528936863,
+        "LPIPS": 0.04345285846851766,
+        "alpha_L1": 0.0009421627271512989
+      },
+      "peak_metrics": {
+        "pixels": 81,
+        "predicted_pixels": 38,
+        "matched_predicted_pixels_2px": 1,
+        "matched_target_pixels_2px": 1,
+        "rgb_mae": 0.04063584043839832,
+        "target_contrast": 0.17102785647651295,
+        "predicted_contrast": 0.13652476962701773,
+        "contrast_ratio": 0.7982604263403519,
+        "precision_2px": 0.02631578947368421,
+        "recall_2px": 0.012345679012345678
+      },
+      "strongest_baseline_PSNR": "GS3",
+      "delta_PSNR_vs_strongest": 1.0177411079406724,
+      "delta_PSNR_vs_SSD": 1.8540569877624478,
+      "delta_PSNR_vs_GS3": 1.0177411079406724,
+      "frame_wins_vs_strongest": 375,
+      "frames": 400,
+      "median_delta_frame_index": 48,
+      "worst_delta_frame_index": 385,
+      "frame_delta_quantiles": [
+        -0.4489097595214844,
+        0.4251728057861328,
+        0.8893260955810547,
+        1.580575942993164,
+        2.955760955810547
+      ],
+      "training_windows": [
+        {
+          "steps": [
+            10000,
+            15000
+          ],
+          "record_count": 50,
+          "mean_loss": 0.010699050277471542,
+          "mean_l1": 0.006519908346235752
+        },
+        {
+          "steps": [
+            20000,
+            25000
+          ],
+          "record_count": 50,
+          "mean_loss": 0.009648227551952004,
+          "mean_l1": 0.005821801740676164
+        },
+        {
+          "steps": [
+            25000,
+            30000
+          ],
+          "record_count": 50,
+          "mean_loss": 0.008347841640934349,
+          "mean_l1": 0.005222414219751954
+        }
+      ],
+      "final_points": 399793,
+      "first_at_least_395k_step": 2700,
+      "logged_training_minutes": 27.383166666666668,
+      "output": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/light_atlas_svbrdf_remaining_scenes/lisa_svbrdf/Synthetic_GS3/FurBall",
+      "metrics_file": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/light_atlas_svbrdf_remaining_scenes/lisa_svbrdf/Synthetic_GS3/FurBall/test/metrics.json"
+    },
+    {
+      "family": "Synthetic_GS3",
+      "scene": "Hotdog",
+      "metrics": {
+        "PSNR": 30.200206379890442,
+        "SSIM": 0.9685964626073837,
+        "LPIPS": 0.04247574154287577,
+        "alpha_L1": 0.0008438338861742522
+      },
+      "peak_metrics": {
+        "pixels": 400092,
+        "predicted_pixels": 304993,
+        "matched_predicted_pixels_2px": 294064,
+        "matched_target_pixels_2px": 316705,
+        "rgb_mae": 0.07810478709542326,
+        "target_contrast": 0.27527326722002593,
+        "predicted_contrast": 0.16964089572889252,
+        "contrast_ratio": 0.6162636039528624,
+        "precision_2px": 0.964166390704049,
+        "recall_2px": 0.7915804364996051
+      },
+      "strongest_baseline_PSNR": "GS3",
+      "delta_PSNR_vs_strongest": -3.1150963211059555,
+      "delta_PSNR_vs_SSD": -2.74383481025696,
+      "delta_PSNR_vs_GS3": -3.1150963211059555,
+      "frame_wins_vs_strongest": 61,
+      "frames": 400,
+      "median_delta_frame_index": 395,
+      "worst_delta_frame_index": 226,
+      "frame_delta_quantiles": [
+        -8.601707458496094,
+        -5.461535930633545,
+        -3.1464691162109375,
+        -0.8938465118408203,
+        1.91326904296875
+      ],
+      "training_windows": [
+        {
+          "steps": [
+            10000,
+            15000
+          ],
+          "record_count": 50,
+          "mean_loss": 0.015776522886008025,
+          "mean_l1": 0.010500800432637333
+        },
+        {
+          "steps": [
+            20000,
+            25000
+          ],
+          "record_count": 50,
+          "mean_loss": 0.012740756552666425,
+          "mean_l1": 0.008463629600591958
+        },
+        {
+          "steps": [
+            25000,
+            30000
+          ],
+          "record_count": 50,
+          "mean_loss": 0.011753752203658223,
+          "mean_l1": 0.007900395076721906
+        }
+      ],
+      "final_points": 399938,
+      "first_at_least_395k_step": 6300,
+      "logged_training_minutes": 24.762,
+      "output": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/light_atlas_svbrdf_remaining_scenes/lisa_svbrdf/Synthetic_GS3/Hotdog",
+      "metrics_file": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/light_atlas_svbrdf_remaining_scenes/lisa_svbrdf/Synthetic_GS3/Hotdog/test/metrics.json"
+    },
+    {
+      "family": "Synthetic_GS3",
+      "scene": "Lego",
+      "metrics": {
+        "PSNR": 21.235089168548583,
+        "SSIM": 0.8638676549494266,
+        "LPIPS": 0.15611358024179936,
+        "alpha_L1": 0.10938249599188567
+      },
+      "peak_metrics": {
+        "pixels": 363671,
+        "predicted_pixels": 196491,
+        "matched_predicted_pixels_2px": 176569,
+        "matched_target_pixels_2px": 188179,
+        "rgb_mae": 0.16773173695458898,
+        "target_contrast": 0.25369897901418237,
+        "predicted_contrast": 0.11368108050372597,
+        "contrast_ratio": 0.4480943555447692,
+        "precision_2px": 0.8986111323164929,
+        "recall_2px": 0.5174429635577211
+      },
+      "strongest_baseline_PSNR": "GS3",
+      "delta_PSNR_vs_strongest": -9.670851163864135,
+      "delta_PSNR_vs_SSD": -8.481544404029847,
+      "delta_PSNR_vs_GS3": -9.670851163864135,
+      "frame_wins_vs_strongest": 0,
+      "frames": 400,
+      "median_delta_frame_index": 33,
+      "worst_delta_frame_index": 210,
+      "frame_delta_quantiles": [
+        -12.32440185546875,
+        -10.28742265701294,
+        -9.541584014892578,
+        -8.994582653045654,
+        -7.722654342651367
+      ],
+      "training_windows": [
+        {
+          "steps": [
+            10000,
+            15000
+          ],
+          "record_count": 50,
+          "mean_loss": 0.05435925088822842,
+          "mean_l1": 0.03030345171689987
+        },
+        {
+          "steps": [
+            20000,
+            25000
+          ],
+          "record_count": 50,
+          "mean_loss": 0.05499976955354214,
+          "mean_l1": 0.030159040596336128
+        },
+        {
+          "steps": [
+            25000,
+            30000
+          ],
+          "record_count": 50,
+          "mean_loss": 0.05100993648171425,
+          "mean_l1": 0.02733968960121274
+        }
+      ],
+      "final_points": 399345,
+      "first_at_least_395k_step": 2900,
+      "logged_training_minutes": 25.045166666666667,
+      "output": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/light_atlas_svbrdf_remaining_scenes/lisa_svbrdf/Synthetic_GS3/Lego",
+      "metrics_file": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/light_atlas_svbrdf_remaining_scenes/lisa_svbrdf/Synthetic_GS3/Lego/test/metrics.json"
+    },
+    {
+      "family": "Synthetic_SSS-GS",
+      "scene": "candle_small",
+      "metrics": {
+        "PSNR": 45.26099027252197,
+        "SSIM": 0.996608955860138,
+        "LPIPS": 0.006687308584339917,
+        "alpha_L1": 0.00041095675266114996
+      },
+      "peak_metrics": {
+        "pixels": 39382,
+        "predicted_pixels": 36787,
+        "matched_predicted_pixels_2px": 36198,
+        "matched_target_pixels_2px": 38148,
+        "rgb_mae": 0.019266658956375117,
+        "target_contrast": 0.2206708443805187,
+        "predicted_contrast": 0.21090677083335913,
+        "contrast_ratio": 0.9557527702648263,
+        "precision_2px": 0.9839889091255063,
+        "recall_2px": 0.9686658879691229
+      },
+      "strongest_baseline_PSNR": "RNG",
+      "delta_PSNR_vs_strongest": 3.347183792114258,
+      "delta_PSNR_vs_SSD": 6.528308288574216,
+      "delta_PSNR_vs_GS3": 6.520670467376711,
+      "frame_wins_vs_strongest": 499,
+      "frames": 500,
+      "median_delta_frame_index": 324,
+      "worst_delta_frame_index": 244,
+      "frame_delta_quantiles": [
+        -0.6392097473144531,
+        2.7224502563476562,
+        3.299184799194336,
+        4.030150413513184,
+        8.171577453613281
+      ],
+      "training_windows": [
+        {
+          "steps": [
+            10000,
+            15000
+          ],
+          "record_count": 50,
+          "mean_loss": 0.0019061553571373224,
+          "mean_l1": 0.0013020384835544974
+        },
+        {
+          "steps": [
+            20000,
+            25000
+          ],
+          "record_count": 50,
+          "mean_loss": 0.002167571042664349,
+          "mean_l1": 0.0014860971714369953
+        },
+        {
+          "steps": [
+            25000,
+            30000
+          ],
+          "record_count": 50,
+          "mean_loss": 0.0012190302379895001,
+          "mean_l1": 0.0008956950402352958
+        }
+      ],
+      "final_points": 140680,
+      "first_at_least_395k_step": null,
+      "logged_training_minutes": 18.168333333333333,
+      "output": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/light_atlas_svbrdf_remaining_scenes/lisa_svbrdf/Synthetic_SSS-GS/candle_small",
+      "metrics_file": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/light_atlas_svbrdf_remaining_scenes/lisa_svbrdf/Synthetic_SSS-GS/candle_small/test/metrics.json"
+    },
+    {
+      "family": "Synthetic_SSS-GS",
+      "scene": "soap_small",
+      "metrics": {
+        "PSNR": 35.833108642578125,
+        "SSIM": 0.9812048417329788,
+        "LPIPS": 0.022381940563675016,
+        "alpha_L1": 0.0014508886424009688
+      },
+      "peak_metrics": {
+        "pixels": 45427,
+        "predicted_pixels": 4,
+        "matched_predicted_pixels_2px": 2,
+        "matched_target_pixels_2px": 10,
+        "rgb_mae": 0.5369371129416154,
+        "target_contrast": 0.3828037756117109,
+        "predicted_contrast": 0.015311506326008974,
+        "contrast_ratio": 0.039998315851356395,
+        "precision_2px": 0.5,
+        "recall_2px": 0.00022013340084090958
+      },
+      "strongest_baseline_PSNR": "RNG",
+      "delta_PSNR_vs_strongest": -4.452016513824461,
+      "delta_PSNR_vs_SSD": -2.5277200241088877,
+      "delta_PSNR_vs_GS3": -2.5098521652221706,
+      "frame_wins_vs_strongest": 20,
+      "frames": 500,
+      "median_delta_frame_index": 414,
+      "worst_delta_frame_index": 375,
+      "frame_delta_quantiles": [
+        -14.42776870727539,
+        -6.08577823638916,
+        -4.201623916625977,
+        -2.5572128295898438,
+        13.208551406860352
+      ],
+      "training_windows": [
+        {
+          "steps": [
+            10000,
+            15000
+          ],
+          "record_count": 50,
+          "mean_loss": 0.008643864621408284,
+          "mean_l1": 0.005085891915950924
+        },
+        {
+          "steps": [
+            20000,
+            25000
+          ],
+          "record_count": 50,
+          "mean_loss": 0.005880176366772503,
+          "mean_l1": 0.003443666131934151
+        },
+        {
+          "steps": [
+            25000,
+            30000
+          ],
+          "record_count": 50,
+          "mean_loss": 0.007162577125709504,
+          "mean_l1": 0.00413119098637253
+        }
+      ],
+      "final_points": 399840,
+      "first_at_least_395k_step": 1700,
+      "logged_training_minutes": 26.6705,
+      "output": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/light_atlas_svbrdf_remaining_scenes/lisa_svbrdf/Synthetic_SSS-GS/soap_small",
+      "metrics_file": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/light_atlas_svbrdf_remaining_scenes/lisa_svbrdf/Synthetic_SSS-GS/soap_small/test/metrics.json"
+    },
+    {
+      "family": "Real_NRHints",
+      "scene": "Cat",
+      "metrics": {
+        "PSNR": 25.199131069761336,
+        "SSIM": 0.8196598571358304,
+        "LPIPS": 0.16708532585339111,
+        "alpha_L1": 0.009665632987338486
+      },
+      "peak_metrics": {
+        "pixels": 1101,
+        "predicted_pixels": 901,
+        "matched_predicted_pixels_2px": 574,
+        "matched_target_pixels_2px": 517,
+        "rgb_mae": 0.09937846026198091,
+        "target_contrast": 0.2363260817814696,
+        "predicted_contrast": 0.11300770429912092,
+        "contrast_ratio": 0.47818549458124976,
+        "precision_2px": 0.6370699223085461,
+        "recall_2px": 0.4695731153496821
+      },
+      "strongest_baseline_PSNR": "RNG",
+      "delta_PSNR_vs_strongest": 4.209496584805578,
+      "delta_PSNR_vs_SSD": 7.113844539179947,
+      "delta_PSNR_vs_GS3": 6.079341310443301,
+      "frame_wins_vs_strongest": 66,
+      "frames": 66,
+      "median_delta_frame_index": 17,
+      "worst_delta_frame_index": 8,
+      "frame_delta_quantiles": [
+        0.4737415313720703,
+        2.812652587890625,
+        3.920869827270508,
+        5.439907550811768,
+        8.101812362670898
+      ],
+      "training_windows": [
+        {
+          "steps": [
+            10000,
+            15000
+          ],
+          "record_count": 50,
+          "mean_loss": 0.04150562461465597,
+          "mean_l1": 0.01899553118273616
+        },
+        {
+          "steps": [
+            20000,
+            25000
+          ],
+          "record_count": 50,
+          "mean_loss": 0.029874116405844687,
+          "mean_l1": 0.015003293659538031
+        },
+        {
+          "steps": [
+            25000,
+            30000
+          ],
+          "record_count": 50,
+          "mean_loss": 0.027179302647709846,
+          "mean_l1": 0.013968102894723415
+        }
+      ],
+      "final_points": 399862,
+      "first_at_least_395k_step": 7900,
+      "logged_training_minutes": 24.886000000000003,
+      "output": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/light_atlas_svbrdf_six_scene_20261002/lisa_svbrdf/Real_NRHints/Cat",
+      "metrics_file": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/light_atlas_svbrdf_six_scene_20261002/lisa_svbrdf/Real_NRHints/Cat/test/metrics.json"
+    },
+    {
+      "family": "Real_NRHints",
+      "scene": "FurScene",
+      "metrics": {
+        "PSNR": 23.843977670108572,
+        "SSIM": 0.8599038558847764,
+        "LPIPS": 0.12463427431443158,
+        "alpha_L1": 0.009481685778454823
+      },
+      "peak_metrics": {
+        "pixels": 58848,
+        "predicted_pixels": 34383,
+        "matched_predicted_pixels_2px": 25941,
+        "matched_target_pixels_2px": 26464,
+        "rgb_mae": 0.3244983625972756,
+        "target_contrast": 0.2898728126171792,
+        "predicted_contrast": 0.03992287587608268,
+        "contrast_ratio": 0.1377254924862749,
+        "precision_2px": 0.7544716865893029,
+        "recall_2px": 0.4497009244154432
+      },
+      "strongest_baseline_PSNR": "GS3",
+      "delta_PSNR_vs_strongest": -2.2464141396915203,
+      "delta_PSNR_vs_SSD": -1.305336604398839,
+      "delta_PSNR_vs_GS3": -2.2464141396915203,
+      "frame_wins_vs_strongest": 18,
+      "frames": 85,
+      "median_delta_frame_index": 70,
+      "worst_delta_frame_index": 13,
+      "frame_delta_quantiles": [
+        -9.613336563110352,
+        -3.385040283203125,
+        -1.3090381622314453,
+        -0.15948104858398438,
+        1.2511253356933594
+      ],
+      "training_windows": [
+        {
+          "steps": [
+            10000,
+            15000
+          ],
+          "record_count": 50,
+          "mean_loss": 0.035376395545899865,
+          "mean_l1": 0.017579537853598594
+        },
+        {
+          "steps": [
+            20000,
+            25000
+          ],
+          "record_count": 50,
+          "mean_loss": 0.025658758096396922,
+          "mean_l1": 0.013820478953421115
+        },
+        {
+          "steps": [
+            25000,
+            30000
+          ],
+          "record_count": 50,
+          "mean_loss": 0.023551671076565982,
+          "mean_l1": 0.012862006518989801
+        }
+      ],
+      "final_points": 399869,
+      "first_at_least_395k_step": 2000,
+      "logged_training_minutes": 23.347166666666666,
+      "output": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/light_atlas_svbrdf_hard_scenes/lisa_svbrdf/Real_NRHints/FurScene",
+      "metrics_file": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/light_atlas_svbrdf_hard_scenes/lisa_svbrdf/Real_NRHints/FurScene/test/metrics.json"
+    },
+    {
+      "family": "Real_NRHints",
+      "scene": "Pixiu",
+      "metrics": {
+        "PSNR": 26.282751486335002,
+        "SSIM": 0.8810107422546601,
+        "LPIPS": 0.10146989148687309,
+        "alpha_L1": 0.009103593350925915
+      },
+      "peak_metrics": {
+        "pixels": 26147,
+        "predicted_pixels": 19850,
+        "matched_predicted_pixels_2px": 14126,
+        "matched_target_pixels_2px": 15030,
+        "rgb_mae": 0.2945811980841251,
+        "target_contrast": 0.33904072472496316,
+        "predicted_contrast": 0.026670486415392852,
+        "contrast_ratio": 0.07866455110084047,
+        "precision_2px": 0.7116372795969773,
+        "recall_2px": 0.5748269399931158
+      },
+      "strongest_baseline_PSNR": "GS3",
+      "delta_PSNR_vs_strongest": 2.560942206584233,
+      "delta_PSNR_vs_SSD": 2.8936176837330123,
+      "delta_PSNR_vs_GS3": 2.560942206584233,
+      "frame_wins_vs_strongest": 60,
+      "frames": 71,
+      "median_delta_frame_index": 60,
+      "worst_delta_frame_index": 50,
+      "frame_delta_quantiles": [
+        -2.7932167053222656,
+        0.9390630722045898,
+        2.732137680053711,
+        4.0745344161987305,
+        7.245092391967773
+      ],
+      "training_windows": [
+        {
+          "steps": [
+            10000,
+            15000
+          ],
+          "record_count": 50,
+          "mean_loss": 0.026274153664708137,
+          "mean_l1": 0.010674173627048731
+        },
+        {
+          "steps": [
+            20000,
+            25000
+          ],
+          "record_count": 50,
+          "mean_loss": 0.016292139161378144,
+          "mean_l1": 0.006650132457725704
+        },
+        {
+          "steps": [
+            25000,
+            30000
+          ],
+          "record_count": 50,
+          "mean_loss": 0.014873811416327954,
+          "mean_l1": 0.006254445468075573
+        }
+      ],
+      "final_points": 338122,
+      "first_at_least_395k_step": null,
+      "logged_training_minutes": 20.708000000000002,
+      "output": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/light_atlas_svbrdf_six_scene_20261002/lisa_svbrdf/Real_NRHints/Pixiu",
+      "metrics_file": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/light_atlas_svbrdf_six_scene_20261002/lisa_svbrdf/Real_NRHints/Pixiu/test/metrics.json"
+    },
+    {
+      "family": "Synthetic_GS3",
+      "scene": "AnisoMetal",
+      "metrics": {
+        "PSNR": 27.599303755760193,
+        "SSIM": 0.9605561839044094,
+        "LPIPS": 0.03659363913349807,
+        "alpha_L1": 0.0006799846817739308
+      },
+      "peak_metrics": {
+        "pixels": 47484,
+        "predicted_pixels": 26928,
+        "matched_predicted_pixels_2px": 21236,
+        "matched_target_pixels_2px": 24626,
+        "rgb_mae": 0.21197487453667024,
+        "target_contrast": 0.573877168615172,
+        "predicted_contrast": 0.4005717075788468,
+        "contrast_ratio": 0.6980094861509648,
+        "precision_2px": 0.7886215092097445,
+        "recall_2px": 0.5186167972369641
+      },
+      "strongest_baseline_PSNR": "SSD-GS",
+      "delta_PSNR_vs_strongest": -0.4013360023498542,
+      "delta_PSNR_vs_SSD": -0.4013360023498542,
+      "delta_PSNR_vs_GS3": 0.08622109413147072,
+      "frame_wins_vs_strongest": 144,
+      "frames": 400,
+      "median_delta_frame_index": 332,
+      "worst_delta_frame_index": 229,
+      "frame_delta_quantiles": [
+        -4.088483810424805,
+        -0.6451883316040039,
+        -0.23215484619140625,
+        0.1828932762145996,
+        0.9475879669189453
+      ],
+      "training_windows": [
+        {
+          "steps": [
+            10000,
+            15000
+          ],
+          "record_count": 50,
+          "mean_loss": 0.021344301272183657,
+          "mean_l1": 0.014937804006040096
+        },
+        {
+          "steps": [
+            20000,
+            25000
+          ],
+          "record_count": 50,
+          "mean_loss": 0.018132745306938886,
+          "mean_l1": 0.013104440141469241
+        },
+        {
+          "steps": [
+            25000,
+            30000
+          ],
+          "record_count": 50,
+          "mean_loss": 0.014746567085385322,
+          "mean_l1": 0.010418334864079953
+        }
+      ],
+      "final_points": 399799,
+      "first_at_least_395k_step": 10100,
+      "logged_training_minutes": 23.90266666666667,
+      "output": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/light_atlas_svbrdf_six_scene_20261002/lisa_svbrdf/Synthetic_GS3/AnisoMetal",
+      "metrics_file": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/light_atlas_svbrdf_six_scene_20261002/lisa_svbrdf/Synthetic_GS3/AnisoMetal/test/metrics.json"
+    },
+    {
+      "family": "Synthetic_GS3",
+      "scene": "Drums",
+      "metrics": {
+        "PSNR": 23.17505235671997,
+        "SSIM": 0.945045854151249,
+        "LPIPS": 0.0625554802455008,
+        "alpha_L1": 0.046051095528528097
+      },
+      "peak_metrics": {
+        "pixels": 98891,
+        "predicted_pixels": 79354,
+        "matched_predicted_pixels_2px": 41147,
+        "matched_target_pixels_2px": 41865,
+        "rgb_mae": 0.33260093834379056,
+        "target_contrast": 0.3961196347920868,
+        "predicted_contrast": 0.11960498522278816,
+        "contrast_ratio": 0.3019415719838422,
+        "precision_2px": 0.5185245860322101,
+        "recall_2px": 0.4233448948842665
+      },
+      "strongest_baseline_PSNR": "SSD-GS",
+      "delta_PSNR_vs_strongest": -8.366144285202026,
+      "delta_PSNR_vs_SSD": -8.366144285202026,
+      "delta_PSNR_vs_GS3": -8.341617789268494,
+      "frame_wins_vs_strongest": 0,
+      "frames": 400,
+      "median_delta_frame_index": 362,
+      "worst_delta_frame_index": 375,
+      "frame_delta_quantiles": [
+        -11.514715194702148,
+        -9.386983394622803,
+        -8.493488311767578,
+        -7.483532905578613,
+        -4.048221588134766
+      ],
+      "training_windows": [
+        {
+          "steps": [
+            10000,
+            15000
+          ],
+          "record_count": 50,
+          "mean_loss": 0.02769509796053171,
+          "mean_l1": 0.016366230472922325
+        },
+        {
+          "steps": [
+            20000,
+            25000
+          ],
+          "record_count": 50,
+          "mean_loss": 0.029030750542879104,
+          "mean_l1": 0.01692724395543337
+        },
+        {
+          "steps": [
+            25000,
+            30000
+          ],
+          "record_count": 50,
+          "mean_loss": 0.027403806187212467,
+          "mean_l1": 0.015799707621335982
+        }
+      ],
+      "final_points": 399876,
+      "first_at_least_395k_step": 3500,
+      "logged_training_minutes": 26.455166666666667,
+      "output": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/light_atlas_svbrdf_hard_scenes/lisa_svbrdf/Synthetic_GS3/Drums",
+      "metrics_file": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/light_atlas_svbrdf_hard_scenes/lisa_svbrdf/Synthetic_GS3/Drums/test/metrics.json"
+    },
+    {
+      "family": "Synthetic_GS3",
+      "scene": "Translucent",
+      "metrics": {
+        "PSNR": 31.039618973731994,
+        "SSIM": 0.9761861032247543,
+        "LPIPS": 0.032273544417694214,
+        "alpha_L1": 0.0014208469493314623
+      },
+      "peak_metrics": {
+        "pixels": 184019,
+        "predicted_pixels": 176907,
+        "matched_predicted_pixels_2px": 164995,
+        "matched_target_pixels_2px": 164564,
+        "rgb_mae": 0.0718144913140696,
+        "target_contrast": 0.2609085990986444,
+        "predicted_contrast": 0.2148518674320759,
+        "contrast_ratio": 0.8234756086013273,
+        "precision_2px": 0.9326651856625232,
+        "recall_2px": 0.8942772213738799
+      },
+      "strongest_baseline_PSNR": "GS3",
+      "delta_PSNR_vs_strongest": -1.7168757104873684,
+      "delta_PSNR_vs_SSD": -0.9466391515731836,
+      "delta_PSNR_vs_GS3": -1.7168757104873684,
+      "frame_wins_vs_strongest": 39,
+      "frames": 400,
+      "median_delta_frame_index": 306,
+      "worst_delta_frame_index": 140,
+      "frame_delta_quantiles": [
+        -5.90269660949707,
+        -2.663054943084717,
+        -1.0397224426269531,
+        -0.4540538787841797,
+        1.4910392761230469
+      ],
+      "training_windows": [
+        {
+          "steps": [
+            10000,
+            15000
+          ],
+          "record_count": 50,
+          "mean_loss": 0.014815738257020712,
+          "mean_l1": 0.010267976988106966
+        },
+        {
+          "steps": [
+            20000,
+            25000
+          ],
+          "record_count": 50,
+          "mean_loss": 0.010792461698874831,
+          "mean_l1": 0.007676770789548755
+        },
+        {
+          "steps": [
+            25000,
+            30000
+          ],
+          "record_count": 50,
+          "mean_loss": 0.01090600430034101,
+          "mean_l1": 0.007561482544988393
+        }
+      ],
+      "final_points": 399916,
+      "first_at_least_395k_step": 7000,
+      "logged_training_minutes": 25.226999999999997,
+      "output": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/light_atlas_svbrdf_six_scene_20261002/lisa_svbrdf/Synthetic_GS3/Translucent",
+      "metrics_file": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/light_atlas_svbrdf_six_scene_20261002/lisa_svbrdf/Synthetic_GS3/Translucent/test/metrics.json"
+    },
+    {
+      "family": "Synthetic_SSS-GS",
+      "scene": "bunny_small",
+      "metrics": {
+        "PSNR": 40.15638362884521,
+        "SSIM": 0.9913395998477936,
+        "LPIPS": 0.016510110424831508,
+        "alpha_L1": 0.0010958185133058578
+      },
+      "peak_metrics": {
+        "pixels": 10223,
+        "predicted_pixels": 10540,
+        "matched_predicted_pixels_2px": 9473,
+        "matched_target_pixels_2px": 9288,
+        "rgb_mae": 0.038644122499349454,
+        "target_contrast": 0.2431786224081315,
+        "predicted_contrast": 0.22670542718234984,
+        "contrast_ratio": 0.9322588677300163,
+        "precision_2px": 0.8987666034155598,
+        "recall_2px": 0.9085395676415925
+      },
+      "strongest_baseline_PSNR": "SSD-GS",
+      "delta_PSNR_vs_strongest": 1.6763515338897648,
+      "delta_PSNR_vs_SSD": 1.6763515338897648,
+      "delta_PSNR_vs_GS3": 5.738277256011962,
+      "frame_wins_vs_strongest": 396,
+      "frames": 500,
+      "median_delta_frame_index": 2,
+      "worst_delta_frame_index": 431,
+      "frame_delta_quantiles": [
+        -3.3432464599609375,
+        0.18903827667236328,
+        1.4836483001708984,
+        2.7371578216552734,
+        14.240337371826172
+      ],
+      "training_windows": [
+        {
+          "steps": [
+            10000,
+            15000
+          ],
+          "record_count": 50,
+          "mean_loss": 0.004714344013482332,
+          "mean_l1": 0.0033644030522555113
+        },
+        {
+          "steps": [
+            20000,
+            25000
+          ],
+          "record_count": 50,
+          "mean_loss": 0.003236219063401222,
+          "mean_l1": 0.002413202151656151
+        },
+        {
+          "steps": [
+            25000,
+            30000
+          ],
+          "record_count": 50,
+          "mean_loss": 0.0030473214108496906,
+          "mean_l1": 0.0022400260833092033
+        }
+      ],
+      "final_points": 273253,
+      "first_at_least_395k_step": null,
+      "logged_training_minutes": 19.536,
+      "output": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/light_atlas_svbrdf_six_scene_20261002/lisa_svbrdf/Synthetic_SSS-GS/bunny_small",
+      "metrics_file": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/light_atlas_svbrdf_six_scene_20261002/lisa_svbrdf/Synthetic_SSS-GS/bunny_small/test/metrics.json"
+    },
+    {
+      "family": "Synthetic_SSS-GS",
+      "scene": "dragon_small",
+      "metrics": {
+        "PSNR": 37.923206161499024,
+        "SSIM": 0.9831115958690644,
+        "LPIPS": 0.023894865699112415,
+        "alpha_L1": 0.0016011355500668287
+      },
+      "peak_metrics": {
+        "pixels": 14570,
+        "predicted_pixels": 8925,
+        "matched_predicted_pixels_2px": 7764,
+        "matched_target_pixels_2px": 8818,
+        "rgb_mae": 0.2453925096475268,
+        "target_contrast": 0.4396125219419711,
+        "predicted_contrast": 0.1980221273841601,
+        "contrast_ratio": 0.45044696750084623,
+        "precision_2px": 0.8699159663865547,
+        "recall_2px": 0.6052161976664379
+      },
+      "strongest_baseline_PSNR": "SSD-GS",
+      "delta_PSNR_vs_strongest": 0.5459677772522014,
+      "delta_PSNR_vs_SSD": 0.5459677772522014,
+      "delta_PSNR_vs_GS3": 1.8164403953552224,
+      "frame_wins_vs_strongest": 371,
+      "frames": 500,
+      "median_delta_frame_index": 338,
+      "worst_delta_frame_index": 354,
+      "frame_delta_quantiles": [
+        -2.400402069091797,
+        -0.016172409057617188,
+        0.5119152069091797,
+        0.9908618927001953,
+        7.627071380615234
+      ],
+      "training_windows": [
+        {
+          "steps": [
+            10000,
+            15000
+          ],
+          "record_count": 50,
+          "mean_loss": 0.006099599204026163,
+          "mean_l1": 0.0029757012613117694
+        },
+        {
+          "steps": [
+            20000,
+            25000
+          ],
+          "record_count": 50,
+          "mean_loss": 0.006061005089432001,
+          "mean_l1": 0.003166835345327854
+        },
+        {
+          "steps": [
+            25000,
+            30000
+          ],
+          "record_count": 50,
+          "mean_loss": 0.004184698103927076,
+          "mean_l1": 0.0022160726343281568
+        }
+      ],
+      "final_points": 190423,
+      "first_at_least_395k_step": null,
+      "logged_training_minutes": 17.765666666666668,
+      "output": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/light_atlas_svbrdf_six_scene_20261002/lisa_svbrdf/Synthetic_SSS-GS/dragon_small",
+      "metrics_file": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/light_atlas_svbrdf_six_scene_20261002/lisa_svbrdf/Synthetic_SSS-GS/dragon_small/test/metrics.json"
+    },
+    {
+      "family": "Synthetic_SSS-GS",
+      "scene": "statue_small",
+      "metrics": {
+        "PSNR": 36.18474901580811,
+        "SSIM": 0.9847319749593735,
+        "LPIPS": 0.028456796107813716,
+        "alpha_L1": 0.0010960929743014276
+      },
+      "peak_metrics": {
+        "pixels": 583,
+        "predicted_pixels": 75,
+        "matched_predicted_pixels_2px": 24,
+        "matched_target_pixels_2px": 42,
+        "rgb_mae": 0.2853193625625651,
+        "target_contrast": 0.4549247992079622,
+        "predicted_contrast": 0.19816701409666448,
+        "contrast_ratio": 0.4356038941857627,
+        "precision_2px": 0.32,
+        "recall_2px": 0.07204116638078903
+      },
+      "strongest_baseline_PSNR": "GS3",
+      "delta_PSNR_vs_strongest": -0.24498311424255093,
+      "delta_PSNR_vs_SSD": 0.2011350650787378,
+      "delta_PSNR_vs_GS3": -0.24498311424255093,
+      "frame_wins_vs_strongest": 213,
+      "frames": 500,
+      "median_delta_frame_index": 97,
+      "worst_delta_frame_index": 415,
+      "frame_delta_quantiles": [
+        -6.755352020263672,
+        -1.499873161315918,
+        -0.2757282257080078,
+        1.0023441314697266,
+        9.484611511230469
+      ],
+      "training_windows": [
+        {
+          "steps": [
+            10000,
+            15000
+          ],
+          "record_count": 50,
+          "mean_loss": 0.0068846433702856305,
+          "mean_l1": 0.0040246775583364066
+        },
+        {
+          "steps": [
+            20000,
+            25000
+          ],
+          "record_count": 50,
+          "mean_loss": 0.004753006095997989,
+          "mean_l1": 0.0028871171816717833
+        },
+        {
+          "steps": [
+            25000,
+            30000
+          ],
+          "record_count": 50,
+          "mean_loss": 0.004171010132413357,
+          "mean_l1": 0.0026316316041629763
+        }
+      ],
+      "final_points": 253554,
+      "first_at_least_395k_step": 2200,
+      "logged_training_minutes": 22.818666666666665,
+      "output": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/light_atlas_svbrdf_hard_scenes/lisa_svbrdf/Synthetic_SSS-GS/statue_small",
+      "metrics_file": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/light_atlas_svbrdf_hard_scenes/lisa_svbrdf/Synthetic_SSS-GS/statue_small/test/metrics.json"
+    }
+  ],
+  "scene_wins": {
+    "PSNR": 8,
+    "SSIM": 11,
+    "LPIPS": 11
+  }
+}

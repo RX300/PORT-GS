@@ -216,7 +216,7 @@ def main():
             args.background,
             step >= args.shadow_start,
             step >= args.port_start,
-            1. if args.radiometric_curriculum else args.display_gamma,
+            1. if args.radiometric_curriculum or args.loss_domain == 'linear' else args.display_gamma,
             args.shadow_mode,
             absgrad=args.absgrad,
             geometry_only=geometry_only,
@@ -228,8 +228,12 @@ def main():
             appearance_weight=(sample["alpha"] if (args.foreground_appearance or step <= args.foreground_appearance_until)
                                and sample["alpha"] is not None else None),
         )
-        target = (radiometric_target(sample, args.background, args.display_gamma, step, args.geometry_warmup_steps)
-                  if args.radiometric_curriculum else target_image(sample, args.background, args.display_gamma))
+        if args.radiometric_curriculum:
+            target = radiometric_target(sample, args.background, args.display_gamma, step, args.geometry_warmup_steps)
+        elif args.loss_domain == 'linear':
+            target = radiometric_target(sample, args.background, args.display_gamma, 1, 1)
+        else:
+            target = target_image(sample, args.background, args.display_gamma)
         if residual is not None:
             loss_terms, l1 = residual.loss_terms(predicted, target, alpha, residual_indices, sample_index)
         else:

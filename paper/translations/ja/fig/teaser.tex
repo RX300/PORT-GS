@@ -1,0 +1,26 @@
+\begin{strip}
+\centering
+\setlength{\tabcolsep}{1pt}
+\renewcommand{\arraystretch}{0.6}
+\newcommand{\tw}{0.137\textwidth}
+\begin{tabular}{@{}ccccccc@{}}
+\includegraphics[width=\tw]{figures/teaser/atlas_depth.png} &
+\includegraphics[width=\tw]{figures/teaser/atlas_flux.png} &
+\includegraphics[width=\tw]{figures/teaser/visibility.png} &
+\includegraphics[width=\tw]{figures/teaser/local.png} &
+\includegraphics[width=\tw]{figures/teaser/transfer.png} &
+\includegraphics[width=\tw]{figures/teaser/ours.png} &
+\includegraphics[width=\tw]{figures/teaser/gt.png} \\[2pt]
+\small (a) アトラス：深度 & \small (b) 光束 $\boldsymbol\Phi$ & \small (c) 可視性 $V$ & \small (d) 局所項 & \small (e) 光輸送項 & \small (f) \ours & \small (g) 正解画像 \\
+\multicolumn{2}{@{}c}{\footnotesize\textcolor{orange!70!black}{\rule[2pt]{0.06\textwidth}{0.5pt}~光源から見た画像~\rule[2pt]{0.06\textwidth}{0.5pt}}} &
+\multicolumn{5}{c@{}}{\footnotesize\textcolor{blue!60!black}{\rule[2pt]{0.2\textwidth}{0.5pt}~カメラから見た画像~\rule[2pt]{0.2\textwidth}{0.5pt}}}
+\end{tabular}
+\captionsetup{hypcap=false}
+\captionof{figure}{\textbf{光源視点からの再照明。}
+点光源からガウシアンを一回ラスタライズすると、光がどの深度で吸収されるか (a) と、何に当たったかが、学習した光束特徴 (b、八チャネルのうち一つ) を通じて記録される。
+カメラ画素はこのアトラスを参照し、影にあるか (c) と、どれだけの光を局所的に反射するか (d) を決める。光輸送項 (e) は、モデルが主に半透明の花瓶とサイコロに割り当てる放射輝度を追加する。これは学習された配分であり、物理的な分解ではない。
+和 (f) はテストビュー (g) に対して 34.4\,dB を達成し、近年の四つのベースラインの最良値 32.6\,dB を上回る。
+成分 (d, e) は線形放射輝度上で加算され、黒背景で示されている。}
+\captionsetup{hypcap=true}
+\label{fig:teaser}
+\end{strip}

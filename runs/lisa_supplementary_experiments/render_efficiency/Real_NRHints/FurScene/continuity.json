@@ -1,0 +1,28 @@
+{
+  "checkpoint": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_staged_full_dataset_20261004/Real_NRHints/FurScene/appearance/last.pt",
+  "videos": [
+    {
+      "mode": "moving_light",
+      "path": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_supplementary_experiments/render_efficiency/Real_NRHints/FurScene/moving_light.mp4",
+      "frames": 96,
+      "mean_frame_change": 0.0012732196576268364,
+      "max_frame_change": 0.002470183651894331
+    },
+    {
+      "mode": "moving_camera",
+      "path": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_supplementary_experiments/render_efficiency/Real_NRHints/FurScene/moving_camera.mp4",
+      "frames": 96,
+      "mean_frame_change": 0.009594190805709283,
+      "max_frame_change": 0.015724636614322662
+    },
+    {
+      "mode": "moving_camera_and_light",
+      "path": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_supplementary_experiments/render_efficiency/Real_NRHints/FurScene/moving_camera_and_light.mp4",
+      "frames": 96,
+      "mean_frame_change": 0.009855697540517308,
+      "max_frame_change": 0.01594727486371994
+    }
+  ],
+  "trajectory": "Sinusoidal world-Z camera orbit \u00b130 degrees and light orbit \u00b145 degrees around scene center.",
+  "interpretation": "No GT on these paths. Frame differences include intended motion/lighting changes and are diagnostics, not ground-truth flicker error."
+}

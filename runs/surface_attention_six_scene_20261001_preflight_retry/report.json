@@ -1,0 +1,41 @@
+{
+  "surface_attention": {
+    "step": 3,
+    "final_loss": 0.40103742480278015,
+    "reload_pixel_max_abs": 0.0,
+    "metrics": {
+      "split": "fit",
+      "checkpoint": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/surface_attention_six_scene_20261001_preflight_retry/surface_attention/last.pt",
+      "render_branch": "gaussian",
+      "metrics": {
+        "PSNR": 8.853004455566406,
+        "SSIM": 0.16840581595897675,
+        "raw_MSE": 0.13028362393379211,
+        "alpha_L1": 0.397254079580307
+      },
+      "views": [
+        {
+          "frame_index": 0,
+          "name": "r_0",
+          "PSNR": 8.853004455566406,
+          "SSIM": 0.16840581595897675,
+          "raw_MSE": 0.13028362393379211,
+          "alpha_L1": 0.397254079580307
+        }
+      ],
+      "protocol": "uint8-quantized observation RGB, unit PSNR, zero-padded 11x11 SSIM sigma1.5; LPIPS standard [-1,1]; raw_MSE is unclipped observation MSE; original held-out camera calibration",
+      "training_resolution": 32,
+      "resolution": 32,
+      "background": 0.0,
+      "evaluated_frames": 1,
+      "limit": 1,
+      "save_all": false,
+      "display_gamma": 2.2,
+      "camera_protocol": "saved training offsets on fit frames; original calibration on held-out frames",
+      "light_protocol": "original calibration",
+      "corrected_fit_frames": 0,
+      "observation_protocol": "PNG foreground gamma then alpha composition; HDR full-image gamma"
+    },
+    "parameters": 79049
+  }
+}

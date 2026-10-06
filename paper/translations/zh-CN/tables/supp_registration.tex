@@ -1,0 +1,17 @@
+\begin{table}[t]
+\caption{\textbf{真实拍摄数据的配准诊断}（E2(b)）。裁去 24\,px 边框后，在 $\pm$24\,px 范围内对每张测试渲染图施加最优整数二维平移，报告平移前后七个场景的平均 PSNR，以及平均平移长度。\cref{tab:main} 的固定标定完整图像 PSNR 供参考。}
+\label{tab:supp_registration}
+\centering\small
+\setlength{\tabcolsep}{4pt}
+\begin{tabular}{@{}lcccc@{}}
+\toprule
+方法 & 完整图像 & 裁剪后 & 对齐后 & 平移 (px) \\
+\midrule
+\ours & 29.28 & 28.52 & 31.47 & 1.7 \\
+SSD-GS & 27.20 & 26.45 & 30.76 & 4.0 \\
+GS$^3$ & 27.28 & 26.52 & 30.78 & 4.3 \\
+OLAT-GS & 27.26 & 26.52 & 30.28 & 4.6 \\
+RNG & 20.94 & 20.18 & 21.95 & 12.9 \\
+\bottomrule
+\end{tabular}
+\end{table}

@@ -1,0 +1,18 @@
+{
+  "utc": "2026-10-04T09:55:24.185662+00:00",
+  "reason": "Start matched controls earlier on GPU3 slots; original queued copies must not train twice.",
+  "jobs": [
+    {
+      "job": "PORT-Real_NRHints-Cat-v2_reference",
+      "old_output": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_radiometric_validation_20261004/v2_reference/Real_NRHints/Cat",
+      "new_output": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_radiometric_controls_20261004/v2_reference/Real_NRHints/Cat",
+      "all_phase_argv_equal_except_output": true
+    },
+    {
+      "job": "PORT-Synthetic_SSS-GS-soap_small-v2_reference",
+      "old_output": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_radiometric_validation_20261004/v2_reference/Synthetic_SSS-GS/soap_small",
+      "new_output": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_radiometric_controls_20261004/v2_reference/Synthetic_SSS-GS/soap_small",
+      "all_phase_argv_equal_except_output": true
+    }
+  ]
+}

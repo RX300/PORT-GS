@@ -1,0 +1,20 @@
+{
+  "scope": "Own ASG geometry/material16k checkpoints; all fitted only to the same training-internal split. No external fitted geometry or official test.",
+  "sources": [
+    {
+      "scene": "Lego",
+      "checkpoint": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_surface_material_corrected_20261004/surface_material/Synthetic_GS3/Lego/step_016000.pt",
+      "verified_training_step_beyond_write": 20800
+    },
+    {
+      "scene": "Drums",
+      "checkpoint": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_surface_material_parallel_20261004/surface_material/Synthetic_GS3/Drums/step_016000.pt",
+      "verified_training_step_beyond_write": 16300
+    },
+    {
+      "scene": "FurBall",
+      "checkpoint": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_surface_material_parallel_20261004/surface_material/Synthetic_GS3/FurBall/step_016000.pt",
+      "verified_training_step_beyond_write": 31800
+    }
+  ]
+}

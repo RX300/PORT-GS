@@ -1,0 +1,670 @@
+{
+  "jobs": [
+    {
+      "id": "common_ground_truth-Synthetic_GS3-Lego",
+      "kind": "comparison",
+      "method": "comparison",
+      "group": "common_ground_truth",
+      "variant": "common_ground_truth",
+      "family": "Synthetic_GS3",
+      "scene": "Lego",
+      "dataset": "/workspace/datasets/SSD-GS/data/Synthetic_GS3/Lego",
+      "state": "pending",
+      "mode": "fresh",
+      "output": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_supplementary_experiments/common_ground_truth/Synthetic_GS3/Lego",
+      "resultpath": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_supplementary_experiments/common_ground_truth/Synthetic_GS3/Lego/audit.json",
+      "source_archive": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_supplementary_experiments/measurement_source.tar",
+      "steps": [
+        {
+          "name": "evaluate",
+          "state": "pending",
+          "cwd": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS",
+          "argv": [
+            "/workspace/ubuntu2004_cuda12_1/utils/conda-envs/ssd-gs/bin/python",
+            "-B",
+            "-m",
+            "experiments.common_ground_truth",
+            "--family",
+            "Synthetic_GS3",
+            "--scene",
+            "Lego",
+            "--output",
+            "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_supplementary_experiments/common_ground_truth/Synthetic_GS3/Lego"
+          ],
+          "logpath": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_supplementary_experiments/measurement_logs/Synthetic_GS3/Lego.common_gt.log",
+          "output": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_supplementary_experiments/common_ground_truth/Synthetic_GS3/Lego",
+          "resultpath": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_supplementary_experiments/common_ground_truth/Synthetic_GS3/Lego/audit.json"
+        }
+      ]
+    },
+    {
+      "id": "common_ground_truth-Synthetic_GS3-Drums",
+      "kind": "comparison",
+      "method": "comparison",
+      "group": "common_ground_truth",
+      "variant": "common_ground_truth",
+      "family": "Synthetic_GS3",
+      "scene": "Drums",
+      "dataset": "/workspace/datasets/SSD-GS/data/Synthetic_GS3/Drums",
+      "state": "pending",
+      "mode": "fresh",
+      "output": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_supplementary_experiments/common_ground_truth/Synthetic_GS3/Drums",
+      "resultpath": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_supplementary_experiments/common_ground_truth/Synthetic_GS3/Drums/audit.json",
+      "source_archive": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_supplementary_experiments/measurement_source.tar",
+      "steps": [
+        {
+          "name": "evaluate",
+          "state": "pending",
+          "cwd": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS",
+          "argv": [
+            "/workspace/ubuntu2004_cuda12_1/utils/conda-envs/ssd-gs/bin/python",
+            "-B",
+            "-m",
+            "experiments.common_ground_truth",
+            "--family",
+            "Synthetic_GS3",
+            "--scene",
+            "Drums",
+            "--output",
+            "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_supplementary_experiments/common_ground_truth/Synthetic_GS3/Drums"
+          ],
+          "logpath": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_supplementary_experiments/measurement_logs/Synthetic_GS3/Drums.common_gt.log",
+          "output": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_supplementary_experiments/common_ground_truth/Synthetic_GS3/Drums",
+          "resultpath": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_supplementary_experiments/common_ground_truth/Synthetic_GS3/Drums/audit.json"
+        }
+      ]
+    },
+    {
+      "id": "common_ground_truth-Synthetic_GS3-Hotdog",
+      "kind": "comparison",
+      "method": "comparison",
+      "group": "common_ground_truth",
+      "variant": "common_ground_truth",
+      "family": "Synthetic_GS3",
+      "scene": "Hotdog",
+      "dataset": "/workspace/datasets/SSD-GS/data/Synthetic_GS3/Hotdog",
+      "state": "pending",
+      "mode": "fresh",
+      "output": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_supplementary_experiments/common_ground_truth/Synthetic_GS3/Hotdog",
+      "resultpath": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_supplementary_experiments/common_ground_truth/Synthetic_GS3/Hotdog/audit.json",
+      "source_archive": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_supplementary_experiments/measurement_source.tar",
+      "steps": [
+        {
+          "name": "evaluate",
+          "state": "pending",
+          "cwd": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS",
+          "argv": [
+            "/workspace/ubuntu2004_cuda12_1/utils/conda-envs/ssd-gs/bin/python",
+            "-B",
+            "-m",
+            "experiments.common_ground_truth",
+            "--family",
+            "Synthetic_GS3",
+            "--scene",
+            "Hotdog",
+            "--output",
+            "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_supplementary_experiments/common_ground_truth/Synthetic_GS3/Hotdog"
+          ],
+          "logpath": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_supplementary_experiments/measurement_logs/Synthetic_GS3/Hotdog.common_gt.log",
+          "output": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_supplementary_experiments/common_ground_truth/Synthetic_GS3/Hotdog",
+          "resultpath": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_supplementary_experiments/common_ground_truth/Synthetic_GS3/Hotdog/audit.json"
+        }
+      ]
+    },
+    {
+      "id": "common_ground_truth-Synthetic_GS3-AnisoMetal",
+      "kind": "comparison",
+      "method": "comparison",
+      "group": "common_ground_truth",
+      "variant": "common_ground_truth",
+      "family": "Synthetic_GS3",
+      "scene": "AnisoMetal",
+      "dataset": "/workspace/datasets/SSD-GS/data/Synthetic_GS3/AnisoMetal",
+      "state": "pending",
+      "mode": "fresh",
+      "output": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_supplementary_experiments/common_ground_truth/Synthetic_GS3/AnisoMetal",
+      "resultpath": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_supplementary_experiments/common_ground_truth/Synthetic_GS3/AnisoMetal/audit.json",
+      "source_archive": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_supplementary_experiments/measurement_source.tar",
+      "steps": [
+        {
+          "name": "evaluate",
+          "state": "pending",
+          "cwd": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS",
+          "argv": [
+            "/workspace/ubuntu2004_cuda12_1/utils/conda-envs/ssd-gs/bin/python",
+            "-B",
+            "-m",
+            "experiments.common_ground_truth",
+            "--family",
+            "Synthetic_GS3",
+            "--scene",
+            "AnisoMetal",
+            "--output",
+            "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_supplementary_experiments/common_ground_truth/Synthetic_GS3/AnisoMetal"
+          ],
+          "logpath": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_supplementary_experiments/measurement_logs/Synthetic_GS3/AnisoMetal.common_gt.log",
+          "output": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_supplementary_experiments/common_ground_truth/Synthetic_GS3/AnisoMetal",
+          "resultpath": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_supplementary_experiments/common_ground_truth/Synthetic_GS3/AnisoMetal/audit.json"
+        }
+      ]
+    },
+    {
+      "id": "common_ground_truth-Synthetic_GS3-FurBall",
+      "kind": "comparison",
+      "method": "comparison",
+      "group": "common_ground_truth",
+      "variant": "common_ground_truth",
+      "family": "Synthetic_GS3",
+      "scene": "FurBall",
+      "dataset": "/workspace/datasets/SSD-GS/data/Synthetic_GS3/FurBall",
+      "state": "pending",
+      "mode": "fresh",
+      "output": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_supplementary_experiments/common_ground_truth/Synthetic_GS3/FurBall",
+      "resultpath": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_supplementary_experiments/common_ground_truth/Synthetic_GS3/FurBall/audit.json",
+      "source_archive": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_supplementary_experiments/measurement_source.tar",
+      "steps": [
+        {
+          "name": "evaluate",
+          "state": "pending",
+          "cwd": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS",
+          "argv": [
+            "/workspace/ubuntu2004_cuda12_1/utils/conda-envs/ssd-gs/bin/python",
+            "-B",
+            "-m",
+            "experiments.common_ground_truth",
+            "--family",
+            "Synthetic_GS3",
+            "--scene",
+            "FurBall",
+            "--output",
+            "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_supplementary_experiments/common_ground_truth/Synthetic_GS3/FurBall"
+          ],
+          "logpath": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_supplementary_experiments/measurement_logs/Synthetic_GS3/FurBall.common_gt.log",
+          "output": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_supplementary_experiments/common_ground_truth/Synthetic_GS3/FurBall",
+          "resultpath": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_supplementary_experiments/common_ground_truth/Synthetic_GS3/FurBall/audit.json"
+        }
+      ]
+    },
+    {
+      "id": "common_ground_truth-Synthetic_GS3-Translucent",
+      "kind": "comparison",
+      "method": "comparison",
+      "group": "common_ground_truth",
+      "variant": "common_ground_truth",
+      "family": "Synthetic_GS3",
+      "scene": "Translucent",
+      "dataset": "/workspace/datasets/SSD-GS/data/Synthetic_GS3/Translucent",
+      "state": "pending",
+      "mode": "fresh",
+      "output": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_supplementary_experiments/common_ground_truth/Synthetic_GS3/Translucent",
+      "resultpath": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_supplementary_experiments/common_ground_truth/Synthetic_GS3/Translucent/audit.json",
+      "source_archive": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_supplementary_experiments/measurement_source.tar",
+      "steps": [
+        {
+          "name": "evaluate",
+          "state": "pending",
+          "cwd": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS",
+          "argv": [
+            "/workspace/ubuntu2004_cuda12_1/utils/conda-envs/ssd-gs/bin/python",
+            "-B",
+            "-m",
+            "experiments.common_ground_truth",
+            "--family",
+            "Synthetic_GS3",
+            "--scene",
+            "Translucent",
+            "--output",
+            "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_supplementary_experiments/common_ground_truth/Synthetic_GS3/Translucent"
+          ],
+          "logpath": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_supplementary_experiments/measurement_logs/Synthetic_GS3/Translucent.common_gt.log",
+          "output": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_supplementary_experiments/common_ground_truth/Synthetic_GS3/Translucent",
+          "resultpath": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_supplementary_experiments/common_ground_truth/Synthetic_GS3/Translucent/audit.json"
+        }
+      ]
+    },
+    {
+      "id": "common_ground_truth-Real_NRHints-Cat",
+      "kind": "comparison",
+      "method": "comparison",
+      "group": "common_ground_truth",
+      "variant": "common_ground_truth",
+      "family": "Real_NRHints",
+      "scene": "Cat",
+      "dataset": "/workspace/datasets/SSD-GS/data/Real_NRHints/Cat",
+      "state": "pending",
+      "mode": "fresh",
+      "output": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_supplementary_experiments/common_ground_truth/Real_NRHints/Cat",
+      "resultpath": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_supplementary_experiments/common_ground_truth/Real_NRHints/Cat/audit.json",
+      "source_archive": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_supplementary_experiments/measurement_source.tar",
+      "steps": [
+        {
+          "name": "evaluate",
+          "state": "pending",
+          "cwd": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS",
+          "argv": [
+            "/workspace/ubuntu2004_cuda12_1/utils/conda-envs/ssd-gs/bin/python",
+            "-B",
+            "-m",
+            "experiments.common_ground_truth",
+            "--family",
+            "Real_NRHints",
+            "--scene",
+            "Cat",
+            "--output",
+            "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_supplementary_experiments/common_ground_truth/Real_NRHints/Cat"
+          ],
+          "logpath": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_supplementary_experiments/measurement_logs/Real_NRHints/Cat.common_gt.log",
+          "output": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_supplementary_experiments/common_ground_truth/Real_NRHints/Cat",
+          "resultpath": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_supplementary_experiments/common_ground_truth/Real_NRHints/Cat/audit.json"
+        }
+      ]
+    },
+    {
+      "id": "common_ground_truth-Real_NRHints-CatSmall",
+      "kind": "comparison",
+      "method": "comparison",
+      "group": "common_ground_truth",
+      "variant": "common_ground_truth",
+      "family": "Real_NRHints",
+      "scene": "CatSmall",
+      "dataset": "/workspace/datasets/SSD-GS/data/Real_NRHints/CatSmall",
+      "state": "pending",
+      "mode": "fresh",
+      "output": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_supplementary_experiments/common_ground_truth/Real_NRHints/CatSmall",
+      "resultpath": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_supplementary_experiments/common_ground_truth/Real_NRHints/CatSmall/audit.json",
+      "source_archive": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_supplementary_experiments/measurement_source.tar",
+      "steps": [
+        {
+          "name": "evaluate",
+          "state": "pending",
+          "cwd": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS",
+          "argv": [
+            "/workspace/ubuntu2004_cuda12_1/utils/conda-envs/ssd-gs/bin/python",
+            "-B",
+            "-m",
+            "experiments.common_ground_truth",
+            "--family",
+            "Real_NRHints",
+            "--scene",
+            "CatSmall",
+            "--output",
+            "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_supplementary_experiments/common_ground_truth/Real_NRHints/CatSmall"
+          ],
+          "logpath": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_supplementary_experiments/measurement_logs/Real_NRHints/CatSmall.common_gt.log",
+          "output": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_supplementary_experiments/common_ground_truth/Real_NRHints/CatSmall",
+          "resultpath": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_supplementary_experiments/common_ground_truth/Real_NRHints/CatSmall/audit.json"
+        }
+      ]
+    },
+    {
+      "id": "common_ground_truth-Real_NRHints-CupFabric",
+      "kind": "comparison",
+      "method": "comparison",
+      "group": "common_ground_truth",
+      "variant": "common_ground_truth",
+      "family": "Real_NRHints",
+      "scene": "CupFabric",
+      "dataset": "/workspace/datasets/SSD-GS/data/Real_NRHints/CupFabric",
+      "state": "pending",
+      "mode": "fresh",
+      "output": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_supplementary_experiments/common_ground_truth/Real_NRHints/CupFabric",
+      "resultpath": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_supplementary_experiments/common_ground_truth/Real_NRHints/CupFabric/audit.json",
+      "source_archive": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_supplementary_experiments/measurement_source.tar",
+      "steps": [
+        {
+          "name": "evaluate",
+          "state": "pending",
+          "cwd": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS",
+          "argv": [
+            "/workspace/ubuntu2004_cuda12_1/utils/conda-envs/ssd-gs/bin/python",
+            "-B",
+            "-m",
+            "experiments.common_ground_truth",
+            "--family",
+            "Real_NRHints",
+            "--scene",
+            "CupFabric",
+            "--output",
+            "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_supplementary_experiments/common_ground_truth/Real_NRHints/CupFabric"
+          ],
+          "logpath": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_supplementary_experiments/measurement_logs/Real_NRHints/CupFabric.common_gt.log",
+          "output": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_supplementary_experiments/common_ground_truth/Real_NRHints/CupFabric",
+          "resultpath": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_supplementary_experiments/common_ground_truth/Real_NRHints/CupFabric/audit.json"
+        }
+      ]
+    },
+    {
+      "id": "common_ground_truth-Real_NRHints-Fish",
+      "kind": "comparison",
+      "method": "comparison",
+      "group": "common_ground_truth",
+      "variant": "common_ground_truth",
+      "family": "Real_NRHints",
+      "scene": "Fish",
+      "dataset": "/workspace/datasets/SSD-GS/data/Real_NRHints/Fish",
+      "state": "pending",
+      "mode": "fresh",
+      "output": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_supplementary_experiments/common_ground_truth/Real_NRHints/Fish",
+      "resultpath": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_supplementary_experiments/common_ground_truth/Real_NRHints/Fish/audit.json",
+      "source_archive": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_supplementary_experiments/measurement_source.tar",
+      "steps": [
+        {
+          "name": "evaluate",
+          "state": "pending",
+          "cwd": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS",
+          "argv": [
+            "/workspace/ubuntu2004_cuda12_1/utils/conda-envs/ssd-gs/bin/python",
+            "-B",
+            "-m",
+            "experiments.common_ground_truth",
+            "--family",
+            "Real_NRHints",
+            "--scene",
+            "Fish",
+            "--output",
+            "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_supplementary_experiments/common_ground_truth/Real_NRHints/Fish"
+          ],
+          "logpath": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_supplementary_experiments/measurement_logs/Real_NRHints/Fish.common_gt.log",
+          "output": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_supplementary_experiments/common_ground_truth/Real_NRHints/Fish",
+          "resultpath": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_supplementary_experiments/common_ground_truth/Real_NRHints/Fish/audit.json"
+        }
+      ]
+    },
+    {
+      "id": "common_ground_truth-Real_NRHints-FurScene",
+      "kind": "comparison",
+      "method": "comparison",
+      "group": "common_ground_truth",
+      "variant": "common_ground_truth",
+      "family": "Real_NRHints",
+      "scene": "FurScene",
+      "dataset": "/workspace/datasets/SSD-GS/data/Real_NRHints/FurScene",
+      "state": "pending",
+      "mode": "fresh",
+      "output": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_supplementary_experiments/common_ground_truth/Real_NRHints/FurScene",
+      "resultpath": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_supplementary_experiments/common_ground_truth/Real_NRHints/FurScene/audit.json",
+      "source_archive": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_supplementary_experiments/measurement_source.tar",
+      "steps": [
+        {
+          "name": "evaluate",
+          "state": "pending",
+          "cwd": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS",
+          "argv": [
+            "/workspace/ubuntu2004_cuda12_1/utils/conda-envs/ssd-gs/bin/python",
+            "-B",
+            "-m",
+            "experiments.common_ground_truth",
+            "--family",
+            "Real_NRHints",
+            "--scene",
+            "FurScene",
+            "--output",
+            "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_supplementary_experiments/common_ground_truth/Real_NRHints/FurScene"
+          ],
+          "logpath": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_supplementary_experiments/measurement_logs/Real_NRHints/FurScene.common_gt.log",
+          "output": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_supplementary_experiments/common_ground_truth/Real_NRHints/FurScene",
+          "resultpath": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_supplementary_experiments/common_ground_truth/Real_NRHints/FurScene/audit.json"
+        }
+      ]
+    },
+    {
+      "id": "common_ground_truth-Real_NRHints-Pikachu",
+      "kind": "comparison",
+      "method": "comparison",
+      "group": "common_ground_truth",
+      "variant": "common_ground_truth",
+      "family": "Real_NRHints",
+      "scene": "Pikachu",
+      "dataset": "/workspace/datasets/SSD-GS/data/Real_NRHints/Pikachu",
+      "state": "pending",
+      "mode": "fresh",
+      "output": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_supplementary_experiments/common_ground_truth/Real_NRHints/Pikachu",
+      "resultpath": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_supplementary_experiments/common_ground_truth/Real_NRHints/Pikachu/audit.json",
+      "source_archive": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_supplementary_experiments/measurement_source.tar",
+      "steps": [
+        {
+          "name": "evaluate",
+          "state": "pending",
+          "cwd": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS",
+          "argv": [
+            "/workspace/ubuntu2004_cuda12_1/utils/conda-envs/ssd-gs/bin/python",
+            "-B",
+            "-m",
+            "experiments.common_ground_truth",
+            "--family",
+            "Real_NRHints",
+            "--scene",
+            "Pikachu",
+            "--output",
+            "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_supplementary_experiments/common_ground_truth/Real_NRHints/Pikachu"
+          ],
+          "logpath": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_supplementary_experiments/measurement_logs/Real_NRHints/Pikachu.common_gt.log",
+          "output": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_supplementary_experiments/common_ground_truth/Real_NRHints/Pikachu",
+          "resultpath": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_supplementary_experiments/common_ground_truth/Real_NRHints/Pikachu/audit.json"
+        }
+      ]
+    },
+    {
+      "id": "common_ground_truth-Real_NRHints-Pixiu",
+      "kind": "comparison",
+      "method": "comparison",
+      "group": "common_ground_truth",
+      "variant": "common_ground_truth",
+      "family": "Real_NRHints",
+      "scene": "Pixiu",
+      "dataset": "/workspace/datasets/SSD-GS/data/Real_NRHints/Pixiu",
+      "state": "pending",
+      "mode": "fresh",
+      "output": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_supplementary_experiments/common_ground_truth/Real_NRHints/Pixiu",
+      "resultpath": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_supplementary_experiments/common_ground_truth/Real_NRHints/Pixiu/audit.json",
+      "source_archive": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_supplementary_experiments/measurement_source.tar",
+      "steps": [
+        {
+          "name": "evaluate",
+          "state": "pending",
+          "cwd": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS",
+          "argv": [
+            "/workspace/ubuntu2004_cuda12_1/utils/conda-envs/ssd-gs/bin/python",
+            "-B",
+            "-m",
+            "experiments.common_ground_truth",
+            "--family",
+            "Real_NRHints",
+            "--scene",
+            "Pixiu",
+            "--output",
+            "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_supplementary_experiments/common_ground_truth/Real_NRHints/Pixiu"
+          ],
+          "logpath": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_supplementary_experiments/measurement_logs/Real_NRHints/Pixiu.common_gt.log",
+          "output": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_supplementary_experiments/common_ground_truth/Real_NRHints/Pixiu",
+          "resultpath": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_supplementary_experiments/common_ground_truth/Real_NRHints/Pixiu/audit.json"
+        }
+      ]
+    },
+    {
+      "id": "common_ground_truth-Synthetic_SSS-GS-bunny_small",
+      "kind": "comparison",
+      "method": "comparison",
+      "group": "common_ground_truth",
+      "variant": "common_ground_truth",
+      "family": "Synthetic_SSS-GS",
+      "scene": "bunny_small",
+      "dataset": "/workspace/datasets/SSD-GS/data/Synthetic_SSS-GS/bunny_small",
+      "state": "pending",
+      "mode": "fresh",
+      "output": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_supplementary_experiments/common_ground_truth/Synthetic_SSS-GS/bunny_small",
+      "resultpath": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_supplementary_experiments/common_ground_truth/Synthetic_SSS-GS/bunny_small/audit.json",
+      "source_archive": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_supplementary_experiments/measurement_source.tar",
+      "steps": [
+        {
+          "name": "evaluate",
+          "state": "pending",
+          "cwd": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS",
+          "argv": [
+            "/workspace/ubuntu2004_cuda12_1/utils/conda-envs/ssd-gs/bin/python",
+            "-B",
+            "-m",
+            "experiments.common_ground_truth",
+            "--family",
+            "Synthetic_SSS-GS",
+            "--scene",
+            "bunny_small",
+            "--output",
+            "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_supplementary_experiments/common_ground_truth/Synthetic_SSS-GS/bunny_small"
+          ],
+          "logpath": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_supplementary_experiments/measurement_logs/Synthetic_SSS-GS/bunny_small.common_gt.log",
+          "output": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_supplementary_experiments/common_ground_truth/Synthetic_SSS-GS/bunny_small",
+          "resultpath": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_supplementary_experiments/common_ground_truth/Synthetic_SSS-GS/bunny_small/audit.json"
+        }
+      ]
+    },
+    {
+      "id": "common_ground_truth-Synthetic_SSS-GS-candle_small",
+      "kind": "comparison",
+      "method": "comparison",
+      "group": "common_ground_truth",
+      "variant": "common_ground_truth",
+      "family": "Synthetic_SSS-GS",
+      "scene": "candle_small",
+      "dataset": "/workspace/datasets/SSD-GS/data/Synthetic_SSS-GS/candle_small",
+      "state": "pending",
+      "mode": "fresh",
+      "output": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_supplementary_experiments/common_ground_truth/Synthetic_SSS-GS/candle_small",
+      "resultpath": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_supplementary_experiments/common_ground_truth/Synthetic_SSS-GS/candle_small/audit.json",
+      "source_archive": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_supplementary_experiments/measurement_source.tar",
+      "steps": [
+        {
+          "name": "evaluate",
+          "state": "pending",
+          "cwd": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS",
+          "argv": [
+            "/workspace/ubuntu2004_cuda12_1/utils/conda-envs/ssd-gs/bin/python",
+            "-B",
+            "-m",
+            "experiments.common_ground_truth",
+            "--family",
+            "Synthetic_SSS-GS",
+            "--scene",
+            "candle_small",
+            "--output",
+            "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_supplementary_experiments/common_ground_truth/Synthetic_SSS-GS/candle_small"
+          ],
+          "logpath": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_supplementary_experiments/measurement_logs/Synthetic_SSS-GS/candle_small.common_gt.log",
+          "output": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_supplementary_experiments/common_ground_truth/Synthetic_SSS-GS/candle_small",
+          "resultpath": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_supplementary_experiments/common_ground_truth/Synthetic_SSS-GS/candle_small/audit.json"
+        }
+      ]
+    },
+    {
+      "id": "common_ground_truth-Synthetic_SSS-GS-dragon_small",
+      "kind": "comparison",
+      "method": "comparison",
+      "group": "common_ground_truth",
+      "variant": "common_ground_truth",
+      "family": "Synthetic_SSS-GS",
+      "scene": "dragon_small",
+      "dataset": "/workspace/datasets/SSD-GS/data/Synthetic_SSS-GS/dragon_small",
+      "state": "pending",
+      "mode": "fresh",
+      "output": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_supplementary_experiments/common_ground_truth/Synthetic_SSS-GS/dragon_small",
+      "resultpath": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_supplementary_experiments/common_ground_truth/Synthetic_SSS-GS/dragon_small/audit.json",
+      "source_archive": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_supplementary_experiments/measurement_source.tar",
+      "steps": [
+        {
+          "name": "evaluate",
+          "state": "pending",
+          "cwd": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS",
+          "argv": [
+            "/workspace/ubuntu2004_cuda12_1/utils/conda-envs/ssd-gs/bin/python",
+            "-B",
+            "-m",
+            "experiments.common_ground_truth",
+            "--family",
+            "Synthetic_SSS-GS",
+            "--scene",
+            "dragon_small",
+            "--output",
+            "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_supplementary_experiments/common_ground_truth/Synthetic_SSS-GS/dragon_small"
+          ],
+          "logpath": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_supplementary_experiments/measurement_logs/Synthetic_SSS-GS/dragon_small.common_gt.log",
+          "output": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_supplementary_experiments/common_ground_truth/Synthetic_SSS-GS/dragon_small",
+          "resultpath": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_supplementary_experiments/common_ground_truth/Synthetic_SSS-GS/dragon_small/audit.json"
+        }
+      ]
+    },
+    {
+      "id": "common_ground_truth-Synthetic_SSS-GS-soap_small",
+      "kind": "comparison",
+      "method": "comparison",
+      "group": "common_ground_truth",
+      "variant": "common_ground_truth",
+      "family": "Synthetic_SSS-GS",
+      "scene": "soap_small",
+      "dataset": "/workspace/datasets/SSD-GS/data/Synthetic_SSS-GS/soap_small",
+      "state": "pending",
+      "mode": "fresh",
+      "output": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_supplementary_experiments/common_ground_truth/Synthetic_SSS-GS/soap_small",
+      "resultpath": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_supplementary_experiments/common_ground_truth/Synthetic_SSS-GS/soap_small/audit.json",
+      "source_archive": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_supplementary_experiments/measurement_source.tar",
+      "steps": [
+        {
+          "name": "evaluate",
+          "state": "pending",
+          "cwd": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS",
+          "argv": [
+            "/workspace/ubuntu2004_cuda12_1/utils/conda-envs/ssd-gs/bin/python",
+            "-B",
+            "-m",
+            "experiments.common_ground_truth",
+            "--family",
+            "Synthetic_SSS-GS",
+            "--scene",
+            "soap_small",
+            "--output",
+            "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_supplementary_experiments/common_ground_truth/Synthetic_SSS-GS/soap_small"
+          ],
+          "logpath": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_supplementary_experiments/measurement_logs/Synthetic_SSS-GS/soap_small.common_gt.log",
+          "output": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_supplementary_experiments/common_ground_truth/Synthetic_SSS-GS/soap_small",
+          "resultpath": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_supplementary_experiments/common_ground_truth/Synthetic_SSS-GS/soap_small/audit.json"
+        }
+      ]
+    },
+    {
+      "id": "common_ground_truth-Synthetic_SSS-GS-statue_small",
+      "kind": "comparison",
+      "method": "comparison",
+      "group": "common_ground_truth",
+      "variant": "common_ground_truth",
+      "family": "Synthetic_SSS-GS",
+      "scene": "statue_small",
+      "dataset": "/workspace/datasets/SSD-GS/data/Synthetic_SSS-GS/statue_small",
+      "state": "pending",
+      "mode": "fresh",
+      "output": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_supplementary_experiments/common_ground_truth/Synthetic_SSS-GS/statue_small",
+      "resultpath": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_supplementary_experiments/common_ground_truth/Synthetic_SSS-GS/statue_small/audit.json",
+      "source_archive": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_supplementary_experiments/measurement_source.tar",
+      "steps": [
+        {
+          "name": "evaluate",
+          "state": "pending",
+          "cwd": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS",
+          "argv": [
+            "/workspace/ubuntu2004_cuda12_1/utils/conda-envs/ssd-gs/bin/python",
+            "-B",
+            "-m",
+            "experiments.common_ground_truth",
+            "--family",
+            "Synthetic_SSS-GS",
+            "--scene",
+            "statue_small",
+            "--output",
+            "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_supplementary_experiments/common_ground_truth/Synthetic_SSS-GS/statue_small"
+          ],
+          "logpath": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_supplementary_experiments/measurement_logs/Synthetic_SSS-GS/statue_small.common_gt.log",
+          "output": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_supplementary_experiments/common_ground_truth/Synthetic_SSS-GS/statue_small",
+          "resultpath": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_supplementary_experiments/common_ground_truth/Synthetic_SSS-GS/statue_small/audit.json"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,38 @@
+[
+  {
+    "scene": "Lego",
+    "frame_index": 33,
+    "selection": "median paired-PSNR delta to the strongest scene-mean baseline",
+    "pair": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/light_atlas_svbrdf_remaining_scenes/lisa_svbrdf/Synthetic_GS3/Lego/test/pair_033.png",
+    "baseline_prediction": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/GS3/runs/full_benchmark_20260913/Synthetic_GS3/Lego/test/ours_100000/renders/00033.png",
+    "target_max_abs_difference_uint8": 0.0,
+    "target_mean_abs_difference_uint8": 0.0
+  },
+  {
+    "scene": "Drums",
+    "frame_index": 362,
+    "selection": "median paired-PSNR delta to the strongest scene-mean baseline",
+    "pair": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/light_atlas_svbrdf_hard_scenes/lisa_svbrdf/Synthetic_GS3/Drums/test/pair_362.png",
+    "baseline_prediction": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/SSD-GS/runs/supplement_hard_scenes/Synthetic_GS3/Drums/test/ours_100000/renders/00362.png",
+    "target_max_abs_difference_uint8": 0.0,
+    "target_mean_abs_difference_uint8": 0.0
+  },
+  {
+    "scene": "CupFabric",
+    "frame_index": 41,
+    "selection": "median paired-PSNR delta to the strongest scene-mean baseline",
+    "pair": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/light_atlas_svbrdf_remaining_scenes/lisa_svbrdf/Real_NRHints/CupFabric/test/pair_041.png",
+    "baseline_prediction": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/SSD-GS/runs/full_dataset_comparison/Real_NRHints/CupFabric/test/ours_100000/renders/00041.png",
+    "target_max_abs_difference_uint8": 19.0,
+    "target_mean_abs_difference_uint8": 0.06880823771158855
+  },
+  {
+    "scene": "soap_small",
+    "frame_index": 414,
+    "selection": "median paired-PSNR delta to the strongest scene-mean baseline",
+    "pair": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/light_atlas_svbrdf_remaining_scenes/lisa_svbrdf/Synthetic_SSS-GS/soap_small/test/pair_414.png",
+    "baseline_prediction": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/RNG/runs/full_dataset_comparison/Synthetic_SSS-GS/soap_small/test/ours_100000/renders/00414.png",
+    "target_max_abs_difference_uint8": 1.0,
+    "target_mean_abs_difference_uint8": 0.0066986083984375
+  }
+]

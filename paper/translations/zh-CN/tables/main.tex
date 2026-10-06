@@ -1,0 +1,20 @@
+\begin{table*}[t]
+\caption{\textbf{三个 OLAT 基准全部 18 个场景上的比较}（5,691 张测试图像、相同目标、原始测试标定、不进行测试时拟合；最优用\textbf{粗体}，次优用\underline{下划线}）。迭代次数：RNG 30k+70k，OLAT-GS 30k+30k，GS$^3$ 100k，SSD-GS 100k（SSS 上为 60k），LiSA 38k。}
+\label{tab:main}
+\centering\small
+\setlength{\tabcolsep}{3.8pt}
+\begin{tabular}{@{}l ccc ccc ccc ccc@{}}
+\toprule
+ & \multicolumn{3}{c}{NRHints，真实 (7)} & \multicolumn{3}{c}{GS$^3$，合成 (6)} & \multicolumn{3}{c}{SSS-GS，合成 (5)} & \multicolumn{3}{c}{全部场景 (18)} \\
+\cmidrule(lr){2-4}\cmidrule(lr){5-7}\cmidrule(lr){8-10}\cmidrule(l){11-13}
+方法 & PSNR$\uparrow$ & SSIM$\uparrow$ & LPIPS$\downarrow$ & PSNR$\uparrow$ & SSIM$\uparrow$ & LPIPS$\downarrow$ & PSNR$\uparrow$ & SSIM$\uparrow$ & LPIPS$\downarrow$ & PSNR$\uparrow$ & SSIM$\uparrow$ & LPIPS$\downarrow$ \\
+\midrule
+RNG~\cite{fan2025rng} & 20.94 & .828 & .203 & 22.14 & .895 & .132 & 37.10 & .983 & .028 & 25.83 & .893 & .131 \\
+OLAT-GS~\cite{kuang2024olat} & 27.26 & \underline{.886} & \underline{.114} & 27.11 & .940 & .079 & \textbf{40.74} & \textbf{.990} & \textbf{.016} & 30.95 & .933 & .075 \\
+GS$^3$~\cite{bi2024gs3} & \underline{27.28} & .884 & .116 & \underline{31.97} & \underline{.967} & \underline{.049} & 36.81 & .983 & .028 & 31.49 & \underline{.939} & .069 \\
+SSD-GS~\cite{zheng2026ssdgs} & 27.20 & .882 & .117 & 31.53 & .965 & .050 & 37.79 & \underline{.986} & \underline{.023} & \underline{31.59} & \underline{.939} & \underline{.068} \\
+\midrule
+\textbf{LiSA（本文）} & \textbf{29.28} & \textbf{.909} & \textbf{.100} & \textbf{32.40} & \textbf{.970} & \textbf{.038} & \underline{40.63} & \textbf{.990} & \textbf{.016} & \textbf{33.47} & \textbf{.952} & \textbf{.056} \\
+\bottomrule
+\end{tabular}
+\end{table*}

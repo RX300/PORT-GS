@@ -1,0 +1,112 @@
+{
+  "name": "lisa_staged_full_dataset_20261004",
+  "note": "Unified LiSA staged candidate: all official train, own silhouette initialization, 8k radiometric geometry warmup +22k linear joint training +8k frozen-geometry deferred appearance in the original observation domain; total38k. Five-scene24k development checked the handoff;30k geometry prefixes on FurBall/Cat/soap_small are already measured. One common recipe and original family observation/camera protocols. Full official test, original calibration, no test fitting; fixed last checkpoints, no test selection. At most2 idle physical GPUs, one worker each.",
+  "python": "/workspace/ubuntu2004_cuda12_1/utils/conda-envs/ssd-gs/bin/python",
+  "data_root": "/workspace/datasets/SSD-GS/data",
+  "worker_gpus": [
+    1,
+    2
+  ],
+  "launch_environment": {
+    "PATH_prefix": "/workspace/ubuntu2004_cuda12_1/utils/conda-envs/ssd-gs/bin:/usr/local/cuda-12.1/bin",
+    "CUDA_HOME": "/usr/local/cuda-12.1",
+    "TORCH_CUDA_ARCH_LIST": "8.9",
+    "MAX_JOBS": "8",
+    "OMP_NUM_THREADS": "8",
+    "HF_HOME": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/third_party/hf_cache",
+    "TORCH_HOME": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/third_party/torch_cache",
+    "MPLCONFIGDIR": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/third_party/mpl_cache",
+    "PYTHONDONTWRITEBYTECODE": "1",
+    "OPENBLAS_NUM_THREADS": "1",
+    "PYTORCH_CUDA_ALLOC_CONF": "expandable_segments:True"
+  },
+  "train": {
+    "steps": 30000,
+    "seed": 0,
+    "fit-all": true,
+    "resolution": 512,
+    "background": 0.0,
+    "display-gamma": 2.2,
+    "shadow-start": 2000,
+    "port-start": 2000,
+    "lr-decay-steps": 30000,
+    "representation": "light_atlas",
+    "material-head": "svbrdf",
+    "mask-weight": 0.5,
+    "foreground-appearance-until": 2000,
+    "specular": "lobes",
+    "shading": "gaussian",
+    "split-scale2d-stop": 0,
+    "geometry-warmup-steps": 8000,
+    "normal-model": "learned",
+    "save-steps": [],
+    "initialization": "hull",
+    "radiometric-curriculum": true
+  },
+  "families": {
+    "Synthetic_GS3": {
+      "scenes": [
+        "Lego",
+        "Drums",
+        "Hotdog",
+        "AnisoMetal",
+        "FurBall",
+        "Translucent"
+      ],
+      "train": {
+        "background": 1.0
+      }
+    },
+    "Real_NRHints": {
+      "scenes": [
+        "Cat",
+        "CatSmall",
+        "CupFabric",
+        "Fish",
+        "FurScene",
+        "Pikachu",
+        "Pixiu"
+      ],
+      "train": {
+        "optimize-cameras": true,
+        "camera-mode": "rotation",
+        "camera-gauge": "translation",
+        "camera-start": 2000,
+        "camera-lr": 0.001,
+        "camera-lr-final": 1e-05
+      }
+    },
+    "Synthetic_SSS-GS": {
+      "scenes": [
+        "bunny_small",
+        "candle_small",
+        "dragon_small",
+        "soap_small",
+        "statue_small"
+      ],
+      "train": {
+        "resolution": 256,
+        "unit-light-intensity": 1.0
+      }
+    }
+  },
+  "eval_split": "test",
+  "eval_limit": 0,
+  "eval_save_all": true,
+  "eval_highlights": false,
+  "eval_shift_align": 0,
+  "eval_calibrate_test": 0,
+  "appearance_train": {
+    "steps": 8000,
+    "fit-all": false,
+    "initialization": "camera",
+    "radiometric-curriculum": false,
+    "geometry-warmup-steps": 0,
+    "freeze-geometry": true,
+    "shading": "pixel",
+    "foreground-appearance-until": 0,
+    "shadow-start": 1,
+    "port-start": 1,
+    "save-steps": []
+  }
+}

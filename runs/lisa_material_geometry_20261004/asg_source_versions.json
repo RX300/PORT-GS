@@ -1,0 +1,15 @@
+{
+  "archive": "source_after_asg.tar",
+  "recorded_utc": "2026-10-04T07:09:10.662515+00:00",
+  "note": "ASG is inactive in all these configurations; isotropic arithmetic, state tensors and RNG are unchanged. All pending jobs import this later source. Prior source archives identify training before this addition; evaluators can load the same parameter-compatible implementation.",
+  "prior_jobs": [
+    "PORT-Synthetic_GS3-Lego-neural_diffuse",
+    "PORT-Synthetic_GS3-Drums-neural_diffuse"
+  ],
+  "later_jobs": [
+    "PORT-Synthetic_GS3-FurBall-neural_diffuse",
+    "PORT-Synthetic_GS3-Lego-analytic_diffuse",
+    "PORT-Synthetic_GS3-Drums-analytic_diffuse",
+    "PORT-Synthetic_GS3-FurBall-analytic_diffuse"
+  ]
+}

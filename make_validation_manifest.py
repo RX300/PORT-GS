@@ -62,6 +62,28 @@ def source_provenance():
 def build_manifest(config, output_dir):
     """Optional named ablations share the same queue and one source snapshot."""
     provenance = source_provenance()
+    if 'groups' in config:
+        jobs = []
+        for group, settings in config['groups'].items():
+            child = {k: v for k, v in config.items() if k != 'groups'}
+            child.update({k: v for k, v in settings.items() if k != 'train'})
+            child['train'] = {**config['train'], **settings.get('train', {})}
+            part = _build_variants(child, output_dir / group, provenance)
+            for job in part['jobs']:
+                job['id'] += '-' + group
+                job['group'] = group
+                job['source_archive'] = str(output_dir / 'source.tar')
+                job['exclusive_gpu'] = (group == 'repeatability' and job['variant'] == 'full_seed1'
+                                        and job['scene'] in config.get('measurement_scenes', {}).get(job['family'], []))
+            jobs.extend(part['jobs'])
+        part.update(data_root=config['data_root'], status_path=str(output_dir / 'status.json'),
+                    source_archive=str(output_dir / 'source.tar'), jobs=jobs)
+        part['protocol'] = config
+        return part
+    return _build_variants(config, output_dir, provenance)
+
+
+def _build_variants(config, output_dir, provenance):
     if "variants" not in config:
         return _build_single_manifest(config, output_dir, provenance)
     jobs = []
@@ -238,6 +260,8 @@ def _build_single_manifest(config, output_dir, provenance):
         "source_revision": revision, "source_provenance": provenance,
         "python": python, "data_root": config["data_root"],
         "worker_gpus": config["worker_gpus"], "launch_environment": environment,
+        **{key: config[key] for key in ('require_idle_gpu', 'gpu_policy', 'monitor_interval_seconds', 'collect_command')
+           if key in config},
         "protocol": {
             "scenes": len(jobs),
             "selection": {name: settings["scenes"] for name, settings in config["families"].items()},
@@ -266,6 +290,13 @@ def main():
     config = json.loads(args.config.read_text())
     output_dir = ROOT / "runs" / config["name"]
     manifest = build_manifest(config, output_dir)
+    if 'baseline_experiments' in config:
+        from experiments.suite import baseline_jobs
+        manifest['jobs'].extend(baseline_jobs(config))
+    if 'measurement_scenes' in config:
+        from experiments.suite import measurement_jobs, comparison_jobs
+        manifest['jobs'].extend(measurement_jobs(config, output_dir))
+        manifest['jobs'].extend(comparison_jobs(config, output_dir))
     output_dir.mkdir(parents=True, exist_ok=False)
     (output_dir / "validation.json").write_text(json.dumps(config, indent=2) + "\n")
     with tarfile.open(output_dir / "source.tar", "w") as archive:
@@ -277,6 +308,13 @@ def main():
             source = ROOT / filename
             if source.exists():  # Tracked files may have been deleted in the working tree.
                 archive.add(source, arcname=filename)
+    if 'measurement_scenes' in config:
+        with tarfile.open(output_dir / 'measurement_source.tar', 'w') as archive:
+            for filename in ('experiments/measure.py', 'experiments/suite.py', 'experiments/collect.py',
+                             'experiments/common_ground_truth.py', 'diagnose_image_errors.py',
+                             'run_benchmark.py', 'make_validation_manifest.py', 'configs/validation.json'):
+                archive.add(ROOT / filename, arcname=filename)
+            archive.add(ROOT.parent / 'benchmarks/measure_relighting.py', arcname='benchmarks/measure_relighting.py')
     path = output_dir / "manifest.json"
     path.write_text(json.dumps(manifest, indent=2) + "\n")
     print(path)

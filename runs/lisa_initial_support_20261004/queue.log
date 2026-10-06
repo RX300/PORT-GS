@@ -1,0 +1,25 @@
+{"event": "startup_confirmed", "job": "PORT-Synthetic_GS3-FurBall-hull_init", "gpu": "3.0", "pid": 535545, "phase": "train", "step": 100}
+{"event": "startup_confirmed", "job": "PORT-Synthetic_GS3-Lego-hull_init", "gpu": "2.0", "pid": 535542, "phase": "train", "step": 100}
+{"event": "startup_confirmed", "job": "PORT-Synthetic_GS3-Drums-hull_init", "gpu": "2.1", "pid": 535543, "phase": "train", "step": 100}
+{"event": "startup_confirmed", "job": "PORT-Synthetic_GS3-Lego-camera_init", "gpu": "3.1", "pid": 535546, "phase": "train", "step": 100}
+{"event": "phasefinish", "job": "PORT-Synthetic_GS3-FurBall-hull_init", "gpu": "3.0", "phase": "train", "pid": 535545}
+{"event": "phasefinish", "job": "PORT-Synthetic_GS3-FurBall-hull_init", "gpu": "3.0", "phase": "eval", "pid": 536502}
+{"event": "jobfinish", "job": "PORT-Synthetic_GS3-FurBall-hull_init", "gpu": "3.0"}
+{"event": "phasefinish", "job": "PORT-Synthetic_GS3-Lego-camera_init", "gpu": "3.1", "phase": "train", "pid": 535546}
+{"event": "phasefinish", "job": "PORT-Synthetic_GS3-Lego-camera_init", "gpu": "3.1", "phase": "eval", "pid": 536617}
+{"event": "jobfinish", "job": "PORT-Synthetic_GS3-Lego-camera_init", "gpu": "3.1"}
+{"event": "startup_confirmed", "job": "PORT-Synthetic_GS3-Drums-camera_init", "gpu": "3.0", "pid": 536568, "phase": "train", "step": 100}
+{"event": "startup_confirmed", "job": "PORT-Synthetic_GS3-FurBall-camera_init", "gpu": "3.1", "pid": 536684, "phase": "train", "step": 100}
+{"event": "phasefinish", "job": "PORT-Synthetic_GS3-Lego-hull_init", "gpu": "2.0", "phase": "train", "pid": 535542}
+{"event": "phasefinish", "job": "PORT-Synthetic_GS3-Drums-hull_init", "gpu": "2.1", "phase": "train", "pid": 535543}
+{"event": "phasefinish", "job": "PORT-Synthetic_GS3-Lego-hull_init", "gpu": "2.0", "phase": "eval", "pid": 536868}
+{"event": "jobfinish", "job": "PORT-Synthetic_GS3-Lego-hull_init", "gpu": "2.0"}
+{"event": "phasefinish", "job": "PORT-Synthetic_GS3-Drums-hull_init", "gpu": "2.1", "phase": "eval", "pid": 536869}
+{"event": "jobfinish", "job": "PORT-Synthetic_GS3-Drums-hull_init", "gpu": "2.1"}
+{"event": "phasefinish", "job": "PORT-Synthetic_GS3-Drums-camera_init", "gpu": "3.0", "phase": "train", "pid": 536568}
+{"event": "phasefinish", "job": "PORT-Synthetic_GS3-FurBall-camera_init", "gpu": "3.1", "phase": "train", "pid": 536684}
+{"event": "phasefinish", "job": "PORT-Synthetic_GS3-Drums-camera_init", "gpu": "3.0", "phase": "eval", "pid": 537446}
+{"event": "jobfinish", "job": "PORT-Synthetic_GS3-Drums-camera_init", "gpu": "3.0"}
+{"event": "phasefinish", "job": "PORT-Synthetic_GS3-FurBall-camera_init", "gpu": "3.1", "phase": "eval", "pid": 537447}
+{"event": "jobfinish", "job": "PORT-Synthetic_GS3-FurBall-camera_init", "gpu": "3.1"}
+{"event": "queue_complete", "status": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_initial_support_20261004/status.json"}

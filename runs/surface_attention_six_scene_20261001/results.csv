@@ -1,0 +1,7 @@
+method,family,scene,test_frames,PSNR,SSIM,LPIPS,metrics_path
+surface_attention,Real_NRHints,Cat,66,25.143954768325344,0.8207900117744099,0.16465461773402762,surface_attention/Real_NRHints/Cat/test/metrics.json
+surface_attention,Real_NRHints,Pixiu,71,26.387625009241237,0.8831735337284249,0.10639488786249093,surface_attention/Real_NRHints/Pixiu/test/metrics.json
+surface_attention,Synthetic_GS3,AnisoMetal,400,28.429777059555054,0.960194681584835,0.04014173704199493,surface_attention/Synthetic_GS3/AnisoMetal/test/metrics.json
+surface_attention,Synthetic_GS3,Translucent,400,28.63726065158844,0.9665932746231556,0.04575336071662605,surface_attention/Synthetic_GS3/Translucent/test/metrics.json
+surface_attention,Synthetic_SSS-GS,bunny_small,500,36.568559862136844,0.9855365788936615,0.02253547099977732,surface_attention/Synthetic_SSS-GS/bunny_small/test/metrics.json
+surface_attention,Synthetic_SSS-GS,dragon_small,500,34.673638320922855,0.9706339352130889,0.04108409122005105,surface_attention/Synthetic_SSS-GS/dragon_small/test/metrics.json

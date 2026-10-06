@@ -1,0 +1,176 @@
+{
+  "checkpoint": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_v2_full_dataset_20261004/lisa_v2/Synthetic_GS3/FurBall/last.pt",
+  "command": [
+    "diagnose_image_errors.py",
+    "runs/lisa_v2_full_dataset_20261004/lisa_v2/Synthetic_GS3/FurBall/last.pt",
+    "--atlas-refinement-audit",
+    "--limit",
+    "16",
+    "--output",
+    "runs/lisa_shading_analysis_20261004/FurBall_refinement"
+  ],
+  "shading": "pixel",
+  "step": 30000,
+  "scene": "/workspace/datasets/SSD-GS/data/Synthetic_GS3/FurBall",
+  "frames": [
+    {
+      "frame_index": 0,
+      "loss": 0.01593654975295067,
+      "PSNR": 32.15596008300781,
+      "alpha_L1": 0.0059537142515182495
+    },
+    {
+      "frame_index": 125,
+      "loss": 0.010320399887859821,
+      "PSNR": 36.28664016723633,
+      "alpha_L1": 0.0019854293204844
+    },
+    {
+      "frame_index": 250,
+      "loss": 0.016607025638222694,
+      "PSNR": 30.749223709106445,
+      "alpha_L1": 0.007112052757292986
+    },
+    {
+      "frame_index": 375,
+      "loss": 0.01103502418845892,
+      "PSNR": 36.667442321777344,
+      "alpha_L1": 0.0006463105091825128
+    },
+    {
+      "frame_index": 500,
+      "loss": 0.011590180918574333,
+      "PSNR": 32.27253341674805,
+      "alpha_L1": 0.003944491036236286
+    },
+    {
+      "frame_index": 625,
+      "loss": 0.013629216700792313,
+      "PSNR": 32.645572662353516,
+      "alpha_L1": 0.0007372804102487862
+    },
+    {
+      "frame_index": 750,
+      "loss": 0.01667984016239643,
+      "PSNR": 33.38252258300781,
+      "alpha_L1": 0.0025900844484567642
+    },
+    {
+      "frame_index": 875,
+      "loss": 0.014702795073390007,
+      "PSNR": 33.27265930175781,
+      "alpha_L1": 0.0006545620854012668
+    },
+    {
+      "frame_index": 1000,
+      "loss": 0.011294374242424965,
+      "PSNR": 35.00691604614258,
+      "alpha_L1": 0.002376987598836422
+    },
+    {
+      "frame_index": 1125,
+      "loss": 0.013804269023239613,
+      "PSNR": 33.86085891723633,
+      "alpha_L1": 0.0012489012442529202
+    },
+    {
+      "frame_index": 1250,
+      "loss": 0.022364318370819092,
+      "PSNR": 31.274921417236328,
+      "alpha_L1": 0.015059428289532661
+    },
+    {
+      "frame_index": 1375,
+      "loss": 0.017905475571751595,
+      "PSNR": 32.72529220581055,
+      "alpha_L1": 0.000615040073171258
+    },
+    {
+      "frame_index": 1500,
+      "loss": 0.01013806089758873,
+      "PSNR": 35.982749938964844,
+      "alpha_L1": 0.001856843358837068
+    },
+    {
+      "frame_index": 1625,
+      "loss": 0.011341879144310951,
+      "PSNR": 35.46432113647461,
+      "alpha_L1": 0.0007763023022562265
+    },
+    {
+      "frame_index": 1750,
+      "loss": 0.010280433110892773,
+      "PSNR": 35.317562103271484,
+      "alpha_L1": 0.001508577261120081
+    },
+    {
+      "frame_index": 1875,
+      "loss": 0.010923489928245544,
+      "PSNR": 34.949501037597656,
+      "alpha_L1": 0.0016812407411634922
+    }
+  ],
+  "buckets": {
+    "all": {
+      "count": 399897,
+      "gradient_quantiles": [
+        0.0,
+        9.016844728648721e-07,
+        6.650223076576367e-05,
+        0.00036908171023242176,
+        0.0027131305541843176
+      ],
+      "above_0_0008": 383,
+      "above_0_00008": 35016,
+      "zero_contribution": 70658,
+      "contribution_share": 1.0,
+      "residual_share": 1.0
+    },
+    "scale_lt_0.01": {
+      "count": 55292,
+      "gradient_quantiles": [
+        0.0,
+        2.618072358018253e-06,
+        7.978187204571441e-05,
+        0.0004375404678285122,
+        0.0021324693225324154
+      ],
+      "above_0_0008": 234,
+      "above_0_00008": 5512,
+      "zero_contribution": 2713,
+      "contribution_share": 0.06789986789226532,
+      "residual_share": 0.05819519981741905
+    },
+    "scale_0.01_0.03": {
+      "count": 244969,
+      "gradient_quantiles": [
+        0.0,
+        1.464446313548251e-06,
+        8.269841055152938e-05,
+        0.0003908505314029753,
+        0.0027131305541843176
+      ],
+      "above_0_0008": 117,
+      "above_0_00008": 25081,
+      "zero_contribution": 27742,
+      "contribution_share": 0.5949986577033997,
+      "residual_share": 0.4434633255004883
+    },
+    "scale_ge_0.03": {
+      "count": 99636,
+      "gradient_quantiles": [
+        0.0,
+        1.2208906108313045e-09,
+        2.8353413654258475e-05,
+        0.00023437752679456025,
+        0.0021597170270979404
+      ],
+      "above_0_0008": 32,
+      "above_0_00008": 4423,
+      "zero_contribution": 40203,
+      "contribution_share": 0.3371014893054962,
+      "residual_share": 0.49834147095680237
+    }
+  },
+  "scope": "Fixed training views; per-primitive native absgrad and alpha-composited contribution; no fitting"
+}

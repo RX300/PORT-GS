@@ -1,0 +1,21 @@
+{"event": "depth", "frame": 0, "done": 1, "total": 20, "seconds": 0.5426979120820761}
+{"event": "depth", "frame": 9, "done": 2, "total": 20, "seconds": 0.6216887170448899}
+{"event": "depth", "frame": 12, "done": 3, "total": 20, "seconds": 0.6984679540619254}
+{"event": "depth", "frame": 53, "done": 4, "total": 20, "seconds": 0.7746303691528738}
+{"event": "depth", "frame": 81, "done": 5, "total": 20, "seconds": 0.8506810711696744}
+{"event": "depth", "frame": 101, "done": 6, "total": 20, "seconds": 0.9258088488131762}
+{"event": "depth", "frame": 184, "done": 7, "total": 20, "seconds": 1.0009410288184881}
+{"event": "depth", "frame": 213, "done": 8, "total": 20, "seconds": 1.0759347439743578}
+{"event": "depth", "frame": 258, "done": 9, "total": 20, "seconds": 1.150797394104302}
+{"event": "depth", "frame": 272, "done": 10, "total": 20, "seconds": 1.225782407913357}
+{"event": "depth", "frame": 282, "done": 11, "total": 20, "seconds": 1.3007406508550048}
+{"event": "depth", "frame": 294, "done": 12, "total": 20, "seconds": 1.3760386258363724}
+{"event": "depth", "frame": 337, "done": 13, "total": 20, "seconds": 1.4511296041309834}
+{"event": "depth", "frame": 338, "done": 14, "total": 20, "seconds": 1.526106528006494}
+{"event": "depth", "frame": 369, "done": 15, "total": 20, "seconds": 1.6013793917372823}
+{"event": "depth", "frame": 379, "done": 16, "total": 20, "seconds": 1.676572173833847}
+{"event": "depth", "frame": 456, "done": 17, "total": 20, "seconds": 1.75178262591362}
+{"event": "depth", "frame": 496, "done": 18, "total": 20, "seconds": 1.8267533099278808}
+{"event": "depth", "frame": 506, "done": 19, "total": 20, "seconds": 1.901875359006226}
+{"event": "depth", "frame": 561, "done": 20, "total": 20, "seconds": 1.9769756267778575}
+{"status": "completed", "rows": [{"frame": 0, "foreground_pixels": 11055, "matched_pixels": 2433, "consistent_pixels": 1, "consistent_fraction": 9.045680781127885e-05, "depth_spacing": 0.007355690002441406, "selected_pairs": [{"frame": 338, "camera_degrees": 19.431962966918945, "light_degrees": 7.333340644836426}, {"frame": 496, "camera_degrees": 7.790067195892334, "light_degrees": 12.791446685791016}, {"frame": 506, "camera_degrees": 22.571298599243164, "light_degrees": 9.82777214050293}, {"frame": 258, "camera_degrees": 22.36232566833496, "light_degrees": 10.676836967468262}]}, {"frame": 184, "foreground_pixels": 17846, "matched_pixels": 8146, "consistent_pixels": 224, "consistent_fraction": 0.012551832012832165, "depth_spacing": 0.007355690002441406, "selected_pairs": [{"frame": 12, "camera_degrees": 20.672433853149414, "light_degrees": 0.35990872979164124}, {"frame": 294, "camera_degrees": 11.476738929748535, "light_degrees": 9.760982513427734}, {"frame": 9, "camera_degrees": 21.953994750976562, "light_degrees": 4.749079704284668}, {"frame": 282, "camera_degrees": 23.399927139282227, "light_degrees": 4.043218612670898}]}, {"frame": 369, "foreground_pixels": 17331, "matched_pixels": 2410, "consistent_pixels": 16, "consistent_fraction": 0.0009232012089341879, "depth_spacing": 0.007355690002441406, "selected_pairs": [{"frame": 213, "camera_degrees": 23.39056968688965, "light_degrees": 3.02329683303833}, {"frame": 81, "camera_degrees": 6.930218696594238, "light_degrees": 11.550430297851562}, {"frame": 101, "camera_degrees": 7.141798973083496, "light_degrees": 14.976814270019531}, {"frame": 272, "camera_degrees": 6.812241554260254, "light_degrees": 16.98077964782715}]}, {"frame": 561, "foreground_pixels": 9707, "matched_pixels": 2053, "consistent_pixels": 1, "consistent_fraction": 0.00010301844304194674, "depth_spacing": 0.007355690002441406, "selected_pairs": [{"frame": 53, "camera_degrees": 18.810806274414062, "light_degrees": 5.851797103881836}, {"frame": 456, "camera_degrees": 14.81740665435791, "light_degrees": 8.04076099395752}, {"frame": 379, "camera_degrees": 14.499238014221191, "light_degrees": 14.291192054748535}, {"frame": 337, "camera_degrees": 14.488511085510254, "light_degrees": 15.536280632019043}]}], "accepted_points": 242, "seconds": 2.420553721021861, "consistent_fraction": 0.004326140974990615, "limitations": ["Frontoparallel plane sweep is simpler than full PatchMatch.", "Consistency is not independent geometric accuracy; no ground truth mesh is available.", "Four predetermined train anchors cannot establish whole-scene quality."]}

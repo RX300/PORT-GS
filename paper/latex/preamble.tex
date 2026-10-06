@@ -1,0 +1,32 @@
+%% Preamble for the LiSA CVPR 2027 submission.
+%% Based on preamble.tex of the official cvpr-org/author-kit (main branch); only additions below.
+
+%% Official support for 2-column teaser figure
+\usepackage{cuted} %< for strip environment
+\usepackage{currfile} %< for \currfilebase macro
+\usepackage{caption} %< for "\captionof" commands (teaser)
+
+%% Tables and figures
+\usepackage{multirow}
+\usepackage{tikz}
+\usetikzlibrary{positioning,fit,calc,arrows.meta,backgrounds}
+
+%% Text layout (enabled to stay within the page limit without altering the official margins)
+\usepackage{microtype}
+
+%% Inline annotations (from the kit). Placeholders for experiments that still have to be run are
+%% rendered in red so that they cannot be overlooked; see paper/README.md, "Experiments to run".
+\newcommand{\red}[1]{{\color{red}#1}}
+\newcommand{\todo}[1]{{\color{red}#1}}
+\newcommand{\TODO}[1]{\textbf{\color{red}[TODO: #1]}}
+\newcommand{\TBD}{{\color{red}\textbf{TBD}}}
+\newcommand{\torun}[1]{{\color{red}\textbf{[TO RUN]} #1}}
+%% For the camera-ready / final submission, all \torun and \TBD entries must be resolved.
+
+%% Shorthands
+\usepackage{xspace}
+\newcommand{\ours}{LiSA\xspace}
+\newcommand{\gsthree}{GS$^3$\xspace}
+\newcommand{\vect}[1]{\mathbf{#1}}
+\DeclareMathOperator{\logit}{logit}
+\DeclareMathOperator{\softplus}{softplus}

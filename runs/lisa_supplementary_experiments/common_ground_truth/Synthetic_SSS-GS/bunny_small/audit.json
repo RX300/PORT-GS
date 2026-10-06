@@ -1,0 +1,44 @@
+{
+  "family": "Synthetic_SSS-GS",
+  "scene": "bunny_small",
+  "frames": 500,
+  "methods": [
+    "LiSA-staged",
+    "GS3",
+    "SSD-GS",
+    "RNG",
+    "OLAT-Gaussians"
+  ],
+  "ground_truth_differences": {
+    "LiSA-staged": {
+      "differing_channels": 0,
+      "total_channels": 98304000,
+      "maximum_byte_difference": 0,
+      "absolute_byte_difference": 0
+    },
+    "GS3": {
+      "differing_channels": 760878,
+      "total_channels": 98304000,
+      "maximum_byte_difference": 1,
+      "absolute_byte_difference": 760878
+    },
+    "SSD-GS": {
+      "differing_channels": 760878,
+      "total_channels": 98304000,
+      "maximum_byte_difference": 1,
+      "absolute_byte_difference": 760878
+    },
+    "RNG": {
+      "differing_channels": 760878,
+      "total_channels": 98304000,
+      "maximum_byte_difference": 1,
+      "absolute_byte_difference": 760878
+    },
+    "OLAT-Gaussians": {
+      "differing_channels": 0,
+      "total_channels": 98304000,
+      "maximum_byte_difference": 0,
+      "absolute_byte_difference": 0
+    }
+  }
+}

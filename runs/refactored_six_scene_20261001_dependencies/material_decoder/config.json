@@ -1,0 +1,12 @@
+{
+  "output": "runs/refactored_six_scene_20261001_dependencies/material_decoder",
+  "steps": 50000,
+  "batch_size": 4096,
+  "learning_rate": 0.001,
+  "final_learning_rate": 1e-05,
+  "latent_jitter": 0.005,
+  "seed": 0,
+  "log_every": 500,
+  "validation_samples": 32768,
+  "compile_teacher": true
+}

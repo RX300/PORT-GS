@@ -1,0 +1,92 @@
+\section{ライト空間アトラス}
+\label{sec:method}
+
+\input{fig/pipeline}
+
+校正済みカメラで撮影した画像 $\{Y_m\}$ から物体を再構成する。各画像は、位置 $\vect p_m$、RGB 強度 $\vect I_m$ の点光源下で撮影されている（\cref{fig:pipeline}）。
+
+\subsection{準備}
+\label{sec:prelim}
+シーンは、平均 $\mu_i$、共分散 $\Sigma_i$、不透明度 $o_i$ を持つ 3D ガウシアンの集合である~\cite{kerbl20233d}。各ガウシアンは、ベースカラー $\vect b_i\in\mathbb R^3$ と潜在材質コード $\vect f_i\in\mathbb R^{32}$ を持ち、その先頭三チャネルが学習する単位法線 $\vect n_i$ を定める。
+スプラッティングは、ガウシアンごとの属性 $\vect c_i$ を手前から奥へ合成する。
+\begin{equation}
+  \bar{\vect c}(u)=\sum_i w_i(u)\,\vect c_i,\qquad w_i(u)=\alpha_i(u)\prod_{j<i}\big(1-\alpha_j(u)\big),
+  \label{eq:composite}
+\end{equation}
+ここで、$\alpha_i(u)$ は画素 $u$ におけるガウシアン $i$ の不透明度である。
+点 $\vect x$ において、単位光源方向、単位視線方向、単位ハーフベクトルをそれぞれ $\vect l,\vect v,\vect h$ と書き、法線入射時の放射照度を $\bar E(\vect x)=\vect I/\|\vect p-\vect x\|^2$ とする。
+
+\subsection{光源からのスプラッティングによる沈着の記録}
+\label{sec:deposit}
+光源位置にシーン中心へ向けた透視投影カメラを置き、99.9\% のガウシアンのスプラット範囲を覆う画角を設定する。
+その画素 $u$ は立体角 $d\omega_u$ を張り、光束 $\vect I\,d\omega_u$ を受け取る。
+スプラッティングでは、各ガウシアンがレイに沿って進む残りの光のうち $\alpha_i(u)$ の割合を吸収するとみなす。したがって、そのガウシアンが遮り受け取る光束は
+\begin{equation}
+  P_i(u)=\vect I\,d\omega_u\,w_i(u),
+  \label{eq:flux}
+\end{equation}
+となり、重みは \cref{eq:composite} と同じである。
+この関係はラスタライズされたスプラッティングモデルの範囲内で成立する。そのモデルでは、タイルごとの中心深度によるソート、ローパスフィルタ、不透明度のクランプによって体積透過率を近似する~\cite{radl2024stopthepop,huang2024error,talegaonkar2025volumetrically,yu2024mip}。
+\cref{eq:flux} には法線も距離も現れない。距離 $r$、入射角 $\theta$ にある微小面積 $dA$ が受け取る光束は $\vect I\cos\theta\,dA/r^2=\vect I\,d\omega$ であり、投影による面積の縮小と距離減衰は、表面が覆う光源画素の数に織り込まれるためである。
+
+\paragraph{アトラス。}
+各ガウシアンは $\vect c_i=[\boldsymbol\phi_i,\,z_i,\,z_i^2,\,1]$ を出力する。ここで、$z_i$ は光源の光軸に沿ったガウシアン中心の深度をシーン中心に対する相対量として表し、シーン半径で正規化した値である。また、$\boldsymbol\phi_i=\softplus(\mathrm{MLP}_\phi(\vect f_i,\vect b_i,\vect n_i\cdot\vect l_i))\in\mathbb R_+^{C}$ は $C=8$ 個の学習した光束特徴である。
+$512^2$ での一回のラスタライズから、次のアトラスを得る。
+\begin{equation}
+  \vect A(u)=\sum_i w_i(u)\,\vect c_i=\big[\boldsymbol\Phi(u),\,M_1(u),\,M_2(u),\,M_0(u)\big],
+  \label{eq:atlas}
+\end{equation}
+これは、画素への入射光束の単位量あたりの沈着を表す。$M_0$ はその光束のうちシーンが吸収する割合、$M_1/M_0$ と $M_2/M_0$ は吸収が生じる深度の一次・二次モーメントであり、$\boldsymbol\Phi$ は光が何に当たったかを記述する。
+絶対的な沈着量 $\vect I\,d\omega_u\vect A(u)$ には、光軸からの角度に対して $d\omega_u\propto\cos^3$ となる係数も含まれる。この係数の変動は、本研究のデータの典型的なアトラス全域では 30\% 未満であるが、最も広いアトラスの隅では最大 $2.1\times$ に達する。以下の影の統計量はこの係数に依存しない比であり、光輸送項ではこの係数を無視する。
+二項フィルタによるぼかしと $2\times$ の間引きを繰り返し、$K=7$ 層のピラミッド $\vect A_0,\dots,\vect A_{K-1}$ を構築する。
+各チャネルは重み $w_i$ に対して線形であるため、各階層でも沈着のモーメントと特徴の和が保持される。集約範囲は一つのテクセルから物体の約三分の一まで広がり、この性質がこの種のシャドウマップのフィルタリングを可能にする~\cite{donnelly2006variance,peters2015moment}。
+
+\subsection{アトラスからのシェーディング}
+\label{sec:shading}
+受光点 $\vect x$ を光源視点の位置 $u(\vect x)$ に、正規化深度 $z(\vect x)$ で投影し、各階層を双線形補間でサンプリングする。
+階層 $k$ では、平均沈着深度 $\bar z_k=M_{1,k}/M_{0,k}$、テクセルサイズ $\tau_k$ を含む広がり $\eta_k=(M_{2,k}/M_{0,k}-\bar z_k^2+\tau_k^2)^{1/2}$、沈着の背後にある受光点の深度差 $\delta_k=z-\bar z_k$、および $t_k=\delta_k/\eta_k$ を計算する。
+集約範囲内の沈着深度が正規分布に従うならば、受光点より手前で吸収される光の割合は、標準正規分布の累積分布関数 $G$ を用いて $M_{0,k}\,G(t_k)$ と表される。これから次のモーメント判定を得る。
+\begin{equation}
+  V_k=1-M_{0,k}\,G(t_k-\beta),
+  \label{eq:moment}
+\end{equation}
+ここで、局所的な広がりを単位とするバイアス $\beta=3$ は自己遮蔽を防ぐ。
+全階層の記述子 $\vect q_k=[M_{0,k},t_k,\delta_k,\log\eta_k,V_k]$ をまとめて $\vect Q(\vect x)\in\mathbb R^{5K}$ とする。
+遮蔽物と受光点が同じ集約範囲に含まれる場合、この判定は弱い事前知識にとどまる。例えば、不透明な受光点の前に半透明の遮蔽物がある場合には $t_0=1$ となり、\cref{eq:moment} は正しい $0.5$ ではなく $0.98$ を返す。一方、variance shadow map のチェビシェフ境界はこの場合に正しい値を返す~\cite{donnelly2006variance}。また、各ガウシアンは中心の深度を沈着させるため、大きなガウシアンに斜めから光が当たっていても、単一深度として表現される。
+
+\paragraph{可視性。}
+ゼロに初期化した残差ネットワーク $\mathcal G$ によって、最も細かい階層の判定を補正する。
+\begin{equation}
+  V(\vect x)=\sigma\big(\logit V_0(\vect x)+\mathcal G(\vect Q,\vect f,\vect n\cdot\vect l)\big),
+  \label{eq:visibility}
+\end{equation}
+したがって、学習は古典的なフィルタ付きシャドウマップから始まり、$\mathcal G$ は多重スケールの統計量から、上述の例、毛の部分的な透過、有限の大きさを持つ実光源による柔らかな影の境界を補正することを学習する。
+
+\paragraph{光輸送。}
+\cref{eq:flux} より、半透明物体に入り、$\vect x$ から出る光の寄与は $\vect I\!\int\!\sum_i R(\vect x,\mu_i)\,w_i(\omega)\,d\omega$ となる。これは、受光点に依存するカーネル $R$ を、光源の立体角全体にわたって沈着に対して積分したものである。
+Translucent shadow map は、保存した放射照度と固定の拡散カーネルを用いて、この種の積分を計算する~\cite{dachsbacher2003translucent,deon2007efficient,jimenez2010real}。
+本研究では、ピラミッドの各階層を幅の異なるカーネルとして用い、沈着する特徴とカーネルの両方を学習する。
+\begin{align}
+  L_{\mathrm{tr}}(\vect x)&=\textstyle\sum_{k}\vect W_k\,\boldsymbol\Phi_k(\vect x),\label{eq:transfer}\\
+  \{\vect W_k\}_k&=\softplus\big(\mathcal K(\vect Q,\vect f,\vect n\cdot\vect l,\vect n\cdot\vect v)\big),\quad \vect W_k\in\mathbb R_+^{3\times C}.\nonumber
+\end{align}
+カーネルは受光点と幾何統計量 $\vect Q$ のみに依存するため、幾何形状と光源を固定すれば、$L_{\mathrm{tr}}$ は沈着した特徴に対して線形である。ただし、受光点自身の沈着も集約範囲に含まれるため、$L_{\mathrm{tr}}$ が直接反射の一部を担うことも妨げられず、各項への配分は学習によって決まる。
+
+\paragraph{局所材質と放射輝度。}
+局所反射率 $\rho(\vect x)$ は、潜在コードを用いたニューラル BRDF である。$\vect f$、$\vect n$、$\vect l,\vect v,\vect h$ および反射視線方向 $\vect r$ のフーリエ符号化、それらの余弦、ハイライトの手掛かり $e^{\kappa(\vect n\cdot\vect h-1)}$~\cite{zeng2023nrhints} を入力する MLP に、平滑化した余弦 $\psi(\vect n\cdot\vect l)=\softplus(20\,\vect n\cdot\vect l)/20$ を掛けたものである。
+位置情報は、光源に依存する八つの応答を混合する、光源に依存しない八つの係数を通してのみ入力される。これにより、投影される影が材質へ焼き込まれる程度を制限するが、自由なガウシアンごとのコードにより一部の焼き込みはなお可能である。また、固定の鋭さ $\kappa\in\{8,\dots,2048\}$ と光源に依存しない重みを持つ等方的ローブ $s(\vect x)$ が鋭いハイライトを表現する。
+出射放射輝度は次式で与えられる。
+\begin{equation}
+  L(\vect x)=\bar E(\vect x)\big[V(\vect x)\,\rho(\vect x)+V_0(\vect x)\,s(\vect x)+L_{\mathrm{tr}}(\vect x)\big].
+  \label{eq:radiance}
+\end{equation}
+ローブには幾何に基づく判定 $V_0$ を用いるため、学習した $V$ がまだ誤っている場所でも、ハイライトへの勾配経路が維持される。
+$\bar E(\vect x)$ を括り出すことで、ネットワークは反射率に類する量を予測できる。$L_{\mathrm{tr}}$ に対しては、これにより入射点での距離減衰が受光点での距離減衰に置き換わり、背面照明による透過では光源からの距離の比の二乗 $(r_{\mathrm{out}}/r_{\mathrm{in}})^2$ に相当する誤差が生じる。カーネルがこの誤差を吸収できるのは平均的な意味でのみであるが、一つの撮影データ内で光源距離の変化が小さい場合には十分である。距離は合成シーンでは一定であり、実撮影シーンでは最大 $1.8\times$ の範囲に収まる（補足資料）。
+$\mathcal G$ と $\mathcal K$ のすべての入力は光源に対する相対量であり、演算子は光源位置を添字として持つのではなく、光源座標系で定義される。この性質が外挿に有効かどうかは、実験 E1 の検討対象である（\cref{sec:exp_atlas}）。
+
+\subsection{受光点：ガウシアンまたは画素}
+\label{sec:receivers}
+\emph{ガウシアン受光点}では、各ガウシアン中心 $\mu_i$ をシェーディングしてから、\cref{eq:composite} により色を合成する。\emph{画素受光点}では、まず $\vect b,\vect f$ と期待深度を合成し、各画素を世界座標の点へ逆投影して、一度だけシェーディングする。
+ガウシアン受光点は、高密度化が依存する通常のラスタライズ勾配を幾何形状に与え、重なった表面間で材質が混ざることも防ぐが、\cref{sec:intro} で述べたプリミティブごとの影の制約を引き継ぐ。
+画素受光点は各画素自身の表面点でシャドウ判定を評価するため、影の境界が大きなガウシアンの内部を横切ることができる。
+RNG における順方向から遅延シェーディングへの切り替え~\cite{fan2025rng} と同様に、\ours は同一のアトラスを使いながら、幾何形状の最適化中はガウシアン受光点を、形状を固定した後は画素受光点を用いる（\cref{sec:optimization}）。

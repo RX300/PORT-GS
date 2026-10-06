@@ -1,0 +1,61 @@
+{
+  "coarse_supported_points": 11677,
+  "proposal_bounds": [
+    [
+      -0.3265655040740967,
+      -0.5217780470848083,
+      -0.40472567081451416
+    ],
+    [
+      0.3328302800655365,
+      0.274574339389801,
+      0.40539470314979553
+    ]
+  ],
+  "proposal_points": 160000,
+  "accepted_points": 48912,
+  "mask_dilation_pixels": 2,
+  "minimum_view_fraction": 0.9,
+  "alpha_threshold": 0.05,
+  "scale_rule": "RMS distance to the three nearest neighbors",
+  "mode": "hull",
+  "scene": "/workspace/datasets/SSD-GS/data/Real_NRHints/Pikachu",
+  "fit_frames": [
+    0,
+    46,
+    92,
+    138,
+    184,
+    230,
+    276,
+    322,
+    368,
+    414,
+    460,
+    506,
+    552,
+    598,
+    644,
+    690,
+    736,
+    782,
+    828,
+    874,
+    920,
+    966,
+    1012,
+    1058,
+    1104,
+    1150,
+    1196,
+    1242,
+    1288,
+    1334,
+    1380,
+    1426
+  ],
+  "points": 20000,
+  "seed": 0,
+  "radius": 0.7116200923919678,
+  "scope": "Fresh seeds from training cameras and masks only"
+}

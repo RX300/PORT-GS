@@ -1,0 +1,61 @@
+{
+  "coarse_supported_points": 10711,
+  "proposal_bounds": [
+    [
+      -0.6906362175941467,
+      -0.6917822957038879,
+      -0.7171027064323425
+    ],
+    [
+      0.6967812180519104,
+      0.30328476428985596,
+      0.6824935078620911
+    ]
+  ],
+  "proposal_points": 160000,
+  "accepted_points": 50450,
+  "mask_dilation_pixels": 2,
+  "minimum_view_fraction": 0.9,
+  "alpha_threshold": 0.05,
+  "scale_rule": "RMS distance to the three nearest neighbors",
+  "mode": "hull",
+  "scene": "/workspace/datasets/SSD-GS/data/Real_NRHints/Fish",
+  "fit_frames": [
+    0,
+    16,
+    32,
+    48,
+    64,
+    80,
+    96,
+    112,
+    128,
+    144,
+    160,
+    176,
+    192,
+    208,
+    224,
+    240,
+    256,
+    272,
+    288,
+    304,
+    320,
+    336,
+    352,
+    368,
+    384,
+    400,
+    416,
+    432,
+    448,
+    464,
+    480,
+    496
+  ],
+  "points": 20000,
+  "seed": 0,
+  "radius": 1.2312977313995361,
+  "scope": "Fresh seeds from training cameras and masks only"
+}

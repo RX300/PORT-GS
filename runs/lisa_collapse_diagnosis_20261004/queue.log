@@ -1,0 +1,37 @@
+{"event": "startup_confirmed", "job": "PORT-Synthetic_SSS-GS-soap_small-ref", "gpu": "3", "pid": 446083, "phase": "train", "step": 100}
+{"event": "startup_confirmed", "job": "PORT-Real_NRHints-FurScene-ref", "gpu": "1", "pid": 446082, "phase": "train", "step": 100}
+{"event": "startup_confirmed", "job": "PORT-Real_NRHints-CupFabric-no_split2d", "gpu": "2", "pid": 446085, "phase": "train", "step": 100}
+{"event": "startup_confirmed", "job": "PORT-Real_NRHints-CupFabric-ref", "gpu": "0", "pid": 446081, "phase": "train", "step": 100}
+{"event": "phasefinish", "job": "PORT-Real_NRHints-FurScene-ref", "gpu": "1", "phase": "train", "pid": 446082}
+{"event": "phasefinish", "job": "PORT-Real_NRHints-FurScene-ref", "gpu": "1", "phase": "eval", "pid": 447462}
+{"event": "jobfinish", "job": "PORT-Real_NRHints-FurScene-ref", "gpu": "1"}
+{"event": "phasefinish", "job": "PORT-Real_NRHints-CupFabric-no_split2d", "gpu": "2", "phase": "train", "pid": 446085}
+{"event": "startup_confirmed", "job": "PORT-Real_NRHints-FurScene-no_split2d", "gpu": "1", "pid": 447672, "phase": "train", "step": 100}
+{"event": "phasefinish", "job": "PORT-Real_NRHints-CupFabric-no_split2d", "gpu": "2", "phase": "eval", "pid": 448179}
+{"event": "jobfinish", "job": "PORT-Real_NRHints-CupFabric-no_split2d", "gpu": "2"}
+{"event": "startup_confirmed", "job": "PORT-Synthetic_SSS-GS-soap_small-no_split2d", "gpu": "2", "pid": 448285, "phase": "train", "step": 100}
+{"event": "phasefinish", "job": "PORT-Real_NRHints-CupFabric-ref", "gpu": "0", "phase": "train", "pid": 446081}
+{"event": "phasefinish", "job": "PORT-Real_NRHints-CupFabric-ref", "gpu": "0", "phase": "eval", "pid": 448544}
+{"event": "jobfinish", "job": "PORT-Real_NRHints-CupFabric-ref", "gpu": "0"}
+{"event": "phasefinish", "job": "PORT-Synthetic_SSS-GS-soap_small-ref", "gpu": "3", "phase": "train", "pid": 446083}
+{"event": "phasefinish", "job": "PORT-Synthetic_SSS-GS-soap_small-ref", "gpu": "3", "phase": "eval", "pid": 448735}
+{"event": "jobfinish", "job": "PORT-Synthetic_SSS-GS-soap_small-ref", "gpu": "3"}
+{"event": "startup_confirmed", "job": "PORT-Real_NRHints-FurScene-no_split2d_spec", "gpu": "3", "pid": 448836, "phase": "train", "step": 100}
+{"event": "startup_confirmed", "job": "PORT-Real_NRHints-CupFabric-no_split2d_spec", "gpu": "0", "pid": 448658, "phase": "train", "step": 100}
+{"event": "phasefinish", "job": "PORT-Synthetic_SSS-GS-soap_small-no_split2d", "gpu": "2", "phase": "train", "pid": 448285}
+{"event": "phasefinish", "job": "PORT-Synthetic_SSS-GS-soap_small-no_split2d", "gpu": "2", "phase": "eval", "pid": 450278}
+{"event": "jobfinish", "job": "PORT-Synthetic_SSS-GS-soap_small-no_split2d", "gpu": "2"}
+{"event": "startup_confirmed", "job": "PORT-Synthetic_SSS-GS-soap_small-no_split2d_spec", "gpu": "2", "pid": 450397, "phase": "train", "step": 100}
+{"event": "phasefinish", "job": "PORT-Real_NRHints-FurScene-no_split2d", "gpu": "1", "phase": "train", "pid": 447672}
+{"event": "phasefinish", "job": "PORT-Real_NRHints-FurScene-no_split2d", "gpu": "1", "phase": "eval", "pid": 450500}
+{"event": "jobfinish", "job": "PORT-Real_NRHints-FurScene-no_split2d", "gpu": "1"}
+{"event": "phasefinish", "job": "PORT-Real_NRHints-FurScene-no_split2d_spec", "gpu": "3", "phase": "train", "pid": 448836}
+{"event": "phasefinish", "job": "PORT-Real_NRHints-FurScene-no_split2d_spec", "gpu": "3", "phase": "eval", "pid": 450768}
+{"event": "jobfinish", "job": "PORT-Real_NRHints-FurScene-no_split2d_spec", "gpu": "3"}
+{"event": "phasefinish", "job": "PORT-Real_NRHints-CupFabric-no_split2d_spec", "gpu": "0", "phase": "train", "pid": 448658}
+{"event": "phasefinish", "job": "PORT-Real_NRHints-CupFabric-no_split2d_spec", "gpu": "0", "phase": "eval", "pid": 451043}
+{"event": "jobfinish", "job": "PORT-Real_NRHints-CupFabric-no_split2d_spec", "gpu": "0"}
+{"event": "phasefinish", "job": "PORT-Synthetic_SSS-GS-soap_small-no_split2d_spec", "gpu": "2", "phase": "train", "pid": 450397}
+{"event": "phasefinish", "job": "PORT-Synthetic_SSS-GS-soap_small-no_split2d_spec", "gpu": "2", "phase": "eval", "pid": 451319}
+{"event": "jobfinish", "job": "PORT-Synthetic_SSS-GS-soap_small-no_split2d_spec", "gpu": "2"}
+{"event": "queue_complete", "status": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_collapse_diagnosis_20261004/status.json"}

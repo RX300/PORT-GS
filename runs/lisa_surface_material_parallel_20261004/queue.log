@@ -1,0 +1,13 @@
+{"event": "startup_confirmed", "job": "PORT-Synthetic_GS3-Drums-surface_material", "gpu": "2", "pid": 546019, "phase": "train", "step": 100}
+{"event": "startup_confirmed", "job": "PORT-Synthetic_GS3-FurBall-surface_material", "gpu": "3", "pid": 546020, "phase": "train", "step": 100}
+{"event": "phasefinish", "job": "PORT-Synthetic_GS3-FurBall-surface_material", "gpu": "3", "phase": "train", "pid": 546020}
+{"event": "phasefinish", "job": "PORT-Synthetic_GS3-FurBall-surface_material", "gpu": "3", "phase": "eval_016000", "pid": 550335}
+{"event": "phasefinish", "job": "PORT-Synthetic_GS3-FurBall-surface_material", "gpu": "3", "phase": "eval_030000", "pid": 550408}
+{"event": "phasefinish", "job": "PORT-Synthetic_GS3-FurBall-surface_material", "gpu": "3", "phase": "eval", "pid": 550473}
+{"event": "jobfinish", "job": "PORT-Synthetic_GS3-FurBall-surface_material", "gpu": "3"}
+{"event": "phasefinish", "job": "PORT-Synthetic_GS3-Drums-surface_material", "gpu": "2", "phase": "train", "pid": 546019}
+{"event": "phasefinish", "job": "PORT-Synthetic_GS3-Drums-surface_material", "gpu": "2", "phase": "eval_016000", "pid": 556208}
+{"event": "phasefinish", "job": "PORT-Synthetic_GS3-Drums-surface_material", "gpu": "2", "phase": "eval_030000", "pid": 556281}
+{"event": "phasefinish", "job": "PORT-Synthetic_GS3-Drums-surface_material", "gpu": "2", "phase": "eval", "pid": 556347}
+{"event": "jobfinish", "job": "PORT-Synthetic_GS3-Drums-surface_material", "gpu": "2"}
+{"event": "queue_complete", "status": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_surface_material_parallel_20261004/status.json"}

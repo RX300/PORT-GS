@@ -1,0 +1,25 @@
+{"event": "startup_confirmed", "job": "PORT-Real_NRHints-Pixiu-lisa_svbrdf", "gpu": 3, "pid": 268220, "phase": "train", "step": 100}
+{"event": "startup_confirmed", "job": "PORT-Real_NRHints-Cat-lisa_svbrdf", "gpu": 2, "pid": 268218, "phase": "train", "step": 100}
+{"event": "phasefinish", "job": "PORT-Real_NRHints-Pixiu-lisa_svbrdf", "gpu": 3, "phase": "train", "pid": 268220}
+{"event": "phasefinish", "job": "PORT-Real_NRHints-Pixiu-lisa_svbrdf", "gpu": 3, "phase": "eval", "pid": 269384}
+{"event": "jobfinish", "job": "PORT-Real_NRHints-Pixiu-lisa_svbrdf", "gpu": 3}
+{"event": "startup_confirmed", "job": "PORT-Synthetic_GS3-AnisoMetal-lisa_svbrdf", "gpu": 3, "pid": 269466, "phase": "train", "step": 100}
+{"event": "phasefinish", "job": "PORT-Real_NRHints-Cat-lisa_svbrdf", "gpu": 2, "phase": "train", "pid": 268218}
+{"event": "phasefinish", "job": "PORT-Real_NRHints-Cat-lisa_svbrdf", "gpu": 2, "phase": "eval", "pid": 269722}
+{"event": "jobfinish", "job": "PORT-Real_NRHints-Cat-lisa_svbrdf", "gpu": 2}
+{"event": "startup_confirmed", "job": "PORT-Synthetic_GS3-Translucent-lisa_svbrdf", "gpu": 2, "pid": 269826, "phase": "train", "step": 100}
+{"event": "phasefinish", "job": "PORT-Synthetic_GS3-AnisoMetal-lisa_svbrdf", "gpu": 3, "phase": "train", "pid": 269466}
+{"event": "phasefinish", "job": "PORT-Synthetic_GS3-AnisoMetal-lisa_svbrdf", "gpu": 3, "phase": "eval", "pid": 270853}
+{"event": "jobfinish", "job": "PORT-Synthetic_GS3-AnisoMetal-lisa_svbrdf", "gpu": 3}
+{"event": "startup_confirmed", "job": "PORT-Synthetic_SSS-GS-bunny_small-lisa_svbrdf", "gpu": 3, "pid": 270993, "phase": "train", "step": 100}
+{"event": "phasefinish", "job": "PORT-Synthetic_GS3-Translucent-lisa_svbrdf", "gpu": 2, "phase": "train", "pid": 269826}
+{"event": "phasefinish", "job": "PORT-Synthetic_GS3-Translucent-lisa_svbrdf", "gpu": 2, "phase": "eval", "pid": 271294}
+{"event": "jobfinish", "job": "PORT-Synthetic_GS3-Translucent-lisa_svbrdf", "gpu": 2}
+{"event": "startup_confirmed", "job": "PORT-Synthetic_SSS-GS-dragon_small-lisa_svbrdf", "gpu": 2, "pid": 271429, "phase": "train", "step": 100}
+{"event": "phasefinish", "job": "PORT-Synthetic_SSS-GS-bunny_small-lisa_svbrdf", "gpu": 3, "phase": "train", "pid": 270993}
+{"event": "phasefinish", "job": "PORT-Synthetic_SSS-GS-bunny_small-lisa_svbrdf", "gpu": 3, "phase": "eval", "pid": 272170}
+{"event": "jobfinish", "job": "PORT-Synthetic_SSS-GS-bunny_small-lisa_svbrdf", "gpu": 3}
+{"event": "phasefinish", "job": "PORT-Synthetic_SSS-GS-dragon_small-lisa_svbrdf", "gpu": 2, "phase": "train", "pid": 271429}
+{"event": "phasefinish", "job": "PORT-Synthetic_SSS-GS-dragon_small-lisa_svbrdf", "gpu": 2, "phase": "eval", "pid": 272426}
+{"event": "jobfinish", "job": "PORT-Synthetic_SSS-GS-dragon_small-lisa_svbrdf", "gpu": 2}
+{"event": "queue_complete", "status": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/light_atlas_svbrdf_six_scene_20261002/status.json"}

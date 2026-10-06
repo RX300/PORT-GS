@@ -86,6 +86,8 @@ def build_parser(argv=None):
                         'Source splits and fitted camera mappings are unchanged.')
     p.add_argument("--init-radius", type=float)
     p.add_argument("--display-gamma", type=float, default=2.2)
+    p.add_argument("--loss-domain", choices=["observation", "linear"], default="observation",
+                   help="Photometric training domain; evaluation always retains --display-gamma")
     p.add_argument("--opacity-cap", type=float, default=0.99)
     p.add_argument("--min-scale", type=float, default=1e-4)
     p.add_argument("--max-scale", type=float, default=0.1)

@@ -1,0 +1,21 @@
+{"event": "startup_confirmed", "job": "PORT-Synthetic_GS3-Lego-deferred", "gpu": "1", "pid": 577275, "phase": "train", "step": 100}
+{"event": "startup_confirmed", "job": "PORT-Synthetic_GS3-Drums-deferred", "gpu": "2", "pid": 577276, "phase": "train", "step": 100}
+{"event": "phasefinish", "job": "PORT-Synthetic_GS3-Lego-deferred", "gpu": "1", "phase": "train", "pid": 577275}
+{"event": "phasefinish", "job": "PORT-Synthetic_GS3-Drums-deferred", "gpu": "2", "phase": "train", "pid": 577276}
+{"event": "phasefinish", "job": "PORT-Synthetic_GS3-Lego-deferred", "gpu": "1", "phase": "eval", "pid": 577966}
+{"event": "jobfinish", "job": "PORT-Synthetic_GS3-Lego-deferred", "gpu": "1"}
+{"event": "phasefinish", "job": "PORT-Synthetic_GS3-Drums-deferred", "gpu": "2", "phase": "eval", "pid": 578029}
+{"event": "jobfinish", "job": "PORT-Synthetic_GS3-Drums-deferred", "gpu": "2"}
+{"event": "startup_confirmed", "job": "PORT-Real_NRHints-Cat-deferred", "gpu": "2", "pid": 578129, "phase": "train", "step": 100}
+{"event": "startup_confirmed", "job": "PORT-Synthetic_GS3-FurBall-deferred", "gpu": "1", "pid": 578079, "phase": "train", "step": 100}
+{"event": "phasefinish", "job": "PORT-Real_NRHints-Cat-deferred", "gpu": "2", "phase": "train", "pid": 578129}
+{"event": "phasefinish", "job": "PORT-Real_NRHints-Cat-deferred", "gpu": "2", "phase": "eval", "pid": 579112}
+{"event": "jobfinish", "job": "PORT-Real_NRHints-Cat-deferred", "gpu": "2"}
+{"event": "startup_confirmed", "job": "PORT-Synthetic_SSS-GS-soap_small-deferred", "gpu": "2", "pid": 579173, "phase": "train", "step": 100}
+{"event": "phasefinish", "job": "PORT-Synthetic_GS3-FurBall-deferred", "gpu": "1", "phase": "train", "pid": 578079}
+{"event": "phasefinish", "job": "PORT-Synthetic_GS3-FurBall-deferred", "gpu": "1", "phase": "eval", "pid": 579245}
+{"event": "jobfinish", "job": "PORT-Synthetic_GS3-FurBall-deferred", "gpu": "1"}
+{"event": "phasefinish", "job": "PORT-Synthetic_SSS-GS-soap_small-deferred", "gpu": "2", "phase": "train", "pid": 579173}
+{"event": "phasefinish", "job": "PORT-Synthetic_SSS-GS-soap_small-deferred", "gpu": "2", "phase": "eval", "pid": 579854}
+{"event": "jobfinish", "job": "PORT-Synthetic_SSS-GS-soap_small-deferred", "gpu": "2"}
+{"event": "queue_complete", "status": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_deferred_appearance_20261004/status.json"}

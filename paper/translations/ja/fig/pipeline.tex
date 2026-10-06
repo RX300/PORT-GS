@@ -1,0 +1,9 @@
+\begin{figure*}[t]
+  \centering
+  \resizebox{0.94\textwidth}{!}{\input{fig/pipeline_tikz}}
+  \caption{\textbf{手法の概要。}
+各光源について、ガウシアンを光源から一回ラスタライズする。各ガウシアンは、遮り受け取る光の割合に等しい合成重みで、学習した光束特徴 $\boldsymbol\phi_i$ と深度モーメントを沈着させる（\cref{eq:atlas}）。
+受光点は光源視点に投影され、ピラミッドから多重スケールの統計量と光束を集約する。モーメントによるシャドウ判定への残差、集約した光束特徴に線形に作用する光輸送カーネル、および局所材質によってシェーディングされる。
+サムネイルは Hotdog モデルのテストビューでの実際のバッファである。下部は \cref{sec:optimization} のスケジュールを示す。}
+  \label{fig:pipeline}
+\end{figure*}

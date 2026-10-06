@@ -1,0 +1,116 @@
+{
+  "name": "light_holdout_generalization_20261002",
+  "note": "Held-out light-angle groups (validation split; no official test frames). (1) Head comparison: light_atlas svbrdf head on AnisoMetal/Translucent/bunny_small/dragon_small/Pixiu, spatial and compact heads on Translucent/dragon_small/Pixiu (their AnisoMetal/bunny_small runs are reused from light_atlas_head_selection_20261001, same protocol). (2) Light generalization: directional_port_v1 on the four synthetic scenes.",
+  "python": "/workspace/ubuntu2004_cuda12_1/utils/conda-envs/ssd-gs/bin/python",
+  "data_root": "/workspace/datasets/SSD-GS/data",
+  "worker_gpus": [
+    2,
+    3
+  ],
+  "launch_environment": {
+    "PATH_prefix": "/workspace/ubuntu2004_cuda12_1/utils/conda-envs/ssd-gs/bin:/usr/local/cuda-12.1/bin",
+    "CUDA_HOME": "/usr/local/cuda-12.1",
+    "TORCH_CUDA_ARCH_LIST": "8.9",
+    "MAX_JOBS": "8",
+    "OMP_NUM_THREADS": "8",
+    "HF_HOME": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/third_party/hf_cache",
+    "TORCH_HOME": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/third_party/torch_cache",
+    "MPLCONFIGDIR": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/third_party/mpl_cache",
+    "PYTHONDONTWRITEBYTECODE": "1",
+    "OPENBLAS_NUM_THREADS": "1",
+    "PYTORCH_CUDA_ALLOC_CONF": "expandable_segments:True"
+  },
+  "train": {
+    "steps": 30000,
+    "seed": 0,
+    "resolution": 512,
+    "background": 0.0,
+    "display-gamma": 2.2
+  },
+  "families": {
+    "Real_NRHints": {
+      "scenes": [
+        "Pixiu"
+      ],
+      "train": {
+        "optimize-cameras": true,
+        "camera-mode": "rotation",
+        "camera-gauge": "translation",
+        "camera-start": 2000,
+        "camera-lr": 0.001,
+        "camera-lr-final": 1e-05
+      }
+    },
+    "Synthetic_GS3": {
+      "scenes": [
+        "AnisoMetal",
+        "Translucent"
+      ],
+      "train": {
+        "background": 1.0
+      }
+    },
+    "Synthetic_SSS-GS": {
+      "scenes": [
+        "bunny_small",
+        "dragon_small"
+      ],
+      "train": {
+        "resolution": 256,
+        "unit-light-intensity": 1.0
+      }
+    }
+  },
+  "variants": {
+    "lisa_svbrdf": {
+      "representation": "light_atlas",
+      "shadow-start": 2000,
+      "port-start": 2000,
+      "material-head": "svbrdf",
+      "scenes": [
+        "Pixiu",
+        "AnisoMetal",
+        "Translucent",
+        "bunny_small",
+        "dragon_small"
+      ]
+    },
+    "lisa_spatial": {
+      "representation": "light_atlas",
+      "shadow-start": 2000,
+      "port-start": 2000,
+      "material-head": "spatial",
+      "scenes": [
+        "Pixiu",
+        "Translucent",
+        "dragon_small"
+      ]
+    },
+    "lisa_compact": {
+      "representation": "light_atlas",
+      "shadow-start": 2000,
+      "port-start": 2000,
+      "material-head": "compact",
+      "scenes": [
+        "Pixiu",
+        "Translucent",
+        "dragon_small"
+      ]
+    },
+    "directional_port_v1": {
+      "representation": "directional_port_v1",
+      "scenes": [
+        "AnisoMetal",
+        "Translucent",
+        "bunny_small",
+        "dragon_small"
+      ]
+    }
+  },
+  "eval_split": "validation",
+  "eval_limit": 0,
+  "eval_save_all": false,
+  "eval_highlights": false,
+  "eval_shift_align": 0,
+  "eval_calibrate_test": 0
+}

@@ -1,0 +1,416 @@
+{
+  "manifest": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/light_atlas_svbrdf_hard_scenes/manifest.json",
+  "state": "completed",
+  "started_utc": "2026-10-02T06:23:02.674463+00:00",
+  "finished_utc": "2026-10-02T07:38:53.162128+00:00",
+  "scheduler_pid": 291911,
+  "updated_utc": "2026-10-02T07:38:53.162164+00:00",
+  "workers": {
+    "3": {
+      "state": "idle",
+      "job": null,
+      "pid": null
+    }
+  },
+  "jobs": {
+    "PORT-Real_NRHints-FurScene-lisa_svbrdf": {
+      "method": "PORT-GS",
+      "family": "Real_NRHints",
+      "scene": "FurScene",
+      "state": "completed",
+      "gpu": 3,
+      "phase": null,
+      "pid": null,
+      "output": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/light_atlas_svbrdf_hard_scenes/lisa_svbrdf/Real_NRHints/FurScene",
+      "resultpath": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/light_atlas_svbrdf_hard_scenes/lisa_svbrdf/Real_NRHints/FurScene/test/metrics.json",
+      "source_archive": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/light_atlas_svbrdf_hard_scenes/source.tar",
+      "reused_from": null,
+      "steps": {
+        "train": {
+          "state": "completed",
+          "cwd": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS",
+          "argv": [
+            "/workspace/ubuntu2004_cuda12_1/utils/conda-envs/ssd-gs/bin/python",
+            "-u",
+            "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/train.py",
+            "--steps",
+            "30000",
+            "--seed",
+            "0",
+            "--fit-all",
+            "--resolution",
+            "512",
+            "--background",
+            "0.0",
+            "--display-gamma",
+            "2.2",
+            "--shadow-start",
+            "2000",
+            "--port-start",
+            "2000",
+            "--representation",
+            "light_atlas",
+            "--material-head",
+            "svbrdf",
+            "--optimize-cameras",
+            "--camera-mode",
+            "rotation",
+            "--camera-gauge",
+            "translation",
+            "--camera-start",
+            "2000",
+            "--camera-lr",
+            "0.001",
+            "--camera-lr-final",
+            "1e-05",
+            "--scene",
+            "/workspace/datasets/SSD-GS/data/Real_NRHints/FurScene",
+            "--output",
+            "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/light_atlas_svbrdf_hard_scenes/lisa_svbrdf/Real_NRHints/FurScene"
+          ],
+          "logpath": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/light_atlas_svbrdf_hard_scenes/lisa_svbrdf/Real_NRHints/FurScene.train.log",
+          "output": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/light_atlas_svbrdf_hard_scenes/lisa_svbrdf/Real_NRHints/FurScene",
+          "resultpath": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/light_atlas_svbrdf_hard_scenes/lisa_svbrdf/Real_NRHints/FurScene/last.pt",
+          "started_utc": "2026-10-02T06:23:02.676338+00:00",
+          "pid": null,
+          "startup_confirmed": {
+            "pid": 291917,
+            "gpu": 3,
+            "step": 100,
+            "row": {
+              "step": 100,
+              "stage": "relighting",
+              "frame_index": 82,
+              "loss": 0.15395109355449677,
+              "l1": 0.09639617055654526,
+              "loss_terms": {
+                "l1": 0.0771169364452362,
+                "ssim": 0.061602331697940826,
+                "mask": 0.015231780707836151,
+                "feature_reg": 4.0987050198282304e-08,
+                "camera_reg": 0.0
+              },
+              "points": 20000,
+              "seconds": 4.13,
+              "memory_GiB": 4.702335834503174,
+              "camera_rotation_rms": 0.0,
+              "camera_lr": 0.001,
+              "scene_gauge_shift": [
+                0.0,
+                0.0,
+                0.0
+              ]
+            }
+          },
+          "finished_utc": "2026-10-02T06:46:34.294924+00:00",
+          "last_pid": 291917
+        },
+        "eval": {
+          "state": "completed",
+          "cwd": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS",
+          "argv": [
+            "/workspace/ubuntu2004_cuda12_1/utils/conda-envs/ssd-gs/bin/python",
+            "-u",
+            "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/evaluate.py",
+            "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/light_atlas_svbrdf_hard_scenes/lisa_svbrdf/Real_NRHints/FurScene/last.pt",
+            "--split",
+            "test",
+            "--output",
+            "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/light_atlas_svbrdf_hard_scenes/lisa_svbrdf/Real_NRHints/FurScene/test",
+            "--lpips",
+            "--highlights",
+            "--save-all"
+          ],
+          "logpath": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/light_atlas_svbrdf_hard_scenes/lisa_svbrdf/Real_NRHints/FurScene.test.log",
+          "output": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/light_atlas_svbrdf_hard_scenes/lisa_svbrdf/Real_NRHints/FurScene/test",
+          "resultpath": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/light_atlas_svbrdf_hard_scenes/lisa_svbrdf/Real_NRHints/FurScene/test/metrics.json",
+          "started_utc": "2026-10-02T06:46:34.295622+00:00",
+          "pid": null,
+          "finished_utc": "2026-10-02T06:46:49.149387+00:00",
+          "last_pid": 294929
+        }
+      },
+      "started_utc": "2026-10-02T06:23:02.675612+00:00",
+      "startup_confirmed": {
+        "pid": 291917,
+        "gpu": 3,
+        "step": 100,
+        "row": {
+          "step": 100,
+          "stage": "relighting",
+          "frame_index": 82,
+          "loss": 0.15395109355449677,
+          "l1": 0.09639617055654526,
+          "loss_terms": {
+            "l1": 0.0771169364452362,
+            "ssim": 0.061602331697940826,
+            "mask": 0.015231780707836151,
+            "feature_reg": 4.0987050198282304e-08,
+            "camera_reg": 0.0
+          },
+          "points": 20000,
+          "seconds": 4.13,
+          "memory_GiB": 4.702335834503174,
+          "camera_rotation_rms": 0.0,
+          "camera_lr": 0.001,
+          "scene_gauge_shift": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        }
+      },
+      "finished_utc": "2026-10-02T06:46:49.150562+00:00"
+    },
+    "PORT-Synthetic_GS3-Drums-lisa_svbrdf": {
+      "method": "PORT-GS",
+      "family": "Synthetic_GS3",
+      "scene": "Drums",
+      "state": "completed",
+      "gpu": 3,
+      "phase": null,
+      "pid": null,
+      "output": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/light_atlas_svbrdf_hard_scenes/lisa_svbrdf/Synthetic_GS3/Drums",
+      "resultpath": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/light_atlas_svbrdf_hard_scenes/lisa_svbrdf/Synthetic_GS3/Drums/test/metrics.json",
+      "source_archive": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/light_atlas_svbrdf_hard_scenes/source.tar",
+      "reused_from": null,
+      "steps": {
+        "train": {
+          "state": "completed",
+          "cwd": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS",
+          "argv": [
+            "/workspace/ubuntu2004_cuda12_1/utils/conda-envs/ssd-gs/bin/python",
+            "-u",
+            "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/train.py",
+            "--steps",
+            "30000",
+            "--seed",
+            "0",
+            "--fit-all",
+            "--resolution",
+            "512",
+            "--background",
+            "1.0",
+            "--display-gamma",
+            "2.2",
+            "--shadow-start",
+            "2000",
+            "--port-start",
+            "2000",
+            "--representation",
+            "light_atlas",
+            "--material-head",
+            "svbrdf",
+            "--scene",
+            "/workspace/datasets/SSD-GS/data/Synthetic_GS3/Drums",
+            "--output",
+            "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/light_atlas_svbrdf_hard_scenes/lisa_svbrdf/Synthetic_GS3/Drums"
+          ],
+          "logpath": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/light_atlas_svbrdf_hard_scenes/lisa_svbrdf/Synthetic_GS3/Drums.train.log",
+          "output": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/light_atlas_svbrdf_hard_scenes/lisa_svbrdf/Synthetic_GS3/Drums",
+          "resultpath": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/light_atlas_svbrdf_hard_scenes/lisa_svbrdf/Synthetic_GS3/Drums/last.pt",
+          "started_utc": "2026-10-02T06:46:49.165332+00:00",
+          "pid": null,
+          "startup_confirmed": {
+            "pid": 295021,
+            "gpu": 3,
+            "step": 100,
+            "row": {
+              "step": 100,
+              "stage": "relighting",
+              "frame_index": 917,
+              "loss": 0.25643542408943176,
+              "l1": 0.2172286957502365,
+              "loss_terms": {
+                "l1": 0.17378295958042145,
+                "ssim": 0.04325447231531143,
+                "mask": 0.039397917687892914,
+                "feature_reg": 5.8579644246492535e-08,
+                "camera_reg": 0.0
+              },
+              "points": 20000,
+              "seconds": 4.32,
+              "memory_GiB": 9.877845287322998
+            }
+          },
+          "finished_utc": "2026-10-02T07:14:35.787777+00:00",
+          "last_pid": 295021
+        },
+        "eval": {
+          "state": "completed",
+          "cwd": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS",
+          "argv": [
+            "/workspace/ubuntu2004_cuda12_1/utils/conda-envs/ssd-gs/bin/python",
+            "-u",
+            "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/evaluate.py",
+            "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/light_atlas_svbrdf_hard_scenes/lisa_svbrdf/Synthetic_GS3/Drums/last.pt",
+            "--split",
+            "test",
+            "--output",
+            "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/light_atlas_svbrdf_hard_scenes/lisa_svbrdf/Synthetic_GS3/Drums/test",
+            "--lpips",
+            "--highlights",
+            "--save-all"
+          ],
+          "logpath": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/light_atlas_svbrdf_hard_scenes/lisa_svbrdf/Synthetic_GS3/Drums.test.log",
+          "output": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/light_atlas_svbrdf_hard_scenes/lisa_svbrdf/Synthetic_GS3/Drums/test",
+          "resultpath": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/light_atlas_svbrdf_hard_scenes/lisa_svbrdf/Synthetic_GS3/Drums/test/metrics.json",
+          "started_utc": "2026-10-02T07:14:35.788500+00:00",
+          "pid": null,
+          "finished_utc": "2026-10-02T07:15:35.164004+00:00",
+          "last_pid": 296946
+        }
+      },
+      "started_utc": "2026-10-02T06:46:49.151752+00:00",
+      "startup_confirmed": {
+        "pid": 295021,
+        "gpu": 3,
+        "step": 100,
+        "row": {
+          "step": 100,
+          "stage": "relighting",
+          "frame_index": 917,
+          "loss": 0.25643542408943176,
+          "l1": 0.2172286957502365,
+          "loss_terms": {
+            "l1": 0.17378295958042145,
+            "ssim": 0.04325447231531143,
+            "mask": 0.039397917687892914,
+            "feature_reg": 5.8579644246492535e-08,
+            "camera_reg": 0.0
+          },
+          "points": 20000,
+          "seconds": 4.32,
+          "memory_GiB": 9.877845287322998
+        }
+      },
+      "finished_utc": "2026-10-02T07:15:35.165337+00:00"
+    },
+    "PORT-Synthetic_SSS-GS-statue_small-lisa_svbrdf": {
+      "method": "PORT-GS",
+      "family": "Synthetic_SSS-GS",
+      "scene": "statue_small",
+      "state": "completed",
+      "gpu": 3,
+      "phase": null,
+      "pid": null,
+      "output": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/light_atlas_svbrdf_hard_scenes/lisa_svbrdf/Synthetic_SSS-GS/statue_small",
+      "resultpath": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/light_atlas_svbrdf_hard_scenes/lisa_svbrdf/Synthetic_SSS-GS/statue_small/test/metrics.json",
+      "source_archive": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/light_atlas_svbrdf_hard_scenes/source.tar",
+      "reused_from": null,
+      "steps": {
+        "train": {
+          "state": "completed",
+          "cwd": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS",
+          "argv": [
+            "/workspace/ubuntu2004_cuda12_1/utils/conda-envs/ssd-gs/bin/python",
+            "-u",
+            "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/train.py",
+            "--steps",
+            "30000",
+            "--seed",
+            "0",
+            "--fit-all",
+            "--resolution",
+            "256",
+            "--background",
+            "0.0",
+            "--display-gamma",
+            "2.2",
+            "--shadow-start",
+            "2000",
+            "--port-start",
+            "2000",
+            "--representation",
+            "light_atlas",
+            "--material-head",
+            "svbrdf",
+            "--unit-light-intensity",
+            "1.0",
+            "--scene",
+            "/workspace/datasets/SSD-GS/data/Synthetic_SSS-GS/statue_small",
+            "--output",
+            "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/light_atlas_svbrdf_hard_scenes/lisa_svbrdf/Synthetic_SSS-GS/statue_small"
+          ],
+          "logpath": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/light_atlas_svbrdf_hard_scenes/lisa_svbrdf/Synthetic_SSS-GS/statue_small.train.log",
+          "output": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/light_atlas_svbrdf_hard_scenes/lisa_svbrdf/Synthetic_SSS-GS/statue_small",
+          "resultpath": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/light_atlas_svbrdf_hard_scenes/lisa_svbrdf/Synthetic_SSS-GS/statue_small/last.pt",
+          "started_utc": "2026-10-02T07:15:35.167626+00:00",
+          "pid": null,
+          "startup_confirmed": {
+            "pid": 297089,
+            "gpu": 3,
+            "step": 100,
+            "row": {
+              "step": 100,
+              "stage": "relighting",
+              "frame_index": 229,
+              "loss": 0.05619337782263756,
+              "l1": 0.006072160787880421,
+              "loss_terms": {
+                "l1": 0.004857728723436594,
+                "ssim": 0.011699462309479713,
+                "mask": 0.03963615372776985,
+                "feature_reg": 3.3405083144089076e-08,
+                "camera_reg": 0.0
+              },
+              "points": 20000,
+              "seconds": 2.77,
+              "memory_GiB": 1.034684658050537
+            }
+          },
+          "finished_utc": "2026-10-02T07:38:28.679935+00:00",
+          "last_pid": 297089
+        },
+        "eval": {
+          "state": "completed",
+          "cwd": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS",
+          "argv": [
+            "/workspace/ubuntu2004_cuda12_1/utils/conda-envs/ssd-gs/bin/python",
+            "-u",
+            "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/evaluate.py",
+            "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/light_atlas_svbrdf_hard_scenes/lisa_svbrdf/Synthetic_SSS-GS/statue_small/last.pt",
+            "--split",
+            "test",
+            "--output",
+            "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/light_atlas_svbrdf_hard_scenes/lisa_svbrdf/Synthetic_SSS-GS/statue_small/test",
+            "--lpips",
+            "--highlights",
+            "--save-all"
+          ],
+          "logpath": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/light_atlas_svbrdf_hard_scenes/lisa_svbrdf/Synthetic_SSS-GS/statue_small.test.log",
+          "output": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/light_atlas_svbrdf_hard_scenes/lisa_svbrdf/Synthetic_SSS-GS/statue_small/test",
+          "resultpath": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/light_atlas_svbrdf_hard_scenes/lisa_svbrdf/Synthetic_SSS-GS/statue_small/test/metrics.json",
+          "started_utc": "2026-10-02T07:38:28.681231+00:00",
+          "pid": null,
+          "finished_utc": "2026-10-02T07:38:53.158071+00:00",
+          "last_pid": 299280
+        }
+      },
+      "started_utc": "2026-10-02T07:15:35.166662+00:00",
+      "startup_confirmed": {
+        "pid": 297089,
+        "gpu": 3,
+        "step": 100,
+        "row": {
+          "step": 100,
+          "stage": "relighting",
+          "frame_index": 229,
+          "loss": 0.05619337782263756,
+          "l1": 0.006072160787880421,
+          "loss_terms": {
+            "l1": 0.004857728723436594,
+            "ssim": 0.011699462309479713,
+            "mask": 0.03963615372776985,
+            "feature_reg": 3.3405083144089076e-08,
+            "camera_reg": 0.0
+          },
+          "points": 20000,
+          "seconds": 2.77,
+          "memory_GiB": 1.034684658050537
+        }
+      },
+      "finished_utc": "2026-10-02T07:38:53.159514+00:00"
+    }
+  }
+}

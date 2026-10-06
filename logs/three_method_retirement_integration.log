@@ -1,0 +1,12 @@
+/workspace/ubuntu2004_cuda12_1/utils/conda-envs/ssd-gs/lib/python3.10/site-packages/torch/functional.py:386: UserWarning: Deterministic behavior was enabled with either `torch.use_deterministic_algorithms(True)` or `at::Context::setDeterministicAlgorithms(true)`, but this operation is not deterministic because it uses CuBLAS and you have CUDA >= 10.2. To enable deterministic behavior in this case, you must set an environment variable before running your PyTorch application: CUBLAS_WORKSPACE_CONFIG=:4096:8 or CUBLAS_WORKSPACE_CONFIG=:16:8. For more information, go to https://docs.nvidia.com/cuda/cublas/index.html#results-reproducibility (Triggered internally at /opt/conda/conda-bld/pytorch_1724789115765/work/aten/src/ATen/Context.cpp:185.)
+  return _VF.einsum(equation, operands)  # type: ignore[attr-defined]
+/workspace/ubuntu2004_cuda12_1/utils/conda-envs/ssd-gs/lib/python3.10/site-packages/torch/autograd/graph.py:769: UserWarning: Deterministic behavior was enabled with either `torch.use_deterministic_algorithms(True)` or `at::Context::setDeterministicAlgorithms(true)`, but this operation is not deterministic because it uses CuBLAS and you have CUDA >= 10.2. To enable deterministic behavior in this case, you must set an environment variable before running your PyTorch application: CUBLAS_WORKSPACE_CONFIG=:4096:8 or CUBLAS_WORKSPACE_CONFIG=:16:8. For more information, go to https://docs.nvidia.com/cuda/cublas/index.html#results-reproducibility (Triggered internally at /opt/conda/conda-bld/pytorch_1724789115765/work/aten/src/ATen/Context.cpp:185.)
+  return Variable._execution_engine.run_backward(  # Calls into the C++ engine to run the backward pass
+PASS: 2DGS feature padding preserves forward output and finite gradients with poisoned allocations
+PASS: disk shadow visibility [1.0, 0.30035024881362915]
+Traceback (most recent call last):
+  File "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/test_method_integration.py", line 1128, in <module>
+    main()
+  File "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/test_method_integration.py", line 1092, in main
+    assert metrics['corrected_fit_frames'] == 4
+AssertionError

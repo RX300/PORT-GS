@@ -1,0 +1,28 @@
+{
+  "checkpoint": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_staged_full_dataset_20261004/Synthetic_GS3/Drums/appearance/last.pt",
+  "videos": [
+    {
+      "mode": "moving_light",
+      "path": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_supplementary_experiments/render_efficiency/Synthetic_GS3/Drums/moving_light.mp4",
+      "frames": 96,
+      "mean_frame_change": 0.0005632422546592639,
+      "max_frame_change": 0.0009527401416562498
+    },
+    {
+      "mode": "moving_camera",
+      "path": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_supplementary_experiments/render_efficiency/Synthetic_GS3/Drums/moving_camera.mp4",
+      "frames": 96,
+      "mean_frame_change": 0.02286706818512788,
+      "max_frame_change": 0.0335424542427063
+    },
+    {
+      "mode": "moving_camera_and_light",
+      "path": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_supplementary_experiments/render_efficiency/Synthetic_GS3/Drums/moving_camera_and_light.mp4",
+      "frames": 96,
+      "mean_frame_change": 0.022880410804952445,
+      "max_frame_change": 0.033539578318595886
+    }
+  ],
+  "trajectory": "Sinusoidal world-Z camera orbit \u00b130 degrees and light orbit \u00b145 degrees around scene center.",
+  "interpretation": "No GT on these paths. Frame differences include intended motion/lighting changes and are diagnostics, not ground-truth flicker error."
+}

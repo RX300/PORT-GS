@@ -1,0 +1,105 @@
+{
+  "name": "lisa_v2_selection_20261004",
+  "note": "Held-out-light selection of the LiSA fixes on 8 development scenes (the six largest deficits plus two LiSA-favourable controls). Full 30k svbrdf recipe, seed 0, train-internal light-group split; only the held-out training lights are scored; no official test frame is rendered. Nested variants: ref (current), nosplit (no gradient-free 2D-footprint split), nosplit_fg (+ GT-alpha-weighted appearance gradients), nosplit_fg_spec (+ moment-shaded specular lobe bank). Decision rule fixed before results: adopt the variant with the highest mean held-out PSNR over the 8 scenes; an added component must not lower that mean.",
+  "python": "/workspace/ubuntu2004_cuda12_1/utils/conda-envs/ssd-gs/bin/python",
+  "data_root": "/workspace/datasets/SSD-GS/data",
+  "worker_gpus": [
+    0,
+    0,
+    1,
+    1,
+    2,
+    2,
+    3,
+    3
+  ],
+  "launch_environment": {
+    "PATH_prefix": "/workspace/ubuntu2004_cuda12_1/utils/conda-envs/ssd-gs/bin:/usr/local/cuda-12.1/bin",
+    "CUDA_HOME": "/usr/local/cuda-12.1",
+    "TORCH_CUDA_ARCH_LIST": "8.9",
+    "MAX_JOBS": "8",
+    "OMP_NUM_THREADS": "8",
+    "HF_HOME": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/third_party/hf_cache",
+    "TORCH_HOME": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/third_party/torch_cache",
+    "MPLCONFIGDIR": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/third_party/mpl_cache",
+    "PYTHONDONTWRITEBYTECODE": "1",
+    "OPENBLAS_NUM_THREADS": "1",
+    "PYTORCH_CUDA_ALLOC_CONF": "expandable_segments:True"
+  },
+  "train": {
+    "steps": 30000,
+    "seed": 0,
+    "resolution": 512,
+    "background": 0.0,
+    "display-gamma": 2.2,
+    "shadow-start": 2000,
+    "port-start": 2000
+  },
+  "families": {
+    "Real_NRHints": {
+      "scenes": [
+        "Cat",
+        "CupFabric",
+        "FurScene"
+      ],
+      "train": {
+        "optimize-cameras": true,
+        "camera-mode": "rotation",
+        "camera-gauge": "translation",
+        "camera-start": 2000,
+        "camera-lr": 0.001,
+        "camera-lr-final": 1e-05
+      }
+    },
+    "Synthetic_GS3": {
+      "scenes": [
+        "Drums",
+        "Hotdog",
+        "Lego"
+      ],
+      "train": {
+        "background": 1.0
+      }
+    },
+    "Synthetic_SSS-GS": {
+      "scenes": [
+        "bunny_small",
+        "soap_small"
+      ],
+      "train": {
+        "resolution": 256,
+        "unit-light-intensity": 1.0
+      }
+    }
+  },
+  "variants": {
+    "nosplit_fg_spec": {
+      "representation": "light_atlas",
+      "material-head": "svbrdf",
+      "split-scale2d-stop": 0,
+      "foreground-appearance": true,
+      "specular": "lobes"
+    },
+    "nosplit_fg": {
+      "representation": "light_atlas",
+      "material-head": "svbrdf",
+      "split-scale2d-stop": 0,
+      "foreground-appearance": true
+    },
+    "ref": {
+      "representation": "light_atlas",
+      "material-head": "svbrdf"
+    },
+    "nosplit": {
+      "representation": "light_atlas",
+      "material-head": "svbrdf",
+      "split-scale2d-stop": 0
+    }
+  },
+  "eval_split": "validation",
+  "eval_limit": 0,
+  "eval_save_all": false,
+  "eval_highlights": true,
+  "eval_shift_align": 0,
+  "eval_calibrate_test": 0
+}

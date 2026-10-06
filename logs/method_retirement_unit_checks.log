@@ -1,0 +1,74 @@
+test_analytic_material_initialization_and_checkpoint (test_methods.MethodTests) ... ok
+test_analytic_material_peak_reciprocity_and_gradients (test_methods.MethodTests) ... ok
+test_attention_checkpoint_without_score_retains_dot_behavior (test_methods.MethodTests) ... ok
+test_attention_matches_explicit_cross_attention_and_source_permutation (test_methods.MethodTests) ... ok
+test_cosine_attention_ignores_query_key_norm_and_keeps_light_linearity (test_methods.MethodTests) ... ok
+test_explicit_checkpoints_are_evaluated_after_training (test_methods.MethodTests) ... ok
+test_foundation_explicit_subset_mapping_uses_original_indices (test_methods.MethodTests) ... ok
+test_foundation_frame_mapping_and_unsigned_target_difference (test_methods.MethodTests) ... ok
+test_foundation_png_orientation_and_exact_names (test_methods.MethodTests) ... ok
+test_foundation_ring_domain_and_pixel_pooling (test_methods.MethodTests) ... ok
+test_foundation_train_subset_saved_png_comparison (test_methods.MethodTests) ... {"scene": "subset", "frames_completed": 1, "total_frames": 2}
+{"scene": "subset", "frames_completed": 2, "total_frames": 2}
+/workspace/ubuntu2004_cuda12_1/utils/conda-envs/ssd-gs/lib/python3.10/site-packages/matplotlib/fontconfig_pattern.py:66: PyparsingDeprecationWarning: 'setParseAction' deprecated - use 'set_parse_action'
+  ).setParseAction(self._family)
+/workspace/ubuntu2004_cuda12_1/utils/conda-envs/ssd-gs/lib/python3.10/site-packages/matplotlib/fontconfig_pattern.py:70: PyparsingDeprecationWarning: 'setParseAction' deprecated - use 'set_parse_action'
+  ).setParseAction(self._size)
+/workspace/ubuntu2004_cuda12_1/utils/conda-envs/ssd-gs/lib/python3.10/site-packages/matplotlib/fontconfig_pattern.py:74: PyparsingDeprecationWarning: 'setParseAction' deprecated - use 'set_parse_action'
+  ).setParseAction(self._name)
+/workspace/ubuntu2004_cuda12_1/utils/conda-envs/ssd-gs/lib/python3.10/site-packages/matplotlib/fontconfig_pattern.py:78: PyparsingDeprecationWarning: 'setParseAction' deprecated - use 'set_parse_action'
+  ).setParseAction(self._value)
+/workspace/ubuntu2004_cuda12_1/utils/conda-envs/ssd-gs/lib/python3.10/site-packages/matplotlib/fontconfig_pattern.py:85: PyparsingDeprecationWarning: 'setParseAction' deprecated - use 'set_parse_action'
+  ).setParseAction(self._families)
+/workspace/ubuntu2004_cuda12_1/utils/conda-envs/ssd-gs/lib/python3.10/site-packages/matplotlib/fontconfig_pattern.py:92: PyparsingDeprecationWarning: 'setParseAction' deprecated - use 'set_parse_action'
+  ).setParseAction(self._point_sizes)
+/workspace/ubuntu2004_cuda12_1/utils/conda-envs/ssd-gs/lib/python3.10/site-packages/matplotlib/fontconfig_pattern.py:102: PyparsingDeprecationWarning: 'setParseAction' deprecated - use 'set_parse_action'
+  ).setParseAction(self._property)
+/workspace/ubuntu2004_cuda12_1/utils/conda-envs/ssd-gs/lib/python3.10/site-packages/matplotlib/fontconfig_pattern.py:127: PyparsingDeprecationWarning: 'parseString' deprecated - use 'parse_string'
+  self._parser.parseString(pattern)
+/workspace/ubuntu2004_cuda12_1/utils/conda-envs/ssd-gs/lib/python3.10/site-packages/matplotlib/fontconfig_pattern.py:134: PyparsingDeprecationWarning: 'resetCache' deprecated - use 'reset_cache'
+  self._parser.resetCache()
+/workspace/ubuntu2004_cuda12_1/utils/conda-envs/ssd-gs/lib/python3.10/site-packages/matplotlib/_mathtext.py:30: PyparsingDeprecationWarning: 'enablePackrat' deprecated - use 'enable_packrat'
+  ParserElement.enablePackrat()
+In /workspace/ubuntu2004_cuda12_1/utils/conda-envs/ssd-gs/lib/python3.10/site-packages/matplotlib/mpl-data/stylelib/classic.mplstyle: 'parseString' deprecated - use 'parse_string'
+In /workspace/ubuntu2004_cuda12_1/utils/conda-envs/ssd-gs/lib/python3.10/site-packages/matplotlib/mpl-data/stylelib/classic.mplstyle: 'resetCache' deprecated - use 'reset_cache'
+ok
+test_frame_rotates_direct_only (test_methods.MethodTests) ... ok
+test_full_validation_and_pair_exports_do_not_inherit_fit_limit (test_methods.MethodTests) ... ok
+test_initial_methods_reduce_to_directional_baseline (test_methods.MethodTests) ... ok
+test_material_highlight_survives_transport_gate_and_codes_are_not_fit_by_indirect (test_methods.MethodTests) ... ok
+test_method_selection_and_config_roundtrip (test_methods.MethodTests) ... ok
+test_paired_support_and_independent_formula (test_methods.MethodTests) ... ok
+test_residual_pair_anchor_pixel_distribution_and_component_audit (test_methods.MethodTests) ... ok
+test_residual_pair_degenerate_frames_preserve_existing_fallback (test_methods.MethodTests) ... ok
+test_residual_pair_excludes_anchors_without_their_own_ring (test_methods.MethodTests) ... ok
+test_residual_pair_lambda_zero_matches_rgb_control (test_methods.MethodTests) ... ok
+test_residual_pair_local_pools_and_budget (test_methods.MethodTests) ... ok
+test_residual_pair_repeats_raw_rgb_and_both_endpoint_gradients (test_methods.MethodTests) ... ok
+test_residual_pair_support_uses_both_ends_and_fixed_denominator (test_methods.MethodTests) ... ok
+test_sdf_cdf_occlusion_empty_rays_and_extreme_values (test_methods.MethodTests) ... ok
+test_sdf_cdf_plane_depth_and_surface_gradient (test_methods.MethodTests) ... ok
+test_sdf_hint_encoding_zero_expansion_and_gradients (test_methods.MethodTests) ... ok
+test_sdf_importance_sampling_explores_empty_coarse_intervals (test_methods.MethodTests) ... ok
+test_sdf_peak_ray_quota_and_empty_frame (test_methods.MethodTests) ... ok
+test_sdf_silhouette_rays_and_geometry_gradient (test_methods.MethodTests) ... ok
+test_sdf_volume_light_linearity_and_field_detachment (test_methods.MethodTests) ... ok
+test_sdf_volume_mutual_gradient_targets (test_methods.MethodTests) ... ok
+test_spatial_grid_interpolation_and_normal_loss_gradients (test_methods.MethodTests) ... ok
+test_spatial_sdf_residual_vanishes_at_domain_boundary (test_methods.MethodTests) ... ok
+test_zero_detail_expansion_preserves_field_normals_and_radiance (test_methods.MethodTests) ... ok
+test_zero_light_linearity_and_optimization (test_methods.MethodTests) ... ok
+test_image_marginal_loss_and_occupancy_seeds (test_methods.DistributionMaterialTests) ... ok
+test_light_linearity_gradients_and_checkpoint (test_methods.DistributionMaterialTests) ... ok
+test_normalized_pdf_and_subdivision_invariance (test_methods.DistributionMaterialTests) ... ok
+test_decoder_frozen_across_stages_but_latent_and_normal_differentiate (test_methods.NeuralMaterialTests) ... ok
+test_procedural_fresnel_and_layer_energy (test_methods.NeuralMaterialTests) ... ok
+test_consensus_early_rejection_preserves_vote_rule (test_methods.MaskSurfaceInitializationTests) ... ok
+test_geometry_copy_preserves_material_and_rejects_calibration_or_split_changes (test_methods.MaskSurfaceInitializationTests) ... ok
+test_normal_quaternions_include_negative_z_and_grazing_directions (test_methods.MaskSurfaceInitializationTests) ... ok
+test_sphere_sampling_area_normals_projection_and_local_rng (test_methods.MaskSurfaceInitializationTests) ... ok
+
+----------------------------------------------------------------------
+Ran 45 tests in 2.645s
+
+OK

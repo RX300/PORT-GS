@@ -1,0 +1,1 @@
+../../latex/ieeenat_fullname.bst

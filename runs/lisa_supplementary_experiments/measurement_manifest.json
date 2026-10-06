@@ -1,0 +1,446 @@
+{
+  "jobs": [
+    {
+      "id": "LiSA-staged-render_efficiency-Synthetic_GS3-Drums",
+      "kind": "measurement",
+      "method": "LiSA-staged",
+      "group": "render_efficiency",
+      "variant": "LiSA-staged",
+      "family": "Synthetic_GS3",
+      "scene": "Drums",
+      "dataset": "/workspace/datasets/SSD-GS/data/Synthetic_GS3/Drums",
+      "state": "pending",
+      "mode": "fresh",
+      "output": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_supplementary_experiments/render_efficiency/Synthetic_GS3/Drums",
+      "source_archive": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_supplementary_experiments/measurement_source.tar",
+      "resultpath": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_supplementary_experiments/render_efficiency/Synthetic_GS3/Drums/performance.json",
+      "steps": [
+        {
+          "name": "profile",
+          "state": "pending",
+          "cwd": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS",
+          "argv": [
+            "/workspace/ubuntu2004_cuda12_1/utils/conda-envs/ssd-gs/bin/python",
+            "-B",
+            "-m",
+            "experiments.measure",
+            "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_staged_full_dataset_20261004/Synthetic_GS3/Drums/appearance/last.pt",
+            "--output",
+            "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_supplementary_experiments/render_efficiency/Synthetic_GS3/Drums",
+            "--ffmpeg",
+            "/workspace/ubuntu2004_cuda12_1/utils/conda-envs/egstalker/lib/python3.11/site-packages/imageio_ffmpeg/binaries/ffmpeg-linux-x86_64-v7.0.2"
+          ],
+          "env": {},
+          "logpath": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_supplementary_experiments/measurement_logs/Synthetic_GS3/Drums.profile.log",
+          "output": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_supplementary_experiments/render_efficiency/Synthetic_GS3/Drums",
+          "resultpath": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_supplementary_experiments/render_efficiency/Synthetic_GS3/Drums/performance.json"
+        },
+        {
+          "name": "atlas_preview",
+          "state": "pending",
+          "cwd": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS",
+          "argv": [
+            "/workspace/ubuntu2004_cuda12_1/utils/conda-envs/ssd-gs/bin/python",
+            "-B",
+            "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/diagnose_image_errors.py",
+            "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_staged_full_dataset_20261004/Synthetic_GS3/Drums/appearance/last.pt",
+            "--light-atlas-preview",
+            "--split",
+            "test",
+            "--atlas-frames",
+            "0",
+            "--output",
+            "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_supplementary_experiments/render_efficiency/Synthetic_GS3/Drums/atlas_preview"
+          ],
+          "logpath": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_supplementary_experiments/measurement_logs/Synthetic_GS3/Drums.atlas.log",
+          "output": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_supplementary_experiments/render_efficiency/Synthetic_GS3/Drums/atlas_preview",
+          "resultpath": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_supplementary_experiments/render_efficiency/Synthetic_GS3/Drums/atlas_preview/preview.json"
+        }
+      ],
+      "exclusive_gpu": true
+    },
+    {
+      "id": "LiSA-staged-render_efficiency-Real_NRHints-FurScene",
+      "kind": "measurement",
+      "method": "LiSA-staged",
+      "group": "render_efficiency",
+      "variant": "LiSA-staged",
+      "family": "Real_NRHints",
+      "scene": "FurScene",
+      "dataset": "/workspace/datasets/SSD-GS/data/Real_NRHints/FurScene",
+      "state": "pending",
+      "mode": "fresh",
+      "output": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_supplementary_experiments/render_efficiency/Real_NRHints/FurScene",
+      "source_archive": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_supplementary_experiments/measurement_source.tar",
+      "resultpath": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_supplementary_experiments/render_efficiency/Real_NRHints/FurScene/performance.json",
+      "steps": [
+        {
+          "name": "profile",
+          "state": "pending",
+          "cwd": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS",
+          "argv": [
+            "/workspace/ubuntu2004_cuda12_1/utils/conda-envs/ssd-gs/bin/python",
+            "-B",
+            "-m",
+            "experiments.measure",
+            "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_staged_full_dataset_20261004/Real_NRHints/FurScene/appearance/last.pt",
+            "--output",
+            "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_supplementary_experiments/render_efficiency/Real_NRHints/FurScene",
+            "--ffmpeg",
+            "/workspace/ubuntu2004_cuda12_1/utils/conda-envs/egstalker/lib/python3.11/site-packages/imageio_ffmpeg/binaries/ffmpeg-linux-x86_64-v7.0.2"
+          ],
+          "env": {},
+          "logpath": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_supplementary_experiments/measurement_logs/Real_NRHints/FurScene.profile.log",
+          "output": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_supplementary_experiments/render_efficiency/Real_NRHints/FurScene",
+          "resultpath": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_supplementary_experiments/render_efficiency/Real_NRHints/FurScene/performance.json"
+        },
+        {
+          "name": "atlas_preview",
+          "state": "pending",
+          "cwd": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS",
+          "argv": [
+            "/workspace/ubuntu2004_cuda12_1/utils/conda-envs/ssd-gs/bin/python",
+            "-B",
+            "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/diagnose_image_errors.py",
+            "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_staged_full_dataset_20261004/Real_NRHints/FurScene/appearance/last.pt",
+            "--light-atlas-preview",
+            "--split",
+            "test",
+            "--atlas-frames",
+            "0",
+            "--output",
+            "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_supplementary_experiments/render_efficiency/Real_NRHints/FurScene/atlas_preview"
+          ],
+          "logpath": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_supplementary_experiments/measurement_logs/Real_NRHints/FurScene.atlas.log",
+          "output": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_supplementary_experiments/render_efficiency/Real_NRHints/FurScene/atlas_preview",
+          "resultpath": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_supplementary_experiments/render_efficiency/Real_NRHints/FurScene/atlas_preview/preview.json"
+        }
+      ],
+      "exclusive_gpu": true,
+      "retry_requested": true
+    },
+    {
+      "id": "LiSA-staged-render_efficiency-Synthetic_SSS-GS-soap_small",
+      "kind": "measurement",
+      "method": "LiSA-staged",
+      "group": "render_efficiency",
+      "variant": "LiSA-staged",
+      "family": "Synthetic_SSS-GS",
+      "scene": "soap_small",
+      "dataset": "/workspace/datasets/SSD-GS/data/Synthetic_SSS-GS/soap_small",
+      "state": "pending",
+      "mode": "fresh",
+      "output": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_supplementary_experiments/render_efficiency/Synthetic_SSS-GS/soap_small",
+      "source_archive": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_supplementary_experiments/measurement_source.tar",
+      "resultpath": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_supplementary_experiments/render_efficiency/Synthetic_SSS-GS/soap_small/performance.json",
+      "steps": [
+        {
+          "name": "profile",
+          "state": "pending",
+          "cwd": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS",
+          "argv": [
+            "/workspace/ubuntu2004_cuda12_1/utils/conda-envs/ssd-gs/bin/python",
+            "-B",
+            "-m",
+            "experiments.measure",
+            "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_staged_full_dataset_20261004/Synthetic_SSS-GS/soap_small/appearance/last.pt",
+            "--output",
+            "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_supplementary_experiments/render_efficiency/Synthetic_SSS-GS/soap_small",
+            "--ffmpeg",
+            "/workspace/ubuntu2004_cuda12_1/utils/conda-envs/egstalker/lib/python3.11/site-packages/imageio_ffmpeg/binaries/ffmpeg-linux-x86_64-v7.0.2"
+          ],
+          "env": {},
+          "logpath": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_supplementary_experiments/measurement_logs/Synthetic_SSS-GS/soap_small.profile.log",
+          "output": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_supplementary_experiments/render_efficiency/Synthetic_SSS-GS/soap_small",
+          "resultpath": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_supplementary_experiments/render_efficiency/Synthetic_SSS-GS/soap_small/performance.json"
+        },
+        {
+          "name": "atlas_preview",
+          "state": "pending",
+          "cwd": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS",
+          "argv": [
+            "/workspace/ubuntu2004_cuda12_1/utils/conda-envs/ssd-gs/bin/python",
+            "-B",
+            "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/diagnose_image_errors.py",
+            "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_staged_full_dataset_20261004/Synthetic_SSS-GS/soap_small/appearance/last.pt",
+            "--light-atlas-preview",
+            "--split",
+            "test",
+            "--atlas-frames",
+            "0",
+            "--output",
+            "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_supplementary_experiments/render_efficiency/Synthetic_SSS-GS/soap_small/atlas_preview"
+          ],
+          "logpath": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_supplementary_experiments/measurement_logs/Synthetic_SSS-GS/soap_small.atlas.log",
+          "output": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_supplementary_experiments/render_efficiency/Synthetic_SSS-GS/soap_small/atlas_preview",
+          "resultpath": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_supplementary_experiments/render_efficiency/Synthetic_SSS-GS/soap_small/atlas_preview/preview.json"
+        }
+      ],
+      "exclusive_gpu": true,
+      "retry_requested": true
+    },
+    {
+      "id": "GS3-render_efficiency-Synthetic_GS3-Drums",
+      "kind": "measurement",
+      "method": "GS3",
+      "group": "render_efficiency",
+      "variant": "GS3",
+      "family": "Synthetic_GS3",
+      "scene": "Drums",
+      "dataset": "/workspace/datasets/SSD-GS/data/Synthetic_GS3/Drums",
+      "state": "pending",
+      "mode": "fresh",
+      "output": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/GS3/runs/lisa_supplementary_experiments/render_efficiency/Synthetic_GS3/Drums",
+      "source_archive": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_supplementary_experiments/measurement_source.tar",
+      "resultpath": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/GS3/runs/lisa_supplementary_experiments/render_efficiency/Synthetic_GS3/Drums/performance.json",
+      "steps": [
+        {
+          "name": "profile",
+          "state": "pending",
+          "cwd": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/GS3",
+          "argv": [
+            "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/GS3/.venv/bin/python",
+            "-B",
+            "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/benchmarks/measure_relighting.py",
+            "--method",
+            "GS3",
+            "--model",
+            "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/GS3/runs/supplement_hard_scenes/Synthetic_GS3/Drums",
+            "--iteration",
+            "100000",
+            "--output",
+            "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/GS3/runs/lisa_supplementary_experiments/render_efficiency/Synthetic_GS3/Drums/performance.json"
+          ],
+          "env": {
+            "TORCH_EXTENSIONS_DIR": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/GS3/.venv/torch_extensions"
+          },
+          "logpath": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/GS3/runs/lisa_supplementary_experiments/measurement_logs/Synthetic_GS3/Drums.profile.log",
+          "output": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/GS3/runs/lisa_supplementary_experiments/render_efficiency/Synthetic_GS3/Drums",
+          "resultpath": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/GS3/runs/lisa_supplementary_experiments/render_efficiency/Synthetic_GS3/Drums/performance.json"
+        }
+      ],
+      "exclusive_gpu": true
+    },
+    {
+      "id": "GS3-render_efficiency-Real_NRHints-FurScene",
+      "kind": "measurement",
+      "method": "GS3",
+      "group": "render_efficiency",
+      "variant": "GS3",
+      "family": "Real_NRHints",
+      "scene": "FurScene",
+      "dataset": "/workspace/datasets/SSD-GS/data/Real_NRHints/FurScene",
+      "state": "pending",
+      "mode": "fresh",
+      "output": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/GS3/runs/lisa_supplementary_experiments/render_efficiency/Real_NRHints/FurScene",
+      "source_archive": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_supplementary_experiments/measurement_source.tar",
+      "resultpath": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/GS3/runs/lisa_supplementary_experiments/render_efficiency/Real_NRHints/FurScene/performance.json",
+      "steps": [
+        {
+          "name": "profile",
+          "state": "pending",
+          "cwd": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/GS3",
+          "argv": [
+            "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/GS3/.venv/bin/python",
+            "-B",
+            "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/benchmarks/measure_relighting.py",
+            "--method",
+            "GS3",
+            "--model",
+            "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/GS3/runs/supplement_hard_scenes/Real_NRHints/FurScene",
+            "--iteration",
+            "100000",
+            "--output",
+            "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/GS3/runs/lisa_supplementary_experiments/render_efficiency/Real_NRHints/FurScene/performance.json"
+          ],
+          "env": {
+            "TORCH_EXTENSIONS_DIR": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/GS3/.venv/torch_extensions"
+          },
+          "logpath": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/GS3/runs/lisa_supplementary_experiments/measurement_logs/Real_NRHints/FurScene.profile.log",
+          "output": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/GS3/runs/lisa_supplementary_experiments/render_efficiency/Real_NRHints/FurScene",
+          "resultpath": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/GS3/runs/lisa_supplementary_experiments/render_efficiency/Real_NRHints/FurScene/performance.json"
+        }
+      ],
+      "exclusive_gpu": true
+    },
+    {
+      "id": "GS3-render_efficiency-Synthetic_SSS-GS-soap_small",
+      "kind": "measurement",
+      "method": "GS3",
+      "group": "render_efficiency",
+      "variant": "GS3",
+      "family": "Synthetic_SSS-GS",
+      "scene": "soap_small",
+      "dataset": "/workspace/datasets/SSD-GS/data/Synthetic_SSS-GS/soap_small",
+      "state": "pending",
+      "mode": "fresh",
+      "output": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/GS3/runs/lisa_supplementary_experiments/render_efficiency/Synthetic_SSS-GS/soap_small",
+      "source_archive": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_supplementary_experiments/measurement_source.tar",
+      "resultpath": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/GS3/runs/lisa_supplementary_experiments/render_efficiency/Synthetic_SSS-GS/soap_small/performance.json",
+      "steps": [
+        {
+          "name": "profile",
+          "state": "pending",
+          "cwd": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/GS3",
+          "argv": [
+            "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/GS3/.venv/bin/python",
+            "-B",
+            "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/benchmarks/measure_relighting.py",
+            "--method",
+            "GS3",
+            "--model",
+            "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/GS3/runs/full_dataset_comparison/Synthetic_SSS-GS/soap_small",
+            "--iteration",
+            "100000",
+            "--output",
+            "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/GS3/runs/lisa_supplementary_experiments/render_efficiency/Synthetic_SSS-GS/soap_small/performance.json"
+          ],
+          "env": {
+            "TORCH_EXTENSIONS_DIR": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/GS3/.venv/torch_extensions"
+          },
+          "logpath": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/GS3/runs/lisa_supplementary_experiments/measurement_logs/Synthetic_SSS-GS/soap_small.profile.log",
+          "output": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/GS3/runs/lisa_supplementary_experiments/render_efficiency/Synthetic_SSS-GS/soap_small",
+          "resultpath": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/GS3/runs/lisa_supplementary_experiments/render_efficiency/Synthetic_SSS-GS/soap_small/performance.json"
+        }
+      ],
+      "exclusive_gpu": true
+    },
+    {
+      "id": "SSD-GS-render_efficiency-Synthetic_GS3-Drums",
+      "kind": "measurement",
+      "method": "SSD-GS",
+      "group": "render_efficiency",
+      "variant": "SSD-GS",
+      "family": "Synthetic_GS3",
+      "scene": "Drums",
+      "dataset": "/workspace/datasets/SSD-GS/data/Synthetic_GS3/Drums",
+      "state": "pending",
+      "mode": "fresh",
+      "output": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/SSD-GS/runs/lisa_supplementary_experiments/render_efficiency/Synthetic_GS3/Drums",
+      "source_archive": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_supplementary_experiments/measurement_source.tar",
+      "resultpath": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/SSD-GS/runs/lisa_supplementary_experiments/render_efficiency/Synthetic_GS3/Drums/performance.json",
+      "steps": [
+        {
+          "name": "profile",
+          "state": "pending",
+          "cwd": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/SSD-GS",
+          "argv": [
+            "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/SSD-GS/.train-venv/bin/python",
+            "-B",
+            "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/benchmarks/measure_relighting.py",
+            "--method",
+            "SSD-GS",
+            "--model",
+            "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/SSD-GS/runs/supplement_hard_scenes/Synthetic_GS3/Drums",
+            "--iteration",
+            "100000",
+            "--output",
+            "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/SSD-GS/runs/lisa_supplementary_experiments/render_efficiency/Synthetic_GS3/Drums/performance.json"
+          ],
+          "env": {
+            "TORCH_EXTENSIONS_DIR": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/SSD-GS/.train-venv/torch_extensions"
+          },
+          "logpath": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/SSD-GS/runs/lisa_supplementary_experiments/measurement_logs/Synthetic_GS3/Drums.profile.log",
+          "output": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/SSD-GS/runs/lisa_supplementary_experiments/render_efficiency/Synthetic_GS3/Drums",
+          "resultpath": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/SSD-GS/runs/lisa_supplementary_experiments/render_efficiency/Synthetic_GS3/Drums/performance.json"
+        }
+      ],
+      "exclusive_gpu": true
+    },
+    {
+      "id": "SSD-GS-render_efficiency-Real_NRHints-FurScene",
+      "kind": "measurement",
+      "method": "SSD-GS",
+      "group": "render_efficiency",
+      "variant": "SSD-GS",
+      "family": "Real_NRHints",
+      "scene": "FurScene",
+      "dataset": "/workspace/datasets/SSD-GS/data/Real_NRHints/FurScene",
+      "state": "pending",
+      "mode": "fresh",
+      "output": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/SSD-GS/runs/lisa_supplementary_experiments/render_efficiency/Real_NRHints/FurScene",
+      "source_archive": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_supplementary_experiments/measurement_source.tar",
+      "resultpath": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/SSD-GS/runs/lisa_supplementary_experiments/render_efficiency/Real_NRHints/FurScene/performance.json",
+      "steps": [
+        {
+          "name": "profile",
+          "state": "pending",
+          "cwd": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/SSD-GS",
+          "argv": [
+            "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/SSD-GS/.train-venv/bin/python",
+            "-B",
+            "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/benchmarks/measure_relighting.py",
+            "--method",
+            "SSD-GS",
+            "--model",
+            "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/SSD-GS/runs/supplement_hard_scenes/Real_NRHints/FurScene",
+            "--iteration",
+            "100000",
+            "--output",
+            "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/SSD-GS/runs/lisa_supplementary_experiments/render_efficiency/Real_NRHints/FurScene/performance.json"
+          ],
+          "env": {
+            "TORCH_EXTENSIONS_DIR": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/SSD-GS/.train-venv/torch_extensions"
+          },
+          "logpath": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/SSD-GS/runs/lisa_supplementary_experiments/measurement_logs/Real_NRHints/FurScene.profile.log",
+          "output": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/SSD-GS/runs/lisa_supplementary_experiments/render_efficiency/Real_NRHints/FurScene",
+          "resultpath": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/SSD-GS/runs/lisa_supplementary_experiments/render_efficiency/Real_NRHints/FurScene/performance.json"
+        }
+      ],
+      "exclusive_gpu": true
+    },
+    {
+      "id": "SSD-GS-render_efficiency-Synthetic_SSS-GS-soap_small",
+      "kind": "measurement",
+      "method": "SSD-GS",
+      "group": "render_efficiency",
+      "variant": "SSD-GS",
+      "family": "Synthetic_SSS-GS",
+      "scene": "soap_small",
+      "dataset": "/workspace/datasets/SSD-GS/data/Synthetic_SSS-GS/soap_small",
+      "state": "pending",
+      "mode": "fresh",
+      "output": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/SSD-GS/runs/lisa_supplementary_experiments/render_efficiency/Synthetic_SSS-GS/soap_small",
+      "source_archive": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_supplementary_experiments/measurement_source.tar",
+      "resultpath": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/SSD-GS/runs/lisa_supplementary_experiments/render_efficiency/Synthetic_SSS-GS/soap_small/performance.json",
+      "steps": [
+        {
+          "name": "profile",
+          "state": "pending",
+          "cwd": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/SSD-GS",
+          "argv": [
+            "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/SSD-GS/.train-venv/bin/python",
+            "-B",
+            "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/benchmarks/measure_relighting.py",
+            "--method",
+            "SSD-GS",
+            "--model",
+            "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/SSD-GS/runs/full_dataset_comparison/Synthetic_SSS-GS/soap_small",
+            "--iteration",
+            "60000",
+            "--output",
+            "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/SSD-GS/runs/lisa_supplementary_experiments/render_efficiency/Synthetic_SSS-GS/soap_small/performance.json"
+          ],
+          "env": {
+            "TORCH_EXTENSIONS_DIR": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/SSD-GS/.train-venv/torch_extensions"
+          },
+          "logpath": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/SSD-GS/runs/lisa_supplementary_experiments/measurement_logs/Synthetic_SSS-GS/soap_small.profile.log",
+          "output": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/SSD-GS/runs/lisa_supplementary_experiments/render_efficiency/Synthetic_SSS-GS/soap_small",
+          "resultpath": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/SSD-GS/runs/lisa_supplementary_experiments/render_efficiency/Synthetic_SSS-GS/soap_small/performance.json"
+        }
+      ],
+      "exclusive_gpu": true
+    }
+  ],
+  "selection": {
+    "Synthetic_GS3": [
+      "Drums"
+    ],
+    "Real_NRHints": [
+      "FurScene"
+    ],
+    "Synthetic_SSS-GS": [
+      "soap_small"
+    ]
+  }
+}

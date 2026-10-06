@@ -1,0 +1,17 @@
+{"event": "startup_confirmed", "job": "PORT-Synthetic_GS3-Lego-lisa_geometry", "gpu": "0.0", "pid": 531392, "phase": "train", "step": 100}
+{"event": "startup_confirmed", "job": "PORT-Synthetic_GS3-Drums-lisa_geometry", "gpu": "0.1", "pid": 531393, "phase": "train", "step": 100}
+{"event": "startup_confirmed", "job": "PORT-Synthetic_GS3-Lego-gs3_geometry", "gpu": "1.0", "pid": 531394, "phase": "train", "step": 100}
+{"event": "startup_confirmed", "job": "PORT-Synthetic_GS3-Drums-gs3_geometry", "gpu": "1.1", "pid": 531395, "phase": "train", "step": 100}
+{"event": "phasefinish", "job": "PORT-Synthetic_GS3-Lego-lisa_geometry", "gpu": "0.0", "phase": "train", "pid": 531392}
+{"event": "phasefinish", "job": "PORT-Synthetic_GS3-Drums-lisa_geometry", "gpu": "0.1", "phase": "train", "pid": 531393}
+{"event": "phasefinish", "job": "PORT-Synthetic_GS3-Lego-lisa_geometry", "gpu": "0.0", "phase": "eval", "pid": 535921}
+{"event": "jobfinish", "job": "PORT-Synthetic_GS3-Lego-lisa_geometry", "gpu": "0.0"}
+{"event": "phasefinish", "job": "PORT-Synthetic_GS3-Drums-lisa_geometry", "gpu": "0.1", "phase": "eval", "pid": 535970}
+{"event": "jobfinish", "job": "PORT-Synthetic_GS3-Drums-lisa_geometry", "gpu": "0.1"}
+{"event": "phasefinish", "job": "PORT-Synthetic_GS3-Lego-gs3_geometry", "gpu": "1.0", "phase": "train", "pid": 531394}
+{"event": "phasefinish", "job": "PORT-Synthetic_GS3-Lego-gs3_geometry", "gpu": "1.0", "phase": "eval", "pid": 536283}
+{"event": "jobfinish", "job": "PORT-Synthetic_GS3-Lego-gs3_geometry", "gpu": "1.0"}
+{"event": "phasefinish", "job": "PORT-Synthetic_GS3-Drums-gs3_geometry", "gpu": "1.1", "phase": "train", "pid": 531395}
+{"event": "phasefinish", "job": "PORT-Synthetic_GS3-Drums-gs3_geometry", "gpu": "1.1", "phase": "eval", "pid": 536765}
+{"event": "jobfinish", "job": "PORT-Synthetic_GS3-Drums-gs3_geometry", "gpu": "1.1"}
+{"event": "queue_complete", "status": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_geometry_capacity_20261004/status.json"}

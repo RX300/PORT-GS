@@ -1,0 +1,705 @@
+{
+ "main": {
+  "Real_NRHints/PSNR": {
+   "RNG": 20.941587381985517,
+   "OLAT-Gaussians": 27.25690761971044,
+   "GS3": 27.27904067872439,
+   "SSD-GS": 27.200771003794923,
+   "LiSA-staged": 29.27785135149495
+  },
+  "Real_NRHints/SSIM": {
+   "RNG": 0.8279462783106316,
+   "OLAT-Gaussians": 0.8861383073589693,
+   "GS3": 0.884455177585826,
+   "SSD-GS": 0.8823930268082071,
+   "LiSA-staged": 0.9093841900304056
+  },
+  "Real_NRHints/LPIPS": {
+   "RNG": 0.2032426028965799,
+   "OLAT-Gaussians": 0.11436952245439394,
+   "GS3": 0.11564068470256648,
+   "SSD-GS": 0.117120274269809,
+   "LiSA-staged": 0.10049886938629124
+  },
+  "Synthetic_GS3/PSNR": {
+   "RNG": 22.139881788889568,
+   "OLAT-Gaussians": 27.112963452339176,
+   "GS3": 31.9732390666008,
+   "SSD-GS": 31.53073276201884,
+   "LiSA-staged": 32.40011013905207
+  },
+  "Synthetic_GS3/SSIM": {
+   "RNG": 0.8947733979175488,
+   "OLAT-Gaussians": 0.9399302612741787,
+   "GS3": 0.9666883661597967,
+   "SSD-GS": 0.9650299638758103,
+   "LiSA-staged": 0.9704162063201268
+  },
+  "Synthetic_GS3/LPIPS": {
+   "RNG": 0.13177822725381702,
+   "OLAT-Gaussians": 0.07931496342333653,
+   "GS3": 0.048964614651631565,
+   "SSD-GS": 0.049651770862595486,
+   "LiSA-staged": 0.038233663185189164
+  },
+  "Synthetic_SSS-GS/PSNR": {
+   "RNG": 37.095629193115236,
+   "OLAT-Gaussians": 40.741655851745605,
+   "GS3": 36.80840577468872,
+   "SSD-GS": 37.79069069137573,
+   "LiSA-staged": 40.63083899383545
+  },
+  "Synthetic_SSS-GS/SSIM": {
+   "RNG": 0.9825770830869676,
+   "OLAT-Gaussians": 0.9903884375572204,
+   "GS3": 0.9828313581705095,
+   "SSD-GS": 0.9862272254228592,
+   "LiSA-staged": 0.9895127573251724
+  },
+  "Synthetic_SSS-GS/LPIPS": {
+   "RNG": 0.02755921515915543,
+   "OLAT-Gaussians": 0.01646757946568541,
+   "GS3": 0.027680775958765298,
+   "SSD-GS": 0.022923723874427378,
+   "LiSA-staged": 0.0163289478703402
+  },
+  "all/PSNR": {
+   "RNG": 25.828252687378455,
+   "OLAT-Gaussians": 30.954689628374233,
+   "GS3": 31.490819334673283,
+   "SSD-GS": 31.5857359475309,
+   "LiSA-staged": 33.472211959108584
+  },
+  "all/SSIM": {
+   "RNG": 0.8931749861730308,
+   "OLAT-Gaussians": 0.9330273281635534,
+   "GS3": 0.9391929572728949,
+   "SSD-GS": 0.9387815054459226,
+   "LiSA-staged": 0.9519861308199703
+  },
+  "all/LPIPS": {
+   "RNG": 0.13062020331081875,
+   "OLAT-Gaussians": 0.07548968528051132,
+   "GS3": 0.0689820200345323,
+   "SSD-GS": 0.0684650646909096,
+   "LiSA-staged": 0.0563632668981597
+  }
+ },
+ "best_psnr_scene_counts": {
+  "RNG": 0,
+  "OLAT-Gaussians": 4,
+  "GS3": 2,
+  "SSD-GS": 3,
+  "LiSA-staged": 9
+ },
+ "lisa_psnr_wins_vs": {
+  "RNG": 18,
+  "OLAT-Gaussians": 12,
+  "GS3": 13,
+  "SSD-GS": 13
+ },
+ "frames": 5691,
+ "per_scene_psnr": {
+  "Real_NRHints/Cat": {
+   "RNG": 20.988399881305117,
+   "OLAT-Gaussians": 22.431342096039742,
+   "GS3": 19.123925469138406,
+   "SSD-GS": 18.088464534643926,
+   "LiSA-staged": 25.328759626908735
+  },
+  "Real_NRHints/CatSmall": {
+   "RNG": 18.737137142615982,
+   "OLAT-Gaussians": 31.57861436771441,
+   "GS3": 33.28334459473815,
+   "SSD-GS": 33.8291332872608,
+   "LiSA-staged": 33.01693470870392
+  },
+  "Real_NRHints/CupFabric": {
+   "RNG": 21.41146152101714,
+   "OLAT-Gaussians": 36.404214806392275,
+   "GS3": 35.16446406923492,
+   "SSD-GS": 35.98337550985402,
+   "LiSA-staged": 35.307150373787714
+  },
+  "Real_NRHints/Fish": {
+   "RNG": 24.11105627002138,
+   "OLAT-Gaussians": 23.847907095244437,
+   "GS3": 22.409766413948752,
+   "SSD-GS": 23.2682079112891,
+   "LiSA-staged": 28.966616052569766
+  },
+  "Real_NRHints/FurScene": {
+   "RNG": 24.11989663067986,
+   "OLAT-Gaussians": 24.76913189607508,
+   "GS3": 26.09266352933996,
+   "SSD-GS": 25.151223014382754,
+   "LiSA-staged": 24.474097150914808
+  },
+  "Real_NRHints/Pikachu": {
+   "RNG": 17.270552039146423,
+   "OLAT-Gaussians": 31.063862533569335,
+   "GS3": 31.15548904418945,
+   "SSD-GS": 30.69417260169983,
+   "LiSA-staged": 31.64855134010315
+  },
+  "Real_NRHints/Pixiu": {
+   "RNG": 19.952608189112702,
+   "OLAT-Gaussians": 20.7032805429378,
+   "GS3": 23.72363163048113,
+   "SSD-GS": 23.390820167434047,
+   "LiSA-staged": 26.202850207476548
+  },
+  "Synthetic_GS3/AnisoMetal": {
+   "RNG": 24.316030735969544,
+   "OLAT-Gaussians": 27.505524773597717,
+   "GS3": 27.513083052635192,
+   "SSD-GS": 28.000639991760252,
+   "LiSA-staged": 27.148406085968016
+  },
+  "Synthetic_GS3/Drums": {
+   "RNG": 15.441949803829193,
+   "OLAT-Gaussians": 20.639464116096498,
+   "GS3": 31.516670770645142,
+   "SSD-GS": 31.541197543144225,
+   "LiSA-staged": 30.451472291946413
+  },
+  "Synthetic_GS3/FurBall": {
+   "RNG": 17.608538298606874,
+   "OLAT-Gaussians": 35.56392716407776,
+   "GS3": 35.83194031715393,
+   "SSD-GS": 34.99562427997589,
+   "LiSA-staged": 36.11270293235779
+  },
+  "Synthetic_GS3/Hotdog": {
+   "RNG": 29.396545596122742,
+   "OLAT-Gaussians": 29.67453028678894,
+   "GS3": 33.315303344726566,
+   "SSD-GS": 32.944041919708255,
+   "LiSA-staged": 35.21929649829865
+  },
+  "Synthetic_GS3/Lego": {
+   "RNG": 16.784263713359834,
+   "OLAT-Gaussians": 20.266130599975586,
+   "GS3": 30.90594132900238,
+   "SSD-GS": 29.716634469032286,
+   "LiSA-staged": 30.800682334899903
+  },
+  "Synthetic_GS3/Translucent": {
+   "RNG": 29.29196258544922,
+   "OLAT-Gaussians": 29.028203773498536,
+   "GS3": 32.75649558544159,
+   "SSD-GS": 31.986258368492127,
+   "LiSA-staged": 34.668100690841676
+  },
+  "Synthetic_SSS-GS/bunny_small": {
+   "RNG": 37.85231420516968,
+   "OLAT-Gaussians": 40.42679377555847,
+   "GS3": 34.41645763206482,
+   "SSD-GS": 38.486211812973025,
+   "LiSA-staged": 39.857411106109616
+  },
+  "Synthetic_SSS-GS/candle_small": {
+   "RNG": 41.88283671569824,
+   "OLAT-Gaussians": 45.080512107849124,
+   "GS3": 38.74271179962158,
+   "SSD-GS": 38.73706056594849,
+   "LiSA-staged": 45.195603427886965
+  },
+  "Synthetic_SSS-GS/dragon_small": {
+   "RNG": 35.23482233810425,
+   "OLAT-Gaussians": 37.7877374458313,
+   "GS3": 36.10374532699585,
+   "SSD-GS": 37.376969142913815,
+   "LiSA-staged": 37.37829360961914
+  },
+  "Synthetic_SSS-GS/soap_small": {
+   "RNG": 40.28030864715576,
+   "OLAT-Gaussians": 41.41990858078003,
+   "GS3": 38.34666980743408,
+   "SSD-GS": 38.36487509155273,
+   "LiSA-staged": 40.90556898880005
+  },
+  "Synthetic_SSS-GS/statue_small": {
+   "RNG": 30.227864059448244,
+   "OLAT-Gaussians": 38.99332734870911,
+   "GS3": 36.43244430732727,
+   "SSD-GS": 35.9883368434906,
+   "LiSA-staged": 39.817317836761475
+  }
+ },
+ "ablation": {
+  "Full model": {
+   "PSNR": [
+    31.5121331860748,
+    0.10538580583714961
+   ],
+   "SSIM": [
+    0.9536194372772002,
+    0.0007182857281876357
+   ],
+   "LPIPS": [
+    0.04680169179315916,
+    0.00031557720625413556
+   ]
+  },
+  "w/o transfer term": {
+   "PSNR": [
+    30.145403554662067,
+    0.10648263218266046
+   ],
+   "SSIM": [
+    0.9478190260704826,
+    0.00028832318165099416
+   ],
+   "LPIPS": [
+    0.05515999697003075,
+    0.0002731244163864563
+   ]
+  },
+  "transfer $\\rightarrow$ local residual$^\\dagger$": {
+   "PSNR": [
+    31.53947835784239,
+    0.027137402735716198
+   ],
+   "SSIM": [
+    0.9540856271840779,
+    7.147652827934012e-05
+   ],
+   "LPIPS": [
+    0.04652215559370633,
+    4.572813662800599e-05
+   ]
+  },
+  "single atlas level ($K{=}1$)": {
+   "PSNR": [
+    31.091195528580162,
+    null
+   ],
+   "SSIM": [
+    0.9523073997564175,
+    null
+   ],
+   "LPIPS": [
+    0.04889207433232051,
+    null
+   ]
+  },
+  "moment test only ($g\\equiv 0$)": {
+   "PSNR": [
+    31.289238527286752,
+    null
+   ],
+   "SSIM": [
+    0.9523304618877523,
+    null
+   ],
+   "LPIPS": [
+    0.04815944610509254,
+    null
+   ]
+  }
+ },
+ "ablation_full_seed0": {
+  "PSNR": 31.529528803859037,
+  "SSIM": 0.9536856168045718,
+  "LPIPS": 0.046752991374138304
+ },
+ "paired_deltas": {
+  "Synthetic_GS3/Drums": {
+   "full-minus-no_transfer": [
+    0.10394119262695274,
+    0.018349449534087344
+   ],
+   "full-minus-local_residual": [
+    -0.08904487768808995,
+    0.02133075316876363
+   ]
+  },
+  "Real_NRHints/FurScene": {
+   "full-minus-no_transfer": [
+    0.024550583783318796,
+    0.02583412135075762
+   ],
+   "full-minus-local_residual": [
+    0.022045015821269942,
+    0.023331319736343586
+   ]
+  },
+  "Synthetic_GS3/AnisoMetal": {
+   "full-minus-no_transfer": [
+    1.4221655591328926,
+    0.6928284977026463
+   ],
+   "full-minus-local_residual": [
+    -0.18367736657460534,
+    0.7520624640199688
+   ]
+  },
+  "Synthetic_GS3/Translucent": {
+   "full-minus-no_transfer": [
+    2.2913971535364817,
+    0.2271809359774535
+   ],
+   "full-minus-local_residual": [
+    0.4073514111836758,
+    0.2642573249799536
+   ]
+  },
+  "Synthetic_SSS-GS/soap_small": {
+   "full-minus-no_transfer": [
+    2.991593667984006,
+    0.3010202700179218
+   ],
+   "full-minus-local_residual": [
+    -0.29340004158020133,
+    0.11409887429416818
+   ]
+  }
+ },
+ "refinement": {
+  "gaussian_linear": {
+   "PSNR": 34.04359597078959,
+   "SSIM": 0.9707058632969856,
+   "LPIPS": 0.03552053734660149
+  },
+  "gaussian_observation": {
+   "PSNR": 34.24220216782888,
+   "SSIM": 0.9743897786637147,
+   "LPIPS": 0.03309662562888116
+  },
+  "pixel_linear": {
+   "PSNR": 33.76846812661489,
+   "SSIM": 0.9725874641935031,
+   "LPIPS": 0.0321692534138759
+  },
+  "pixel_observation": {
+   "PSNR": 34.05257424640656,
+   "SSIM": 0.9755527903536956,
+   "LPIPS": 0.02901530465297401
+  }
+ },
+ "loss_domain": {
+  "Lego": {
+   "ours": {
+    "PSNR": 30.249754362106323,
+    "SSIM": 0.9493447214365005,
+    "raw_MSE": 0.001130999856541166,
+    "alpha_L1": 0.0012879100034479051,
+    "LPIPS": 0.05664782612584531
+   },
+   "control": {
+    "PSNR": 23.01962631225586,
+    "SSIM": 0.8939066669344902,
+    "raw_MSE": 0.005733273189980537,
+    "alpha_L1": 0.005598569613648578,
+    "LPIPS": 0.12175826858729125
+   },
+   "delta_psnr": 7.230128049850464,
+   "per_frame": null
+  },
+  "Drums": {
+   "ours": {
+    "PSNR": 30.09941226005554,
+    "SSIM": 0.9662680661678315,
+    "raw_MSE": 0.001876885516976472,
+    "alpha_L1": 0.002700389865785837,
+    "LPIPS": 0.03391418275423348
+   },
+   "control": {
+    "PSNR": 24.097419643402098,
+    "SSIM": 0.9424971982836723,
+    "raw_MSE": 0.0050475048989756036,
+    "alpha_L1": 0.010848623814526946,
+    "LPIPS": 0.059461477734148505
+   },
+   "delta_psnr": 6.0019926166534425,
+   "per_frame": null
+  }
+ },
+ "efficiency": {
+  "Drums/LiSA-staged": {
+   "train_min": 25.74,
+   "fps": 63.39595371530975,
+   "mem_mib": 338.087890625,
+   "gaussians": 228132
+  },
+  "Drums/GS3": {
+   "train_min": 73.53,
+   "fps": 61.361295633097605,
+   "mem_mib": 771.775390625,
+   "gaussians": 549889
+  },
+  "Drums/SSD-GS": {
+   "train_min": 141.11,
+   "fps": 29.095867750999542,
+   "mem_mib": 1918.40673828125,
+   "gaussians": 548918
+  },
+  "FurScene/LiSA-staged": {
+   "train_min": 19.88,
+   "fps": 74.37170166891975,
+   "mem_mib": 350.9638671875,
+   "gaussians": 96989
+  },
+  "FurScene/GS3": {
+   "train_min": 50.98,
+   "fps": 190.6483565133436,
+   "mem_mib": 175.150390625,
+   "gaussians": 117043
+  },
+  "FurScene/SSD-GS": {
+   "train_min": 61.17,
+   "fps": 136.35992484161522,
+   "mem_mib": 351.34765625,
+   "gaussians": 90341
+  },
+  "soap_small/LiSA-staged": {
+   "train_min": 16.71,
+   "fps": 103.9485130260731,
+   "mem_mib": 95.4873046875,
+   "gaussians": 24269
+  },
+  "soap_small/GS3": {
+   "train_min": 39.42,
+   "fps": 228.105345865522,
+   "mem_mib": 76.70849609375,
+   "gaussians": 45065
+  },
+  "soap_small/SSD-GS": {
+   "train_min": 26.83,
+   "fps": 198.20057504658354,
+   "mem_mib": 121.23291015625,
+   "gaussians": 25849
+  }
+ },
+ "training_times_csv_columns": [
+  "method",
+  "family",
+  "scene",
+  "seconds",
+  "minutes",
+  "basis",
+  "sources",
+  "note"
+ ],
+ "holdout_official_panel": {
+  "GS3": 31.24511654909919,
+  "SSD-GS": 31.00883880186642,
+  "OLAT-Gaussians": 28.672446628009574,
+  "local": 31.539478357842388,
+  "full": 31.5121331860748
+ },
+ "significance": {
+  "all/SSD-GS": {
+   "p": 0.00400543212890625,
+   "mean_diff": 1.886476011577675,
+   "wins_2dp": 12,
+   "ties_2dp": 1
+  },
+  "all/GS3": {
+   "p": 0.0065765380859375,
+   "mean_diff": 1.9813926244352866,
+   "wins_2dp": 13,
+   "ties_2dp": 0
+  },
+  "all/OLAT-Gaussians": {
+   "p": 0.01593017578125,
+   "mean_diff": 2.5175223307343435,
+   "wins_2dp": 12,
+   "ties_2dp": 0
+  },
+  "all/RNG": {
+   "p": 7.62939453125e-06,
+   "mean_diff": 7.643959271730121,
+   "wins_2dp": 18,
+   "ties_2dp": 0
+  },
+  "all/means": {
+   "RNG": 25.828252687378455,
+   "OLAT-Gaussians": 30.954689628374233,
+   "GS3": 31.490819334673283,
+   "SSD-GS": 31.5857359475309,
+   "LiSA-staged": 33.472211959108584
+  },
+  "synthetic/SSD-GS": {
+   "p": 0.013671875,
+   "mean_diff": 1.7651823431361813,
+   "wins_2dp": 8,
+   "ties_2dp": 1
+  },
+  "synthetic/GS3": {
+   "p": 0.0244140625,
+   "mean_diff": 1.9703084118582987,
+   "wins_2dp": 8,
+   "ties_2dp": 0
+  },
+  "synthetic/OLAT-Gaussians": {
+   "p": 0.123046875,
+   "mean_diff": 2.83352689370242,
+   "wins_2dp": 7,
+   "ties_2dp": 0
+  },
+  "synthetic/RNG": {
+   "p": 0.0009765625,
+   "mean_diff": 7.203401736779646,
+   "wins_2dp": 11,
+   "ties_2dp": 0
+  },
+  "synthetic/means": {
+   "RNG": 28.937948790810324,
+   "OLAT-Gaussians": 33.30782363388756,
+   "GS3": 34.17104211573167,
+   "SSD-GS": 34.37616818445379,
+   "LiSA-staged": 36.14135052758997
+  }
+ },
+ "history": {
+  "LiSA/Real_NRHints": [
+   28.47291454403726,
+   0.09882518406720521
+  ],
+  "LiSA/Synthetic_GS3": [
+   28.34982511440913,
+   0.06224414067498097
+  ],
+  "LiSA/Synthetic_SSS-GS": [
+   39.07168754425049,
+   0.019586204275954512
+  ],
+  "LiSA/all": [
+   31.375988345331557,
+   0.06462067521667196
+  ],
+  "LiSA-v2/Real_NRHints": [
+   29.49358128873789,
+   0.09646955039678624
+  ],
+  "LiSA-v2/Synthetic_GS3": [
+   28.637181286811828,
+   0.059316747642587875
+  ],
+  "LiSA-v2/Synthetic_SSS-GS": [
+   41.02841146469117,
+   0.015309026778209955
+  ],
+  "LiSA-v2/all": [
+   32.41223411474956,
+   0.06154069291800447
+  ],
+  "LiSA-staged/Real_NRHints": [
+   29.2778510473293,
+   0.10049885980765581
+  ],
+  "LiSA-staged/Synthetic_GS3": [
+   32.40010991017024,
+   0.038233669415349135
+  ],
+  "LiSA-staged/Synthetic_SSS-GS": [
+   40.63083862190247,
+   0.01632895252555609
+  ],
+  "LiSA-staged/all": [
+   33.47221166121327,
+   0.05636326654297034
+  ]
+ },
+ "registration": {
+  "LiSA-staged": {
+   "full": 29.27785135149495,
+   "cropped": 28.51982140758597,
+   "aligned": 31.467236570073716,
+   "shift": 1.7011500319525588,
+   "per_scene_aligned": {
+    "Real_NRHints/Cat": 28.481755154351905,
+    "Real_NRHints/CatSmall": 33.89042440340127,
+    "Real_NRHints/CupFabric": 35.11890197108898,
+    "Real_NRHints/Fish": 29.66281247021531,
+    "Real_NRHints/FurScene": 30.226095199746005,
+    "Real_NRHints/Pikachu": 31.735299065618175,
+    "Real_NRHints/Pixiu": 31.15536772609437
+   }
+  },
+  "SSD-GS": {
+   "full": 27.200771003794923,
+   "cropped": 26.449709957453898,
+   "aligned": 30.7568261394907,
+   "shift": 4.0320282266366,
+   "per_scene_aligned": {
+    "Real_NRHints/Cat": 25.50376136278785,
+    "Real_NRHints/CatSmall": 34.23527410407212,
+    "Real_NRHints/CupFabric": 36.54797384534986,
+    "Real_NRHints/Fish": 29.958080192569113,
+    "Real_NRHints/FurScene": 28.96587589571695,
+    "Real_NRHints/Pikachu": 30.419424054805,
+    "Real_NRHints/Pixiu": 29.667393521133985
+   }
+  },
+  "GS3": {
+   "full": 27.27904067872439,
+   "cropped": 26.52492732362419,
+   "aligned": 30.78410775227984,
+   "shift": 4.294082539337961,
+   "per_scene_aligned": {
+    "Real_NRHints/Cat": 25.781656509585048,
+    "Real_NRHints/CatSmall": 33.632608210283415,
+    "Real_NRHints/CupFabric": 36.22920480206955,
+    "Real_NRHints/Fish": 29.75466100498245,
+    "Real_NRHints/FurScene": 29.57565415754456,
+    "Real_NRHints/Pikachu": 30.927328877193958,
+    "Real_NRHints/Pixiu": 29.587640704299908
+   }
+  },
+  "OLAT-Gaussians": {
+   "full": 27.25690761971044,
+   "cropped": 26.515157760594793,
+   "aligned": 30.28229366293048,
+   "shift": 4.6103411041194216,
+   "per_scene_aligned": {
+    "Real_NRHints/Cat": 25.772113023065476,
+    "Real_NRHints/CatSmall": 34.333718353740274,
+    "Real_NRHints/CupFabric": 37.119690183087016,
+    "Real_NRHints/Fish": 26.691226038403094,
+    "Real_NRHints/FurScene": 29.031305083699348,
+    "Real_NRHints/Pikachu": 31.881670197953923,
+    "Real_NRHints/Pixiu": 27.14633276056422
+   }
+  },
+  "RNG": {
+   "full": 20.941587381985517,
+   "cropped": 20.18264195163867,
+   "aligned": 21.948503831460943,
+   "shift": 12.90122078813439,
+   "per_scene_aligned": {
+    "Real_NRHints/Cat": 22.290086764810013,
+    "Real_NRHints/CatSmall": 18.333722828244653,
+    "Real_NRHints/CupFabric": 21.06273134756958,
+    "Real_NRHints/Fish": 25.965458938221566,
+    "Real_NRHints/FurScene": 25.178257357231917,
+    "Real_NRHints/Pikachu": 17.238064943423392,
+    "Real_NRHints/Pixiu": 23.571204640725476
+   }
+  }
+ },
+ "masked": {
+  "LiSA-staged/Real_NRHints": 23.672107151710577,
+  "LiSA-staged/Synthetic_GS3": 28.228778518861606,
+  "LiSA-staged/Synthetic_SSS-GS": 32.76071833776179,
+  "LiSA-staged/all": 27.71561182577515,
+  "SSD-GS/Real_NRHints": 21.923633918335494,
+  "SSD-GS/Synthetic_GS3": 27.389322059538312,
+  "SSD-GS/Synthetic_SSS-GS": 29.94898580575428,
+  "SSD-GS/all": 25.974794378574984,
+  "GS3/Real_NRHints": 21.978935773622048,
+  "GS3/Synthetic_GS3": 27.830427266973118,
+  "GS3/Synthetic_SSS-GS": 28.91387018987574,
+  "GS3/all": 25.855803609253982,
+  "OLAT-Gaussians/Real_NRHints": 21.974569026581385,
+  "OLAT-Gaussians/Synthetic_GS3": 23.300030199858444,
+  "OLAT-Gaussians/Synthetic_SSS-GS": 33.00501548316832,
+  "OLAT-Gaussians/all": 25.480402322281222,
+  "RNG/Real_NRHints": 15.583730702666747,
+  "RNG/Synthetic_GS3": 18.24823417817401,
+  "RNG/Synthetic_SSS-GS": 29.41597240132335,
+  "RNG/all": 20.31418788857378
+ }
+}

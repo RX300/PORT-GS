@@ -1,0 +1,289 @@
+% Supplementary material for the LiSA CVPR 2027 submission (compiled separately from main.tex).
+\documentclass[10pt,twocolumn,letterpaper]{article}
+\usepackage[review]{cvpr}
+\input{preamble}
+\definecolor{cvprblue}{rgb}{0.21,0.49,0.74}
+\usepackage{xr-hyper}
+\externaldocument{build/main} % main-paper labels (compile main.tex first)
+\usepackage[pagebackref,breaklinks,colorlinks,allcolors=cvprblue]{hyperref}
+\def\paperID{*****}
+\def\confName{CVPR}
+\def\confYear{2027}
+\title{LiSA：用于可重光照高斯泼溅的光源空间图集}
+
+\begin{document}
+\maketitlesupplementary
+\renewcommand{\thesection}{S\arabic{section}}
+\renewcommand{\thetable}{S\arabic{table}}
+\renewcommand{\thefigure}{S\arabic{figure}}
+\renewcommand{\theequation}{S\arabic{equation}}
+
+
+本补充材料给出实现细节（\cref{sec:s_impl}）、评估协议与逐场景结果（\cref{sec:s_eval}）、附加分析（\cref{sec:s_analysis}）、配准及前景诊断（\cref{sec:s_registration}）、定性结果（\cref{sec:s_qual}），以及尚待开展实验的协议（\cref{sec:s_torun}）。
+不带前缀“S”的章节、表格和公式编号指向正文。
+
+\section{实现细节}
+\label{sec:s_impl}
+
+\paragraph{光源相机。}
+对于每个光源，我们构造从光源位置 $\vect p$ 看向场景中心 $\vect c$ 的相机。
+取位于光源前方的所有高斯的 $3\sigma$ 覆盖区域的角范围的第 99.9 百分位数，扩大 5\%，并将上限设为 $75^\circ$，作为半视场角；因此，远处的漂浮高斯可能落在图集之外。
+深度沿光轴测量，以 $\|\vect c-\vect p\|$ 为基准，并除以根据训练相机估计的场景半径 $R$。
+纹素尺寸 $\tau_0$ 是场景中心深度处一个图集纹素的宽度，以 $R$ 为单位，且 $\tau_k=2^k\tau_0$。
+光源渲染通道使用 gsplat 的经典光栅化模式（瓦片内按中心深度排序、0.3 像素的屏幕空间膨胀、不透明度截断为 0.99，以及射线提前终止），每个高斯贡献其中心深度。
+在每个场景的 40 个训练光源上，图集半视场角为 8--30$^\circ$（各场景中位数为 8--23$^\circ$），从未触及上限。
+光源距离为场景半径的 2.0--6.2 倍，在同一合成场景内几乎恒定（\gsthree 为 2.8--3.5，SSS-GS 为 2.3），在同一真实拍摄场景内最多变化 $1.8\times$。
+
+\paragraph{金字塔与汇集。}
+每层采用可分离的 $[1,4,6,4,1]/16$ 滤波器、零填充和 $2\times2$ 平均池化。
+接收点以零填充对每层进行双线性采样，因此光源视锥之外的点读取到零覆盖率，被视为受光。
+描述子中的 $t_k$ 除以四并截断至 $[-2,2]$，$\delta_k$ 乘以四并截断至 $[-4,4]$；$M_{0,k}$ 截断至 $[0,1]$，平均深度的分母为 $\max(M_{0,k},10^{-4})$。
+\cref{eq:visibility} 中的 logit 对截断至 $[10^{-4},1-10^{-4}]$ 的 $V_0$ 求值。
+
+\paragraph{网络。}
+所有网络都是采用 SiLU 激活的 MLP。
+通量编码器 $\mathrm{MLP}_\phi$ 具有两个宽度为 32 的隐藏层，输出偏置初始化为 $\softplus^{-1}(1)$。
+可见性残差网络 $g$ 具有两个宽度为 64 的隐藏层，输出层零初始化。
+光传输网络 $h$ 具有两个宽度为 128 的隐藏层，输出 $K\cdot3\cdot C=168$ 个值；输出偏置为 $-7$，因此初始时 $L_{\mathrm{tr}}\approx0$。
+材质网络具有四个宽度为 128 的隐藏层，输出九个 RGB 响应（一个基础响应和八个基响应）。
+输入包括编码 $\vect f$、法线、$\vect l,\vect v,\vect h$ 及反射视线方向的四频带傅里叶编码、五个余弦项（$\vect n\cdot\vect l$、$\vect n\cdot\vect v$、$\vect n\cdot\vect h$、$\vect v\cdot\vect h$、$\vect l\cdot\vect v$），以及 $\kappa\in\{8,32,128,512,2048\}$ 对应的五个高光提示。
+八个与光源无关的系数由一个两层、宽度为 64 的 MLP 输出，其输入为 $\vect f$ 和八频带位置编码，输出层零初始化；$s(\vect x)$ 的瓣函数权重来自相同结构的网络，输出偏置为 $-6$。
+当 $\vect f$ 作为潜在编码输入网络时，编码 $\vect f$ 的法线通道均停止梯度，因此可学习法线仅通过使用该法线的方向项获得梯度（余弦项、反射视线方向，以及通量编码器的 $\vect n\cdot\vect l$ 输入）。
+
+\paragraph{优化。}
+增密采用 3DGS 的屏幕空间梯度规则（阈值 $2\cdot10^{-4}$），从第 500 次迭代持续至 25k，每 3k 次迭代重置不透明度，高斯上限为 400k。
+前 2k 次迭代中，真值掩码以外的像素仅监督覆盖率。
+与所有基线一样，\ours 每次迭代处理一张训练图像。
+LDR 图像（真实拍摄、SSS-GS）用 $\gamma=2.2$ 线性化；已截断的高光仍保持截断，HDR \gsthree 图像按原数据使用。
+预热结束后才启用光源渲染通道，即从第 8001 次迭代开始。
+阶段 III 的网络继承阶段 II 权重，但重置优化器状态；几何、相机和光源归一化均被冻结。
+
+\paragraph{真实拍摄数据。}
+我们为每个训练相机优化绕其标定光心的旋转，从第 2k 次迭代开始，学习率从 $10^{-3}$ 衰减至 $10^{-5}$。
+当相机中心固定而旋转自由时，场景的全局平移可以通过重新调整所有相机朝向来吸收。
+每次相机更新后，我们以闭式解从旋转修正中投影去除这一三维规范自由度，并按对应偏移平移场景。
+这样，每个训练视图中物体中心的图像位置保持不变，重建也保持在标定坐标系内。
+测试相机与光源始终使用官方标定。
+
+\section{评估协议与逐场景结果}
+\label{sec:s_eval}
+图像最长边的评估分辨率为 512\,px（SSS-GS 为 256\,px）。
+\gsthree 场景为线性 HDR 渲染，以 $\gamma=2.2$ 在白色背景上显示；其他基准按原数据在黑色背景上显示。
+SSIM 使用带零填充的 $11\times11$ 高斯窗口（$\sigma=1.5$），LPIPS 使用 VGG 网络，输入范围为 $[-1,1]$。
+每种方法的渲染都与同一组 8 位目标图像比较，即我们的评估流程编码得到的测试图像。
+各基线自身流程生成的目标与其最多相差一个强度等级，但三个真实场景（CatSmall、CupFabric、Pikachu）例外：\gsthree、SSD-GS 和 RNG 的 6--10\% 通道值最多相差 42 个等级。
+改用共同目标评分后，逐场景 PSNR 最多变化 0.04\,dB，场景平均 PSNR 最多变化 0.005\,dB，排名均未改变。
+\Cref{tab:perscene} 列出所有逐场景结果。
+跨场景的 Wilcoxon 符号秩检验表明，\ours 相对每种基线均有显著优势（相对 SSD-GS、\gsthree、OLAT-GS 和 RNG 的 $p=0.004$、0.007、0.016 和 $<10^{-4}$）。
+在 11 个合成场景上，相对 SSD-GS（$p=0.014$）和 \gsthree（$p=0.024$）的优势显著，相对 OLAT-GS 则不显著（$p=0.12$）。
+
+\paragraph{基线训练。}
+所有基线都在官方训练图像上使用发布代码和默认训练流程，利用给定前景掩码合成训练目标，并按官方标定渲染测试视图。
+四个合成场景的 SSD-GS 模型（AnisoMetal、Translucent、Bunny、Dragon）来自采用相同协议、未做位姿精修的较早训练，并已重新评分。
+若干 RNG 训练，以及 Drums 和 Lego 上的 OLAT-GS 训练得分偏低；我们尚未核实它们是否复现了论文报告的表现，这将由实验 E6 检查。
+
+\paragraph{开发期间对基准的使用。}
+本方法是在这些基准上开发的。
+早期版本（\cref{tab:supp_history}）曾在官方测试视图上评估：先评估 Cat、Pixiu、AnisoMetal、Translucent、Bunny 和 Dragon，随后扩展到全部 18 个场景；这些结果揭示了 Lego 和 Drums 上的失败。
+之后，最终版本的设计选择依据从训练集中留出的视图作出：材质网络使用留出的光源组，分阶段流程使用 Lego、Drums、FurBall、Cat 和 Soap 中每第十张训练视图。
+最终配置在全部 18 个场景上各训练一次，不使用逐场景设置，也不依据测试视图选择检查点。
+因此，这些结果应理解为在相关基准上开发的方法所取得的基准结果，而非盲测。
+
+\input{tables/per_scene}
+
+\section{附加分析}
+\label{sec:s_analysis}
+
+\paragraph{光传输占比。}
+\Cref{tab:supp_shares} 报告最终模型在各场景中分配给光传输项的线性辐亮度比例。
+该比例在不透明合成物体上最低（Drums 的 5.6\% 至 Lego 的 9.3\%），在毛发和 Translucent 场景中较高（约 17\%），在次表面散射场景中最高（20.5--58.0\%）。
+真实拍摄场景的比例从 7.2\%（FurScene）到 42.1\%（Pixiu，半透明树脂摆件）不等；在这些场景中，光传输项也吸收了局部模型无法解释的效果。
+这些比例描述的是学习模型如何分配辐亮度，而非物理分解。
+
+\input{tables/supp_shares}
+
+\paragraph{基准中的光源新颖度。}
+\Cref{tab:supp_shares} 最后一列对每个官方测试视图，测量从场景原点观察时，其光照方向与最近训练光照方向的夹角。
+\gsthree 场景的中位数为 $1.1^\circ$，真实拍摄为 0.9--$2.3^\circ$，SSS-GS 为 $0^\circ$。
+在 SSS-GS 中，大多数测试光源与训练光源重合，新的只是相机与光源的组合。
+因此，这些基准评估的是密集采样光源下的重光照，而非外推；这也构成了开展 E1 的动机。
+
+\paragraph{开发历程。}
+\Cref{tab:supp_history} 列出按同一协议评估的 \ours 早期版本。
+初始版本始终使用显示域损失和像素接收点；修订版本加入更强的掩码损失、高光瓣函数和门控背景监督。
+最终的分阶段版本在 \gsthree 场景上明显更好，但在真实和 SSS 场景上略逊于修订版；由于两版本的初始化、法线和接收点也不同，不能将这一差距仅归因于损失计算域。
+
+\input{tables/supp_history}
+
+\paragraph{训练时间。}
+\Cref{tab:supp_times} 列出基准中每次训练的实际耗时。
+\ours 的时间涵盖两个训练进程，包括初始化与保存；\gsthree 和 SSD-GS 涵盖训练函数至最后一次进度记录；RNG 涵盖两个阶段；OLAT-GS 涵盖两个阶段及网格导出，可能包含最多 15\,s 的轮询延迟。
+这些训练的 GPU 负载和并发没有统一控制，因此只能反映耗时量级；受控测量见 \cref{tab:cost}。
+
+\input{tables/supp_times}
+\input{tables/cost}
+\input{tables/refine}
+
+\section{配准与前景诊断}
+\label{sec:s_registration}
+这些诊断重新评估五种方法已保存的测试渲染，不重新训练或拟合任何模型。
+
+\paragraph{配准（E2(b)）。}
+对真实拍摄数据的每个测试视图，在 $\pm$24\,px 范围内搜索能使渲染相对共同目标获得最高 PSNR 的整数二维平移。
+评分前裁去图像四周 24\,px 边框，以使所有平移与方法使用相同像素。
+基线达到最优对齐所需的平移平均为 4.0--4.6\,px，\ours 为 1.7\,px（\cref{tab:supp_registration}）。
+对齐后，\ours 在真实拍摄数据上相对最强基线的平均优势从 2.0 降为 0.7\,dB：Cat（$+2.7$\,dB）、Pixiu（$+1.5$\,dB）和 FurScene（$+0.6$\,dB）仍领先，CupFabric（$-2.0$\,dB）、CatSmall（$-0.4$\,dB）、Fish（$-0.3$\,dB）和 Pikachu（$-0.1$\,dB）则落后。
+因此，配准解释了约三分之二的固定标定评分优势。
+平移只是位姿误差的近似替代，E2 中仅允许旋转的测试位姿对齐和重新训练仍然必要。
+
+\input{tables/supp_registration}
+
+\paragraph{前景掩码内的 PSNR。}
+由于 \ours 以给定前景掩码监督渲染不透明度，更干净的背景可能使完整图像指标对其更有利。
+因此，\Cref{tab:supp_masked} 仅在真值不透明度大于 0.5 的像素上报告 PSNR。
+各基准内部排名不变：\ours 在真实拍摄上领先 1.7\,dB，在 \gsthree 场景上领先 0.4\,dB，而 OLAT-GS 在 SSS-GS 上领先 0.25\,dB。
+这表明 \ours 的提升并非来自更干净的背景。
+
+\input{tables/supp_masked}
+
+\section{更多定性结果}
+\label{sec:s_qual}
+
+\begin{figure*}[t]
+\centering
+\setlength{\tabcolsep}{1pt}
+\renewcommand{\arraystretch}{0.6}
+\newcommand{\sw}{0.137\textwidth}
+\begin{tabular}{@{}ccccccc@{}}
+\includegraphics[width=\sw]{figures/decomp_hotdog/atlas_depth.png} &
+\includegraphics[width=\sw]{figures/decomp_hotdog/atlas_flux.png} &
+\includegraphics[width=\sw]{figures/decomp_hotdog/visibility.png} &
+\includegraphics[width=\sw]{figures/decomp_hotdog/local.png} &
+\includegraphics[width=\sw]{figures/decomp_hotdog/transfer.png} &
+\includegraphics[width=\sw]{figures/decomp_hotdog/ours.png} &
+\includegraphics[width=\sw]{figures/decomp_hotdog/gt.png} \\
+\includegraphics[width=\sw]{figures/decomp_pixiu/atlas_depth.png} &
+\includegraphics[width=\sw]{figures/decomp_pixiu/atlas_flux.png} &
+\includegraphics[width=\sw]{figures/decomp_pixiu/visibility.png} &
+\includegraphics[width=\sw]{figures/decomp_pixiu/local.png} &
+\includegraphics[width=\sw]{figures/decomp_pixiu/transfer.png} &
+\includegraphics[width=\sw]{figures/decomp_pixiu/ours.png} &
+\includegraphics[width=\sw]{figures/decomp_pixiu/gt.png} \\[2pt]
+\small 图集：深度 & \small 图集：通量 & \small 可见性 $V$ & \small 局部项 & \small 光传输项 & \small \ours & \small 真值
+\end{tabular}
+\caption{\textbf{最终模型的图集与辐亮度分量}：Hotdog 测试视图（上，平均 6.7\% 的辐亮度通过光传输项）和真实 Pixiu 拍摄数据（下，半透明树脂摆件，42.1\%）。Pixiu 的光传输项承载树脂的透光效果，盒子上的投射阴影则由可见性解释。}
+\label{fig:s_decomp}
+\end{figure*}
+
+\begin{figure}[t]
+\centering
+\setlength{\tabcolsep}{0.8pt}
+\renewcommand{\arraystretch}{0.5}
+\newcommand{\aw}{0.242\linewidth}
+\begin{tabular}{@{}cccc@{}}
+\small 无光传输 & \small 局部残差 & \small 完整模型 & \small 真值 \\[2pt]
+\includegraphics[width=\aw]{figures/ablation/translucent/no_transfer.png} &
+\includegraphics[width=\aw]{figures/ablation/translucent/local_residual.png} &
+\includegraphics[width=\aw]{figures/ablation/translucent/full.png} &
+\includegraphics[width=\aw]{figures/ablation/translucent/gt.png} \\
+\includegraphics[width=\aw]{figures/ablation/translucent/no_transfer_error.png} &
+\includegraphics[width=\aw]{figures/ablation/translucent/local_residual_error.png} &
+\includegraphics[width=\aw]{figures/ablation/translucent/full_error.png} & \\
+\footnotesize 31.98\,dB & \footnotesize 34.55\,dB & \footnotesize 34.38\,dB & \footnotesize Translucent \\[3pt]
+\includegraphics[width=\aw]{figures/ablation/soap/no_transfer.png} &
+\includegraphics[width=\aw]{figures/ablation/soap/local_residual.png} &
+\includegraphics[width=\aw]{figures/ablation/soap/full.png} &
+\includegraphics[width=\aw]{figures/ablation/soap/gt.png} \\
+\includegraphics[width=\aw]{figures/ablation/soap/no_transfer_error.png} &
+\includegraphics[width=\aw]{figures/ablation/soap/local_residual_error.png} &
+\includegraphics[width=\aw]{figures/ablation/soap/full_error.png} & \\
+\footnotesize 34.66\,dB & \footnotesize 37.52\,dB & \footnotesize 37.76\,dB & \footnotesize Soap
+\end{tabular}
+\caption{\textbf{光传输消融}：Translucent 和 Soap 的首个测试视图（种子 0；PSNR 为完整视图数值；误差图显示 RGB 平均绝对误差，在 0.15 处饱和）。各变体整体亮度几乎相同，但移除光传输项后，误差集中在半透明物体上：蓝色骰子、花瓶底部及肥皂侧面。局部残差与完整模型的误差接近，与 \cref{tab:paired} 一致。}
+\label{fig:s_ablation}
+\end{figure}
+
+\begin{figure}[t]
+\centering
+\setlength{\tabcolsep}{0.8pt}
+\renewcommand{\arraystretch}{0.5}
+\newcommand{\fw}{0.242\linewidth}
+\begin{tabular}{@{}cccc@{}}
+\small 真值 & \small \ours & \small SSD-GS & \small \gsthree \\[2pt]
+\includegraphics[width=\fw]{figures/comparison/fail_drums/GT.png} &
+\includegraphics[width=\fw]{figures/comparison/fail_drums/LiSA-staged.png} &
+\includegraphics[width=\fw]{figures/comparison/fail_drums/SSD-GS.png} &
+\includegraphics[width=\fw]{figures/comparison/fail_drums/GS3.png} \\
+\footnotesize Drums & \footnotesize 30.90 & \footnotesize 31.32 & \footnotesize \textbf{31.93} \\[2pt]
+\includegraphics[width=\fw]{figures/comparison/fail_anisometal/GT.png} &
+\includegraphics[width=\fw]{figures/comparison/fail_anisometal/LiSA-staged.png} &
+\includegraphics[width=\fw]{figures/comparison/fail_anisometal/SSD-GS.png} &
+\includegraphics[width=\fw]{figures/comparison/fail_anisometal/GS3.png} \\
+\footnotesize AnisoMetal & \footnotesize 27.49 & \footnotesize \textbf{28.04} & \footnotesize 27.80 \\[2pt]
+\includegraphics[width=\fw]{figures/comparison/fail_furscene/GT.png} &
+\includegraphics[width=\fw]{figures/comparison/fail_furscene/LiSA-staged.png} &
+\includegraphics[width=\fw]{figures/comparison/fail_furscene/SSD-GS.png} &
+\includegraphics[width=\fw]{figures/comparison/fail_furscene/GS3.png} \\
+\footnotesize FurScene & \footnotesize 24.00 & \footnotesize 24.38 & \footnotesize \textbf{25.99}
+\end{tabular}
+\caption{\textbf{失败案例}：逐视图优势中位数处的视图（完整视图的 PSNR）。\ours 未能重现镲片上的细窄各向异性光带，将拉丝金属骰子渲染得过于均匀，并丢失真实毛发细节。}
+\label{fig:s_failures}
+\end{figure}
+
+\begin{figure}[t]
+\centering
+\setlength{\tabcolsep}{0.8pt}
+\renewcommand{\arraystretch}{0.5}
+\newcommand{\qw}{0.193\linewidth}
+\begin{tabular}{@{}ccccc@{}}
+\small 真值 & \small \ours & \small SSD-GS & \small \gsthree & \small OLAT-GS \\[2pt]
+\includegraphics[width=\qw]{figures/comparison/statue/GT.png} & \includegraphics[width=\qw]{figures/comparison/statue/LiSA-staged.png} & \includegraphics[width=\qw]{figures/comparison/statue/SSD-GS.png} & \includegraphics[width=\qw]{figures/comparison/statue/GS3.png} & \includegraphics[width=\qw]{figures/comparison/statue/OLAT-Gaussians.png} \\
+\footnotesize Statue & \footnotesize \textbf{36.23} & \footnotesize 30.90 & \footnotesize 33.51 & \footnotesize 34.16 \\[2pt]
+\includegraphics[width=\qw]{figures/comparison/pixiu_median/GT.png} & \includegraphics[width=\qw]{figures/comparison/pixiu_median/LiSA-staged.png} & \includegraphics[width=\qw]{figures/comparison/pixiu_median/SSD-GS.png} & \includegraphics[width=\qw]{figures/comparison/pixiu_median/GS3.png} & \includegraphics[width=\qw]{figures/comparison/pixiu_median/OLAT-Gaussians.png} \\
+\footnotesize Pixiu & \footnotesize \textbf{26.10} & \footnotesize 23.33 & \footnotesize 23.54 & \footnotesize 21.46 \\[2pt]
+\includegraphics[width=\qw]{figures/comparison/fish/GT.png} & \includegraphics[width=\qw]{figures/comparison/fish/LiSA-staged.png} & \includegraphics[width=\qw]{figures/comparison/fish/SSD-GS.png} & \includegraphics[width=\qw]{figures/comparison/fish/GS3.png} & \includegraphics[width=\qw]{figures/comparison/fish/OLAT-Gaussians.png} \\
+\footnotesize Fish & \footnotesize \textbf{28.18} & \footnotesize 23.38 & \footnotesize 22.26 & \footnotesize 23.40
+\end{tabular}
+\caption{\textbf{更多比较}（局部裁剪；完整视图的 PSNR）。Statue 取逐视图优势的第 75 百分位数，Pixiu 和 Fish（真实）取中位数。Pixiu 和 Fish 上基线裁剪区域同样清晰，但相对目标发生偏移，因此 PSNR 差距很大程度上反映配准问题（E2）。}
+\label{fig:s_more}
+\end{figure}
+
+\Cref{fig:s_decomp} 展示具有明显投射阴影的不透明场景和真实半透明物体的图集及辐亮度组成，\cref{fig:s_more} 给出更多比较。
+\Cref{fig:s_ablation} 展示 \cref{tab:ablation} 的光传输消融，\cref{fig:s_failures} 展示 \cref{sec:limitations} 讨论的失败案例。
+
+
+\section{待开展实验}
+\label{sec:s_torun}
+以下实验在正文中以红色占位标记引用。
+它们使用已经固定的最终配置，不根据这些实验结果进行任何调参。
+
+\paragraph{E1：留出的光照方向。}
+将每个训练集按光照方向的仰角与方位角划分为 $30^\circ$ 分箱，按固定顺序留出整个分箱，直到留出约 10\% 的训练图像（数据加载器中已实现这一确定性划分）。
+在我们检查的场景中，留出光源与其余训练光源的最近夹角中位数为 $4$--$11^\circ$，最大为 $16^\circ$；官方测试划分对应值为 $0$--$2.3^\circ$。
+在消融测试组（Drums、AnisoMetal、Translucent、FurScene、Soap；也可扩展到全部 18 个场景）的剩余图像上，训练 \ours 及其局部残差变体（各三个种子），以及 \gsthree、SSD-GS 和 OLAT-GS，并按主要协议评估留出图像。
+报告 \cref{tab:holdout}、逐场景结果、配对种子差异，以及逐视图误差随光照方向和相机视角新颖度的变化；还需按光源距离分组，加入 $\mathcal G\equiv0$ 变体，并增加更难的划分：留出一个连续的球冠区域，区域内光源与所有训练光源的夹角至少为 $20^\circ$。
+
+\paragraph{E2：分离标定影响的真实场景评估。}
+(a) 在七个真实拍摄场景上，训练不进行训练相机旋转精修的 \ours，并训练不进行位姿精修或采用我们规范约束的基线，同时报告恢复出的位姿偏移。
+(b) 对全部五种方法，分别报告冻结场景、仅允许旋转进行测试位姿对齐后的辅助评分（所有方法使用相同流程），以及在 24\,px 内施加最优全局二维平移后的辅助评分；后一项结果已在 \cref{sec:s_registration} 给出。
+固定标定下的数值仍作为主要指标。
+
+\paragraph{E3：可见性。}
+保持接收点、训练流程和图集光传输项不变，将图集阴影检验替换为 (a) 与 \gsthree 和 SSD-GS 类似、作为属性泼溅的逐高斯可见性（我们的渲染器已提供此选项）；(b) 在像素接收点上求值、采用百分比邻近滤波（PCF）的硬深度阴影图。
+此外，将高斯累积分布函数检验替换为切比雪夫检验（方差阴影图），扫描 $\beta$，并将 \cref{tab:ablation} 的单种子行扩展为三个种子。
+使用消融测试组，加上 Hotdog、Lego 和一个真实拍摄场景；采用三个种子，报告带置信区间的配对差异。
+对于 (a)，在阶段 III 也合成逐高斯可见性；对于 (b)，使用 RNG 风格的逐像素深度检验，以区分逐像素求值与矩滤波的作用。
+
+\paragraph{E4：完整协议下的优化消融。}
+在消融测试组上使用三个种子，比较：(a) 所有阶段均使用显示域损失；(b) 无预热，即从视觉外壳初始化开始进行 30k 次联合训练；(c) 阶段 II 使用像素接收点；(d) 无阶段 III，以高斯接收点评估 30k 检查点；(e) 在 $\Gamma$ 内加入偏移量的显示域损失，或采用 RawNeRF 风格的重加权~\cite{mildenhall2022nerf}；(f) 在 LDR 数据上将分阶段流程应用于 \gsthree 或 SSD-GS。
+
+\paragraph{E5：额外基线。}
+在我们的协议下获得稳定复现后，在 SSS-GS 场景上加入 SSS-GS（目前已收敛的两个场景可以先行报告）；在真实拍摄场景上加入 NRHints；若能从训练数据合成用于初始化的全光源开启图像，则加入 BiGS。
+
+\paragraph{E6：基线复现检查。}
+对每种基线，按作者协议（分辨率、图像子集、背景）复现论文中报告的一个配置，与已发表数值比较，并检查 RNG 和 OLAT-GS 的低分训练结果。
+
+\paragraph{E7：主要比较的种子方差。}
+对 \ours 在全部 18 个场景上运行三个种子，并对最强基线至少在消融测试组上运行三个种子，以带标准差的均值替换 \cref{tab:main} 中的单次训练结果。
+
+\end{document}

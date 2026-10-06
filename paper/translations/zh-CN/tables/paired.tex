@@ -1,0 +1,17 @@
+\begin{table}[t]
+\caption{\textbf{光传输项在哪些场景重要。}完整模型相对去除光传输项、相对容量匹配局部残差的逐场景 PSNR 差异（三个种子配对差异的均值$\pm$标准差），以及完整模型分配给光传输项的线性辐亮度比例（8 个测试视图的均值）。}
+\label{tab:paired}
+\centering\small
+\setlength{\tabcolsep}{4pt}
+\begin{tabular}{@{}lccc@{}}
+\toprule
+场景 & 相对无光传输 & 相对局部残差 & 光传输占比 \\
+\midrule
+Drums & $+0.10${\tiny$\pm$0.02} & $-0.09${\tiny$\pm$0.02} & 6\% \\
+FurScene & $+0.02${\tiny$\pm$0.03} & $+0.02${\tiny$\pm$0.02} & 7\% \\
+AnisoMetal & $+1.42${\tiny$\pm$0.69} & $-0.18${\tiny$\pm$0.75} & 7\% \\
+Translucent & $+2.29${\tiny$\pm$0.23} & $+0.41${\tiny$\pm$0.26} & 17\% \\
+Soap & $+2.99${\tiny$\pm$0.30} & $-0.29${\tiny$\pm$0.11} & 58\% \\
+\bottomrule
+\end{tabular}
+\end{table}

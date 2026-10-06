@@ -1,0 +1,31 @@
+{
+  "checked_utc": "2026-10-05T19:14:16.327026+00:00",
+  "state": "passed",
+  "retained_jobs": 92,
+  "training_jobs": 65,
+  "measurement_jobs": 9,
+  "common_gt_scenes": 18,
+  "successful_phases": 216,
+  "terminal_training_checkpoints": 115,
+  "training_history_losses": "all loss-bearing records finite; terminal steps match commands",
+  "metric_rows": 271,
+  "metrics": "complete frame indices/names, finite metrics, reported means reconciled by collector",
+  "common_gt_frames_per_method": 5691,
+  "common_gt_methods": 5,
+  "video_files": 9,
+  "decoded_frames_per_video": 96,
+  "atlas_previews": 3,
+  "maximum_linear_decomposition_error": 1.1920928955078125e-07,
+  "repeatability_rows": 15,
+  "paired_delta_rows": 10,
+  "inference_rows": 18,
+  "frozen_port_training_modules": 18,
+  "frozen_baseline_python_files": {
+    "GS3": 18,
+    "SSD-GS": 19
+  },
+  "cancelled_group_records": "removed from active records, outputs, derived datasets and archived configuration/results",
+  "temporary_coordination_files": "removed",
+  "recorded_retained_job_gpu_overlap_violations": 0,
+  "dedicated_timing_and_profiling_jobs_without_overlap": 18
+}

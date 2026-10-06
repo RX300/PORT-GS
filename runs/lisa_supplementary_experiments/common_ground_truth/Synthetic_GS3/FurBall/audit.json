@@ -1,0 +1,44 @@
+{
+  "family": "Synthetic_GS3",
+  "scene": "FurBall",
+  "frames": 400,
+  "methods": [
+    "LiSA-staged",
+    "GS3",
+    "SSD-GS",
+    "RNG",
+    "OLAT-Gaussians"
+  ],
+  "ground_truth_differences": {
+    "LiSA-staged": {
+      "differing_channels": 0,
+      "total_channels": 314572800,
+      "maximum_byte_difference": 0,
+      "absolute_byte_difference": 0
+    },
+    "GS3": {
+      "differing_channels": 990,
+      "total_channels": 314572800,
+      "maximum_byte_difference": 1,
+      "absolute_byte_difference": 990
+    },
+    "SSD-GS": {
+      "differing_channels": 990,
+      "total_channels": 314572800,
+      "maximum_byte_difference": 1,
+      "absolute_byte_difference": 990
+    },
+    "RNG": {
+      "differing_channels": 956,
+      "total_channels": 314572800,
+      "maximum_byte_difference": 1,
+      "absolute_byte_difference": 956
+    },
+    "OLAT-Gaussians": {
+      "differing_channels": 70,
+      "total_channels": 314572800,
+      "maximum_byte_difference": 1,
+      "absolute_byte_difference": 70
+    }
+  }
+}

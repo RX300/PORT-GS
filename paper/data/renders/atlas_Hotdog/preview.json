@@ -1,0 +1,224 @@
+{
+  "checkpoint": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_staged_full_dataset_20261004/Synthetic_GS3/Hotdog/appearance/last.pt",
+  "scene": "/workspace/datasets/SSD-GS/data/Synthetic_GS3/Hotdog",
+  "split": "test",
+  "material_head": "svbrdf",
+  "shading": "pixel",
+  "step": 8000,
+  "command": [
+    "diagnose_image_errors.py",
+    "runs/lisa_staged_full_dataset_20261004/Synthetic_GS3/Hotdog/appearance/last.pt",
+    "--light-atlas-preview",
+    "--split",
+    "test",
+    "--atlas-frames",
+    "59",
+    "260",
+    "--output",
+    "paper/data/renders/atlas_Hotdog"
+  ],
+  "torch_version": "2.4.1",
+  "cuda_version": "12.1",
+  "gpu": "NVIDIA RTX 6000 Ada Generation",
+  "seed": 0,
+  "shadow": true,
+  "port_active": true,
+  "flux_note": "Learned channels, not RGB or calibrated irradiance; no PCA used.",
+  "depth_note": "Normalized light-camera depth; uncovered texels masked.",
+  "display_note": "Radiance components gamma-encoded separately; only linear components add.",
+  "radiance_share_protocol": "Alpha-weighted linear foreground radiance summed over camera pixels.",
+  "frames": [
+    {
+      "frame_index": 59,
+      "name": "r_59",
+      "light_position": [
+        2.170105457305908,
+        -2.327153205871582,
+        3.181980609893799
+      ],
+      "intensity": [
+        1388.888916015625,
+        1388.888916015625,
+        1388.888916015625
+      ],
+      "PSNR": 33.96774673461914,
+      "alpha_L1": 0.0005200126906856894,
+      "error_share": {
+        "interior": 0.9537902474403381,
+        "boundary": 0.04620964825153351,
+        "background": 0.0
+      },
+      "channel_display_ranges": [
+        [
+          0,
+          2.53680578947067
+        ],
+        [
+          0,
+          1.435211284160614
+        ],
+        [
+          0,
+          1.677213007211684
+        ],
+        [
+          0,
+          1.4253404843807205
+        ],
+        [
+          0,
+          1.505600726604461
+        ],
+        [
+          0,
+          1.4001838123798367
+        ],
+        [
+          0,
+          1.4677453422546383
+        ],
+        [
+          0,
+          1.4694479191303254
+        ]
+      ],
+      "atlas_shapes": [
+        [
+          11,
+          512,
+          512
+        ],
+        [
+          11,
+          256,
+          256
+        ],
+        [
+          11,
+          128,
+          128
+        ],
+        [
+          11,
+          64,
+          64
+        ],
+        [
+          11,
+          32,
+          32
+        ],
+        [
+          11,
+          16,
+          16
+        ],
+        [
+          11,
+          8,
+          8
+        ]
+      ],
+      "decomposition_max_abs_error": 4.76837158203125e-07,
+      "visibility_mean": 0.8399236798286438,
+      "transport_share_linear": 0.06686150282621384,
+      "specular_share_linear": 0.0070009599439799786
+    },
+    {
+      "frame_index": 260,
+      "name": "r_260",
+      "light_position": [
+        0.7805632948875427,
+        -3.0847561359405518,
+        3.181980609893799
+      ],
+      "intensity": [
+        1388.888916015625,
+        1388.888916015625,
+        1388.888916015625
+      ],
+      "PSNR": 36.45649337768555,
+      "alpha_L1": 0.0005001348908990622,
+      "error_share": {
+        "interior": 0.9590221643447876,
+        "boundary": 0.04097779467701912,
+        "background": 0.0
+      },
+      "channel_display_ranges": [
+        [
+          0,
+          2.5872771358490003
+        ],
+        [
+          0,
+          1.4599016880989077
+        ],
+        [
+          0,
+          1.713180003166199
+        ],
+        [
+          0,
+          1.4481096696853641
+        ],
+        [
+          0,
+          1.5357042026519778
+        ],
+        [
+          0,
+          1.4157645010948192
+        ],
+        [
+          0,
+          1.496712827682495
+        ],
+        [
+          0,
+          1.4951097464561462
+        ]
+      ],
+      "atlas_shapes": [
+        [
+          11,
+          512,
+          512
+        ],
+        [
+          11,
+          256,
+          256
+        ],
+        [
+          11,
+          128,
+          128
+        ],
+        [
+          11,
+          64,
+          64
+        ],
+        [
+          11,
+          32,
+          32
+        ],
+        [
+          11,
+          16,
+          16
+        ],
+        [
+          11,
+          8,
+          8
+        ]
+      ],
+      "decomposition_max_abs_error": 2.384185791015625e-07,
+      "visibility_mean": 0.9724708795547485,
+      "transport_share_linear": 0.06472562253475189,
+      "specular_share_linear": 0.0013040086487308145
+    }
+  ]
+}

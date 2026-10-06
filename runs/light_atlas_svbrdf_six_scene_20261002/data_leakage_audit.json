@@ -1,0 +1,203 @@
+{
+  "date": "2026-10-02",
+  "scope": "final svbrdf six-scene run; selection split records; archived runtime source",
+  "scene_checks": [
+    {
+      "scene": "Cat",
+      "train_frames": 522,
+      "test_frames": 66,
+      "resolved_path_overlap": 0,
+      "inode_overlap": 0,
+      "byte_identical_train_test_hashes": 0,
+      "camera_light_pose_overlap_6dec": 0,
+      "checkpoint_step": 30000,
+      "fit_is_exact_train": true,
+      "checkpoint_val_indices": [],
+      "logged_indices_all_fit": true,
+      "metadata_path": "/workspace/datasets/SSD-GS/data/Real_NRHints/Cat/transforms_train.json",
+      "initialization": {
+        "init_checkpoint": null,
+        "init_geometry": null,
+        "surface_priors": null,
+        "material_decoder": null,
+        "fit_all": true
+      },
+      "evaluation": {
+        "split": "test",
+        "evaluated_frames": 66,
+        "limit": 0,
+        "checkpoint": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/light_atlas_svbrdf_six_scene_20261002/lisa_svbrdf/Real_NRHints/Cat/last.pt",
+        "corrected_fit_frames": 0,
+        "test_time_calibrated_protocol": null,
+        "shift_aligned_protocol": null
+      }
+    },
+    {
+      "scene": "Pixiu",
+      "train_frames": 562,
+      "test_frames": 71,
+      "resolved_path_overlap": 0,
+      "inode_overlap": 0,
+      "byte_identical_train_test_hashes": 0,
+      "camera_light_pose_overlap_6dec": 0,
+      "checkpoint_step": 30000,
+      "fit_is_exact_train": true,
+      "checkpoint_val_indices": [],
+      "logged_indices_all_fit": true,
+      "metadata_path": "/workspace/datasets/SSD-GS/data/Real_NRHints/Pixiu/transforms_train.json",
+      "initialization": {
+        "init_checkpoint": null,
+        "init_geometry": null,
+        "surface_priors": null,
+        "material_decoder": null,
+        "fit_all": true
+      },
+      "evaluation": {
+        "split": "test",
+        "evaluated_frames": 71,
+        "limit": 0,
+        "checkpoint": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/light_atlas_svbrdf_six_scene_20261002/lisa_svbrdf/Real_NRHints/Pixiu/last.pt",
+        "corrected_fit_frames": 0,
+        "test_time_calibrated_protocol": null,
+        "shift_aligned_protocol": null
+      }
+    },
+    {
+      "scene": "AnisoMetal",
+      "train_frames": 2000,
+      "test_frames": 400,
+      "resolved_path_overlap": 0,
+      "inode_overlap": 0,
+      "byte_identical_train_test_hashes": 0,
+      "camera_light_pose_overlap_6dec": 0,
+      "checkpoint_step": 30000,
+      "fit_is_exact_train": true,
+      "checkpoint_val_indices": [],
+      "logged_indices_all_fit": true,
+      "metadata_path": "/workspace/datasets/SSD-GS/data/Synthetic_GS3/AnisoMetal/transforms_train.json",
+      "initialization": {
+        "init_checkpoint": null,
+        "init_geometry": null,
+        "surface_priors": null,
+        "material_decoder": null,
+        "fit_all": true
+      },
+      "evaluation": {
+        "split": "test",
+        "evaluated_frames": 400,
+        "limit": 0,
+        "checkpoint": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/light_atlas_svbrdf_six_scene_20261002/lisa_svbrdf/Synthetic_GS3/AnisoMetal/last.pt",
+        "corrected_fit_frames": 0,
+        "test_time_calibrated_protocol": null,
+        "shift_aligned_protocol": null
+      }
+    },
+    {
+      "scene": "Translucent",
+      "train_frames": 2000,
+      "test_frames": 400,
+      "resolved_path_overlap": 0,
+      "inode_overlap": 0,
+      "byte_identical_train_test_hashes": 0,
+      "camera_light_pose_overlap_6dec": 0,
+      "checkpoint_step": 30000,
+      "fit_is_exact_train": true,
+      "checkpoint_val_indices": [],
+      "logged_indices_all_fit": true,
+      "metadata_path": "/workspace/datasets/SSD-GS/data/Synthetic_GS3/Translucent/transforms_train.json",
+      "initialization": {
+        "init_checkpoint": null,
+        "init_geometry": null,
+        "surface_priors": null,
+        "material_decoder": null,
+        "fit_all": true
+      },
+      "evaluation": {
+        "split": "test",
+        "evaluated_frames": 400,
+        "limit": 0,
+        "checkpoint": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/light_atlas_svbrdf_six_scene_20261002/lisa_svbrdf/Synthetic_GS3/Translucent/last.pt",
+        "corrected_fit_frames": 0,
+        "test_time_calibrated_protocol": null,
+        "shift_aligned_protocol": null
+      }
+    },
+    {
+      "scene": "bunny_small",
+      "train_frames": 500,
+      "test_frames": 500,
+      "resolved_path_overlap": 0,
+      "inode_overlap": 0,
+      "byte_identical_train_test_hashes": 0,
+      "camera_light_pose_overlap_6dec": 0,
+      "checkpoint_step": 30000,
+      "fit_is_exact_train": true,
+      "checkpoint_val_indices": [],
+      "logged_indices_all_fit": true,
+      "metadata_path": "/workspace/datasets/SSD-GS/data/Synthetic_SSS-GS/bunny_small/transforms_train.json",
+      "initialization": {
+        "init_checkpoint": null,
+        "init_geometry": null,
+        "surface_priors": null,
+        "material_decoder": null,
+        "fit_all": true
+      },
+      "evaluation": {
+        "split": "test",
+        "evaluated_frames": 500,
+        "limit": 0,
+        "checkpoint": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/light_atlas_svbrdf_six_scene_20261002/lisa_svbrdf/Synthetic_SSS-GS/bunny_small/last.pt",
+        "corrected_fit_frames": 0,
+        "test_time_calibrated_protocol": null,
+        "shift_aligned_protocol": null
+      }
+    },
+    {
+      "scene": "dragon_small",
+      "train_frames": 500,
+      "test_frames": 500,
+      "resolved_path_overlap": 0,
+      "inode_overlap": 0,
+      "byte_identical_train_test_hashes": 0,
+      "camera_light_pose_overlap_6dec": 0,
+      "checkpoint_step": 30000,
+      "fit_is_exact_train": true,
+      "checkpoint_val_indices": [],
+      "logged_indices_all_fit": true,
+      "metadata_path": "/workspace/datasets/SSD-GS/data/Synthetic_SSS-GS/dragon_small/transforms_train.json",
+      "initialization": {
+        "init_checkpoint": null,
+        "init_geometry": null,
+        "surface_priors": null,
+        "material_decoder": null,
+        "fit_all": true
+      },
+      "evaluation": {
+        "split": "test",
+        "evaluated_frames": 500,
+        "limit": 0,
+        "checkpoint": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/light_atlas_svbrdf_six_scene_20261002/lisa_svbrdf/Synthetic_SSS-GS/dragon_small/last.pt",
+        "corrected_fit_frames": 0,
+        "test_time_calibrated_protocol": null,
+        "shift_aligned_protocol": null
+      }
+    }
+  ],
+  "render_gt_independence_probe": {
+    "scene": "Cat",
+    "test_index": 0,
+    "resolution": 64,
+    "changed": [
+      "RGB values",
+      "GT alpha values",
+      "name",
+      "frame_index"
+    ],
+    "max_rgb_difference": 0.0,
+    "max_rendered_alpha_difference": 0.0
+  },
+  "selection_jobs_checked": 21,
+  "selection_split_disjoint": true,
+  "reported_metrics_recomputed_from_all_views": true,
+  "limitation": "Earlier official-test diagnostics were available during architecture development; this is not an untouched blind test. Local artifacts are not an immutable execution attestation; byte duplicate detection does not detect re-encoded or near-duplicate images."
+}

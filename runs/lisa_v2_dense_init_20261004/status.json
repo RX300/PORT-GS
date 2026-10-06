@@ -1,0 +1,568 @@
+{
+  "manifest": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_v2_dense_init_20261004/manifest.json",
+  "state": "failed",
+  "started_utc": "2026-10-03T19:10:31.072299+00:00",
+  "finished_utc": "2026-10-03T19:18:55.834809+00:00",
+  "scheduler_pid": 458894,
+  "updated_utc": "2026-10-03T19:18:55.834836+00:00",
+  "workers": {
+    "0": {
+      "state": "idle",
+      "job": null,
+      "pid": null
+    },
+    "1": {
+      "state": "idle",
+      "job": null,
+      "pid": null
+    },
+    "2": {
+      "state": "idle",
+      "job": null,
+      "pid": null
+    },
+    "3": {
+      "state": "idle",
+      "job": null,
+      "pid": null
+    }
+  },
+  "jobs": {
+    "PORT-Synthetic_GS3-Drums-nosplit_fg_spec_dense": {
+      "method": "PORT-GS",
+      "family": "Synthetic_GS3",
+      "scene": "Drums",
+      "state": "failed",
+      "gpu": "0",
+      "phase": "train",
+      "pid": null,
+      "output": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_v2_dense_init_20261004/nosplit_fg_spec_dense/Synthetic_GS3/Drums",
+      "resultpath": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_v2_dense_init_20261004/nosplit_fg_spec_dense/Synthetic_GS3/Drums/validation/metrics.json",
+      "source_archive": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_v2_dense_init_20261004/source.tar",
+      "reused_from": null,
+      "steps": {
+        "train": {
+          "state": "failed",
+          "cwd": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS",
+          "argv": [
+            "/workspace/ubuntu2004_cuda12_1/utils/conda-envs/ssd-gs/bin/python",
+            "-u",
+            "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/train.py",
+            "--steps",
+            "30000",
+            "--seed",
+            "0",
+            "--resolution",
+            "512",
+            "--background",
+            "1.0",
+            "--display-gamma",
+            "2.2",
+            "--shadow-start",
+            "2000",
+            "--port-start",
+            "2000",
+            "--representation",
+            "light_atlas",
+            "--material-head",
+            "svbrdf",
+            "--split-scale2d-stop",
+            "0",
+            "--foreground-appearance",
+            "--specular",
+            "lobes",
+            "--points",
+            "200000",
+            "--scene",
+            "/workspace/datasets/SSD-GS/data/Synthetic_GS3/Drums",
+            "--output",
+            "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_v2_dense_init_20261004/nosplit_fg_spec_dense/Synthetic_GS3/Drums"
+          ],
+          "logpath": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_v2_dense_init_20261004/nosplit_fg_spec_dense/Synthetic_GS3/Drums.train.log",
+          "output": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_v2_dense_init_20261004/nosplit_fg_spec_dense/Synthetic_GS3/Drums",
+          "resultpath": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_v2_dense_init_20261004/nosplit_fg_spec_dense/Synthetic_GS3/Drums/last.pt",
+          "started_utc": "2026-10-03T19:10:31.075509+00:00",
+          "pid": 458903,
+          "startup_confirmed": {
+            "pid": 458903,
+            "gpu": "0",
+            "step": 100,
+            "row": {
+              "step": 100,
+              "stage": "relighting",
+              "frame_index": 1399,
+              "loss": 0.14289946854114532,
+              "l1": 0.11655053496360779,
+              "loss_terms": {
+                "l1": 0.09324043244123459,
+                "ssim": 0.0402279868721962,
+                "mask": 0.009431044571101665,
+                "feature_reg": 4.517968665851413e-09,
+                "camera_reg": 0.0
+              },
+              "points": 200000,
+              "seconds": 12.0,
+              "memory_GiB": 10.390224933624268,
+              "transport_stats": {
+                "specular": 0.0005842800019308925
+              }
+            }
+          },
+          "finished_utc": "2026-10-03T19:18:55.832619+00:00",
+          "error": "CalledProcessError(-15, ['/workspace/ubuntu2004_cuda12_1/utils/conda-envs/ssd-gs/bin/python', '-u', '/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/train.py', '--steps', '30000', '--seed', '0', '--resolution', '512', '--background', '1.0', '--display-gamma', '2.2', '--shadow-start', '2000', '--port-start', '2000', '--representation', 'light_atlas', '--material-head', 'svbrdf', '--split-scale2d-stop', '0', '--foreground-appearance', '--specular', 'lobes', '--points', '200000', '--scene', '/workspace/datasets/SSD-GS/data/Synthetic_GS3/Drums', '--output', '/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_v2_dense_init_20261004/nosplit_fg_spec_dense/Synthetic_GS3/Drums'])"
+        },
+        "eval": {
+          "state": "pending",
+          "cwd": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS",
+          "argv": [
+            "/workspace/ubuntu2004_cuda12_1/utils/conda-envs/ssd-gs/bin/python",
+            "-u",
+            "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/evaluate.py",
+            "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_v2_dense_init_20261004/nosplit_fg_spec_dense/Synthetic_GS3/Drums/last.pt",
+            "--split",
+            "validation",
+            "--output",
+            "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_v2_dense_init_20261004/nosplit_fg_spec_dense/Synthetic_GS3/Drums/validation",
+            "--lpips",
+            "--highlights"
+          ],
+          "logpath": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_v2_dense_init_20261004/nosplit_fg_spec_dense/Synthetic_GS3/Drums.validation.log",
+          "output": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_v2_dense_init_20261004/nosplit_fg_spec_dense/Synthetic_GS3/Drums/validation",
+          "resultpath": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_v2_dense_init_20261004/nosplit_fg_spec_dense/Synthetic_GS3/Drums/validation/metrics.json"
+        }
+      },
+      "started_utc": "2026-10-03T19:10:31.073831+00:00",
+      "startup_confirmed": {
+        "pid": 458903,
+        "gpu": "0",
+        "step": 100,
+        "row": {
+          "step": 100,
+          "stage": "relighting",
+          "frame_index": 1399,
+          "loss": 0.14289946854114532,
+          "l1": 0.11655053496360779,
+          "loss_terms": {
+            "l1": 0.09324043244123459,
+            "ssim": 0.0402279868721962,
+            "mask": 0.009431044571101665,
+            "feature_reg": 4.517968665851413e-09,
+            "camera_reg": 0.0
+          },
+          "points": 200000,
+          "seconds": 12.0,
+          "memory_GiB": 10.390224933624268,
+          "transport_stats": {
+            "specular": 0.0005842800019308925
+          }
+        }
+      },
+      "finished_utc": "2026-10-03T19:18:55.832655+00:00",
+      "error": "CalledProcessError(-15, ['/workspace/ubuntu2004_cuda12_1/utils/conda-envs/ssd-gs/bin/python', '-u', '/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/train.py', '--steps', '30000', '--seed', '0', '--resolution', '512', '--background', '1.0', '--display-gamma', '2.2', '--shadow-start', '2000', '--port-start', '2000', '--representation', 'light_atlas', '--material-head', 'svbrdf', '--split-scale2d-stop', '0', '--foreground-appearance', '--specular', 'lobes', '--points', '200000', '--scene', '/workspace/datasets/SSD-GS/data/Synthetic_GS3/Drums', '--output', '/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_v2_dense_init_20261004/nosplit_fg_spec_dense/Synthetic_GS3/Drums'])"
+    },
+    "PORT-Synthetic_GS3-Lego-nosplit_fg_spec_dense": {
+      "method": "PORT-GS",
+      "family": "Synthetic_GS3",
+      "scene": "Lego",
+      "state": "failed",
+      "gpu": "1",
+      "phase": "train",
+      "pid": null,
+      "output": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_v2_dense_init_20261004/nosplit_fg_spec_dense/Synthetic_GS3/Lego",
+      "resultpath": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_v2_dense_init_20261004/nosplit_fg_spec_dense/Synthetic_GS3/Lego/validation/metrics.json",
+      "source_archive": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_v2_dense_init_20261004/source.tar",
+      "reused_from": null,
+      "steps": {
+        "train": {
+          "state": "failed",
+          "cwd": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS",
+          "argv": [
+            "/workspace/ubuntu2004_cuda12_1/utils/conda-envs/ssd-gs/bin/python",
+            "-u",
+            "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/train.py",
+            "--steps",
+            "30000",
+            "--seed",
+            "0",
+            "--resolution",
+            "512",
+            "--background",
+            "1.0",
+            "--display-gamma",
+            "2.2",
+            "--shadow-start",
+            "2000",
+            "--port-start",
+            "2000",
+            "--representation",
+            "light_atlas",
+            "--material-head",
+            "svbrdf",
+            "--split-scale2d-stop",
+            "0",
+            "--foreground-appearance",
+            "--specular",
+            "lobes",
+            "--points",
+            "200000",
+            "--scene",
+            "/workspace/datasets/SSD-GS/data/Synthetic_GS3/Lego",
+            "--output",
+            "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_v2_dense_init_20261004/nosplit_fg_spec_dense/Synthetic_GS3/Lego"
+          ],
+          "logpath": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_v2_dense_init_20261004/nosplit_fg_spec_dense/Synthetic_GS3/Lego.train.log",
+          "output": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_v2_dense_init_20261004/nosplit_fg_spec_dense/Synthetic_GS3/Lego",
+          "resultpath": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_v2_dense_init_20261004/nosplit_fg_spec_dense/Synthetic_GS3/Lego/last.pt",
+          "started_utc": "2026-10-03T19:10:31.077528+00:00",
+          "pid": 458904,
+          "startup_confirmed": {
+            "pid": 458904,
+            "gpu": "1",
+            "step": 100,
+            "row": {
+              "step": 100,
+              "stage": "relighting",
+              "frame_index": 1399,
+              "loss": 0.2082684338092804,
+              "l1": 0.17313969135284424,
+              "loss_terms": {
+                "l1": 0.1385117620229721,
+                "ssim": 0.05691509321331978,
+                "mask": 0.012841573916375637,
+                "feature_reg": 1.0759232615953351e-08,
+                "camera_reg": 0.0
+              },
+              "points": 200000,
+              "seconds": 12.17,
+              "memory_GiB": 10.390275001525879,
+              "transport_stats": {
+                "specular": 0.0008189360960386693
+              }
+            }
+          },
+          "finished_utc": "2026-10-03T19:18:55.787419+00:00",
+          "error": "CalledProcessError(-15, ['/workspace/ubuntu2004_cuda12_1/utils/conda-envs/ssd-gs/bin/python', '-u', '/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/train.py', '--steps', '30000', '--seed', '0', '--resolution', '512', '--background', '1.0', '--display-gamma', '2.2', '--shadow-start', '2000', '--port-start', '2000', '--representation', 'light_atlas', '--material-head', 'svbrdf', '--split-scale2d-stop', '0', '--foreground-appearance', '--specular', 'lobes', '--points', '200000', '--scene', '/workspace/datasets/SSD-GS/data/Synthetic_GS3/Lego', '--output', '/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_v2_dense_init_20261004/nosplit_fg_spec_dense/Synthetic_GS3/Lego'])"
+        },
+        "eval": {
+          "state": "pending",
+          "cwd": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS",
+          "argv": [
+            "/workspace/ubuntu2004_cuda12_1/utils/conda-envs/ssd-gs/bin/python",
+            "-u",
+            "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/evaluate.py",
+            "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_v2_dense_init_20261004/nosplit_fg_spec_dense/Synthetic_GS3/Lego/last.pt",
+            "--split",
+            "validation",
+            "--output",
+            "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_v2_dense_init_20261004/nosplit_fg_spec_dense/Synthetic_GS3/Lego/validation",
+            "--lpips",
+            "--highlights"
+          ],
+          "logpath": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_v2_dense_init_20261004/nosplit_fg_spec_dense/Synthetic_GS3/Lego.validation.log",
+          "output": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_v2_dense_init_20261004/nosplit_fg_spec_dense/Synthetic_GS3/Lego/validation",
+          "resultpath": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_v2_dense_init_20261004/nosplit_fg_spec_dense/Synthetic_GS3/Lego/validation/metrics.json"
+        }
+      },
+      "started_utc": "2026-10-03T19:10:31.074894+00:00",
+      "startup_confirmed": {
+        "pid": 458904,
+        "gpu": "1",
+        "step": 100,
+        "row": {
+          "step": 100,
+          "stage": "relighting",
+          "frame_index": 1399,
+          "loss": 0.2082684338092804,
+          "l1": 0.17313969135284424,
+          "loss_terms": {
+            "l1": 0.1385117620229721,
+            "ssim": 0.05691509321331978,
+            "mask": 0.012841573916375637,
+            "feature_reg": 1.0759232615953351e-08,
+            "camera_reg": 0.0
+          },
+          "points": 200000,
+          "seconds": 12.17,
+          "memory_GiB": 10.390275001525879,
+          "transport_stats": {
+            "specular": 0.0008189360960386693
+          }
+        }
+      },
+      "finished_utc": "2026-10-03T19:18:55.787451+00:00",
+      "error": "CalledProcessError(-15, ['/workspace/ubuntu2004_cuda12_1/utils/conda-envs/ssd-gs/bin/python', '-u', '/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/train.py', '--steps', '30000', '--seed', '0', '--resolution', '512', '--background', '1.0', '--display-gamma', '2.2', '--shadow-start', '2000', '--port-start', '2000', '--representation', 'light_atlas', '--material-head', 'svbrdf', '--split-scale2d-stop', '0', '--foreground-appearance', '--specular', 'lobes', '--points', '200000', '--scene', '/workspace/datasets/SSD-GS/data/Synthetic_GS3/Lego', '--output', '/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_v2_dense_init_20261004/nosplit_fg_spec_dense/Synthetic_GS3/Lego'])"
+    },
+    "PORT-Synthetic_GS3-Drums-nosplit_fg_spec_ramp_dense": {
+      "method": "PORT-GS",
+      "family": "Synthetic_GS3",
+      "scene": "Drums",
+      "state": "failed",
+      "gpu": "2",
+      "phase": "train",
+      "pid": null,
+      "output": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_v2_dense_init_20261004/nosplit_fg_spec_ramp_dense/Synthetic_GS3/Drums",
+      "resultpath": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_v2_dense_init_20261004/nosplit_fg_spec_ramp_dense/Synthetic_GS3/Drums/validation/metrics.json",
+      "source_archive": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_v2_dense_init_20261004/source.tar",
+      "reused_from": null,
+      "steps": {
+        "train": {
+          "state": "failed",
+          "cwd": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS",
+          "argv": [
+            "/workspace/ubuntu2004_cuda12_1/utils/conda-envs/ssd-gs/bin/python",
+            "-u",
+            "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/train.py",
+            "--steps",
+            "30000",
+            "--seed",
+            "0",
+            "--resolution",
+            "512",
+            "--background",
+            "1.0",
+            "--display-gamma",
+            "2.2",
+            "--shadow-start",
+            "2000",
+            "--port-start",
+            "2000",
+            "--representation",
+            "light_atlas",
+            "--material-head",
+            "svbrdf",
+            "--split-scale2d-stop",
+            "0",
+            "--foreground-appearance",
+            "--specular",
+            "lobes",
+            "--points",
+            "200000",
+            "--grow-grad2d",
+            "1e-08",
+            "--budget-ramp",
+            "15000",
+            "--scene",
+            "/workspace/datasets/SSD-GS/data/Synthetic_GS3/Drums",
+            "--output",
+            "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_v2_dense_init_20261004/nosplit_fg_spec_ramp_dense/Synthetic_GS3/Drums"
+          ],
+          "logpath": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_v2_dense_init_20261004/nosplit_fg_spec_ramp_dense/Synthetic_GS3/Drums.train.log",
+          "output": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_v2_dense_init_20261004/nosplit_fg_spec_ramp_dense/Synthetic_GS3/Drums",
+          "resultpath": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_v2_dense_init_20261004/nosplit_fg_spec_ramp_dense/Synthetic_GS3/Drums/last.pt",
+          "started_utc": "2026-10-03T19:10:31.078209+00:00",
+          "pid": 458907,
+          "startup_confirmed": {
+            "pid": 458907,
+            "gpu": "2",
+            "step": 100,
+            "row": {
+              "step": 100,
+              "stage": "relighting",
+              "frame_index": 1399,
+              "loss": 0.143000528216362,
+              "l1": 0.11663319915533066,
+              "loss_terms": {
+                "l1": 0.09330656379461288,
+                "ssim": 0.0402597077190876,
+                "mask": 0.009434258565306664,
+                "feature_reg": 4.533244890581045e-09,
+                "camera_reg": 0.0
+              },
+              "points": 200000,
+              "seconds": 13.79,
+              "memory_GiB": 10.390224933624268,
+              "transport_stats": {
+                "specular": 0.0005960933631286025
+              }
+            }
+          },
+          "finished_utc": "2026-10-03T19:15:45.456527+00:00",
+          "error": "CalledProcessError(-15, ['/workspace/ubuntu2004_cuda12_1/utils/conda-envs/ssd-gs/bin/python', '-u', '/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/train.py', '--steps', '30000', '--seed', '0', '--resolution', '512', '--background', '1.0', '--display-gamma', '2.2', '--shadow-start', '2000', '--port-start', '2000', '--representation', 'light_atlas', '--material-head', 'svbrdf', '--split-scale2d-stop', '0', '--foreground-appearance', '--specular', 'lobes', '--points', '200000', '--grow-grad2d', '1e-08', '--budget-ramp', '15000', '--scene', '/workspace/datasets/SSD-GS/data/Synthetic_GS3/Drums', '--output', '/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_v2_dense_init_20261004/nosplit_fg_spec_ramp_dense/Synthetic_GS3/Drums'])"
+        },
+        "eval": {
+          "state": "pending",
+          "cwd": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS",
+          "argv": [
+            "/workspace/ubuntu2004_cuda12_1/utils/conda-envs/ssd-gs/bin/python",
+            "-u",
+            "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/evaluate.py",
+            "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_v2_dense_init_20261004/nosplit_fg_spec_ramp_dense/Synthetic_GS3/Drums/last.pt",
+            "--split",
+            "validation",
+            "--output",
+            "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_v2_dense_init_20261004/nosplit_fg_spec_ramp_dense/Synthetic_GS3/Drums/validation",
+            "--lpips",
+            "--highlights"
+          ],
+          "logpath": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_v2_dense_init_20261004/nosplit_fg_spec_ramp_dense/Synthetic_GS3/Drums.validation.log",
+          "output": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_v2_dense_init_20261004/nosplit_fg_spec_ramp_dense/Synthetic_GS3/Drums/validation",
+          "resultpath": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_v2_dense_init_20261004/nosplit_fg_spec_ramp_dense/Synthetic_GS3/Drums/validation/metrics.json"
+        }
+      },
+      "started_utc": "2026-10-03T19:10:31.076021+00:00",
+      "startup_confirmed": {
+        "pid": 458907,
+        "gpu": "2",
+        "step": 100,
+        "row": {
+          "step": 100,
+          "stage": "relighting",
+          "frame_index": 1399,
+          "loss": 0.143000528216362,
+          "l1": 0.11663319915533066,
+          "loss_terms": {
+            "l1": 0.09330656379461288,
+            "ssim": 0.0402597077190876,
+            "mask": 0.009434258565306664,
+            "feature_reg": 4.533244890581045e-09,
+            "camera_reg": 0.0
+          },
+          "points": 200000,
+          "seconds": 13.79,
+          "memory_GiB": 10.390224933624268,
+          "transport_stats": {
+            "specular": 0.0005960933631286025
+          }
+        }
+      },
+      "finished_utc": "2026-10-03T19:15:45.456594+00:00",
+      "error": "CalledProcessError(-15, ['/workspace/ubuntu2004_cuda12_1/utils/conda-envs/ssd-gs/bin/python', '-u', '/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/train.py', '--steps', '30000', '--seed', '0', '--resolution', '512', '--background', '1.0', '--display-gamma', '2.2', '--shadow-start', '2000', '--port-start', '2000', '--representation', 'light_atlas', '--material-head', 'svbrdf', '--split-scale2d-stop', '0', '--foreground-appearance', '--specular', 'lobes', '--points', '200000', '--grow-grad2d', '1e-08', '--budget-ramp', '15000', '--scene', '/workspace/datasets/SSD-GS/data/Synthetic_GS3/Drums', '--output', '/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_v2_dense_init_20261004/nosplit_fg_spec_ramp_dense/Synthetic_GS3/Drums'])"
+    },
+    "PORT-Synthetic_GS3-Lego-nosplit_fg_spec_ramp_dense": {
+      "method": "PORT-GS",
+      "family": "Synthetic_GS3",
+      "scene": "Lego",
+      "state": "failed",
+      "gpu": "3",
+      "phase": "train",
+      "pid": null,
+      "output": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_v2_dense_init_20261004/nosplit_fg_spec_ramp_dense/Synthetic_GS3/Lego",
+      "resultpath": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_v2_dense_init_20261004/nosplit_fg_spec_ramp_dense/Synthetic_GS3/Lego/validation/metrics.json",
+      "source_archive": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_v2_dense_init_20261004/source.tar",
+      "reused_from": null,
+      "steps": {
+        "train": {
+          "state": "failed",
+          "cwd": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS",
+          "argv": [
+            "/workspace/ubuntu2004_cuda12_1/utils/conda-envs/ssd-gs/bin/python",
+            "-u",
+            "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/train.py",
+            "--steps",
+            "30000",
+            "--seed",
+            "0",
+            "--resolution",
+            "512",
+            "--background",
+            "1.0",
+            "--display-gamma",
+            "2.2",
+            "--shadow-start",
+            "2000",
+            "--port-start",
+            "2000",
+            "--representation",
+            "light_atlas",
+            "--material-head",
+            "svbrdf",
+            "--split-scale2d-stop",
+            "0",
+            "--foreground-appearance",
+            "--specular",
+            "lobes",
+            "--points",
+            "200000",
+            "--grow-grad2d",
+            "1e-08",
+            "--budget-ramp",
+            "15000",
+            "--scene",
+            "/workspace/datasets/SSD-GS/data/Synthetic_GS3/Lego",
+            "--output",
+            "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_v2_dense_init_20261004/nosplit_fg_spec_ramp_dense/Synthetic_GS3/Lego"
+          ],
+          "logpath": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_v2_dense_init_20261004/nosplit_fg_spec_ramp_dense/Synthetic_GS3/Lego.train.log",
+          "output": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_v2_dense_init_20261004/nosplit_fg_spec_ramp_dense/Synthetic_GS3/Lego",
+          "resultpath": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_v2_dense_init_20261004/nosplit_fg_spec_ramp_dense/Synthetic_GS3/Lego/last.pt",
+          "started_utc": "2026-10-03T19:10:31.079648+00:00",
+          "pid": 458908,
+          "startup_confirmed": {
+            "pid": 458908,
+            "gpu": "3",
+            "step": 100,
+            "row": {
+              "step": 100,
+              "stage": "relighting",
+              "frame_index": 1399,
+              "loss": 0.2080661803483963,
+              "l1": 0.1729256510734558,
+              "loss_terms": {
+                "l1": 0.1383405178785324,
+                "ssim": 0.05689951404929161,
+                "mask": 0.012826124206185341,
+                "feature_reg": 1.0775129233309144e-08,
+                "camera_reg": 0.0
+              },
+              "points": 200000,
+              "seconds": 12.13,
+              "memory_GiB": 10.390275001525879,
+              "transport_stats": {
+                "specular": 0.0008266952354460955
+              }
+            }
+          },
+          "finished_utc": "2026-10-03T19:15:45.517697+00:00",
+          "error": "CalledProcessError(-15, ['/workspace/ubuntu2004_cuda12_1/utils/conda-envs/ssd-gs/bin/python', '-u', '/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/train.py', '--steps', '30000', '--seed', '0', '--resolution', '512', '--background', '1.0', '--display-gamma', '2.2', '--shadow-start', '2000', '--port-start', '2000', '--representation', 'light_atlas', '--material-head', 'svbrdf', '--split-scale2d-stop', '0', '--foreground-appearance', '--specular', 'lobes', '--points', '200000', '--grow-grad2d', '1e-08', '--budget-ramp', '15000', '--scene', '/workspace/datasets/SSD-GS/data/Synthetic_GS3/Lego', '--output', '/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_v2_dense_init_20261004/nosplit_fg_spec_ramp_dense/Synthetic_GS3/Lego'])"
+        },
+        "eval": {
+          "state": "pending",
+          "cwd": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS",
+          "argv": [
+            "/workspace/ubuntu2004_cuda12_1/utils/conda-envs/ssd-gs/bin/python",
+            "-u",
+            "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/evaluate.py",
+            "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_v2_dense_init_20261004/nosplit_fg_spec_ramp_dense/Synthetic_GS3/Lego/last.pt",
+            "--split",
+            "validation",
+            "--output",
+            "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_v2_dense_init_20261004/nosplit_fg_spec_ramp_dense/Synthetic_GS3/Lego/validation",
+            "--lpips",
+            "--highlights"
+          ],
+          "logpath": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_v2_dense_init_20261004/nosplit_fg_spec_ramp_dense/Synthetic_GS3/Lego.validation.log",
+          "output": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_v2_dense_init_20261004/nosplit_fg_spec_ramp_dense/Synthetic_GS3/Lego/validation",
+          "resultpath": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_v2_dense_init_20261004/nosplit_fg_spec_ramp_dense/Synthetic_GS3/Lego/validation/metrics.json"
+        }
+      },
+      "started_utc": "2026-10-03T19:10:31.076583+00:00",
+      "startup_confirmed": {
+        "pid": 458908,
+        "gpu": "3",
+        "step": 100,
+        "row": {
+          "step": 100,
+          "stage": "relighting",
+          "frame_index": 1399,
+          "loss": 0.2080661803483963,
+          "l1": 0.1729256510734558,
+          "loss_terms": {
+            "l1": 0.1383405178785324,
+            "ssim": 0.05689951404929161,
+            "mask": 0.012826124206185341,
+            "feature_reg": 1.0775129233309144e-08,
+            "camera_reg": 0.0
+          },
+          "points": 200000,
+          "seconds": 12.13,
+          "memory_GiB": 10.390275001525879,
+          "transport_stats": {
+            "specular": 0.0008266952354460955
+          }
+        }
+      },
+      "finished_utc": "2026-10-03T19:15:45.517716+00:00",
+      "error": "CalledProcessError(-15, ['/workspace/ubuntu2004_cuda12_1/utils/conda-envs/ssd-gs/bin/python', '-u', '/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/train.py', '--steps', '30000', '--seed', '0', '--resolution', '512', '--background', '1.0', '--display-gamma', '2.2', '--shadow-start', '2000', '--port-start', '2000', '--representation', 'light_atlas', '--material-head', 'svbrdf', '--split-scale2d-stop', '0', '--foreground-appearance', '--specular', 'lobes', '--points', '200000', '--grow-grad2d', '1e-08', '--budget-ramp', '15000', '--scene', '/workspace/datasets/SSD-GS/data/Synthetic_GS3/Lego', '--output', '/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_v2_dense_init_20261004/nosplit_fg_spec_ramp_dense/Synthetic_GS3/Lego'])"
+    }
+  }
+}

@@ -1,0 +1,20 @@
+\begin{table}[t]
+\caption{\textbf{Ablation of the atlas} on five scenes (Drums, AnisoMetal, Translucent, FurScene, Soap), scene-averaged. For rows with three seeds we report the mean over seeds and the standard deviation of PSNR; single-seed rows compare to the seed-0 full model (31.53\,dB). $^\dagger$Capacity-matched MLP (49.1k vs.\ 49.6k parameters) that reads the receiver's code, position and light/view directions but not the atlas; shadows still come from the atlas.}
+\label{tab:ablation}
+\centering\small
+\setlength{\tabcolsep}{3.5pt}
+\begin{tabular}{@{}lcccc@{}}
+\toprule
+Variant & Seeds & PSNR$\uparrow$ & SSIM$\uparrow$ & LPIPS$\downarrow$ \\
+\midrule
+Full model & 3 & 31.51{\tiny$\pm$0.11} & .954 & .047 \\
+w/o transfer term & 3 & 30.15{\tiny$\pm$0.11} & .948 & .055 \\
+transfer $\rightarrow$ local residual$^\dagger$ & 3 & 31.54{\tiny$\pm$0.03} & .954 & .047 \\
+single atlas level ($K{=}1$) & 1 & 31.09 & .952 & .049 \\
+moment test only ($g\equiv 0$) & 1 & 31.29 & .952 & .048 \\
+per-Gaussian visibility$^\ddagger$ & 3 & \TBD & \TBD & \TBD \\
+hard shadow map$^\ddagger$ & 3 & \TBD & \TBD & \TBD \\
+\bottomrule
+\end{tabular}
+\\[2pt]{\footnotesize$^\ddagger$\torun{E3 (same receivers; atlas kept for transfer); also three seeds for the single-seed rows.}}
+\end{table}

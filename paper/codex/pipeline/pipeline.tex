@@ -1,0 +1,115 @@
+\begin{tikzpicture}[
+  x=1cm,y=1cm,
+  font=\sffamily\fontsize{7}{8.2}\selectfont,
+  line width=0.65pt,
+  >={Stealth[length=4pt]},
+  light/.style={draw=orange!70!black,fill=orange!8,rounded corners=2pt},
+  camera/.style={draw=blue!60!black,fill=blue!6,rounded corners=2pt},
+  learned/.style={draw=green!45!black,fill=green!8,rounded corners=2pt},
+  lightflow/.style={->,draw=orange!70!black},
+  cameraflow/.style={->,draw=blue!60!black},
+  mergeflow/.style={->,draw=black!75},
+  label/.style={fill=white,inner sep=1.2pt,align=center},
+  thumb/.style={draw=gray!65,inner sep=0pt,outer sep=0pt},
+  title/.style={font=\sffamily\bfseries\fontsize{8}{9}\selectfont},
+  stage/.style={align=left,anchor=north west,inner sep=0pt,
+    font=\sffamily\fontsize{7}{8}\selectfont}
+]
+% Fixed design size: 6.875 in by 2.48 in. All image paths are paper-relative.
+\path[use as bounding box] (0,0) rectangle (17.4625,6.30);
+
+\node[title,anchor=west,text=orange!70!black] at (0.08,6.13) {LIGHT PASS};
+\node[title,anchor=west,text=green!45!black] at (10.00,6.20) {Learned shading heads};
+
+% Light-space construction.
+\node[light,minimum width=2.40cm,minimum height=1.06cm,align=center] (gaussians) at (1.30,4.69)
+  {\textbf{3D Gaussians}\\[4pt]$\{\mu_i,\Sigma_i,o_i,\mathbf b_i,\mathbf f_i\}$};
+\node[learned,minimum width=1.55cm,minimum height=0.43cm] (phi) at (1.30,5.58) {$\phi$-MLP};
+\draw[lightflow] (gaussians.north) -- (phi.south);
+\draw[lightflow] (phi.east) -- (2.50,5.58) -- (2.50,6.00) -- (4.90,6.00) -- (4.90,5.85);
+\node[label] at (4.12,6.17) {rasterize from the light $\mathbf p$};
+
+\draw[light] (2.94,3.40) rectangle (6.88,5.85);
+\node[title] at (4.91,5.68) {Light-space atlas};
+\node[thumb] at (3.93,4.90) {\includegraphics[width=1.27cm,height=1.27cm]{figures/decomp_hotdog/atlas_depth.png}};
+\node[thumb] at (5.86,4.90) {\includegraphics[width=1.27cm,height=1.27cm]{figures/decomp_hotdog/atlas_flux.png}};
+\node[align=center] at (3.93,3.98) {depth moments\\$M_1,M_2$};
+\node[align=center] at (5.86,3.98) {flux features\\$\Phi$};
+\node at (4.91,3.54) {$\mathbf A(u)=\sum_i w_i(u)\,[\boldsymbol\phi_i,\,z_i,\,z_i^2,\,1]$};
+
+\draw[lightflow] (6.88,4.62) -- (7.49,4.62);
+\node[label,align=center] at (7.19,5.04) {blur +\\$\downarrow 2$};
+\node[title,align=center] at (8.40,5.46) {Pyramid\\$\mathbf A_0,\dots,\mathbf A_{K-1}$};
+% Front-to-back levels: each coarser level is a smaller square.
+\node[thumb] at (8.13,4.47) {\includegraphics[width=1.27cm,height=1.27cm]{figures/decomp_hotdog/atlas_flux.png}};
+\node[thumb] at (8.55,4.24) {\includegraphics[width=0.92cm,height=0.92cm]{figures/decomp_hotdog/atlas_flux_level3.png}};
+\node[thumb] at (8.90,4.06) {\includegraphics[width=0.65cm,height=0.65cm]{figures/decomp_hotdog/atlas_flux_level3.png}};
+
+% Camera receivers project upward, then sample the pyramid into Gather.
+\node[title,anchor=west,text=blue!60!black] at (0.08,3.42) {CAMERA PASS};
+\node[camera,minimum width=2.40cm,minimum height=1.15cm,align=center] (receivers) at (1.30,2.50)
+  {\textbf{Receivers $\mathbf x$}\\[3pt]Centers (training)\\/ pixels (refinement)};
+\node[camera,minimum width=6.00cm,minimum height=1.03cm,inner sep=2pt,align=center] (gather) at (6.03,2.50)
+  {\textbf{Gather}\\[1pt]
+   $\mathbf s_k=[M_{0,k},\,t_k,\,\delta_k,\,\log s_k,\,V_k],\quad\Phi_k$\\[1pt]
+   $V_k=1-M_{0,k}\,\Phi_{\mathcal N}(t_k-\beta)$};
+\draw[cameraflow] (receivers.north) -- (1.30,3.21) -- (8.00,3.21) -- (8.00,3.80);
+\node[label] at (4.79,3.21) {project into light: $(u(\mathbf x),z(\mathbf x))$};
+\draw[cameraflow] (8.93,3.73) -- (8.93,3.10) -- (7.68,3.10) -- (gather.north -| 7.68,0);
+\node[label] at (8.70,3.42) {sample};
+
+% Three learned branches, with representative intermediate renderings.
+\node[learned,minimum width=4.80cm,minimum height=1.22cm,align=center] (visibility) at (12.42,5.42)
+  {\textbf{visibility $g$}\\[3pt]
+   $\begin{gathered}V=\sigma\big(\mathrm{logit}\,V_0\\[-1pt]
+   {}+g(\mathbf S,\mathbf f,\mathbf n\!\cdot\!\mathbf l)\big)\end{gathered}$};
+\node[learned,minimum width=4.80cm,minimum height=1.22cm,align=center] (transfer) at (12.42,4.02)
+  {\textbf{transfer $h$}\\[5pt]$L_{\mathrm{tr}}=\sum_k\mathbf W_k\,\Phi_k$};
+\node[learned,minimum width=4.80cm,minimum height=1.22cm,align=center] (material) at (12.42,2.62)
+  {\textbf{material}\\[5pt]
+   $\rho,\ s=\mathrm{MLP}(\mathbf f,\mathbf n,\mathbf l,\mathbf v,\mathbf h,\mathbf r)$};
+
+\draw[draw=blue!60!black] (gather.east) -- (9.62,2.50) -- (9.62,5.42);
+\draw[cameraflow] (9.62,5.42) -- (visibility.west);
+\draw[cameraflow] (9.62,4.02) -- (transfer.west);
+\draw[cameraflow] (9.62,2.62) -- (material.west);
+\fill[blue!60!black] (9.62,4.02) circle (0.65pt);
+\fill[blue!60!black] (9.62,2.62) circle (0.65pt);
+
+\node[thumb] (visimage) at (15.90,5.42) {\includegraphics[width=1.24cm,height=1.24cm]{figures/decomp_hotdog/visibility.png}};
+\node[thumb] (trimage) at (15.90,4.02) {\includegraphics[width=1.24cm,height=1.24cm]{figures/decomp_hotdog/transfer.png}};
+\node[thumb] (matimage) at (15.90,2.62) {\includegraphics[width=1.24cm,height=1.24cm]{figures/decomp_hotdog/local.png}};
+\draw[draw=green!45!black] (visibility.east) -- (visimage.west);
+\draw[draw=green!45!black] (transfer.east) -- (trimage.west);
+\draw[draw=green!45!black] (material.east) -- (matimage.west);
+
+% The common output bus merges the learned terms into physical shading.
+\draw[draw=black!75] (15.06,5.42) -- (15.06,1.97);
+\fill[black!75] (15.06,5.42) circle (0.65pt);
+\fill[black!75] (15.06,4.02) circle (0.65pt);
+\fill[black!75] (15.06,2.62) circle (0.65pt);
+\node[draw=black,fill=white,rounded corners=2pt,minimum width=14.70cm,minimum height=0.66cm,align=center] (shading) at (7.49,1.50)
+  {$L(\mathbf x)=E(\mathbf x)\big[\,V\rho+V_0\,s+\textstyle\sum_k\mathbf W_k\Phi_k\big],\qquad E=I/\|\mathbf p-\mathbf x\|^2$};
+\draw[mergeflow] (15.06,1.97) -- (13.85,1.97) -- (13.85,1.83);
+\node[thumb] (output) at (16.78,1.67) {\includegraphics[width=1.24cm,height=1.24cm]{figures/decomp_hotdog/ours.png}};
+\draw[mergeflow] (shading.east) -- (15.90,1.50) -- (15.90,1.67) -- (output.west);
+\node[label] at (15.80,1.85) {render};
+
+% Schedule: widths are exactly proportional to 8k : 22k : 8k.
+\fill[gray!10] (0.06,0.02) rectangle (3.7116,0.94);
+\fill[blue!8] (3.7116,0.02) rectangle (13.7534,0.94);
+\fill[green!8] (13.7534,0.02) rectangle (17.405,0.94);
+\draw[draw=gray!60,rounded corners=2pt] (0.06,0.02) rectangle (17.405,0.94);
+\draw[draw=gray!60] (3.7116,0.02) -- (3.7116,0.94);
+\draw[draw=gray!60] (13.7534,0.02) -- (13.7534,0.94);
+\node[stage,text width=3.43cm] at (0.18,0.82)
+  {\textbf{I. Geometry warm-up (0--8k)}\\
+   Point light; no networks;\\target exponent $1/\gamma\!\to\!1$};
+\node[stage,text width=9.80cm] at (3.84,0.82)
+  {\textbf{II. Joint training (8k--30k)}\\
+   Linear radiance; shade Gaussians; densify};
+\node[stage,text width=3.43cm] at (13.88,0.82)
+  {\textbf{III. Refine appearance (+8k)}\\
+   Frozen geometry; shade pixels\\display-domain loss};
+\draw[->,draw=gray!65] (4.01,0.23) -- (13.37,0.23);
+\end{tikzpicture}%

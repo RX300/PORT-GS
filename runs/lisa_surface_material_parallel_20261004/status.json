@@ -1,0 +1,422 @@
+{
+  "manifest": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_surface_material_parallel_20261004/manifest.json",
+  "state": "completed",
+  "started_utc": "2026-10-04T07:14:21.878868+00:00",
+  "finished_utc": "2026-10-04T08:36:07.321773+00:00",
+  "scheduler_pid": 546013,
+  "updated_utc": "2026-10-04T08:36:07.321808+00:00",
+  "workers": {
+    "2": {
+      "state": "idle",
+      "job": null,
+      "pid": null
+    },
+    "3": {
+      "state": "idle",
+      "job": null,
+      "pid": null
+    }
+  },
+  "jobs": {
+    "PORT-Synthetic_GS3-Drums-surface_material": {
+      "method": "PORT-GS",
+      "family": "Synthetic_GS3",
+      "scene": "Drums",
+      "state": "completed",
+      "gpu": "2",
+      "phase": null,
+      "pid": null,
+      "output": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_surface_material_parallel_20261004/surface_material/Synthetic_GS3/Drums",
+      "resultpath": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_surface_material_parallel_20261004/surface_material/Synthetic_GS3/Drums/validation/metrics.json",
+      "source_archive": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_surface_material_parallel_20261004/source.tar",
+      "reused_from": null,
+      "steps": {
+        "train": {
+          "state": "completed",
+          "cwd": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS",
+          "argv": [
+            "/workspace/ubuntu2004_cuda12_1/utils/conda-envs/ssd-gs/bin/python",
+            "-u",
+            "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/train.py",
+            "--steps",
+            "60000",
+            "--seed",
+            "0",
+            "--resolution",
+            "512",
+            "--background",
+            "1.0",
+            "--display-gamma",
+            "2.2",
+            "--shadow-start",
+            "2000",
+            "--port-start",
+            "2000",
+            "--lr-decay-steps",
+            "60000",
+            "--holdout-every",
+            "10",
+            "--representation",
+            "light_atlas",
+            "--material-head",
+            "diffuse",
+            "--mask-weight",
+            "0.5",
+            "--foreground-appearance-until",
+            "2000",
+            "--specular",
+            "asg",
+            "--shading",
+            "gaussian",
+            "--split-scale2d-stop",
+            "0",
+            "--refinement-metric",
+            "gradient",
+            "--material-activation",
+            "softplus",
+            "--geometry-warmup-steps",
+            "0",
+            "--normal-model",
+            "learned",
+            "--save-steps",
+            "16000",
+            "30000",
+            "--refine-stop",
+            "50000",
+            "--initialization",
+            "hull",
+            "--scene",
+            "/workspace/datasets/SSD-GS/data/Synthetic_GS3/Drums",
+            "--output",
+            "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_surface_material_parallel_20261004/surface_material/Synthetic_GS3/Drums"
+          ],
+          "logpath": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_surface_material_parallel_20261004/surface_material/Synthetic_GS3/Drums.train.log",
+          "output": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_surface_material_parallel_20261004/surface_material/Synthetic_GS3/Drums",
+          "resultpath": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_surface_material_parallel_20261004/surface_material/Synthetic_GS3/Drums/last.pt",
+          "started_utc": "2026-10-04T07:14:21.881418+00:00",
+          "pid": null,
+          "startup_confirmed": {
+            "pid": 546019,
+            "gpu": "2",
+            "step": 100,
+            "row": {
+              "step": 100,
+              "stage": "relighting",
+              "frame_index": 1853,
+              "loss": 0.08597712963819504,
+              "l1": 0.047561269253492355,
+              "loss_terms": {
+                "l1": 0.038049016147851944,
+                "ssim": 0.03438565880060196,
+                "mask": 0.013542413711547852,
+                "feature_reg": 3.372809231905194e-08,
+                "camera_reg": 0.0
+              },
+              "points": 20000,
+              "seconds": 2.87,
+              "memory_GiB": 7.952600002288818,
+              "transport_stats": {
+                "specular": 1.3144697277311934e-06
+              }
+            }
+          },
+          "finished_utc": "2026-10-04T08:35:28.641240+00:00",
+          "last_pid": 546019
+        },
+        "eval_016000": {
+          "state": "completed",
+          "cwd": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS",
+          "argv": [
+            "/workspace/ubuntu2004_cuda12_1/utils/conda-envs/ssd-gs/bin/python",
+            "-u",
+            "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/evaluate.py",
+            "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_surface_material_parallel_20261004/surface_material/Synthetic_GS3/Drums/step_016000.pt",
+            "--split",
+            "validation",
+            "--output",
+            "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_surface_material_parallel_20261004/surface_material/Synthetic_GS3/Drums/validation_016000",
+            "--lpips"
+          ],
+          "logpath": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_surface_material_parallel_20261004/surface_material/Synthetic_GS3/Drums.validation_016000.log",
+          "output": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_surface_material_parallel_20261004/surface_material/Synthetic_GS3/Drums/validation_016000",
+          "resultpath": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_surface_material_parallel_20261004/surface_material/Synthetic_GS3/Drums/validation_016000/metrics.json",
+          "started_utc": "2026-10-04T08:35:28.642071+00:00",
+          "pid": null,
+          "finished_utc": "2026-10-04T08:35:40.979539+00:00",
+          "last_pid": 556208
+        },
+        "eval_030000": {
+          "state": "completed",
+          "cwd": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS",
+          "argv": [
+            "/workspace/ubuntu2004_cuda12_1/utils/conda-envs/ssd-gs/bin/python",
+            "-u",
+            "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/evaluate.py",
+            "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_surface_material_parallel_20261004/surface_material/Synthetic_GS3/Drums/step_030000.pt",
+            "--split",
+            "validation",
+            "--output",
+            "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_surface_material_parallel_20261004/surface_material/Synthetic_GS3/Drums/validation_030000",
+            "--lpips"
+          ],
+          "logpath": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_surface_material_parallel_20261004/surface_material/Synthetic_GS3/Drums.validation_030000.log",
+          "output": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_surface_material_parallel_20261004/surface_material/Synthetic_GS3/Drums/validation_030000",
+          "resultpath": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_surface_material_parallel_20261004/surface_material/Synthetic_GS3/Drums/validation_030000/metrics.json",
+          "started_utc": "2026-10-04T08:35:40.980947+00:00",
+          "pid": null,
+          "finished_utc": "2026-10-04T08:35:54.054731+00:00",
+          "last_pid": 556281
+        },
+        "eval": {
+          "state": "completed",
+          "cwd": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS",
+          "argv": [
+            "/workspace/ubuntu2004_cuda12_1/utils/conda-envs/ssd-gs/bin/python",
+            "-u",
+            "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/evaluate.py",
+            "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_surface_material_parallel_20261004/surface_material/Synthetic_GS3/Drums/last.pt",
+            "--split",
+            "validation",
+            "--output",
+            "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_surface_material_parallel_20261004/surface_material/Synthetic_GS3/Drums/validation",
+            "--lpips"
+          ],
+          "logpath": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_surface_material_parallel_20261004/surface_material/Synthetic_GS3/Drums.validation.log",
+          "output": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_surface_material_parallel_20261004/surface_material/Synthetic_GS3/Drums/validation",
+          "resultpath": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_surface_material_parallel_20261004/surface_material/Synthetic_GS3/Drums/validation/metrics.json",
+          "started_utc": "2026-10-04T08:35:54.056120+00:00",
+          "pid": null,
+          "finished_utc": "2026-10-04T08:36:07.317623+00:00",
+          "last_pid": 556347
+        }
+      },
+      "started_utc": "2026-10-04T07:14:21.880439+00:00",
+      "startup_confirmed": {
+        "pid": 546019,
+        "gpu": "2",
+        "step": 100,
+        "row": {
+          "step": 100,
+          "stage": "relighting",
+          "frame_index": 1853,
+          "loss": 0.08597712963819504,
+          "l1": 0.047561269253492355,
+          "loss_terms": {
+            "l1": 0.038049016147851944,
+            "ssim": 0.03438565880060196,
+            "mask": 0.013542413711547852,
+            "feature_reg": 3.372809231905194e-08,
+            "camera_reg": 0.0
+          },
+          "points": 20000,
+          "seconds": 2.87,
+          "memory_GiB": 7.952600002288818,
+          "transport_stats": {
+            "specular": 1.3144697277311934e-06
+          }
+        }
+      },
+      "finished_utc": "2026-10-04T08:36:07.319071+00:00"
+    },
+    "PORT-Synthetic_GS3-FurBall-surface_material": {
+      "method": "PORT-GS",
+      "family": "Synthetic_GS3",
+      "scene": "FurBall",
+      "state": "completed",
+      "gpu": "3",
+      "phase": null,
+      "pid": null,
+      "output": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_surface_material_parallel_20261004/surface_material/Synthetic_GS3/FurBall",
+      "resultpath": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_surface_material_parallel_20261004/surface_material/Synthetic_GS3/FurBall/validation/metrics.json",
+      "source_archive": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_surface_material_parallel_20261004/source.tar",
+      "reused_from": null,
+      "steps": {
+        "train": {
+          "state": "completed",
+          "cwd": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS",
+          "argv": [
+            "/workspace/ubuntu2004_cuda12_1/utils/conda-envs/ssd-gs/bin/python",
+            "-u",
+            "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/train.py",
+            "--steps",
+            "60000",
+            "--seed",
+            "0",
+            "--resolution",
+            "512",
+            "--background",
+            "1.0",
+            "--display-gamma",
+            "2.2",
+            "--shadow-start",
+            "2000",
+            "--port-start",
+            "2000",
+            "--lr-decay-steps",
+            "60000",
+            "--holdout-every",
+            "10",
+            "--representation",
+            "light_atlas",
+            "--material-head",
+            "diffuse",
+            "--mask-weight",
+            "0.5",
+            "--foreground-appearance-until",
+            "2000",
+            "--specular",
+            "asg",
+            "--shading",
+            "gaussian",
+            "--split-scale2d-stop",
+            "0",
+            "--refinement-metric",
+            "gradient",
+            "--material-activation",
+            "softplus",
+            "--geometry-warmup-steps",
+            "0",
+            "--normal-model",
+            "learned",
+            "--save-steps",
+            "16000",
+            "30000",
+            "--refine-stop",
+            "50000",
+            "--initialization",
+            "hull",
+            "--scene",
+            "/workspace/datasets/SSD-GS/data/Synthetic_GS3/FurBall",
+            "--output",
+            "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_surface_material_parallel_20261004/surface_material/Synthetic_GS3/FurBall"
+          ],
+          "logpath": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_surface_material_parallel_20261004/surface_material/Synthetic_GS3/FurBall.train.log",
+          "output": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_surface_material_parallel_20261004/surface_material/Synthetic_GS3/FurBall",
+          "resultpath": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_surface_material_parallel_20261004/surface_material/Synthetic_GS3/FurBall/last.pt",
+          "started_utc": "2026-10-04T07:14:21.882990+00:00",
+          "pid": null,
+          "startup_confirmed": {
+            "pid": 546020,
+            "gpu": "3",
+            "step": 100,
+            "row": {
+              "step": 100,
+              "stage": "relighting",
+              "frame_index": 1853,
+              "loss": 0.12130255252122879,
+              "l1": 0.07404917478561401,
+              "loss_terms": {
+                "l1": 0.05923933908343315,
+                "ssim": 0.03801999241113663,
+                "mask": 0.024043209850788116,
+                "feature_reg": 1.613596367633363e-08,
+                "camera_reg": 0.0
+              },
+              "points": 20000,
+              "seconds": 3.86,
+              "memory_GiB": 7.956151485443115,
+              "transport_stats": {
+                "specular": 1.8588150396681158e-07
+              }
+            }
+          },
+          "finished_utc": "2026-10-04T07:48:29.000918+00:00",
+          "last_pid": 546020
+        },
+        "eval_016000": {
+          "state": "completed",
+          "cwd": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS",
+          "argv": [
+            "/workspace/ubuntu2004_cuda12_1/utils/conda-envs/ssd-gs/bin/python",
+            "-u",
+            "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/evaluate.py",
+            "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_surface_material_parallel_20261004/surface_material/Synthetic_GS3/FurBall/step_016000.pt",
+            "--split",
+            "validation",
+            "--output",
+            "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_surface_material_parallel_20261004/surface_material/Synthetic_GS3/FurBall/validation_016000",
+            "--lpips"
+          ],
+          "logpath": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_surface_material_parallel_20261004/surface_material/Synthetic_GS3/FurBall.validation_016000.log",
+          "output": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_surface_material_parallel_20261004/surface_material/Synthetic_GS3/FurBall/validation_016000",
+          "resultpath": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_surface_material_parallel_20261004/surface_material/Synthetic_GS3/FurBall/validation_016000/metrics.json",
+          "started_utc": "2026-10-04T07:48:29.002122+00:00",
+          "pid": null,
+          "finished_utc": "2026-10-04T07:48:40.512673+00:00",
+          "last_pid": 550335
+        },
+        "eval_030000": {
+          "state": "completed",
+          "cwd": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS",
+          "argv": [
+            "/workspace/ubuntu2004_cuda12_1/utils/conda-envs/ssd-gs/bin/python",
+            "-u",
+            "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/evaluate.py",
+            "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_surface_material_parallel_20261004/surface_material/Synthetic_GS3/FurBall/step_030000.pt",
+            "--split",
+            "validation",
+            "--output",
+            "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_surface_material_parallel_20261004/surface_material/Synthetic_GS3/FurBall/validation_030000",
+            "--lpips"
+          ],
+          "logpath": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_surface_material_parallel_20261004/surface_material/Synthetic_GS3/FurBall.validation_030000.log",
+          "output": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_surface_material_parallel_20261004/surface_material/Synthetic_GS3/FurBall/validation_030000",
+          "resultpath": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_surface_material_parallel_20261004/surface_material/Synthetic_GS3/FurBall/validation_030000/metrics.json",
+          "started_utc": "2026-10-04T07:48:40.513989+00:00",
+          "pid": null,
+          "finished_utc": "2026-10-04T07:48:51.835643+00:00",
+          "last_pid": 550408
+        },
+        "eval": {
+          "state": "completed",
+          "cwd": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS",
+          "argv": [
+            "/workspace/ubuntu2004_cuda12_1/utils/conda-envs/ssd-gs/bin/python",
+            "-u",
+            "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/evaluate.py",
+            "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_surface_material_parallel_20261004/surface_material/Synthetic_GS3/FurBall/last.pt",
+            "--split",
+            "validation",
+            "--output",
+            "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_surface_material_parallel_20261004/surface_material/Synthetic_GS3/FurBall/validation",
+            "--lpips"
+          ],
+          "logpath": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_surface_material_parallel_20261004/surface_material/Synthetic_GS3/FurBall.validation.log",
+          "output": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_surface_material_parallel_20261004/surface_material/Synthetic_GS3/FurBall/validation",
+          "resultpath": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_surface_material_parallel_20261004/surface_material/Synthetic_GS3/FurBall/validation/metrics.json",
+          "started_utc": "2026-10-04T07:48:51.836524+00:00",
+          "pid": null,
+          "finished_utc": "2026-10-04T07:49:03.185773+00:00",
+          "last_pid": 550473
+        }
+      },
+      "started_utc": "2026-10-04T07:14:21.882266+00:00",
+      "startup_confirmed": {
+        "pid": 546020,
+        "gpu": "3",
+        "step": 100,
+        "row": {
+          "step": 100,
+          "stage": "relighting",
+          "frame_index": 1853,
+          "loss": 0.12130255252122879,
+          "l1": 0.07404917478561401,
+          "loss_terms": {
+            "l1": 0.05923933908343315,
+            "ssim": 0.03801999241113663,
+            "mask": 0.024043209850788116,
+            "feature_reg": 1.613596367633363e-08,
+            "camera_reg": 0.0
+          },
+          "points": 20000,
+          "seconds": 3.86,
+          "memory_GiB": 7.956151485443115,
+          "transport_stats": {
+            "specular": 1.8588150396681158e-07
+          }
+        }
+      },
+      "finished_utc": "2026-10-04T07:49:03.186582+00:00"
+    }
+  }
+}

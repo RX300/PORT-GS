@@ -1,0 +1,53 @@
+Collecting diffusers==0.28.0
+  Using cached diffusers-0.28.0-py3-none-any.whl (2.2 MB)
+Collecting transformers==4.36.1
+  Using cached transformers-4.36.1-py3-none-any.whl (8.3 MB)
+Collecting huggingface-hub==0.23.0
+  Using cached huggingface_hub-0.23.0-py3-none-any.whl (401 kB)
+Collecting accelerate==0.30.1
+  Using cached accelerate-0.30.1-py3-none-any.whl (302 kB)
+Collecting tokenizers==0.15.2
+  Using cached tokenizers-0.15.2-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (3.6 MB)
+Collecting safetensors==0.4.3
+  Downloading safetensors-0.4.3-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (1.2 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.2/1.2 MB 57.2 MB/s eta 0:00:00
+Collecting einops==0.7.0
+  Using cached einops-0.7.0-py3-none-any.whl (44 kB)
+Collecting importlib_metadata==7.1.0
+  Downloading importlib_metadata-7.1.0-py3-none-any.whl (24 kB)
+Collecting zipp==3.19.1
+  Downloading zipp-3.19.1-py3-none-any.whl (9.0 kB)
+Installing collected packages: zipp, transformers, tokenizers, safetensors, importlib_metadata, huggingface-hub, einops, diffusers, accelerate
+Successfully installed accelerate-0.30.1 diffusers-0.28.0 einops-0.7.0 huggingface-hub-0.23.0 importlib_metadata-7.1.0 safetensors-0.4.3 tokenizers-0.15.2 transformers-4.36.1 zipp-3.19.1
+
+[notice] A new release of pip is available: 23.0.1 -> 26.2.1
+[notice] To update, run: /workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/third_party/stablenormal_env/bin/python -m pip install --upgrade pip
+/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/third_party/stablenormal_env/lib/python3.10/site-packages/transformers/utils/generic.py:441: FutureWarning: `torch.utils._pytree._register_pytree_node` is deprecated. Please use `torch.utils._pytree.register_pytree_node` instead.
+  _torch_pytree._register_pytree_node(
+The cache for model files in Transformers v4.22.0 has been updated. Migrating your old cache. This is a one-time only operation. You can interrupt this and resume the migration later on by calling `transformers.utils.move_cache()`.
+0it [00:00, ?it/s]0it [00:00, ?it/s]
+Traceback (most recent call last):
+  File "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/third_party/stablenormal_env/lib/python3.10/site-packages/transformers/utils/versions.py", line 102, in require_version
+    got_ver = importlib.metadata.version(pkg)
+  File "/workspace/ubuntu2004_cuda12_1/utils/conda-envs/ssd-gs/lib/python3.10/importlib/metadata/__init__.py", line 996, in version
+    return distribution(distribution_name).version
+  File "/workspace/ubuntu2004_cuda12_1/utils/conda-envs/ssd-gs/lib/python3.10/importlib/metadata/__init__.py", line 969, in distribution
+    return Distribution.from_name(distribution_name)
+  File "/workspace/ubuntu2004_cuda12_1/utils/conda-envs/ssd-gs/lib/python3.10/importlib/metadata/__init__.py", line 548, in from_name
+    raise PackageNotFoundError(name)
+importlib.metadata.PackageNotFoundError: No package metadata was found for regex
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "<string>", line 1, in <module>
+  File "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/third_party/stablenormal_env/lib/python3.10/site-packages/transformers/__init__.py", line 26, in <module>
+    from . import dependency_versions_check
+  File "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/third_party/stablenormal_env/lib/python3.10/site-packages/transformers/dependency_versions_check.py", line 57, in <module>
+    require_version_core(deps[pkg])
+  File "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/third_party/stablenormal_env/lib/python3.10/site-packages/transformers/utils/versions.py", line 117, in require_version_core
+    return require_version(requirement, hint)
+  File "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/third_party/stablenormal_env/lib/python3.10/site-packages/transformers/utils/versions.py", line 104, in require_version
+    raise importlib.metadata.PackageNotFoundError(
+importlib.metadata.PackageNotFoundError: No package metadata was found for The 'regex!=2019.12.17' distribution was not found and is required by this application. 
+Try: pip install transformers -U or pip install -e '.[dev]' if you're working with git main

@@ -1,0 +1,20 @@
+\begin{table}[t]
+\caption{\textbf{アトラスのアブレーション。}五つのシーン（Drums、AnisoMetal、Translucent、FurScene、Soap）のシーン平均を示す。三つのシードを用いた行はシード間の平均と PSNR の標準偏差を報告し、単一シードの行はシード 0 の完全モデル（31.53\,dB）と比較する。$^\dagger$容量を揃えた MLP（49.1k 対 49.6k パラメータ）は受光点のコード、位置、光源・視線方向を参照するが、アトラスは参照しない。影には引き続きアトラスを用いる。}
+\label{tab:ablation}
+\centering\footnotesize
+\setlength{\tabcolsep}{2.5pt}
+\begin{tabular}{@{}lcccc@{}}
+\toprule
+条件 & シード数 & PSNR$\uparrow$ & SSIM$\uparrow$ & LPIPS$\downarrow$ \\
+\midrule
+完全モデル & 3 & 31.51{\tiny$\pm$0.11} & .954 & .047 \\
+光輸送項なし & 3 & 30.15{\tiny$\pm$0.11} & .948 & .055 \\
+光輸送 $\rightarrow$ 局所残差$^\dagger$ & 3 & 31.54{\tiny$\pm$0.03} & .954 & .047 \\
+単一階層（$K{=}1$） & 1 & 31.09 & .952 & .049 \\
+\shortstack[l]{モーメント判定のみ\\（$g\equiv 0$）} & 1 & 31.29 & .952 & .048 \\
+各ガウシアンの可視性$^\ddagger$ & 3 & \TBD & \TBD & \TBD \\
+ハードシャドウマップ$^\ddagger$ & 3 & \TBD & \TBD & \TBD \\
+\bottomrule
+\end{tabular}
+\\[2pt]{\footnotesize$^\ddagger$\torun{E3（同じ受光点を使用し、光輸送にはアトラスを維持）。単一シードの行も三つのシードで実行する。}}
+\end{table}

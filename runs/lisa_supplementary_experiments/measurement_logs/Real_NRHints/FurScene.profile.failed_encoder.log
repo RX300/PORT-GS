@@ -1,0 +1,14 @@
+[libopenh264 @ 0x55a3764f90c0] Incorrect library version loaded
+Error initializing output stream 0:0 -- Error while opening encoder for output stream #0:0 - maybe incorrect parameters such as bit_rate, rate, width or height
+Traceback (most recent call last):
+  File "/workspace/ubuntu2004_cuda12_1/utils/conda-envs/ssd-gs/lib/python3.10/runpy.py", line 196, in _run_module_as_main
+    return _run_code(code, main_globals, None,
+  File "/workspace/ubuntu2004_cuda12_1/utils/conda-envs/ssd-gs/lib/python3.10/runpy.py", line 86, in _run_code
+    exec(code, run_globals)
+  File "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/experiments/measure.py", line 114, in <module>
+    measure(args.checkpoint, args.output, args.frames, args.video_frames)
+  File "/workspace/ubuntu2004_cuda12_1/utils/conda-envs/ssd-gs/lib/python3.10/site-packages/torch/utils/_contextlib.py", line 116, in decorate_context
+    return func(*args, **kwargs)
+  File "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/experiments/measure.py", line 94, in measure
+    process.stdin.write((encoded * 255).round().byte().cpu().numpy().tobytes())
+BrokenPipeError: [Errno 32] Broken pipe

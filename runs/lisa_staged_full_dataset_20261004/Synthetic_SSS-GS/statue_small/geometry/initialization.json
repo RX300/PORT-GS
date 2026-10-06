@@ -1,0 +1,61 @@
+{
+  "coarse_supported_points": 7203,
+  "proposal_bounds": [
+    [
+      -0.6521264910697937,
+      -0.5291466116905212,
+      -1.4785996675491333
+    ],
+    [
+      0.6685181260108948,
+      0.5345498323440552,
+      1.2069987058639526
+    ]
+  ],
+  "proposal_points": 160000,
+  "accepted_points": 49684,
+  "mask_dilation_pixels": 2,
+  "minimum_view_fraction": 0.9,
+  "alpha_threshold": 0.05,
+  "scale_rule": "RMS distance to the three nearest neighbors",
+  "mode": "hull",
+  "scene": "/workspace/datasets/SSD-GS/data/Synthetic_SSS-GS/statue_small",
+  "fit_frames": [
+    0,
+    15,
+    30,
+    45,
+    60,
+    75,
+    90,
+    105,
+    120,
+    135,
+    150,
+    165,
+    180,
+    195,
+    210,
+    225,
+    240,
+    255,
+    270,
+    285,
+    300,
+    315,
+    330,
+    345,
+    360,
+    375,
+    390,
+    405,
+    420,
+    435,
+    450,
+    465
+  ],
+  "points": 20000,
+  "seed": 0,
+  "radius": 1.7414477348327637,
+  "scope": "Fresh seeds from training cameras and masks only"
+}

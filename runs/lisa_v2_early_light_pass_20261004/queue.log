@@ -1,0 +1,17 @@
+{"event": "startup_confirmed", "job": "PORT-Synthetic_GS3-Drums-D_light2000", "gpu": "3", "pid": 468813, "phase": "train", "step": 100}
+{"event": "startup_confirmed", "job": "PORT-Synthetic_GS3-Lego-D_light2000", "gpu": "2", "pid": 468814, "phase": "train", "step": 100}
+{"event": "startup_confirmed", "job": "PORT-Synthetic_GS3-Drums-D_light200", "gpu": "0", "pid": 468810, "phase": "train", "step": 100}
+{"event": "startup_confirmed", "job": "PORT-Synthetic_GS3-Lego-D_light200", "gpu": "1", "pid": 468811, "phase": "train", "step": 100}
+{"event": "phasefinish", "job": "PORT-Synthetic_GS3-Drums-D_light2000", "gpu": "3", "phase": "train", "pid": 468813}
+{"event": "phasefinish", "job": "PORT-Synthetic_GS3-Lego-D_light2000", "gpu": "2", "phase": "train", "pid": 468814}
+{"event": "phasefinish", "job": "PORT-Synthetic_GS3-Drums-D_light2000", "gpu": "3", "phase": "eval", "pid": 470963}
+{"event": "jobfinish", "job": "PORT-Synthetic_GS3-Drums-D_light2000", "gpu": "3"}
+{"event": "phasefinish", "job": "PORT-Synthetic_GS3-Lego-D_light2000", "gpu": "2", "phase": "eval", "pid": 471201}
+{"event": "jobfinish", "job": "PORT-Synthetic_GS3-Lego-D_light2000", "gpu": "2"}
+{"event": "phasefinish", "job": "PORT-Synthetic_GS3-Drums-D_light200", "gpu": "0", "phase": "train", "pid": 468810}
+{"event": "phasefinish", "job": "PORT-Synthetic_GS3-Drums-D_light200", "gpu": "0", "phase": "eval", "pid": 471624}
+{"event": "jobfinish", "job": "PORT-Synthetic_GS3-Drums-D_light200", "gpu": "0"}
+{"event": "phasefinish", "job": "PORT-Synthetic_GS3-Lego-D_light200", "gpu": "1", "phase": "train", "pid": 468811}
+{"event": "phasefinish", "job": "PORT-Synthetic_GS3-Lego-D_light200", "gpu": "1", "phase": "eval", "pid": 472405}
+{"event": "jobfinish", "job": "PORT-Synthetic_GS3-Lego-D_light200", "gpu": "1"}
+{"event": "queue_complete", "status": "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/runs/lisa_v2_early_light_pass_20261004/status.json"}

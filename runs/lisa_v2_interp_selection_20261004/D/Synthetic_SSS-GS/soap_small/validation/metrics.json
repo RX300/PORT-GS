@@ -1,0 +1,4747 @@
+{
+  "split": "validation",
+  "checkpoint": "runs/lisa_v2_interp_selection_20261004/D/Synthetic_SSS-GS/soap_small/last.pt",
+  "render_branch": "gaussian",
+  "metrics": {
+    "PSNR": 42.35172782897949,
+    "SSIM": 0.9943013787269592,
+    "raw_MSE": 9.062482633453328e-05,
+    "alpha_L1": 0.0006404077325714752,
+    "LPIPS": 0.009671370559372007,
+    "neutral_peak_metrics": {
+      "pixels": 3283,
+      "predicted_pixels": 2793,
+      "matched_predicted_pixels_2px": 2706,
+      "matched_target_pixels_2px": 2979,
+      "rgb_mae": 0.09697769547889518,
+      "target_contrast": 0.40173594684924724,
+      "predicted_contrast": 0.3265074391617005,
+      "contrast_ratio": 0.8127414081872626,
+      "precision_2px": 0.9688506981740065,
+      "recall_2px": 0.9074017666768199
+    },
+    "neutral_peak_components": {
+      "total_predicted_peak_pixels": 2793,
+      "buckets": {
+        "1_to_4": {
+          "sums": {
+            "component_count": 119,
+            "gt_peak_pixels": 218,
+            "absolute_rgb_error_sum": 89.82745277881622,
+            "target_contrast_sum": 89.65652632713318,
+            "predicted_contrast_sum": 59.88860785216093,
+            "matched_gt_pixels_2px": 108,
+            "components_with_at_least_one_hit": 59
+          },
+          "metrics": {
+            "component_count": 119,
+            "gt_peak_pixels": 218,
+            "rgb_mae": 0.13735084522754773,
+            "target_contrast": 0.41126846939051914,
+            "predicted_contrast": 0.27471838464294007,
+            "contrast_ratio": 0.6679782309839117,
+            "matched_gt_pixels_2px": 108,
+            "pixel_recall_2px": 0.4954128440366973,
+            "components_with_at_least_one_hit": 59,
+            "component_any_hit_fraction": 0.4957983193277311
+          }
+        },
+        "5_to_16": {
+          "sums": {
+            "component_count": 55,
+            "gt_peak_pixels": 435,
+            "absolute_rgb_error_sum": 157.1843176484108,
+            "target_contrast_sum": 196.5101978778839,
+            "predicted_contrast_sum": 150.3840908408165,
+            "matched_gt_pixels_2px": 351,
+            "components_with_at_least_one_hit": 45
+          },
+          "metrics": {
+            "component_count": 55,
+            "gt_peak_pixels": 435,
+            "rgb_mae": 0.12044775298728796,
+            "target_contrast": 0.45174758132846876,
+            "predicted_contrast": 0.34571055365704945,
+            "contrast_ratio": 0.7652737235258841,
+            "matched_gt_pixels_2px": 351,
+            "pixel_recall_2px": 0.8068965517241379,
+            "components_with_at_least_one_hit": 45,
+            "component_any_hit_fraction": 0.8181818181818182
+          }
+        },
+        "gt16": {
+          "sums": {
+            "component_count": 46,
+            "gt_peak_pixels": 2630,
+            "absolute_rgb_error_sum": 708.1215410232544,
+            "target_contrast_sum": 1032.7323160171509,
+            "predicted_contrast_sum": 861.6511676311493,
+            "matched_gt_pixels_2px": 2520,
+            "components_with_at_least_one_hit": 46
+          },
+          "metrics": {
+            "component_count": 46,
+            "gt_peak_pixels": 2630,
+            "rgb_mae": 0.08974924474312476,
+            "target_contrast": 0.3926738844171676,
+            "predicted_contrast": 0.32762401811070313,
+            "contrast_ratio": 0.8343412462913958,
+            "matched_gt_pixels_2px": 2520,
+            "pixel_recall_2px": 0.9581749049429658,
+            "components_with_at_least_one_hit": 46,
+            "component_any_hit_fraction": 1.0
+          }
+        }
+      }
+    }
+  },
+  "views": [
+    {
+      "frame_index": 5,
+      "name": "r_90_l_28",
+      "PSNR": 46.24243927001953,
+      "SSIM": 0.9962421655654907,
+      "raw_MSE": 2.353267336729914e-05,
+      "alpha_L1": 0.0005642425967380404,
+      "neutral_peak_metrics": {
+        "pixels": 5,
+        "predicted_pixels": 3,
+        "matched_predicted_pixels_2px": 3,
+        "matched_target_pixels_2px": 5,
+        "rgb_mae": 0.04915032535791397,
+        "target_contrast": 0.4921795427799225,
+        "predicted_contrast": 0.45621776580810547,
+        "contrast_ratio": 0.9269336462020874
+      },
+      "neutral_peak_components": {
+        "total_predicted_peak_pixels": 3,
+        "buckets": {
+          "1_to_4": {
+            "sums": {
+              "component_count": 0,
+              "gt_peak_pixels": 0,
+              "absolute_rgb_error_sum": 0.0,
+              "target_contrast_sum": 0.0,
+              "predicted_contrast_sum": 0.0,
+              "matched_gt_pixels_2px": 0,
+              "components_with_at_least_one_hit": 0
+            },
+            "metrics": {
+              "component_count": 0,
+              "gt_peak_pixels": 0,
+              "rgb_mae": null,
+              "target_contrast": null,
+              "predicted_contrast": null,
+              "contrast_ratio": null,
+              "matched_gt_pixels_2px": 0,
+              "pixel_recall_2px": null,
+              "components_with_at_least_one_hit": 0,
+              "component_any_hit_fraction": null
+            }
+          },
+          "5_to_16": {
+            "sums": {
+              "component_count": 1,
+              "gt_peak_pixels": 5,
+              "absolute_rgb_error_sum": 0.7372549772262573,
+              "target_contrast_sum": 2.46089768409729,
+              "predicted_contrast_sum": 2.2810888290405273,
+              "matched_gt_pixels_2px": 5,
+              "components_with_at_least_one_hit": 1
+            },
+            "metrics": {
+              "component_count": 1,
+              "gt_peak_pixels": 5,
+              "rgb_mae": 0.04915033181508382,
+              "target_contrast": 0.49217953681945803,
+              "predicted_contrast": 0.45621776580810547,
+              "contrast_ratio": 0.9269336323006373,
+              "matched_gt_pixels_2px": 5,
+              "pixel_recall_2px": 1.0,
+              "components_with_at_least_one_hit": 1,
+              "component_any_hit_fraction": 1.0
+            }
+          },
+          "gt16": {
+            "sums": {
+              "component_count": 0,
+              "gt_peak_pixels": 0,
+              "absolute_rgb_error_sum": 0.0,
+              "target_contrast_sum": 0.0,
+              "predicted_contrast_sum": 0.0,
+              "matched_gt_pixels_2px": 0,
+              "components_with_at_least_one_hit": 0
+            },
+            "metrics": {
+              "component_count": 0,
+              "gt_peak_pixels": 0,
+              "rgb_mae": null,
+              "target_contrast": null,
+              "predicted_contrast": null,
+              "contrast_ratio": null,
+              "matched_gt_pixels_2px": 0,
+              "pixel_recall_2px": null,
+              "components_with_at_least_one_hit": 0,
+              "component_any_hit_fraction": null
+            }
+          }
+        }
+      },
+      "LPIPS": 0.00575520982965827
+    },
+    {
+      "frame_index": 15,
+      "name": "r_139_l_35",
+      "PSNR": 43.094764709472656,
+      "SSIM": 0.9952166080474854,
+      "raw_MSE": 4.877915125689469e-05,
+      "alpha_L1": 0.0006556694861501455,
+      "neutral_peak_metrics": {
+        "pixels": 124,
+        "predicted_pixels": 125,
+        "matched_predicted_pixels_2px": 124,
+        "matched_target_pixels_2px": 123,
+        "rgb_mae": 0.06378873437643051,
+        "target_contrast": 0.4005546569824219,
+        "predicted_contrast": 0.3583643436431885,
+        "contrast_ratio": 0.8946702480316162
+      },
+      "neutral_peak_components": {
+        "total_predicted_peak_pixels": 125,
+        "buckets": {
+          "1_to_4": {
+            "sums": {
+              "component_count": 2,
+              "gt_peak_pixels": 5,
+              "absolute_rgb_error_sum": 1.2901960611343384,
+              "target_contrast_sum": 2.25697660446167,
+              "predicted_contrast_sum": 2.0992066860198975,
+              "matched_gt_pixels_2px": 4,
+              "components_with_at_least_one_hit": 1
+            },
+            "metrics": {
+              "component_count": 2,
+              "gt_peak_pixels": 5,
+              "rgb_mae": 0.08601307074228923,
+              "target_contrast": 0.451395320892334,
+              "predicted_contrast": 0.4198413372039795,
+              "contrast_ratio": 0.9300967860588863,
+              "matched_gt_pixels_2px": 4,
+              "pixel_recall_2px": 0.8,
+              "components_with_at_least_one_hit": 1,
+              "component_any_hit_fraction": 0.5
+            }
+          },
+          "5_to_16": {
+            "sums": {
+              "component_count": 0,
+              "gt_peak_pixels": 0,
+              "absolute_rgb_error_sum": 0.0,
+              "target_contrast_sum": 0.0,
+              "predicted_contrast_sum": 0.0,
+              "matched_gt_pixels_2px": 0,
+              "components_with_at_least_one_hit": 0
+            },
+            "metrics": {
+              "component_count": 0,
+              "gt_peak_pixels": 0,
+              "rgb_mae": null,
+              "target_contrast": null,
+              "predicted_contrast": null,
+              "contrast_ratio": null,
+              "matched_gt_pixels_2px": 0,
+              "pixel_recall_2px": null,
+              "components_with_at_least_one_hit": 0,
+              "component_any_hit_fraction": null
+            }
+          },
+          "gt16": {
+            "sums": {
+              "component_count": 1,
+              "gt_peak_pixels": 119,
+              "absolute_rgb_error_sum": 22.4392147064209,
+              "target_contrast_sum": 47.41179656982422,
+              "predicted_contrast_sum": 42.33796691894531,
+              "matched_gt_pixels_2px": 119,
+              "components_with_at_least_one_hit": 1
+            },
+            "metrics": {
+              "component_count": 1,
+              "gt_peak_pixels": 119,
+              "rgb_mae": 0.06285494315524061,
+              "target_contrast": 0.3984184585699514,
+              "predicted_contrast": 0.35578123461298583,
+              "contrast_ratio": 0.8929838137770927,
+              "matched_gt_pixels_2px": 119,
+              "pixel_recall_2px": 1.0,
+              "components_with_at_least_one_hit": 1,
+              "component_any_hit_fraction": 1.0
+            }
+          }
+        }
+      },
+      "LPIPS": 0.004647799301892519
+    },
+    {
+      "frame_index": 25,
+      "name": "r_39_l_40",
+      "PSNR": 43.72362518310547,
+      "SSIM": 0.9944724440574646,
+      "raw_MSE": 4.229669866617769e-05,
+      "alpha_L1": 0.0008633879479020834,
+      "neutral_peak_metrics": {
+        "pixels": 3,
+        "predicted_pixels": 4,
+        "matched_predicted_pixels_2px": 4,
+        "matched_target_pixels_2px": 3,
+        "rgb_mae": 0.10718955844640732,
+        "target_contrast": 0.5096421241760254,
+        "predicted_contrast": 0.35887226462364197,
+        "contrast_ratio": 0.7041652202606201
+      },
+      "neutral_peak_components": {
+        "total_predicted_peak_pixels": 4,
+        "buckets": {
+          "1_to_4": {
+            "sums": {
+              "component_count": 1,
+              "gt_peak_pixels": 3,
+              "absolute_rgb_error_sum": 0.9647059440612793,
+              "target_contrast_sum": 1.528926134109497,
+              "predicted_contrast_sum": 1.076616883277893,
+              "matched_gt_pixels_2px": 3,
+              "components_with_at_least_one_hit": 1
+            },
+            "metrics": {
+              "component_count": 1,
+              "gt_peak_pixels": 3,
+              "rgb_mae": 0.10718954934014215,
+              "target_contrast": 0.5096420447031657,
+              "predicted_contrast": 0.35887229442596436,
+              "contrast_ratio": 0.7041654003154014,
+              "matched_gt_pixels_2px": 3,
+              "pixel_recall_2px": 1.0,
+              "components_with_at_least_one_hit": 1,
+              "component_any_hit_fraction": 1.0
+            }
+          },
+          "5_to_16": {
+            "sums": {
+              "component_count": 0,
+              "gt_peak_pixels": 0,
+              "absolute_rgb_error_sum": 0.0,
+              "target_contrast_sum": 0.0,
+              "predicted_contrast_sum": 0.0,
+              "matched_gt_pixels_2px": 0,
+              "components_with_at_least_one_hit": 0
+            },
+            "metrics": {
+              "component_count": 0,
+              "gt_peak_pixels": 0,
+              "rgb_mae": null,
+              "target_contrast": null,
+              "predicted_contrast": null,
+              "contrast_ratio": null,
+              "matched_gt_pixels_2px": 0,
+              "pixel_recall_2px": null,
+              "components_with_at_least_one_hit": 0,
+              "component_any_hit_fraction": null
+            }
+          },
+          "gt16": {
+            "sums": {
+              "component_count": 0,
+              "gt_peak_pixels": 0,
+              "absolute_rgb_error_sum": 0.0,
+              "target_contrast_sum": 0.0,
+              "predicted_contrast_sum": 0.0,
+              "matched_gt_pixels_2px": 0,
+              "components_with_at_least_one_hit": 0
+            },
+            "metrics": {
+              "component_count": 0,
+              "gt_peak_pixels": 0,
+              "rgb_mae": null,
+              "target_contrast": null,
+              "predicted_contrast": null,
+              "contrast_ratio": null,
+              "matched_gt_pixels_2px": 0,
+              "pixel_recall_2px": null,
+              "components_with_at_least_one_hit": 0,
+              "component_any_hit_fraction": null
+            }
+          }
+        }
+      },
+      "LPIPS": 0.008123687468469143
+    },
+    {
+      "frame_index": 35,
+      "name": "r_52_l_64",
+      "PSNR": 45.70677947998047,
+      "SSIM": 0.9964008331298828,
+      "raw_MSE": 2.7389993192628026e-05,
+      "alpha_L1": 0.0007639162358827889,
+      "neutral_peak_metrics": {
+        "pixels": 46,
+        "predicted_pixels": 48,
+        "matched_predicted_pixels_2px": 47,
+        "matched_target_pixels_2px": 46,
+        "rgb_mae": 0.06331344693899155,
+        "target_contrast": 0.4578229784965515,
+        "predicted_contrast": 0.44849035143852234,
+        "contrast_ratio": 0.9796152114868164
+      },
+      "neutral_peak_components": {
+        "total_predicted_peak_pixels": 48,
+        "buckets": {
+          "1_to_4": {
+            "sums": {
+              "component_count": 1,
+              "gt_peak_pixels": 1,
+              "absolute_rgb_error_sum": 0.03529411554336548,
+              "target_contrast_sum": 0.30085888504981995,
+              "predicted_contrast_sum": 0.2804408073425293,
+              "matched_gt_pixels_2px": 1,
+              "components_with_at_least_one_hit": 1
+            },
+            "metrics": {
+              "component_count": 1,
+              "gt_peak_pixels": 1,
+              "rgb_mae": 0.011764705181121826,
+              "target_contrast": 0.30085888504981995,
+              "predicted_contrast": 0.2804408073425293,
+              "contrast_ratio": 0.9321340378433246,
+              "matched_gt_pixels_2px": 1,
+              "pixel_recall_2px": 1.0,
+              "components_with_at_least_one_hit": 1,
+              "component_any_hit_fraction": 1.0
+            }
+          },
+          "5_to_16": {
+            "sums": {
+              "component_count": 0,
+              "gt_peak_pixels": 0,
+              "absolute_rgb_error_sum": 0.0,
+              "target_contrast_sum": 0.0,
+              "predicted_contrast_sum": 0.0,
+              "matched_gt_pixels_2px": 0,
+              "components_with_at_least_one_hit": 0
+            },
+            "metrics": {
+              "component_count": 0,
+              "gt_peak_pixels": 0,
+              "rgb_mae": null,
+              "target_contrast": null,
+              "predicted_contrast": null,
+              "contrast_ratio": null,
+              "matched_gt_pixels_2px": 0,
+              "pixel_recall_2px": null,
+              "components_with_at_least_one_hit": 0,
+              "component_any_hit_fraction": null
+            }
+          },
+          "gt16": {
+            "sums": {
+              "component_count": 1,
+              "gt_peak_pixels": 45,
+              "absolute_rgb_error_sum": 8.701959609985352,
+              "target_contrast_sum": 20.758996963500977,
+              "predicted_contrast_sum": 20.350112915039062,
+              "matched_gt_pixels_2px": 45,
+              "components_with_at_least_one_hit": 1
+            },
+            "metrics": {
+              "component_count": 1,
+              "gt_peak_pixels": 45,
+              "rgb_mae": 0.06445896007396557,
+              "target_contrast": 0.461311043633355,
+              "predicted_contrast": 0.4522247314453125,
+              "contrast_ratio": 0.9803032849236009,
+              "matched_gt_pixels_2px": 45,
+              "pixel_recall_2px": 1.0,
+              "components_with_at_least_one_hit": 1,
+              "component_any_hit_fraction": 1.0
+            }
+          }
+        }
+      },
+      "LPIPS": 0.004373474046587944
+    },
+    {
+      "frame_index": 45,
+      "name": "r_72_l_85",
+      "PSNR": 33.91880416870117,
+      "SSIM": 0.9907493591308594,
+      "raw_MSE": 0.00041394931031391025,
+      "alpha_L1": 0.0006372951902449131,
+      "neutral_peak_metrics": {
+        "pixels": 894,
+        "predicted_pixels": 756,
+        "matched_predicted_pixels_2px": 750,
+        "matched_target_pixels_2px": 850,
+        "rgb_mae": 0.05716248229146004,
+        "target_contrast": 0.3364332318305969,
+        "predicted_contrast": 0.28527572751045227,
+        "contrast_ratio": 0.8479415774345398
+      },
+      "neutral_peak_components": {
+        "total_predicted_peak_pixels": 756,
+        "buckets": {
+          "1_to_4": {
+            "sums": {
+              "component_count": 29,
+              "gt_peak_pixels": 45,
+              "absolute_rgb_error_sum": 9.75686264038086,
+              "target_contrast_sum": 12.762857437133789,
+              "predicted_contrast_sum": 9.015909194946289,
+              "matched_gt_pixels_2px": 34,
+              "components_with_at_least_one_hit": 22
+            },
+            "metrics": {
+              "component_count": 29,
+              "gt_peak_pixels": 45,
+              "rgb_mae": 0.07227305659541378,
+              "target_contrast": 0.28361905415852867,
+              "predicted_contrast": 0.2003535376654731,
+              "contrast_ratio": 0.7064177625861683,
+              "matched_gt_pixels_2px": 34,
+              "pixel_recall_2px": 0.7555555555555555,
+              "components_with_at_least_one_hit": 22,
+              "component_any_hit_fraction": 0.7586206896551724
+            }
+          },
+          "5_to_16": {
+            "sums": {
+              "component_count": 11,
+              "gt_peak_pixels": 83,
+              "absolute_rgb_error_sum": 16.203922271728516,
+              "target_contrast_sum": 31.732650756835938,
+              "predicted_contrast_sum": 25.877424240112305,
+              "matched_gt_pixels_2px": 81,
+              "components_with_at_least_one_hit": 11
+            },
+            "metrics": {
+              "component_count": 11,
+              "gt_peak_pixels": 83,
+              "rgb_mae": 0.06507599305915067,
+              "target_contrast": 0.3823210934558547,
+              "predicted_contrast": 0.31177619566400366,
+              "contrast_ratio": 0.8154825904210892,
+              "matched_gt_pixels_2px": 81,
+              "pixel_recall_2px": 0.9759036144578314,
+              "components_with_at_least_one_hit": 11,
+              "component_any_hit_fraction": 1.0
+            }
+          },
+          "gt16": {
+            "sums": {
+              "component_count": 8,
+              "gt_peak_pixels": 766,
+              "absolute_rgb_error_sum": 127.34901428222656,
+              "target_contrast_sum": 256.2757568359375,
+              "predicted_contrast_sum": 220.1431427001953,
+              "matched_gt_pixels_2px": 735,
+              "components_with_at_least_one_hit": 8
+            },
+            "metrics": {
+              "component_count": 8,
+              "gt_peak_pixels": 766,
+              "rgb_mae": 0.05541732562324916,
+              "target_contrast": 0.3345636512218505,
+              "predicted_contrast": 0.2873931366843281,
+              "contrast_ratio": 0.859008848195994,
+              "matched_gt_pixels_2px": 735,
+              "pixel_recall_2px": 0.9595300261096605,
+              "components_with_at_least_one_hit": 8,
+              "component_any_hit_fraction": 1.0
+            }
+          }
+        }
+      },
+      "LPIPS": 0.008852478116750717
+    },
+    {
+      "frame_index": 55,
+      "name": "r_111_l_109",
+      "PSNR": 47.981876373291016,
+      "SSIM": 0.9971195459365845,
+      "raw_MSE": 1.5684387108194642e-05,
+      "alpha_L1": 0.0004878335748799145,
+      "neutral_peak_metrics": {
+        "pixels": 6,
+        "predicted_pixels": 7,
+        "matched_predicted_pixels_2px": 7,
+        "matched_target_pixels_2px": 6,
+        "rgb_mae": 0.03333333507180214,
+        "target_contrast": 0.5025983452796936,
+        "predicted_contrast": 0.5307191014289856,
+        "contrast_ratio": 1.0559507608413696
+      },
+      "neutral_peak_components": {
+        "total_predicted_peak_pixels": 7,
+        "buckets": {
+          "1_to_4": {
+            "sums": {
+              "component_count": 0,
+              "gt_peak_pixels": 0,
+              "absolute_rgb_error_sum": 0.0,
+              "target_contrast_sum": 0.0,
+              "predicted_contrast_sum": 0.0,
+              "matched_gt_pixels_2px": 0,
+              "components_with_at_least_one_hit": 0
+            },
+            "metrics": {
+              "component_count": 0,
+              "gt_peak_pixels": 0,
+              "rgb_mae": null,
+              "target_contrast": null,
+              "predicted_contrast": null,
+              "contrast_ratio": null,
+              "matched_gt_pixels_2px": 0,
+              "pixel_recall_2px": null,
+              "components_with_at_least_one_hit": 0,
+              "component_any_hit_fraction": null
+            }
+          },
+          "5_to_16": {
+            "sums": {
+              "component_count": 1,
+              "gt_peak_pixels": 6,
+              "absolute_rgb_error_sum": 0.5999999642372131,
+              "target_contrast_sum": 3.015589952468872,
+              "predicted_contrast_sum": 3.184314250946045,
+              "matched_gt_pixels_2px": 6,
+              "components_with_at_least_one_hit": 1
+            },
+            "metrics": {
+              "component_count": 1,
+              "gt_peak_pixels": 6,
+              "rgb_mae": 0.03333333134651184,
+              "target_contrast": 0.5025983254114786,
+              "predicted_contrast": 0.5307190418243408,
+              "contrast_ratio": 1.055950676695629,
+              "matched_gt_pixels_2px": 6,
+              "pixel_recall_2px": 1.0,
+              "components_with_at_least_one_hit": 1,
+              "component_any_hit_fraction": 1.0
+            }
+          },
+          "gt16": {
+            "sums": {
+              "component_count": 0,
+              "gt_peak_pixels": 0,
+              "absolute_rgb_error_sum": 0.0,
+              "target_contrast_sum": 0.0,
+              "predicted_contrast_sum": 0.0,
+              "matched_gt_pixels_2px": 0,
+              "components_with_at_least_one_hit": 0
+            },
+            "metrics": {
+              "component_count": 0,
+              "gt_peak_pixels": 0,
+              "rgb_mae": null,
+              "target_contrast": null,
+              "predicted_contrast": null,
+              "contrast_ratio": null,
+              "matched_gt_pixels_2px": 0,
+              "pixel_recall_2px": null,
+              "components_with_at_least_one_hit": 0,
+              "component_any_hit_fraction": null
+            }
+          }
+        }
+      },
+      "LPIPS": 0.0025260811671614647
+    },
+    {
+      "frame_index": 65,
+      "name": "r_33_l_93",
+      "PSNR": 44.19141387939453,
+      "SSIM": 0.9943928718566895,
+      "raw_MSE": 3.824362647719681e-05,
+      "alpha_L1": 0.0006851284997537732,
+      "neutral_peak_metrics": {
+        "pixels": 24,
+        "predicted_pixels": 24,
+        "matched_predicted_pixels_2px": 22,
+        "matched_target_pixels_2px": 17,
+        "rgb_mae": 0.08066447824239731,
+        "target_contrast": 0.46852076053619385,
+        "predicted_contrast": 0.4381813406944275,
+        "contrast_ratio": 0.9352442622184753
+      },
+      "neutral_peak_components": {
+        "total_predicted_peak_pixels": 24,
+        "buckets": {
+          "1_to_4": {
+            "sums": {
+              "component_count": 0,
+              "gt_peak_pixels": 0,
+              "absolute_rgb_error_sum": 0.0,
+              "target_contrast_sum": 0.0,
+              "predicted_contrast_sum": 0.0,
+              "matched_gt_pixels_2px": 0,
+              "components_with_at_least_one_hit": 0
+            },
+            "metrics": {
+              "component_count": 0,
+              "gt_peak_pixels": 0,
+              "rgb_mae": null,
+              "target_contrast": null,
+              "predicted_contrast": null,
+              "contrast_ratio": null,
+              "matched_gt_pixels_2px": 0,
+              "pixel_recall_2px": null,
+              "components_with_at_least_one_hit": 0,
+              "component_any_hit_fraction": null
+            }
+          },
+          "5_to_16": {
+            "sums": {
+              "component_count": 3,
+              "gt_peak_pixels": 24,
+              "absolute_rgb_error_sum": 5.807843208312988,
+              "target_contrast_sum": 11.244497299194336,
+              "predicted_contrast_sum": 10.516351699829102,
+              "matched_gt_pixels_2px": 17,
+              "components_with_at_least_one_hit": 2
+            },
+            "metrics": {
+              "component_count": 3,
+              "gt_peak_pixels": 24,
+              "rgb_mae": 0.08066448900434706,
+              "target_contrast": 0.468520720799764,
+              "predicted_contrast": 0.4381813208262126,
+              "contrast_ratio": 0.9352442728215689,
+              "matched_gt_pixels_2px": 17,
+              "pixel_recall_2px": 0.7083333333333334,
+              "components_with_at_least_one_hit": 2,
+              "component_any_hit_fraction": 0.6666666666666666
+            }
+          },
+          "gt16": {
+            "sums": {
+              "component_count": 0,
+              "gt_peak_pixels": 0,
+              "absolute_rgb_error_sum": 0.0,
+              "target_contrast_sum": 0.0,
+              "predicted_contrast_sum": 0.0,
+              "matched_gt_pixels_2px": 0,
+              "components_with_at_least_one_hit": 0
+            },
+            "metrics": {
+              "component_count": 0,
+              "gt_peak_pixels": 0,
+              "rgb_mae": null,
+              "target_contrast": null,
+              "predicted_contrast": null,
+              "contrast_ratio": null,
+              "matched_gt_pixels_2px": 0,
+              "pixel_recall_2px": null,
+              "components_with_at_least_one_hit": 0,
+              "component_any_hit_fraction": null
+            }
+          }
+        }
+      },
+      "LPIPS": 0.00791908148676157
+    },
+    {
+      "frame_index": 75,
+      "name": "r_13_l_56",
+      "PSNR": 41.089820861816406,
+      "SSIM": 0.993857741355896,
+      "raw_MSE": 7.7599092037417e-05,
+      "alpha_L1": 0.0007139666704460979,
+      "neutral_peak_metrics": {
+        "pixels": 56,
+        "predicted_pixels": 44,
+        "matched_predicted_pixels_2px": 44,
+        "matched_target_pixels_2px": 53,
+        "rgb_mae": 0.12112510949373245,
+        "target_contrast": 0.42752793431282043,
+        "predicted_contrast": 0.3068685233592987,
+        "contrast_ratio": 0.7177742123603821
+      },
+      "neutral_peak_components": {
+        "total_predicted_peak_pixels": 44,
+        "buckets": {
+          "1_to_4": {
+            "sums": {
+              "component_count": 1,
+              "gt_peak_pixels": 3,
+              "absolute_rgb_error_sum": 2.9215688705444336,
+              "target_contrast_sum": 1.462259292602539,
+              "predicted_contrast_sum": 0.39724522829055786,
+              "matched_gt_pixels_2px": 0,
+              "components_with_at_least_one_hit": 0
+            },
+            "metrics": {
+              "component_count": 1,
+              "gt_peak_pixels": 3,
+              "rgb_mae": 0.32461876339382595,
+              "target_contrast": 0.4874197642008464,
+              "predicted_contrast": 0.13241507609685263,
+              "contrast_ratio": 0.27166538130425427,
+              "matched_gt_pixels_2px": 0,
+              "pixel_recall_2px": 0.0,
+              "components_with_at_least_one_hit": 0,
+              "component_any_hit_fraction": 0.0
+            }
+          },
+          "5_to_16": {
+            "sums": {
+              "component_count": 0,
+              "gt_peak_pixels": 0,
+              "absolute_rgb_error_sum": 0.0,
+              "target_contrast_sum": 0.0,
+              "predicted_contrast_sum": 0.0,
+              "matched_gt_pixels_2px": 0,
+              "components_with_at_least_one_hit": 0
+            },
+            "metrics": {
+              "component_count": 0,
+              "gt_peak_pixels": 0,
+              "rgb_mae": null,
+              "target_contrast": null,
+              "predicted_contrast": null,
+              "contrast_ratio": null,
+              "matched_gt_pixels_2px": 0,
+              "pixel_recall_2px": null,
+              "components_with_at_least_one_hit": 0,
+              "component_any_hit_fraction": null
+            }
+          },
+          "gt16": {
+            "sums": {
+              "component_count": 1,
+              "gt_peak_pixels": 53,
+              "absolute_rgb_error_sum": 17.42745018005371,
+              "target_contrast_sum": 22.47930335998535,
+              "predicted_contrast_sum": 16.787389755249023,
+              "matched_gt_pixels_2px": 53,
+              "components_with_at_least_one_hit": 1
+            },
+            "metrics": {
+              "component_count": 1,
+              "gt_peak_pixels": 53,
+              "rgb_mae": 0.10960660490599818,
+              "target_contrast": 0.4241377992450066,
+              "predicted_contrast": 0.31674320292922686,
+              "contrast_ratio": 0.7467931495213366,
+              "matched_gt_pixels_2px": 53,
+              "pixel_recall_2px": 1.0,
+              "components_with_at_least_one_hit": 1,
+              "component_any_hit_fraction": 1.0
+            }
+          }
+        }
+      },
+      "LPIPS": 0.012682859785854816
+    },
+    {
+      "frame_index": 85,
+      "name": "r_130_l_69",
+      "PSNR": 45.635398864746094,
+      "SSIM": 0.9956941604614258,
+      "raw_MSE": 2.7091104129794985e-05,
+      "alpha_L1": 0.0005315463058650494,
+      "neutral_peak_metrics": {
+        "pixels": 5,
+        "predicted_pixels": 4,
+        "matched_predicted_pixels_2px": 4,
+        "matched_target_pixels_2px": 5,
+        "rgb_mae": 0.05830066278576851,
+        "target_contrast": 0.5112881660461426,
+        "predicted_contrast": 0.46373674273490906,
+        "contrast_ratio": 0.9069968461990356
+      },
+      "neutral_peak_components": {
+        "total_predicted_peak_pixels": 4,
+        "buckets": {
+          "1_to_4": {
+            "sums": {
+              "component_count": 0,
+              "gt_peak_pixels": 0,
+              "absolute_rgb_error_sum": 0.0,
+              "target_contrast_sum": 0.0,
+              "predicted_contrast_sum": 0.0,
+              "matched_gt_pixels_2px": 0,
+              "components_with_at_least_one_hit": 0
+            },
+            "metrics": {
+              "component_count": 0,
+              "gt_peak_pixels": 0,
+              "rgb_mae": null,
+              "target_contrast": null,
+              "predicted_contrast": null,
+              "contrast_ratio": null,
+              "matched_gt_pixels_2px": 0,
+              "pixel_recall_2px": null,
+              "components_with_at_least_one_hit": 0,
+              "component_any_hit_fraction": null
+            }
+          },
+          "5_to_16": {
+            "sums": {
+              "component_count": 1,
+              "gt_peak_pixels": 5,
+              "absolute_rgb_error_sum": 0.8745098114013672,
+              "target_contrast_sum": 2.556440830230713,
+              "predicted_contrast_sum": 2.318683624267578,
+              "matched_gt_pixels_2px": 5,
+              "components_with_at_least_one_hit": 1
+            },
+            "metrics": {
+              "component_count": 1,
+              "gt_peak_pixels": 5,
+              "rgb_mae": 0.05830065409342448,
+              "target_contrast": 0.5112881660461426,
+              "predicted_contrast": 0.46373672485351564,
+              "contrast_ratio": 0.9069967889921091,
+              "matched_gt_pixels_2px": 5,
+              "pixel_recall_2px": 1.0,
+              "components_with_at_least_one_hit": 1,
+              "component_any_hit_fraction": 1.0
+            }
+          },
+          "gt16": {
+            "sums": {
+              "component_count": 0,
+              "gt_peak_pixels": 0,
+              "absolute_rgb_error_sum": 0.0,
+              "target_contrast_sum": 0.0,
+              "predicted_contrast_sum": 0.0,
+              "matched_gt_pixels_2px": 0,
+              "components_with_at_least_one_hit": 0
+            },
+            "metrics": {
+              "component_count": 0,
+              "gt_peak_pixels": 0,
+              "rgb_mae": null,
+              "target_contrast": null,
+              "predicted_contrast": null,
+              "contrast_ratio": null,
+              "matched_gt_pixels_2px": 0,
+              "pixel_recall_2px": null,
+              "components_with_at_least_one_hit": 0,
+              "component_any_hit_fraction": null
+            }
+          }
+        }
+      },
+      "LPIPS": 0.007156203500926495
+    },
+    {
+      "frame_index": 95,
+      "name": "r_48_l_84",
+      "PSNR": 46.339378356933594,
+      "SSIM": 0.9967265129089355,
+      "raw_MSE": 2.3071062969393097e-05,
+      "alpha_L1": 0.0005310786073096097,
+      "neutral_peak_metrics": {
+        "pixels": 6,
+        "predicted_pixels": 3,
+        "matched_predicted_pixels_2px": 3,
+        "matched_target_pixels_2px": 6,
+        "rgb_mae": 0.1102396547794342,
+        "target_contrast": 0.5161131620407104,
+        "predicted_contrast": 0.4124670624732971,
+        "contrast_ratio": 0.7991794943809509
+      },
+      "neutral_peak_components": {
+        "total_predicted_peak_pixels": 3,
+        "buckets": {
+          "1_to_4": {
+            "sums": {
+              "component_count": 0,
+              "gt_peak_pixels": 0,
+              "absolute_rgb_error_sum": 0.0,
+              "target_contrast_sum": 0.0,
+              "predicted_contrast_sum": 0.0,
+              "matched_gt_pixels_2px": 0,
+              "components_with_at_least_one_hit": 0
+            },
+            "metrics": {
+              "component_count": 0,
+              "gt_peak_pixels": 0,
+              "rgb_mae": null,
+              "target_contrast": null,
+              "predicted_contrast": null,
+              "contrast_ratio": null,
+              "matched_gt_pixels_2px": 0,
+              "pixel_recall_2px": null,
+              "components_with_at_least_one_hit": 0,
+              "component_any_hit_fraction": null
+            }
+          },
+          "5_to_16": {
+            "sums": {
+              "component_count": 1,
+              "gt_peak_pixels": 6,
+              "absolute_rgb_error_sum": 1.984313726425171,
+              "target_contrast_sum": 3.0966787338256836,
+              "predicted_contrast_sum": 2.4748024940490723,
+              "matched_gt_pixels_2px": 6,
+              "components_with_at_least_one_hit": 1
+            },
+            "metrics": {
+              "component_count": 1,
+              "gt_peak_pixels": 6,
+              "rgb_mae": 0.11023965146806505,
+              "target_contrast": 0.5161131223042806,
+              "predicted_contrast": 0.412467082341512,
+              "contrast_ratio": 0.7991796071759966,
+              "matched_gt_pixels_2px": 6,
+              "pixel_recall_2px": 1.0,
+              "components_with_at_least_one_hit": 1,
+              "component_any_hit_fraction": 1.0
+            }
+          },
+          "gt16": {
+            "sums": {
+              "component_count": 0,
+              "gt_peak_pixels": 0,
+              "absolute_rgb_error_sum": 0.0,
+              "target_contrast_sum": 0.0,
+              "predicted_contrast_sum": 0.0,
+              "matched_gt_pixels_2px": 0,
+              "components_with_at_least_one_hit": 0
+            },
+            "metrics": {
+              "component_count": 0,
+              "gt_peak_pixels": 0,
+              "rgb_mae": null,
+              "target_contrast": null,
+              "predicted_contrast": null,
+              "contrast_ratio": null,
+              "matched_gt_pixels_2px": 0,
+              "pixel_recall_2px": null,
+              "components_with_at_least_one_hit": 0,
+              "component_any_hit_fraction": null
+            }
+          }
+        }
+      },
+      "LPIPS": 0.01022450253367424
+    },
+    {
+      "frame_index": 105,
+      "name": "r_21_l_9",
+      "PSNR": 44.007144927978516,
+      "SSIM": 0.9943891763687134,
+      "raw_MSE": 3.9657956222072244e-05,
+      "alpha_L1": 0.0005252312403172255,
+      "neutral_peak_metrics": {
+        "pixels": 12,
+        "predicted_pixels": 13,
+        "matched_predicted_pixels_2px": 12,
+        "matched_target_pixels_2px": 12,
+        "rgb_mae": 0.054684095084667206,
+        "target_contrast": 0.4322287440299988,
+        "predicted_contrast": 0.44870632886886597,
+        "contrast_ratio": 1.0381224155426025
+      },
+      "neutral_peak_components": {
+        "total_predicted_peak_pixels": 13,
+        "buckets": {
+          "1_to_4": {
+            "sums": {
+              "component_count": 2,
+              "gt_peak_pixels": 7,
+              "absolute_rgb_error_sum": 1.0745097398757935,
+              "target_contrast_sum": 2.989466905593872,
+              "predicted_contrast_sum": 3.3854804039001465,
+              "matched_gt_pixels_2px": 7,
+              "components_with_at_least_one_hit": 2
+            },
+            "metrics": {
+              "component_count": 2,
+              "gt_peak_pixels": 7,
+              "rgb_mae": 0.05116713047027588,
+              "target_contrast": 0.42706670079912457,
+              "predicted_contrast": 0.48364005770002094,
+              "contrast_ratio": 1.1324696043850682,
+              "matched_gt_pixels_2px": 7,
+              "pixel_recall_2px": 1.0,
+              "components_with_at_least_one_hit": 2,
+              "component_any_hit_fraction": 1.0
+            }
+          },
+          "5_to_16": {
+            "sums": {
+              "component_count": 1,
+              "gt_peak_pixels": 5,
+              "absolute_rgb_error_sum": 0.8941176533699036,
+              "target_contrast_sum": 2.197277545928955,
+              "predicted_contrast_sum": 1.9989951848983765,
+              "matched_gt_pixels_2px": 5,
+              "components_with_at_least_one_hit": 1
+            },
+            "metrics": {
+              "component_count": 1,
+              "gt_peak_pixels": 5,
+              "rgb_mae": 0.05960784355799357,
+              "target_contrast": 0.439455509185791,
+              "predicted_contrast": 0.3997990369796753,
+              "contrast_ratio": 0.9097599839410594,
+              "matched_gt_pixels_2px": 5,
+              "pixel_recall_2px": 1.0,
+              "components_with_at_least_one_hit": 1,
+              "component_any_hit_fraction": 1.0
+            }
+          },
+          "gt16": {
+            "sums": {
+              "component_count": 0,
+              "gt_peak_pixels": 0,
+              "absolute_rgb_error_sum": 0.0,
+              "target_contrast_sum": 0.0,
+              "predicted_contrast_sum": 0.0,
+              "matched_gt_pixels_2px": 0,
+              "components_with_at_least_one_hit": 0
+            },
+            "metrics": {
+              "component_count": 0,
+              "gt_peak_pixels": 0,
+              "rgb_mae": null,
+              "target_contrast": null,
+              "predicted_contrast": null,
+              "contrast_ratio": null,
+              "matched_gt_pixels_2px": 0,
+              "pixel_recall_2px": null,
+              "components_with_at_least_one_hit": 0,
+              "component_any_hit_fraction": null
+            }
+          }
+        }
+      },
+      "LPIPS": 0.01358774583786726
+    },
+    {
+      "frame_index": 115,
+      "name": "r_141_l_68",
+      "PSNR": 46.91765213012695,
+      "SSIM": 0.9967275857925415,
+      "raw_MSE": 2.0036131900269538e-05,
+      "alpha_L1": 0.0005912091000936925,
+      "neutral_peak_metrics": {
+        "pixels": 7,
+        "predicted_pixels": 3,
+        "matched_predicted_pixels_2px": 3,
+        "matched_target_pixels_2px": 7,
+        "rgb_mae": 0.06741362810134888,
+        "target_contrast": 0.4669674336910248,
+        "predicted_contrast": 0.3751834034919739,
+        "contrast_ratio": 0.8034465909004211
+      },
+      "neutral_peak_components": {
+        "total_predicted_peak_pixels": 3,
+        "buckets": {
+          "1_to_4": {
+            "sums": {
+              "component_count": 0,
+              "gt_peak_pixels": 0,
+              "absolute_rgb_error_sum": 0.0,
+              "target_contrast_sum": 0.0,
+              "predicted_contrast_sum": 0.0,
+              "matched_gt_pixels_2px": 0,
+              "components_with_at_least_one_hit": 0
+            },
+            "metrics": {
+              "component_count": 0,
+              "gt_peak_pixels": 0,
+              "rgb_mae": null,
+              "target_contrast": null,
+              "predicted_contrast": null,
+              "contrast_ratio": null,
+              "matched_gt_pixels_2px": 0,
+              "pixel_recall_2px": null,
+              "components_with_at_least_one_hit": 0,
+              "component_any_hit_fraction": null
+            }
+          },
+          "5_to_16": {
+            "sums": {
+              "component_count": 1,
+              "gt_peak_pixels": 7,
+              "absolute_rgb_error_sum": 1.4156863689422607,
+              "target_contrast_sum": 3.2687718868255615,
+              "predicted_contrast_sum": 2.6262834072113037,
+              "matched_gt_pixels_2px": 7,
+              "components_with_at_least_one_hit": 1
+            },
+            "metrics": {
+              "component_count": 1,
+              "gt_peak_pixels": 7,
+              "rgb_mae": 0.06741363661629814,
+              "target_contrast": 0.46696741240365164,
+              "predicted_contrast": 0.3751833438873291,
+              "contrast_ratio": 0.8034465230798945,
+              "matched_gt_pixels_2px": 7,
+              "pixel_recall_2px": 1.0,
+              "components_with_at_least_one_hit": 1,
+              "component_any_hit_fraction": 1.0
+            }
+          },
+          "gt16": {
+            "sums": {
+              "component_count": 0,
+              "gt_peak_pixels": 0,
+              "absolute_rgb_error_sum": 0.0,
+              "target_contrast_sum": 0.0,
+              "predicted_contrast_sum": 0.0,
+              "matched_gt_pixels_2px": 0,
+              "components_with_at_least_one_hit": 0
+            },
+            "metrics": {
+              "component_count": 0,
+              "gt_peak_pixels": 0,
+              "rgb_mae": null,
+              "target_contrast": null,
+              "predicted_contrast": null,
+              "contrast_ratio": null,
+              "matched_gt_pixels_2px": 0,
+              "pixel_recall_2px": null,
+              "components_with_at_least_one_hit": 0,
+              "component_any_hit_fraction": null
+            }
+          }
+        }
+      },
+      "LPIPS": 0.0038452434819191694
+    },
+    {
+      "frame_index": 125,
+      "name": "r_74_l_6",
+      "PSNR": 42.18867492675781,
+      "SSIM": 0.993266761302948,
+      "raw_MSE": 6.0208541981410235e-05,
+      "alpha_L1": 0.0006406117463484406,
+      "neutral_peak_metrics": {
+        "pixels": 4,
+        "predicted_pixels": 4,
+        "matched_predicted_pixels_2px": 3,
+        "matched_target_pixels_2px": 3,
+        "rgb_mae": 0.1993464082479477,
+        "target_contrast": 0.5625587701797485,
+        "predicted_contrast": 0.42597636580467224,
+        "contrast_ratio": 0.757212221622467
+      },
+      "neutral_peak_components": {
+        "total_predicted_peak_pixels": 4,
+        "buckets": {
+          "1_to_4": {
+            "sums": {
+              "component_count": 3,
+              "gt_peak_pixels": 4,
+              "absolute_rgb_error_sum": 2.3921568393707275,
+              "target_contrast_sum": 2.250235080718994,
+              "predicted_contrast_sum": 1.7039053440093994,
+              "matched_gt_pixels_2px": 3,
+              "components_with_at_least_one_hit": 2
+            },
+            "metrics": {
+              "component_count": 3,
+              "gt_peak_pixels": 4,
+              "rgb_mae": 0.19934640328089395,
+              "target_contrast": 0.5625587701797485,
+              "predicted_contrast": 0.42597633600234985,
+              "contrast_ratio": 0.7572121502367514,
+              "matched_gt_pixels_2px": 3,
+              "pixel_recall_2px": 0.75,
+              "components_with_at_least_one_hit": 2,
+              "component_any_hit_fraction": 0.6666666666666666
+            }
+          },
+          "5_to_16": {
+            "sums": {
+              "component_count": 0,
+              "gt_peak_pixels": 0,
+              "absolute_rgb_error_sum": 0.0,
+              "target_contrast_sum": 0.0,
+              "predicted_contrast_sum": 0.0,
+              "matched_gt_pixels_2px": 0,
+              "components_with_at_least_one_hit": 0
+            },
+            "metrics": {
+              "component_count": 0,
+              "gt_peak_pixels": 0,
+              "rgb_mae": null,
+              "target_contrast": null,
+              "predicted_contrast": null,
+              "contrast_ratio": null,
+              "matched_gt_pixels_2px": 0,
+              "pixel_recall_2px": null,
+              "components_with_at_least_one_hit": 0,
+              "component_any_hit_fraction": null
+            }
+          },
+          "gt16": {
+            "sums": {
+              "component_count": 0,
+              "gt_peak_pixels": 0,
+              "absolute_rgb_error_sum": 0.0,
+              "target_contrast_sum": 0.0,
+              "predicted_contrast_sum": 0.0,
+              "matched_gt_pixels_2px": 0,
+              "components_with_at_least_one_hit": 0
+            },
+            "metrics": {
+              "component_count": 0,
+              "gt_peak_pixels": 0,
+              "rgb_mae": null,
+              "target_contrast": null,
+              "predicted_contrast": null,
+              "contrast_ratio": null,
+              "matched_gt_pixels_2px": 0,
+              "pixel_recall_2px": null,
+              "components_with_at_least_one_hit": 0,
+              "component_any_hit_fraction": null
+            }
+          }
+        }
+      },
+      "LPIPS": 0.016237860545516014
+    },
+    {
+      "frame_index": 135,
+      "name": "r_69_l_110",
+      "PSNR": 42.240089416503906,
+      "SSIM": 0.9949383735656738,
+      "raw_MSE": 5.948826583335176e-05,
+      "alpha_L1": 0.0006304954295046628,
+      "neutral_peak_metrics": {
+        "pixels": 15,
+        "predicted_pixels": 7,
+        "matched_predicted_pixels_2px": 7,
+        "matched_target_pixels_2px": 15,
+        "rgb_mae": 0.23006537556648254,
+        "target_contrast": 0.4504444897174835,
+        "predicted_contrast": 0.23890452086925507,
+        "contrast_ratio": 0.530375063419342
+      },
+      "neutral_peak_components": {
+        "total_predicted_peak_pixels": 7,
+        "buckets": {
+          "1_to_4": {
+            "sums": {
+              "component_count": 1,
+              "gt_peak_pixels": 1,
+              "absolute_rgb_error_sum": 0.12156862020492554,
+              "target_contrast_sum": 0.43341436982154846,
+              "predicted_contrast_sum": 0.4924323558807373,
+              "matched_gt_pixels_2px": 1,
+              "components_with_at_least_one_hit": 1
+            },
+            "metrics": {
+              "component_count": 1,
+              "gt_peak_pixels": 1,
+              "rgb_mae": 0.040522873401641846,
+              "target_contrast": 0.43341436982154846,
+              "predicted_contrast": 0.4924323558807373,
+              "contrast_ratio": 1.1361698876839006,
+              "matched_gt_pixels_2px": 1,
+              "pixel_recall_2px": 1.0,
+              "components_with_at_least_one_hit": 1,
+              "component_any_hit_fraction": 1.0
+            }
+          },
+          "5_to_16": {
+            "sums": {
+              "component_count": 1,
+              "gt_peak_pixels": 14,
+              "absolute_rgb_error_sum": 10.231372833251953,
+              "target_contrast_sum": 6.323253154754639,
+              "predicted_contrast_sum": 3.091135025024414,
+              "matched_gt_pixels_2px": 14,
+              "components_with_at_least_one_hit": 1
+            },
+            "metrics": {
+              "component_count": 1,
+              "gt_peak_pixels": 14,
+              "rgb_mae": 0.24360411507742746,
+              "target_contrast": 0.4516609396253313,
+              "predicted_contrast": 0.2207953589303153,
+              "contrast_ratio": 0.4888520116737853,
+              "matched_gt_pixels_2px": 14,
+              "pixel_recall_2px": 1.0,
+              "components_with_at_least_one_hit": 1,
+              "component_any_hit_fraction": 1.0
+            }
+          },
+          "gt16": {
+            "sums": {
+              "component_count": 0,
+              "gt_peak_pixels": 0,
+              "absolute_rgb_error_sum": 0.0,
+              "target_contrast_sum": 0.0,
+              "predicted_contrast_sum": 0.0,
+              "matched_gt_pixels_2px": 0,
+              "components_with_at_least_one_hit": 0
+            },
+            "metrics": {
+              "component_count": 0,
+              "gt_peak_pixels": 0,
+              "rgb_mae": null,
+              "target_contrast": null,
+              "predicted_contrast": null,
+              "contrast_ratio": null,
+              "matched_gt_pixels_2px": 0,
+              "pixel_recall_2px": null,
+              "components_with_at_least_one_hit": 0,
+              "component_any_hit_fraction": null
+            }
+          }
+        }
+      },
+      "LPIPS": 0.008664088323712349
+    },
+    {
+      "frame_index": 145,
+      "name": "r_36_l_74",
+      "PSNR": 46.223304748535156,
+      "SSIM": 0.9972262382507324,
+      "raw_MSE": 2.37211261264747e-05,
+      "alpha_L1": 0.000682762183714658,
+      "neutral_peak_metrics": {
+        "pixels": 3,
+        "predicted_pixels": 2,
+        "matched_predicted_pixels_2px": 2,
+        "matched_target_pixels_2px": 3,
+        "rgb_mae": 0.11938997358083725,
+        "target_contrast": 0.6142818927764893,
+        "predicted_contrast": 0.4854211211204529,
+        "contrast_ratio": 0.7902253270149231
+      },
+      "neutral_peak_components": {
+        "total_predicted_peak_pixels": 2,
+        "buckets": {
+          "1_to_4": {
+            "sums": {
+              "component_count": 1,
+              "gt_peak_pixels": 3,
+              "absolute_rgb_error_sum": 1.0745097398757935,
+              "target_contrast_sum": 1.8428454399108887,
+              "predicted_contrast_sum": 1.4562630653381348,
+              "matched_gt_pixels_2px": 3,
+              "components_with_at_least_one_hit": 1
+            },
+            "metrics": {
+              "component_count": 1,
+              "gt_peak_pixels": 3,
+              "rgb_mae": 0.11938997109731038,
+              "target_contrast": 0.6142818133036295,
+              "predicted_contrast": 0.48542102177937824,
+              "contrast_ratio": 0.7902252862880095,
+              "matched_gt_pixels_2px": 3,
+              "pixel_recall_2px": 1.0,
+              "components_with_at_least_one_hit": 1,
+              "component_any_hit_fraction": 1.0
+            }
+          },
+          "5_to_16": {
+            "sums": {
+              "component_count": 0,
+              "gt_peak_pixels": 0,
+              "absolute_rgb_error_sum": 0.0,
+              "target_contrast_sum": 0.0,
+              "predicted_contrast_sum": 0.0,
+              "matched_gt_pixels_2px": 0,
+              "components_with_at_least_one_hit": 0
+            },
+            "metrics": {
+              "component_count": 0,
+              "gt_peak_pixels": 0,
+              "rgb_mae": null,
+              "target_contrast": null,
+              "predicted_contrast": null,
+              "contrast_ratio": null,
+              "matched_gt_pixels_2px": 0,
+              "pixel_recall_2px": null,
+              "components_with_at_least_one_hit": 0,
+              "component_any_hit_fraction": null
+            }
+          },
+          "gt16": {
+            "sums": {
+              "component_count": 0,
+              "gt_peak_pixels": 0,
+              "absolute_rgb_error_sum": 0.0,
+              "target_contrast_sum": 0.0,
+              "predicted_contrast_sum": 0.0,
+              "matched_gt_pixels_2px": 0,
+              "components_with_at_least_one_hit": 0
+            },
+            "metrics": {
+              "component_count": 0,
+              "gt_peak_pixels": 0,
+              "rgb_mae": null,
+              "target_contrast": null,
+              "predicted_contrast": null,
+              "contrast_ratio": null,
+              "matched_gt_pixels_2px": 0,
+              "pixel_recall_2px": null,
+              "components_with_at_least_one_hit": 0,
+              "component_any_hit_fraction": null
+            }
+          }
+        }
+      },
+      "LPIPS": 0.012843264266848564
+    },
+    {
+      "frame_index": 155,
+      "name": "r_138_l_38",
+      "PSNR": 42.11715316772461,
+      "SSIM": 0.995869517326355,
+      "raw_MSE": 6.122120248619467e-05,
+      "alpha_L1": 0.0006551616825163364,
+      "neutral_peak_metrics": {
+        "pixels": 0,
+        "predicted_pixels": 0,
+        "matched_predicted_pixels_2px": 0,
+        "matched_target_pixels_2px": 0
+      },
+      "neutral_peak_components": {
+        "total_predicted_peak_pixels": 0,
+        "buckets": {
+          "1_to_4": {
+            "sums": {
+              "component_count": 0,
+              "gt_peak_pixels": 0,
+              "absolute_rgb_error_sum": 0.0,
+              "target_contrast_sum": 0.0,
+              "predicted_contrast_sum": 0.0,
+              "matched_gt_pixels_2px": 0,
+              "components_with_at_least_one_hit": 0
+            },
+            "metrics": {
+              "component_count": 0,
+              "gt_peak_pixels": 0,
+              "rgb_mae": null,
+              "target_contrast": null,
+              "predicted_contrast": null,
+              "contrast_ratio": null,
+              "matched_gt_pixels_2px": 0,
+              "pixel_recall_2px": null,
+              "components_with_at_least_one_hit": 0,
+              "component_any_hit_fraction": null
+            }
+          },
+          "5_to_16": {
+            "sums": {
+              "component_count": 0,
+              "gt_peak_pixels": 0,
+              "absolute_rgb_error_sum": 0.0,
+              "target_contrast_sum": 0.0,
+              "predicted_contrast_sum": 0.0,
+              "matched_gt_pixels_2px": 0,
+              "components_with_at_least_one_hit": 0
+            },
+            "metrics": {
+              "component_count": 0,
+              "gt_peak_pixels": 0,
+              "rgb_mae": null,
+              "target_contrast": null,
+              "predicted_contrast": null,
+              "contrast_ratio": null,
+              "matched_gt_pixels_2px": 0,
+              "pixel_recall_2px": null,
+              "components_with_at_least_one_hit": 0,
+              "component_any_hit_fraction": null
+            }
+          },
+          "gt16": {
+            "sums": {
+              "component_count": 0,
+              "gt_peak_pixels": 0,
+              "absolute_rgb_error_sum": 0.0,
+              "target_contrast_sum": 0.0,
+              "predicted_contrast_sum": 0.0,
+              "matched_gt_pixels_2px": 0,
+              "components_with_at_least_one_hit": 0
+            },
+            "metrics": {
+              "component_count": 0,
+              "gt_peak_pixels": 0,
+              "rgb_mae": null,
+              "target_contrast": null,
+              "predicted_contrast": null,
+              "contrast_ratio": null,
+              "matched_gt_pixels_2px": 0,
+              "pixel_recall_2px": null,
+              "components_with_at_least_one_hit": 0,
+              "component_any_hit_fraction": null
+            }
+          }
+        }
+      },
+      "LPIPS": 0.011684888042509556
+    },
+    {
+      "frame_index": 165,
+      "name": "r_96_l_38",
+      "PSNR": 34.188297271728516,
+      "SSIM": 0.9880390167236328,
+      "raw_MSE": 0.00038726392085663974,
+      "alpha_L1": 0.0015569515526294708,
+      "neutral_peak_metrics": {
+        "pixels": 92,
+        "predicted_pixels": 129,
+        "matched_predicted_pixels_2px": 117,
+        "matched_target_pixels_2px": 90,
+        "rgb_mae": 0.12820403277873993,
+        "target_contrast": 0.451861709356308,
+        "predicted_contrast": 0.35030290484428406,
+        "contrast_ratio": 0.7752436399459839
+      },
+      "neutral_peak_components": {
+        "total_predicted_peak_pixels": 129,
+        "buckets": {
+          "1_to_4": {
+            "sums": {
+              "component_count": 0,
+              "gt_peak_pixels": 0,
+              "absolute_rgb_error_sum": 0.0,
+              "target_contrast_sum": 0.0,
+              "predicted_contrast_sum": 0.0,
+              "matched_gt_pixels_2px": 0,
+              "components_with_at_least_one_hit": 0
+            },
+            "metrics": {
+              "component_count": 0,
+              "gt_peak_pixels": 0,
+              "rgb_mae": null,
+              "target_contrast": null,
+              "predicted_contrast": null,
+              "contrast_ratio": null,
+              "matched_gt_pixels_2px": 0,
+              "pixel_recall_2px": null,
+              "components_with_at_least_one_hit": 0,
+              "component_any_hit_fraction": null
+            }
+          },
+          "5_to_16": {
+            "sums": {
+              "component_count": 1,
+              "gt_peak_pixels": 9,
+              "absolute_rgb_error_sum": 8.686275482177734,
+              "target_contrast_sum": 4.512850761413574,
+              "predicted_contrast_sum": 2.101994037628174,
+              "matched_gt_pixels_2px": 7,
+              "components_with_at_least_one_hit": 1
+            },
+            "metrics": {
+              "component_count": 1,
+              "gt_peak_pixels": 9,
+              "rgb_mae": 0.3217139067473235,
+              "target_contrast": 0.501427862379286,
+              "predicted_contrast": 0.2335548930697971,
+              "contrast_ratio": 0.4657796476677105,
+              "matched_gt_pixels_2px": 7,
+              "pixel_recall_2px": 0.7777777777777778,
+              "components_with_at_least_one_hit": 1,
+              "component_any_hit_fraction": 1.0
+            }
+          },
+          "gt16": {
+            "sums": {
+              "component_count": 1,
+              "gt_peak_pixels": 83,
+              "absolute_rgb_error_sum": 26.698036193847656,
+              "target_contrast_sum": 37.05842590332031,
+              "predicted_contrast_sum": 30.125873565673828,
+              "matched_gt_pixels_2px": 83,
+              "components_with_at_least_one_hit": 1
+            },
+            "metrics": {
+              "component_count": 1,
+              "gt_peak_pixels": 83,
+              "rgb_mae": 0.10722102889095445,
+              "target_contrast": 0.44648705907614833,
+              "predicted_contrast": 0.36296233211655216,
+              "contrast_ratio": 0.812929120202449,
+              "matched_gt_pixels_2px": 83,
+              "pixel_recall_2px": 1.0,
+              "components_with_at_least_one_hit": 1,
+              "component_any_hit_fraction": 1.0
+            }
+          }
+        }
+      },
+      "LPIPS": 0.01546915341168642
+    },
+    {
+      "frame_index": 175,
+      "name": "r_4_l_64",
+      "PSNR": 39.30777359008789,
+      "SSIM": 0.9914512038230896,
+      "raw_MSE": 0.00011798540072049946,
+      "alpha_L1": 0.0005330850835889578,
+      "neutral_peak_metrics": {
+        "pixels": 97,
+        "predicted_pixels": 49,
+        "matched_predicted_pixels_2px": 49,
+        "matched_target_pixels_2px": 77,
+        "rgb_mae": 0.14292839169502258,
+        "target_contrast": 0.46626031398773193,
+        "predicted_contrast": 0.32756805419921875,
+        "contrast_ratio": 0.7025432586669922
+      },
+      "neutral_peak_components": {
+        "total_predicted_peak_pixels": 49,
+        "buckets": {
+          "1_to_4": {
+            "sums": {
+              "component_count": 10,
+              "gt_peak_pixels": 13,
+              "absolute_rgb_error_sum": 5.933333396911621,
+              "target_contrast_sum": 5.568951606750488,
+              "predicted_contrast_sum": 3.525231122970581,
+              "matched_gt_pixels_2px": 3,
+              "components_with_at_least_one_hit": 2
+            },
+            "metrics": {
+              "component_count": 10,
+              "gt_peak_pixels": 13,
+              "rgb_mae": 0.15213675376696464,
+              "target_contrast": 0.4283808928269606,
+              "predicted_contrast": 0.27117162484389085,
+              "contrast_ratio": 0.6330152193632674,
+              "matched_gt_pixels_2px": 3,
+              "pixel_recall_2px": 0.23076923076923078,
+              "components_with_at_least_one_hit": 2,
+              "component_any_hit_fraction": 0.2
+            }
+          },
+          "5_to_16": {
+            "sums": {
+              "component_count": 3,
+              "gt_peak_pixels": 25,
+              "absolute_rgb_error_sum": 15.325490951538086,
+              "target_contrast_sum": 12.085204124450684,
+              "predicted_contrast_sum": 7.2720136642456055,
+              "matched_gt_pixels_2px": 15,
+              "components_with_at_least_one_hit": 1
+            },
+            "metrics": {
+              "component_count": 3,
+              "gt_peak_pixels": 25,
+              "rgb_mae": 0.20433987935384115,
+              "target_contrast": 0.48340816497802735,
+              "predicted_contrast": 0.2908805465698242,
+              "contrast_ratio": 0.6017286583958419,
+              "matched_gt_pixels_2px": 15,
+              "pixel_recall_2px": 0.6,
+              "components_with_at_least_one_hit": 1,
+              "component_any_hit_fraction": 0.3333333333333333
+            }
+          },
+          "gt16": {
+            "sums": {
+              "component_count": 2,
+              "gt_peak_pixels": 59,
+              "absolute_rgb_error_sum": 20.33333396911621,
+              "target_contrast_sum": 27.573095321655273,
+              "predicted_contrast_sum": 20.976856231689453,
+              "matched_gt_pixels_2px": 59,
+              "components_with_at_least_one_hit": 2
+            },
+            "metrics": {
+              "component_count": 2,
+              "gt_peak_pixels": 59,
+              "rgb_mae": 0.11487759304585429,
+              "target_contrast": 0.4673405986721233,
+              "predicted_contrast": 0.3555399361303297,
+              "contrast_ratio": 0.7607726295137679,
+              "matched_gt_pixels_2px": 59,
+              "pixel_recall_2px": 1.0,
+              "components_with_at_least_one_hit": 2,
+              "component_any_hit_fraction": 1.0
+            }
+          }
+        }
+      },
+      "LPIPS": 0.007064118515700102
+    },
+    {
+      "frame_index": 185,
+      "name": "r_133_l_81",
+      "PSNR": 44.98565673828125,
+      "SSIM": 0.9953166842460632,
+      "raw_MSE": 3.139581167488359e-05,
+      "alpha_L1": 0.0005771545693278313,
+      "neutral_peak_metrics": {
+        "pixels": 6,
+        "predicted_pixels": 4,
+        "matched_predicted_pixels_2px": 4,
+        "matched_target_pixels_2px": 6,
+        "rgb_mae": 0.11721132695674896,
+        "target_contrast": 0.5069196224212646,
+        "predicted_contrast": 0.37920933961868286,
+        "contrast_ratio": 0.7480660080909729
+      },
+      "neutral_peak_components": {
+        "total_predicted_peak_pixels": 4,
+        "buckets": {
+          "1_to_4": {
+            "sums": {
+              "component_count": 0,
+              "gt_peak_pixels": 0,
+              "absolute_rgb_error_sum": 0.0,
+              "target_contrast_sum": 0.0,
+              "predicted_contrast_sum": 0.0,
+              "matched_gt_pixels_2px": 0,
+              "components_with_at_least_one_hit": 0
+            },
+            "metrics": {
+              "component_count": 0,
+              "gt_peak_pixels": 0,
+              "rgb_mae": null,
+              "target_contrast": null,
+              "predicted_contrast": null,
+              "contrast_ratio": null,
+              "matched_gt_pixels_2px": 0,
+              "pixel_recall_2px": null,
+              "components_with_at_least_one_hit": 0,
+              "component_any_hit_fraction": null
+            }
+          },
+          "5_to_16": {
+            "sums": {
+              "component_count": 1,
+              "gt_peak_pixels": 6,
+              "absolute_rgb_error_sum": 2.1098036766052246,
+              "target_contrast_sum": 3.041517734527588,
+              "predicted_contrast_sum": 2.2752559185028076,
+              "matched_gt_pixels_2px": 6,
+              "components_with_at_least_one_hit": 1
+            },
+            "metrics": {
+              "component_count": 1,
+              "gt_peak_pixels": 6,
+              "rgb_mae": 0.11721131536695692,
+              "target_contrast": 0.5069196224212646,
+              "predicted_contrast": 0.37920931975046795,
+              "contrast_ratio": 0.7480659713648532,
+              "matched_gt_pixels_2px": 6,
+              "pixel_recall_2px": 1.0,
+              "components_with_at_least_one_hit": 1,
+              "component_any_hit_fraction": 1.0
+            }
+          },
+          "gt16": {
+            "sums": {
+              "component_count": 0,
+              "gt_peak_pixels": 0,
+              "absolute_rgb_error_sum": 0.0,
+              "target_contrast_sum": 0.0,
+              "predicted_contrast_sum": 0.0,
+              "matched_gt_pixels_2px": 0,
+              "components_with_at_least_one_hit": 0
+            },
+            "metrics": {
+              "component_count": 0,
+              "gt_peak_pixels": 0,
+              "rgb_mae": null,
+              "target_contrast": null,
+              "predicted_contrast": null,
+              "contrast_ratio": null,
+              "matched_gt_pixels_2px": 0,
+              "pixel_recall_2px": null,
+              "components_with_at_least_one_hit": 0,
+              "component_any_hit_fraction": null
+            }
+          }
+        }
+      },
+      "LPIPS": 0.00639325100928545
+    },
+    {
+      "frame_index": 195,
+      "name": "r_113_l_30",
+      "PSNR": 41.461334228515625,
+      "SSIM": 0.9939486384391785,
+      "raw_MSE": 7.160340464906767e-05,
+      "alpha_L1": 0.0004990596207790077,
+      "neutral_peak_metrics": {
+        "pixels": 22,
+        "predicted_pixels": 21,
+        "matched_predicted_pixels_2px": 21,
+        "matched_target_pixels_2px": 15,
+        "rgb_mae": 0.15068331360816956,
+        "target_contrast": 0.41701802611351013,
+        "predicted_contrast": 0.2836817800998688,
+        "contrast_ratio": 0.6802626252174377
+      },
+      "neutral_peak_components": {
+        "total_predicted_peak_pixels": 21,
+        "buckets": {
+          "1_to_4": {
+            "sums": {
+              "component_count": 0,
+              "gt_peak_pixels": 0,
+              "absolute_rgb_error_sum": 0.0,
+              "target_contrast_sum": 0.0,
+              "predicted_contrast_sum": 0.0,
+              "matched_gt_pixels_2px": 0,
+              "components_with_at_least_one_hit": 0
+            },
+            "metrics": {
+              "component_count": 0,
+              "gt_peak_pixels": 0,
+              "rgb_mae": null,
+              "target_contrast": null,
+              "predicted_contrast": null,
+              "contrast_ratio": null,
+              "matched_gt_pixels_2px": 0,
+              "pixel_recall_2px": null,
+              "components_with_at_least_one_hit": 0,
+              "component_any_hit_fraction": null
+            }
+          },
+          "5_to_16": {
+            "sums": {
+              "component_count": 3,
+              "gt_peak_pixels": 22,
+              "absolute_rgb_error_sum": 9.945097923278809,
+              "target_contrast_sum": 9.174396514892578,
+              "predicted_contrast_sum": 6.2409987449646,
+              "matched_gt_pixels_2px": 15,
+              "components_with_at_least_one_hit": 2
+            },
+            "metrics": {
+              "component_count": 3,
+              "gt_peak_pixels": 22,
+              "rgb_mae": 0.15068330186786075,
+              "target_contrast": 0.41701802340420807,
+              "predicted_contrast": 0.2836817611347545,
+              "contrast_ratio": 0.6802625910961811,
+              "matched_gt_pixels_2px": 15,
+              "pixel_recall_2px": 0.6818181818181818,
+              "components_with_at_least_one_hit": 2,
+              "component_any_hit_fraction": 0.6666666666666666
+            }
+          },
+          "gt16": {
+            "sums": {
+              "component_count": 0,
+              "gt_peak_pixels": 0,
+              "absolute_rgb_error_sum": 0.0,
+              "target_contrast_sum": 0.0,
+              "predicted_contrast_sum": 0.0,
+              "matched_gt_pixels_2px": 0,
+              "components_with_at_least_one_hit": 0
+            },
+            "metrics": {
+              "component_count": 0,
+              "gt_peak_pixels": 0,
+              "rgb_mae": null,
+              "target_contrast": null,
+              "predicted_contrast": null,
+              "contrast_ratio": null,
+              "matched_gt_pixels_2px": 0,
+              "pixel_recall_2px": null,
+              "components_with_at_least_one_hit": 0,
+              "component_any_hit_fraction": null
+            }
+          }
+        }
+      },
+      "LPIPS": 0.010662795975804329
+    },
+    {
+      "frame_index": 205,
+      "name": "r_84_l_99",
+      "PSNR": 42.65465545654297,
+      "SSIM": 0.9953892230987549,
+      "raw_MSE": 5.4015770729165524e-05,
+      "alpha_L1": 0.0005783258238807321,
+      "neutral_peak_metrics": {
+        "pixels": 61,
+        "predicted_pixels": 52,
+        "matched_predicted_pixels_2px": 52,
+        "matched_target_pixels_2px": 60,
+        "rgb_mae": 0.07613842934370041,
+        "target_contrast": 0.4729430675506592,
+        "predicted_contrast": 0.43005287647247314,
+        "contrast_ratio": 0.9093121290206909
+      },
+      "neutral_peak_components": {
+        "total_predicted_peak_pixels": 52,
+        "buckets": {
+          "1_to_4": {
+            "sums": {
+              "component_count": 1,
+              "gt_peak_pixels": 1,
+              "absolute_rgb_error_sum": 0.9450981020927429,
+              "target_contrast_sum": 0.3906012177467346,
+              "predicted_contrast_sum": 0.03412733972072601,
+              "matched_gt_pixels_2px": 0,
+              "components_with_at_least_one_hit": 0
+            },
+            "metrics": {
+              "component_count": 1,
+              "gt_peak_pixels": 1,
+              "rgb_mae": 0.315032700697581,
+              "target_contrast": 0.3906012177467346,
+              "predicted_contrast": 0.03412733972072601,
+              "contrast_ratio": 0.08737130907475599,
+              "matched_gt_pixels_2px": 0,
+              "pixel_recall_2px": 0.0,
+              "components_with_at_least_one_hit": 0,
+              "component_any_hit_fraction": 0.0
+            }
+          },
+          "5_to_16": {
+            "sums": {
+              "component_count": 0,
+              "gt_peak_pixels": 0,
+              "absolute_rgb_error_sum": 0.0,
+              "target_contrast_sum": 0.0,
+              "predicted_contrast_sum": 0.0,
+              "matched_gt_pixels_2px": 0,
+              "components_with_at_least_one_hit": 0
+            },
+            "metrics": {
+              "component_count": 0,
+              "gt_peak_pixels": 0,
+              "rgb_mae": null,
+              "target_contrast": null,
+              "predicted_contrast": null,
+              "contrast_ratio": null,
+              "matched_gt_pixels_2px": 0,
+              "pixel_recall_2px": null,
+              "components_with_at_least_one_hit": 0,
+              "component_any_hit_fraction": null
+            }
+          },
+          "gt16": {
+            "sums": {
+              "component_count": 1,
+              "gt_peak_pixels": 60,
+              "absolute_rgb_error_sum": 12.988234519958496,
+              "target_contrast_sum": 28.458927154541016,
+              "predicted_contrast_sum": 26.199098587036133,
+              "matched_gt_pixels_2px": 60,
+              "components_with_at_least_one_hit": 1
+            },
+            "metrics": {
+              "component_count": 1,
+              "gt_peak_pixels": 60,
+              "rgb_mae": 0.07215685844421386,
+              "target_contrast": 0.4743154525756836,
+              "predicted_contrast": 0.4366516431172689,
+              "contrast_ratio": 0.920593332445974,
+              "matched_gt_pixels_2px": 60,
+              "pixel_recall_2px": 1.0,
+              "components_with_at_least_one_hit": 1,
+              "component_any_hit_fraction": 1.0
+            }
+          }
+        }
+      },
+      "LPIPS": 0.005499908234924078
+    },
+    {
+      "frame_index": 215,
+      "name": "r_63_l_75",
+      "PSNR": 44.00486755371094,
+      "SSIM": 0.9957689046859741,
+      "raw_MSE": 3.952939005102962e-05,
+      "alpha_L1": 0.00045186065835878253,
+      "neutral_peak_metrics": {
+        "pixels": 23,
+        "predicted_pixels": 23,
+        "matched_predicted_pixels_2px": 17,
+        "matched_target_pixels_2px": 18,
+        "rgb_mae": 0.08837737888097763,
+        "target_contrast": 0.3801245093345642,
+        "predicted_contrast": 0.3535950779914856,
+        "contrast_ratio": 0.9302085638046265
+      },
+      "neutral_peak_components": {
+        "total_predicted_peak_pixels": 23,
+        "buckets": {
+          "1_to_4": {
+            "sums": {
+              "component_count": 1,
+              "gt_peak_pixels": 3,
+              "absolute_rgb_error_sum": 0.6784313917160034,
+              "target_contrast_sum": 1.0948957204818726,
+              "predicted_contrast_sum": 0.8419057130813599,
+              "matched_gt_pixels_2px": 0,
+              "components_with_at_least_one_hit": 0
+            },
+            "metrics": {
+              "component_count": 1,
+              "gt_peak_pixels": 3,
+              "rgb_mae": 0.0753812657462226,
+              "target_contrast": 0.3649652401606242,
+              "predicted_contrast": 0.2806352376937866,
+              "contrast_ratio": 0.7689368926483978,
+              "matched_gt_pixels_2px": 0,
+              "pixel_recall_2px": 0.0,
+              "components_with_at_least_one_hit": 0,
+              "component_any_hit_fraction": 0.0
+            }
+          },
+          "5_to_16": {
+            "sums": {
+              "component_count": 3,
+              "gt_peak_pixels": 20,
+              "absolute_rgb_error_sum": 5.419608116149902,
+              "target_contrast_sum": 7.647968292236328,
+              "predicted_contrast_sum": 7.290781021118164,
+              "matched_gt_pixels_2px": 18,
+              "components_with_at_least_one_hit": 3
+            },
+            "metrics": {
+              "component_count": 3,
+              "gt_peak_pixels": 20,
+              "rgb_mae": 0.0903268019358317,
+              "target_contrast": 0.3823984146118164,
+              "predicted_contrast": 0.3645390510559082,
+              "contrast_ratio": 0.953296449792979,
+              "matched_gt_pixels_2px": 18,
+              "pixel_recall_2px": 0.9,
+              "components_with_at_least_one_hit": 3,
+              "component_any_hit_fraction": 1.0
+            }
+          },
+          "gt16": {
+            "sums": {
+              "component_count": 0,
+              "gt_peak_pixels": 0,
+              "absolute_rgb_error_sum": 0.0,
+              "target_contrast_sum": 0.0,
+              "predicted_contrast_sum": 0.0,
+              "matched_gt_pixels_2px": 0,
+              "components_with_at_least_one_hit": 0
+            },
+            "metrics": {
+              "component_count": 0,
+              "gt_peak_pixels": 0,
+              "rgb_mae": null,
+              "target_contrast": null,
+              "predicted_contrast": null,
+              "contrast_ratio": null,
+              "matched_gt_pixels_2px": 0,
+              "pixel_recall_2px": null,
+              "components_with_at_least_one_hit": 0,
+              "component_any_hit_fraction": null
+            }
+          }
+        }
+      },
+      "LPIPS": 0.005176306702196598
+    },
+    {
+      "frame_index": 225,
+      "name": "r_94_l_58",
+      "PSNR": 34.56346893310547,
+      "SSIM": 0.9870527982711792,
+      "raw_MSE": 0.0005088485777378082,
+      "alpha_L1": 0.0006425791652873158,
+      "neutral_peak_metrics": {
+        "pixels": 148,
+        "predicted_pixels": 152,
+        "matched_predicted_pixels_2px": 133,
+        "matched_target_pixels_2px": 145,
+        "rgb_mae": 0.12239003926515579,
+        "target_contrast": 0.3924744129180908,
+        "predicted_contrast": 0.34806618094444275,
+        "contrast_ratio": 0.8868506550788879
+      },
+      "neutral_peak_components": {
+        "total_predicted_peak_pixels": 152,
+        "buckets": {
+          "1_to_4": {
+            "sums": {
+              "component_count": 1,
+              "gt_peak_pixels": 2,
+              "absolute_rgb_error_sum": 0.7568628787994385,
+              "target_contrast_sum": 0.823756217956543,
+              "predicted_contrast_sum": 0.6234320402145386,
+              "matched_gt_pixels_2px": 0,
+              "components_with_at_least_one_hit": 0
+            },
+            "metrics": {
+              "component_count": 1,
+              "gt_peak_pixels": 2,
+              "rgb_mae": 0.12614381313323975,
+              "target_contrast": 0.4118781089782715,
+              "predicted_contrast": 0.3117160201072693,
+              "contrast_ratio": 0.7568161873922602,
+              "matched_gt_pixels_2px": 0,
+              "pixel_recall_2px": 0.0,
+              "components_with_at_least_one_hit": 0,
+              "component_any_hit_fraction": 0.0
+            }
+          },
+          "5_to_16": {
+            "sums": {
+              "component_count": 1,
+              "gt_peak_pixels": 5,
+              "absolute_rgb_error_sum": 1.545098066329956,
+              "target_contrast_sum": 2.588850975036621,
+              "predicted_contrast_sum": 2.1833415031433105,
+              "matched_gt_pixels_2px": 5,
+              "components_with_at_least_one_hit": 1
+            },
+            "metrics": {
+              "component_count": 1,
+              "gt_peak_pixels": 5,
+              "rgb_mae": 0.1030065377553304,
+              "target_contrast": 0.5177701950073242,
+              "predicted_contrast": 0.43666830062866213,
+              "contrast_ratio": 0.8433631461202303,
+              "matched_gt_pixels_2px": 5,
+              "pixel_recall_2px": 1.0,
+              "components_with_at_least_one_hit": 1,
+              "component_any_hit_fraction": 1.0
+            }
+          },
+          "gt16": {
+            "sums": {
+              "component_count": 4,
+              "gt_peak_pixels": 141,
+              "absolute_rgb_error_sum": 52.039215087890625,
+              "target_contrast_sum": 54.67360305786133,
+              "predicted_contrast_sum": 48.70701599121094,
+              "matched_gt_pixels_2px": 140,
+              "components_with_at_least_one_hit": 4
+            },
+            "metrics": {
+              "component_count": 4,
+              "gt_peak_pixels": 141,
+              "rgb_mae": 0.12302414914394946,
+              "target_contrast": 0.3877560500557541,
+              "predicted_contrast": 0.3454398297249003,
+              "contrast_ratio": 0.8908689617485805,
+              "matched_gt_pixels_2px": 140,
+              "pixel_recall_2px": 0.9929078014184397,
+              "components_with_at_least_one_hit": 4,
+              "component_any_hit_fraction": 1.0
+            }
+          }
+        }
+      },
+      "LPIPS": 0.03339032083749771
+    },
+    {
+      "frame_index": 235,
+      "name": "r_92_l_68",
+      "PSNR": 42.782020568847656,
+      "SSIM": 0.9949244856834412,
+      "raw_MSE": 5.753080404247157e-05,
+      "alpha_L1": 0.0006900011212565005,
+      "neutral_peak_metrics": {
+        "pixels": 92,
+        "predicted_pixels": 95,
+        "matched_predicted_pixels_2px": 93,
+        "matched_target_pixels_2px": 90,
+        "rgb_mae": 0.050596754997968674,
+        "target_contrast": 0.39229485392570496,
+        "predicted_contrast": 0.3834593594074249,
+        "contrast_ratio": 0.9774774312973022
+      },
+      "neutral_peak_components": {
+        "total_predicted_peak_pixels": 95,
+        "buckets": {
+          "1_to_4": {
+            "sums": {
+              "component_count": 2,
+              "gt_peak_pixels": 3,
+              "absolute_rgb_error_sum": 0.4549019932746887,
+              "target_contrast_sum": 1.13083815574646,
+              "predicted_contrast_sum": 1.0281641483306885,
+              "matched_gt_pixels_2px": 1,
+              "components_with_at_least_one_hit": 1
+            },
+            "metrics": {
+              "component_count": 2,
+              "gt_peak_pixels": 3,
+              "rgb_mae": 0.050544665919409856,
+              "target_contrast": 0.37694605191548664,
+              "predicted_contrast": 0.3427213827768962,
+              "contrast_ratio": 0.9092053916875514,
+              "matched_gt_pixels_2px": 1,
+              "pixel_recall_2px": 0.3333333333333333,
+              "components_with_at_least_one_hit": 1,
+              "component_any_hit_fraction": 0.5
+            }
+          },
+          "5_to_16": {
+            "sums": {
+              "component_count": 2,
+              "gt_peak_pixels": 16,
+              "absolute_rgb_error_sum": 2.9686272144317627,
+              "target_contrast_sum": 8.175985336303711,
+              "predicted_contrast_sum": 7.655452728271484,
+              "matched_gt_pixels_2px": 16,
+              "components_with_at_least_one_hit": 2
+            },
+            "metrics": {
+              "component_count": 2,
+              "gt_peak_pixels": 16,
+              "rgb_mae": 0.06184640030066172,
+              "target_contrast": 0.5109990835189819,
+              "predicted_contrast": 0.4784657955169678,
+              "contrast_ratio": 0.9363339601746944,
+              "matched_gt_pixels_2px": 16,
+              "pixel_recall_2px": 1.0,
+              "components_with_at_least_one_hit": 2,
+              "component_any_hit_fraction": 1.0
+            }
+          },
+          "gt16": {
+            "sums": {
+              "component_count": 1,
+              "gt_peak_pixels": 73,
+              "absolute_rgb_error_sum": 10.541175842285156,
+              "target_contrast_sum": 26.784305572509766,
+              "predicted_contrast_sum": 26.594640731811523,
+              "matched_gt_pixels_2px": 73,
+              "components_with_at_least_one_hit": 1
+            },
+            "metrics": {
+              "component_count": 1,
+              "gt_peak_pixels": 73,
+              "rgb_mae": 0.048133223024133136,
+              "target_contrast": 0.3669082955138324,
+              "predicted_contrast": 0.36431014701111675,
+              "contrast_ratio": 0.9929188068667755,
+              "matched_gt_pixels_2px": 73,
+              "pixel_recall_2px": 1.0,
+              "components_with_at_least_one_hit": 1,
+              "component_any_hit_fraction": 1.0
+            }
+          }
+        }
+      },
+      "LPIPS": 0.0054999771527945995
+    },
+    {
+      "frame_index": 245,
+      "name": "r_141_l_1",
+      "PSNR": 40.464054107666016,
+      "SSIM": 0.995406985282898,
+      "raw_MSE": 9.67967789620161e-05,
+      "alpha_L1": 0.0005912091000936925,
+      "neutral_peak_metrics": {
+        "pixels": 327,
+        "predicted_pixels": 349,
+        "matched_predicted_pixels_2px": 344,
+        "matched_target_pixels_2px": 326,
+        "rgb_mae": 0.041342366486787796,
+        "target_contrast": 0.36733320355415344,
+        "predicted_contrast": 0.3557015061378479,
+        "contrast_ratio": 0.9683347344398499
+      },
+      "neutral_peak_components": {
+        "total_predicted_peak_pixels": 349,
+        "buckets": {
+          "1_to_4": {
+            "sums": {
+              "component_count": 6,
+              "gt_peak_pixels": 11,
+              "absolute_rgb_error_sum": 1.5529412031173706,
+              "target_contrast_sum": 5.896126747131348,
+              "predicted_contrast_sum": 5.669648170471191,
+              "matched_gt_pixels_2px": 11,
+              "components_with_at_least_one_hit": 6
+            },
+            "metrics": {
+              "component_count": 6,
+              "gt_peak_pixels": 11,
+              "rgb_mae": 0.047058824336890015,
+              "target_contrast": 0.5360115224664862,
+              "predicted_contrast": 0.5154225609519265,
+              "contrast_ratio": 0.9615885841039042,
+              "matched_gt_pixels_2px": 11,
+              "pixel_recall_2px": 1.0,
+              "components_with_at_least_one_hit": 6,
+              "component_any_hit_fraction": 1.0
+            }
+          },
+          "5_to_16": {
+            "sums": {
+              "component_count": 3,
+              "gt_peak_pixels": 32,
+              "absolute_rgb_error_sum": 3.9803919792175293,
+              "target_contrast_sum": 14.734241485595703,
+              "predicted_contrast_sum": 14.601814270019531,
+              "matched_gt_pixels_2px": 32,
+              "components_with_at_least_one_hit": 3
+            },
+            "metrics": {
+              "component_count": 3,
+              "gt_peak_pixels": 32,
+              "rgb_mae": 0.041462416450182595,
+              "target_contrast": 0.4604450464248657,
+              "predicted_contrast": 0.45630669593811035,
+              "contrast_ratio": 0.9910122814462059,
+              "matched_gt_pixels_2px": 32,
+              "pixel_recall_2px": 1.0,
+              "components_with_at_least_one_hit": 3,
+              "component_any_hit_fraction": 1.0
+            }
+          },
+          "gt16": {
+            "sums": {
+              "component_count": 4,
+              "gt_peak_pixels": 284,
+              "absolute_rgb_error_sum": 35.02352523803711,
+              "target_contrast_sum": 99.48757934570312,
+              "predicted_contrast_sum": 96.04292297363281,
+              "matched_gt_pixels_2px": 283,
+              "components_with_at_least_one_hit": 4
+            },
+            "metrics": {
+              "component_count": 4,
+              "gt_peak_pixels": 284,
+              "rgb_mae": 0.04110742398830647,
+              "target_contrast": 0.3503083779778279,
+              "predicted_contrast": 0.33817930624518594,
+              "contrast_ratio": 0.9653760158330851,
+              "matched_gt_pixels_2px": 283,
+              "pixel_recall_2px": 0.9964788732394366,
+              "components_with_at_least_one_hit": 4,
+              "component_any_hit_fraction": 1.0
+            }
+          }
+        }
+      },
+      "LPIPS": 0.004022665321826935
+    },
+    {
+      "frame_index": 255,
+      "name": "r_74_l_24",
+      "PSNR": 41.895259857177734,
+      "SSIM": 0.9949480295181274,
+      "raw_MSE": 6.445498729590327e-05,
+      "alpha_L1": 0.0006406117463484406,
+      "neutral_peak_metrics": {
+        "pixels": 37,
+        "predicted_pixels": 38,
+        "matched_predicted_pixels_2px": 35,
+        "matched_target_pixels_2px": 26,
+        "rgb_mae": 0.1395866423845291,
+        "target_contrast": 0.45115745067596436,
+        "predicted_contrast": 0.3015332818031311,
+        "contrast_ratio": 0.668354868888855
+      },
+      "neutral_peak_components": {
+        "total_predicted_peak_pixels": 38,
+        "buckets": {
+          "1_to_4": {
+            "sums": {
+              "component_count": 0,
+              "gt_peak_pixels": 0,
+              "absolute_rgb_error_sum": 0.0,
+              "target_contrast_sum": 0.0,
+              "predicted_contrast_sum": 0.0,
+              "matched_gt_pixels_2px": 0,
+              "components_with_at_least_one_hit": 0
+            },
+            "metrics": {
+              "component_count": 0,
+              "gt_peak_pixels": 0,
+              "rgb_mae": null,
+              "target_contrast": null,
+              "predicted_contrast": null,
+              "contrast_ratio": null,
+              "matched_gt_pixels_2px": 0,
+              "pixel_recall_2px": null,
+              "components_with_at_least_one_hit": 0,
+              "component_any_hit_fraction": null
+            }
+          },
+          "5_to_16": {
+            "sums": {
+              "component_count": 1,
+              "gt_peak_pixels": 11,
+              "absolute_rgb_error_sum": 7.290195941925049,
+              "target_contrast_sum": 5.6406097412109375,
+              "predicted_contrast_sum": 3.323772668838501,
+              "matched_gt_pixels_2px": 0,
+              "components_with_at_least_one_hit": 0
+            },
+            "metrics": {
+              "component_count": 1,
+              "gt_peak_pixels": 11,
+              "rgb_mae": 0.2209150285431833,
+              "target_contrast": 0.5127827037464489,
+              "predicted_contrast": 0.302161151712591,
+              "contrast_ratio": 0.5892576904504914,
+              "matched_gt_pixels_2px": 0,
+              "pixel_recall_2px": 0.0,
+              "components_with_at_least_one_hit": 0,
+              "component_any_hit_fraction": 0.0
+            }
+          },
+          "gt16": {
+            "sums": {
+              "component_count": 1,
+              "gt_peak_pixels": 26,
+              "absolute_rgb_error_sum": 8.203922271728516,
+              "target_contrast_sum": 11.052215576171875,
+              "predicted_contrast_sum": 7.832958221435547,
+              "matched_gt_pixels_2px": 26,
+              "components_with_at_least_one_hit": 1
+            },
+            "metrics": {
+              "component_count": 1,
+              "gt_peak_pixels": 26,
+              "rgb_mae": 0.1051784906631861,
+              "target_contrast": 0.42508521446814906,
+              "predicted_contrast": 0.3012676239013672,
+              "contrast_ratio": 0.7087228951924431,
+              "matched_gt_pixels_2px": 26,
+              "pixel_recall_2px": 1.0,
+              "components_with_at_least_one_hit": 1,
+              "component_any_hit_fraction": 1.0
+            }
+          }
+        }
+      },
+      "LPIPS": 0.014262796379625797
+    },
+    {
+      "frame_index": 265,
+      "name": "r_26_l_105",
+      "PSNR": 45.09553527832031,
+      "SSIM": 0.9957401752471924,
+      "raw_MSE": 3.0616207368439063e-05,
+      "alpha_L1": 0.000521139707416296,
+      "neutral_peak_metrics": {
+        "pixels": 53,
+        "predicted_pixels": 57,
+        "matched_predicted_pixels_2px": 57,
+        "matched_target_pixels_2px": 51,
+        "rgb_mae": 0.04873596504330635,
+        "target_contrast": 0.41006767749786377,
+        "predicted_contrast": 0.3813295364379883,
+        "contrast_ratio": 0.9299185276031494
+      },
+      "neutral_peak_components": {
+        "total_predicted_peak_pixels": 57,
+        "buckets": {
+          "1_to_4": {
+            "sums": {
+              "component_count": 1,
+              "gt_peak_pixels": 1,
+              "absolute_rgb_error_sum": 0.2823529839515686,
+              "target_contrast_sum": 0.35465896129608154,
+              "predicted_contrast_sum": 0.25898563861846924,
+              "matched_gt_pixels_2px": 0,
+              "components_with_at_least_one_hit": 0
+            },
+            "metrics": {
+              "component_count": 1,
+              "gt_peak_pixels": 1,
+              "rgb_mae": 0.09411766131718953,
+              "target_contrast": 0.35465896129608154,
+              "predicted_contrast": 0.25898563861846924,
+              "contrast_ratio": 0.7302385301981954,
+              "matched_gt_pixels_2px": 0,
+              "pixel_recall_2px": 0.0,
+              "components_with_at_least_one_hit": 0,
+              "component_any_hit_fraction": 0.0
+            }
+          },
+          "5_to_16": {
+            "sums": {
+              "component_count": 1,
+              "gt_peak_pixels": 6,
+              "absolute_rgb_error_sum": 0.6901960372924805,
+              "target_contrast_sum": 2.586259126663208,
+              "predicted_contrast_sum": 2.5375800132751465,
+              "matched_gt_pixels_2px": 6,
+              "components_with_at_least_one_hit": 1
+            },
+            "metrics": {
+              "component_count": 1,
+              "gt_peak_pixels": 6,
+              "rgb_mae": 0.038344224294026695,
+              "target_contrast": 0.43104318777720135,
+              "predicted_contrast": 0.4229300022125244,
+              "contrast_ratio": 0.981177789616593,
+              "matched_gt_pixels_2px": 6,
+              "pixel_recall_2px": 1.0,
+              "components_with_at_least_one_hit": 1,
+              "component_any_hit_fraction": 1.0
+            }
+          },
+          "gt16": {
+            "sums": {
+              "component_count": 2,
+              "gt_peak_pixels": 46,
+              "absolute_rgb_error_sum": 6.776470184326172,
+              "target_contrast_sum": 18.79266929626465,
+              "predicted_contrast_sum": 17.413896560668945,
+              "matched_gt_pixels_2px": 45,
+              "components_with_at_least_one_hit": 2
+            },
+            "metrics": {
+              "component_count": 2,
+              "gt_peak_pixels": 46,
+              "rgb_mae": 0.04910485640816067,
+              "target_contrast": 0.4085362890492315,
+              "predicted_contrast": 0.37856296871019446,
+              "contrast_ratio": 0.9266324164034666,
+              "matched_gt_pixels_2px": 45,
+              "pixel_recall_2px": 0.9782608695652174,
+              "components_with_at_least_one_hit": 2,
+              "component_any_hit_fraction": 1.0
+            }
+          }
+        }
+      },
+      "LPIPS": 0.006077038589864969
+    },
+    {
+      "frame_index": 275,
+      "name": "r_4_l_68",
+      "PSNR": 42.29320526123047,
+      "SSIM": 0.9944924116134644,
+      "raw_MSE": 5.895355934626423e-05,
+      "alpha_L1": 0.0007112361490726471,
+      "neutral_peak_metrics": {
+        "pixels": 8,
+        "predicted_pixels": 4,
+        "matched_predicted_pixels_2px": 4,
+        "matched_target_pixels_2px": 5,
+        "rgb_mae": 0.29281046986579895,
+        "target_contrast": 0.5638105869293213,
+        "predicted_contrast": 0.29498055577278137,
+        "contrast_ratio": 0.5231908559799194
+      },
+      "neutral_peak_components": {
+        "total_predicted_peak_pixels": 4,
+        "buckets": {
+          "1_to_4": {
+            "sums": {
+              "component_count": 1,
+              "gt_peak_pixels": 3,
+              "absolute_rgb_error_sum": 3.149019479751587,
+              "target_contrast_sum": 1.3413063287734985,
+              "predicted_contrast_sum": 0.26828715205192566,
+              "matched_gt_pixels_2px": 0,
+              "components_with_at_least_one_hit": 0
+            },
+            "metrics": {
+              "component_count": 1,
+              "gt_peak_pixels": 3,
+              "rgb_mae": 0.3498910533057319,
+              "target_contrast": 0.4471021095911662,
+              "predicted_contrast": 0.08942905068397522,
+              "contrast_ratio": 0.2000192993178893,
+              "matched_gt_pixels_2px": 0,
+              "pixel_recall_2px": 0.0,
+              "components_with_at_least_one_hit": 0,
+              "component_any_hit_fraction": 0.0
+            }
+          },
+          "5_to_16": {
+            "sums": {
+              "component_count": 1,
+              "gt_peak_pixels": 5,
+              "absolute_rgb_error_sum": 3.8784308433532715,
+              "target_contrast_sum": 3.169178009033203,
+              "predicted_contrast_sum": 2.091557025909424,
+              "matched_gt_pixels_2px": 5,
+              "components_with_at_least_one_hit": 1
+            },
+            "metrics": {
+              "component_count": 1,
+              "gt_peak_pixels": 5,
+              "rgb_mae": 0.25856205622355144,
+              "target_contrast": 0.6338356018066407,
+              "predicted_contrast": 0.41831140518188475,
+              "contrast_ratio": 0.6599683009120334,
+              "matched_gt_pixels_2px": 5,
+              "pixel_recall_2px": 1.0,
+              "components_with_at_least_one_hit": 1,
+              "component_any_hit_fraction": 1.0
+            }
+          },
+          "gt16": {
+            "sums": {
+              "component_count": 0,
+              "gt_peak_pixels": 0,
+              "absolute_rgb_error_sum": 0.0,
+              "target_contrast_sum": 0.0,
+              "predicted_contrast_sum": 0.0,
+              "matched_gt_pixels_2px": 0,
+              "components_with_at_least_one_hit": 0
+            },
+            "metrics": {
+              "component_count": 0,
+              "gt_peak_pixels": 0,
+              "rgb_mae": null,
+              "target_contrast": null,
+              "predicted_contrast": null,
+              "contrast_ratio": null,
+              "matched_gt_pixels_2px": 0,
+              "pixel_recall_2px": null,
+              "components_with_at_least_one_hit": 0,
+              "component_any_hit_fraction": null
+            }
+          }
+        }
+      },
+      "LPIPS": 0.006704994011670351
+    },
+    {
+      "frame_index": 285,
+      "name": "r_16_l_107",
+      "PSNR": 46.366416931152344,
+      "SSIM": 0.9955711364746094,
+      "raw_MSE": 2.2903735953150317e-05,
+      "alpha_L1": 0.0005205873749218881,
+      "neutral_peak_metrics": {
+        "pixels": 5,
+        "predicted_pixels": 3,
+        "matched_predicted_pixels_2px": 3,
+        "matched_target_pixels_2px": 5,
+        "rgb_mae": 0.03869280591607094,
+        "target_contrast": 0.5097002983093262,
+        "predicted_contrast": 0.45772168040275574,
+        "contrast_ratio": 0.8980212211608887
+      },
+      "neutral_peak_components": {
+        "total_predicted_peak_pixels": 3,
+        "buckets": {
+          "1_to_4": {
+            "sums": {
+              "component_count": 0,
+              "gt_peak_pixels": 0,
+              "absolute_rgb_error_sum": 0.0,
+              "target_contrast_sum": 0.0,
+              "predicted_contrast_sum": 0.0,
+              "matched_gt_pixels_2px": 0,
+              "components_with_at_least_one_hit": 0
+            },
+            "metrics": {
+              "component_count": 0,
+              "gt_peak_pixels": 0,
+              "rgb_mae": null,
+              "target_contrast": null,
+              "predicted_contrast": null,
+              "contrast_ratio": null,
+              "matched_gt_pixels_2px": 0,
+              "pixel_recall_2px": null,
+              "components_with_at_least_one_hit": 0,
+              "component_any_hit_fraction": null
+            }
+          },
+          "5_to_16": {
+            "sums": {
+              "component_count": 1,
+              "gt_peak_pixels": 5,
+              "absolute_rgb_error_sum": 0.5803921818733215,
+              "target_contrast_sum": 2.5485012531280518,
+              "predicted_contrast_sum": 2.2886085510253906,
+              "matched_gt_pixels_2px": 5,
+              "components_with_at_least_one_hit": 1
+            },
+            "metrics": {
+              "component_count": 1,
+              "gt_peak_pixels": 5,
+              "rgb_mae": 0.0386928121248881,
+              "target_contrast": 0.5097002506256103,
+              "predicted_contrast": 0.4577217102050781,
+              "contrast_ratio": 0.8980213559700366,
+              "matched_gt_pixels_2px": 5,
+              "pixel_recall_2px": 1.0,
+              "components_with_at_least_one_hit": 1,
+              "component_any_hit_fraction": 1.0
+            }
+          },
+          "gt16": {
+            "sums": {
+              "component_count": 0,
+              "gt_peak_pixels": 0,
+              "absolute_rgb_error_sum": 0.0,
+              "target_contrast_sum": 0.0,
+              "predicted_contrast_sum": 0.0,
+              "matched_gt_pixels_2px": 0,
+              "components_with_at_least_one_hit": 0
+            },
+            "metrics": {
+              "component_count": 0,
+              "gt_peak_pixels": 0,
+              "rgb_mae": null,
+              "target_contrast": null,
+              "predicted_contrast": null,
+              "contrast_ratio": null,
+              "matched_gt_pixels_2px": 0,
+              "pixel_recall_2px": null,
+              "components_with_at_least_one_hit": 0,
+              "component_any_hit_fraction": null
+            }
+          }
+        }
+      },
+      "LPIPS": 0.007133725099265575
+    },
+    {
+      "frame_index": 295,
+      "name": "r_43_l_34",
+      "PSNR": 44.574832916259766,
+      "SSIM": 0.9959191679954529,
+      "raw_MSE": 3.470226874924265e-05,
+      "alpha_L1": 0.000585215981118381,
+      "neutral_peak_metrics": {
+        "pixels": 10,
+        "predicted_pixels": 5,
+        "matched_predicted_pixels_2px": 5,
+        "matched_target_pixels_2px": 7,
+        "rgb_mae": 0.16901960968971252,
+        "target_contrast": 0.5462810397148132,
+        "predicted_contrast": 0.36838117241859436,
+        "contrast_ratio": 0.6743437051773071
+      },
+      "neutral_peak_components": {
+        "total_predicted_peak_pixels": 5,
+        "buckets": {
+          "1_to_4": {
+            "sums": {
+              "component_count": 2,
+              "gt_peak_pixels": 3,
+              "absolute_rgb_error_sum": 2.39607834815979,
+              "target_contrast_sum": 1.352487325668335,
+              "predicted_contrast_sum": 0.48358434438705444,
+              "matched_gt_pixels_2px": 0,
+              "components_with_at_least_one_hit": 0
+            },
+            "metrics": {
+              "component_count": 2,
+              "gt_peak_pixels": 3,
+              "rgb_mae": 0.26623092757331,
+              "target_contrast": 0.45082910855611164,
+              "predicted_contrast": 0.16119478146235147,
+              "contrast_ratio": 0.3575518492552897,
+              "matched_gt_pixels_2px": 0,
+              "pixel_recall_2px": 0.0,
+              "components_with_at_least_one_hit": 0,
+              "component_any_hit_fraction": 0.0
+            }
+          },
+          "5_to_16": {
+            "sums": {
+              "component_count": 1,
+              "gt_peak_pixels": 7,
+              "absolute_rgb_error_sum": 2.6745095252990723,
+              "target_contrast_sum": 4.11032247543335,
+              "predicted_contrast_sum": 3.2002270221710205,
+              "matched_gt_pixels_2px": 7,
+              "components_with_at_least_one_hit": 1
+            },
+            "metrics": {
+              "component_count": 1,
+              "gt_peak_pixels": 7,
+              "rgb_mae": 0.12735759644281297,
+              "target_contrast": 0.5871889250619071,
+              "predicted_contrast": 0.4571752888815744,
+              "contrast_ratio": 0.7785829557895264,
+              "matched_gt_pixels_2px": 7,
+              "pixel_recall_2px": 1.0,
+              "components_with_at_least_one_hit": 1,
+              "component_any_hit_fraction": 1.0
+            }
+          },
+          "gt16": {
+            "sums": {
+              "component_count": 0,
+              "gt_peak_pixels": 0,
+              "absolute_rgb_error_sum": 0.0,
+              "target_contrast_sum": 0.0,
+              "predicted_contrast_sum": 0.0,
+              "matched_gt_pixels_2px": 0,
+              "components_with_at_least_one_hit": 0
+            },
+            "metrics": {
+              "component_count": 0,
+              "gt_peak_pixels": 0,
+              "rgb_mae": null,
+              "target_contrast": null,
+              "predicted_contrast": null,
+              "contrast_ratio": null,
+              "matched_gt_pixels_2px": 0,
+              "pixel_recall_2px": null,
+              "components_with_at_least_one_hit": 0,
+              "component_any_hit_fraction": null
+            }
+          }
+        }
+      },
+      "LPIPS": 0.004235973581671715
+    },
+    {
+      "frame_index": 305,
+      "name": "r_19_l_66",
+      "PSNR": 46.966217041015625,
+      "SSIM": 0.9971253275871277,
+      "raw_MSE": 2.0015497284475714e-05,
+      "alpha_L1": 0.0005137440748512745,
+      "neutral_peak_metrics": {
+        "pixels": 0,
+        "predicted_pixels": 0,
+        "matched_predicted_pixels_2px": 0,
+        "matched_target_pixels_2px": 0
+      },
+      "neutral_peak_components": {
+        "total_predicted_peak_pixels": 0,
+        "buckets": {
+          "1_to_4": {
+            "sums": {
+              "component_count": 0,
+              "gt_peak_pixels": 0,
+              "absolute_rgb_error_sum": 0.0,
+              "target_contrast_sum": 0.0,
+              "predicted_contrast_sum": 0.0,
+              "matched_gt_pixels_2px": 0,
+              "components_with_at_least_one_hit": 0
+            },
+            "metrics": {
+              "component_count": 0,
+              "gt_peak_pixels": 0,
+              "rgb_mae": null,
+              "target_contrast": null,
+              "predicted_contrast": null,
+              "contrast_ratio": null,
+              "matched_gt_pixels_2px": 0,
+              "pixel_recall_2px": null,
+              "components_with_at_least_one_hit": 0,
+              "component_any_hit_fraction": null
+            }
+          },
+          "5_to_16": {
+            "sums": {
+              "component_count": 0,
+              "gt_peak_pixels": 0,
+              "absolute_rgb_error_sum": 0.0,
+              "target_contrast_sum": 0.0,
+              "predicted_contrast_sum": 0.0,
+              "matched_gt_pixels_2px": 0,
+              "components_with_at_least_one_hit": 0
+            },
+            "metrics": {
+              "component_count": 0,
+              "gt_peak_pixels": 0,
+              "rgb_mae": null,
+              "target_contrast": null,
+              "predicted_contrast": null,
+              "contrast_ratio": null,
+              "matched_gt_pixels_2px": 0,
+              "pixel_recall_2px": null,
+              "components_with_at_least_one_hit": 0,
+              "component_any_hit_fraction": null
+            }
+          },
+          "gt16": {
+            "sums": {
+              "component_count": 0,
+              "gt_peak_pixels": 0,
+              "absolute_rgb_error_sum": 0.0,
+              "target_contrast_sum": 0.0,
+              "predicted_contrast_sum": 0.0,
+              "matched_gt_pixels_2px": 0,
+              "components_with_at_least_one_hit": 0
+            },
+            "metrics": {
+              "component_count": 0,
+              "gt_peak_pixels": 0,
+              "rgb_mae": null,
+              "target_contrast": null,
+              "predicted_contrast": null,
+              "contrast_ratio": null,
+              "matched_gt_pixels_2px": 0,
+              "pixel_recall_2px": null,
+              "components_with_at_least_one_hit": 0,
+              "component_any_hit_fraction": null
+            }
+          }
+        }
+      },
+      "LPIPS": 0.009947046637535095
+    },
+    {
+      "frame_index": 315,
+      "name": "r_99_l_43",
+      "PSNR": 34.20097732543945,
+      "SSIM": 0.9842142462730408,
+      "raw_MSE": 0.0003798710822593421,
+      "alpha_L1": 0.0005263021448627114,
+      "neutral_peak_metrics": {
+        "pixels": 470,
+        "predicted_pixels": 343,
+        "matched_predicted_pixels_2px": 332,
+        "matched_target_pixels_2px": 397,
+        "rgb_mae": 0.12990404665470123,
+        "target_contrast": 0.3960982859134674,
+        "predicted_contrast": 0.2783350944519043,
+        "contrast_ratio": 0.7026919722557068
+      },
+      "neutral_peak_components": {
+        "total_predicted_peak_pixels": 343,
+        "buckets": {
+          "1_to_4": {
+            "sums": {
+              "component_count": 18,
+              "gt_peak_pixels": 36,
+              "absolute_rgb_error_sum": 14.572549819946289,
+              "target_contrast_sum": 15.848583221435547,
+              "predicted_contrast_sum": 10.355697631835938,
+              "matched_gt_pixels_2px": 19,
+              "components_with_at_least_one_hit": 8
+            },
+            "metrics": {
+              "component_count": 18,
+              "gt_peak_pixels": 36,
+              "rgb_mae": 0.13493101685135453,
+              "target_contrast": 0.4402384228176541,
+              "predicted_contrast": 0.28765826755099827,
+              "contrast_ratio": 0.6534147240259076,
+              "matched_gt_pixels_2px": 19,
+              "pixel_recall_2px": 0.5277777777777778,
+              "components_with_at_least_one_hit": 8,
+              "component_any_hit_fraction": 0.4444444444444444
+            }
+          },
+          "5_to_16": {
+            "sums": {
+              "component_count": 5,
+              "gt_peak_pixels": 51,
+              "absolute_rgb_error_sum": 28.160785675048828,
+              "target_contrast_sum": 24.75884246826172,
+              "predicted_contrast_sum": 14.75190544128418,
+              "matched_gt_pixels_2px": 31,
+              "components_with_at_least_one_hit": 3
+            },
+            "metrics": {
+              "component_count": 5,
+              "gt_peak_pixels": 51,
+              "rgb_mae": 0.18405742271273745,
+              "target_contrast": 0.48546749937768074,
+              "predicted_contrast": 0.28925304786831724,
+              "contrast_ratio": 0.5958237126874812,
+              "matched_gt_pixels_2px": 31,
+              "pixel_recall_2px": 0.6078431372549019,
+              "components_with_at_least_one_hit": 3,
+              "component_any_hit_fraction": 0.6
+            }
+          },
+          "gt16": {
+            "sums": {
+              "component_count": 7,
+              "gt_peak_pixels": 383,
+              "absolute_rgb_error_sum": 140.43136596679688,
+              "target_contrast_sum": 145.55877685546875,
+              "predicted_contrast_sum": 105.70990753173828,
+              "matched_gt_pixels_2px": 347,
+              "components_with_at_least_one_hit": 7
+            },
+            "metrics": {
+              "component_count": 7,
+              "gt_peak_pixels": 383,
+              "rgb_mae": 0.12222050997980581,
+              "target_contrast": 0.3800490257322944,
+              "predicted_contrast": 0.27600498050062217,
+              "contrast_ratio": 0.7262352007581238,
+              "matched_gt_pixels_2px": 347,
+              "pixel_recall_2px": 0.9060052219321149,
+              "components_with_at_least_one_hit": 7,
+              "component_any_hit_fraction": 1.0
+            }
+          }
+        }
+      },
+      "LPIPS": 0.011067962273955345
+    },
+    {
+      "frame_index": 325,
+      "name": "r_0_l_6",
+      "PSNR": 35.7680549621582,
+      "SSIM": 0.990288257598877,
+      "raw_MSE": 0.00026879593497142196,
+      "alpha_L1": 0.001017882372252643,
+      "neutral_peak_metrics": {
+        "pixels": 102,
+        "predicted_pixels": 49,
+        "matched_predicted_pixels_2px": 49,
+        "matched_target_pixels_2px": 87,
+        "rgb_mae": 0.24591825902462006,
+        "target_contrast": 0.5034463405609131,
+        "predicted_contrast": 0.3023880422115326,
+        "contrast_ratio": 0.6006360650062561
+      },
+      "neutral_peak_components": {
+        "total_predicted_peak_pixels": 49,
+        "buckets": {
+          "1_to_4": {
+            "sums": {
+              "component_count": 3,
+              "gt_peak_pixels": 5,
+              "absolute_rgb_error_sum": 6.188234806060791,
+              "target_contrast_sum": 1.9637336730957031,
+              "predicted_contrast_sum": 0.044822417199611664,
+              "matched_gt_pixels_2px": 1,
+              "components_with_at_least_one_hit": 1
+            },
+            "metrics": {
+              "component_count": 3,
+              "gt_peak_pixels": 5,
+              "rgb_mae": 0.4125489870707194,
+              "target_contrast": 0.3927467346191406,
+              "predicted_contrast": 0.008964483439922333,
+              "contrast_ratio": 0.022825099866496626,
+              "matched_gt_pixels_2px": 1,
+              "pixel_recall_2px": 0.2,
+              "components_with_at_least_one_hit": 1,
+              "component_any_hit_fraction": 0.3333333333333333
+            }
+          },
+          "5_to_16": {
+            "sums": {
+              "component_count": 2,
+              "gt_peak_pixels": 15,
+              "absolute_rgb_error_sum": 9.40000057220459,
+              "target_contrast_sum": 6.600549221038818,
+              "predicted_contrast_sum": 3.535827875137329,
+              "matched_gt_pixels_2px": 5,
+              "components_with_at_least_one_hit": 1
+            },
+            "metrics": {
+              "component_count": 2,
+              "gt_peak_pixels": 15,
+              "rgb_mae": 0.20888890160454643,
+              "target_contrast": 0.4400366147359212,
+              "predicted_contrast": 0.2357218583424886,
+              "contrast_ratio": 0.5356869188804939,
+              "matched_gt_pixels_2px": 5,
+              "pixel_recall_2px": 0.3333333333333333,
+              "components_with_at_least_one_hit": 1,
+              "component_any_hit_fraction": 0.5
+            }
+          },
+          "gt16": {
+            "sums": {
+              "component_count": 1,
+              "gt_peak_pixels": 82,
+              "absolute_rgb_error_sum": 59.662742614746094,
+              "target_contrast_sum": 42.7872428894043,
+              "predicted_contrast_sum": 27.262928009033203,
+              "matched_gt_pixels_2px": 81,
+              "components_with_at_least_one_hit": 1
+            },
+            "metrics": {
+              "component_count": 1,
+              "gt_peak_pixels": 82,
+              "rgb_mae": 0.2425314740436833,
+              "target_contrast": 0.5217956449927353,
+              "predicted_contrast": 0.3324747318174781,
+              "contrast_ratio": 0.6371742175466163,
+              "matched_gt_pixels_2px": 81,
+              "pixel_recall_2px": 0.9878048780487805,
+              "components_with_at_least_one_hit": 1,
+              "component_any_hit_fraction": 1.0
+            }
+          }
+        }
+      },
+      "LPIPS": 0.012673873454332352
+    },
+    {
+      "frame_index": 335,
+      "name": "r_142_l_96",
+      "PSNR": 42.268218994140625,
+      "SSIM": 0.9962761402130127,
+      "raw_MSE": 5.9036196034867316e-05,
+      "alpha_L1": 0.0006345955189317465,
+      "neutral_peak_metrics": {
+        "pixels": 83,
+        "predicted_pixels": 73,
+        "matched_predicted_pixels_2px": 73,
+        "matched_target_pixels_2px": 78,
+        "rgb_mae": 0.10978817939758301,
+        "target_contrast": 0.5271661281585693,
+        "predicted_contrast": 0.4453704059123993,
+        "contrast_ratio": 0.8448387980461121
+      },
+      "neutral_peak_components": {
+        "total_predicted_peak_pixels": 73,
+        "buckets": {
+          "1_to_4": {
+            "sums": {
+              "component_count": 2,
+              "gt_peak_pixels": 5,
+              "absolute_rgb_error_sum": 2.098039150238037,
+              "target_contrast_sum": 1.7883323431015015,
+              "predicted_contrast_sum": 1.135310173034668,
+              "matched_gt_pixels_2px": 0,
+              "components_with_at_least_one_hit": 0
+            },
+            "metrics": {
+              "component_count": 2,
+              "gt_peak_pixels": 5,
+              "rgb_mae": 0.13986927668253582,
+              "target_contrast": 0.35766646862030027,
+              "predicted_contrast": 0.22706203460693358,
+              "contrast_ratio": 0.634842945951367,
+              "matched_gt_pixels_2px": 0,
+              "pixel_recall_2px": 0.0,
+              "components_with_at_least_one_hit": 0,
+              "component_any_hit_fraction": 0.0
+            }
+          },
+          "5_to_16": {
+            "sums": {
+              "component_count": 0,
+              "gt_peak_pixels": 0,
+              "absolute_rgb_error_sum": 0.0,
+              "target_contrast_sum": 0.0,
+              "predicted_contrast_sum": 0.0,
+              "matched_gt_pixels_2px": 0,
+              "components_with_at_least_one_hit": 0
+            },
+            "metrics": {
+              "component_count": 0,
+              "gt_peak_pixels": 0,
+              "rgb_mae": null,
+              "target_contrast": null,
+              "predicted_contrast": null,
+              "contrast_ratio": null,
+              "matched_gt_pixels_2px": 0,
+              "pixel_recall_2px": null,
+              "components_with_at_least_one_hit": 0,
+              "component_any_hit_fraction": null
+            }
+          },
+          "gt16": {
+            "sums": {
+              "component_count": 1,
+              "gt_peak_pixels": 78,
+              "absolute_rgb_error_sum": 25.239215850830078,
+              "target_contrast_sum": 41.96644973754883,
+              "predicted_contrast_sum": 35.83042907714844,
+              "matched_gt_pixels_2px": 78,
+              "components_with_at_least_one_hit": 1
+            },
+            "metrics": {
+              "component_count": 1,
+              "gt_peak_pixels": 78,
+              "rgb_mae": 0.10785989679841913,
+              "target_contrast": 0.5380314068916516,
+              "predicted_contrast": 0.4593644753480569,
+              "contrast_ratio": 0.8537874731178349,
+              "matched_gt_pixels_2px": 78,
+              "pixel_recall_2px": 1.0,
+              "components_with_at_least_one_hit": 1,
+              "component_any_hit_fraction": 1.0
+            }
+          }
+        }
+      },
+      "LPIPS": 0.004179175477474928
+    },
+    {
+      "frame_index": 345,
+      "name": "r_12_l_106",
+      "PSNR": 45.189918518066406,
+      "SSIM": 0.9964685440063477,
+      "raw_MSE": 3.0039591365493834e-05,
+      "alpha_L1": 0.0006067143986001611,
+      "neutral_peak_metrics": {
+        "pixels": 37,
+        "predicted_pixels": 25,
+        "matched_predicted_pixels_2px": 25,
+        "matched_target_pixels_2px": 36,
+        "rgb_mae": 0.08563858270645142,
+        "target_contrast": 0.4866381585597992,
+        "predicted_contrast": 0.4003215432167053,
+        "contrast_ratio": 0.8226267099380493
+      },
+      "neutral_peak_components": {
+        "total_predicted_peak_pixels": 25,
+        "buckets": {
+          "1_to_4": {
+            "sums": {
+              "component_count": 0,
+              "gt_peak_pixels": 0,
+              "absolute_rgb_error_sum": 0.0,
+              "target_contrast_sum": 0.0,
+              "predicted_contrast_sum": 0.0,
+              "matched_gt_pixels_2px": 0,
+              "components_with_at_least_one_hit": 0
+            },
+            "metrics": {
+              "component_count": 0,
+              "gt_peak_pixels": 0,
+              "rgb_mae": null,
+              "target_contrast": null,
+              "predicted_contrast": null,
+              "contrast_ratio": null,
+              "matched_gt_pixels_2px": 0,
+              "pixel_recall_2px": null,
+              "components_with_at_least_one_hit": 0,
+              "component_any_hit_fraction": null
+            }
+          },
+          "5_to_16": {
+            "sums": {
+              "component_count": 0,
+              "gt_peak_pixels": 0,
+              "absolute_rgb_error_sum": 0.0,
+              "target_contrast_sum": 0.0,
+              "predicted_contrast_sum": 0.0,
+              "matched_gt_pixels_2px": 0,
+              "components_with_at_least_one_hit": 0
+            },
+            "metrics": {
+              "component_count": 0,
+              "gt_peak_pixels": 0,
+              "rgb_mae": null,
+              "target_contrast": null,
+              "predicted_contrast": null,
+              "contrast_ratio": null,
+              "matched_gt_pixels_2px": 0,
+              "pixel_recall_2px": null,
+              "components_with_at_least_one_hit": 0,
+              "component_any_hit_fraction": null
+            }
+          },
+          "gt16": {
+            "sums": {
+              "component_count": 1,
+              "gt_peak_pixels": 37,
+              "absolute_rgb_error_sum": 9.505882263183594,
+              "target_contrast_sum": 18.005611419677734,
+              "predicted_contrast_sum": 14.811895370483398,
+              "matched_gt_pixels_2px": 36,
+              "components_with_at_least_one_hit": 1
+            },
+            "metrics": {
+              "component_count": 1,
+              "gt_peak_pixels": 37,
+              "rgb_mae": 0.08563857894759995,
+              "target_contrast": 0.4866381464777766,
+              "predicted_contrast": 0.4003214964995513,
+              "contrast_ratio": 0.8226266259581705,
+              "matched_gt_pixels_2px": 36,
+              "pixel_recall_2px": 0.972972972972973,
+              "components_with_at_least_one_hit": 1,
+              "component_any_hit_fraction": 1.0
+            }
+          }
+        }
+      },
+      "LPIPS": 0.005538288038223982
+    },
+    {
+      "frame_index": 355,
+      "name": "r_115_l_61",
+      "PSNR": 39.96523666381836,
+      "SSIM": 0.9942374229431152,
+      "raw_MSE": 0.00010071229189634323,
+      "alpha_L1": 0.0004746092890854925,
+      "neutral_peak_metrics": {
+        "pixels": 21,
+        "predicted_pixels": 1,
+        "matched_predicted_pixels_2px": 1,
+        "matched_target_pixels_2px": 4,
+        "rgb_mae": 0.32474327087402344,
+        "target_contrast": 0.34061941504478455,
+        "predicted_contrast": 0.08469562977552414,
+        "contrast_ratio": 0.24865180253982544
+      },
+      "neutral_peak_components": {
+        "total_predicted_peak_pixels": 1,
+        "buckets": {
+          "1_to_4": {
+            "sums": {
+              "component_count": 0,
+              "gt_peak_pixels": 0,
+              "absolute_rgb_error_sum": 0.0,
+              "target_contrast_sum": 0.0,
+              "predicted_contrast_sum": 0.0,
+              "matched_gt_pixels_2px": 0,
+              "components_with_at_least_one_hit": 0
+            },
+            "metrics": {
+              "component_count": 0,
+              "gt_peak_pixels": 0,
+              "rgb_mae": null,
+              "target_contrast": null,
+              "predicted_contrast": null,
+              "contrast_ratio": null,
+              "matched_gt_pixels_2px": 0,
+              "pixel_recall_2px": null,
+              "components_with_at_least_one_hit": 0,
+              "component_any_hit_fraction": null
+            }
+          },
+          "5_to_16": {
+            "sums": {
+              "component_count": 0,
+              "gt_peak_pixels": 0,
+              "absolute_rgb_error_sum": 0.0,
+              "target_contrast_sum": 0.0,
+              "predicted_contrast_sum": 0.0,
+              "matched_gt_pixels_2px": 0,
+              "components_with_at_least_one_hit": 0
+            },
+            "metrics": {
+              "component_count": 0,
+              "gt_peak_pixels": 0,
+              "rgb_mae": null,
+              "target_contrast": null,
+              "predicted_contrast": null,
+              "contrast_ratio": null,
+              "matched_gt_pixels_2px": 0,
+              "pixel_recall_2px": null,
+              "components_with_at_least_one_hit": 0,
+              "component_any_hit_fraction": null
+            }
+          },
+          "gt16": {
+            "sums": {
+              "component_count": 1,
+              "gt_peak_pixels": 21,
+              "absolute_rgb_error_sum": 20.458824157714844,
+              "target_contrast_sum": 7.153007984161377,
+              "predicted_contrast_sum": 1.7786080837249756,
+              "matched_gt_pixels_2px": 4,
+              "components_with_at_least_one_hit": 1
+            },
+            "metrics": {
+              "component_count": 1,
+              "gt_peak_pixels": 21,
+              "rgb_mae": 0.3247432405986483,
+              "target_contrast": 0.34061942781720844,
+              "predicted_contrast": 0.08469562303452265,
+              "contrast_ratio": 0.2486517682719322,
+              "matched_gt_pixels_2px": 4,
+              "pixel_recall_2px": 0.19047619047619047,
+              "components_with_at_least_one_hit": 1,
+              "component_any_hit_fraction": 1.0
+            }
+          }
+        }
+      },
+      "LPIPS": 0.005961206741631031
+    },
+    {
+      "frame_index": 365,
+      "name": "r_136_l_97",
+      "PSNR": 40.22209930419922,
+      "SSIM": 0.9949765205383301,
+      "raw_MSE": 9.482614404987544e-05,
+      "alpha_L1": 0.0006434345850721002,
+      "neutral_peak_metrics": {
+        "pixels": 117,
+        "predicted_pixels": 126,
+        "matched_predicted_pixels_2px": 126,
+        "matched_target_pixels_2px": 117,
+        "rgb_mae": 0.0716719776391983,
+        "target_contrast": 0.43865981698036194,
+        "predicted_contrast": 0.3947452902793884,
+        "contrast_ratio": 0.899889349937439
+      },
+      "neutral_peak_components": {
+        "total_predicted_peak_pixels": 126,
+        "buckets": {
+          "1_to_4": {
+            "sums": {
+              "component_count": 3,
+              "gt_peak_pixels": 3,
+              "absolute_rgb_error_sum": 0.7137254476547241,
+              "target_contrast_sum": 1.3387782573699951,
+              "predicted_contrast_sum": 1.2699077129364014,
+              "matched_gt_pixels_2px": 3,
+              "components_with_at_least_one_hit": 3
+            },
+            "metrics": {
+              "component_count": 3,
+              "gt_peak_pixels": 3,
+              "rgb_mae": 0.07930282751719157,
+              "target_contrast": 0.4462594191233317,
+              "predicted_contrast": 0.4233025709788005,
+              "contrast_ratio": 0.9485571684074937,
+              "matched_gt_pixels_2px": 3,
+              "pixel_recall_2px": 1.0,
+              "components_with_at_least_one_hit": 3,
+              "component_any_hit_fraction": 1.0
+            }
+          },
+          "5_to_16": {
+            "sums": {
+              "component_count": 0,
+              "gt_peak_pixels": 0,
+              "absolute_rgb_error_sum": 0.0,
+              "target_contrast_sum": 0.0,
+              "predicted_contrast_sum": 0.0,
+              "matched_gt_pixels_2px": 0,
+              "components_with_at_least_one_hit": 0
+            },
+            "metrics": {
+              "component_count": 0,
+              "gt_peak_pixels": 0,
+              "rgb_mae": null,
+              "target_contrast": null,
+              "predicted_contrast": null,
+              "contrast_ratio": null,
+              "matched_gt_pixels_2px": 0,
+              "pixel_recall_2px": null,
+              "components_with_at_least_one_hit": 0,
+              "component_any_hit_fraction": null
+            }
+          },
+          "gt16": {
+            "sums": {
+              "component_count": 2,
+              "gt_peak_pixels": 114,
+              "absolute_rgb_error_sum": 24.443134307861328,
+              "target_contrast_sum": 49.984413146972656,
+              "predicted_contrast_sum": 44.91529083251953,
+              "matched_gt_pixels_2px": 114,
+              "components_with_at_least_one_hit": 2
+            },
+            "metrics": {
+              "component_count": 2,
+              "gt_peak_pixels": 114,
+              "rgb_mae": 0.07147115294696295,
+              "target_contrast": 0.4384597644471286,
+              "predicted_contrast": 0.39399377923262746,
+              "contrast_ratio": 0.8985859391897224,
+              "matched_gt_pixels_2px": 114,
+              "pixel_recall_2px": 1.0,
+              "components_with_at_least_one_hit": 2,
+              "component_any_hit_fraction": 1.0
+            }
+          }
+        }
+      },
+      "LPIPS": 0.010383469983935356
+    },
+    {
+      "frame_index": 375,
+      "name": "r_64_l_63",
+      "PSNR": 41.02857971191406,
+      "SSIM": 0.9924156069755554,
+      "raw_MSE": 7.87719473009929e-05,
+      "alpha_L1": 0.0005993241211399436,
+      "neutral_peak_metrics": {
+        "pixels": 2,
+        "predicted_pixels": 2,
+        "matched_predicted_pixels_2px": 0,
+        "matched_target_pixels_2px": 0,
+        "rgb_mae": 0.27712422609329224,
+        "target_contrast": 0.5634580850601196,
+        "predicted_contrast": 0.26823854446411133,
+        "contrast_ratio": 0.47605767846107483
+      },
+      "neutral_peak_components": {
+        "total_predicted_peak_pixels": 2,
+        "buckets": {
+          "1_to_4": {
+            "sums": {
+              "component_count": 1,
+              "gt_peak_pixels": 2,
+              "absolute_rgb_error_sum": 1.6627449989318848,
+              "target_contrast_sum": 1.1269162893295288,
+              "predicted_contrast_sum": 0.5364770889282227,
+              "matched_gt_pixels_2px": 0,
+              "components_with_at_least_one_hit": 0
+            },
+            "metrics": {
+              "component_count": 1,
+              "gt_peak_pixels": 2,
+              "rgb_mae": 0.27712416648864746,
+              "target_contrast": 0.5634581446647644,
+              "predicted_contrast": 0.26823854446411133,
+              "contrast_ratio": 0.47605762203278257,
+              "matched_gt_pixels_2px": 0,
+              "pixel_recall_2px": 0.0,
+              "components_with_at_least_one_hit": 0,
+              "component_any_hit_fraction": 0.0
+            }
+          },
+          "5_to_16": {
+            "sums": {
+              "component_count": 0,
+              "gt_peak_pixels": 0,
+              "absolute_rgb_error_sum": 0.0,
+              "target_contrast_sum": 0.0,
+              "predicted_contrast_sum": 0.0,
+              "matched_gt_pixels_2px": 0,
+              "components_with_at_least_one_hit": 0
+            },
+            "metrics": {
+              "component_count": 0,
+              "gt_peak_pixels": 0,
+              "rgb_mae": null,
+              "target_contrast": null,
+              "predicted_contrast": null,
+              "contrast_ratio": null,
+              "matched_gt_pixels_2px": 0,
+              "pixel_recall_2px": null,
+              "components_with_at_least_one_hit": 0,
+              "component_any_hit_fraction": null
+            }
+          },
+          "gt16": {
+            "sums": {
+              "component_count": 0,
+              "gt_peak_pixels": 0,
+              "absolute_rgb_error_sum": 0.0,
+              "target_contrast_sum": 0.0,
+              "predicted_contrast_sum": 0.0,
+              "matched_gt_pixels_2px": 0,
+              "components_with_at_least_one_hit": 0
+            },
+            "metrics": {
+              "component_count": 0,
+              "gt_peak_pixels": 0,
+              "rgb_mae": null,
+              "target_contrast": null,
+              "predicted_contrast": null,
+              "contrast_ratio": null,
+              "matched_gt_pixels_2px": 0,
+              "pixel_recall_2px": null,
+              "components_with_at_least_one_hit": 0,
+              "component_any_hit_fraction": null
+            }
+          }
+        }
+      },
+      "LPIPS": 0.017750956118106842
+    },
+    {
+      "frame_index": 385,
+      "name": "r_37_l_98",
+      "PSNR": 43.65329360961914,
+      "SSIM": 0.9951757788658142,
+      "raw_MSE": 4.281469955458306e-05,
+      "alpha_L1": 0.000595081364735961,
+      "neutral_peak_metrics": {
+        "pixels": 44,
+        "predicted_pixels": 41,
+        "matched_predicted_pixels_2px": 31,
+        "matched_target_pixels_2px": 35,
+        "rgb_mae": 0.06452763080596924,
+        "target_contrast": 0.39799943566322327,
+        "predicted_contrast": 0.34461045265197754,
+        "contrast_ratio": 0.8658566474914551
+      },
+      "neutral_peak_components": {
+        "total_predicted_peak_pixels": 41,
+        "buckets": {
+          "1_to_4": {
+            "sums": {
+              "component_count": 2,
+              "gt_peak_pixels": 5,
+              "absolute_rgb_error_sum": 1.282353162765503,
+              "target_contrast_sum": 1.7679460048675537,
+              "predicted_contrast_sum": 1.3667147159576416,
+              "matched_gt_pixels_2px": 3,
+              "components_with_at_least_one_hit": 1
+            },
+            "metrics": {
+              "component_count": 2,
+              "gt_peak_pixels": 5,
+              "rgb_mae": 0.08549021085103353,
+              "target_contrast": 0.35358920097351076,
+              "predicted_contrast": 0.2733429431915283,
+              "contrast_ratio": 0.7730522946938244,
+              "matched_gt_pixels_2px": 3,
+              "pixel_recall_2px": 0.6,
+              "components_with_at_least_one_hit": 1,
+              "component_any_hit_fraction": 0.5
+            }
+          },
+          "5_to_16": {
+            "sums": {
+              "component_count": 2,
+              "gt_peak_pixels": 20,
+              "absolute_rgb_error_sum": 1.9882352352142334,
+              "target_contrast_sum": 7.908152103424072,
+              "predicted_contrast_sum": 7.858241558074951,
+              "matched_gt_pixels_2px": 14,
+              "components_with_at_least_one_hit": 1
+            },
+            "metrics": {
+              "component_count": 2,
+              "gt_peak_pixels": 20,
+              "rgb_mae": 0.033137253920237225,
+              "target_contrast": 0.3954076051712036,
+              "predicted_contrast": 0.39291207790374755,
+              "contrast_ratio": 0.9936887221317467,
+              "matched_gt_pixels_2px": 14,
+              "pixel_recall_2px": 0.7,
+              "components_with_at_least_one_hit": 1,
+              "component_any_hit_fraction": 0.5
+            }
+          },
+          "gt16": {
+            "sums": {
+              "component_count": 1,
+              "gt_peak_pixels": 19,
+              "absolute_rgb_error_sum": 5.247058868408203,
+              "target_contrast_sum": 7.835875988006592,
+              "predicted_contrast_sum": 5.937901496887207,
+              "matched_gt_pixels_2px": 18,
+              "components_with_at_least_one_hit": 1
+            },
+            "metrics": {
+              "component_count": 1,
+              "gt_peak_pixels": 19,
+              "rgb_mae": 0.09205366435803865,
+              "target_contrast": 0.41241452568455744,
+              "predicted_contrast": 0.31252113141511617,
+              "contrast_ratio": 0.7577840060225073,
+              "matched_gt_pixels_2px": 18,
+              "pixel_recall_2px": 0.9473684210526315,
+              "components_with_at_least_one_hit": 1,
+              "component_any_hit_fraction": 1.0
+            }
+          }
+        }
+      },
+      "LPIPS": 0.005099751986563206
+    },
+    {
+      "frame_index": 395,
+      "name": "r_9_l_95",
+      "PSNR": 44.198307037353516,
+      "SSIM": 0.9968873262405396,
+      "raw_MSE": 3.8439713534899056e-05,
+      "alpha_L1": 0.0007340899901464581,
+      "neutral_peak_metrics": {
+        "pixels": 5,
+        "predicted_pixels": 4,
+        "matched_predicted_pixels_2px": 4,
+        "matched_target_pixels_2px": 5,
+        "rgb_mae": 0.05359477922320366,
+        "target_contrast": 0.4566132724285126,
+        "predicted_contrast": 0.4197893738746643,
+        "contrast_ratio": 0.9193543195724487
+      },
+      "neutral_peak_components": {
+        "total_predicted_peak_pixels": 4,
+        "buckets": {
+          "1_to_4": {
+            "sums": {
+              "component_count": 4,
+              "gt_peak_pixels": 5,
+              "absolute_rgb_error_sum": 0.8039215207099915,
+              "target_contrast_sum": 2.2830660343170166,
+              "predicted_contrast_sum": 2.0989468097686768,
+              "matched_gt_pixels_2px": 5,
+              "components_with_at_least_one_hit": 4
+            },
+            "metrics": {
+              "component_count": 4,
+              "gt_peak_pixels": 5,
+              "rgb_mae": 0.053594768047332764,
+              "target_contrast": 0.45661320686340334,
+              "predicted_contrast": 0.41978936195373534,
+              "contrast_ratio": 0.9193544024654462,
+              "matched_gt_pixels_2px": 5,
+              "pixel_recall_2px": 1.0,
+              "components_with_at_least_one_hit": 4,
+              "component_any_hit_fraction": 1.0
+            }
+          },
+          "5_to_16": {
+            "sums": {
+              "component_count": 0,
+              "gt_peak_pixels": 0,
+              "absolute_rgb_error_sum": 0.0,
+              "target_contrast_sum": 0.0,
+              "predicted_contrast_sum": 0.0,
+              "matched_gt_pixels_2px": 0,
+              "components_with_at_least_one_hit": 0
+            },
+            "metrics": {
+              "component_count": 0,
+              "gt_peak_pixels": 0,
+              "rgb_mae": null,
+              "target_contrast": null,
+              "predicted_contrast": null,
+              "contrast_ratio": null,
+              "matched_gt_pixels_2px": 0,
+              "pixel_recall_2px": null,
+              "components_with_at_least_one_hit": 0,
+              "component_any_hit_fraction": null
+            }
+          },
+          "gt16": {
+            "sums": {
+              "component_count": 0,
+              "gt_peak_pixels": 0,
+              "absolute_rgb_error_sum": 0.0,
+              "target_contrast_sum": 0.0,
+              "predicted_contrast_sum": 0.0,
+              "matched_gt_pixels_2px": 0,
+              "components_with_at_least_one_hit": 0
+            },
+            "metrics": {
+              "component_count": 0,
+              "gt_peak_pixels": 0,
+              "rgb_mae": null,
+              "target_contrast": null,
+              "predicted_contrast": null,
+              "contrast_ratio": null,
+              "matched_gt_pixels_2px": 0,
+              "pixel_recall_2px": null,
+              "components_with_at_least_one_hit": 0,
+              "component_any_hit_fraction": null
+            }
+          }
+        }
+      },
+      "LPIPS": 0.009890232235193253
+    },
+    {
+      "frame_index": 405,
+      "name": "r_14_l_30",
+      "PSNR": 45.57063293457031,
+      "SSIM": 0.9962193369865417,
+      "raw_MSE": 2.749881059571635e-05,
+      "alpha_L1": 0.0005911209154874086,
+      "neutral_peak_metrics": {
+        "pixels": 5,
+        "predicted_pixels": 1,
+        "matched_predicted_pixels_2px": 1,
+        "matched_target_pixels_2px": 5,
+        "rgb_mae": 0.19660131633281708,
+        "target_contrast": 0.5053575038909912,
+        "predicted_contrast": 0.2627323269844055,
+        "contrast_ratio": 0.519894003868103
+      },
+      "neutral_peak_components": {
+        "total_predicted_peak_pixels": 1,
+        "buckets": {
+          "1_to_4": {
+            "sums": {
+              "component_count": 0,
+              "gt_peak_pixels": 0,
+              "absolute_rgb_error_sum": 0.0,
+              "target_contrast_sum": 0.0,
+              "predicted_contrast_sum": 0.0,
+              "matched_gt_pixels_2px": 0,
+              "components_with_at_least_one_hit": 0
+            },
+            "metrics": {
+              "component_count": 0,
+              "gt_peak_pixels": 0,
+              "rgb_mae": null,
+              "target_contrast": null,
+              "predicted_contrast": null,
+              "contrast_ratio": null,
+              "matched_gt_pixels_2px": 0,
+              "pixel_recall_2px": null,
+              "components_with_at_least_one_hit": 0,
+              "component_any_hit_fraction": null
+            }
+          },
+          "5_to_16": {
+            "sums": {
+              "component_count": 1,
+              "gt_peak_pixels": 5,
+              "absolute_rgb_error_sum": 2.94901967048645,
+              "target_contrast_sum": 2.526787757873535,
+              "predicted_contrast_sum": 1.3136614561080933,
+              "matched_gt_pixels_2px": 5,
+              "components_with_at_least_one_hit": 1
+            },
+            "metrics": {
+              "component_count": 1,
+              "gt_peak_pixels": 5,
+              "rgb_mae": 0.19660131136576334,
+              "target_contrast": 0.5053575515747071,
+              "predicted_contrast": 0.2627322912216187,
+              "contrast_ratio": 0.5198938660418512,
+              "matched_gt_pixels_2px": 5,
+              "pixel_recall_2px": 1.0,
+              "components_with_at_least_one_hit": 1,
+              "component_any_hit_fraction": 1.0
+            }
+          },
+          "gt16": {
+            "sums": {
+              "component_count": 0,
+              "gt_peak_pixels": 0,
+              "absolute_rgb_error_sum": 0.0,
+              "target_contrast_sum": 0.0,
+              "predicted_contrast_sum": 0.0,
+              "matched_gt_pixels_2px": 0,
+              "components_with_at_least_one_hit": 0
+            },
+            "metrics": {
+              "component_count": 0,
+              "gt_peak_pixels": 0,
+              "rgb_mae": null,
+              "target_contrast": null,
+              "predicted_contrast": null,
+              "contrast_ratio": null,
+              "matched_gt_pixels_2px": 0,
+              "pixel_recall_2px": null,
+              "components_with_at_least_one_hit": 0,
+              "component_any_hit_fraction": null
+            }
+          }
+        }
+      },
+      "LPIPS": 0.004293479956686497
+    },
+    {
+      "frame_index": 415,
+      "name": "r_68_l_22",
+      "PSNR": 42.96757507324219,
+      "SSIM": 0.9948325157165527,
+      "raw_MSE": 5.021292236051522e-05,
+      "alpha_L1": 0.0006037962739355862,
+      "neutral_peak_metrics": {
+        "pixels": 20,
+        "predicted_pixels": 5,
+        "matched_predicted_pixels_2px": 2,
+        "matched_target_pixels_2px": 2,
+        "rgb_mae": 0.12915033102035522,
+        "target_contrast": 0.3800390660762787,
+        "predicted_contrast": 0.23354895412921906,
+        "contrast_ratio": 0.6145393252372742
+      },
+      "neutral_peak_components": {
+        "total_predicted_peak_pixels": 5,
+        "buckets": {
+          "1_to_4": {
+            "sums": {
+              "component_count": 8,
+              "gt_peak_pixels": 20,
+              "absolute_rgb_error_sum": 7.749020576477051,
+              "target_contrast_sum": 7.600780487060547,
+              "predicted_contrast_sum": 4.670979022979736,
+              "matched_gt_pixels_2px": 2,
+              "components_with_at_least_one_hit": 1
+            },
+            "metrics": {
+              "component_count": 8,
+              "gt_peak_pixels": 20,
+              "rgb_mae": 0.1291503429412842,
+              "target_contrast": 0.38003902435302733,
+              "predicted_contrast": 0.23354895114898683,
+              "contrast_ratio": 0.6145393924915395,
+              "matched_gt_pixels_2px": 2,
+              "pixel_recall_2px": 0.1,
+              "components_with_at_least_one_hit": 1,
+              "component_any_hit_fraction": 0.125
+            }
+          },
+          "5_to_16": {
+            "sums": {
+              "component_count": 0,
+              "gt_peak_pixels": 0,
+              "absolute_rgb_error_sum": 0.0,
+              "target_contrast_sum": 0.0,
+              "predicted_contrast_sum": 0.0,
+              "matched_gt_pixels_2px": 0,
+              "components_with_at_least_one_hit": 0
+            },
+            "metrics": {
+              "component_count": 0,
+              "gt_peak_pixels": 0,
+              "rgb_mae": null,
+              "target_contrast": null,
+              "predicted_contrast": null,
+              "contrast_ratio": null,
+              "matched_gt_pixels_2px": 0,
+              "pixel_recall_2px": null,
+              "components_with_at_least_one_hit": 0,
+              "component_any_hit_fraction": null
+            }
+          },
+          "gt16": {
+            "sums": {
+              "component_count": 0,
+              "gt_peak_pixels": 0,
+              "absolute_rgb_error_sum": 0.0,
+              "target_contrast_sum": 0.0,
+              "predicted_contrast_sum": 0.0,
+              "matched_gt_pixels_2px": 0,
+              "components_with_at_least_one_hit": 0
+            },
+            "metrics": {
+              "component_count": 0,
+              "gt_peak_pixels": 0,
+              "rgb_mae": null,
+              "target_contrast": null,
+              "predicted_contrast": null,
+              "contrast_ratio": null,
+              "matched_gt_pixels_2px": 0,
+              "pixel_recall_2px": null,
+              "components_with_at_least_one_hit": 0,
+              "component_any_hit_fraction": null
+            }
+          }
+        }
+      },
+      "LPIPS": 0.00879264622926712
+    },
+    {
+      "frame_index": 425,
+      "name": "r_141_l_104",
+      "PSNR": 41.42689514160156,
+      "SSIM": 0.9952653646469116,
+      "raw_MSE": 7.344617915805429e-05,
+      "alpha_L1": 0.0005912091000936925,
+      "neutral_peak_metrics": {
+        "pixels": 51,
+        "predicted_pixels": 45,
+        "matched_predicted_pixels_2px": 45,
+        "matched_target_pixels_2px": 49,
+        "rgb_mae": 0.10954760760068893,
+        "target_contrast": 0.5151038765907288,
+        "predicted_contrast": 0.5077455639839172,
+        "contrast_ratio": 0.9857149124145508
+      },
+      "neutral_peak_components": {
+        "total_predicted_peak_pixels": 45,
+        "buckets": {
+          "1_to_4": {
+            "sums": {
+              "component_count": 0,
+              "gt_peak_pixels": 0,
+              "absolute_rgb_error_sum": 0.0,
+              "target_contrast_sum": 0.0,
+              "predicted_contrast_sum": 0.0,
+              "matched_gt_pixels_2px": 0,
+              "components_with_at_least_one_hit": 0
+            },
+            "metrics": {
+              "component_count": 0,
+              "gt_peak_pixels": 0,
+              "rgb_mae": null,
+              "target_contrast": null,
+              "predicted_contrast": null,
+              "contrast_ratio": null,
+              "matched_gt_pixels_2px": 0,
+              "pixel_recall_2px": null,
+              "components_with_at_least_one_hit": 0,
+              "component_any_hit_fraction": null
+            }
+          },
+          "5_to_16": {
+            "sums": {
+              "component_count": 1,
+              "gt_peak_pixels": 15,
+              "absolute_rgb_error_sum": 7.474510192871094,
+              "target_contrast_sum": 6.789629936218262,
+              "predicted_contrast_sum": 4.599870681762695,
+              "matched_gt_pixels_2px": 13,
+              "components_with_at_least_one_hit": 1
+            },
+            "metrics": {
+              "component_count": 1,
+              "gt_peak_pixels": 15,
+              "rgb_mae": 0.16610022650824652,
+              "target_contrast": 0.4526419957478841,
+              "predicted_contrast": 0.30665804545084635,
+              "contrast_ratio": 0.6774847414327216,
+              "matched_gt_pixels_2px": 13,
+              "pixel_recall_2px": 0.8666666666666667,
+              "components_with_at_least_one_hit": 1,
+              "component_any_hit_fraction": 1.0
+            }
+          },
+          "gt16": {
+            "sums": {
+              "component_count": 1,
+              "gt_peak_pixels": 36,
+              "absolute_rgb_error_sum": 9.286273956298828,
+              "target_contrast_sum": 19.480667114257812,
+              "predicted_contrast_sum": 21.295150756835938,
+              "matched_gt_pixels_2px": 36,
+              "components_with_at_least_one_hit": 1
+            },
+            "metrics": {
+              "component_count": 1,
+              "gt_peak_pixels": 36,
+              "rgb_mae": 0.08598401811387804,
+              "target_contrast": 0.541129642062717,
+              "predicted_contrast": 0.591531965467665,
+              "contrast_ratio": 1.0931427877667552,
+              "matched_gt_pixels_2px": 36,
+              "pixel_recall_2px": 1.0,
+              "components_with_at_least_one_hit": 1,
+              "component_any_hit_fraction": 1.0
+            }
+          }
+        }
+      },
+      "LPIPS": 0.012687092646956444
+    },
+    {
+      "frame_index": 435,
+      "name": "r_42_l_6",
+      "PSNR": 40.0477180480957,
+      "SSIM": 0.9892498254776001,
+      "raw_MSE": 9.8768352472689e-05,
+      "alpha_L1": 0.000646935252007097,
+      "neutral_peak_metrics": {
+        "pixels": 9,
+        "predicted_pixels": 0,
+        "matched_predicted_pixels_2px": 0,
+        "matched_target_pixels_2px": 0,
+        "rgb_mae": 0.29411768913269043,
+        "target_contrast": 0.5456382036209106,
+        "predicted_contrast": 0.22479698061943054,
+        "contrast_ratio": 0.41198909282684326
+      },
+      "neutral_peak_components": {
+        "total_predicted_peak_pixels": 0,
+        "buckets": {
+          "1_to_4": {
+            "sums": {
+              "component_count": 4,
+              "gt_peak_pixels": 9,
+              "absolute_rgb_error_sum": 7.941176891326904,
+              "target_contrast_sum": 4.910743713378906,
+              "predicted_contrast_sum": 2.0231728553771973,
+              "matched_gt_pixels_2px": 0,
+              "components_with_at_least_one_hit": 0
+            },
+            "metrics": {
+              "component_count": 4,
+              "gt_peak_pixels": 9,
+              "rgb_mae": 0.2941176626417372,
+              "target_contrast": 0.545638190375434,
+              "predicted_contrast": 0.2247969839307997,
+              "contrast_ratio": 0.41198909441460646,
+              "matched_gt_pixels_2px": 0,
+              "pixel_recall_2px": 0.0,
+              "components_with_at_least_one_hit": 0,
+              "component_any_hit_fraction": 0.0
+            }
+          },
+          "5_to_16": {
+            "sums": {
+              "component_count": 0,
+              "gt_peak_pixels": 0,
+              "absolute_rgb_error_sum": 0.0,
+              "target_contrast_sum": 0.0,
+              "predicted_contrast_sum": 0.0,
+              "matched_gt_pixels_2px": 0,
+              "components_with_at_least_one_hit": 0
+            },
+            "metrics": {
+              "component_count": 0,
+              "gt_peak_pixels": 0,
+              "rgb_mae": null,
+              "target_contrast": null,
+              "predicted_contrast": null,
+              "contrast_ratio": null,
+              "matched_gt_pixels_2px": 0,
+              "pixel_recall_2px": null,
+              "components_with_at_least_one_hit": 0,
+              "component_any_hit_fraction": null
+            }
+          },
+          "gt16": {
+            "sums": {
+              "component_count": 0,
+              "gt_peak_pixels": 0,
+              "absolute_rgb_error_sum": 0.0,
+              "target_contrast_sum": 0.0,
+              "predicted_contrast_sum": 0.0,
+              "matched_gt_pixels_2px": 0,
+              "components_with_at_least_one_hit": 0
+            },
+            "metrics": {
+              "component_count": 0,
+              "gt_peak_pixels": 0,
+              "rgb_mae": null,
+              "target_contrast": null,
+              "predicted_contrast": null,
+              "contrast_ratio": null,
+              "matched_gt_pixels_2px": 0,
+              "pixel_recall_2px": null,
+              "components_with_at_least_one_hit": 0,
+              "component_any_hit_fraction": null
+            }
+          }
+        }
+      },
+      "LPIPS": 0.021011125296354294
+    },
+    {
+      "frame_index": 445,
+      "name": "r_19_l_25",
+      "PSNR": 40.38209915161133,
+      "SSIM": 0.9940050840377808,
+      "raw_MSE": 9.138647874351591e-05,
+      "alpha_L1": 0.0004691657377406955,
+      "neutral_peak_metrics": {
+        "pixels": 3,
+        "predicted_pixels": 0,
+        "matched_predicted_pixels_2px": 0,
+        "matched_target_pixels_2px": 0,
+        "rgb_mae": 0.42178651690483093,
+        "target_contrast": 0.48991522192955017,
+        "predicted_contrast": 0.011364990845322609,
+        "contrast_ratio": 0.023197872564196587
+      },
+      "neutral_peak_components": {
+        "total_predicted_peak_pixels": 0,
+        "buckets": {
+          "1_to_4": {
+            "sums": {
+              "component_count": 2,
+              "gt_peak_pixels": 3,
+              "absolute_rgb_error_sum": 3.796078681945801,
+              "target_contrast_sum": 1.4697456359863281,
+              "predicted_contrast_sum": 0.03409495949745178,
+              "matched_gt_pixels_2px": 0,
+              "components_with_at_least_one_hit": 0
+            },
+            "metrics": {
+              "component_count": 2,
+              "gt_peak_pixels": 3,
+              "rgb_mae": 0.4217865202162001,
+              "target_contrast": 0.4899152119954427,
+              "predicted_contrast": 0.011364986499150595,
+              "contrast_ratio": 0.023197864081134743,
+              "matched_gt_pixels_2px": 0,
+              "pixel_recall_2px": 0.0,
+              "components_with_at_least_one_hit": 0,
+              "component_any_hit_fraction": 0.0
+            }
+          },
+          "5_to_16": {
+            "sums": {
+              "component_count": 0,
+              "gt_peak_pixels": 0,
+              "absolute_rgb_error_sum": 0.0,
+              "target_contrast_sum": 0.0,
+              "predicted_contrast_sum": 0.0,
+              "matched_gt_pixels_2px": 0,
+              "components_with_at_least_one_hit": 0
+            },
+            "metrics": {
+              "component_count": 0,
+              "gt_peak_pixels": 0,
+              "rgb_mae": null,
+              "target_contrast": null,
+              "predicted_contrast": null,
+              "contrast_ratio": null,
+              "matched_gt_pixels_2px": 0,
+              "pixel_recall_2px": null,
+              "components_with_at_least_one_hit": 0,
+              "component_any_hit_fraction": null
+            }
+          },
+          "gt16": {
+            "sums": {
+              "component_count": 0,
+              "gt_peak_pixels": 0,
+              "absolute_rgb_error_sum": 0.0,
+              "target_contrast_sum": 0.0,
+              "predicted_contrast_sum": 0.0,
+              "matched_gt_pixels_2px": 0,
+              "components_with_at_least_one_hit": 0
+            },
+            "metrics": {
+              "component_count": 0,
+              "gt_peak_pixels": 0,
+              "rgb_mae": null,
+              "target_contrast": null,
+              "predicted_contrast": null,
+              "contrast_ratio": null,
+              "matched_gt_pixels_2px": 0,
+              "pixel_recall_2px": null,
+              "components_with_at_least_one_hit": 0,
+              "component_any_hit_fraction": null
+            }
+          }
+        }
+      },
+      "LPIPS": 0.009599342942237854
+    },
+    {
+      "frame_index": 455,
+      "name": "r_79_l_52",
+      "PSNR": 39.3712158203125,
+      "SSIM": 0.9916462302207947,
+      "raw_MSE": 0.00011541254207259044,
+      "alpha_L1": 0.0011052368208765984,
+      "neutral_peak_metrics": {
+        "pixels": 30,
+        "predicted_pixels": 3,
+        "matched_predicted_pixels_2px": 3,
+        "matched_target_pixels_2px": 19,
+        "rgb_mae": 0.2597821354866028,
+        "target_contrast": 0.42477941513061523,
+        "predicted_contrast": 0.15000377595424652,
+        "contrast_ratio": 0.35313335061073303
+      },
+      "neutral_peak_components": {
+        "total_predicted_peak_pixels": 3,
+        "buckets": {
+          "1_to_4": {
+            "sums": {
+              "component_count": 1,
+              "gt_peak_pixels": 4,
+              "absolute_rgb_error_sum": 3.776470422744751,
+              "target_contrast_sum": 1.4656293392181396,
+              "predicted_contrast_sum": 0.22816376388072968,
+              "matched_gt_pixels_2px": 0,
+              "components_with_at_least_one_hit": 0
+            },
+            "metrics": {
+              "component_count": 1,
+              "gt_peak_pixels": 4,
+              "rgb_mae": 0.31470586856206256,
+              "target_contrast": 0.3664073348045349,
+              "predicted_contrast": 0.05704094097018242,
+              "contrast_ratio": 0.15567630762798923,
+              "matched_gt_pixels_2px": 0,
+              "pixel_recall_2px": 0.0,
+              "components_with_at_least_one_hit": 0,
+              "component_any_hit_fraction": 0.0
+            }
+          },
+          "5_to_16": {
+            "sums": {
+              "component_count": 1,
+              "gt_peak_pixels": 5,
+              "absolute_rgb_error_sum": 3.3686275482177734,
+              "target_contrast_sum": 2.0142927169799805,
+              "predicted_contrast_sum": 0.8921079039573669,
+              "matched_gt_pixels_2px": 0,
+              "components_with_at_least_one_hit": 0
+            },
+            "metrics": {
+              "component_count": 1,
+              "gt_peak_pixels": 5,
+              "rgb_mae": 0.2245751698811849,
+              "target_contrast": 0.4028585433959961,
+              "predicted_contrast": 0.17842158079147338,
+              "contrast_ratio": 0.4428889090632766,
+              "matched_gt_pixels_2px": 0,
+              "pixel_recall_2px": 0.0,
+              "components_with_at_least_one_hit": 0,
+              "component_any_hit_fraction": 0.0
+            }
+          },
+          "gt16": {
+            "sums": {
+              "component_count": 1,
+              "gt_peak_pixels": 21,
+              "absolute_rgb_error_sum": 16.23529624938965,
+              "target_contrast_sum": 9.263459205627441,
+              "predicted_contrast_sum": 3.379840850830078,
+              "matched_gt_pixels_2px": 19,
+              "components_with_at_least_one_hit": 1
+            },
+            "metrics": {
+              "component_count": 1,
+              "gt_peak_pixels": 21,
+              "rgb_mae": 0.25770311506967697,
+              "target_contrast": 0.44111710502987816,
+              "predicted_contrast": 0.1609448024204799,
+              "contrast_ratio": 0.36485731472502897,
+              "matched_gt_pixels_2px": 19,
+              "pixel_recall_2px": 0.9047619047619048,
+              "components_with_at_least_one_hit": 1,
+              "component_any_hit_fraction": 1.0
+            }
+          }
+        }
+      },
+      "LPIPS": 0.015474271029233932
+    },
+    {
+      "frame_index": 465,
+      "name": "r_56_l_87",
+      "PSNR": 44.80179214477539,
+      "SSIM": 0.9961203932762146,
+      "raw_MSE": 3.295241913292557e-05,
+      "alpha_L1": 0.0007402083720080554,
+      "neutral_peak_metrics": {
+        "pixels": 0,
+        "predicted_pixels": 0,
+        "matched_predicted_pixels_2px": 0,
+        "matched_target_pixels_2px": 0
+      },
+      "neutral_peak_components": {
+        "total_predicted_peak_pixels": 0,
+        "buckets": {
+          "1_to_4": {
+            "sums": {
+              "component_count": 0,
+              "gt_peak_pixels": 0,
+              "absolute_rgb_error_sum": 0.0,
+              "target_contrast_sum": 0.0,
+              "predicted_contrast_sum": 0.0,
+              "matched_gt_pixels_2px": 0,
+              "components_with_at_least_one_hit": 0
+            },
+            "metrics": {
+              "component_count": 0,
+              "gt_peak_pixels": 0,
+              "rgb_mae": null,
+              "target_contrast": null,
+              "predicted_contrast": null,
+              "contrast_ratio": null,
+              "matched_gt_pixels_2px": 0,
+              "pixel_recall_2px": null,
+              "components_with_at_least_one_hit": 0,
+              "component_any_hit_fraction": null
+            }
+          },
+          "5_to_16": {
+            "sums": {
+              "component_count": 0,
+              "gt_peak_pixels": 0,
+              "absolute_rgb_error_sum": 0.0,
+              "target_contrast_sum": 0.0,
+              "predicted_contrast_sum": 0.0,
+              "matched_gt_pixels_2px": 0,
+              "components_with_at_least_one_hit": 0
+            },
+            "metrics": {
+              "component_count": 0,
+              "gt_peak_pixels": 0,
+              "rgb_mae": null,
+              "target_contrast": null,
+              "predicted_contrast": null,
+              "contrast_ratio": null,
+              "matched_gt_pixels_2px": 0,
+              "pixel_recall_2px": null,
+              "components_with_at_least_one_hit": 0,
+              "component_any_hit_fraction": null
+            }
+          },
+          "gt16": {
+            "sums": {
+              "component_count": 0,
+              "gt_peak_pixels": 0,
+              "absolute_rgb_error_sum": 0.0,
+              "target_contrast_sum": 0.0,
+              "predicted_contrast_sum": 0.0,
+              "matched_gt_pixels_2px": 0,
+              "components_with_at_least_one_hit": 0
+            },
+            "metrics": {
+              "component_count": 0,
+              "gt_peak_pixels": 0,
+              "rgb_mae": null,
+              "target_contrast": null,
+              "predicted_contrast": null,
+              "contrast_ratio": null,
+              "matched_gt_pixels_2px": 0,
+              "pixel_recall_2px": null,
+              "components_with_at_least_one_hit": 0,
+              "component_any_hit_fraction": null
+            }
+          }
+        }
+      },
+      "LPIPS": 0.01254166942089796
+    },
+    {
+      "frame_index": 475,
+      "name": "r_67_l_86",
+      "PSNR": 35.76192092895508,
+      "SSIM": 0.991750955581665,
+      "raw_MSE": 0.0002649843809194863,
+      "alpha_L1": 0.0005504475557245314,
+      "neutral_peak_metrics": {
+        "pixels": 89,
+        "predicted_pixels": 43,
+        "matched_predicted_pixels_2px": 41,
+        "matched_target_pixels_2px": 66,
+        "rgb_mae": 0.19383125007152557,
+        "target_contrast": 0.47289884090423584,
+        "predicted_contrast": 0.3214575946331024,
+        "contrast_ratio": 0.6797597408294678
+      },
+      "neutral_peak_components": {
+        "total_predicted_peak_pixels": 43,
+        "buckets": {
+          "1_to_4": {
+            "sums": {
+              "component_count": 4,
+              "gt_peak_pixels": 5,
+              "absolute_rgb_error_sum": 2.6627449989318848,
+              "target_contrast_sum": 2.1978611946105957,
+              "predicted_contrast_sum": 1.3923836946487427,
+              "matched_gt_pixels_2px": 0,
+              "components_with_at_least_one_hit": 0
+            },
+            "metrics": {
+              "component_count": 4,
+              "gt_peak_pixels": 5,
+              "rgb_mae": 0.17751633326212565,
+              "target_contrast": 0.43957223892211916,
+              "predicted_contrast": 0.27847673892974856,
+              "contrast_ratio": 0.6335175752058524,
+              "matched_gt_pixels_2px": 0,
+              "pixel_recall_2px": 0.0,
+              "components_with_at_least_one_hit": 0,
+              "component_any_hit_fraction": 0.0
+            }
+          },
+          "5_to_16": {
+            "sums": {
+              "component_count": 0,
+              "gt_peak_pixels": 0,
+              "absolute_rgb_error_sum": 0.0,
+              "target_contrast_sum": 0.0,
+              "predicted_contrast_sum": 0.0,
+              "matched_gt_pixels_2px": 0,
+              "components_with_at_least_one_hit": 0
+            },
+            "metrics": {
+              "component_count": 0,
+              "gt_peak_pixels": 0,
+              "rgb_mae": null,
+              "target_contrast": null,
+              "predicted_contrast": null,
+              "contrast_ratio": null,
+              "matched_gt_pixels_2px": 0,
+              "pixel_recall_2px": null,
+              "components_with_at_least_one_hit": 0,
+              "component_any_hit_fraction": null
+            }
+          },
+          "gt16": {
+            "sums": {
+              "component_count": 3,
+              "gt_peak_pixels": 84,
+              "absolute_rgb_error_sum": 49.09019470214844,
+              "target_contrast_sum": 39.89013671875,
+              "predicted_contrast_sum": 27.21734046936035,
+              "matched_gt_pixels_2px": 66,
+              "components_with_at_least_one_hit": 3
+            },
+            "metrics": {
+              "component_count": 3,
+              "gt_peak_pixels": 84,
+              "rgb_mae": 0.19480235992916048,
+              "target_contrast": 0.47488257998511907,
+              "predicted_contrast": 0.32401595796857563,
+              "contrast_ratio": 0.6823075253228472,
+              "matched_gt_pixels_2px": 66,
+              "pixel_recall_2px": 0.7857142857142857,
+              "components_with_at_least_one_hit": 3,
+              "component_any_hit_fraction": 1.0
+            }
+          }
+        }
+      },
+      "LPIPS": 0.012266719713807106
+    },
+    {
+      "frame_index": 485,
+      "name": "r_66_l_80",
+      "PSNR": 43.080970764160156,
+      "SSIM": 0.9952599406242371,
+      "raw_MSE": 4.900845669908449e-05,
+      "alpha_L1": 0.0005481956759467721,
+      "neutral_peak_metrics": {
+        "pixels": 0,
+        "predicted_pixels": 0,
+        "matched_predicted_pixels_2px": 0,
+        "matched_target_pixels_2px": 0
+      },
+      "neutral_peak_components": {
+        "total_predicted_peak_pixels": 0,
+        "buckets": {
+          "1_to_4": {
+            "sums": {
+              "component_count": 0,
+              "gt_peak_pixels": 0,
+              "absolute_rgb_error_sum": 0.0,
+              "target_contrast_sum": 0.0,
+              "predicted_contrast_sum": 0.0,
+              "matched_gt_pixels_2px": 0,
+              "components_with_at_least_one_hit": 0
+            },
+            "metrics": {
+              "component_count": 0,
+              "gt_peak_pixels": 0,
+              "rgb_mae": null,
+              "target_contrast": null,
+              "predicted_contrast": null,
+              "contrast_ratio": null,
+              "matched_gt_pixels_2px": 0,
+              "pixel_recall_2px": null,
+              "components_with_at_least_one_hit": 0,
+              "component_any_hit_fraction": null
+            }
+          },
+          "5_to_16": {
+            "sums": {
+              "component_count": 0,
+              "gt_peak_pixels": 0,
+              "absolute_rgb_error_sum": 0.0,
+              "target_contrast_sum": 0.0,
+              "predicted_contrast_sum": 0.0,
+              "matched_gt_pixels_2px": 0,
+              "components_with_at_least_one_hit": 0
+            },
+            "metrics": {
+              "component_count": 0,
+              "gt_peak_pixels": 0,
+              "rgb_mae": null,
+              "target_contrast": null,
+              "predicted_contrast": null,
+              "contrast_ratio": null,
+              "matched_gt_pixels_2px": 0,
+              "pixel_recall_2px": null,
+              "components_with_at_least_one_hit": 0,
+              "component_any_hit_fraction": null
+            }
+          },
+          "gt16": {
+            "sums": {
+              "component_count": 0,
+              "gt_peak_pixels": 0,
+              "absolute_rgb_error_sum": 0.0,
+              "target_contrast_sum": 0.0,
+              "predicted_contrast_sum": 0.0,
+              "matched_gt_pixels_2px": 0,
+              "components_with_at_least_one_hit": 0
+            },
+            "metrics": {
+              "component_count": 0,
+              "gt_peak_pixels": 0,
+              "rgb_mae": null,
+              "target_contrast": null,
+              "predicted_contrast": null,
+              "contrast_ratio": null,
+              "matched_gt_pixels_2px": 0,
+              "pixel_recall_2px": null,
+              "components_with_at_least_one_hit": 0,
+              "component_any_hit_fraction": null
+            }
+          }
+        }
+      },
+      "LPIPS": 0.008723556995391846
+    },
+    {
+      "frame_index": 495,
+      "name": "r_97_l_105",
+      "PSNR": 44.45896911621094,
+      "SSIM": 0.9953953623771667,
+      "raw_MSE": 3.567673411453143e-05,
+      "alpha_L1": 0.0005697389133274555,
+      "neutral_peak_metrics": {
+        "pixels": 4,
+        "predicted_pixels": 4,
+        "matched_predicted_pixels_2px": 4,
+        "matched_target_pixels_2px": 4,
+        "rgb_mae": 0.06666666269302368,
+        "target_contrast": 0.528236985206604,
+        "predicted_contrast": 0.5227679014205933,
+        "contrast_ratio": 0.9896465539932251
+      },
+      "neutral_peak_components": {
+        "total_predicted_peak_pixels": 4,
+        "buckets": {
+          "1_to_4": {
+            "sums": {
+              "component_count": 1,
+              "gt_peak_pixels": 4,
+              "absolute_rgb_error_sum": 0.7999999523162842,
+              "target_contrast_sum": 2.112947702407837,
+              "predicted_contrast_sum": 2.091071367263794,
+              "matched_gt_pixels_2px": 4,
+              "components_with_at_least_one_hit": 1
+            },
+            "metrics": {
+              "component_count": 1,
+              "gt_peak_pixels": 4,
+              "rgb_mae": 0.06666666269302368,
+              "target_contrast": 0.5282369256019592,
+              "predicted_contrast": 0.5227678418159485,
+              "contrast_ratio": 0.9896465326050836,
+              "matched_gt_pixels_2px": 4,
+              "pixel_recall_2px": 1.0,
+              "components_with_at_least_one_hit": 1,
+              "component_any_hit_fraction": 1.0
+            }
+          },
+          "5_to_16": {
+            "sums": {
+              "component_count": 0,
+              "gt_peak_pixels": 0,
+              "absolute_rgb_error_sum": 0.0,
+              "target_contrast_sum": 0.0,
+              "predicted_contrast_sum": 0.0,
+              "matched_gt_pixels_2px": 0,
+              "components_with_at_least_one_hit": 0
+            },
+            "metrics": {
+              "component_count": 0,
+              "gt_peak_pixels": 0,
+              "rgb_mae": null,
+              "target_contrast": null,
+              "predicted_contrast": null,
+              "contrast_ratio": null,
+              "matched_gt_pixels_2px": 0,
+              "pixel_recall_2px": null,
+              "components_with_at_least_one_hit": 0,
+              "component_any_hit_fraction": null
+            }
+          },
+          "gt16": {
+            "sums": {
+              "component_count": 0,
+              "gt_peak_pixels": 0,
+              "absolute_rgb_error_sum": 0.0,
+              "target_contrast_sum": 0.0,
+              "predicted_contrast_sum": 0.0,
+              "matched_gt_pixels_2px": 0,
+              "components_with_at_least_one_hit": 0
+            },
+            "metrics": {
+              "component_count": 0,
+              "gt_peak_pixels": 0,
+              "rgb_mae": null,
+              "target_contrast": null,
+              "predicted_contrast": null,
+              "contrast_ratio": null,
+              "matched_gt_pixels_2px": 0,
+              "pixel_recall_2px": null,
+              "components_with_at_least_one_hit": 0,
+              "component_any_hit_fraction": null
+            }
+          }
+        }
+      },
+      "LPIPS": 0.014969168230891228
+    }
+  ],
+  "protocol": "uint8-quantized observation RGB, unit PSNR, zero-padded 11x11 SSIM sigma1.5; LPIPS standard [-1,1]; raw_MSE is unclipped observation MSE; original held-out camera calibration",
+  "training_resolution": 256,
+  "resolution": 256,
+  "background": 0.0,
+  "evaluated_frames": 50,
+  "limit": 0,
+  "save_all": false,
+  "display_gamma": 2.2,
+  "camera_protocol": "saved training offsets on fit frames; original calibration on held-out frames",
+  "light_protocol": "original calibration",
+  "corrected_fit_frames": 0,
+  "observation_protocol": "PNG foreground gamma then alpha composition; HDR full-image gamma",
+  "highlight_protocol": "Neutral bright/desaturated local peaks in uint8-quantized observation RGB; target-alpha interior; 11x11 contrast window; 2px Chebyshev matching; counts and target-peak pixels pooled across frames. GT 8-connected component area buckets 1-4, 5-16 and >16 pixels pool raw pixel/component sums; component any-hit also accepts broad or displaced predicted peaks. Image proxy, not physical specular ground truth."
+}

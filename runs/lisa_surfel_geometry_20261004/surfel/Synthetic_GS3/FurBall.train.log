@@ -1,0 +1,9 @@
+{"event": "loading_train_only", "metadata_path": "/workspace/datasets/SSD-GS/data/Synthetic_GS3/FurBall/transforms_train.json", "total": 2000, "fit": 1800, "validation": 200}
+{"event": "initialized", "center": [4.018333399358198e-08, -2.0010747903143056e-07, -4.222576421852864e-08], "radius": 1.4669903755187987, "light_scale": 39.920223236083984, "points": 20000, "opacity_max": 0.09975048154592514, "min_scale_ratio": 0.0067305111563724755, "camera_extent": 5.9988623619079595, "position_scale": 5.9988623619079595, "densification_scale": 1.4669903755187987, "gpu": "NVIDIA RTX 6000 Ada Generation", "torch": "2.4.1"}
+{"step": 1, "stage": "relighting", "frame_index": 1921, "loss": 0.2135009765625, "l1": 0.1374438852071762, "loss_terms": {"l1": 0.10995510965585709, "ssim": 0.05375063419342041, "mask": 0.049795232713222504, "feature_reg": 1.0014004070413307e-09, "camera_reg": 0.0}, "points": 20000, "seconds": 1.18, "memory_GiB": 15.253281593322754, "transport_stats": {"specular": 0.00024887226754799485}}
+Traceback (most recent call last):
+  File "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/train.py", line 404, in <module>
+    main()
+  File "/workspace/ubuntu2004_cuda12_1/projects/3dgs_relighting/PORT-GS/train.py", line 287, in main
+    raise FloatingPointError(f"Non-finite loss at {step}")
+FloatingPointError: Non-finite loss at 60
