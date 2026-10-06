@@ -1,0 +1,1204 @@
+\relax 
+\providecommand\hyper@newdestlabel[2]{}
+\providecommand*\HyPL@Entry[1]{}
+\citation{debevec2000acquiring}
+\citation{bi2020neural,zeng2023nrhints}
+\citation{kerbl20233d}
+\citation{bi2024gs3,kuang2024olat,fan2025rng,liu2025bigs,zheng2026ssdgs}
+\citation{bi2024gs3}
+\citation{zheng2026ssdgs}
+\citation{fan2025rng}
+\citation{dihlmann2024sss,zheng2026ssdgs}
+\citation{williams1978casting,donnelly2006variance,peters2015moment}
+\citation{dachsbacher2003translucent}
+\citation{dachsbacher2005reflective}
+\HyPL@Entry{0<</S/D>>}
+\@writefile{lof}{\contentsline {figure}{\numberline {1}{\ignorespaces \textbf  {从光源视角进行重光照。} 从点光源视角光栅化高斯一次，即可记录光在何种深度被吸收 (a)，并通过可学习通量特征描述光落在何处 (b，八个通道之一)。 相机像素读取该图集，判断是否处于阴影中 (c)，以及局部反射光量 (d)；光传输项 (e) 增加的辐亮度主要被模型分配给半透明花瓶和骰子，这是一种学习得到的分配，而非物理分解。 两项之和 (f) 对测试视图 (g) 达到 34.4\,dB，四种近期基线的最佳结果为 32.6\,dB。 分量 (d, e) 在线性辐亮度域相加，以黑色背景显示。}}{1}{figure.1}\protected@file@percent }
+\newlabel{fig:teaser}{{1}{1}{\textbf {从光源视角进行重光照。} 从点光源视角光栅化高斯一次，即可记录光在何种深度被吸收 (a)，并通过可学习通量特征描述光落在何处 (b，八个通道之一)。 相机像素读取该图集，判断是否处于阴影中 (c)，以及局部反射光量 (d)；光传输项 (e) 增加的辐亮度主要被模型分配给半透明花瓶和骰子，这是一种学习得到的分配，而非物理分解。 两项之和 (f) 对测试视图 (g) 达到 34.4\,dB，四种近期基线的最佳结果为 32.6\,dB。 分量 (d, e) 在线性辐亮度域相加，以黑色背景显示。}{figure.1}{}}
+\newlabel{fig:teaser@cref}{{[figure][1][]1}{[1][1][]1}{}{}{}}
+\def\@LN@column{1}
+\@LN{0}{0}
+\@LN{1}{0}
+\@LN{2}{0}
+\@LN{3}{0}
+\@LN{4}{0}
+\@LN{5}{0}
+\@LN{6}{0}
+\@LN{7}{0}
+\@LN{8}{0}
+\@LN{9}{0}
+\@LN{10}{0}
+\@LN{11}{0}
+\@LN{12}{0}
+\@LN{13}{0}
+\@LN{14}{0}
+\@LN{15}{0}
+\@LN{16}{0}
+\@LN{17}{0}
+\@LN{18}{0}
+\def\@LN@column{2}
+\@LN{19}{0}
+\@writefile{toc}{\contentsline {section}{\numberline {1}\hskip -1em.~引言}{1}{section.1}\protected@file@percent }
+\newlabel{sec:intro}{{1}{1}{\texorpdfstring {\hskip -1em.~}{}引言}{section.1}{}}
+\newlabel{sec:intro@cref}{{[section][1][]1}{[1][1][]1}{}{}{}}
+\@LN{20}{0}
+\@LN{21}{0}
+\@writefile{brf}{\backcite{debevec2000acquiring}{{1}{1}{section.1}}}
+\@LN{22}{0}
+\@LN{23}{0}
+\@writefile{brf}{\backcite{bi2020neural}{{1}{1}{section.1}}}
+\@writefile{brf}{\backcite{zeng2023nrhints}{{1}{1}{section.1}}}
+\@writefile{brf}{\backcite{kerbl20233d}{{1}{1}{section.1}}}
+\@LN{24}{0}
+\@writefile{brf}{\backcite{bi2024gs3}{{1}{1}{section.1}}}
+\@writefile{brf}{\backcite{fan2025rng}{{1}{1}{section.1}}}
+\@writefile{brf}{\backcite{kuang2024olat}{{1}{1}{section.1}}}
+\@writefile{brf}{\backcite{liu2025bigs}{{1}{1}{section.1}}}
+\@writefile{brf}{\backcite{zheng2026ssdgs}{{1}{1}{section.1}}}
+\@LN{25}{0}
+\@LN{26}{0}
+\@LN{27}{0}
+\@writefile{brf}{\backcite{bi2024gs3}{{1}{1}{section.1}}}
+\@LN{28}{0}
+\@writefile{brf}{\backcite{zheng2026ssdgs}{{1}{1}{section.1}}}
+\@LN{29}{0}
+\@writefile{brf}{\backcite{fan2025rng}{{1}{1}{section.1}}}
+\@LN{30}{0}
+\@LN{31}{0}
+\@writefile{brf}{\backcite{dihlmann2024sss}{{1}{1}{section.1}}}
+\@writefile{brf}{\backcite{zheng2026ssdgs}{{1}{1}{section.1}}}
+\@LN{32}{0}
+\@LN{33}{0}
+\@LN{34}{0}
+\@LN{35}{0}
+\@LN{36}{0}
+\@LN{37}{0}
+\@LN{38}{0}
+\@LN{39}{0}
+\@LN{40}{0}
+\@LN{41}{0}
+\@writefile{brf}{\backcite{donnelly2006variance}{{1}{1}{section.1}}}
+\@writefile{brf}{\backcite{peters2015moment}{{1}{1}{section.1}}}
+\@writefile{brf}{\backcite{williams1978casting}{{1}{1}{section.1}}}
+\@writefile{brf}{\backcite{dachsbacher2003translucent}{{1}{1}{section.1}}}
+\@writefile{brf}{\backcite{dachsbacher2005reflective}{{1}{1}{section.1}}}
+\@LN{42}{0}
+\citation{donnelly2006variance}
+\citation{bi2024gs3,zheng2026ssdgs}
+\citation{zeng2023nrhints,bi2024gs3,dihlmann2024sss}
+\citation{kuang2024olat}
+\citation{bi2020neural,bi2020deep}
+\citation{zeng2023nrhints}
+\citation{srinivasan2021nerv,zhang2021nerfactor,jin2023tensoir,gao2024relightable,liang2024gsir,jiang2024gaussianshader,chen2025gigs,gu2025irgs}
+\citation{bi2024gs3}
+\citation{fan2025rng}
+\citation{kuang2024olat}
+\citation{wang2021neus}
+\citation{liu2025bigs}
+\citation{dihlmann2024sss}
+\citation{zheng2026ssdgs}
+\citation{jiang2025radiosity}
+\citation{xu2026stochastic}
+\citation{shafiei2021learning,lyu2022neural}
+\citation{guo2024prtgs}
+\citation{bolanos2024gaussian,saito2024rgca,wang2025fullbody}
+\citation{bi2024gs3,zheng2026ssdgs}
+\citation{gao2024relightable,moenne2024gaussian,gu2025irgs,xu2026stochastic}
+\citation{fan2025rng}
+\citation{mir2026animated}
+\citation{williams1978casting}
+\citation{reeves1987rendering,fernando2005percentage,donnelly2006variance,annen2007convolution,annen2008exponential,peters2015moment}
+\citation{lokovic2000deep,kim2001opacity,yuksel2008deep,jansen2010fourier,salvi2010adaptive,peters2016beyond}
+\citation{jensen2001practical,deon2007efficient}
+\citation{dachsbacher2003translucent,jimenez2010real}
+\citation{dachsbacher2005reflective,dachsbacher2006splatting}
+\citation{kaplanyan2010cascaded,crassin2011interactive}
+\citation{sloan2002precomputed}
+\citation{datta2022neural}
+\citation{nalbach2017deep,thies2019deferred,gao2020deferred,zhang2021neural,ye2024deferred}
+\citation{mildenhall2022nerf}
+\citation{bi2024gs3}
+\def\@LN@column{1}
+\@LN{43}{1}
+\@LN{44}{1}
+\@LN{45}{1}
+\@LN{46}{1}
+\@LN{47}{1}
+\@LN{48}{1}
+\@LN{49}{1}
+\@LN{50}{1}
+\@LN{51}{1}
+\@writefile{brf}{\backcite{donnelly2006variance}{{2}{1}{section.1}}}
+\@LN{52}{1}
+\@LN{53}{1}
+\@LN{54}{1}
+\@LN{55}{1}
+\@LN{56}{1}
+\@LN{57}{1}
+\@LN{58}{1}
+\@LN{59}{1}
+\@LN{60}{1}
+\@LN{61}{1}
+\@writefile{brf}{\backcite{bi2024gs3}{{2}{1}{section.1}}}
+\@writefile{brf}{\backcite{zheng2026ssdgs}{{2}{1}{section.1}}}
+\@LN{62}{1}
+\@LN{63}{1}
+\@LN{64}{1}
+\@LN{65}{1}
+\@LN{66}{1}
+\@LN{67}{1}
+\@writefile{brf}{\backcite{bi2024gs3}{{2}{1}{section.1}}}
+\@writefile{brf}{\backcite{dihlmann2024sss}{{2}{1}{section.1}}}
+\@writefile{brf}{\backcite{zeng2023nrhints}{{2}{1}{section.1}}}
+\@LN{68}{1}
+\@LN{69}{1}
+\@writefile{brf}{\backcite{kuang2024olat}{{2}{1}{section.1}}}
+\@LN{70}{1}
+\@LN{71}{1}
+\@LN{72}{1}
+\@LN{73}{1}
+\@LN{74}{1}
+\@LN{75}{1}
+\@LN{76}{1}
+\@LN{77}{1}
+\@LN{78}{1}
+\@LN{79}{1}
+\@LN{80}{1}
+\@LN{81}{1}
+\@LN{82}{1}
+\@LN{83}{1}
+\@LN{84}{1}
+\@LN{85}{1}
+\@LN{86}{1}
+\@LN{87}{1}
+\@LN{88}{1}
+\@LN{89}{1}
+\@LN{90}{1}
+\@LN{91}{1}
+\def\@LN@column{2}
+\@LN{92}{1}
+\@writefile{toc}{\contentsline {section}{\numberline {2}\hskip -1em.~相关工作}{2}{section.2}\protected@file@percent }
+\newlabel{sec:related}{{2}{2}{\texorpdfstring {\hskip -1em.~}{}相关工作}{section.2}{}}
+\newlabel{sec:related@cref}{{[section][2][]2}{[1][2][]2}{}{}{}}
+\@writefile{toc}{\contentsline {paragraph}{从点光源拍摄数据进行重光照。}{2}{section*.1}\protected@file@percent }
+\@LN{93}{1}
+\@writefile{brf}{\backcite{bi2020neural}{{2}{2}{section*.1}}}
+\@writefile{brf}{\backcite{bi2020deep}{{2}{2}{section*.1}}}
+\@LN{94}{1}
+\@writefile{brf}{\backcite{zeng2023nrhints}{{2}{2}{section*.1}}}
+\@LN{95}{1}
+\@LN{96}{1}
+\@writefile{brf}{\backcite{chen2025gigs}{{2}{2}{section*.1}}}
+\@writefile{brf}{\backcite{gao2024relightable}{{2}{2}{section*.1}}}
+\@writefile{brf}{\backcite{gu2025irgs}{{2}{2}{section*.1}}}
+\@writefile{brf}{\backcite{jiang2024gaussianshader}{{2}{2}{section*.1}}}
+\@writefile{brf}{\backcite{jin2023tensoir}{{2}{2}{section*.1}}}
+\@writefile{brf}{\backcite{liang2024gsir}{{2}{2}{section*.1}}}
+\@writefile{brf}{\backcite{srinivasan2021nerv}{{2}{2}{section*.1}}}
+\@writefile{brf}{\backcite{zhang2021nerfactor}{{2}{2}{section*.1}}}
+\@LN{97}{1}
+\@writefile{brf}{\backcite{bi2024gs3}{{2}{2}{section*.1}}}
+\@LN{98}{1}
+\@writefile{brf}{\backcite{fan2025rng}{{2}{2}{section*.1}}}
+\@LN{99}{1}
+\@LN{100}{1}
+\@writefile{brf}{\backcite{kuang2024olat}{{2}{2}{section*.1}}}
+\@LN{101}{1}
+\@writefile{brf}{\backcite{wang2021neus}{{2}{2}{section*.1}}}
+\@writefile{brf}{\backcite{liu2025bigs}{{2}{2}{section*.1}}}
+\@LN{102}{1}
+\@writefile{brf}{\backcite{dihlmann2024sss}{{2}{2}{section*.1}}}
+\@LN{103}{1}
+\@writefile{brf}{\backcite{zheng2026ssdgs}{{2}{2}{section*.1}}}
+\@writefile{brf}{\backcite{jiang2025radiosity}{{2}{2}{section*.1}}}
+\@LN{104}{1}
+\@writefile{brf}{\backcite{xu2026stochastic}{{2}{2}{section*.1}}}
+\@LN{105}{1}
+\@LN{106}{1}
+\@writefile{brf}{\backcite{lyu2022neural}{{2}{2}{section*.1}}}
+\@writefile{brf}{\backcite{shafiei2021learning}{{2}{2}{section*.1}}}
+\@writefile{brf}{\backcite{guo2024prtgs}{{2}{2}{section*.1}}}
+\@LN{107}{1}
+\@LN{108}{1}
+\@writefile{brf}{\backcite{bolanos2024gaussian}{{2}{2}{section*.1}}}
+\@writefile{brf}{\backcite{saito2024rgca}{{2}{2}{section*.1}}}
+\@writefile{brf}{\backcite{wang2025fullbody}{{2}{2}{section*.1}}}
+\@LN{109}{1}
+\@LN{110}{1}
+\@writefile{toc}{\contentsline {paragraph}{高斯的可见性。}{2}{section*.2}\protected@file@percent }
+\@writefile{brf}{\backcite{bi2024gs3}{{2}{2}{section*.2}}}
+\@LN{111}{1}
+\@writefile{brf}{\backcite{zheng2026ssdgs}{{2}{2}{section*.2}}}
+\@writefile{brf}{\backcite{gao2024relightable}{{2}{2}{section*.2}}}
+\@writefile{brf}{\backcite{gu2025irgs}{{2}{2}{section*.2}}}
+\@writefile{brf}{\backcite{moenne2024gaussian}{{2}{2}{section*.2}}}
+\@writefile{brf}{\backcite{xu2026stochastic}{{2}{2}{section*.2}}}
+\@LN{112}{1}
+\@writefile{brf}{\backcite{fan2025rng}{{2}{2}{section*.2}}}
+\@writefile{brf}{\backcite{mir2026animated}{{2}{2}{section*.2}}}
+\@LN{113}{1}
+\@LN{114}{1}
+\@LN{115}{1}
+\@writefile{toc}{\contentsline {paragraph}{光源空间渲染。}{2}{section*.3}\protected@file@percent }
+\@writefile{brf}{\backcite{williams1978casting}{{2}{2}{section*.3}}}
+\@writefile{brf}{\backcite{annen2007convolution}{{2}{2}{section*.3}}}
+\@writefile{brf}{\backcite{annen2008exponential}{{2}{2}{section*.3}}}
+\@writefile{brf}{\backcite{donnelly2006variance}{{2}{2}{section*.3}}}
+\@LN{116}{1}
+\@writefile{brf}{\backcite{fernando2005percentage}{{2}{2}{section*.3}}}
+\@writefile{brf}{\backcite{peters2015moment}{{2}{2}{section*.3}}}
+\@writefile{brf}{\backcite{reeves1987rendering}{{2}{2}{section*.3}}}
+\@writefile{brf}{\backcite{jansen2010fourier}{{2}{2}{section*.3}}}
+\@writefile{brf}{\backcite{kim2001opacity}{{2}{2}{section*.3}}}
+\@writefile{brf}{\backcite{lokovic2000deep}{{2}{2}{section*.3}}}
+\@LN{117}{1}
+\@writefile{brf}{\backcite{peters2016beyond}{{2}{2}{section*.3}}}
+\@writefile{brf}{\backcite{salvi2010adaptive}{{2}{2}{section*.3}}}
+\@writefile{brf}{\backcite{yuksel2008deep}{{2}{2}{section*.3}}}
+\@writefile{brf}{\backcite{deon2007efficient}{{2}{2}{section*.3}}}
+\@writefile{brf}{\backcite{jensen2001practical}{{2}{2}{section*.3}}}
+\@LN{118}{1}
+\@writefile{brf}{\backcite{dachsbacher2003translucent}{{2}{2}{section*.3}}}
+\@writefile{brf}{\backcite{jimenez2010real}{{2}{2}{section*.3}}}
+\@writefile{brf}{\backcite{dachsbacher2005reflective}{{2}{2}{section*.3}}}
+\@writefile{brf}{\backcite{dachsbacher2006splatting}{{2}{2}{section*.3}}}
+\@LN{119}{1}
+\@writefile{brf}{\backcite{crassin2011interactive}{{2}{2}{section*.3}}}
+\@writefile{brf}{\backcite{kaplanyan2010cascaded}{{2}{2}{section*.3}}}
+\@LN{120}{1}
+\@LN{121}{1}
+\@writefile{brf}{\backcite{sloan2002precomputed}{{2}{2}{section*.3}}}
+\@LN{122}{1}
+\@LN{123}{1}
+\@LN{124}{1}
+\@LN{125}{1}
+\@writefile{brf}{\backcite{datta2022neural}{{2}{2}{section*.3}}}
+\@LN{126}{1}
+\@writefile{brf}{\backcite{gao2020deferred}{{2}{2}{section*.3}}}
+\@writefile{brf}{\backcite{nalbach2017deep}{{2}{2}{section*.3}}}
+\@writefile{brf}{\backcite{thies2019deferred}{{2}{2}{section*.3}}}
+\@writefile{brf}{\backcite{ye2024deferred}{{2}{2}{section*.3}}}
+\@writefile{brf}{\backcite{zhang2021neural}{{2}{2}{section*.3}}}
+\@LN{127}{1}
+\@LN{128}{1}
+\@writefile{toc}{\contentsline {paragraph}{损失计算域。}{2}{section*.4}\protected@file@percent }
+\@writefile{brf}{\backcite{mildenhall2022nerf}{{2}{2}{section*.4}}}
+\@LN{129}{1}
+\@writefile{brf}{\backcite{bi2024gs3}{{2}{2}{section*.4}}}
+\@LN{130}{1}
+\@LN{131}{1}
+\@LN{132}{1}
+\@LN{133}{1}
+\@LN{134}{1}
+\@writefile{toc}{\contentsline {section}{\numberline {3}\hskip -1em.~光源空间图集}{2}{section.3}\protected@file@percent }
+\newlabel{sec:method}{{3}{2}{\texorpdfstring {\hskip -1em.~}{}光源空间图集}{section.3}{}}
+\newlabel{sec:method@cref}{{[section][3][]3}{[1][2][]2}{}{}{}}
+\@LN{135}{1}
+\@LN{136}{1}
+\citation{kerbl20233d}
+\citation{radl2024stopthepop,huang2024error,talegaonkar2025volumetrically,yu2024mip}
+\citation{donnelly2006variance,peters2015moment}
+\@writefile{lof}{\contentsline {figure}{\numberline {2}{\ignorespaces \textbf  {方法概览。}对每个光源，从光源视角光栅化高斯一次；每个高斯按其截获光比例对应的合成权重，沉积可学习通量特征 $\boldsymbol  \phi _i$ 与深度矩（\cref  {eq:atlas}）。接收点投影到光源视图，从金字塔汇集多尺度统计量与通量，并结合矩阴影检验上的残差、线性作用于汇集通量特征的光传输核，以及局部材质进行着色。缩略图：Hotdog 模型在测试视图上的实际缓冲区。底部：\cref  {sec:optimization} 的训练流程。}}{3}{figure.caption.5}\protected@file@percent }
+\providecommand*\caption@xref[2]{\@setref\relax\@undefined{#1}}
+\newlabel{fig:pipeline}{{2}{3}{\textbf {方法概览。}对每个光源，从光源视角光栅化高斯一次；每个高斯按其截获光比例对应的合成权重，沉积可学习通量特征 $\boldsymbol \phi _i$ 与深度矩（\cref {eq:atlas}）。接收点投影到光源视图，从金字塔汇集多尺度统计量与通量，并结合矩阴影检验上的残差、线性作用于汇集通量特征的光传输核，以及局部材质进行着色。缩略图：Hotdog 模型在测试视图上的实际缓冲区。底部：\cref {sec:optimization} 的训练流程。}{figure.caption.5}{}}
+\newlabel{fig:pipeline@cref}{{[figure][2][]2}{[1][2][]3}{}{}{}}
+\def\@LN@column{1}
+\@LN{137}{2}
+\@LN{138}{2}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.1}\hskip -1em.~预备知识}{3}{subsection.3.1}\protected@file@percent }
+\newlabel{sec:prelim}{{3.1}{3}{\texorpdfstring {\hskip -1em.~}{}预备知识}{subsection.3.1}{}}
+\newlabel{sec:prelim@cref}{{[subsection][1][3]3.1}{[1][3][]3}{}{}{}}
+\@LN{139}{2}
+\@writefile{brf}{\backcite{kerbl20233d}{{3}{3.1}{subsection.3.1}}}
+\@LN{140}{2}
+\@LN{141}{2}
+\@LN{142}{2}
+\@LN{143}{2}
+\newlabel{eq:composite}{{1}{3}{\texorpdfstring {\hskip -1em.~}{}预备知识}{equation.1}{}}
+\newlabel{eq:composite@cref}{{[equation][1][]1}{[1][3][]3}{}{}{}}
+\@LN{144}{2}
+\@LN{145}{2}
+\@LN{146}{2}
+\@LN{147}{2}
+\@LN{148}{2}
+\@LN{149}{2}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.2}\hskip -1em.~从光源视角泼溅以记录沉积量}{3}{subsection.3.2}\protected@file@percent }
+\newlabel{sec:deposit}{{3.2}{3}{\texorpdfstring {\hskip -1em.~}{}从光源视角泼溅以记录沉积量}{subsection.3.2}{}}
+\newlabel{sec:deposit@cref}{{[subsection][2][3]3.2}{[1][3][]3}{}{}{}}
+\@LN{150}{2}
+\@LN{151}{2}
+\@LN{152}{2}
+\@LN{153}{2}
+\@LN{154}{2}
+\newlabel{eq:flux}{{2}{3}{\texorpdfstring {\hskip -1em.~}{}从光源视角泼溅以记录沉积量}{equation.2}{}}
+\newlabel{eq:flux@cref}{{[equation][2][]2}{[1][3][]3}{}{}{}}
+\@LN{155}{2}
+\@LN{156}{2}
+\@LN{157}{2}
+\@writefile{brf}{\backcite{huang2024error}{{3}{3.2}{equation.2}}}
+\@writefile{brf}{\backcite{radl2024stopthepop}{{3}{3.2}{equation.2}}}
+\@writefile{brf}{\backcite{talegaonkar2025volumetrically}{{3}{3.2}{equation.2}}}
+\@LN{158}{2}
+\@writefile{brf}{\backcite{yu2024mip}{{3}{3.2}{equation.2}}}
+\@LN{159}{2}
+\@LN{160}{2}
+\@LN{161}{2}
+\@LN{162}{2}
+\def\@LN@column{2}
+\@writefile{toc}{\contentsline {paragraph}{图集。}{3}{section*.6}\protected@file@percent }
+\@LN{163}{2}
+\@LN{164}{2}
+\@LN{165}{2}
+\@LN{166}{2}
+\@LN{167}{2}
+\newlabel{eq:atlas}{{3}{3}{图集。}{equation.3}{}}
+\newlabel{eq:atlas@cref}{{[equation][3][]3}{[1][3][]3}{}{}{}}
+\@LN{168}{2}
+\@LN{169}{2}
+\@LN{170}{2}
+\@LN{171}{2}
+\@LN{172}{2}
+\@LN{173}{2}
+\@LN{174}{2}
+\@LN{175}{2}
+\@LN{176}{2}
+\@LN{177}{2}
+\@LN{178}{2}
+\@LN{179}{2}
+\@LN{180}{2}
+\@writefile{brf}{\backcite{donnelly2006variance}{{3}{3.2}{equation.3}}}
+\@writefile{brf}{\backcite{peters2015moment}{{3}{3.2}{equation.3}}}
+\@LN{181}{2}
+\@LN{182}{2}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.3}\hskip -1em.~根据图集着色}{3}{subsection.3.3}\protected@file@percent }
+\newlabel{sec:shading}{{3.3}{3}{\texorpdfstring {\hskip -1em.~}{}根据图集着色}{subsection.3.3}{}}
+\newlabel{sec:shading@cref}{{[subsection][3][3]3.3}{[1][3][]3}{}{}{}}
+\@LN{183}{2}
+\@LN{184}{2}
+\@LN{185}{2}
+\@LN{186}{2}
+\@LN{187}{2}
+\@LN{188}{2}
+\@LN{189}{2}
+\citation{donnelly2006variance}
+\citation{dachsbacher2003translucent,deon2007efficient,jimenez2010real}
+\citation{zeng2023nrhints}
+\citation{fan2025rng}
+\citation{mildenhall2022nerf}
+\citation{bi2024gs3,zheng2026ssdgs}
+\def\@LN@column{1}
+\@LN{190}{3}
+\newlabel{eq:moment}{{4}{4}{\texorpdfstring {\hskip -1em.~}{}根据图集着色}{equation.4}{}}
+\newlabel{eq:moment@cref}{{[equation][4][]4}{[1][3][]4}{}{}{}}
+\@LN{191}{3}
+\@LN{192}{3}
+\@LN{193}{3}
+\@LN{194}{3}
+\@LN{195}{3}
+\@LN{196}{3}
+\@LN{197}{3}
+\@writefile{brf}{\backcite{donnelly2006variance}{{4}{3.3}{equation.4}}}
+\@LN{198}{3}
+\@LN{199}{3}
+\@LN{200}{3}
+\@writefile{toc}{\contentsline {paragraph}{可见性。}{4}{section*.7}\protected@file@percent }
+\@LN{201}{3}
+\@LN{202}{3}
+\newlabel{eq:visibility}{{5}{4}{可见性。}{equation.5}{}}
+\newlabel{eq:visibility@cref}{{[equation][5][]5}{[1][4][]4}{}{}{}}
+\@LN{203}{3}
+\@LN{204}{3}
+\@LN{205}{3}
+\@LN{206}{3}
+\@writefile{toc}{\contentsline {paragraph}{光传输。}{4}{section*.8}\protected@file@percent }
+\@LN{207}{3}
+\@LN{208}{3}
+\@LN{209}{3}
+\@LN{210}{3}
+\@writefile{brf}{\backcite{dachsbacher2003translucent}{{4}{3.3}{section*.8}}}
+\@writefile{brf}{\backcite{deon2007efficient}{{4}{3.3}{section*.8}}}
+\@writefile{brf}{\backcite{jimenez2010real}{{4}{3.3}{section*.8}}}
+\@LN{211}{3}
+\@LN{212}{3}
+\newlabel{eq:transfer}{{6}{4}{光传输。}{equation.6}{}}
+\newlabel{eq:transfer@cref}{{[equation][6][]6}{[1][4][]4}{}{}{}}
+\@LN{213}{3}
+\@LN{214}{3}
+\@LN{215}{3}
+\@LN{216}{3}
+\@LN{217}{3}
+\@LN{218}{3}
+\@writefile{toc}{\contentsline {paragraph}{局部材质与辐亮度。}{4}{section*.9}\protected@file@percent }
+\@LN{219}{3}
+\@LN{220}{3}
+\@LN{221}{3}
+\@writefile{brf}{\backcite{zeng2023nrhints}{{4}{3.3}{section*.9}}}
+\@LN{222}{3}
+\@LN{223}{3}
+\@LN{224}{3}
+\@LN{225}{3}
+\@LN{226}{3}
+\@LN{227}{3}
+\@LN{228}{3}
+\newlabel{eq:radiance}{{7}{4}{局部材质与辐亮度。}{equation.7}{}}
+\newlabel{eq:radiance@cref}{{[equation][7][]7}{[1][4][]4}{}{}{}}
+\@LN{229}{3}
+\@LN{230}{3}
+\@LN{231}{3}
+\def\@LN@column{2}
+\@LN{232}{3}
+\@LN{233}{3}
+\@LN{234}{3}
+\@LN{235}{3}
+\@LN{236}{3}
+\@LN{237}{3}
+\@LN{238}{3}
+\@LN{239}{3}
+\@LN{240}{3}
+\@LN{241}{3}
+\@LN{242}{3}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.4}\hskip -1em.~接收点：高斯或像素}{4}{subsection.3.4}\protected@file@percent }
+\newlabel{sec:receivers}{{3.4}{4}{\texorpdfstring {\hskip -1em.~}{}接收点：高斯或像素}{subsection.3.4}{}}
+\newlabel{sec:receivers@cref}{{[subsection][4][3]3.4}{[1][4][]4}{}{}{}}
+\@LN{243}{3}
+\@LN{244}{3}
+\@LN{245}{3}
+\@LN{246}{3}
+\@LN{247}{3}
+\@LN{248}{3}
+\@LN{249}{3}
+\@writefile{brf}{\backcite{fan2025rng}{{4}{3.4}{subsection.3.4}}}
+\@LN{250}{3}
+\@LN{251}{3}
+\@LN{252}{3}
+\@LN{253}{3}
+\@writefile{toc}{\contentsline {section}{\numberline {4}\hskip -1em.~按辐射度量域分阶段优化}{4}{section.4}\protected@file@percent }
+\newlabel{sec:optimization}{{4}{4}{\texorpdfstring {\hskip -1em.~}{}按辐射度量域分阶段优化}{section.4}{}}
+\newlabel{sec:optimization@cref}{{[section][4][]4}{[1][4][]4}{}{}{}}
+\@LN{254}{3}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.1}\hskip -1em.~损失在哪个域计算}{4}{subsection.4.1}\protected@file@percent }
+\newlabel{sec:lossdomain}{{4.1}{4}{\texorpdfstring {\hskip -1em.~}{}损失在哪个域计算}{subsection.4.1}{}}
+\newlabel{sec:lossdomain@cref}{{[subsection][1][4]4.1}{[1][4][]4}{}{}{}}
+\@LN{255}{3}
+\@LN{256}{3}
+\@LN{257}{3}
+\@LN{258}{3}
+\@LN{259}{3}
+\newlabel{eq:slope}{{8}{4}{\texorpdfstring {\hskip -1em.~}{}损失在哪个域计算}{equation.8}{}}
+\newlabel{eq:slope@cref}{{[equation][8][]8}{[1][4][]4}{}{}{}}
+\@LN{260}{3}
+\@LN{261}{3}
+\@LN{262}{3}
+\@LN{263}{3}
+\@LN{264}{3}
+\@LN{265}{3}
+\@LN{266}{3}
+\@LN{267}{3}
+\@LN{268}{3}
+\@LN{269}{3}
+\@writefile{brf}{\backcite{mildenhall2022nerf}{{4}{4.1}{equation.8}}}
+\@LN{270}{3}
+\@LN{271}{3}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.2}\hskip -1em.~三个阶段}{4}{subsection.4.2}\protected@file@percent }
+\newlabel{sec:stages}{{4.2}{4}{\texorpdfstring {\hskip -1em.~}{}三个阶段}{subsection.4.2}{}}
+\newlabel{sec:stages@cref}{{[subsection][2][4]4.2}{[1][4][]4}{}{}{}}
+\@LN{272}{3}
+\@LN{273}{3}
+\@LN{274}{3}
+\@writefile{toc}{\contentsline {paragraph}{I. 几何预热（8k 次迭代）。}{4}{section*.10}\protected@file@percent }
+\@LN{275}{3}
+\@LN{276}{3}
+\citation{kerbl20233d}
+\citation{ye2025gsplat}
+\citation{fan2025rng}
+\citation{kuang2024olat}
+\citation{bi2024gs3}
+\citation{zheng2026ssdgs}
+\citation{zeng2023nrhints}
+\citation{bi2024gs3}
+\citation{dihlmann2024sss}
+\citation{bi2024gs3}
+\citation{zheng2026ssdgs}
+\citation{kuang2024olat}
+\citation{fan2025rng}
+\citation{dihlmann2024sss}
+\citation{wang2004image}
+\citation{zhang2018unreasonable}
+\def\@LN@column{1}
+\@LN{277}{4}
+\@LN{278}{4}
+\@LN{279}{4}
+\@LN{280}{4}
+\@LN{281}{4}
+\@writefile{brf}{\backcite{bi2024gs3}{{5}{4.2}{section*.10}}}
+\@writefile{brf}{\backcite{zheng2026ssdgs}{{5}{4.2}{section*.10}}}
+\@LN{282}{4}
+\@LN{283}{4}
+\@writefile{toc}{\contentsline {paragraph}{II. 联合训练（22k 次迭代）。}{5}{section*.11}\protected@file@percent }
+\@LN{284}{4}
+\@LN{285}{4}
+\@writefile{brf}{\backcite{kerbl20233d}{{5}{4.2}{section*.11}}}
+\@LN{286}{4}
+\@LN{287}{4}
+\@writefile{toc}{\contentsline {paragraph}{III. 外观精修（8k 次迭代）。}{5}{section*.12}\protected@file@percent }
+\@LN{288}{4}
+\@LN{289}{4}
+\@LN{290}{4}
+\@LN{291}{4}
+\@LN{292}{4}
+\@LN{293}{4}
+\@LN{294}{4}
+\@LN{295}{4}
+\@LN{296}{4}
+\@LN{297}{4}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.3}\hskip -1em.~实现细节}{5}{subsection.4.3}\protected@file@percent }
+\newlabel{sec:implementation}{{4.3}{5}{\texorpdfstring {\hskip -1em.~}{}实现细节}{subsection.4.3}{}}
+\newlabel{sec:implementation@cref}{{[subsection][3][4]4.3}{[1][5][]5}{}{}{}}
+\@writefile{brf}{\backcite{ye2025gsplat}{{5}{4.3}{subsection.4.3}}}
+\@LN{298}{4}
+\@LN{299}{4}
+\@LN{300}{4}
+\@LN{301}{4}
+\@LN{302}{4}
+\@LN{303}{4}
+\@LN{304}{4}
+\@LN{305}{4}
+\@LN{306}{4}
+\@LN{307}{4}
+\@LN{308}{4}
+\@LN{309}{4}
+\@LN{310}{4}
+\@writefile{toc}{\contentsline {section}{\numberline {5}\hskip -1em.~实验}{5}{section.5}\protected@file@percent }
+\newlabel{sec:experiments}{{5}{5}{\texorpdfstring {\hskip -1em.~}{}实验}{section.5}{}}
+\newlabel{sec:experiments@cref}{{[section][5][]5}{[1][5][]5}{}{}{}}
+\@LN{311}{4}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.1}\hskip -1em.~实验设置}{5}{subsection.5.1}\protected@file@percent }
+\newlabel{sec:setup}{{5.1}{5}{\texorpdfstring {\hskip -1em.~}{}实验设置}{subsection.5.1}{}}
+\newlabel{sec:setup@cref}{{[subsection][1][5]5.1}{[1][5][]5}{}{}{}}
+\@writefile{toc}{\contentsline {paragraph}{数据。}{5}{section*.14}\protected@file@percent }
+\@LN{312}{4}
+\@writefile{brf}{\backcite{zeng2023nrhints}{{5}{5.1}{section*.14}}}
+\@LN{313}{4}
+\@LN{314}{4}
+\@writefile{brf}{\backcite{bi2024gs3}{{5}{5.1}{section*.14}}}
+\@LN{315}{4}
+\@writefile{brf}{\backcite{dihlmann2024sss}{{5}{5.1}{section*.14}}}
+\@LN{316}{4}
+\@LN{317}{4}
+\@LN{318}{4}
+\@LN{319}{4}
+\def\@LN@column{2}
+\@writefile{toc}{\contentsline {paragraph}{基线。}{5}{section*.15}\protected@file@percent }
+\@LN{320}{4}
+\@writefile{brf}{\backcite{bi2024gs3}{{5}{5.1}{section*.15}}}
+\@LN{321}{4}
+\@writefile{brf}{\backcite{zheng2026ssdgs}{{5}{5.1}{section*.15}}}
+\@writefile{brf}{\backcite{kuang2024olat}{{5}{5.1}{section*.15}}}
+\@LN{322}{4}
+\@writefile{brf}{\backcite{fan2025rng}{{5}{5.1}{section*.15}}}
+\@LN{323}{4}
+\@LN{324}{4}
+\@LN{325}{4}
+\@LN{326}{4}
+\@LN{327}{4}
+\@LN{328}{4}
+\@LN{329}{4}
+\@LN{330}{4}
+\@LN{331}{4}
+\@LN{332}{4}
+\@writefile{brf}{\backcite{dihlmann2024sss}{{5}{5.1}{section*.15}}}
+\@LN{333}{4}
+\@LN{334}{4}
+\@writefile{toc}{\contentsline {paragraph}{指标与协议。}{5}{section*.16}\protected@file@percent }
+\@LN{335}{4}
+\@writefile{brf}{\backcite{wang2004image}{{5}{5.1}{section*.16}}}
+\@writefile{brf}{\backcite{zhang2018unreasonable}{{5}{5.1}{section*.16}}}
+\@LN{336}{4}
+\@LN{337}{4}
+\@LN{338}{4}
+\@LN{339}{4}
+\@LN{340}{4}
+\@LN{341}{4}
+\@LN{342}{4}
+\@LN{343}{4}
+\@LN{344}{4}
+\@LN{345}{4}
+\@LN{346}{4}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.2}\hskip -1em.~与先进方法比较}{5}{subsection.5.2}\protected@file@percent }
+\newlabel{sec:exp_main}{{5.2}{5}{\texorpdfstring {\hskip -1em.~}{}与先进方法比较}{subsection.5.2}{}}
+\newlabel{sec:exp_main@cref}{{[subsection][2][5]5.2}{[1][5][]5}{}{}{}}
+\@LN{347}{4}
+\@LN{348}{4}
+\@LN{349}{4}
+\@LN{350}{4}
+\@LN{351}{4}
+\@LN{352}{4}
+\@LN{353}{4}
+\@LN{354}{4}
+\@LN{355}{4}
+\@LN{356}{4}
+\@LN{357}{4}
+\@LN{358}{4}
+\@LN{359}{4}
+\@LN{360}{4}
+\@LN{361}{4}
+\@LN{362}{4}
+\@LN{363}{4}
+\@LN{364}{4}
+\@LN{365}{4}
+\@LN{366}{4}
+\@LN{367}{4}
+\@writefile{lot}{\contentsline {table}{\numberline {1}{\ignorespaces \textbf  {三个 OLAT 基准全部 18 个场景上的比较}（5,691 张测试图像、相同目标、原始测试标定、不进行测试时拟合；最优用\textbf  {粗体}，次优用\underline  {下划线}）。迭代次数：RNG 30k+70k，OLAT-GS 30k+30k，GS$^3$ 100k，SSD-GS 100k（SSS 上为 60k），LiSA 38k。}}{6}{table.caption.13}\protected@file@percent }
+\newlabel{tab:main}{{1}{6}{\textbf {三个 OLAT 基准全部 18 个场景上的比较}（5,691 张测试图像、相同目标、原始测试标定、不进行测试时拟合；最优用\textbf {粗体}，次优用\underline {下划线}）。迭代次数：RNG 30k+70k，OLAT-GS 30k+30k，GS$^3$ 100k，SSD-GS 100k（SSS 上为 60k），LiSA 38k。}{table.caption.13}{}}
+\newlabel{tab:main@cref}{{[table][1][]1}{[1][5][]6}{}{}{}}
+\@writefile{brf}{\backcite{fan2025rng}{{6}{1}{table.caption.13}}}
+\@writefile{brf}{\backcite{kuang2024olat}{{6}{1}{table.caption.13}}}
+\@writefile{brf}{\backcite{bi2024gs3}{{6}{1}{table.caption.13}}}
+\@writefile{brf}{\backcite{zheng2026ssdgs}{{6}{1}{table.caption.13}}}
+\def\@LN@column{1}
+\@LN{368}{5}
+\@LN{369}{5}
+\@LN{370}{5}
+\@LN{371}{5}
+\@LN{372}{5}
+\@LN{373}{5}
+\@LN{374}{5}
+\@LN{375}{5}
+\@LN{376}{5}
+\@LN{377}{5}
+\@LN{378}{5}
+\@LN{379}{5}
+\@LN{380}{5}
+\@LN{381}{5}
+\@LN{382}{5}
+\@LN{383}{5}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.3}\hskip -1em.~图集的贡献}{6}{subsection.5.3}\protected@file@percent }
+\newlabel{sec:exp_atlas}{{5.3}{6}{\texorpdfstring {\hskip -1em.~}{}图集的贡献}{subsection.5.3}{}}
+\newlabel{sec:exp_atlas@cref}{{[subsection][3][5]5.3}{[1][6][]6}{}{}{}}
+\@LN{384}{5}
+\@LN{385}{5}
+\@LN{386}{5}
+\@LN{387}{5}
+\@LN{388}{5}
+\@LN{389}{5}
+\@LN{390}{5}
+\@LN{391}{5}
+\@LN{392}{5}
+\@LN{393}{5}
+\@LN{394}{5}
+\@LN{395}{5}
+\@LN{396}{5}
+\@LN{397}{5}
+\@LN{398}{5}
+\@LN{399}{5}
+\@LN{400}{5}
+\@LN{401}{5}
+\@LN{402}{5}
+\@LN{403}{5}
+\def\@LN@column{2}
+\@writefile{lot}{\contentsline {table}{\numberline {2}{\ignorespaces \textbf  {图集消融}：在五个场景（Drums、AnisoMetal、Translucent、FurScene、Soap）上按场景求平均。三个种子的行报告种子均值和 PSNR 标准差；单种子行与种子 0 的完整模型（31.53\,dB）比较。$^\dagger $容量匹配的 MLP（49.1k 对 49.6k 参数），读取接收点编码、位置和光照/视线方向，但不读取图集；阴影仍来自图集。}}{6}{table.caption.18}\protected@file@percent }
+\newlabel{tab:ablation}{{2}{6}{\textbf {图集消融}：在五个场景（Drums、AnisoMetal、Translucent、FurScene、Soap）上按场景求平均。三个种子的行报告种子均值和 PSNR 标准差；单种子行与种子 0 的完整模型（31.53\,dB）比较。$^\dagger $容量匹配的 MLP（49.1k 对 49.6k 参数），读取接收点编码、位置和光照/视线方向，但不读取图集；阴影仍来自图集。}{table.caption.18}{}}
+\newlabel{tab:ablation@cref}{{[table][2][]2}{[1][6][]6}{}{}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {3}{\ignorespaces \textbf  {光传输项在哪些场景重要。}完整模型相对去除光传输项、相对容量匹配局部残差的逐场景 PSNR 差异（三个种子配对差异的均值$\pm $标准差），以及完整模型分配给光传输项的线性辐亮度比例（8 个测试视图的均值）。}}{6}{table.caption.19}\protected@file@percent }
+\newlabel{tab:paired}{{3}{6}{\textbf {光传输项在哪些场景重要。}完整模型相对去除光传输项、相对容量匹配局部残差的逐场景 PSNR 差异（三个种子配对差异的均值$\pm $标准差），以及完整模型分配给光传输项的线性辐亮度比例（8 个测试视图的均值）。}{table.caption.19}{}}
+\newlabel{tab:paired@cref}{{[table][3][]3}{[1][6][]6}{}{}{}}
+\@LN{404}{5}
+\@LN{405}{5}
+\@LN{406}{5}
+\@LN{407}{5}
+\@LN{408}{5}
+\@LN{409}{5}
+\@LN{410}{5}
+\@LN{411}{5}
+\@writefile{lof}{\contentsline {figure}{\numberline {3}{\ignorespaces \textbf  {测试视图上的定性比较}（框选区域的局部裁剪；PSNR 对完整视图计算）。各视图均取自对应场景中，LiSA\xspace  相对最强基线的逐视图优势中位数。各行依次为：两个以投射阴影为主的 GS$^3$\xspace  场景、一个各方法表现接近的真实拍摄场景，以及我们落后最多的合成场景。SSD-GS 和 GS$^3$\xspace  的逐图元阴影使花瓶把手及热狗的移动阴影变得破碎；读取图集的像素接收点能够重现它们。LiSA\xspace  未能重现 Drums 镲片上的细窄光带。更多场景（包括 Fish）见补充材料。}}{7}{figure.caption.17}\protected@file@percent }
+\newlabel{fig:comparison}{{3}{7}{\textbf {测试视图上的定性比较}（框选区域的局部裁剪；PSNR 对完整视图计算）。各视图均取自对应场景中，\ours 相对最强基线的逐视图优势中位数。各行依次为：两个以投射阴影为主的 \gsthree 场景、一个各方法表现接近的真实拍摄场景，以及我们落后最多的合成场景。SSD-GS 和 \gsthree 的逐图元阴影使花瓶把手及热狗的移动阴影变得破碎；读取图集的像素接收点能够重现它们。\ours 未能重现 Drums 镲片上的细窄光带。更多场景（包括 Fish）见补充材料。}{figure.caption.17}{}}
+\newlabel{fig:comparison@cref}{{[figure][3][]3}{[1][6][]7}{}{}{}}
+\def\@LN@column{1}
+\@LN{412}{6}
+\@LN{413}{6}
+\@LN{414}{6}
+\@LN{415}{6}
+\@LN{416}{6}
+\@LN{417}{6}
+\@LN{418}{6}
+\@LN{419}{6}
+\@LN{420}{6}
+\@LN{421}{6}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.4}\hskip -1em.~优化流程的贡献}{7}{subsection.5.4}\protected@file@percent }
+\newlabel{sec:exp_optimization}{{5.4}{7}{\texorpdfstring {\hskip -1em.~}{}优化流程的贡献}{subsection.5.4}{}}
+\newlabel{sec:exp_optimization@cref}{{[subsection][4][5]5.4}{[1][7][]7}{}{}{}}
+\@writefile{toc}{\contentsline {paragraph}{损失计算域。}{7}{section*.22}\protected@file@percent }
+\@LN{422}{6}
+\@LN{423}{6}
+\@LN{424}{6}
+\@LN{425}{6}
+\@LN{426}{6}
+\@LN{427}{6}
+\@LN{428}{6}
+\@LN{429}{6}
+\def\@LN@column{2}
+\@writefile{lot}{\contentsline {table}{\numberline {4}{\ignorespaces \textbf  {留出的光照方向}（{\color  {red}\textbf  {[待开展]} E1}）。在官方测试视图和训练集中光照方向落入留出 30$^\circ $ 角度组的视图上，报告五个消融场景的平均 PSNR；各方法均去除这些视图后重新训练。$^\dagger $三个种子。}}{7}{table.caption.20}\protected@file@percent }
+\newlabel{tab:holdout}{{4}{7}{\textbf {留出的光照方向}（\torun {E1}）。在官方测试视图和训练集中光照方向落入留出 30$^\circ $ 角度组的视图上，报告五个消融场景的平均 PSNR；各方法均去除这些视图后重新训练。$^\dagger $三个种子。}{table.caption.20}{}}
+\newlabel{tab:holdout@cref}{{[table][4][]4}{[1][7][]7}{}{}{}}
+\@LN{430}{6}
+\@LN{431}{6}
+\@LN{432}{6}
+\@LN{433}{6}
+\@LN{434}{6}
+\@LN{435}{6}
+\citation{donnelly2006variance,peters2015moment}
+\bibstyle{ieeenat_fullname}
+\bibdata{main}
+\bibcite{annen2007convolution}{{1}{2007}{{Annen et~al.}}{{Annen, Mertens, Bekaert, Seidel, and Kautz}}}
+\bibcite{annen2008exponential}{{2}{2008}{{Annen et~al.}}{{Annen, Mertens, Seidel, Flerackers, and Kautz}}}
+\bibcite{bi2020neural}{{3}{2020{}}{{Bi et~al.}}{{Bi, Xu, Srinivasan, Mildenhall, Sunkavalli, Ha{\v {s}}an, Hold-Geoffroy, Kriegman, and Ramamoorthi}}}
+\bibcite{bi2020deep}{{4}{2020{}}{{Bi et~al.}}{{Bi, Xu, Sunkavalli, Ha{\v {s}}an, Hold-Geoffroy, Kriegman, and Ramamoorthi}}}
+\bibcite{bi2024gs3}{{5}{2024}{{Bi et~al.}}{{Bi, Zeng, Zeng, Pei, Feng, Zhou, and Wu}}}
+\bibcite{bolanos2024gaussian}{{6}{2024}{{Bolanos et~al.}}{{Bolanos, Su, and Rhodin}}}
+\bibcite{chen2025gigs}{{7}{2025}{{Chen et~al.}}{{Chen, Lin, and Zhang}}}
+\bibcite{crassin2011interactive}{{8}{2011}{{Crassin et~al.}}{{Crassin, Neyret, Sainz, Green, and Eisemann}}}
+\def\@LN@column{1}
+\@writefile{lof}{\contentsline {figure}{\numberline {4}{\ignorespaces \textbf  {损失计算域与几何。}两次训练共享初始化、训练流程、随机状态及所有其他设置，仅损失计算域不同：显示编码辐亮度，或退火预热后的线性辐亮度。训练 16k 次迭代，PSNR 在 200 个留出训练视图上计算。两个场景的全部 200 个视图均得到改善。}}{8}{figure.caption.21}\protected@file@percent }
+\newlabel{fig:loss_domain}{{4}{8}{\textbf {损失计算域与几何。}两次训练共享初始化、训练流程、随机状态及所有其他设置，仅损失计算域不同：显示编码辐亮度，或退火预热后的线性辐亮度。训练 16k 次迭代，PSNR 在 200 个留出训练视图上计算。两个场景的全部 200 个视图均得到改善。}{figure.caption.21}{}}
+\newlabel{fig:loss_domain@cref}{{[figure][4][]4}{[1][7][]8}{}{}{}}
+\@LN{436}{7}
+\@LN{437}{7}
+\@writefile{toc}{\contentsline {paragraph}{接收点与精修。}{8}{section*.23}\protected@file@percent }
+\@LN{438}{7}
+\@LN{439}{7}
+\@LN{440}{7}
+\@LN{441}{7}
+\@LN{442}{7}
+\@LN{443}{7}
+\@LN{444}{7}
+\@LN{445}{7}
+\@LN{446}{7}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.5}\hskip -1em.~计算开销}{8}{subsection.5.5}\protected@file@percent }
+\newlabel{sec:exp_cost}{{5.5}{8}{\texorpdfstring {\hskip -1em.~}{}计算开销}{subsection.5.5}{}}
+\newlabel{sec:exp_cost@cref}{{[subsection][5][5]5.5}{[1][8][]8}{}{}{}}
+\@LN{447}{7}
+\@LN{448}{7}
+\@LN{449}{7}
+\@LN{450}{7}
+\@LN{451}{7}
+\@LN{452}{7}
+\@LN{453}{7}
+\@LN{454}{7}
+\@LN{455}{7}
+\@LN{456}{7}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.6}\hskip -1em.~局限性}{8}{subsection.5.6}\protected@file@percent }
+\newlabel{sec:limitations}{{5.6}{8}{\texorpdfstring {\hskip -1em.~}{}局限性}{subsection.5.6}{}}
+\newlabel{sec:limitations@cref}{{[subsection][6][5]5.6}{[1][8][]8}{}{}{}}
+\@LN{457}{7}
+\@LN{458}{7}
+\@LN{459}{7}
+\@LN{460}{7}
+\def\@LN@column{2}
+\@LN{461}{7}
+\@writefile{brf}{\backcite{donnelly2006variance}{{8}{5.6}{subsection.5.6}}}
+\@writefile{brf}{\backcite{peters2015moment}{{8}{5.6}{subsection.5.6}}}
+\@LN{462}{7}
+\@LN{463}{7}
+\@LN{464}{7}
+\@LN{465}{7}
+\@LN{466}{7}
+\@LN{467}{7}
+\@writefile{toc}{\contentsline {section}{\numberline {6}\hskip -1em.~结论}{8}{section.6}\protected@file@percent }
+\newlabel{sec:conclusion}{{6}{8}{\texorpdfstring {\hskip -1em.~}{}结论}{section.6}{}}
+\newlabel{sec:conclusion@cref}{{[section][6][]6}{[1][8][]8}{}{}{}}
+\@LN{468}{7}
+\@LN{469}{7}
+\@LN{470}{7}
+\@LN{471}{7}
+\@LN{472}{7}
+\@LN{473}{7}
+\@LN{474}{7}
+\@LN{475}{7}
+\@LN{476}{7}
+\@LN{477}{7}
+\@LN{478}{7}
+\@LN{479}{7}
+\@LN{480}{7}
+\@LN{481}{7}
+\@LN{482}{7}
+\@LN{483}{7}
+\@LN{484}{7}
+\@LN{485}{7}
+\@LN{486}{7}
+\@LN{487}{7}
+\@LN{488}{7}
+\@LN{489}{7}
+\@LN{490}{7}
+\@LN{491}{7}
+\@LN{492}{7}
+\@LN{493}{7}
+\@LN{494}{7}
+\@LN{495}{7}
+\@LN{496}{7}
+\@LN{497}{7}
+\@LN{498}{7}
+\@LN{499}{7}
+\@LN{500}{7}
+\@LN{501}{7}
+\@LN{502}{7}
+\@LN{503}{7}
+\@LN{504}{7}
+\@LN{505}{7}
+\@LN{506}{7}
+\@LN{507}{7}
+\@LN{508}{7}
+\@LN{509}{7}
+\@LN{510}{7}
+\@LN{511}{7}
+\bibcite{dachsbacher2003translucent}{{9}{2003}{{Dachsbacher and Stamminger}}{{}}}
+\bibcite{dachsbacher2005reflective}{{10}{2005}{{Dachsbacher and Stamminger}}{{}}}
+\bibcite{dachsbacher2006splatting}{{11}{2006}{{Dachsbacher and Stamminger}}{{}}}
+\bibcite{datta2022neural}{{12}{2022}{{Datta et~al.}}{{Datta, Nowrouzezahrai, Schied, and Dong}}}
+\bibcite{debevec2000acquiring}{{13}{2000}{{Debevec et~al.}}{{Debevec, Hawkins, Tchou, Duiker, Sarokin, and Sagar}}}
+\bibcite{deon2007efficient}{{14}{2007}{{d'Eon et~al.}}{{d'Eon, Luebke, and Enderton}}}
+\bibcite{dihlmann2024sss}{{15}{2024}{{Dihlmann et~al.}}{{Dihlmann, Majumdar, Engelhardt, Braun, and Lensch}}}
+\bibcite{donnelly2006variance}{{16}{2006}{{Donnelly and Lauritzen}}{{}}}
+\bibcite{fan2025rng}{{17}{2025}{{Fan et~al.}}{{Fan, Luan, Yang, Ha{\v {s}}an, and Wang}}}
+\bibcite{fernando2005percentage}{{18}{2005}{{Fernando}}{{}}}
+\bibcite{gao2020deferred}{{19}{2020}{{Gao et~al.}}{{Gao, Chen, Dong, Peers, Xu, and Tong}}}
+\bibcite{gao2024relightable}{{20}{2024}{{Gao et~al.}}{{Gao, Gu, Lin, Li, Zhu, Cao, Zhang, and Yao}}}
+\bibcite{gu2025irgs}{{21}{2025}{{Gu et~al.}}{{Gu, Wei, Zeng, Yao, and Zhang}}}
+\bibcite{guo2024prtgs}{{22}{2024}{{Guo et~al.}}{{Guo, Bai, Hu, Guo, Liu, Cai, Huang, and Ma}}}
+\bibcite{huang2024error}{{23}{2024}{{Huang et~al.}}{{Huang, Bai, Guo, Li, and Guo}}}
+\bibcite{jansen2010fourier}{{24}{2010}{{Jansen and Bavoil}}{{}}}
+\bibcite{jensen2001practical}{{25}{2001}{{Jensen et~al.}}{{Jensen, Marschner, Levoy, and Hanrahan}}}
+\bibcite{jiang2025radiosity}{{26}{2025}{{Jiang et~al.}}{{Jiang, Sun, Li, Wang, Li, and Ramamoorthi}}}
+\bibcite{jiang2024gaussianshader}{{27}{2024}{{Jiang et~al.}}{{Jiang, Tu, Liu, Gao, Long, Wang, and Ma}}}
+\bibcite{jimenez2010real}{{28}{2010}{{Jimenez et~al.}}{{Jimenez, Whelan, Sundstedt, and Gutierrez}}}
+\bibcite{jin2023tensoir}{{29}{2023}{{Jin et~al.}}{{Jin, Liu, Xu, Zhang, Han, Bi, Zhou, Xu, and Su}}}
+\bibcite{kaplanyan2010cascaded}{{30}{2010}{{Kaplanyan and Dachsbacher}}{{}}}
+\bibcite{kerbl20233d}{{31}{2023}{{Kerbl et~al.}}{{Kerbl, Kopanas, Leimk{\"u}hler, and Drettakis}}}
+\def\@LN@column{1}
+\@LN{512}{8}
+\@LN{513}{8}
+\@LN{514}{8}
+\@LN{515}{8}
+\@LN{516}{8}
+\@LN{517}{8}
+\@LN{518}{8}
+\@LN{519}{8}
+\@LN{520}{8}
+\@LN{521}{8}
+\@LN{522}{8}
+\@LN{523}{8}
+\@LN{524}{8}
+\@LN{525}{8}
+\@LN{526}{8}
+\@LN{527}{8}
+\@LN{528}{8}
+\@LN{529}{8}
+\@LN{530}{8}
+\@LN{531}{8}
+\@LN{532}{8}
+\@LN{533}{8}
+\@LN{534}{8}
+\@LN{535}{8}
+\@LN{536}{8}
+\@LN{537}{8}
+\@LN{538}{8}
+\@LN{539}{8}
+\@LN{540}{8}
+\@LN{541}{8}
+\@LN{542}{8}
+\@LN{543}{8}
+\@LN{544}{8}
+\@LN{545}{8}
+\@LN{546}{8}
+\@LN{547}{8}
+\@LN{548}{8}
+\@LN{549}{8}
+\@LN{550}{8}
+\@LN{551}{8}
+\@LN{552}{8}
+\@LN{553}{8}
+\@LN{554}{8}
+\@LN{555}{8}
+\@LN{556}{8}
+\@LN{557}{8}
+\@LN{558}{8}
+\@LN{559}{8}
+\@LN{560}{8}
+\@LN{561}{8}
+\@LN{562}{8}
+\@LN{563}{8}
+\@LN{564}{8}
+\@LN{565}{8}
+\def\@LN@column{2}
+\@LN{566}{8}
+\@LN{567}{8}
+\@LN{568}{8}
+\@LN{569}{8}
+\@LN{570}{8}
+\@LN{571}{8}
+\@LN{572}{8}
+\@LN{573}{8}
+\@LN{574}{8}
+\@LN{575}{8}
+\@LN{576}{8}
+\@LN{577}{8}
+\@LN{578}{8}
+\@LN{579}{8}
+\@LN{580}{8}
+\@LN{581}{8}
+\@LN{582}{8}
+\@LN{583}{8}
+\@LN{584}{8}
+\@LN{585}{8}
+\@LN{586}{8}
+\@LN{587}{8}
+\@LN{588}{8}
+\@LN{589}{8}
+\@LN{590}{8}
+\@LN{591}{8}
+\@LN{592}{8}
+\@LN{593}{8}
+\@LN{594}{8}
+\@LN{595}{8}
+\@LN{596}{8}
+\@LN{597}{8}
+\@LN{598}{8}
+\@LN{599}{8}
+\@LN{600}{8}
+\@LN{601}{8}
+\@LN{602}{8}
+\@LN{603}{8}
+\@LN{604}{8}
+\@LN{605}{8}
+\@LN{606}{8}
+\@LN{607}{8}
+\@LN{608}{8}
+\@LN{609}{8}
+\@LN{610}{8}
+\@LN{611}{8}
+\@LN{612}{8}
+\@LN{613}{8}
+\@LN{614}{8}
+\@LN{615}{8}
+\@LN{616}{8}
+\@LN{617}{8}
+\@LN{618}{8}
+\@LN{619}{8}
+\bibcite{kim2001opacity}{{32}{2001}{{Kim and Neumann}}{{}}}
+\bibcite{kuang2024olat}{{33}{2024}{{Kuang et~al.}}{{Kuang, Yang, Dong, Ma, Fu, and Zheng}}}
+\bibcite{liang2024gsir}{{34}{2024}{{Liang et~al.}}{{Liang, Zhang, Feng, Shan, and Jia}}}
+\bibcite{liu2025bigs}{{35}{2025}{{Liu et~al.}}{{Liu, Guo, Li, Bickel, and Zhang}}}
+\bibcite{lokovic2000deep}{{36}{2000}{{Lokovic and Veach}}{{}}}
+\bibcite{lyu2022neural}{{37}{2022}{{Lyu et~al.}}{{Lyu, Tewari, Leimk{\"u}hler, Habermann, and Theobalt}}}
+\bibcite{mildenhall2022nerf}{{38}{2022}{{Mildenhall et~al.}}{{Mildenhall, Hedman, Martin-Brualla, Srinivasan, and Barron}}}
+\bibcite{mir2026animated}{{39}{2026}{{Mir et~al.}}{{Mir, Guler, Wang, Pons-Moll, and Zhou}}}
+\bibcite{moenne2024gaussian}{{40}{2024}{{Moenne-Loccoz et~al.}}{{Moenne-Loccoz, Mirzaei, Perel, de~Lutio, Martinez~Esturo, State, Fidler, Sharp, and Gojcic}}}
+\bibcite{nalbach2017deep}{{41}{2017}{{Nalbach et~al.}}{{Nalbach, Arabadzhiyska, Mehta, Seidel, and Ritschel}}}
+\bibcite{peters2015moment}{{42}{2015}{{Peters and Klein}}{{}}}
+\bibcite{peters2016beyond}{{43}{2016}{{Peters et~al.}}{{Peters, M{\"u}nstermann, Wetzstein, and Klein}}}
+\bibcite{radl2024stopthepop}{{44}{2024}{{Radl et~al.}}{{Radl, Steiner, Parger, Weinrauch, Kerbl, and Steinberger}}}
+\bibcite{reeves1987rendering}{{45}{1987}{{Reeves et~al.}}{{Reeves, Salesin, and Cook}}}
+\bibcite{saito2024rgca}{{46}{2024}{{Saito et~al.}}{{Saito, Schwartz, Simon, Li, and Nam}}}
+\bibcite{salvi2010adaptive}{{47}{2010}{{Salvi et~al.}}{{Salvi, Vidim{\v {c}}e, Lauritzen, and Lefohn}}}
+\bibcite{shafiei2021learning}{{48}{2021}{{Shafiei et~al.}}{{Shafiei, Bi, Li, Liaudanskas, Ortiz-Cayon, and Ramamoorthi}}}
+\bibcite{sloan2002precomputed}{{49}{2002}{{Sloan et~al.}}{{Sloan, Kautz, and Snyder}}}
+\bibcite{srinivasan2021nerv}{{50}{2021}{{Srinivasan et~al.}}{{Srinivasan, Deng, Zhang, Tancik, Mildenhall, and Barron}}}
+\bibcite{talegaonkar2025volumetrically}{{51}{2025}{{Talegaonkar et~al.}}{{Talegaonkar, Belhe, Ramamoorthi, and Antipa}}}
+\bibcite{thies2019deferred}{{52}{2019}{{Thies et~al.}}{{Thies, Zollh{\"o}fer, and Nie{\ss }ner}}}
+\bibcite{wang2021neus}{{53}{2021}{{Wang et~al.}}{{Wang, Liu, Liu, Theobalt, Komura, and Wang}}}
+\bibcite{wang2025fullbody}{{54}{2025}{{Wang et~al.}}{{Wang, Simon, Santesteban, Bagautdinov, Li, Agrawal, Prada, Yu, Nalbone, Gramlich, Lubachersky, Wu, Romero, Saragih, Zollhoefer, Geiger, Tang, and Saito}}}
+\def\@LN@column{1}
+\@LN{620}{9}
+\@LN{621}{9}
+\@LN{622}{9}
+\@LN{623}{9}
+\@LN{624}{9}
+\@LN{625}{9}
+\@LN{626}{9}
+\@LN{627}{9}
+\@LN{628}{9}
+\@LN{629}{9}
+\@LN{630}{9}
+\@LN{631}{9}
+\@LN{632}{9}
+\@LN{633}{9}
+\@LN{634}{9}
+\@LN{635}{9}
+\@LN{636}{9}
+\@LN{637}{9}
+\@LN{638}{9}
+\@LN{639}{9}
+\@LN{640}{9}
+\@LN{641}{9}
+\@LN{642}{9}
+\@LN{643}{9}
+\@LN{644}{9}
+\@LN{645}{9}
+\@LN{646}{9}
+\@LN{647}{9}
+\@LN{648}{9}
+\@LN{649}{9}
+\@LN{650}{9}
+\@LN{651}{9}
+\@LN{652}{9}
+\@LN{653}{9}
+\@LN{654}{9}
+\@LN{655}{9}
+\@LN{656}{9}
+\@LN{657}{9}
+\@LN{658}{9}
+\@LN{659}{9}
+\@LN{660}{9}
+\@LN{661}{9}
+\@LN{662}{9}
+\@LN{663}{9}
+\@LN{664}{9}
+\@LN{665}{9}
+\@LN{666}{9}
+\@LN{667}{9}
+\@LN{668}{9}
+\@LN{669}{9}
+\@LN{670}{9}
+\@LN{671}{9}
+\@LN{672}{9}
+\@LN{673}{9}
+\@LN{674}{9}
+\def\@LN@column{2}
+\@LN{675}{9}
+\@LN{676}{9}
+\@LN{677}{9}
+\@LN{678}{9}
+\@LN{679}{9}
+\@LN{680}{9}
+\@LN{681}{9}
+\@LN{682}{9}
+\@LN{683}{9}
+\@LN{684}{9}
+\@LN{685}{9}
+\@LN{686}{9}
+\@LN{687}{9}
+\@LN{688}{9}
+\@LN{689}{9}
+\@LN{690}{9}
+\@LN{691}{9}
+\@LN{692}{9}
+\@LN{693}{9}
+\@LN{694}{9}
+\@LN{695}{9}
+\@LN{696}{9}
+\@LN{697}{9}
+\@LN{698}{9}
+\@LN{699}{9}
+\@LN{700}{9}
+\@LN{701}{9}
+\@LN{702}{9}
+\@LN{703}{9}
+\@LN{704}{9}
+\@LN{705}{9}
+\@LN{706}{9}
+\@LN{707}{9}
+\@LN{708}{9}
+\@LN{709}{9}
+\@LN{710}{9}
+\@LN{711}{9}
+\@LN{712}{9}
+\@LN{713}{9}
+\@LN{714}{9}
+\@LN{715}{9}
+\@LN{716}{9}
+\@LN{717}{9}
+\@LN{718}{9}
+\@LN{719}{9}
+\@LN{720}{9}
+\@LN{721}{9}
+\@LN{722}{9}
+\@LN{723}{9}
+\@LN{724}{9}
+\@LN{725}{9}
+\@LN{726}{9}
+\@LN{727}{9}
+\@LN{728}{9}
+\@LN{729}{9}
+\bibcite{wang2004image}{{55}{2004}{{Wang et~al.}}{{Wang, Bovik, Sheikh, and Simoncelli}}}
+\bibcite{williams1978casting}{{56}{1978}{{Williams}}{{}}}
+\bibcite{xu2026stochastic}{{57}{2026}{{Xu et~al.}}{{Xu, Sun, Mullia, Fei, Georgiev, and Zhao}}}
+\bibcite{ye2024deferred}{{58}{2024}{{Ye et~al.}}{{Ye, Hou, and Zhou}}}
+\bibcite{ye2025gsplat}{{59}{2025}{{Ye et~al.}}{{Ye, Li, Kerr, Turkulainen, Yi, Pan, Seiskari, Ye, Hu, Tancik, and Kanazawa}}}
+\bibcite{yu2024mip}{{60}{2024}{{Yu et~al.}}{{Yu, Chen, Huang, Sattler, and Geiger}}}
+\bibcite{yuksel2008deep}{{61}{2008}{{Yuksel and Keyser}}{{}}}
+\bibcite{zeng2023nrhints}{{62}{2023}{{Zeng et~al.}}{{Zeng, Chen, Dong, Peers, Wu, and Tong}}}
+\bibcite{zhang2018unreasonable}{{63}{2018}{{Zhang et~al.}}{{Zhang, Isola, Efros, Shechtman, and Wang}}}
+\bibcite{zhang2021neural}{{64}{2021{}}{{Zhang et~al.}}{{Zhang, Fanello, Tsai, Sun, Xue, Pandey, Orts-Escolano, Davidson, Rhemann, Debevec, Barron, Ramamoorthi, and Freeman}}}
+\bibcite{zhang2021nerfactor}{{65}{2021{}}{{Zhang et~al.}}{{Zhang, Srinivasan, Deng, Debevec, Freeman, and Barron}}}
+\bibcite{zheng2026ssdgs}{{66}{2026}{{Zheng et~al.}}{{Zheng, Tang, Doronin, Teal, and Zhang}}}
+\def\@LN@column{1}
+\@LN{730}{10}
+\@LN{731}{10}
+\@LN{732}{10}
+\@LN{733}{10}
+\@LN{734}{10}
+\@LN{735}{10}
+\@LN{736}{10}
+\@LN{737}{10}
+\@LN{738}{10}
+\@LN{739}{10}
+\@LN{740}{10}
+\@LN{741}{10}
+\@LN{742}{10}
+\@LN{743}{10}
+\@LN{744}{10}
+\@LN{745}{10}
+\@LN{746}{10}
+\@LN{747}{10}
+\@LN{748}{10}
+\@LN{749}{10}
+\@LN{750}{10}
+\@LN{751}{10}
+\@LN{752}{10}
+\@LN{753}{10}
+\@LN{754}{10}
+\@LN{755}{10}
+\@LN{756}{10}
+\@LN{757}{10}
+\@LN{758}{10}
+\@LN{759}{10}
+\@LN{760}{10}
+\@LN{761}{10}
+\@LN{762}{10}
+\@LN{763}{10}
+\@LN{764}{10}
+\@LN{765}{10}
+\@LN{766}{10}
+\@LN{767}{10}
+\@LN{768}{10}
+\@LN{769}{10}
+\@LN{770}{10}
+\@LN{771}{10}
+\@LN{772}{10}
+\@LN{773}{10}
+\@LN{774}{10}
+\@LN{775}{10}
+\@LN{776}{10}
+\@LN{777}{10}
+\@LN{778}{10}
+\@LN{779}{10}
+\@LN{780}{10}
+\@LN{781}{10}
+\@LN{782}{10}
+\@LN{783}{10}
+\@LN{784}{10}
+\def\@LN@column{2}
+\@LN{785}{10}
+\@LN{786}{10}
+\@LN{787}{10}
+\@LN{788}{10}
+\@LN{789}{10}
+\@LN{790}{10}
+\@LN{791}{10}
+\@LN{792}{10}
+\@LN{793}{10}
+\@LN{794}{10}
+\@LN{795}{10}
+\@LN{796}{10}
+\@LN{797}{10}
+\@LN{798}{10}
+\gdef \@abspage@last{11}

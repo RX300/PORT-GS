@@ -47,3 +47,9 @@ dist/
 !/logs/**/
 !/logs/**/*.log
 !/logs/**/*.log.gz
+
+# Keep the paper's compiled PDFs, logs, and auxiliary files with its sources.
+!/paper/build/
+!/paper/build/**
+!/paper/translations/*/build/
+!/paper/translations/*/build/**
